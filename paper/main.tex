@@ -259,6 +259,77 @@ All code, data, and reproduction scripts are available at \url{https://github.co
 
 Computational exploration and code development were assisted by Claude Opus~4.6 (Anthropic).
 
+\appendix
+
+\section{Reproducibility}\label{app:repro}
+
+\paragraph*{Hardware.}
+All computations were run on an Apple M4 (arm64) with 32\,GB RAM, running macOS.
+
+\paragraph*{Software versions.}
+Python~3.14.2, NumPy~2.4.2, NetworkX~3.6.1, nauty/geng~2.9301 (32-bit).
+
+\paragraph*{Reproduction commands.}
+\begin{verbatim}
+pip install networkx numpy
+brew install nauty
+
+# Unit tests (29 tests)
+python3 -m unittest test_all.py -v
+
+# Exhaustive search, n <= 20 (single process)
+python3 search.py --max-n 20
+
+# Exhaustive search, n <= 26 (8 workers, requires geng)
+python3 search.py --max-n 26 --workers 8
+
+# Exhaustive n=26 analysis (LC + near-miss metrics)
+python3 analyze.py 26 --workers 8 --top-k 200
+
+# Targeted family search (n up to 500)
+python3 targeted.py --max-n 500 --random-count 5000
+
+# Broom asymptotic study
+python3 broom_asymptotic.py
+\end{verbatim}
+
+Random seeds are fixed (\texttt{random.Random(42)}) in \texttt{targeted.py} for caterpillar and Ramos--Sun families, ensuring deterministic reproduction.
+Per-family breakdowns (counts, LC failures, best near-miss) are archived in \texttt{results/targeted\_families.json}.
+
+\paragraph*{Data files.}
+\begin{itemize}
+  \item \texttt{results/analysis\_n26.json} -- Full n=26 re-analysis: 2 LC failures, top 200 near-misses with polynomials.
+  \item \texttt{results/targeted\_n500.json} -- Top 500 near-misses from targeted search.
+  \item \texttt{results/targeted\_families.json} -- Per-family summary (Table~\ref{tab:targeted}).
+\end{itemize}
+
+
+\section{Verification checklist}\label{app:verify}
+
+\begin{enumerate}
+  \item \textbf{Tree counts match OEIS A000055.}
+    Every per-$n$ count reported by \texttt{search.py} was checked against A000055 \citep{oeis-a000055}.
+    The search halts with an error if counts disagree.
+
+  \item \textbf{Small-$n$ cross-check across backends.}
+    For $n \le 18$, the independence polynomial was computed both via the geng pipeline and via NetworkX tree generation.
+    Results were identical.
+
+  \item \textbf{Known examples verified.}
+    The two LC-failing trees at $n = 26$ from \citet{kadrawi2023} were independently reproduced: our search found exactly two LC failures, both at index $k = 13$, with LC ratios 1.145 and 1.030.
+
+  \item \textbf{Integer arithmetic for log-concavity.}
+    All LC checks use $i_{k-1}\, i_{k+1}$ vs.\ $i_k^2$ in exact integer arithmetic (Python arbitrary-precision integers), with no floating-point rounding.
+
+  \item \textbf{Overflow guard for polynomial multiplication.}
+    \texttt{numpy.convolve} is used only when the maximum product of coefficient sizes fits in 64-bit integers (threshold: $\max(\mathit{terms}) \cdot \max(a) \cdot \max(b) < 2^{62}$).
+    Beyond this, multiplication falls back to pure Python big-integer arithmetic.
+    The guard triggers for tree families at $n \gtrsim 90$.
+
+  \item \textbf{Unit tests.}
+    29 tests cover: independence polynomial correctness on small graphs (paths, stars, known examples), unimodality and LC checks, near-miss ratio computation, graph6 parsing, and tree generation.
+\end{enumerate}
+
 \newpage
 \printbibliography
 
