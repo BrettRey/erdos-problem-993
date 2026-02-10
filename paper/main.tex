@@ -231,17 +231,27 @@ In every case, $\nm < 1$ for all tested~$s$, so all brooms remain unimodal.
 \paragraph*{Heuristic for the $1 - C/s$ law.}
 Let $\broom(p, s)$ be a path on $p$ vertices with $s$ leaves attached at one end.
 Applying the vertex-deletion recurrence at the attachment vertex gives the closed form
-\[
+\begin{equation}\label{eq:broom-closed}
   I(\broom(p, s); x) \;=\; (1+x)^s\, I(P_{p-1}; x) \;+\; x\, I(P_{p-2}; x),
-\]
+\end{equation}
 where $P_m$ is the path on $m$ vertices.
 Write $A(x) = I(P_{p-1}; x) = \sum_{j=0}^{d} a_j x^j$.
-For large $s$, the second term is negligible in the central coefficient window, so for
-$k \approx s/2$ we have
+The quantities $A(1)$ and $A'(1)$ that govern the scaling constant are computable from a simple recurrence.
+Since $I(P_n; x) = I(P_{n-1}; x) + x\, I(P_{n-2}; x)$, setting $F_n = I(P_n; 1)$ and $G_n = I'(P_n; 1)$ gives
+\begin{align}
+  F_n &= F_{n-1} + F_{n-2}, \label{eq:Fn}\\
+  G_n &= G_{n-1} + G_{n-2} + F_{n-2}, \label{eq:Gn}
+\end{align}
+with $F_0 = 1$, $F_1 = 2$, $G_0 = 0$, $G_1 = 1$.
+In particular, $F_n$ is the $(n+2)$-nd Fibonacci number, and $A(1) = F_{p-1}$, $A'(1) = G_{p-1}$.
+
+For large $s$, the $x\, I(P_{p-2}; x)$ term in~\eqref{eq:broom-closed} is negligible in the central coefficient window: its contribution to $c_k$ is bounded by $I(P_{p-2}; 1)$, while the leading term contributes $\Theta(\binom{s}{k}) \cdot A(1)$, which is exponentially larger near $k \approx s/2$.
+The omission perturbs $r_k = c_{k+1}/c_k$ only at $O(1/s^2)$.
+
+Dropping this term, for $k \approx s/2$ we have
 \[
-  c_k \;=\; [x^k] I(\broom(p, s); x) \;\approx\; \sum_{j=0}^{d} a_j \binom{s}{k-j}.
+  c_k \;\approx\; \sum_{j=0}^{d} a_j \binom{s}{k-j}.
 \]
-Define $r_k = c_{k+1}/c_k$.
 For fixed $j$ and $k = s/2 + y$ with $y = O(1)$,
 \[
   \frac{\binom{s}{k+1-j}}{\binom{s}{k-j}}
@@ -251,30 +261,49 @@ For fixed $j$ and $k = s/2 + y$ with $y = O(1)$,
 Taking the $a_j$-weighted average yields
 \[
   r_k \;=\; 1 - \frac{4y + 2 - 4\mu}{s} + O(s^{-2}),
-  \quad \mu = \frac{\sum_j j a_j}{\sum_j a_j} = \frac{A'(1)}{A(1)}.
+  \quad \mu = \frac{A'(1)}{A(1)} = \frac{G_{p-1}}{F_{p-1}}.
 \]
 The first descent occurs near $y_0 \approx \mu - \tfrac{1}{2}$.
 Because the near-miss ratio scans indices strictly after the first descent, the
 maximal ratio occurs at the smallest integer $m \ge \mu + \tfrac{1}{2}$, giving
-\[
+\begin{equation}\label{eq:Cp}
   \nm(s) \;\approx\; 1 - \frac{C(p)}{s}, \quad
   C(p) = (4m + 2) - 4\mu.
-\]
-For $p=13$, $A(1) = 377$ and $A'(1) = 1308$, so $\mu \approx 3.4695$ and $m = 4$,
-yielding $C \approx 4.122$, in excellent agreement with Table~\ref{tab:broom}.
-This derivation is heuristic and ignores the $x\, I(P_{p-2}; x)$ term, which appears to
-contribute only lower-order corrections in the central regime.
+\end{equation}
+Table~\ref{tab:Cpred} compares the predicted $C(p)$ from~\eqref{eq:Cp} against the empirical value at $s = 5{,}000$ for each tested path length.
+
+\begin{table}[ht]
+  \centering
+  \caption{Predicted vs.\ observed scaling constant $C(p)$ for broom $\broom(p, s)$.
+    $C_{\mathrm{pred}}$ is computed from the Fibonacci recurrences~\eqref{eq:Fn}--\eqref{eq:Gn};
+    $C_{\mathrm{obs}}$ is $s \cdot (1 - \nm)$ at $s = 5{,}000$.}
+  \label{tab:Cpred}
+  \begin{tabular}{r r r l l l}
+    \toprule
+    $p$ & $F_{p-1}$ & $G_{p-1}$ & $\mu$ & $C_{\mathrm{pred}}$ & $C_{\mathrm{obs}}$ \\
+    \midrule
+    13 & \liningnums{377} & \liningnums{1\,308} & 3.470 & 4.122 & 4.115 \\
+    22 & \liningnums{28\,657} & \liningnums{170\,711} & 5.957 & 6.172 & 6.156 \\
+    33 & \liningnums{5\,702\,887} & \liningnums{51\,310\,978} & 8.997 & 6.011 & 5.991 \\
+    42 & \liningnums{433\,494\,437} & \liningnums{4\,978\,643\,596} & 11.485 & 4.060 & 4.045 \\
+    50 & \liningnums{20\,365\,011\,074} & \liningnums{278\,920\,277\,425} & 13.696 & 7.216 & 7.182 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The agreement is within 0.5\% in all cases, confirming that the heuristic captures the leading behaviour.
 
 \begin{remark}
-  The broom $\broom(p, s)$ has a closed-form independence polynomial derived from the path recurrence and star contribution, making it a natural candidate for analytic proof.
-  Proving that $C(p) > 0$ for all $p$ would establish unimodality for the entire broom family and identify the exact rate at which the margin vanishes.
+  The constant $C(p)$ depends on $p$ through $\mu = G_{p-1}/F_{p-1}$ and its ceiling.
+  Since $\mu$ grows linearly in $p$ while $m = \lceil \mu + \tfrac{1}{2} \rceil$ is an integer, $C(p)$ oscillates between 4 and 8 but remains bounded away from zero.
+  Proving $C(p) > 0$ for all $p$ would establish unimodality for the entire broom family.
 \end{remark}
 
 
 \section{Discussion}\label{sec:discussion}
 
 These results provide strong computational evidence for Conjecture~\ref{conj:main}.
-Across 448 million exhaustively tested trees and 145 thousand structurally targeted trees, no unimodality violation was found.
+Across 447.7 million exhaustively tested trees and 145 thousand structurally targeted trees, no unimodality violation was found.
 The conjecture appears robust, but the broom asymptotic analysis reveals that it is also tight: the margin of unimodality can be made arbitrarily small.
 
 The surprise is that brooms, not subdivided stars, are closest to the boundary.
