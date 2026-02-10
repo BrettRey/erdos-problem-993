@@ -228,6 +228,43 @@ with $C \approx 4.12$ for $p = 13$.
 The same qualitative behaviour was observed (convergence of $s \cdot (1 - \nm)$ to a constant) for path lengths $p \in \{13, 22, 33, 42, 50\}$, with the constant~$C$ varying by path length.
 In every case, $\nm < 1$ for all tested~$s$, so all brooms remain unimodal.
 
+\paragraph*{Heuristic for the $1 - C/s$ law.}
+Let $\broom(p, s)$ be a path on $p$ vertices with $s$ leaves attached at one end.
+Applying the vertex-deletion recurrence at the attachment vertex gives the closed form
+\[
+  I(\broom(p, s); x) \;=\; (1+x)^s\, I(P_{p-1}; x) \;+\; x\, I(P_{p-2}; x),
+\]
+where $P_m$ is the path on $m$ vertices.
+Write $A(x) = I(P_{p-1}; x) = \sum_{j=0}^{d} a_j x^j$.
+For large $s$, the second term is negligible in the central coefficient window, so for
+$k \approx s/2$ we have
+\[
+  c_k \;=\; [x^k] I(\broom(p, s); x) \;\approx\; \sum_{j=0}^{d} a_j \binom{s}{k-j}.
+\]
+Define $r_k = c_{k+1}/c_k$.
+For fixed $j$ and $k = s/2 + y$ with $y = O(1)$,
+\[
+  \frac{\binom{s}{k+1-j}}{\binom{s}{k-j}}
+  \;=\; \frac{s-k+j}{k+1-j}
+  \;=\; 1 - \frac{4y + 2 - 4j}{s} + O(s^{-2}).
+\]
+Taking the $a_j$-weighted average yields
+\[
+  r_k \;=\; 1 - \frac{4y + 2 - 4\mu}{s} + O(s^{-2}),
+  \quad \mu = \frac{\sum_j j a_j}{\sum_j a_j} = \frac{A'(1)}{A(1)}.
+\]
+The first descent occurs near $y_0 \approx \mu - \tfrac{1}{2}$.
+Because the near-miss ratio scans indices strictly after the first descent, the
+maximal ratio occurs at the smallest integer $m \ge \mu + \tfrac{1}{2}$, giving
+\[
+  \nm(s) \;\approx\; 1 - \frac{C(p)}{s}, \quad
+  C(p) = (4m + 2) - 4\mu.
+\]
+For $p=13$, $A(1) = 377$ and $A'(1) = 1308$, so $\mu \approx 3.4695$ and $m = 4$,
+yielding $C \approx 4.122$, in excellent agreement with Table~\ref{tab:broom}.
+This derivation is heuristic and ignores the $x\, I(P_{p-2}; x)$ term, which appears to
+contribute only lower-order corrections in the central regime.
+
 \begin{remark}
   The broom $\broom(p, s)$ has a closed-form independence polynomial derived from the path recurrence and star contribution, making it a natural candidate for analytic proof.
   Proving that $C(p) > 0$ for all $p$ would establish unimodality for the entire broom family and identify the exact rate at which the margin vanishes.
