@@ -6,6 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a computational mathematics project. The goal is to search for a counterexample to Erdős Problem #993: that the independent set sequence of every tree is unimodal.
 
+## Source of truth for results
+
+The manuscript in `paper/main.tex` contains the most up-to-date results narrative.
+When citing numeric results, cross-check `results/*.json` (notably `results/analysis_n26.json` and `results/targeted_n500.json`) or rerun computations.
+Do not claim verification without running the computations.
+
 ## The Problem
 
 Given a tree $T$ on $n$ vertices, let $i_k(T)$ = number of independent sets of size $k$ in $T$. The conjecture states that the sequence $(i_0, i_1, \ldots, i_\alpha)$ is unimodal (non-decreasing then non-increasing).
@@ -27,7 +33,7 @@ A **counterexample** is any tree where this sequence is not unimodal (i.e., it d
 
 ## Setup
 
-Python 3.14 is available. No dependencies are pre-installed. Before running anything:
+Python 3.14.2 is available (`python3 --version`). Before running anything:
 
 ```bash
 pip install networkx   # graph operations
@@ -36,7 +42,8 @@ pip install numpy      # faster array operations
 pip install sympy      # symbolic polynomial manipulation
 ```
 
-nauty (`geng`) is **not installed**. To use it for tree enumeration:
+nauty (`geng`) is available at `/opt/homebrew/bin/geng` in this workspace.
+If missing on another machine, install it for tree enumeration:
 
 ```bash
 brew install nauty
@@ -74,21 +81,20 @@ A sequence $(a_0, a_1, \ldots, a_m)$ is unimodal if there exists a peak index $p
 | 1-10 | 1, 1, 1, 2, 3, 6, 11, 23, 47, 106 |
 | 15 | 7741 |
 | 20 | 823,065 |
-| 25 | 105,157,672 |
+| 25 | 104,636,890 |
+| 26 | 279,793,450 |
 
 Exhaustive enumeration becomes expensive around $n = 20$-25. Beyond that, targeted search (e.g., caterpillars, spiders, double stars) or heuristic exploration may be needed.
 
 ## Running
 
 ```bash
-# Run the main search (once implemented)
-python3 search.py
-
 # Run tests
-python3 -m pytest tests/
+python3 test_all.py
 
-# Run a single test
-python3 -m pytest tests/test_file.py::test_name
+# Run the main search
+python3 search.py --max-n 20
+python3 search.py --max-n 26 --workers 8   # requires geng
 ```
 
 ## Performance Notes
