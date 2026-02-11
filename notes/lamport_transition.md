@@ -61,3 +61,24 @@ This is only evidence; no proof yet.
 
 If any of these is proved, the inductive safety argument would yield
 unimodality for all trees by structural induction on the DP.
+
+## Restricted-case lemma (broom root + leaf child)
+
+Let $T_s=\broom(p,s)$ with $p \ge 2$ and $s \ge p$, rooted at the hub.
+Write
+  $P_s(x)=(1+x)^s A(x)$, $Q_s(x)=xB(x)$, $I_s=P_s+Q_s$,
+where $A(x)=I(P_{p-1};x)$ and $B(x)=I(P_{p-2};x)$.
+For Lamport composition with a leaf child $(U,V)=(1,x)$, we have
+  $IU=I_s$ and $PV=xP_s$.
+Let $d(F)=\min\{k:\Delta F_k<0\}$.
+
+**Claim:** $d(PV) \ge d(IU)$.
+
+**Sketch:** For $k \ge t+1$ where $t=\deg B=\lfloor (p-2)/2\rfloor$, we have
+$\Delta I_{s,k}=\Delta P_{s,k}$ since $b_k=b_{k-1}=0$. Also
+$\Delta P_{s,k}\ge 0$ for $k \le \lfloor s/2\rfloor-1$ by binomial monotonicity,
+hence $d(P_s)\ge \lfloor s/2\rfloor\ge t+1$ when $s\ge p$.
+Thus $d(I_s)\le d(P_s)$ and $d(PV)=d(xP_s)=d(P_s)+1\ge d(I_s)$.
+
+This gives **mode ordering** for this specific Lamport step, but only in the
+broom-root / leaf-child regime.
