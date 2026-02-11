@@ -40,20 +40,24 @@ A stronger sufficient condition is:
 
 since Δ(IU)_k <= 0 for k >= d.
 
-## Empirical evidence (n <= 10)
+## Empirical status
 
-Checked all trees up to n = 10 (networkx enumeration) and all nodes, with
-multiple random child orderings. For each composition step:
+Early small-n checks suggested the Lamport tail inequalities might hold
+broadly, but this is false in general.
 
-- IU was unimodal.
-- PV was nonincreasing from d onward.
-- The difference dominance inequality held: Δ(PV)_k <= -Δ(IU)_k.
+For the concrete broom-root / leaf-child model
+\[
+M(p,s):\ \Delta(xP)_k \le -\Delta I_k\ \text{for all }k\ge d(I),
+\]
+the large table in `results/knuth_leaf_table_p120_s700.json` gives explicit
+counterexamples (e.g., `p=3, s=3` fails at `k=d(I)=2`).
 
-This is only evidence; no proof yet.
+So: the global difference-dominance condition remains a sufficient condition,
+but not a universally true invariant.
 
 ## Next possible lemmata
 
-1) **Mode ordering**: show first descent of PV occurs no later than the
+1) **Mode ordering**: show first descent of PV occurs no earlier than the
    first descent of IU in rooted composition.
 2) **Ratio interlacing** for IU and PV to ensure the difference dominance.
 3) **Local injection**: map independent sets counted by PV in the tail to
@@ -72,7 +76,18 @@ For Lamport composition with a leaf child, $(U,V)=(1,x)$ (since $P_{\text{leaf}}
 $Q_{\text{leaf}}=x$), so $IU=I_s$ and $PV=xP_s$.
 Let $d(F)=\min\{k:\Delta F_k<0\}$.
 
-**Claim:** $d(PV) \ge d(IU)$.
+**Lemma (mode ordering for broom-root leaf step).**
+Fix integers $p\ge 2$ and $s\ge p$. Define
+\[
+P_s(x)=(1+x)^s I(P_{p-1};x),\qquad
+I_s(x)=P_s(x)+x\,I(P_{p-2};x).
+\]
+For the Lamport child update with a leaf $(U,V)=(1,x)$ (hence $IU=I_s$ and
+$PV=xP_s$), one has
+\[
+d(PV)\ge d(IU),
+\]
+where $d(F)=\min\{k:\Delta F_k<0\}$.
 
 **Sketch:** For $k \ge t+1$ where $t=\deg B=\lfloor (p-2)/2\rfloor$, we have
 $\Delta I_{s,k}=\Delta P_{s,k}$ since $b_k=b_{k-1}=0$. Also
@@ -157,3 +172,449 @@ Let $C=I(P_\ell)$ and $D=I(P_{\ell-1})$, so $U=C$, $V=xD$.
 
 This establishes mode ordering in the broom-root + path-child regime
 for sufficiently large $s$.
+
+## Knuth-style leaf table scan (p <= 120, s <= 700)
+
+Computed truth table
+\[
+M(p,s):\ \Delta(xP)_k \le -\Delta I_k\ \text{for all }k\ge d(I)
+\]
+for the broom-root parent state with leaf child.
+
+Artifact:
+- `results/knuth_leaf_table_p120_s700.json`
+
+Raw parity classes over scanned box (`s = 0..700`):
+- `both`: 65 values of `p`
+- `only_even`: 41 values of `p`
+- `only_odd`: 13 values of `p`
+- `neither`: 0 values of `p`
+
+In the relevant broom regime (`s >= p`), the classes are:
+- `both`: 7 values of `p` (`{2,4,33,42,80,89,118}`)
+- `only_even`: 57 values of `p`
+- `only_odd`: 55 values of `p`
+- `neither`: 0 values of `p`
+
+Low-mod periodic fits (majority bucket model over full table) are not exact:
+- `mod2_p_mod2_s`: 40,965 mismatches / 83,419
+- `mod4_p_mod2_s`: 39,610 mismatches / 83,419
+- `mod2_p_mod4_s`: 40,958 mismatches / 83,419
+- `mod4_p_mod4_s`: 39,610 mismatches / 83,419
+
+So there is no exact small-period (`mod 2` / `mod 4`) rule in `(p,s)` on this box.
+Also, all observed violations occur at the boundary index `k=d(I)` (none for
+`k>d(I)` in the scanned box).
+
+### Concise conjecture (eventual parity form)
+
+For each fixed `p >= 2`, there exist a threshold `S_p` and a nonempty parity set
+`E_p ⊆ {0,1}` such that for all `s >= S_p`,
+\[
+M(p,s)\iff s \bmod 2 \in E_p.
+\]
+Moreover, empirical table evidence gives `E_p = {0,1}` for `p in {2,4}`,
+and `|E_p| = 1` for every `p >= 5` (checked for `p <= 120`).
+
+### Short proof sketch attempt (incomplete)
+
+Write `I = P + xB` with fixed core polynomial `B` (depends on `p`) and
+`P = (1+x)^s A`.
+
+1. Empirically, every violation occurs at the boundary index `k = d(I)` (none
+   were found at larger `k` in the full table).
+   Hence the global condition appears equivalent to a single inequality:
+   \[
+   \Delta(xP)_{d(I)} \le -\Delta I_{d(I)}.
+   \]
+   Substituting `I = P + xB` gives
+   \[
+   2\Delta P_{d(I)} + \Delta(xB)_{d(I)} \le 0.
+   \]
+
+2. For fixed `p`, `d(I)` is in a bounded window around `s/2` for large `s`,
+   while `B` has fixed degree. So `\Delta(xB)_{d(I)}` is an `O_p(1)` correction.
+
+3. The main term `\Delta P_k` near `k = s/2 + y` is governed by the binomial
+   ratio expansion and changes sign across adjacent `k` values in a parity-sensitive
+   way when the first descent sits on a near-tie.
+
+4. Therefore the sign of
+   `2\Delta P_{d(I)} + \Delta(xB)_{d(I)}`
+   should stabilize by parity for large `s`, yielding the eventual parity rule above.
+
+Missing step: a rigorous asymptotic reduction from the full tail condition to
+the boundary inequality, plus a precise sign analysis of the boundary expression.
+
+## Shannon boundary principle (empirical, reproducible)
+
+For a Lamport step
+  \(I' = IU + PV\), let \(d=d(IU)\) be the first descent index of \(IU\).
+
+Define the two properties:
+
+- `Boundary-only DD failure`: any violation of
+  \(\Delta(PV)_k \le -\Delta(IU)_k\) for \(k\ge d\) occurs only at \(k=d\).
+- `No interior positive tail`: \(\Delta(I')_k \le 0\) for all \(k>d\).
+
+**Empirical result (exhaustive):**
+`results/shannon_transition_scan_n17_plus_samples_18_20.json` reports, for all
+rooted composition steps from all trees with \(1\le n\le 17\):
+
+- `lamport_steps`: 20,380,920
+- `steps_with_descent`: 14,237,515
+- `dd_failures`: 1,414,591
+- `dd_failures_boundary_only`: 1,414,591
+- `dd_failures_interior`: 0
+- `positive_tail_after_boundary`: 0
+- `pv_positive_after_d`: 13,169
+- `pv_positive_after_d_plus_1`: 0
+- `pv_positive_offset_hist`: `{1: 13,169}`
+- `dd_boundary_fail_and_pv_positive_after_d`: 13,169
+- `dd_boundary_hold_and_pv_positive_after_d`: 0
+
+So in this full range, every DD failure is boundary-only, and no step creates
+a positive first difference after the boundary.
+Also, whenever \(PV\) has a positive first difference past \(d\), it occurs
+only at \(k=d+1\), and only when boundary DD already fails at \(k=d\).
+
+**Larger-\(n\) stratified samples (geng partitions):**
+
+- \(n=18\): 1,749,708 steps, `dd_failures_interior=0`, `positive_tail_after_boundary=0`
+- \(n=19\): 2,188,800 steps, `dd_failures_interior=0`, `positive_tail_after_boundary=0`
+- \(n=20\): 2,432,000 steps, `dd_failures_interior=0`, `positive_tail_after_boundary=0`
+
+The same one-step \(PV\)-overshoot pattern appears in these samples:
+`pv_positive_offset_hist = {1: ...}` and `pv_positive_after_d_plus_1 = 0`
+for each of \(n=18,19,20\).
+
+Additional stratified samples for \(n=21,22,23,24\) in
+`results/shannon_transition_samples_n21_24.json` show the same pattern:
+`dd_failures_interior=0`, `positive_tail_after_boundary=0`,
+and `pv_positive_offset_hist={1:...}` with `pv_positive_after_d_plus_1=0`
+in every sampled \(n\).
+
+### Working lemma candidate (target)
+
+For rooted composition states arising from trees, with \(d=d(IU)\):
+\[
+\Delta(I')_k \le 0 \quad \text{for all } k>d.
+\]
+Equivalently, any possible Lamport obstruction is concentrated at the single
+boundary index \(k=d\).
+
+If proved, this collapses the Lamport proof obligation from a tail family of
+inequalities to one boundary inequality.
+
+### Sharpened structural target
+
+A stronger empirical statement is:
+\[
+\Delta(PV)_k \le 0 \quad \text{for all } k \ge d+2,
+\]
+and if \(\Delta(PV)_{d+1}>0\), then boundary DD already fails at \(k=d\).
+
+This isolates all nontrivial behavior to the two-index window \(\{d,d+1\}\).
+
+### Two-index reduction lemma (deterministic)
+
+Let \(A,B\) be coefficient sequences and define \(\Delta X_k=X_{k+1}-X_k\).
+Fix an index \(d\) and assume:
+
+1. \(\Delta A_k \le 0\) for all \(k\ge d+1\),
+2. \(\Delta B_k \le 0\) for all \(k\ge d+2\).
+
+Then:
+\[
+\Delta(A+B)_k \le 0 \;\; \forall k\ge d+1
+\quad\Longleftrightarrow\quad
+\Delta B_{d+1} \le -\Delta A_{d+1}.
+\]
+
+Proof: for \(k\ge d+2\), both differences are nonpositive by (1)-(2), so only
+\(k=d+1\) can fail. At \(k=d+1\), the condition is exactly
+\(\Delta B_{d+1} \le -\Delta A_{d+1}\). \(\square\)
+
+Applied to Lamport (\(A=IU,\;B=PV\)), once we prove
+\(\Delta(PV)_k\le 0\) for \(k\ge d+2\), the entire interior tail control reduces
+to one check at \(k=d+1\). The scanned data supports this split:
+
+- `pv_positive_after_d_plus_1 = 0` (so \(\Delta(PV)_k\le 0\) for \(k\ge d+2\)),
+- `dd_failures_interior = 0` (so the \(k=d+1\) inequality always held in range).
+
+### Quantitative \(k=d+1\) margin (empirical)
+
+Define the normalized boundary-adjacent ratio
+\[
+R := \frac{\Delta(PV)_{d+1}}{-\Delta(IU)_{d+1}},
+\]
+whenever \(-\Delta(IU)_{d+1}>0\).
+
+From `results/shannon_transition_exhaustive_n17_profile_ratio.json`
+(exhaustive \(n\le 17\)):
+
+- `dplus1_ratio_max = 0.125`,
+- `dplus1_zero_den_positive_num = 0`.
+
+From `results/shannon_transition_samples_n18_24_profile_ratio.json`
+(stratified samples for \(n=18,\dots,24\)):
+
+- each sampled \(n\) also has `dplus1_ratio_max = 0.125`,
+- again `dplus1_zero_den_positive_num = 0`.
+
+So the observed bound is
+\[
+\Delta(PV)_{d+1} \le \frac18\,\bigl(-\Delta(IU)_{d+1}\bigr),
+\]
+with equality witness pattern at a leaf-child local configuration
+(`child_size=1`, `child_arity=0`, `d=3`, `num=3`, `den=24`).
+
+Working quantitative conjecture:
+\[
+\Delta(PV)_{d+1} \le \frac18\,\bigl(-\Delta(IU)_{d+1}\bigr)
+\quad\text{for all rooted-tree Lamport steps.}
+\]
+If proved together with \(\Delta(PV)_k\le 0\) for \(k\ge d+2\), interior tail
+control is immediate with a uniform slack factor.
+
+Cross-check via dedicated slack artifact
+`results/shannon_slack_scan_n17_plus_samples_18_24.json`:
+
+- exhaustive \(n\le 17\): leaf checks `2,019,762`, violations `0`, equalities `438`,
+- sampled \(n=18,\dots,24\): leaf checks all had violations `0` and
+  `max_ratio = 0.125` in every sampled \(n\).
+
+### Local profile (where boundary failures live)
+
+From `results/shannon_transition_exhaustive_n17_profile.json` (exhaustive
+\(n\le 17\)), boundary failures are strongly concentrated by child-root arity:
+
+- arity 0: 1,131,007 / 3,801,720 (`29.75%`)
+- arity 1: 239,677 / 5,852,496 (`4.10%`)
+- arity 2: 37,894 / 2,785,833 (`1.36%`)
+- arity 3: 5,697 / 1,121,704 (`0.51%`)
+- arity 4: 310 / 424,008 (`0.073%`)
+- arity 5: 6 / 157,838 (`0.0038%`)
+- arity >= 6: `0` observed boundary failures
+
+`PV` overshoots after \(d\) are even more concentrated:
+- 13,133 / 13,169 occur at arity 0,
+- all occur at offset \(k=d+1\), none for \(k\ge d+2\).
+
+This suggests a proof split:
+1) prove a generic high-arity monotonicity lemma (\( \text{arity} \ge 4 \) or
+   at least \( \ge 6 \)),
+2) handle low-arity cases (\(0,1,2,3\)) by explicit rooted recurrences.
+
+Additional profiled samples (`results/shannon_transition_samples_n18_24_profile.json`)
+support the same direction: for each sampled \(n \in \{18,\dots,24\}\),
+`arity_ge6_boundary_fail = 0`; combined, this is 250,816 sampled
+arity-\(\ge 6\) steps with zero observed boundary failures.
+
+Dedicated slack scan (`results/shannon_slack_scan_n17_plus_samples_18_24.json`)
+gives stronger margin data for \(r\ge 6\):
+
+- exhaustive \(n\le 17\): `min_s0 = 4`, `min_s1 = 14`,
+- sampled \(n=18,\dots,24\): `ge6_min_s0` in `{4,5}`, `ge6_min_s1 = 14`.
+
+Here
+\[
+s0 = (-\Delta(IU)_d)-\Delta(PV)_d,\qquad
+s1 = (-\Delta(IU)_{d+1})-\Delta(PV)_{d+1}.
+\]
+
+### Arity-threshold closure scan (new)
+
+We ran a dedicated thresholded sign scan
+(`results/shannon_arity_sign_n17_plus_samples_18_24_r4.json`,
+`results/shannon_arity_sign_n17_plus_samples_18_24_r5.json`,
+`results/shannon_arity_sign_n17_plus_samples_18_24.json`) that records
+\(\Delta(PV)_d\), \(\Delta(PV)_{d+1}\), and \(s0,s1\) failures by arity floor.
+
+Let \(r\) be the child-root arity in the rooted orientation.
+
+- \(r\ge 4\): 1,185,156 scanned steps.
+  `dPV_dplus1.positive = 0`, `s1_fail_count = 0`, but `s0_fail_count = 535`.
+- \(r\ge 5\): 594,581 scanned steps.
+  `dPV_dplus1.positive = 0`, `s1_fail_count = 0`, and `s0_fail_count = 6`.
+- \(r\ge 6\): 344,732 scanned steps.
+  `dPV_d.positive = 0`, `dPV_dplus1.positive = 0`,
+  `s0_fail_count = 0`, `s1_fail_count = 0`.
+
+So empirically:
+1. the \(k=d+1\) obstruction disappears already at \(r\ge 4\),
+2. the \(k=d\) obstruction appears confined to \(r\in\{4,5\}\),
+3. no \(r\ge 6\) obstruction was seen.
+
+### Arity-tier lemma candidates (updated)
+
+**Candidate A4 (adjacent index safe):** if \(r\ge 4\), then
+\[
+\Delta(PV)_{d+1} \le -\Delta(IU)_{d+1}.
+\]
+Data support: zero \(s1\) failures for \(r\ge 4\) in the threshold scan above.
+
+**Candidate H6 (high-arity boundary safe):** if \(r\ge 6\), then
+\[
+\Delta(PV)_d \le -\Delta(IU)_d,\qquad
+\Delta(PV)_d\le 0,\qquad
+\Delta(PV)_{d+1}\le 0.
+\]
+Data support: zero \(s0,s1\) failures and zero positive \(\Delta(PV)\) at both
+critical indices for \(r\ge 6\).
+
+**Residual finite obstruction set (if A4 + H6 hold):**
+\[
+r\in\{0,1,2,3,4,5\}\ \text{at }k=d,\quad
+r\in\{0,1,2,3\}\ \text{at }k=d+1.
+\]
+This is the current closure target.
+
+**Candidate Q1/8 (quantitative slack):**
+\[
+\Delta(PV)_{d+1}\le \frac18\bigl(-\Delta(IU)_{d+1}\bigr).
+\]
+If proved, Q1/8 implies the \(k=d+1\) inequality with uniform margin and gives
+robustness against perturbative errors in any approximate argument.
+
+### Boundary-failure catalog (exhaustive \(n\le 17\))
+
+Using `results/shannon_boundary_fail_catalog_n17.json`, boundary failures
+(\(k=d\), i.e. \(\Delta(PV)_d>-\Delta(IU)_d\)) are distributed as:
+
+\[
+r=0:1{,}131{,}007,\;
+r=1:239{,}677,\;
+r=2:37{,}894,\;
+r=3:5{,}697,\;
+r=4:310,\;
+r=5:6,\;
+r\ge 6:0.
+\]
+
+Focused obstruction shape:
+- arity \(5\): only `6` failures total, all in one tree
+  (`n=17`, `tree_index=26052`, graph6 `P???????C?G?G?E??o?B_w?[`).
+- arity \(4\): `310` failures over `69` unique trees, concentrated in
+  \(n\in\{14,15,16,17\}\) with `255` at \(n=17\).
+
+So after proving \(r\ge 6\) safety, the unresolved \(k=d\) obstruction appears
+to be a finite low-arity catalog, with \(r=5\) already nearly atomic.
+
+### Repro command
+
+```bash
+python notes/shannon_transition_scan.py \
+  --min-n 1 --max-n 17 --backend geng \
+  --sample-n 18,19,20 --sample-mod 16 --sample-per-partition 400 \
+  --out results/shannon_transition_scan_n17_plus_samples_18_20.json
+```
+
+Extended sampled check:
+```bash
+python notes/shannon_transition_scan.py \
+  --min-n 1 --max-n 0 --backend geng \
+  --sample-n 21,22,23,24 --sample-mod 16 --sample-per-partition 200 \
+  --out results/shannon_transition_samples_n21_24.json
+```
+
+Profile command:
+```bash
+python notes/shannon_transition_scan.py \
+  --min-n 1 --max-n 17 --backend geng \
+  --out results/shannon_transition_exhaustive_n17_profile.json
+```
+
+Profiled larger-\(n\) sample command:
+```bash
+python notes/shannon_transition_scan.py \
+  --min-n 1 --max-n 0 --backend geng \
+  --sample-n 18,19,20,21,22,23,24 \
+  --sample-mod 16 --sample-per-partition 200 \
+  --out results/shannon_transition_samples_n18_24_profile.json
+```
+
+Ratio-profile exhaustive command:
+```bash
+python notes/shannon_transition_scan.py \
+  --min-n 1 --max-n 17 --backend geng \
+  --out results/shannon_transition_exhaustive_n17_profile_ratio.json
+```
+
+Ratio-profile larger-\(n\) sample command:
+```bash
+python notes/shannon_transition_scan.py \
+  --min-n 1 --max-n 0 --backend geng \
+  --sample-n 18,19,20,21,22,23,24 \
+  --sample-mod 16 --sample-per-partition 200 \
+  --out results/shannon_transition_samples_n18_24_profile_ratio.json
+```
+
+Dedicated slack scan command:
+```bash
+python notes/shannon_slack_scan.py \
+  --min-n 1 --max-n 17 --backend geng \
+  --sample-n 18,19,20,21,22,23,24 \
+  --sample-mod 16 --sample-per-partition 200 \
+  --out results/shannon_slack_scan_n17_plus_samples_18_24.json
+```
+
+Arity-threshold sign scans:
+```bash
+python notes/shannon_arity_sign_scan.py \
+  --arity-threshold 4 \
+  --min-n 1 --max-n 17 --backend geng \
+  --sample-n 18,19,20,21,22,23,24 \
+  --sample-mod 16 --sample-per-partition 200 \
+  --out results/shannon_arity_sign_n17_plus_samples_18_24_r4.json
+
+python notes/shannon_arity_sign_scan.py \
+  --arity-threshold 5 \
+  --min-n 1 --max-n 17 --backend geng \
+  --sample-n 18,19,20,21,22,23,24 \
+  --sample-mod 16 --sample-per-partition 200 \
+  --out results/shannon_arity_sign_n17_plus_samples_18_24_r5.json
+
+python notes/shannon_arity_sign_scan.py \
+  --arity-threshold 6 \
+  --min-n 1 --max-n 17 --backend geng \
+  --sample-n 18,19,20,21,22,23,24 \
+  --sample-mod 16 --sample-per-partition 200 \
+  --out results/shannon_arity_sign_n17_plus_samples_18_24.json
+```
+
+Boundary-failure catalog:
+```bash
+python notes/shannon_boundary_fail_catalog.py \
+  --max-n 17 --backend geng \
+  --focus-arities 4,5 \
+  --out results/shannon_boundary_fail_catalog_n17.json
+```
+
+### Order-sensitivity stress test
+
+Because Lamport composition is sequential, intermediate states depend on child
+attachment order. To stress this, we also scanned child-order permutations:
+
+- exact permutations for parent degree `<=7`,
+- `120` random distinct orders for higher degrees,
+- all trees up to `n=12`, all roots, all parent states.
+
+Artifact:
+- `results/shannon_order_sensitivity_n12.json`
+
+Totals:
+- `rooted_states_tested`: 28,733
+- `orders_tested`: 1,346,584
+- `interior_violations`: 0
+
+So within this range, the boundary-only phenomenon is robust to tested
+child-order variation.
+
+Repro command:
+```bash
+python notes/shannon_order_sensitivity_scan.py \
+  --max-n 12 --backend geng --exact-degree 7 \
+  --sample-orders 120 --seed 0 \
+  --out results/shannon_order_sensitivity_n12.json
+```

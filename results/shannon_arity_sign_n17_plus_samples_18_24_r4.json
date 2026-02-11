@@ -1,0 +1,787 @@
+{
+  "generated_at_utc": "2026-02-11T12:40:49.633983+00:00",
+  "description": "Lamport transition sign scan at k=d and k=d+1 for steps with child-root arity >= threshold",
+  "definitions": {
+    "d": "first descent index of IU",
+    "s0_fail": "Delta(PV)_d > -Delta(IU)_d",
+    "s1_fail": "Delta(PV)_{d+1} > -Delta(IU)_{d+1}"
+  },
+  "parameters": {
+    "arity_threshold": 4,
+    "min_n": 1,
+    "max_n": 17,
+    "backend": "geng",
+    "sample_n": [
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "sample_mod": 16,
+    "sample_per_partition": 200
+  },
+  "exhaustive": {
+    "arity_threshold": 4,
+    "trees_scanned": 81137,
+    "steps_with_descent": 14237515,
+    "steps_meeting_threshold": 675762,
+    "dPV_d": {
+      "positive": 2103,
+      "zero": 247819,
+      "negative": 425840
+    },
+    "dPV_dplus1": {
+      "positive": 0,
+      "zero": 393827,
+      "negative": 281935,
+      "missing": 0
+    },
+    "s0_fail_count": 316,
+    "s1_fail_count": 0,
+    "first_positive_d_witness": {
+      "n": 14,
+      "tree_index": 1869,
+      "graph6": "M????A?O@?B?@o{?_",
+      "root": 0,
+      "parent": 0,
+      "child": 13,
+      "child_pos": 1,
+      "child_arity": 4,
+      "d": 4,
+      "delta_PV_d": 5,
+      "delta_IU_d": -5
+    },
+    "first_positive_dplus1_witness": null,
+    "first_s0_fail_witness": {
+      "n": 14,
+      "tree_index": 1870,
+      "graph6": "M????A?O@?B?@ow@_",
+      "root": 0,
+      "parent": 0,
+      "child": 13,
+      "child_pos": 1,
+      "child_arity": 4,
+      "d": 4,
+      "delta_PV_d": 14,
+      "delta_IU_d": -5
+    },
+    "first_s1_fail_witness": null,
+    "range": {
+      "min_n": 1,
+      "max_n": 17
+    },
+    "backend": "geng",
+    "elapsed_s": 107.902,
+    "by_n": [
+      {
+        "n": 1,
+        "elapsed_s": 0.0,
+        "trees_scanned": 1,
+        "steps_meeting_threshold": 0,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 2,
+        "elapsed_s": 0.003,
+        "trees_scanned": 1,
+        "steps_meeting_threshold": 0,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 3,
+        "elapsed_s": 0.002,
+        "trees_scanned": 1,
+        "steps_meeting_threshold": 0,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 4,
+        "elapsed_s": 0.002,
+        "trees_scanned": 2,
+        "steps_meeting_threshold": 0,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 5,
+        "elapsed_s": 0.002,
+        "trees_scanned": 3,
+        "steps_meeting_threshold": 0,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 6,
+        "elapsed_s": 0.002,
+        "trees_scanned": 6,
+        "steps_meeting_threshold": 5,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 5,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 5,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 7,
+        "elapsed_s": 0.004,
+        "trees_scanned": 11,
+        "steps_meeting_threshold": 12,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 12,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 12,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 8,
+        "elapsed_s": 0.008,
+        "trees_scanned": 23,
+        "steps_meeting_threshold": 35,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 35,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 35,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 9,
+        "elapsed_s": 0.018,
+        "trees_scanned": 47,
+        "steps_meeting_threshold": 96,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 81,
+          "negative": 15
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 96,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 10,
+        "elapsed_s": 0.047,
+        "trees_scanned": 106,
+        "steps_meeting_threshold": 288,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 219,
+          "negative": 69
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 278,
+          "negative": 10,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 11,
+        "elapsed_s": 0.126,
+        "trees_scanned": 235,
+        "steps_meeting_threshold": 790,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 550,
+          "negative": 240
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 738,
+          "negative": 52,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 12,
+        "elapsed_s": 0.356,
+        "trees_scanned": 551,
+        "steps_meeting_threshold": 2288,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 1260,
+          "negative": 1028
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 1958,
+          "negative": 330,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 13,
+        "elapsed_s": 1.002,
+        "trees_scanned": 1301,
+        "steps_meeting_threshold": 6444,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 3436,
+          "negative": 3008
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 5081,
+          "negative": 1363,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 14,
+        "elapsed_s": 2.908,
+        "trees_scanned": 3159,
+        "steps_meeting_threshold": 18577,
+        "dPV_d": {
+          "positive": 35,
+          "zero": 8608,
+          "negative": 9934
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 13803,
+          "negative": 4774,
+          "missing": 0
+        },
+        "s0_fail_count": 5,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 15,
+        "elapsed_s": 8.25,
+        "trees_scanned": 7741,
+        "steps_meeting_threshold": 53088,
+        "dPV_d": {
+          "positive": 69,
+          "zero": 21276,
+          "negative": 31743
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 34524,
+          "negative": 18564,
+          "missing": 0
+        },
+        "s0_fail_count": 14,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 16,
+        "elapsed_s": 24.17,
+        "trees_scanned": 19320,
+        "steps_meeting_threshold": 153195,
+        "dPV_d": {
+          "positive": 219,
+          "zero": 58817,
+          "negative": 94159
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 90890,
+          "negative": 62305,
+          "missing": 0
+        },
+        "s0_fail_count": 36,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 17,
+        "elapsed_s": 71.004,
+        "trees_scanned": 48629,
+        "steps_meeting_threshold": 440944,
+        "dPV_d": {
+          "positive": 1780,
+          "zero": 153520,
+          "negative": 285644
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 246407,
+          "negative": 194537,
+          "missing": 0
+        },
+        "s0_fail_count": 261,
+        "s1_fail_count": 0
+      }
+    ]
+  },
+  "stratified_samples": [
+    {
+      "arity_threshold": 4,
+      "trees_scanned": 2918,
+      "steps_with_descent": 660260,
+      "steps_meeting_threshold": 42636,
+      "dPV_d": {
+        "positive": 40,
+        "zero": 21521,
+        "negative": 21075
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 28983,
+        "negative": 13653,
+        "missing": 0
+      },
+      "s0_fail_count": 5,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": {
+        "n": 18,
+        "tree_index": 880,
+        "graph6": "Q?????????O?O?G?A??O?{??NwG",
+        "root": 0,
+        "parent": 0,
+        "child": 16,
+        "child_pos": 1,
+        "child_arity": 4,
+        "d": 6,
+        "delta_PV_d": 42,
+        "delta_IU_d": -139
+      },
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": {
+        "n": 18,
+        "tree_index": 2159,
+        "graph6": "Q???????????_?O?C?F??F_C@{O",
+        "root": 0,
+        "parent": 0,
+        "child": 15,
+        "child_pos": 1,
+        "child_arity": 4,
+        "d": 6,
+        "delta_PV_d": 132,
+        "delta_IU_d": -107
+      },
+      "first_s1_fail_witness": null,
+      "n": 18,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 5.23
+    },
+    {
+      "arity_threshold": 4,
+      "trees_scanned": 3200,
+      "steps_with_descent": 800882,
+      "steps_meeting_threshold": 46008,
+      "dPV_d": {
+        "positive": 34,
+        "zero": 24888,
+        "negative": 21086
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 32181,
+        "negative": 13827,
+        "missing": 0
+      },
+      "s0_fail_count": 0,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": {
+        "n": 19,
+        "tree_index": 2505,
+        "graph6": "R?????????????_?[?Co?@o??w??LW",
+        "root": 11,
+        "parent": 11,
+        "child": 18,
+        "child_pos": 0,
+        "child_arity": 4,
+        "d": 6,
+        "delta_PV_d": 42,
+        "delta_IU_d": -49
+      },
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": null,
+      "first_s1_fail_witness": null,
+      "n": 19,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 6.708
+    },
+    {
+      "arity_threshold": 4,
+      "trees_scanned": 3200,
+      "steps_with_descent": 901814,
+      "steps_meeting_threshold": 49704,
+      "dPV_d": {
+        "positive": 0,
+        "zero": 28381,
+        "negative": 21323
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 35892,
+        "negative": 13812,
+        "missing": 0
+      },
+      "s0_fail_count": 0,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": null,
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": null,
+      "first_s1_fail_witness": null,
+      "n": 20,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 7.725
+    },
+    {
+      "arity_threshold": 4,
+      "trees_scanned": 3200,
+      "steps_with_descent": 991276,
+      "steps_meeting_threshold": 70540,
+      "dPV_d": {
+        "positive": 72,
+        "zero": 39499,
+        "negative": 30969
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 47957,
+        "negative": 22583,
+        "missing": 0
+      },
+      "s0_fail_count": 47,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": {
+        "n": 21,
+        "tree_index": 401,
+        "graph6": "T?????????????????C??[?BG?CM?C@oA?F_",
+        "root": 15,
+        "parent": 15,
+        "child": 0,
+        "child_pos": 0,
+        "child_arity": 4,
+        "d": 7,
+        "delta_PV_d": 429,
+        "delta_IU_d": -971
+      },
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": {
+        "n": 21,
+        "tree_index": 823,
+        "graph6": "T?????????????????F??F??B_??w??F???^",
+        "root": 15,
+        "parent": 15,
+        "child": 20,
+        "child_pos": 3,
+        "child_arity": 4,
+        "d": 7,
+        "delta_PV_d": 1430,
+        "delta_IU_d": -1175
+      },
+      "first_s1_fail_witness": null,
+      "n": 21,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 9.254
+    },
+    {
+      "arity_threshold": 4,
+      "trees_scanned": 3200,
+      "steps_with_descent": 1109486,
+      "steps_meeting_threshold": 92694,
+      "dPV_d": {
+        "positive": 81,
+        "zero": 51048,
+        "negative": 41565
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 61115,
+        "negative": 31579,
+        "missing": 0
+      },
+      "s0_fail_count": 60,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": {
+        "n": 22,
+        "tree_index": 1121,
+        "graph6": "U?????????????????C??O??o?F??@[??`o?GBw?",
+        "root": 0,
+        "parent": 18,
+        "child": 2,
+        "child_pos": 1,
+        "child_arity": 4,
+        "d": 7,
+        "delta_PV_d": 132,
+        "delta_IU_d": -1198
+      },
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": {
+        "n": 22,
+        "tree_index": 1201,
+        "graph6": "U????????????????????o??o?DO?CM?A?w?_@{?",
+        "root": 2,
+        "parent": 18,
+        "child": 0,
+        "child_pos": 0,
+        "child_arity": 4,
+        "d": 6,
+        "delta_PV_d": 132,
+        "delta_IU_d": -27
+      },
+      "first_s1_fail_witness": null,
+      "n": 22,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 10.907
+    },
+    {
+      "arity_threshold": 4,
+      "trees_scanned": 3200,
+      "steps_with_descent": 1210285,
+      "steps_meeting_threshold": 98010,
+      "dPV_d": {
+        "positive": 79,
+        "zero": 53917,
+        "negative": 44014
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 62099,
+        "negative": 35911,
+        "missing": 0
+      },
+      "s0_fail_count": 20,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": {
+        "n": 23,
+        "tree_index": 1216,
+        "graph6": "V??????????????????????A??F??Co?@E??_[?C?^o?",
+        "root": 17,
+        "parent": 17,
+        "child": 0,
+        "child_pos": 0,
+        "child_arity": 4,
+        "d": 8,
+        "delta_PV_d": 1430,
+        "delta_IU_d": -1667
+      },
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": {
+        "n": 23,
+        "tree_index": 1429,
+        "graph6": "V?????????????????????????F??Co?AE??_]?C?Nw?",
+        "root": 11,
+        "parent": 22,
+        "child": 0,
+        "child_pos": 0,
+        "child_arity": 4,
+        "d": 5,
+        "delta_PV_d": 42,
+        "delta_IU_d": -36
+      },
+      "first_s1_fail_witness": null,
+      "n": 23,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 13.187
+    },
+    {
+      "arity_threshold": 4,
+      "trees_scanned": 3200,
+      "steps_with_descent": 1324026,
+      "steps_meeting_threshold": 109802,
+      "dPV_d": {
+        "positive": 135,
+        "zero": 56426,
+        "negative": 53241
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 66182,
+        "negative": 43620,
+        "missing": 0
+      },
+      "s0_fail_count": 87,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": {
+        "n": 24,
+        "tree_index": 801,
+        "graph6": "W????????????????????_?@??@??F??A[??_w?A?w?O?]?",
+        "root": 16,
+        "parent": 16,
+        "child": 0,
+        "child_pos": 0,
+        "child_arity": 4,
+        "d": 8,
+        "delta_PV_d": 1155,
+        "delta_IU_d": -3368
+      },
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": {
+        "n": 24,
+        "tree_index": 1429,
+        "graph6": "W????????????????????????????F??AW??`_?CBo?O?~o",
+        "root": 1,
+        "parent": 19,
+        "child": 0,
+        "child_pos": 0,
+        "child_arity": 4,
+        "d": 8,
+        "delta_PV_d": 1430,
+        "delta_IU_d": -775
+      },
+      "first_s1_fail_witness": null,
+      "n": 24,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 17.189
+    }
+  ],
+  "combined_summary": {
+    "trees_scanned": 103255,
+    "steps_with_descent": 21235544,
+    "steps_meeting_threshold": 1185156,
+    "dPV_d": {
+      "positive": 2544,
+      "zero": 523499,
+      "negative": 659113
+    },
+    "dPV_dplus1": {
+      "positive": 0,
+      "zero": 728236,
+      "negative": 456920,
+      "missing": 0
+    },
+    "s0_fail_count": 535,
+    "s1_fail_count": 0,
+    "first_positive_d_witness": {
+      "n": 14,
+      "tree_index": 1869,
+      "graph6": "M????A?O@?B?@o{?_",
+      "root": 0,
+      "parent": 0,
+      "child": 13,
+      "child_pos": 1,
+      "child_arity": 4,
+      "d": 4,
+      "delta_PV_d": 5,
+      "delta_IU_d": -5
+    },
+    "first_positive_dplus1_witness": null,
+    "first_s0_fail_witness": {
+      "n": 14,
+      "tree_index": 1870,
+      "graph6": "M????A?O@?B?@ow@_",
+      "root": 0,
+      "parent": 0,
+      "child": 13,
+      "child_pos": 1,
+      "child_arity": 4,
+      "d": 4,
+      "delta_PV_d": 14,
+      "delta_IU_d": -5
+    },
+    "first_s1_fail_witness": null
+  }
+}

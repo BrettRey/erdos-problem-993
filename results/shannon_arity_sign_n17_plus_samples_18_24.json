@@ -1,0 +1,607 @@
+{
+  "generated_at_utc": "2026-02-11T12:37:44.217068+00:00",
+  "description": "Lamport transition sign scan at k=d and k=d+1 for steps with child-root arity >= threshold",
+  "definitions": {
+    "d": "first descent index of IU",
+    "s0_fail": "Delta(PV)_d > -Delta(IU)_d",
+    "s1_fail": "Delta(PV)_{d+1} > -Delta(IU)_{d+1}"
+  },
+  "parameters": {
+    "arity_threshold": 6,
+    "min_n": 1,
+    "max_n": 17,
+    "backend": "geng",
+    "sample_n": [
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "sample_mod": 16,
+    "sample_per_partition": 200
+  },
+  "exhaustive": {
+    "arity_threshold": 6,
+    "trees_scanned": 81137,
+    "steps_with_descent": 14237515,
+    "steps_meeting_threshold": 93916,
+    "dPV_d": {
+      "positive": 0,
+      "zero": 61796,
+      "negative": 32120
+    },
+    "dPV_dplus1": {
+      "positive": 0,
+      "zero": 82941,
+      "negative": 10975,
+      "missing": 0
+    },
+    "s0_fail_count": 0,
+    "s1_fail_count": 0,
+    "first_positive_d_witness": null,
+    "first_positive_dplus1_witness": null,
+    "first_s0_fail_witness": null,
+    "first_s1_fail_witness": null,
+    "range": {
+      "min_n": 1,
+      "max_n": 17
+    },
+    "backend": "geng",
+    "elapsed_s": 104.569,
+    "by_n": [
+      {
+        "n": 1,
+        "elapsed_s": 0.0,
+        "trees_scanned": 1,
+        "steps_meeting_threshold": 0,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 2,
+        "elapsed_s": 0.002,
+        "trees_scanned": 1,
+        "steps_meeting_threshold": 0,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 3,
+        "elapsed_s": 0.002,
+        "trees_scanned": 1,
+        "steps_meeting_threshold": 0,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 4,
+        "elapsed_s": 0.002,
+        "trees_scanned": 2,
+        "steps_meeting_threshold": 0,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 5,
+        "elapsed_s": 0.002,
+        "trees_scanned": 3,
+        "steps_meeting_threshold": 0,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 6,
+        "elapsed_s": 0.002,
+        "trees_scanned": 6,
+        "steps_meeting_threshold": 0,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 7,
+        "elapsed_s": 0.003,
+        "trees_scanned": 11,
+        "steps_meeting_threshold": 0,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 8,
+        "elapsed_s": 0.007,
+        "trees_scanned": 23,
+        "steps_meeting_threshold": 7,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 7,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 7,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 9,
+        "elapsed_s": 0.017,
+        "trees_scanned": 47,
+        "steps_meeting_threshold": 16,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 16,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 16,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 10,
+        "elapsed_s": 0.046,
+        "trees_scanned": 106,
+        "steps_meeting_threshold": 45,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 45,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 45,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 11,
+        "elapsed_s": 0.123,
+        "trees_scanned": 235,
+        "steps_meeting_threshold": 120,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 120,
+          "negative": 0
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 120,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 12,
+        "elapsed_s": 0.349,
+        "trees_scanned": 551,
+        "steps_meeting_threshold": 341,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 327,
+          "negative": 14
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 341,
+          "negative": 0,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 13,
+        "elapsed_s": 0.985,
+        "trees_scanned": 1301,
+        "steps_meeting_threshold": 936,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 870,
+          "negative": 66
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 929,
+          "negative": 7,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 14,
+        "elapsed_s": 2.824,
+        "trees_scanned": 3159,
+        "steps_meeting_threshold": 2678,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 2227,
+          "negative": 451
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 2607,
+          "negative": 71,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 15,
+        "elapsed_s": 8.096,
+        "trees_scanned": 7741,
+        "steps_meeting_threshold": 7504,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 5731,
+          "negative": 1773
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 7038,
+          "negative": 466,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 16,
+        "elapsed_s": 23.503,
+        "trees_scanned": 19320,
+        "steps_meeting_threshold": 21405,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 15353,
+          "negative": 6052
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 19568,
+          "negative": 1837,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      },
+      {
+        "n": 17,
+        "elapsed_s": 68.606,
+        "trees_scanned": 48629,
+        "steps_meeting_threshold": 60864,
+        "dPV_d": {
+          "positive": 0,
+          "zero": 37100,
+          "negative": 23764
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 52270,
+          "negative": 8594,
+          "missing": 0
+        },
+        "s0_fail_count": 0,
+        "s1_fail_count": 0
+      }
+    ]
+  },
+  "stratified_samples": [
+    {
+      "arity_threshold": 6,
+      "trees_scanned": 2918,
+      "steps_with_descent": 660260,
+      "steps_meeting_threshold": 19006,
+      "dPV_d": {
+        "positive": 0,
+        "zero": 13402,
+        "negative": 5604
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 16888,
+        "negative": 2118,
+        "missing": 0
+      },
+      "s0_fail_count": 0,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": null,
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": null,
+      "first_s1_fail_witness": null,
+      "n": 18,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 5.084
+    },
+    {
+      "arity_threshold": 6,
+      "trees_scanned": 3200,
+      "steps_with_descent": 800882,
+      "steps_meeting_threshold": 21672,
+      "dPV_d": {
+        "positive": 0,
+        "zero": 15937,
+        "negative": 5735
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 19882,
+        "negative": 1790,
+        "missing": 0
+      },
+      "s0_fail_count": 0,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": null,
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": null,
+      "first_s1_fail_witness": null,
+      "n": 19,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 6.548
+    },
+    {
+      "arity_threshold": 6,
+      "trees_scanned": 3200,
+      "steps_with_descent": 901814,
+      "steps_meeting_threshold": 27816,
+      "dPV_d": {
+        "positive": 0,
+        "zero": 19721,
+        "negative": 8095
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 24441,
+        "negative": 3375,
+        "missing": 0
+      },
+      "s0_fail_count": 0,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": null,
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": null,
+      "first_s1_fail_witness": null,
+      "n": 20,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 7.514
+    },
+    {
+      "arity_threshold": 6,
+      "trees_scanned": 3200,
+      "steps_with_descent": 991276,
+      "steps_meeting_threshold": 34400,
+      "dPV_d": {
+        "positive": 0,
+        "zero": 24374,
+        "negative": 10026
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 28925,
+        "negative": 5475,
+        "missing": 0
+      },
+      "s0_fail_count": 0,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": null,
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": null,
+      "first_s1_fail_witness": null,
+      "n": 21,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 9.064
+    },
+    {
+      "arity_threshold": 6,
+      "trees_scanned": 3200,
+      "steps_with_descent": 1109486,
+      "steps_meeting_threshold": 42084,
+      "dPV_d": {
+        "positive": 0,
+        "zero": 29680,
+        "negative": 12404
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 34962,
+        "negative": 7122,
+        "missing": 0
+      },
+      "s0_fail_count": 0,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": null,
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": null,
+      "first_s1_fail_witness": null,
+      "n": 22,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 10.673
+    },
+    {
+      "arity_threshold": 6,
+      "trees_scanned": 3200,
+      "steps_with_descent": 1210285,
+      "steps_meeting_threshold": 49258,
+      "dPV_d": {
+        "positive": 0,
+        "zero": 35140,
+        "negative": 14118
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 38825,
+        "negative": 10433,
+        "missing": 0
+      },
+      "s0_fail_count": 0,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": null,
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": null,
+      "first_s1_fail_witness": null,
+      "n": 23,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 12.999
+    },
+    {
+      "arity_threshold": 6,
+      "trees_scanned": 3200,
+      "steps_with_descent": 1324026,
+      "steps_meeting_threshold": 56580,
+      "dPV_d": {
+        "positive": 0,
+        "zero": 36157,
+        "negative": 20423
+      },
+      "dPV_dplus1": {
+        "positive": 0,
+        "zero": 41281,
+        "negative": 15299,
+        "missing": 0
+      },
+      "s0_fail_count": 0,
+      "s1_fail_count": 0,
+      "first_positive_d_witness": null,
+      "first_positive_dplus1_witness": null,
+      "first_s0_fail_witness": null,
+      "first_s1_fail_witness": null,
+      "n": 24,
+      "sampling": {
+        "mod": 16,
+        "per_partition": 200
+      },
+      "elapsed_s": 16.998
+    }
+  ],
+  "combined_summary": {
+    "trees_scanned": 103255,
+    "steps_with_descent": 21235544,
+    "steps_meeting_threshold": 344732,
+    "dPV_d": {
+      "positive": 0,
+      "zero": 236207,
+      "negative": 108525
+    },
+    "dPV_dplus1": {
+      "positive": 0,
+      "zero": 288145,
+      "negative": 56587,
+      "missing": 0
+    },
+    "s0_fail_count": 0,
+    "s1_fail_count": 0,
+    "first_positive_d_witness": null,
+    "first_positive_dplus1_witness": null,
+    "first_s0_fail_witness": null,
+    "first_s1_fail_witness": null
+  }
+}
