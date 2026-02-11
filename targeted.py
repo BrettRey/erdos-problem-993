@@ -285,6 +285,37 @@ def analyze_tree(n: int, adj: list[list[int]], label: str) -> dict:
     }
 
 
+def _strip_poly(result: dict) -> dict:
+    """Drop polynomial payload unless needed for a counterexample."""
+    if result.get("unimodal", True):
+        result.pop("poly", None)
+    return result
+
+
+def _summarize_family(results: list[dict]) -> dict:
+    """Summarize a family run for reproducibility outputs."""
+    total = len(results)
+    lc_fail = sum(1 for r in results if not r["log_concave"])
+    non_uni = sum(1 for r in results if not r["unimodal"])
+    if results:
+        best = max(results, key=lambda r: r["nm_ratio"])
+        best_nm = best["nm_ratio"]
+        best_label = best["label"]
+        best_n = best["n"]
+    else:
+        best_nm = None
+        best_label = None
+        best_n = None
+    return {
+        "count": total,
+        "lc_failures": lc_fail,
+        "non_unimodal": non_uni,
+        "best_nm": best_nm,
+        "best_label": best_label,
+        "best_n": best_n,
+    }
+
+
 def run_galvin_family(max_n: int) -> list[dict]:
     """Scan T_{m,t,1} for all feasible (m,t) up to max_n vertices."""
     results = []
@@ -297,6 +328,7 @@ def run_galvin_family(max_n: int) -> list[dict]:
                 break
             n_tree, adj = make_T_m_t_1(m, t)
             result = analyze_tree(n_tree, adj, f"T_{{{m},{t},1}}")
+            _strip_poly(result)
             results.append(result)
             if not result["log_concave"]:
                 flag = "*** NON-UNIMODAL ***" if not result["unimodal"] else "LC-fail"
@@ -337,6 +369,7 @@ def run_generalized_sst(max_n: int) -> list[dict]:
                     break
                 n_tree, adj = make_T_m_t_d(m, t, d)
                 result = analyze_tree(n_tree, adj, f"T_{{{m},{t},{d}}}")
+                _strip_poly(result)
                 results.append(result)
                 if not result["log_concave"]:
                     flag = "*** NON-UNIMODAL ***" if not result["unimodal"] else "LC-fail"
@@ -363,6 +396,7 @@ def run_caterpillars(max_n: int) -> list[dict]:
             pendants = [k] * spine
             n_tree, adj = make_caterpillar(spine, pendants)
             result = analyze_tree(n_tree, adj, f"cat({spine},[{k}]*{spine})")
+            _strip_poly(result)
             results.append(result)
 
     # Alternating pendant patterns
@@ -376,6 +410,7 @@ def run_caterpillars(max_n: int) -> list[dict]:
                 n_tree, adj = make_caterpillar(spine, pendants)
                 label = f"cat({spine},[{k1},{k2}]alt)"
                 result = analyze_tree(n_tree, adj, label)
+                _strip_poly(result)
                 results.append(result)
 
     # Random pendant patterns
@@ -387,6 +422,7 @@ def run_caterpillars(max_n: int) -> list[dict]:
             continue
         n_tree, adj = make_caterpillar(spine, pendants)
         result = analyze_tree(n_tree, adj, f"cat_rand({spine})")
+        _strip_poly(result)
         results.append(result)
 
     # Report any interesting ones
@@ -412,6 +448,7 @@ def run_spiders_and_brooms(max_n: int) -> list[dict]:
             legs = [leg_len] * num_legs
             n_tree, adj = make_spider(legs)
             result = analyze_tree(n_tree, adj, f"spider({num_legs}x{leg_len})")
+            _strip_poly(result)
             results.append(result)
 
     # Mixed-leg spiders
@@ -423,6 +460,7 @@ def run_spiders_and_brooms(max_n: int) -> list[dict]:
             legs = [2] * n2 + [3] * n3
             n_tree, adj = make_spider(legs)
             result = analyze_tree(n_tree, adj, f"spider({n2}x2+{n3}x3)")
+            _strip_poly(result)
             results.append(result)
 
     # Brooms
@@ -433,6 +471,7 @@ def run_spiders_and_brooms(max_n: int) -> list[dict]:
                 break
             n_tree, adj = make_broom(path_len, star_size)
             result = analyze_tree(n_tree, adj, f"broom({path_len},{star_size})")
+            _strip_poly(result)
             results.append(result)
 
     for r in results:
@@ -456,6 +495,7 @@ def run_random_ramos_sun(max_n: int, count: int = 5000) -> list[dict]:
         if not result["unimodal"]:
             print(f"  *** NON-UNIMODAL: {result['label']} ***")
             print(f"      poly = {result['poly']}")
+        _strip_poly(result)
 
     # Report top log-concavity failures
     lc_fails = [r for r in results if not r["log_concave"]]
@@ -490,6 +530,7 @@ def main():
     print(f"{'='*70}\n", flush=True)
 
     all_results = []
+    family_summaries: dict[str, dict] = {}
 
     # 1. Galvin's T_{m,t,1}
     print("1. Galvin spherically symmetric trees T_{{m,t,1}}...", flush=True)
@@ -497,6 +538,7 @@ def main():
     galvin = run_galvin_family(args.max_n)
     all_results.extend(galvin)
     lc_fails = sum(1 for r in galvin if not r["log_concave"])
+    family_summaries["galvin_T_m_t_1"] = _summarize_family(galvin)
     print(f"   {len(galvin)} trees tested, {lc_fails} LC failures, "
           f"{time.time()-t0:.1f}s\n", flush=True)
 
@@ -506,6 +548,7 @@ def main():
     gen_sst = run_generalized_sst(args.max_n)
     all_results.extend(gen_sst)
     lc_fails = sum(1 for r in gen_sst if not r["log_concave"])
+    family_summaries["generalized_T_m_t_d"] = _summarize_family(gen_sst)
     print(f"   {len(gen_sst)} trees tested, {lc_fails} LC failures, "
           f"{time.time()-t0:.1f}s\n", flush=True)
 
@@ -515,6 +558,7 @@ def main():
     cats = run_caterpillars(args.max_n)
     all_results.extend(cats)
     lc_fails = sum(1 for r in cats if not r["log_concave"])
+    family_summaries["caterpillars"] = _summarize_family(cats)
     print(f"   {len(cats)} trees tested, {lc_fails} LC failures, "
           f"{time.time()-t0:.1f}s\n", flush=True)
 
@@ -524,6 +568,7 @@ def main():
     sb = run_spiders_and_brooms(args.max_n)
     all_results.extend(sb)
     lc_fails = sum(1 for r in sb if not r["log_concave"])
+    family_summaries["spiders_and_brooms"] = _summarize_family(sb)
     print(f"   {len(sb)} trees tested, {lc_fails} LC failures, "
           f"{time.time()-t0:.1f}s\n", flush=True)
 
@@ -533,6 +578,7 @@ def main():
     rs = run_random_ramos_sun(args.max_n, args.random_count)
     all_results.extend(rs)
     lc_fails = sum(1 for r in rs if not r["log_concave"])
+    family_summaries["random_ramos_sun"] = _summarize_family(rs)
     print(f"   {len(rs)} trees tested, {lc_fails} LC failures, "
           f"{time.time()-t0:.1f}s\n", flush=True)
 
@@ -579,6 +625,29 @@ def main():
             "top_results": save_results,
         }, f, indent=2)
     print(f"\nResults saved to {path}")
+
+    fam_path = "results/targeted_families.json"
+    with open(fam_path, "w") as f:
+        json.dump(
+            {
+                "description": "Per-family summary for targeted.py runs",
+                "source": {
+                    "script": "targeted.py",
+                    "max_n": args.max_n,
+                    "random_count": args.random_count,
+                },
+                "seed": 42,
+                "families": family_summaries,
+                "totals": {
+                    "total_tested": total,
+                    "lc_failures": total_lc_fail,
+                    "non_unimodal": total_non_uni,
+                },
+            },
+            f,
+            indent=2,
+        )
+    print(f"Per-family summary saved to {fam_path}")
 
 
 if __name__ == "__main__":

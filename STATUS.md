@@ -13,7 +13,7 @@ This status mirrors the current manuscript in `paper/main.tex`. Numeric snapshot
 
 ### Exhaustive verification through n = 26
 
-The manuscript reports no unimodality violations among all 447,399,080 non-isomorphic trees on `n <= 26` vertices. Tree counts match OEIS A000055.
+The manuscript reports no unimodality violations among all 447,672,596 non-isomorphic trees on `n <= 26` vertices. Tree counts match OEIS A000055.
 
 | n | Trees | Time |
 |---|------:|------:|
@@ -29,7 +29,7 @@ The manuscript reports no unimodality violations among all 447,399,080 non-isomo
 | 24 | 39,299,897 | 12m 5s |
 | 25 | 104,636,890 | 38m 33s |
 | 26 | 279,793,450 | 4h 51m |
-| **Total** | **447,399,080** | |
+| **Total** | **447,672,596** | |
 
 Additional n=26 details from the manuscript:
 - Exactly 2 log-concavity failures (both at k = 13).
@@ -71,7 +71,9 @@ The data are consistent with `nm(s) = 1 - C/s + O(1/s^2)` and `C ~ 4.12`.
 
 - `results/analysis_n26.json` contains the n=26 exhaustive LC and near-miss summary.
 - `results/analysis_n15.json` contains a smaller-scope exhaustive summary.
-- `results/targeted_n500.json` contains the targeted search totals and top near-misses (no per-family breakdown saved).
+- `results/targeted_n500.json` contains the targeted search totals and top near-misses.
+- `results/targeted_families.json` contains the per-family summary for the targeted search.
+- `results/two_branch_lc_n24.json` contains the exhaustive C2 scan (`#{v:deg(v)>=3} <= 2`) through `n=24`: 196,635 C2 trees, 0 LC failures, worst LC ratio `0.846153846...`.
 - `out_erdos993/*.json` contains heuristic/parallel search progress logs and sweeps.
 
 The broom asymptotic table above is not saved to disk; reproduce it with `python broom_asymptotic.py`.
@@ -99,7 +101,7 @@ python broom_asymptotic.py
 
 ## Open directions (from manuscript)
 
-1. Prove broom unimodality analytically via the closed-form broom polynomial.
+1. Prove an elementary broom-unimodality argument independent of the spider theorem, or extend log-concavity proofs to larger structural classes (e.g., trees with at most two branch vertices) via transfer-matrix or rooted-pair invariants.
 2. Extend exhaustive search to n = 27 (about 751M trees; current Python code estimated at 12–15 hours on 8 cores).
 3. Adapt PatternBoost-style search to optimize near-miss ratio rather than log-concavity failure.
 
@@ -109,3 +111,4 @@ python broom_asymptotic.py
 - Galvin (2025) constructed subdivided-star families with log-concavity failures deep in the sequence.
 - Ramos & Sun (2025) used PatternBoost to find many log-concavity failures up to n = 101 with no unimodality failures.
 - Levit & Mandrescu (2006) proved a monotone tail bound for independence sequences of trees.
+- Li, Li, Yang, and Zhang (2025) proved all spiders are strongly log-concave, implying broom log-concavity.

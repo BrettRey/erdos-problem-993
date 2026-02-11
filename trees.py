@@ -52,11 +52,10 @@ def trees_geng(
     if res is not None and mod is not None:
         cmd.extend([f"{res}/{mod}"])
 
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
-    assert proc.stdout is not None
-    for line in proc.stdout:
-        yield parse_graph6(line)
-    proc.wait()
+    with subprocess.Popen(cmd, stdout=subprocess.PIPE) as proc:
+        assert proc.stdout is not None
+        for line in proc.stdout:
+            yield parse_graph6(line)
 
 
 def trees_geng_raw(
@@ -68,12 +67,11 @@ def trees_geng_raw(
     if res is not None and mod is not None:
         cmd.extend([f"{res}/{mod}"])
 
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
-    assert proc.stdout is not None
-    for line in proc.stdout:
-        n_out, adj = parse_graph6(line)
-        yield (n_out, adj, line.strip())
-    proc.wait()
+    with subprocess.Popen(cmd, stdout=subprocess.PIPE) as proc:
+        assert proc.stdout is not None
+        for line in proc.stdout:
+            n_out, adj = parse_graph6(line)
+            yield (n_out, adj, line.strip())
 
 
 def trees_networkx(n: int) -> Iterator[tuple[int, list[list[int]]]]:

@@ -19,6 +19,36 @@ from graph6 import parse_graph6
 from indpoly import independence_poly, is_unimodal
 from trees import trees, trees_geng
 
+# OEIS A000055: number of unlabeled trees on n vertices (n=1..26).
+A000055_COUNTS: dict[int, int] = {
+    1: 1,
+    2: 1,
+    3: 1,
+    4: 2,
+    5: 3,
+    6: 6,
+    7: 11,
+    8: 23,
+    9: 47,
+    10: 106,
+    11: 235,
+    12: 551,
+    13: 1301,
+    14: 3159,
+    15: 7741,
+    16: 19320,
+    17: 48629,
+    18: 123867,
+    19: 317955,
+    20: 823065,
+    21: 2144505,
+    22: 5623756,
+    23: 14828074,
+    24: 39299897,
+    25: 104636890,
+    26: 279793450,
+}
+
 
 def check_tree(args: tuple[int, list[list[int]]]) -> tuple[bool, list[int]] | None:
     """Check a single tree. Returns (False, poly) if non-unimodal, else None."""
@@ -136,6 +166,12 @@ def main():
 
         elapsed = time.time() - t0
         grand_total += count
+
+        expected = A000055_COUNTS.get(n)
+        if expected is not None and count != expected:
+            raise RuntimeError(
+                f"Tree count mismatch for n={n}: got {count:,}, expected {expected:,} (OEIS A000055)"
+            )
 
         if counterexample is not None:
             print(f"\n*** COUNTEREXAMPLE FOUND at n = {n} ***")

@@ -44,6 +44,8 @@ import time
 from collections import deque
 from typing import List, Tuple, Optional, Dict, Any
 
+from indpoly import is_unimodal
+
 # Optional numpy acceleration for polynomial multiplication.
 try:
     import numpy as _np  # type: ignore
@@ -100,16 +102,6 @@ def poly_pow(p: List[int], e: int) -> List[int]:
         if exp:
             base = poly_mul(base, base)
     return out
-
-def is_unimodal(seq: List[int]) -> bool:
-    # unimodal allowing plateaus: nondecreasing then nonincreasing
-    n = len(seq)
-    i = 0
-    while i + 1 < n and seq[i] <= seq[i + 1]:
-        i += 1
-    while i + 1 < n and seq[i] >= seq[i + 1]:
-        i += 1
-    return i == n - 1
 
 def first_unimodality_break(seq: List[int]) -> Optional[Dict[str, int]]:
     """

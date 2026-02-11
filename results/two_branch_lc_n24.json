@@ -1,0 +1,304 @@
+{
+  "generated_at_utc": "2026-02-11T00:48:58.586615+00:00",
+  "class_definition": "C2 = trees with at most two branch vertices (degree >= 3)",
+  "range": {
+    "min_n": 1,
+    "max_n": 24
+  },
+  "backend": "auto",
+  "by_n": [
+    {
+      "n": 1,
+      "total_trees": 1,
+      "c2_trees": 1,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.0
+    },
+    {
+      "n": 2,
+      "total_trees": 1,
+      "c2_trees": 1,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.009
+    },
+    {
+      "n": 3,
+      "total_trees": 1,
+      "c2_trees": 1,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.003
+    },
+    {
+      "n": 4,
+      "total_trees": 2,
+      "c2_trees": 2,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.003
+    },
+    {
+      "n": 5,
+      "total_trees": 3,
+      "c2_trees": 3,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.003
+    },
+    {
+      "n": 6,
+      "total_trees": 6,
+      "c2_trees": 6,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.003
+    },
+    {
+      "n": 7,
+      "total_trees": 11,
+      "c2_trees": 11,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.002
+    },
+    {
+      "n": 8,
+      "total_trees": 23,
+      "c2_trees": 22,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.003
+    },
+    {
+      "n": 9,
+      "total_trees": 47,
+      "c2_trees": 42,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.005
+    },
+    {
+      "n": 10,
+      "total_trees": 106,
+      "c2_trees": 82,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.006
+    },
+    {
+      "n": 11,
+      "total_trees": 235,
+      "c2_trees": 151,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.011
+    },
+    {
+      "n": 12,
+      "total_trees": 551,
+      "c2_trees": 275,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.02
+    },
+    {
+      "n": 13,
+      "total_trees": 1301,
+      "c2_trees": 482,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.038
+    },
+    {
+      "n": 14,
+      "total_trees": 3159,
+      "c2_trees": 828,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.072
+    },
+    {
+      "n": 15,
+      "total_trees": 7741,
+      "c2_trees": 1380,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.145
+    },
+    {
+      "n": 16,
+      "total_trees": 19320,
+      "c2_trees": 2260,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.321
+    },
+    {
+      "n": 17,
+      "total_trees": 48629,
+      "c2_trees": 3616,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 0.72
+    },
+    {
+      "n": 18,
+      "total_trees": 123867,
+      "c2_trees": 5697,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 1.734
+    },
+    {
+      "n": 19,
+      "total_trees": 317955,
+      "c2_trees": 8816,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 4.387
+    },
+    {
+      "n": 20,
+      "total_trees": 823065,
+      "c2_trees": 13463,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 11.861
+    },
+    {
+      "n": 21,
+      "total_trees": 2144505,
+      "c2_trees": 20267,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 31.471
+    },
+    {
+      "n": 22,
+      "total_trees": 5623756,
+      "c2_trees": 30170,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 86.99
+    },
+    {
+      "n": 23,
+      "total_trees": 14828074,
+      "c2_trees": 44385,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 255.862
+    },
+    {
+      "n": 24,
+      "total_trees": 39299897,
+      "c2_trees": 64674,
+      "lc_failures": 0,
+      "strict_lc_failures": 0,
+      "unimodality_failures": 0,
+      "elapsed_s": 754.219
+    }
+  ],
+  "totals": {
+    "total_trees": 63242256,
+    "c2_trees": 196635,
+    "lc_failures": 0,
+    "strict_lc_failures": 0,
+    "unimodality_failures": 0
+  },
+  "worst_lc_ratio": {
+    "ratio": 0.8461538461538461,
+    "n": 24,
+    "branch_vertices": 1,
+    "lc_pos": 11,
+    "nm_ratio": 0.7142857142857143,
+    "nm_pos": 13,
+    "poly": [
+      1,
+      24,
+      253,
+      1771,
+      8855,
+      33649,
+      100947,
+      245157,
+      490314,
+      817190,
+      1144066,
+      1352078,
+      1352078,
+      1144066,
+      817190,
+      490314,
+      245157,
+      100947,
+      33649,
+      8855,
+      1771,
+      253,
+      23,
+      1
+    ]
+  },
+  "worst_near_miss_ratio": {
+    "ratio": 0.8333286081232032,
+    "n": 23,
+    "branch_vertices": 2,
+    "nm_pos": 11,
+    "lc_ratio": 0.8334986966394826,
+    "lc_pos": 10,
+    "poly": [
+      1,
+      23,
+      231,
+      1420,
+      6225,
+      20769,
+      54768,
+      116700,
+      203730,
+      294020,
+      352736,
+      352718,
+      293930,
+      203490,
+      116280,
+      54264,
+      20349,
+      5985,
+      1330,
+      210,
+      21,
+      1
+    ]
+  },
+  "lc_failures": [],
+  "strict_lc_failures": [],
+  "unimodality_failures": [],
+  "elapsed_total_s": 1147.889
+}

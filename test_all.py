@@ -1,9 +1,16 @@
 """Tests for the Erdős Problem #993 search code."""
 
+import shutil
 import unittest
 
 from graph6 import parse_graph6
-from indpoly import independence_poly, is_unimodal
+from indpoly import (
+    independence_poly,
+    is_log_concave,
+    is_unimodal,
+    log_concavity_ratio,
+    near_miss_ratio,
+)
 from trees import trees
 
 
@@ -139,6 +146,34 @@ class TestUnimodality(unittest.TestCase):
         self.assertFalse(is_unimodal([3, 3, 2, 3]))
 
 
+class TestLogConcavityAndNearMiss(unittest.TestCase):
+    """Test log-concavity and near-miss utilities."""
+
+    def test_log_concave_true(self):
+        self.assertTrue(is_log_concave([1, 4, 6, 4, 1]))
+
+    def test_log_concave_false(self):
+        self.assertFalse(is_log_concave([1, 1, 2]))
+
+    def test_log_concavity_ratio(self):
+        ratio, pos = log_concavity_ratio([1, 1, 2])
+        self.assertEqual(pos, 1)
+        self.assertAlmostEqual(ratio, 2.0)
+
+    def test_near_miss_monotone(self):
+        self.assertEqual(near_miss_ratio([1, 2, 3]), (0.0, -1))
+
+    def test_near_miss_unimodal(self):
+        ratio, pos = near_miss_ratio([1, 3, 2, 1])
+        self.assertEqual(pos, 2)
+        self.assertAlmostEqual(ratio, 0.5)
+
+    def test_near_miss_violation(self):
+        ratio, pos = near_miss_ratio([1, 3, 2, 4])
+        self.assertEqual(pos, 2)
+        self.assertAlmostEqual(ratio, 2.0)
+
+
 class TestTrees(unittest.TestCase):
     """Test tree enumeration."""
 
@@ -188,6 +223,23 @@ class TestIntegration(unittest.TestCase):
             )
             count += 1
         self.assertEqual(count, 106)
+
+
+class TestCrossBackend(unittest.TestCase):
+    """Cross-check geng vs networkx on small n (if geng available)."""
+
+    @unittest.skipUnless(shutil.which("geng"), "geng not available")
+    def test_geng_vs_networkx_polys_n8_n10(self):
+        for n in [8, 10]:
+            polys_geng = sorted(
+                tuple(independence_poly(n, adj))
+                for n, adj in trees(n, backend="geng")
+            )
+            polys_nx = sorted(
+                tuple(independence_poly(n, adj))
+                for n, adj in trees(n, backend="networkx")
+            )
+            self.assertEqual(polys_geng, polys_nx)
 
 
 if __name__ == "__main__":

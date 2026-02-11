@@ -20,7 +20,7 @@ This is known to be false for general graphs. The tree case remains open.
 ## Status (manuscript)
 
 The manuscript in `paper/main.tex` reports:
-- Exhaustive verification for all trees with `n <= 26` (447,399,080 trees), with no unimodality violations and exactly two log-concavity failures at `n = 26`.
+- Exhaustive verification for all trees with `n <= 26` (447,672,596 trees), with no unimodality violations and exactly two log-concavity failures at `n = 26`.
 - Targeted search of 145,362 trees across five structured families up to `n = 500`, with no unimodality violations and best near-miss ratio `~0.9917` from brooms.
 - Broom asymptotics consistent with `nm(s) = 1 - C/s + O(1/s^2)` and `C ~ 4.12` for `p = 13`.
 
