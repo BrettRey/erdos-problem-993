@@ -1,0 +1,138 @@
+{
+  "generated_at_utc": "2026-02-11T13:11:05.732962+00:00",
+  "description": "Lamport transition sign scan at k=d and k=d+1 for steps with child-root arity >= threshold",
+  "definitions": {
+    "d": "first descent index of IU",
+    "s0_fail": "Delta(PV)_d > -Delta(IU)_d",
+    "s1_fail": "Delta(PV)_{d+1} > -Delta(IU)_{d+1}"
+  },
+  "parameters": {
+    "arity_threshold": 5,
+    "min_n": 18,
+    "max_n": 18,
+    "backend": "geng",
+    "sample_n": [],
+    "sample_mod": 16,
+    "sample_per_partition": 200
+  },
+  "exhaustive": {
+    "arity_threshold": 5,
+    "trees_scanned": 123867,
+    "steps_with_descent": 26609249,
+    "steps_meeting_threshold": 471274,
+    "dPV_d": {
+      "positive": 100,
+      "zero": 195094,
+      "negative": 276080
+    },
+    "dPV_dplus1": {
+      "positive": 0,
+      "zero": 295134,
+      "negative": 176140,
+      "missing": 0
+    },
+    "s0_fail_count": 16,
+    "s1_fail_count": 0,
+    "first_positive_d_witness": {
+      "n": 18,
+      "tree_index": 45706,
+      "graph6": "Q?????????O?O?G?B??K??]Bc?g",
+      "root": 7,
+      "parent": 16,
+      "child": 17,
+      "child_pos": 3,
+      "child_arity": 5,
+      "d": 5,
+      "delta_PV_d": 14,
+      "delta_IU_d": -22
+    },
+    "first_positive_dplus1_witness": null,
+    "first_s0_fail_witness": {
+      "n": 18,
+      "tree_index": 45707,
+      "graph6": "Q?????????O?O?G?B??K??]B_?w",
+      "root": 7,
+      "parent": 16,
+      "child": 17,
+      "child_pos": 3,
+      "child_arity": 5,
+      "d": 5,
+      "delta_PV_d": 42,
+      "delta_IU_d": -22
+    },
+    "first_s1_fail_witness": null,
+    "range": {
+      "min_n": 18,
+      "max_n": 18
+    },
+    "backend": "geng",
+    "elapsed_s": 207.882,
+    "by_n": [
+      {
+        "n": 18,
+        "elapsed_s": 207.882,
+        "trees_scanned": 123867,
+        "steps_meeting_threshold": 471274,
+        "dPV_d": {
+          "positive": 100,
+          "zero": 195094,
+          "negative": 276080
+        },
+        "dPV_dplus1": {
+          "positive": 0,
+          "zero": 295134,
+          "negative": 176140,
+          "missing": 0
+        },
+        "s0_fail_count": 16,
+        "s1_fail_count": 0
+      }
+    ]
+  },
+  "combined_summary": {
+    "trees_scanned": 123867,
+    "steps_with_descent": 26609249,
+    "steps_meeting_threshold": 471274,
+    "dPV_d": {
+      "positive": 100,
+      "zero": 195094,
+      "negative": 276080
+    },
+    "dPV_dplus1": {
+      "positive": 0,
+      "zero": 295134,
+      "negative": 176140,
+      "missing": 0
+    },
+    "s0_fail_count": 16,
+    "s1_fail_count": 0,
+    "first_positive_d_witness": {
+      "n": 18,
+      "tree_index": 45706,
+      "graph6": "Q?????????O?O?G?B??K??]Bc?g",
+      "root": 7,
+      "parent": 16,
+      "child": 17,
+      "child_pos": 3,
+      "child_arity": 5,
+      "d": 5,
+      "delta_PV_d": 14,
+      "delta_IU_d": -22
+    },
+    "first_positive_dplus1_witness": null,
+    "first_s0_fail_witness": {
+      "n": 18,
+      "tree_index": 45707,
+      "graph6": "Q?????????O?O?G?B??K??]B_?w",
+      "root": 7,
+      "parent": 16,
+      "child": 17,
+      "child_pos": 3,
+      "child_arity": 5,
+      "d": 5,
+      "delta_PV_d": 42,
+      "delta_IU_d": -22
+    },
+    "first_s1_fail_witness": null
+  }
+}

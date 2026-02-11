@@ -501,6 +501,57 @@ Focused obstruction shape:
 So after proving \(r\ge 6\) safety, the unresolved \(k=d\) obstruction appears
 to be a finite low-arity catalog, with \(r=5\) already nearly atomic.
 
+### Exhaustive \(n=18\) extension (new)
+
+We extended the threshold scan exhaustively to \(n=18\):
+
+- `results/shannon_arity_sign_n18_exhaustive_r5.json`:
+  \(r\ge 5\), `steps_thr = 471274`, `s0_fail = 16`, `s1_fail = 0`.
+- `results/shannon_arity_sign_n18_exhaustive_r6.json`:
+  \(r\ge 6\), `steps_thr = 174369`, `s0_fail = 0`, `s1_fail = 0`.
+
+So at \(n=18\), all threshold-\(r\ge 5\) boundary failures are still confined to
+arity \(5\), while arity \(\ge 6\) remains clean.
+
+Focused boundary catalog through \(n\le 18\):
+`results/shannon_boundary_fail_catalog_n18_focus5.json`.
+
+- total arity-5 boundary failures: `22` (`n=17:6`, `n=18:16`);
+- arity-5 failures occur in `4` trees total:
+  - `P???????C?G?G?E??o?B_w?[` (count `6`, n=17),
+  - `Q?????????O?O?G?B??M??MB_?w` (count `6`, n=18),
+  - `Q?????????O?O?K?@_?E??MB?@w` (count `6`, n=18),
+  - `Q?????????O?O?G?B??K??]B_?w` (count `4`, n=18).
+
+This keeps the same closure story:
+prove \(r\ge 6\) safety generically, then treat \(r=5\) as a very small explicit
+exception family, and handle \(r\le 4\) separately.
+
+### Exhaustive \(n=19\) extension (new)
+
+We further extended threshold scans exhaustively to \(n=19\):
+
+- `results/shannon_arity_sign_n19_exhaustive_r6.json`:
+  \(r\ge 6\), `steps_thr = 499536`, `s0_fail = 0`, `s1_fail = 0`.
+- `results/shannon_arity_sign_n19_exhaustive_r5.json`:
+  \(r\ge 5\), `steps_thr = 1358388`, `s0_fail = 36`, `s1_fail = 0`.
+
+So the same split persists at \(n=19\): arity \(\ge 6\) remains clean, while
+remaining boundary failures at threshold \(r\ge 5\) are still at \(r=5\).
+
+Focused arity-5 catalog through \(n\le 19\):
+`results/shannon_boundary_fail_catalog_n19_focus5.json`.
+
+- arity-5 boundary failures total: `58`, with by-\(n\) counts
+  `n=17:6`, `n=18:16`, `n=19:36`;
+- arity-5 failures occur in `12` witness trees (graph6 listed in artifact);
+- max observed arity-5 boundary gap: `96` at
+  `R???????????_?O?C??o?@_?@{F??w` (n=19).
+
+Empirical status of Candidate H6 is now:
+exhaustive through \(n=19\) and sampled for \(n=20,\dots,24\), with no
+\(r\ge 6\) boundary failures observed.
+
 ### Repro command
 
 ```bash
@@ -589,6 +640,48 @@ python notes/shannon_boundary_fail_catalog.py \
   --max-n 17 --backend geng \
   --focus-arities 4,5 \
   --out results/shannon_boundary_fail_catalog_n17.json
+```
+
+Exhaustive \(n=18\) threshold extension:
+```bash
+python notes/shannon_arity_sign_scan.py \
+  --arity-threshold 5 \
+  --min-n 18 --max-n 18 --backend geng \
+  --out results/shannon_arity_sign_n18_exhaustive_r5.json
+
+python notes/shannon_arity_sign_scan.py \
+  --arity-threshold 6 \
+  --min-n 18 --max-n 18 --backend geng \
+  --out results/shannon_arity_sign_n18_exhaustive_r6.json
+```
+
+Focused arity-5 catalog through \(n\le 18\):
+```bash
+python notes/shannon_boundary_fail_catalog.py \
+  --max-n 18 --backend geng \
+  --focus-arities 5 \
+  --out results/shannon_boundary_fail_catalog_n18_focus5.json
+```
+
+Exhaustive \(n=19\) threshold extension:
+```bash
+python notes/shannon_arity_sign_scan.py \
+  --arity-threshold 6 \
+  --min-n 19 --max-n 19 --backend geng \
+  --out results/shannon_arity_sign_n19_exhaustive_r6.json
+
+python notes/shannon_arity_sign_scan.py \
+  --arity-threshold 5 \
+  --min-n 19 --max-n 19 --backend geng \
+  --out results/shannon_arity_sign_n19_exhaustive_r5.json
+```
+
+Focused arity-5 catalog through \(n\le 19\):
+```bash
+python notes/shannon_boundary_fail_catalog.py \
+  --max-n 19 --backend geng \
+  --focus-arities 5 \
+  --out results/shannon_boundary_fail_catalog_n19_focus5.json
 ```
 
 ### Order-sensitivity stress test
