@@ -74,6 +74,7 @@ The data are consistent with `nm(s) = 1 - C/s + O(1/s^2)` and `C ~ 4.12`.
 - `results/targeted_n500.json` contains the targeted search totals and top near-misses.
 - `results/targeted_families.json` contains the per-family summary for the targeted search.
 - `results/two_branch_lc_n24.json` contains the exhaustive C2 scan (`#{v:deg(v)>=3} <= 2`) through `n=24`: 196,635 C2 trees, 0 LC failures, worst LC ratio `0.846153846...`.
+- `results/squeeze_n12_networkx.json` and `results/squeeze_n20_geng.json` contain squeeze scans (first descent vs. Levit–Mandrescu tail). Through n=20 the strict condition “first descent >= tail start” fails, with worst margin `-2`.
 - `out_erdos993/*.json` contains heuristic/parallel search progress logs and sweeps.
 
 The broom asymptotic table above is not saved to disk; reproduce it with `python broom_asymptotic.py`.
