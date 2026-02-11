@@ -105,27 +105,41 @@ Additional empirical facts (n <= 10 exhaustive; random larger tests):
   - The added term A(x) = Q_u Q_v + x P_u P_v is log-concave and unimodal.
   - The first descent index of I(T') is never earlier than that of I(T).
   - A(x) is nondecreasing up to the first descent of I(T).
+  - The tail inequality ΔA_k <= -ΔI_k for all k >= d(I)+1 held for all
+    subdivisions through n = 19.
+  - The boundary inequality at k = d(I) is false (see counterexample below).
 
 These suggest that subdivision “delays” the peak rather than creating a valley,
 but this is only evidence; not a proof.
 
-## Boundary reduction lemma (subdivision)
+## Tail reduction lemma (subdivision)
 
 Let d = d(I(T)) be the first descent index of I(T), and let A(x)=I(T')-I(T).
 If
 
   (1) d(A) >= d, and
-  (2) ΔA_d <= -ΔI_d,
+  (2) ΔA_k <= -ΔI_k for all k >= d+1,
 
 then I(T') is unimodal.
 
 Sketch: for k <= d-2, (1) implies ΔA_k >= 0 and unimodality of I(T) gives
-ΔI_k >= 0, so Δ(I+A)_k >= 0. For k >= d, condition (2) and monotonicity of
-ΔI_k yield Δ(I+A)_k <= 0. The only free index is k=d-1, which does not create
-a valley given the sign pattern on either side.
+ΔI_k >= 0, so Δ(I+A)_k >= 0. For k >= d+1, condition (2) yields
+Δ(I+A)_k <= 0. The only free index is k=d-1, which does not create a valley
+given the sign pattern on either side.
 
-This reduces subdivision preservation to one boundary inequality plus
-mode-ordering of A.
+This reduces subdivision preservation to a tail inequality plus mode-ordering
+of A (no boundary condition at k=d is required).
+
+### Boundary inequality is false (small counterexample)
+
+The boundary condition ΔA_d <= -ΔI_d fails for T = K_{1,3} when subdividing
+a leaf edge:
+
+  I(T) = 1 + 4x + 3x^2 + x^3, so d(I)=1 and ΔI_1 = -1.
+  A(x) = x + 3x^2 + x^3, so ΔA_1 = 2.
+
+Thus ΔA_d = 2 \nleq 1 = -ΔI_d. This shows the boundary inequality at k=d
+cannot be used as a general criterion.
 
 ### New inequality candidate (tested n <= 12 exhaustive)
 

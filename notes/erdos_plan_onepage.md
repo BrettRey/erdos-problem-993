@@ -128,9 +128,10 @@ core class plus bounded leaf-load checks.
 
 1) `notes/subdivision_lemma.md`:
    - proved exact identity \(I(T') = I(T) + Q_uQ_v + xP_uP_v\),
-   - proved coefficientwise bound \(A \le (1+x)I(T)\),
-   - still missing: first-difference dominance or mode-ordering strong enough
-     to conclude \(I(T)+A\) is always unimodal.
+   - proved coefficientwise bound \(A \le x I(T)\),
+   - boundary inequality at \(k=d(I)\) is false (small star counterexample),
+   - tail dominance \(\Delta A_k \le -\Delta I_k\) for \(k\ge d+1\) holds
+     empirically through n=19 but lacks a proof.
 
 2) `notes/lamport_transition.md`:
    - proved restricted mode-ordering lemma (broom root + leaf child),
@@ -143,8 +144,9 @@ core class plus bounded leaf-load checks.
    - the viable route is class-restricted closure plus one boundary inequality
      for the final sum.
 
-Common gap across all three routes: a local inequality at the first bad index
-plus a structural reduction to the leaf-heavy obstruction class.
+Common gap across all three routes: a local inequality controlling the tail
+(after first descent) plus a structural reduction to the leaf-heavy obstruction
+class.
 
 ---
 
