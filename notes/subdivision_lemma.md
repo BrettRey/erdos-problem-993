@@ -36,8 +36,8 @@ cannot introduce a new valley when added to I(T).
 
 Empirical observations (checked for all roots on n <= 10 trees and random
 trees up to n=50):
-  - P_u and Q_u/x are log-concave for every rooted tree.
-  - Consequently, P_u P_v and Q_u Q_v are log-concave (Hoggar).
+  - P_u and B_u := Q_u/x are log-concave in these small tests.
+  - Consequently, P_u P_v and Q_u Q_v are log-concave (Hoggar) in those tests.
 
 The challenge is that a sum of log-concave sequences need not be unimodal.
 We likely need a structural inequality relating the modes or first differences
@@ -63,6 +63,17 @@ Implication for rooted pairs: if B_T := Q_T / x is log-concave, then
 but it still leaves the main obstruction: sums of log-concave sequences
 can fail unimodality without an additional mode-ordering or difference
 dominance lemma.
+
+### Obstruction: B_T is not log-concave in general
+
+The property “B_T is log-concave for every rooted tree” is false.
+If F is any tree whose independence polynomial is not log-concave, construct
+T by adding a path r--u--w where w is a vertex of F, and root T at r.
+Then T - N[r] = F, so B_T(x) = I(F; x), inheriting any log-concavity failure.
+
+Verified from the two n=26 LC-failure trees in `results/analysis_n26.json`:
+constructing T as above yields B_T exactly equal to I(F), and B_T is not
+log-concave. This blocks any global closure chain starting with “B_T is LC.”
 
 ## A plausible sufficient condition
 
