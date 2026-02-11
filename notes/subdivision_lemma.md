@@ -69,7 +69,7 @@ Additional empirical facts (n <= 10 exhaustive; random larger tests):
   - A(x) is nondecreasing up to the first descent of I(T).
 
 These suggest that subdivision “delays” the peak rather than creating a valley,
-but a proof is still missing.
+but this is only evidence; not a proof.
 
 ### New inequality candidate (tested n <= 12 exhaustive)
 
@@ -87,7 +87,7 @@ independent sets in T' into independent sets in T of sizes k and k-1),
 it gives a concrete handle for the first-difference dominance inequality
 needed to show I(T) + A is unimodal.
 
-### Lemma (proved): A(x) <= (1+x) I(T;x) coefficientwise
+## Lemma (proved): A(x) <= (1+x) I(T;x) coefficientwise
 
 Write Q_u = x R_u and Q_v = x R_v, where R_u and R_v have nonnegative
 coefficients. Note that R_u counts independent sets in A - N[u], while
@@ -109,7 +109,39 @@ of (1+x) I(T) - A is nonnegative, so A(x) <= (1+x) I(T;x) coefficientwise.
 
 Equivalently, a_k <= i_k + i_{k-1} for all k.
 
-This is only evidence; not a proof.
+### Consequences
+
+1) The new term A is dominated by a one-step smoothing of I(T).
+2) If the descent of I(T) dominates the local ascent of A, then
+   I(T) + A is unimodal.
+
+## What remains (proof skeleton)
+
+It suffices to prove any one of the following local dominance statements:
+
+### Path A: First-difference dominance
+
+Show that for all k in the descent region of I(T),
+
+  (i_{k+1} - i_k) >= - (a_{k+1} - a_k).
+
+This implies I(T) + A is unimodal. The coefficientwise bound
+A <= (1+x) I(T) suggests this should be true, but it does not by itself
+control differences. A viable route is to bound (a_{k+1} - a_k) by a
+nonnegative linear combination of nearby i_j differences.
+
+### Path B: Mode ordering
+
+Prove that the first descent index of A(x) is no earlier than that of I(T).
+Empirically, A is nondecreasing up to the first descent of I(T).
+If this can be proved, then the sum I(T) + A cannot create a new valley.
+
+### Path C: Injection strengthening
+
+The inequality A <= (1+x)I is now proved algebraically. A purely
+combinatorial injection from independent sets counted by A_k into those
+counted by I_k and I_{k-1} might give the missing “difference control.”
+If the injection is edge-local, it would likely yield Path A.
 
 ## Next step (proof attempt)
 
