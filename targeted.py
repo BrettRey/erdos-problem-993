@@ -84,7 +84,6 @@ def make_T_m_t_d(m: int, t: int, d: int) -> tuple[int, list[list[int]]]:
     current_layer = [0]
     for level in range(d):
         next_layer = []
-        branching = t if level == 0 else t  # could vary per level
         if level == 0:
             branching_factor = m
         else:

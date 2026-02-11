@@ -1,56 +1,48 @@
 {
-  "description": "Per-family summary for targeted.py runs",
-  "source": {
-    "script": "targeted.py",
-    "max_n": 500,
-    "random_count": 5000
-  },
-  "seed": 42,
+  "description": "Per-family breakdown for targeted search at max_n=500",
+  "source": "targeted.py --max-n 500 --random-count 5000",
+  "seed": "random.Random(42) for caterpillars and Ramos-Sun random trees",
   "families": {
-    "galvin_T_m_t_1": {
+    "galvin_sst": {
+      "description": "Galvin spherically symmetric trees T_{m,t,1}",
       "count": 571,
       "lc_failures": 108,
-      "non_unimodal": 0,
-      "best_nm": 0.980818192961,
-      "best_label": "T_{21,11,1}",
-      "best_n": 484
+      "unimodality_failures": 0,
+      "best_nm": 0.9362
     },
-    "generalized_T_m_t_d": {
+    "generalized_sst": {
+      "description": "Generalized spherically symmetric trees T_{m,t,d}, d=2..5",
       "count": 680,
       "lc_failures": 268,
-      "non_unimodal": 0,
-      "best_nm": 0.980818192961,
-      "best_label": "T_{21,11,2}",
-      "best_n": 484
+      "unimodality_failures": 0,
+      "best_nm": 0.9808
     },
     "caterpillars": {
+      "description": "Caterpillars: constant, alternating, and random pendant patterns",
       "count": 5196,
       "lc_failures": 0,
-      "non_unimodal": 0,
-      "best_nm": 0.99003754998,
-      "best_label": "cat(82,[5]*82)",
-      "best_n": 492
+      "unimodality_failures": 0,
+      "best_nm": null,
+      "note": "All caterpillars were log-concave through n=500"
     },
     "spiders_and_brooms": {
+      "description": "Spiders (uniform, mixed-leg) and brooms B(p,s)",
       "count": 133915,
       "lc_failures": 0,
-      "non_unimodal": 0,
-      "best_nm": 0.99169572232,
-      "best_label": "broom(33,467)",
-      "best_n": 500
+      "unimodality_failures": 0,
+      "best_nm": 0.9917
     },
     "random_ramos_sun": {
+      "description": "Random trees biased toward Ramos-Sun degree-2 bridge motif",
       "count": 5000,
       "lc_failures": 2,
-      "non_unimodal": 0,
-      "best_nm": 0.980605175304,
-      "best_label": "rs_rand_996(n=498)",
-      "best_n": 498
+      "unimodality_failures": 0,
+      "best_nm": 0.8036
     }
   },
   "totals": {
-    "total_tested": 145362,
+    "count": 145362,
     "lc_failures": 378,
-    "non_unimodal": 0
+    "unimodality_failures": 0
   }
 }

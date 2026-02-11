@@ -43,7 +43,7 @@ First, I verify it exhaustively for all 447\,672\,596 non-isomorphic trees on at
 At $n = 26$ I confirm exactly two log-concavity failures and no unimodality failures, with every tree's coefficient sequence comfortably unimodal.
 Second, I test 145\,362 trees from five structured families (subdivided stars, caterpillars, spiders, brooms, and random perturbations) at sizes up to $n = 500$, finding zero unimodality violations.
 Third, I identify broom trees as the family approaching the unimodality boundary most closely and establish an empirical scaling law: for the broom $\broom(p,s)$, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \approx 4.12$, so that the margin of unimodality shrinks as $O(1/s)$ but never vanishes. The same asymptotic mechanism applies to any fixed core with $s$ pendant leaves at a single vertex.
-I also give an elementary proof that brooms are unimodal whenever the star size dominates the path ($s \ge p$), and note that a recent theorem of Li, Li, Yang, and Zhang implies log-concavity (hence unimodality) for all brooms.\citep{li2025spiders}
+I also give an elementary proof that brooms are unimodal whenever the star size dominates the path ($s \ge p$), and note that a recent theorem of Li, Li, Yang, and Zhang implies log-concavity (hence unimodality) for all brooms \citep{li2025spiders}.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -77,10 +77,10 @@ My contributions:
 \begin{enumerate}
   \item Exhaustive verification of Conjecture~\ref{conj:main} for all trees on $n \le 26$ vertices (Section~\ref{sec:exhaustive}).
   \item Targeted verification across five tree families at sizes up to $n = 500$ (Section~\ref{sec:targeted}).
-  \item An empirical asymptotic analysis showing that broom trees---and more generally fixed-core leaf attachments---approach the unimodality boundary at rate $O(1/s)$ (Section~\ref{sec:broom}).
+  \item An empirical asymptotic analysis showing that broom trees~-- and more generally fixed-core leaf attachments~-- approach the unimodality boundary at rate $O(1/s)$ (Section~\ref{sec:broom}).
   \item An elementary proof that brooms are unimodal whenever $s \ge p$ (Section~\ref{sec:broom}).
 \end{enumerate}
-Since this work was completed, Li, Li, Yang, and Zhang proved that all spiders are strongly log-concave, which implies log-concavity (hence unimodality) for brooms as a special case.\citep{li2025spiders}
+Since this work was completed, Li, Li, Yang, and Zhang proved that all spiders are strongly log-concave, which implies log-concavity (hence unimodality) for brooms as a special case \citep{li2025spiders}.
 I include the elementary $s \ge p$ proof as a self-contained argument that aligns with the asymptotic analysis.
 These results should be read as three distinct evidence types: exhaustive verification provides certified confirmation within the tested range; targeted family searches are adversarial stress-tests; and the broom analysis offers an explanatory asymptotic model rather than a general proof.
 
@@ -281,8 +281,10 @@ Since $k \le \lfloor p/2 \rfloor$, we have $p-2k+1 \ge 1$ and thus
 $(p-1)\binom{p}{k-1}\frac{p-2k+1}{k} \ge \binom{p}{k-1}$.
 Finally, $e_k - e_{k+1} = b_{k-1} - b_k \le b_{k-1} = \binom{p-k}{k-1} \le \binom{p}{k-1}$.
 Therefore $d_{k+1} - d_k \ge e_k - e_{k+1}$, so $c_{k+1} \ge c_k$ for $0 \le k \le S-1$.
+For $k=S$ (the even-$p$ boundary case), the same bound gives
+$d_{S+1}-d_S \ge \binom{p}{S-1} \ge b_{S-1}=e_S$, hence $c_{S+1}\ge c_S$.
 
-For $k \ge S$, we have $c_k = d_k$, which is unimodal. Hence $c_k$ is unimodal for all $s \ge p$.
+For $k \ge S+1$, we have $c_k = d_k$, which is unimodal. Hence $c_k$ is unimodal for all $s \ge p$.
 \end{proof}
 
 \begin{corollary}[From the spider theorem]\label{cor:broom-all}
@@ -294,7 +296,7 @@ $r_k = a_k/a_{k-1}$ are nonincreasing, so the sequence increases up to a peak an
 
 If $s \le 1$, the broom is a path ($\broom(p,0)=P_p$ and $\broom(p,1)=P_{p+1}$), whose independence polynomial is real-rooted and hence log-concave.
 If $s \ge 2$, the broom is a spider (a unique vertex of degree at least~3, with one long leg and $s$ legs of length~1).
-Li, Li, Yang, and Zhang prove that every spider has a \emph{strongly log-concave} independence polynomial (their Theorem~3.1), which in particular implies $a_k^2 \ge a_{k-1}a_{k+1}$ by taking the adjacent-index specialization.\citep{li2025spiders}
+Li, Li, Yang, and Zhang prove that every spider has a \emph{strongly log-concave} independence polynomial (their Theorem~3.1), which in particular implies $a_k^2 \ge a_{k-1}a_{k+1}$ by taking the adjacent-index specialization \citep{li2025spiders}.
 Therefore $\broom(p,s)$ is log-concave for all $s \ge 0$, and hence unimodal.
 \end{proof}
 
@@ -388,7 +390,7 @@ Table~\ref{tab:Cpred} compares the predicted $C(p)$ from~\eqref{eq:Cp} against t
     \toprule
     $p$ & $F_{p-1}$ & $G_{p-1}$ & $\mu$ & $C_{\mathrm{pred}}$ & $C_{\mathrm{obs}}$ \\
     \midrule
-    13 & \liningnums{377} & \liningnums{1\,308} & 3.470 & 4.122 & 4.115 \\
+    13 & \liningnums{377} & \liningnums{1\,308} & 3.469 & 4.122 & 4.115 \\
     22 & \liningnums{28\,657} & \liningnums{170\,711} & 5.957 & 6.172 & 6.156 \\
     33 & \liningnums{5\,702\,887} & \liningnums{51\,310\,978} & 8.997 & 6.011 & 5.991 \\
     42 & \liningnums{433\,494\,437} & \liningnums{4\,978\,643\,596} & 11.485 & 4.060 & 4.045 \\
@@ -444,9 +446,9 @@ since $j$ and $y$ are $O_H(1)$. Taking the weighted average yields
   r_k = 1 - \frac{4y + 2 - 4\mu}{s} + O\!\left(\frac{1}{s^2}\right),
   \qquad \mu = \frac{\sum_j j a_j}{\sum_j a_j} = \frac{A'(1)}{A(1)}.
 \]
-Moreover, in this central window we have $e_k/d_k = O(2^{-s})$ because
+Moreover, in this central window we have $e_k/d_k = O(\sqrt{s}\,2^{-s})$ because
 $e_k$ is $O_H(1)$ while $d_k \asymp \binom{s}{\lfloor s/2 \rfloor}$, so
-$c_{k+1}/c_k = r_k + O(2^{-s})$.
+$c_{k+1}/c_k = r_k + O(\sqrt{s}\,2^{-s})$.
 Therefore $c_{k+1}/c_k$ decreases by $4/s + O(1/s^2)$ when $k$ increments by~1,
 and the first descent occurs at $y_0 = \mu - \tfrac{1}{2} + O(1/s)$.
 The maximal ratio after the descent is attained at the smallest integer
@@ -464,7 +466,7 @@ $\nm(s) < 1$ for all sufficiently large $s$.
   so $C(p)$ oscillates between 4 and 8 as $p$ varies.
   The theorem gives eventual unimodality for any fixed core; it does not
   address small $s$. For brooms, log-concavity (hence unimodality) for all
-  $s$ follows from the spider theorem of Li et al.\citep{li2025spiders}
+  $s$ follows from the spider theorem of Li et al. \citep{li2025spiders}
 \end{remark}
 
 
@@ -478,18 +480,19 @@ More generally, the fixed-core leaf-attachment theorem shows that this $1/s$ nea
 
 The surprise is that brooms, not subdivided stars, are closest to the boundary.
 Subdivided stars produce many log-concavity failures but stay well within the unimodality threshold.
-Brooms remain log-concave yet push the near-miss ratio toward~1.\citep{li2025spiders}
+Brooms remain log-concave yet push the near-miss ratio toward~1 \citep{li2025spiders}.
 This suggests that the mechanisms behind log-concavity failure and near-unimodality violation are distinct.
 
 Several directions remain:
 \begin{itemize}
-  \item An elementary proof of broom unimodality that avoids the spider theorem, exploiting the closed-form independence polynomial of broom trees.
+  \item An elementary proof of broom unimodality for all $s$ (especially $s < p$) that avoids the spider theorem, exploiting the closed-form independence polynomial of broom trees.
   \item Extension of log-concavity proofs to larger structural classes (e.g., trees with at most two branch vertices).
   \item Extension of the exhaustive search to $n = 27$ (751 million trees). The current Python implementation would require roughly 12--15 hours on 8 cores; a compiled inner loop would reduce this substantially.
   \item Adaptation of PatternBoost \citep{ramos2025} to optimize for near-miss ratio rather than log-concavity failure, which might discover families even closer to the boundary.
 \end{itemize}
 
-All code, data, and reproduction scripts are available at \url{https://github.com/BrettRey/erdos-problem-993}.
+All code, data, and reproduction scripts are available at
+\href{https://github.com/BrettRey/erdos-problem-993}{github.com/BrettRey/\allowbreak erdos-problem-993}.
 
 
 \section*{Acknowledgements}

@@ -101,7 +101,7 @@ def scan_range(
             peak_ratio = _min_positive_peak_ratio(poly)
 
             if fd is None:
-                margin = math.inf
+                margin = None
             else:
                 margin = fd - t
 
@@ -126,7 +126,7 @@ def scan_range(
                 if stop_on_fail:
                     break
 
-            if n_worst_margin is None or margin < n_worst_margin:
+            if margin is not None and (n_worst_margin is None or margin < n_worst_margin):
                 n_worst_margin = margin
                 n_min_first_descent = fd
             if n_worst_peak_ratio is None or peak_ratio < n_worst_peak_ratio:
@@ -151,7 +151,7 @@ def scan_range(
         total += n_total
         ok += n_ok
         fail += n_fail
-        if worst_margin is None or (n_worst_margin is not None and n_worst_margin < worst_margin):
+        if n_worst_margin is not None and (worst_margin is None or n_worst_margin < worst_margin):
             worst_margin = n_worst_margin
         if worst_peak_ratio is None or (
             n_worst_peak_ratio is not None and n_worst_peak_ratio < worst_peak_ratio

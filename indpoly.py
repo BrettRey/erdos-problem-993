@@ -64,7 +64,6 @@ def independence_poly(n: int, adj: list[list[int]]) -> list[int]:
     children: list[list[int]] = [[] for _ in range(n)]
     visited = [False] * n
     order = []  # will hold post-order
-    stack = [0]
     visited[0] = True
     bfs_queue = [0]
     head = 0

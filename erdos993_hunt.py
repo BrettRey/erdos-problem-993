@@ -247,6 +247,15 @@ def spherically_symmetric_tree(branching: List[int]) -> Tuple[int, List[Tuple[in
         current_level = new_level
     return next_id, edges
 
+def branching_node_count(branching: List[int]) -> int:
+    """Exact node count for a spherically symmetric tree with given branching list."""
+    total = 1
+    level = 1
+    for b in branching:
+        level *= b
+        total += level
+    return total
+
 def tree_T_de(d: int, e: int) -> Tuple[int, List[Tuple[int, int]]]:
     # The depth-3 spherically symmetric tree from Galvin's construction: branching [d, e, 1]
     return spherically_symmetric_tree([d, e, 1])
@@ -412,10 +421,10 @@ def build_library(library_size: int, max_n: int, seed: int, verbose: bool = True
         for e in range(2, 20):
             for t in range(2, 8):
                 # quick size check for [d, e] + [1]*t
-                n_est = 1 + d + d * e * (1 + t)
+                branching = [d, e] + [1] * t
+                n_est = branching_node_count(branching)
                 if n_est > max_n:
                     continue
-                branching = [d, e] + [1] * t
                 n, edges = spherically_symmetric_tree(branching)
                 if n <= max_n:
                     add(make_entry(f"T_{d}_{e}_1^{t}", n, edges, attach=0))
@@ -473,10 +482,10 @@ def galvin_sweep(
     for d in range(2, d_max + 1):
         for e in range(2, e_max + 1):
             for t in range(1, t_max + 1):
-                n_est = 1 + d + d * e * (1 + t)
+                branching = [d, e] + [1] * t
+                n_est = branching_node_count(branching)
                 if n_est > max_n:
                     continue
-                branching = [d, e] + [1] * t
                 n, edges = spherically_symmetric_tree(branching)
                 if n > max_n:
                     continue

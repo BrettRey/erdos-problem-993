@@ -111,20 +111,26 @@ Fix $p \ge 2$ and path length $\ell \ge 0$. There exists $s_0(p,\ell)$ such that
 for all $s \ge s_0(p,\ell)$, the Lamport step for the broom root with path child
 satisfies $d(PV) \ge d(IU)$.
 
-**Sketch of proof.**
+**Proof (formal at the level of asymptotic control).**
 Write $P_s=(1+x)^s A$, $Q_s=xB$ with $A=I(P_{p-1})$, $B=I(P_{p-2})$.
 Let $C=I(P_\ell)$ and $D=I(P_{\ell-1})$, so $U=C$, $V=xD$.
 
 1) The correction term $xBC$ has degree at most
-   $1+\deg B + \deg C \le \lfloor (p+\ell)/2 \rfloor$.
-   For $s \ge p+\ell+2$, we have $\lfloor s/2 \rfloor > \deg(xBC)$, so
+   $1+\deg B + \deg C \le \lceil (p+\ell+2)/2 \rceil$.
+   For $s \ge p+\ell+3$, we have $\lfloor s/2 \rfloor > \deg(xBC)$, so
    in the central window the coefficients of $IU=(P_s+xB)C$ agree with those
    of $P_s C$. Hence $d(IU)=d(P_s C)$ for all such $s$.
 
-2) For any fixed polynomial $H$, the first descent of $(1+x)^s H$ occurs at
-   $k = \lfloor s/2\rfloor + m_H - 1$ for large $s$, where
-   $m_H=\lceil \mu_H + \tfrac12\rceil$ and $\mu_H=H'(1)/H(1)$ (by the
-   same expansion used in the asymptotic theorem).
+2) For any fixed polynomial $H$ with nonnegative coefficients and no internal
+   zeros, there exists $s_0(H)$ such that for all $s \ge s_0(H)$,
+   the first descent of $(1+x)^s H$ occurs at
+     $k = \lfloor s/2\rfloor + m_H - 1$,
+   where $m_H=\lceil \mu_H + \tfrac12\rceil$ and $\mu_H=H'(1)/H(1)$.
+   This follows from the ratio expansion
+     $r_k = 1 - (4y+2-4\mu_H)/s + O_H(1/s^2)$
+   with $k=\lfloor s/2\rfloor+y$, together with the strict monotonicity of
+   $r_k$ in $y$ for large $s$ (the $O_H(1/s^2)$ term can be dominated by the
+   $4/s$ slope by taking $s$ sufficiently large).
    Applying this to $H=A C$ and $H=A D$ gives
    \[
      d(P_s C) = \lfloor s/2\rfloor + m_{AC} - 1,\quad

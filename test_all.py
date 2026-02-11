@@ -4,6 +4,7 @@ import shutil
 import unittest
 
 from graph6 import parse_graph6
+from erdos993_hunt import independence_poly_tree
 from indpoly import (
     independence_poly,
     is_log_concave,
@@ -240,6 +241,21 @@ class TestCrossBackend(unittest.TestCase):
                 for n, adj in trees(n, backend="networkx")
             )
             self.assertEqual(polys_geng, polys_nx)
+
+
+class TestPolyConsistency(unittest.TestCase):
+    """Cross-check indpoly vs erdos993_hunt polynomial implementations."""
+
+    def test_indpoly_vs_hunt_n8(self):
+        for n, adj in trees(8, backend="networkx"):
+            edges = []
+            for u in range(n):
+                for v in adj[u]:
+                    if u < v:
+                        edges.append((u, v))
+            poly_hunt = independence_poly_tree(n, edges, root=0)
+            poly_ind = independence_poly(n, adj)
+            self.assertEqual(poly_hunt, poly_ind)
 
 
 if __name__ == "__main__":
