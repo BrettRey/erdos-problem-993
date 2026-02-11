@@ -90,17 +90,31 @@ Levit–Mandrescu guarantees a strictly decreasing tail:
   \(k \ge \lceil(2\alpha-1)/3\rceil\).
 
 The squeeze scan shows the first descent occurs at most **3 indices** before
-that tail (n ≤ 23). Erdős would try to prove a uniform bound:
+that tail (n ≤ 23), but this is not globally valid.
 
-  \(d(I) \ge \lceil(2\alpha-1)/3\rceil - 3\).
+Explicit counterexample: the star \(S_{28}=K_{1,28}\) has
+\(\alpha=28\), \(t=\lceil(2\alpha-1)/3\rceil=19\), and \(d(I)=15\), so
+\[
+  d(I)=t-4<t-3.
+\]
+Hence a universal bound \(d(I)\ge t-3\) is false.
 
-Then the inequality in Step 2 only needs to control a **finite** number of
-indices near the boundary.
+So Step 4 should be used as an empirical guide, not a global theorem.
+The proof target becomes:
+
+1) **MBI setup:** assume a minimal tree with \(d\le t-4\) and take the first
+   bad index \(b\le t-4\).
+2) **Leaf recurrence at \(b\):** use
+   \(I(T)=I(T-v)+xI(T-N[v])\) to force concentrated negative drift.
+3) **Leaf-heavy reduction:** show any MBI witness must be leaf-heavy
+   (star/double-star-like near the obstruction).
+4) **Close reduced class:** prove the boundary inequalities directly in that
+   leaf-heavy class.
 
 Empirical boundary check (n ≤ 23): when \(d(I)=t-3\) with \(t=\lceil(2\alpha-1)/3\rceil\),
 the steps \(i_{t-2} \ge i_{t-1} \ge i_t\) always hold. This suggests the entire
-problem could reduce to two local inequalities near \(k=t-2\) plus the global
-bound \(d(I)\ge t-3\).
+problem may reduce to two local inequalities near \(k=t-2\) after structural
+reduction.
 
 ---
 
@@ -123,8 +137,8 @@ bound \(d(I)\ge t-3\).
    - the viable route is class-restricted closure plus one boundary inequality
      for the final sum.
 
-Common gap across all three routes: a single local inequality controlling the
-first descent boundary.
+Common gap across all three routes: a local inequality at the first bad index
+plus a structural reduction to the leaf-heavy obstruction class.
 
 ---
 
@@ -132,6 +146,7 @@ first descent boundary.
 
 1) Prove subdivision preserves unimodality (or a weaker local variant).
 2) Use Lamport transition + difference dominance on a small extremal core.
-3) Seal the last 2–3 boundary indices with a direct binomial bound.
+3) Push MBI + leaf-heavy reduction, then seal the last boundary indices with a
+   direct binomial bound in that reduced class.
 
 One clean inequality is worth more than a broad framework. That’s the Erdős way.

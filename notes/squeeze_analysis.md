@@ -23,16 +23,23 @@
 So any deterministic squeeze proof must allow a margin of at least -2.
 The data now force margin at least -3.
 
-## Implication
+## Implication (empirical only)
 
-The “squeeze from both ends” approach needs a relaxed target, e.g.
+For the scanned range, the relaxed condition
 
-  `first_descent >= tail_start - 3`.
+  `first_descent >= tail_start - 3`
 
-This bound is tight on the current scan (n <= 23).
+is tight at n <= 23.
 
-The remaining gap is then just two indices, which is plausibly addressable
-by a sharp local inequality in a minimal-counterexample argument.
+But this is **not** a global theorem for all trees.
+
+Counterexample (star):
+  \(S_{28}=K_{1,28}\) has \(\alpha=28\),
+  \(t=\lceil(2\alpha-1)/3\rceil=\lceil 55/3\rceil=19\),
+  and first descent \(d=15\), so
+  \(d=t-4<t-3\).
+
+Therefore the global target \(d(I)\ge t-3\) is false.
 
 ## Boundary check at t-2 and t-1 (empirical)
 
@@ -47,10 +54,20 @@ Let t = ceil((2α-1)/3).
    - n=22: 267 cases, all pass.
    - n=23: 3,513 cases, all pass.
 
-This suggests a two-part squeeze strategy:
-1) prove the universal bound d(I) >= t-3, and
-2) prove the boundary inequalities
-     i_{t-2} >= i_{t-1} >= i_t
-   when d(I)=t-3.
+## Reframed target: MBI + leaf-heavy reduction
 
-If both hold, unimodality follows from the Levit–Mandrescu decreasing tail.
+Since \(d(I)\ge t-3\) fails globally, use a minimal-bad-index setup:
+
+1) Assume there exists a tree with \(d \le t-4\), and choose one with minimal
+   order (MBI witness). Let \(b\) be the first index with \(\Delta i_b<0\),
+   so \(b \le t-4\).
+2) Apply leaf recurrence
+     \(I(T)=I(T-v)+xI(T-N[v])\)
+   at index \(b\) to force strong local negativity in one (or both) summands.
+3) Prove this forces a leaf-heavy structure (large leaf mass near one hub,
+   star/double-star-like extremal geometry).
+4) Handle that reduced leaf-heavy class directly by binomial-style inequalities
+   at boundary indices.
+
+So squeeze remains a useful finite-n signal, but the proof target should be a
+structural reduction rather than a universal \(d\)-vs-\(t\) bound.
