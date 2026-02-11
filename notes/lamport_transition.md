@@ -107,17 +107,19 @@ The proof attempt likely mirrors the leaf case:
 
 ## Lemma (eventual mode ordering for broom + path child)
 
-Fix $p \ge 2$ and path length $\ell \ge 0$. There exists $s_0(p,\ell)$ such that
-for all $s \ge s_0(p,\ell)$, the Lamport step for the broom root with path child
-satisfies $d(PV) \ge d(IU)$.
+Fix $p \ge 2$ and path length $\ell \ge 0$. There exists
+  $s_0(p,\ell) \ge p+\ell+2$
+such that for all $s \ge s_0(p,\ell)$, the Lamport step for the broom root
+with path child satisfies $d(PV) \ge d(IU)$.
 
 **Proof (formal at the level of asymptotic control).**
 Write $P_s=(1+x)^s A$, $Q_s=xB$ with $A=I(P_{p-1})$, $B=I(P_{p-2})$.
 Let $C=I(P_\ell)$ and $D=I(P_{\ell-1})$, so $U=C$, $V=xD$.
 
 1) The correction term $xBC$ has degree at most
-   $1+\deg B + \deg C \le \lceil (p+\ell+2)/2 \rceil$.
-   For $s \ge p+\ell+3$, we have $\lfloor s/2 \rfloor > \deg(xBC)$, so
+   $1+\deg B + \deg C = \lfloor p/2 \rfloor + \lfloor \ell/2 \rfloor
+   \le \lfloor (p+\ell)/2 \rfloor$.
+   For $s \ge p+\ell+2$, we have $\lfloor s/2 \rfloor > \deg(xBC)$, so
    in the central window the coefficients of $IU=(P_s+xB)C$ agree with those
    of $P_s C$. Hence $d(IU)=d(P_s C)$ for all such $s$.
 
