@@ -22,4 +22,11 @@ paper/*.out
 paper/*.pdf
 paper/*.run.xml
 paper/*.synctex.gz
+paper/fonts/
+paper/preamble.tex
+paper/arxiv_bundle.tar.gz
+Erdos_Problem_993_updated_by_assistant.zip
+results/knuth_leaf_table_*.json
+results/multi_arm_*.json
+results/nm_optimizer_*.json
 __pycache__/
