@@ -40,6 +40,18 @@ A stronger sufficient condition is:
 
 since Δ(IU)_k <= 0 for k >= d.
 
+## Leaf-attachment boundary lemmas (MBI support)
+
+For leaf-attachment models of the form
+  I_s(x) = (1+x)^s A(x) + x B(x),
+explicit boundary-control lemmas are collected in
+`notes/leaf_attachment_mbi.md`.
+
+Key consequence: for sufficiently large s (relative to deg A and deg B),
+the boundary indices k = t-2, t-1 satisfy ΔI_{k} <= 0 automatically.
+Thus any minimal boundary violation must come from leaf-light/small-core
+structures, enabling a finite reduction.
+
 ## Empirical status
 
 Early small-n checks suggested the Lamport tail inequalities might hold

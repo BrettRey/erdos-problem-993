@@ -116,6 +116,12 @@ the steps \(i_{t-2} \ge i_{t-1} \ge i_t\) always hold. This suggests the entire
 problem may reduce to two local inequalities near \(k=t-2\) after structural
 reduction.
 
+Leaf-attachment lemmas (see `notes/leaf_attachment_mbi.md`) strengthen this:
+for sufficiently large s (leaves attached at one hub), the boundary indices
+k = t-2, t-1 satisfy \(\Delta I_k \le 0\) automatically. Therefore any minimal
+counterexample must be leaf-light at each hub, reducing the problem to a finite
+core class plus bounded leaf-load checks.
+
 ---
 
 ## Cross-note status (proved vs missing)

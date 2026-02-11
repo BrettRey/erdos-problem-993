@@ -95,6 +95,12 @@ No counterexample found by:
   - exhaustive n <= 10 (all trees, all edges),
   - random trees up to n=40 (sampled edges).
 
+Extended checks (edge subdivisions):
+  - exhaustive n <= 17: 1,242,936 subdivisions, no counterexample,
+  - exhaustive n = 18: 2,105,739 subdivisions, no counterexample,
+  - exhaustive n = 19: 5,723,190 subdivisions, no counterexample,
+  - random n = 30..200: 3,240 sampled subdivisions, no counterexample.
+
 Additional empirical facts (n <= 10 exhaustive; random larger tests):
   - The added term A(x) = Q_u Q_v + x P_u P_v is log-concave and unimodal.
   - The first descent index of I(T') is never earlier than that of I(T).
@@ -102,6 +108,24 @@ Additional empirical facts (n <= 10 exhaustive; random larger tests):
 
 These suggest that subdivision “delays” the peak rather than creating a valley,
 but this is only evidence; not a proof.
+
+## Boundary reduction lemma (subdivision)
+
+Let d = d(I(T)) be the first descent index of I(T), and let A(x)=I(T')-I(T).
+If
+
+  (1) d(A) >= d, and
+  (2) ΔA_d <= -ΔI_d,
+
+then I(T') is unimodal.
+
+Sketch: for k <= d-2, (1) implies ΔA_k >= 0 and unimodality of I(T) gives
+ΔI_k >= 0, so Δ(I+A)_k >= 0. For k >= d, condition (2) and monotonicity of
+ΔI_k yield Δ(I+A)_k <= 0. The only free index is k=d-1, which does not create
+a valley given the sign pattern on either side.
+
+This reduces subdivision preservation to one boundary inequality plus
+mode-ordering of A.
 
 ### New inequality candidate (tested n <= 12 exhaustive)
 
