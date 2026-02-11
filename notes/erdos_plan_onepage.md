@@ -34,6 +34,11 @@ counterexample. Two viable targets:
 Goal: collapse the search to trees with **few branch vertices** and a
 small “core.”
 
+Empirical anchor: for
+`C2 = {trees with at most 2 branch vertices (degree >= 3)}`,
+the scan in `results/two_branch_lc_n24.json` reports no log-concavity
+or unimodality failures up to `n = 24`.
+
 ---
 
 ## Step 2: Reduce to a “most adversarial” local pattern
@@ -53,6 +58,11 @@ For \(k \ge d(IU)\),
   \(\Delta(PV)_k \le -\Delta(IU)_k\).
 
 If this holds at every composition step, unimodality follows by induction.
+
+Reality check from `notes/lamport_transition.md`: this full tail inequality
+is not globally true (explicit broom-leaf failures exist), but in the scanned
+box all failures occur at the boundary index \(k=d(IU)\). So a boundary-only
+version is a plausible reduced kill shot.
 
 ---
 
@@ -79,13 +89,42 @@ valley.
 Levit–Mandrescu guarantees a strictly decreasing tail:
   \(k \ge \lceil(2\alpha-1)/3\rceil\).
 
-The squeeze scan shows the first descent occurs at most **2 indices** before
-that tail (n ≤ 20). Erdős would try to prove a uniform bound:
+The squeeze scan shows the first descent occurs at most **3 indices** before
+that tail (n ≤ 23). Erdős would try to prove a uniform bound:
 
-  \(d(I) \ge \lceil(2\alpha-1)/3\rceil - 2\).
+  \(d(I) \ge \lceil(2\alpha-1)/3\rceil - 3\).
 
 Then the inequality in Step 2 only needs to control a **finite** number of
 indices near the boundary.
+
+Empirical boundary check (n ≤ 23): when \(d(I)=t-3\) with \(t=\lceil(2\alpha-1)/3\rceil\),
+the steps \(i_{t-2} \ge i_{t-1} \ge i_t\) always hold. This suggests the entire
+problem could reduce to two local inequalities near \(k=t-2\) plus the global
+bound \(d(I)\ge t-3\).
+
+---
+
+## Cross-note status (proved vs missing)
+
+1) `notes/subdivision_lemma.md`:
+   - proved exact identity \(I(T') = I(T) + Q_uQ_v + xP_uP_v\),
+   - proved coefficientwise bound \(A \le (1+x)I(T)\),
+   - still missing: first-difference dominance or mode-ordering strong enough
+     to conclude \(I(T)+A\) is always unimodal.
+
+2) `notes/lamport_transition.md`:
+   - proved restricted mode-ordering lemma (broom root + leaf child),
+   - found global counterexamples to full difference-dominance,
+   - observed boundary-only failures in the scanned broom-leaf table.
+
+3) `notes/steedman_invariants.md`:
+   - global “\(B_T\) log-concave for all rooted trees” is blocked by the
+     construction in `notes/subdivision_lemma.md`,
+   - the viable route is class-restricted closure plus one boundary inequality
+     for the final sum.
+
+Common gap across all three routes: a single local inequality controlling the
+first descent boundary.
 
 ---
 
