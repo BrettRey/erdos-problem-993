@@ -43,6 +43,27 @@ The challenge is that a sum of log-concave sequences need not be unimodal.
 We likely need a structural inequality relating the modes or first differences
 of the summands.
 
+### Closure lemma: adjacent sums preserve log-concavity
+
+Let (b_0, ..., b_m) be log-concave with no internal zeros and define
+r_k = b_k + b_{k+1} for 0 <= k <= m-1. Then (r_k) is log-concave.
+This is a special case of Hoggar's convolution closure, since r is the
+convolution of b with (1, 1). A direct proof is:
+
+  r_k^2 - r_{k-1} r_{k+1}
+  = (b_k^2 - b_{k-1} b_{k+1})
+    + (b_{k+1}^2 - b_k b_{k+2})
+    + (b_k b_{k+1} - b_{k-1} b_{k+2}),
+
+where the last term is nonnegative by ratio monotonicity. Hence r is
+log-concave.
+
+Implication for rooted pairs: if B_T := Q_T / x is log-concave, then
+(1+x) B_T is log-concave. This helps control terms like (1+x) B_u B_v,
+but it still leaves the main obstruction: sums of log-concave sequences
+can fail unimodality without an additional mode-ordering or difference
+dominance lemma.
+
 ## A plausible sufficient condition
 
 Write i_k for coefficients of I(T) and a_k for coefficients of A(x).
