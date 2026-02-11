@@ -82,3 +82,25 @@ Thus $d(I_s)\le d(P_s)$ and $d(PV)=d(xP_s)=d(P_s)+1\ge d(I_s)$.
 
 This gives **mode ordering** for this specific Lamport step, but only in the
 broom-root / leaf-child regime.
+
+## Conjectural extension: broom root + path child
+
+Let $T_s=\broom(p,s)$ rooted at the hub with $s \ge p$, and let the child
+subtree be a path of length $\ell$ rooted at its endpoint. Then the Lamport
+step uses
+  $U = P_{\text{child}} = I(P_\ell;x)$ and $V = Q_{\text{child}} = x I(P_{\ell-1};x)$.
+
+**Conjecture (mode ordering):** $d(PV) \ge d(IU)$.
+
+**Stronger conjecture (difference dominance):**
+for all $k \ge d(IU)$, $\Delta(PV)_k \le -\Delta(IU)_k$.
+
+**Evidence:** exhaustive parameter scan for
+  $2 \le p \le 6$, $p \le s \le 10$, $0 \le \ell \le 6$
+found no violations of either inequality.
+
+The proof attempt likely mirrors the leaf case:
+  - express $P_s = (1+x)^s A$ and $I_s = P_s + x B$,
+  - use binomial monotonicity for $P_s$ up to $\lfloor s/2\rfloor$,
+  - show the $xB$ term is supported strictly below the first descent once
+    $s$ is large relative to $\deg A$ and $\deg U$.
