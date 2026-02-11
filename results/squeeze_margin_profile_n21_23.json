@@ -1,0 +1,259 @@
+{
+  "range": {
+    "min_n": 21,
+    "max_n": 23
+  },
+  "margin": -3,
+  "by_n": [
+    {
+      "n": 21,
+      "counts": {
+        "other": 8,
+        "double_star": 7
+      },
+      "diameter": {
+        "4": 8,
+        "3": 7
+      },
+      "max_degree": {
+        "17": 2,
+        "16": 2,
+        "15": 2,
+        "14": 2,
+        "13": 2,
+        "12": 2,
+        "11": 2,
+        "10": 1
+      },
+      "branch_vertices": {
+        "2": 15
+      },
+      "leaves": {
+        "18": 8,
+        "19": 7
+      },
+      "samples": [
+        {
+          "n": 21,
+          "alpha": 19,
+          "maxdeg": 17,
+          "branch": 2,
+          "diameter": 4,
+          "leaves": 18
+        },
+        {
+          "n": 21,
+          "alpha": 19,
+          "maxdeg": 16,
+          "branch": 2,
+          "diameter": 4,
+          "leaves": 18
+        },
+        {
+          "n": 21,
+          "alpha": 19,
+          "maxdeg": 15,
+          "branch": 2,
+          "diameter": 4,
+          "leaves": 18
+        },
+        {
+          "n": 21,
+          "alpha": 19,
+          "maxdeg": 14,
+          "branch": 2,
+          "diameter": 4,
+          "leaves": 18
+        },
+        {
+          "n": 21,
+          "alpha": 19,
+          "maxdeg": 13,
+          "branch": 2,
+          "diameter": 4,
+          "leaves": 18
+        }
+      ]
+    },
+    {
+      "n": 22,
+      "counts": {
+        "other": 267
+      },
+      "diameter": {
+        "4": 80,
+        "6": 70,
+        "5": 117
+      },
+      "max_degree": {
+        "16": 9,
+        "15": 19,
+        "14": 24,
+        "13": 32,
+        "12": 37,
+        "11": 45,
+        "10": 48,
+        "9": 36,
+        "8": 15,
+        "7": 2
+      },
+      "branch_vertices": {
+        "3": 214,
+        "2": 34,
+        "4": 19
+      },
+      "leaves": {
+        "18": 143,
+        "17": 70,
+        "19": 54
+      },
+      "samples": [
+        {
+          "n": 22,
+          "alpha": 19,
+          "maxdeg": 16,
+          "branch": 3,
+          "diameter": 4,
+          "leaves": 18
+        },
+        {
+          "n": 22,
+          "alpha": 19,
+          "maxdeg": 16,
+          "branch": 2,
+          "diameter": 6,
+          "leaves": 17
+        },
+        {
+          "n": 22,
+          "alpha": 19,
+          "maxdeg": 16,
+          "branch": 2,
+          "diameter": 6,
+          "leaves": 17
+        },
+        {
+          "n": 22,
+          "alpha": 19,
+          "maxdeg": 16,
+          "branch": 3,
+          "diameter": 5,
+          "leaves": 18
+        },
+        {
+          "n": 22,
+          "alpha": 19,
+          "maxdeg": 16,
+          "branch": 2,
+          "diameter": 5,
+          "leaves": 18
+        }
+      ]
+    },
+    {
+      "n": 23,
+      "counts": {
+        "star": 1,
+        "other": 3504,
+        "double_star": 8
+      },
+      "diameter": {
+        "2": 1,
+        "4": 131,
+        "3": 8,
+        "6": 1441,
+        "8": 352,
+        "7": 812,
+        "5": 715,
+        "10": 35,
+        "12": 15,
+        "14": 3
+      },
+      "max_degree": {
+        "22": 1,
+        "19": 2,
+        "18": 2,
+        "17": 2,
+        "16": 2,
+        "15": 29,
+        "14": 113,
+        "13": 203,
+        "12": 293,
+        "11": 428,
+        "10": 595,
+        "9": 742,
+        "8": 668,
+        "7": 318,
+        "6": 34,
+        "4": 81
+      },
+      "branch_vertices": {
+        "1": 1,
+        "2": 80,
+        "3": 691,
+        "4": 2273,
+        "5": 387,
+        "9": 20,
+        "10": 2,
+        "8": 38,
+        "7": 21
+      },
+      "leaves": {
+        "22": 1,
+        "20": 9,
+        "21": 8,
+        "17": 1456,
+        "16": 451,
+        "18": 1246,
+        "19": 261,
+        "13": 6,
+        "12": 22,
+        "11": 31,
+        "14": 1,
+        "10": 21
+      },
+      "samples": [
+        {
+          "n": 23,
+          "alpha": 21,
+          "maxdeg": 19,
+          "branch": 2,
+          "diameter": 4,
+          "leaves": 20
+        },
+        {
+          "n": 23,
+          "alpha": 21,
+          "maxdeg": 18,
+          "branch": 2,
+          "diameter": 4,
+          "leaves": 20
+        },
+        {
+          "n": 23,
+          "alpha": 21,
+          "maxdeg": 17,
+          "branch": 2,
+          "diameter": 4,
+          "leaves": 20
+        },
+        {
+          "n": 23,
+          "alpha": 21,
+          "maxdeg": 16,
+          "branch": 2,
+          "diameter": 4,
+          "leaves": 20
+        },
+        {
+          "n": 23,
+          "alpha": 21,
+          "maxdeg": 15,
+          "branch": 2,
+          "diameter": 4,
+          "leaves": 20
+        }
+      ]
+    }
+  ]
+}

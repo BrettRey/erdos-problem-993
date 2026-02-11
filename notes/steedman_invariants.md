@@ -37,11 +37,16 @@ Tested on:
 Observed without a counterexample in these tests:
   E1. Coefficientwise dominance: P_T >= B_T, so F_T has nonnegative coeffs.
       (This is actually exact by algebra: ∏(P_i + Q_i) >= ∏ P_i.)
-  E2. B_T is log-concave and unimodal for every tested root.
+  E2(sample). B_T is log-concave and unimodal for every tested root.
   E3. F_T is log-concave and unimodal for every tested root.
   E4. R_T is log-concave and unimodal for every tested root.
 
-Note: E2–E4 are empirical only. E1 is a direct algebraic inequality.
+Global correction: E2 is false in general. See the obstruction in
+`notes/subdivision_lemma.md`: for any tree F with non-log-concave
+independence polynomial, one can build a rooted tree T with B_T = I(F).
+
+Note: E2(sample), E3, and E4 are empirical only. E1 is a direct algebraic
+inequality.
 
 ## Lemma 1 (adjacent-sum preserves log-concavity)
 
@@ -67,10 +72,10 @@ log-concave.
 
 ## Why this might help
 
-If E2 and E3 can be proved (B_T and F_T log-concave for all roots),
-then R_T is log-concave by Lemma 1. The remaining step is to show that
-the sum F_T + R_T is unimodal. This is not automatic: sums of log-concave
-or even unimodal sequences can fail to be unimodal.
+If class-restricted versions of E2 and E3 can be proved on a rooted family C,
+then R_T is log-concave on C by Lemma 1. The remaining step is to show that
+the sum F_T + R_T is unimodal on C. This is not automatic: sums of
+log-concave or even unimodal sequences can fail to be unimodal.
 
 However, the special structure of (F_T, R_T) may allow a tailored argument:
   - F_T has zero constant term; R_T has positive constant term (R_0 = 1).
@@ -89,9 +94,11 @@ Two possible proof targets:
 
 ## Next concrete steps
 
-1) Try to prove E2: B_T is log-concave for every rooted tree.
-   - B_T = I(T - N[r]; x), so this would amount to log-concavity for every
-     forest of the form T - N[r]. A weaker inductive claim may suffice.
+1) Replace global E2 with a restricted target E2(C):
+   - identify a maximal rooted class C where B_T is log-concave.
+   - candidate anchor: C2-style structures (<=2 branch vertices), consistent
+     with `results/two_branch_lc_n24.json`.
+   - any such claim must explicitly avoid the global obstruction above.
 
 2) Try to prove E3 by induction:
    - F_T = ∏(P_i + Q_i) - ∏ P_i
@@ -102,5 +109,11 @@ Two possible proof targets:
 3) Empirically, for many trees there exists a root with mode(F_T) <= mode(R_T).
    If a general root-selection rule can guarantee this together with a
    monotonicity condition, unimodality of F_T + R_T may follow.
+
+4) Align with the Lamport transition note:
+   - for broom leaf-steps, violations of difference-dominance in the scanned
+     box occur only at the boundary index k = d(I).
+   - proving a boundary-only inequality for F_T + R_T may be a realistic
+     substitute for a full tail-dominance statement.
 
 This note is exploratory; no claims here are used in the paper.
