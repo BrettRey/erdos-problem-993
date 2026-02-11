@@ -42,7 +42,7 @@ These correspond to verified results within a finite range, adversarial stress-t
 First, I verify it exhaustively for all 447\,672\,596 non-isomorphic trees on at most 26 vertices, extending the previously published bound of $n \le 25$.
 At $n = 26$ I confirm exactly two log-concavity failures and no unimodality failures, with every tree's coefficient sequence comfortably unimodal.
 Second, I test 145\,362 trees from five structured families (subdivided stars, caterpillars, spiders, brooms, and random perturbations) at sizes up to $n = 500$, finding zero unimodality violations.
-Third, I identify broom trees as the family approaching the unimodality boundary most closely and establish an empirical scaling law: for the broom $\broom(p,s)$, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \approx 4.12$, so that the margin of unimodality shrinks as $O(1/s)$ but never vanishes.
+Third, I identify broom trees as the family approaching the unimodality boundary most closely and establish an empirical scaling law: for the broom $\broom(p,s)$, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \approx 4.12$, so that the margin of unimodality shrinks as $O(1/s)$ but never vanishes. The same asymptotic mechanism applies to any fixed core with $s$ pendant leaves at a single vertex.
 I also give an elementary proof that brooms are unimodal whenever the star size dominates the path ($s \ge p$), and note that a recent theorem of Li, Li, Yang, and Zhang implies log-concavity (hence unimodality) for all brooms.\citep{li2025spiders}
 \end{abstract}
 
@@ -77,7 +77,7 @@ My contributions:
 \begin{enumerate}
   \item Exhaustive verification of Conjecture~\ref{conj:main} for all trees on $n \le 26$ vertices (Section~\ref{sec:exhaustive}).
   \item Targeted verification across five tree families at sizes up to $n = 500$ (Section~\ref{sec:targeted}).
-  \item An empirical asymptotic analysis showing that broom trees approach the unimodality boundary at rate $O(1/s)$ (Section~\ref{sec:broom}).
+  \item An empirical asymptotic analysis showing that broom trees---and more generally fixed-core leaf attachments---approach the unimodality boundary at rate $O(1/s)$ (Section~\ref{sec:broom}).
   \item An elementary proof that brooms are unimodal whenever $s \ge p$ (Section~\ref{sec:broom}).
 \end{enumerate}
 Since this work was completed, Li, Li, Yang, and Zhang proved that all spiders are strongly log-concave, which implies log-concavity (hence unimodality) for brooms as a special case.\citep{li2025spiders}
@@ -239,6 +239,7 @@ This makes brooms, not subdivided stars, the family closest to the unimodality b
 The targeted results raised a natural question: does the broom near-miss ratio converge to~1 as $s \to \infty$?
 If so, the conjecture would be true for brooms but only barely, with the margin vanishing in the limit.
 I first fit an empirical scaling law and then justify it via a leading-term asymptotic analysis.
+The same asymptotic mechanism applies more generally to any fixed core with $s$ pendant leaves at a single vertex.
 
 \begin{theorem}[Broom unimodality for large stars]\label{thm:broom-sgeqp}
 Fix $p \ge 2$. For all $s \ge p$, the broom $\broom(p,s)$ is unimodal.
@@ -327,8 +328,15 @@ The same qualitative behaviour was observed (convergence of $s \cdot (1 - \nm)$ 
 In every case, $\nm < 1$ for all tested~$s$, so all brooms remain unimodal.
 
 \paragraph*{Heuristic for the $1 - C/s$ law.}
-Let $\broom(p, s)$ be a path on $p$ vertices with $s$ leaves attached at one end.
-Applying the vertex-deletion recurrence at the attachment vertex gives the closed form
+More generally, let $H$ be any fixed tree with distinguished vertex $v$, and let $H_s$ be obtained
+by attaching $s$ new leaves to $v$. The vertex-deletion recurrence gives
+\[
+  I(H_s; x) = (1+x)^s\, A(x) + x\, B(x),
+  \quad A(x) = I(H - v; x), \quad B(x) = I(H - N[v]; x).
+\]
+
+For brooms, let $\broom(p, s)$ be a path on $p$ vertices with $s$ leaves attached at one end.
+Applying the same recurrence at the attachment vertex gives the closed form
 \begin{equation}\label{eq:broom-closed}
   I(\broom(p, s); x) \;=\; (1+x)^s\, I(P_{p-1}; x) \;+\; x\, I(P_{p-2}; x),
 \end{equation}
@@ -391,27 +399,28 @@ Table~\ref{tab:Cpred} compares the predicted $C(p)$ from~\eqref{eq:Cp} against t
 
 The agreement is within 0.5\% in all cases, confirming that the heuristic captures the leading behaviour.
 
-\begin{theorem}[Asymptotic broom unimodality]\label{thm:broom-asymptotic}
-Fix $p \ge 2$ and write $A(x) = I(P_{p-1}; x)$ with
+\begin{theorem}[Asymptotic leaf-attachment unimodality]\label{thm:leaf-attach-asymptotic}
+Let $H$ be a fixed tree with distinguished vertex $v$, and let $H_s$ be obtained by attaching
+$s$ new leaves to $v$. Write $A(x) = I(H - v; x)$ with
 $\mu = A'(1)/A(1)$ and $m = \lceil \mu + \tfrac{1}{2} \rceil$.
-Let $\nm(s)$ be the near-miss ratio of the broom $\broom(p, s)$.
+Let $\nm(s)$ be the near-miss ratio of $H_s$.
 Then, as $s \to \infty$,
 \[
-  \nm(s) \;=\; 1 - \frac{C(p)}{s} + O\!\left(\frac{1}{s^2}\right),
-  \quad C(p) = (4m + 2) - 4\mu.
+  \nm(s) \;=\; 1 - \frac{C}{s} + O\!\left(\frac{1}{s^2}\right),
+  \quad C = (4m + 2) - 4\mu.
 \]
-In particular, $C(p) \in [4, 8)$, so $\nm(s) < 1$ for all sufficiently large $s$ and $\broom(p, s)$ is unimodal for all $s \ge s_0(p)$.
+In particular, $C \in [4, 8)$, so $\nm(s) < 1$ for all sufficiently large $s$ and $H_s$ is unimodal for all $s \ge s_0(H)$.
 \end{theorem}
 
 \begin{proof}
-Let $B(x) = I(P_{p-2}; x)$ and write the closed form~\eqref{eq:broom-closed} as
-$I(\broom(p, s); x) = (1+x)^s A(x) + x B(x)$.
-Let $c_k = [x^k] I(\broom(p, s); x)$ and write $c_k = d_k + e_k$ with
+Let $B(x) = I(H - N[v]; x)$ and write
+$I(H_s; x) = (1+x)^s A(x) + x B(x)$.
+Let $c_k = [x^k] I(H_s; x)$ and write $c_k = d_k + e_k$ with
 \[
   d_k = \sum_{j=0}^{d} a_j \binom{s}{k-j}, \qquad
   e_k = [x^k]\, x B(x),
 \]
-where $A(x)=\sum_{j=0}^d a_j x^j$ and $d = \deg A$ depends only on $p$.
+where $A(x)=\sum_{j=0}^d a_j x^j$ and $d = \deg A$ depends only on $H$.
 Define $r_k = d_{k+1}/d_k$.
 Since
 \[
@@ -430,13 +439,13 @@ For such $k$, each $\rho_j(k)$ admits the uniform expansion
 \[
   \rho_j(k) = 1 - \frac{4y + 2 - 4j}{s} + O\!\left(\frac{1}{s^2}\right),
 \]
-since $j$ and $y$ are $O_p(1)$. Taking the weighted average yields
+since $j$ and $y$ are $O_H(1)$. Taking the weighted average yields
 \[
   r_k = 1 - \frac{4y + 2 - 4\mu}{s} + O\!\left(\frac{1}{s^2}\right),
   \qquad \mu = \frac{\sum_j j a_j}{\sum_j a_j} = \frac{A'(1)}{A(1)}.
 \]
 Moreover, in this central window we have $e_k/d_k = O(2^{-s})$ because
-$e_k$ is $O_p(1)$ while $d_k \asymp \binom{s}{\lfloor s/2 \rfloor}$, so
+$e_k$ is $O_H(1)$ while $d_k \asymp \binom{s}{\lfloor s/2 \rfloor}$, so
 $c_{k+1}/c_k = r_k + O(2^{-s})$.
 Therefore $c_{k+1}/c_k$ decreases by $4/s + O(1/s^2)$ when $k$ increments by~1,
 and the first descent occurs at $y_0 = \mu - \tfrac{1}{2} + O(1/s)$.
@@ -445,14 +454,17 @@ $m \ge \mu + \tfrac{1}{2}$, giving
 \[
   \nm(s) = 1 - \frac{(4m + 2) - 4\mu}{s} + O\!\left(\frac{1}{s^2}\right).
 \]
-Since $m - (\mu + \tfrac{1}{2}) \in [0, 1)$, we have $C(p) \in [4, 8)$, so
+Since $m - (\mu + \tfrac{1}{2}) \in [0, 1)$, we have $C \in [4, 8)$, so
 $\nm(s) < 1$ for all sufficiently large $s$.
 \end{proof}
 
 \begin{remark}
-  The constant $C(p)$ depends on $p$ through $\mu = G_{p-1}/F_{p-1}$ and its ceiling.
-  Since $\mu$ grows linearly in $p$ while $m = \lceil \mu + \tfrac{1}{2} \rceil$ is an integer, $C(p)$ oscillates between 4 and 8 but remains bounded away from zero.
-  Proving $C(p) > 0$ for all $p$ would give an elementary proof of unimodality for the entire broom family; this is now subsumed by the spider log-concavity result of Li et al.\citep{li2025spiders}
+  The constant $C$ depends only on $\mu$ and its ceiling. For brooms,
+  $\mu = G_{p-1}/F_{p-1}$ by the Fibonacci recurrences~\eqref{eq:Fn}--\eqref{eq:Gn},
+  so $C(p)$ oscillates between 4 and 8 as $p$ varies.
+  The theorem gives eventual unimodality for any fixed core; it does not
+  address small $s$. For brooms, log-concavity (hence unimodality) for all
+  $s$ follows from the spider theorem of Li et al.\citep{li2025spiders}
 \end{remark}
 
 
@@ -462,6 +474,7 @@ These results provide strong computational evidence for Conjecture~\ref{conj:mai
 Across 447.7 million exhaustively tested trees and 145 thousand structurally targeted trees, no unimodality violation was found.
 The conjecture appears robust, but the broom asymptotic analysis reveals that it is also tight: the margin of unimodality can be made arbitrarily small.
 Read as evidence types, the exhaustive portion certifies the conjecture within the tested range, the targeted families act as adversarial probes, and the broom analysis offers an explanatory asymptotic model for near-boundary behavior.
+More generally, the fixed-core leaf-attachment theorem shows that this $1/s$ near-miss scaling is a generic effect of binomial smoothing, not a broom-specific quirk.
 
 The surprise is that brooms, not subdivided stars, are closest to the boundary.
 Subdivided stars produce many log-concavity failures but stay well within the unimodality threshold.
