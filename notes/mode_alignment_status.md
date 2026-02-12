@@ -113,7 +113,22 @@ Hard-core covariance route (leaf branch):
   - windowed checks (`mu_f(lambda) <= d(I(T-w))-1`): `41,573,584`,
   - windowed violations: `0`.
 
+- `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_covariance_window_n19.json`
+  - `leaf_cases = 2,902,599`,
+  - global checks: `142,227,351`, global violations: `1,524,805`,
+  - windowed checks: `70,286,945`,
+  - windowed violations: `0`.
+
+- combined:
+  `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_covariance_window_n19_combined.json`
+  - `leaf_cases = 4,626,115`,
+  - windowed checks: `111,860,529`,
+  - windowed violations: `0`.
+
 So covariance monotonicity appears valid precisely in the descent-relevant window.
+This suggests a new proof target: a windowed bridge from covariance ordering
+(`mu_g<=mu_f` under `mu_f<=d(g)-1`) to prewindow ratio monotonicity
+`g_{k+1}f_k<=g_kf_{k+1}` for `k<=d(g)-2`.
 
 ## n = 24 partition run status
 

@@ -165,9 +165,47 @@ Exhaustive artifact
 - window checks (`mu_f<=d(g)-1`): `41,573,584`,
 - window violations: `0`.
 
+Extended one-level run at `n=19`:
+`/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_covariance_window_n19.json`
+
+- `leaf_cases = 2,902,599`,
+- global checks: `142,227,351`, global violations: `1,524,805`,
+- window checks: `70,286,945`,
+- window violations: `0`.
+
+Combined (`n<=18` + `n=19`) artifact:
+`/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_covariance_window_n19_combined.json`
+
+- `leaf_cases = 4,626,115`,
+- global checks: `226,679,635`, global violations: `2,387,251`,
+- window checks: `111,860,529`,
+- window violations: `0`.
+
 This is the current best conceptual synthesis:
 the right covariance monotonicity is **windowed by the descent boundary**, not
 global in `lambda`.
+
+### Bridge problem (covariance -> coefficient ratio)
+
+Current leaf bottleneck can now be stated as two candidate statements:
+
+- `H_R` (coefficient side): `R_k=g_k/f_k` is nonincreasing for `k<=d(g)-2`.
+- `H_CW` (ensemble side): for all `lambda` with `mu_f(lambda)<=d(g)-1`,
+  `mu_g(lambda)<=mu_f(lambda)`.
+
+Empirically both hold through exhaustive ranges above.
+
+The conceptual gap is to prove a **windowed MLR bridge**:
+
+`H_CW  =>  H_R` (on the same boundary window).
+
+This is not true as a generic statement for arbitrary sequences, so any proof
+must exploit tree/branch structure of `(f,g)` (leaf-realizable pairs).
+
+Practical consequence:
+if this bridge is proved for leaf-realizable pairs, then leaf-step monotonicity
+`d(f)>=d(g)` follows (via the earlier `H_R` implication), closing the leaf
+branch of the mode-alignment proof spine.
 
 ### Conditional lemma (prefix-monotone criterion)
 
