@@ -85,6 +85,48 @@ Observed:
 So the leaf-step law is fully concentrated in this prewindow inequality family.
 Empirically there is no need to control `k>=d(g)-1` to get `d(f)>=d(g)`.
 
+### Creative route H_R (ratio monotonic bridge)
+
+Define
+
+`R_k := g_k / f_k`  (equivalently check `g_{k+1} f_k <= g_k f_{k+1}`).
+
+Hypothesis H_R:
+for leaf cases, `R_k` is nonincreasing on the prewindow
+`k=0,...,d(g)-2`.
+
+If H_R holds, then `d(f)>=d(g)` follows immediately:
+
+- for `k<=d(g)-2`, we have `Delta g_k >= 0`;
+- `R_{k+1}<=R_k` means
+  `g_{k+1} f_k <= g_k f_{k+1}`;
+- since `g_{k+1}>=g_k>0` in this prewindow,
+  this forces `f_{k+1}>=f_k`, i.e. `Delta f_k>=0`.
+
+Therefore no descent of `f` can occur before `d(g)`.
+
+So H_R is a single-point creative reduction:
+prove prewindow monotonicity of `g_k/f_k`, and leaf-step monotonicity is done.
+
+Exhaustive evidence for H_R through `n<=18`
+(artifact
+`/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_ratio_hypothesis_n18.json`):
+
+- `leaf_cases = 1,723,516`,
+- checked prewindow pair inequalities: `9,189,052`,
+- violations on prewindow: `0`.
+
+Diagnostic (same artifact):
+the same ratio monotonicity fails on the full common prefix in `44,481` cases,
+so this appears genuinely **prewindow-local**, not globally true.
+
+Random stress (artifact
+`/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_ratio_hypothesis_random.json`):
+
+- `4,000` random Prüfer trees (`n in [25,220]`), one random leaf each: `0` failures;
+- `800` random Prüfer trees (`n in [25,180]`), all leaves (`29,854` leaf-cases):
+  `0` failures.
+
 ### Conditional lemma (prefix-monotone criterion)
 
 If `Delta q_t >= 0` for all `t <= d(g)-2`, then `d(f) >= d(g)`.

@@ -82,8 +82,25 @@ Leaf extension to `n <= 18`:
     (`results/leaf_descent_gap_n18_combined.json`):
     `d(I(T)) - d(I(T-w))` is always `0` or `1`.
   - and auxiliary relation
-    (`results/leaf_dq_vs_dg_n18_combined.json`):
+  (`results/leaf_dq_vs_dg_n18_combined.json`):
     `d(I(T-N[w])) <= d(I(T-w))` in all checked leaf-cases.
+
+Creative hypothesis check (leaf branch):
+
+- `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_ratio_hypothesis_n18.json`
+  - claim tested: prewindow monotonicity of
+    `R_k = [x^k]I(T-w) / [x^k]I(T)` for leaf `w`,
+    i.e. `R_{k+1}<=R_k` for `k<=d(I(T-w))-2`.
+  - `leaf_cases = 1,723,516`
+  - pair checks = `9,189,052`
+  - violations on prewindow = `0`
+  - full-prefix diagnostic violations = `44,481`
+    (shows the phenomenon is local to the critical prewindow).
+
+- random stress:
+  `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_ratio_hypothesis_random.json`
+  - `4,000` random Prüfer trees (`n in [25,220]`, one random leaf each): `0` fails,
+  - `800` random Prüfer trees (`n in [25,180]`, all leaves: `29,854` cases): `0` fails.
 
 ## n = 24 partition run status
 
