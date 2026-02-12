@@ -199,8 +199,19 @@ The conceptual gap is to prove a **windowed MLR bridge**:
 
 `H_CW  =>  H_R` (on the same boundary window).
 
-This is not true as a generic statement for arbitrary sequences, so any proof
-must exploit tree/branch structure of `(f,g)` (leaf-realizable pairs).
+This is not true as a generic statement for arbitrary sequences.
+Artifact:
+`/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/bridge_counterexample_hcw_not_hr.json`
+contains positive log-concave counterexamples where `H_CW` (grid-checked)
+holds but `H_R` fails.
+
+Even adding basic tree-like prefix constraints (`f_0=1`, `f_1=n`,
+`f_2=binom(n,2)-(n-1)`) is still insufficient in generic sequence space.
+Artifact:
+`/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/bridge_counterexample_structural.json`.
+
+So any successful bridge proof must use genuinely **leaf-realizable**
+structure, not just LC/prefix moment constraints.
 
 Practical consequence:
 if this bridge is proved for leaf-realizable pairs, then leaf-step monotonicity

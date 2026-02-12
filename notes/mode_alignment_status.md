@@ -129,6 +129,10 @@ So covariance monotonicity appears valid precisely in the descent-relevant windo
 This suggests a new proof target: a windowed bridge from covariance ordering
 (`mu_g<=mu_f` under `mu_f<=d(g)-1`) to prewindow ratio monotonicity
 `g_{k+1}f_k<=g_kf_{k+1}` for `k<=d(g)-2`.
+Counterexample search shows this bridge is false for generic LC/prefix-matched
+sequence pairs; the missing ingredient must be leaf-realizable tree structure
+(see `results/bridge_counterexample_hcw_not_hr.json` and
+`results/bridge_counterexample_structural.json`).
 
 ## n = 24 partition run status
 
