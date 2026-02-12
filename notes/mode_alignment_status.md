@@ -102,6 +102,19 @@ Creative hypothesis check (leaf branch):
   - `4,000` random Prüfer trees (`n in [25,220]`, one random leaf each): `0` fails,
   - `800` random Prüfer trees (`n in [25,180]`, all leaves: `29,854` cases): `0` fails.
 
+Hard-core covariance route (leaf branch):
+
+- `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_covariance_n16.json`
+  - global claim `mu_g(lambda)<=mu_f(lambda)` is false already by `n<=16`
+    (many violations at larger `lambda`).
+
+- `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_covariance_window_n18.json`
+  - global checks: `84,452,284`, global violations: `862,446`,
+  - windowed checks (`mu_f(lambda) <= d(I(T-w))-1`): `41,573,584`,
+  - windowed violations: `0`.
+
+So covariance monotonicity appears valid precisely in the descent-relevant window.
+
 ## n = 24 partition run status
 
 Run completed:

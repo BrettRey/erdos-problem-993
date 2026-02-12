@@ -127,6 +127,48 @@ Random stress (artifact
 - `800` random Prüfer trees (`n in [25,180]`), all leaves (`29,854` leaf-cases):
   `0` failures.
 
+### Hard-core covariance reformulation (conceptual bridge)
+
+Let `lambda>0`, and hard-core measure on independent sets of `T`:
+
+`P_lambda(S) proportional to lambda^{|S|}`.
+
+With leaf `w`, define:
+
+- `f=I(T)`, `g=I(T-w)`,
+- `Theta(lambda)=g(lambda)/f(lambda)=P_lambda(w notin S)`,
+- `mu_f(lambda)=lambda f'(lambda)/f(lambda)=E_lambda[|S|]`,
+- `mu_g(lambda)=lambda g'(lambda)/g(lambda)=E_lambda[|S| | w notin S]`.
+
+Then
+
+`Cov_lambda(1_{w notin S}, |S|) = Theta(lambda) * (mu_g(lambda)-mu_f(lambda))`
+and equivalently
+`lambda Theta'(lambda)=Cov_lambda(1_{w notin S}, |S|)`.
+
+So covariance sign is exactly the sign of `mu_g-mu_f` (since `Theta>0`).
+
+#### Empirical verdict
+
+Global covariance negativity is false:
+`mu_g <= mu_f` fails often at larger `lambda`.
+
+Windowed version is strikingly true:
+
+If `mu_f(lambda) <= d(g)-1`, then `mu_g(lambda) <= mu_f(lambda)`.
+
+Exhaustive artifact
+`/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_covariance_window_n18.json`
+(`n<=18`, `1,723,516` leaf-cases, 49-point `lambda` grid from `1e-6` to `1e6`):
+
+- global checks: `84,452,284`, global violations: `862,446`,
+- window checks (`mu_f<=d(g)-1`): `41,573,584`,
+- window violations: `0`.
+
+This is the current best conceptual synthesis:
+the right covariance monotonicity is **windowed by the descent boundary**, not
+global in `lambda`.
+
 ### Conditional lemma (prefix-monotone criterion)
 
 If `Delta q_t >= 0` for all `t <= d(g)-2`, then `d(f) >= d(g)`.
