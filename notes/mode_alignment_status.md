@@ -40,12 +40,22 @@ Target invariant:
   - `max_abs_mode_diff = 1`
   - `is_complete = true`
 
-Combined through `n <= 23`:
+- `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/mode_alignment_n24_mod16_merged.json`
+  - `trees = 39,299,897`
+  - `vertex_cases = 943,197,528`
+  - `total_failures = 0`
+  - `max_mode_gap = 0`
+  - `max_abs_mode_diff = 1`
+  - `is_complete = true`
 
-- `trees = 23,942,358`
-- `vertex_cases = 535,859,062`
+Combined through `n <= 24`:
+
+- `trees = 63,242,255`
+- `vertex_cases = 1,479,056,590`
 - `failures = 0`
 - `max_abs_mode_diff = 1`
+- cumulative artifact:
+  `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/mode_alignment_n24_cumulative.json`
 
 Leaf-only diagnostic (new):
 
@@ -75,15 +85,15 @@ Leaf extension to `n <= 18`:
     (`results/leaf_dq_vs_dg_n18_combined.json`):
     `d(I(T-N[w])) <= d(I(T-w))` in all checked leaf-cases.
 
-## In-progress run (n = 24, mod 16 partitions)
+## n = 24 partition run status
 
-Current partial merge artifact:
+Run completed:
 
-- `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/mode_alignment_n24_partial_mod16_merged.json`
-  - `is_complete = false`
-  - `partitions_found = [0,1,2,3,4,5,6,7,9,10,12,13]` (latest snapshot)
-  - `total_trees = 28,156,954`
-  - `total_vertex_cases = 675,766,896`
+- `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/mode_alignment_n24_mod16_merged.json`
+  - `is_complete = true`
+  - `partitions_found = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]`
+  - `total_trees = 39,299,897`
+  - `total_vertex_cases = 943,197,528`
   - `total_failures = 0`
   - `max_mode_gap = 0`
   - `max_abs_mode_diff = 1`

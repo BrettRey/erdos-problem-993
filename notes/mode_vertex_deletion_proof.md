@@ -318,25 +318,27 @@ Additional complete scan at `n = 21` (partition-merged):
   - `vertex_cases = 45,034,605`,
   - `total_failures = 0`.
 
-Combined through `n <= 21`: `71,090,728` vertex-cases, failures `0`.
-
-Additional complete scan at `n = 22` (partition-merged):
+Additional complete partition-merged scans:
 
 - `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/mode_alignment_n22_mod8_merged.json`:
   - `trees = 5,623,756`,
   - `vertex_cases = 123,722,632`,
   - `total_failures = 0`.
-
-Combined through `n <= 22`: `194,813,360` vertex-cases, failures `0`.
-
-Additional complete scan at `n = 23` (partition-merged):
-
 - `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/mode_alignment_n23_mod8_merged.json`:
   - `trees = 14,828,074`,
   - `vertex_cases = 341,045,702`,
   - `total_failures = 0`.
+- `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/mode_alignment_n24_mod16_merged.json`:
+  - `trees = 39,299,897`,
+  - `vertex_cases = 943,197,528`,
+  - `total_failures = 0`.
 
-Combined through `n <= 23`: `535,859,062` vertex-cases, failures `0`.
+Combined through `n <= 24`:
+
+- `trees = 63,242,255`,
+- `vertex_cases = 1,479,056,590`,
+- `failures = 0`,
+- `max_abs_mode_diff = 1`.
 
 Leaf-focused exhaustive diagnostic through `n <= 16`:
 

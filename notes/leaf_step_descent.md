@@ -60,6 +60,31 @@ Hence early-descent transfer `d(f) < d(g)` would require some
 So any proof of `d(f) >= d(g)` can focus on ruling out this negative
 `Delta q` overcompensation window before the first descent of `g`.
 
+### Critical prewindow scan (first-descent indexing used by scripts)
+
+In script indexing (`d(P)=min{i>=1: p_i<p_{i-1}}`), the only indices that can
+force `d(f)<d(g)` are
+
+`k = 0,1,...,d(g)-2`
+
+since descent at index `i` corresponds to `Delta` at `k=i-1`.
+
+Artifact:
+`/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_critical_window_n18_combined.json`
+(exhaustive leaf-cases through `n<=18`, `1,723,516` cases).
+
+Observed:
+
+- `0` failures of prewindow nonnegativity:
+  `Delta g_k + Delta q_{k-1} >= 0` for all `k<=d(g)-2`.
+- Boundary prewindow margin is always strictly positive:
+  `Delta g_{d(g)-2} + Delta q_{d(g)-3} > 0` in all cases.
+- Gap law confirmed again:
+  `d(f)-d(g) in {0,1}` only.
+
+So the leaf-step law is fully concentrated in this prewindow inequality family.
+Empirically there is no need to control `k>=d(g)-1` to get `d(f)>=d(g)`.
+
 ### Conditional lemma (prefix-monotone criterion)
 
 If `Delta q_t >= 0` for all `t <= d(g)-2`, then `d(f) >= d(g)`.
@@ -110,6 +135,16 @@ Conjecture (auxiliary):
 for leaf attachment normal form `g=q+xr`, one always has `d(q) <= d(g)`.
 If proved, this would significantly constrain the only failure mechanism
 `Delta q_{k-1} < -Delta g_k` before `d(g)`.
+
+Finer sign split at the first post-descent `q`-difference from the new
+critical-window artifact (`leaf_critical_window_n18_combined.json`):
+
+- `Delta q_{d(g)-1} > 0` occurs in `35,039` cases, all with `d(f)-d(g)=1`.
+- No case with `d(f)-d(g)=0` has `Delta q_{d(g)-1} > 0`.
+
+So empirical implication:
+
+`Delta q_{d(g)-1} > 0  =>  d(f)=d(g)+1`.
 
 ## Branch-product normal form at the attachment vertex
 
