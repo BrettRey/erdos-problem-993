@@ -1,0 +1,26 @@
+{
+  "max_n": 18,
+  "split_key": "deg_H(u) where w is new leaf attached at u in T",
+  "deg1": {
+    "cases": 452658,
+    "dist_df_minus_dg": {
+      "0": 295061,
+      "1": 157597
+    },
+    "dist_df_minus_modeg": {
+      "1": 295061,
+      "2": 157597
+    }
+  },
+  "deg_ge2": {
+    "cases": 1270858,
+    "dist_df_minus_dg": {
+      "0": 638028,
+      "1": 632830
+    },
+    "dist_df_minus_modeg": {
+      "1": 638028,
+      "2": 632830
+    }
+  }
+}

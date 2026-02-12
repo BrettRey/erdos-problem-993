@@ -34,6 +34,73 @@ counterexample. Two viable targets:
 Goal: collapse the search to trees with **few branch vertices** and a
 small “core.”
 
+Additional pruning idea (degree-2 chain peeling):
+If a leaf v has neighbor u of degree 2 and w is the other neighbor of u, then
+with T'' = T - {u, v}, we have
+  I(T) = I(T - v) + x I(T - N[v]) = (1+x) I(T'') + x I(T'' - w).
+Thus a degree-2 step is a leaf-attachment with s = 1. Iterating along a maximal
+degree-2 path gives a leaf-attachment form with s equal to the path length plus
+lower-order corrections. By the leaf-attachment boundary lemma, sufficiently long
+degree-2 chains are automatically safe. Therefore any minimal counterexample must
+have all degree-2 chains bounded in length by an explicit s0(core) threshold.
+See `notes/degree2_chain_peeling.md` for a formalized version of this peeling
+argument and the resulting leaf-attachment decomposition.
+
+New inductive target (degree-2 neighbor reduction):
+If T has a leaf v whose neighbor u has degree 2 (other neighbor w), then
+  I(T) = (1+x) I(T'') + x I(T'' - w),   T'' = T - {u, v}.
+Thus a full proof could reduce to a perturbation lemma for h = (1+x)f + xg with
+f = I(T'') and g = I(T'' - w). See `notes/perturbation_lemma.md` for this
+reduction; the simple ratio-monotonicity condition is **too strong** (fails
+empirically), so the target is a weaker boundary/tail condition.
+Empirical note: for `n <= 20` all tested degree-2 leaf steps satisfy
+mode(g) <= d(f) and have no tail rises for k >= d(f)+1 (see
+`results/perturb_ratio_n20.json`).
+Separately, full-vertex scans through `n <= 23` show
+|mode(I(T-w)) - mode(I(T))| <= 1 for all vertices w and, more strongly,
+mode(I(T-w)) <= d(I(T)) for all vertices w
+(see `results/mode_alignment_n18.json`,
+`results/mode_alignment_n20.json`, and
+`results/mode_alignment_n21_mod8_merged.json`,
+`results/mode_alignment_n22_mod8_merged.json`,
+`results/mode_alignment_n23_mod8_merged.json`).
+Current run status/tooling is tracked in
+`notes/mode_alignment_status.md`.
+Note: mode(I(T-w)) can be far to the right of mode(I(T-N[w])) (gap up to 9
+in earlier scans), so mode-alignment between g and h is not a viable proof route.
+For the alpha-structure around a deleted vertex, see
+`notes/alpha_vertex_characterization.md`.
+Also, an exhaustive `n<=20` test shows the candidate compact characterization
+for tight equality `mode(I(T-w))=d(I(T))` is false; see
+`results/tight_mode_equivalence_n20.json` and
+`notes/mode_alignment_status.md`.
+New split suggested by `g_w := alpha(T-w)-alpha_w`:
+empirically, tight equalities are overwhelmingly in `g_w>=1`
+(`results/mode_alignment_gw_n18_summary.json`: `19,009/19,011`), with only two
+observed at `g_w<=0`.
+So a practical proof decomposition is:
+  (A) strict mode gap for `g_w<=0`,
+  (B) non-strict mode bound for `g_w>=1`.
+
+Leaf branch sharpening (proved reduction):
+for a leaf `w` with neighbor `u`, writing `H=T-w`,
+`I(T) = I(H) + x I(H-u)` and equivalently
+`I(T) = (1+x)I(H-u) + xI(H-N_H[u])`.
+If one proves leaf-step descent monotonicity
+`d(I(H+leaf_at_u)) >= d(I(H))`, then in minimal-counterexample mode
+(`H` unimodal) this forces strict inequality
+`mode(I(T-w)) < d(I(T))`.
+So leaf vertices reduce to one local descent-index monotonicity statement
+rather than a full mode argument.
+See `notes/leaf_step_descent.md` for the exact local formulation.
+
+Empirical leaf diagnostic (exhaustive through `n<=16`):
+`results/leaf_mode_descent_n16.json` reports:
+- `244,692` leaf-cases,
+- `0` failures of `mode(I(T-w)) <= d(I(T))`,
+- `0` failures of strict `mode(I(T-w)) < d(I(T))`,
+- `0` failures of `d(I(T)) >= d(I(T-w))`.
+
 Empirical anchor: for
 `C2 = {trees with at most 2 branch vertices (degree >= 3)}`,
 the scan in `results/two_branch_lc_n24.json` reports no log-concavity
@@ -118,9 +185,32 @@ reduction.
 
 Leaf-attachment lemmas (see `notes/leaf_attachment_mbi.md`) strengthen this:
 for sufficiently large s (leaves attached at one hub), the boundary indices
-k = t-2, t-1 satisfy \(\Delta I_k \le 0\) automatically. Therefore any minimal
-counterexample must be leaf-light at each hub, reducing the problem to a finite
-core class plus bounded leaf-load checks.
+k = t-2, t-1 satisfy \(\Delta I_k \le 0\) automatically. A concrete cutoff is
+
+  \(s \ge s_0(d,e) := \max(e+1-d,\ 2d+11,\ \lceil(3e-2d+8)/2\rceil)\),
+
+where \(d=\deg I(H-v)\), \(e=\deg I(H-N[v])\) for the hub v after removing its
+pendant leaves. Therefore any minimal counterexample must be leaf-light at each
+hub, reducing the problem to a finite core class plus bounded leaf-load checks.
+
+**Finite-core enumeration target (conditional):** if subdivision preservation
+holds (no degree‑2 vertices), and all hubs satisfy \(s(v)\le \lambda_0\), then
+each tree is determined by a core \(K\) on branch vertices plus a bounded leaf
+load \(\ell_u\in[\max(0,3-\deg_K(u)),\lambda_0]\). Once a bound on the number of
+obstruction edges \(f_0\) is proved, the class is finite with
+\(b\le 2f_0+2\) and \(n\le(\lambda_0+1)(2f_0+2)\), so it is brute‑verifiable.
+
+Empirical check of this finite-core family (no dedup, networkx cores):
+  - \((b_0,\lambda_0)=(6,4)\): 13,331 candidates, 0 non‑unimodal
+    (`results/finite_core_b6_l4.json`).
+  - \((b_0,\lambda_0)=(6,5)\): 58,579 candidates, 0 non‑unimodal
+    (`results/finite_core_b6_l5.json`).
+  - \((b_0,\lambda_0)=(7,4)\): 92,207 candidates, 0 non‑unimodal
+    (`results/finite_core_b7_l4.json`).
+  - \((b_0,\lambda_0)=(7,5)\): 513,699 candidates, 0 non‑unimodal
+    (`results/finite_core_b7_l5.json`).
+  - \((b_0,\lambda_0)=(8,4)\): 711,191 candidates, 0 non‑unimodal
+    (`results/finite_core_b8_l4.json`).
 
 ---
 

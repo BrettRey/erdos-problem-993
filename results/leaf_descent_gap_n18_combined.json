@@ -1,0 +1,30 @@
+{
+  "min_n": 2,
+  "max_n": 18,
+  "leaf_cases": 1723516,
+  "dist_df_minus_dg": {
+    "0": 933089,
+    "1": 790427
+  },
+  "dist_df_minus_modeg": {
+    "1": 933089,
+    "2": 790427
+  },
+  "source_parts": {
+    "n<=16": "results/leaf_descent_gap_n16.json",
+    "n=17": {
+      "df_minus_dg": {
+        "0": 238838,
+        "1": 162923
+      },
+      "leaf_cases": 401761
+    },
+    "n=18": {
+      "df_minus_dg": {
+        "0": 521116,
+        "1": 555947
+      },
+      "leaf_cases": 1077063
+    }
+  }
+}
