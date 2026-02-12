@@ -91,6 +91,26 @@ For the weaker descent-index condition (artifact
 `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_dq_dg_condition_n16.json`):
 `d(q) >= d(g)-1` holds in `155,619 / 244,692` cases (about `63.6%`).
 
+New empirical pattern (artifact
+`/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_dq_vs_dg_n16.json`):
+through `n<=16`, always
+
+`d(q) <= d(g)`.
+
+Observed distribution of `d(q)-d(g)`:
+`{-6,-5,-4,-3,-2,-1,0}` with maximum `0`.
+
+Extended check through `n<=18` (combined summary
+`/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_dq_vs_dg_n18_combined.json`):
+
+- `leaf_cases = 1,723,516`,
+- `0` violations of `d(q) <= d(g)`.
+
+Conjecture (auxiliary):
+for leaf attachment normal form `g=q+xr`, one always has `d(q) <= d(g)`.
+If proved, this would significantly constrain the only failure mechanism
+`Delta q_{k-1} < -Delta g_k` before `d(g)`.
+
 ## Branch-product normal form at the attachment vertex
 
 Let `c_1,...,c_m` be neighbors of `u` in `H`, and let `S_i` be the component
@@ -154,3 +174,23 @@ Degree split at the attachment site (`deg_H(u)`), artifact
 
 The naive condition `mode(q) >= d(g)-1` is false in about 80% of tested leaf
 cases through `n<=16`, so mode-position arguments on `q` alone are not enough.
+
+Also, abstract coefficientwise domination is insufficient:
+`r <= q` does **not** imply `d((1+x)q + xr) >= d(q + xr)` in general.
+
+Concrete non-graph counterexample:
+
+- `q = [1,7,4,8,5]`,
+- `r = [0,4,2,5,1]` (entrywise `r<=q`),
+- `g=q+xr = [1,7,8,10,10,1]`, so `d(g)=5`,
+- `f=(1+x)q+xr = [1,8,15,14,18,6]`, so `d(f)=3<5`.
+
+Even adding log-concavity on both `q,r` is still insufficient in abstract:
+
+- `q=[3,8,7,2]` (LC),
+- `r=[0,1,6,2]` (LC, and `r<=q`),
+- `g=[3,8,8,8,2]` with `d(g)=4`,
+- `f=[3,11,16,15,4]` with `d(f)=3<4`.
+
+So any proof must use tree/forest structure beyond generic nonnegative or
+log-concave coefficient constraints.

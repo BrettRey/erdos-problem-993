@@ -58,6 +58,8 @@ Leaf-only diagnostic (new):
   - observed gap `d(I(T)) - mode(I(T-w))` is always `1` or `2`.
   - finer split (`results/leaf_descent_gap_n16.json`):
     `d(I(T)) - d(I(T-w)) in {0,1}`.
+  - auxiliary split (`results/leaf_dq_vs_dg_n16.json`):
+    `d(I(T-N[w])) - d(I(T-w)) <= 0` in all leaf-cases.
 
 Leaf extension to `n <= 18`:
 
@@ -69,6 +71,9 @@ Leaf extension to `n <= 18`:
   - with exact split
     (`results/leaf_descent_gap_n18_combined.json`):
     `d(I(T)) - d(I(T-w))` is always `0` or `1`.
+  - and auxiliary relation
+    (`results/leaf_dq_vs_dg_n18_combined.json`):
+    `d(I(T-N[w])) <= d(I(T-w))` in all checked leaf-cases.
 
 ## In-progress run (n = 24, mod 16 partitions)
 
@@ -76,9 +81,9 @@ Current partial merge artifact:
 
 - `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/mode_alignment_n24_partial_mod16_merged.json`
   - `is_complete = false`
-  - `partitions_found = [0,1,2,3,4,5,6,7,9,12,13]` (latest snapshot)
-  - `total_trees = 25,248,600`
-  - `total_vertex_cases = 605,966,400`
+  - `partitions_found = [0,1,2,3,4,5,6,7,9,10,12,13]` (latest snapshot)
+  - `total_trees = 28,156,954`
+  - `total_vertex_cases = 675,766,896`
   - `total_failures = 0`
   - `max_mode_gap = 0`
   - `max_abs_mode_diff = 1`

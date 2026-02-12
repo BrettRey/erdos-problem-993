@@ -1,0 +1,9 @@
+{
+  "min_n": 17,
+  "max_n": 18,
+  "leaf_cases": 1478824,
+  "fail_dq_gt_dg": 0,
+  "condition": "d(I(T-N[w])) <= d(I(T-w)) for leaf w",
+  "source": "exhaustive run outputs n=17,18",
+  "created_epoch": 1770928269.6802921
+}

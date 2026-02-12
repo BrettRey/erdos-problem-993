@@ -357,6 +357,9 @@ Leaf extension through `n <= 18` (combined artifact
 - exact gap split
   (`results/leaf_descent_gap_n18_combined.json`):
   `d(I(T)) - d(I(T-w)) in {0,1}` only.
+- auxiliary descent relation
+  (`results/leaf_dq_vs_dg_n18_combined.json`):
+  for leaf `w`, `d(I(T-N[w])) <= d(I(T-w))` in all `1,723,516` checked cases.
 
 ## One-sided empirical laws (n<=20)
 
