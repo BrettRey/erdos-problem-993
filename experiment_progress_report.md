@@ -21,12 +21,19 @@ Two novel search strategies were implemented and executed to attack the unimodal
 ## 2. Bridge Stitching Scan
 **Goal:** Construct $T$ by bridging $T_1, T_2$.
 $$ I(T) = A_0 B_0 + x(A_0 B_1 + A_1 B_0) $$
-- **Setup:** Library of rooted signatures for $n \in [1, 15]$. Sampled $O(10^6)$ pairs for large $N$.
+- **Setup:** Library of rooted signatures for $n \in [1, 15]$.
+- **Runs:**
+  - `seed=993`, `random_samples=100k` (large batches) -> `6,646,354` pairs checked.
+  - `seed=994`, `random_samples=300k` (large batches) -> `12,646,354` pairs checked.
 - **Result:**
-    - Sampled ~6.6 million pairs up to $N=30$.
+    - Sampled up to ~12.6 million pairs up to $N=30$.
     - **Max LC Ratio:** $1.222$ (at $N=16$).
     - **Unimodality:** All constructed polynomials were unimodal.
 - **Significance:** This method is extremely fast ($10^6$ checks/sec) compared to full tree generation. It successfully creates "dangerous" polynomials but hasn't broken unimodality.
+
+Implementation update:
+- Fixed an early-return indentation bug in `scripts/bridge_stitch_scan.py`.
+- Added explicit `--seed` and `--random-samples` controls for reproducible sampling.
 
 ## Strategic Implications
 - **Hardness:** The "gap" between LC failure (easy to find) and Unimodality failure (impossible so far) is real and significant.
