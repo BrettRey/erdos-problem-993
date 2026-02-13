@@ -14,12 +14,13 @@ import os
 import random
 import time
 from dataclasses import dataclass
+from math import log1p
 from typing import Any
 
 import networkx as nx
 
 from graph6 import parse_graph6
-from indpoly import independence_poly, is_unimodal, log_concavity_ratio
+from indpoly import independence_poly, is_unimodal, log_concavity_ratio, near_miss_ratio
 
 
 def adj_to_nx(n: int, adj: list[list[int]]) -> nx.Graph:
@@ -51,6 +52,10 @@ class Individual:
     poly: list[int] | None = None
     lc_ratio: float | None = None
     lc_pos: int | None = None
+    lc_local_ratio: float | None = None
+    lc_local_pos: int | None = None
+    nm_ratio: float | None = None
+    nm_pos: int | None = None
     unimodal: bool | None = None
     fitness: float | None = None
 
@@ -61,6 +66,10 @@ class Individual:
                 poly=None if self.poly is None else self.poly[:],
                 lc_ratio=self.lc_ratio,
                 lc_pos=self.lc_pos,
+                lc_local_ratio=self.lc_local_ratio,
+                lc_local_pos=self.lc_local_pos,
+                nm_ratio=self.nm_ratio,
+                nm_pos=self.nm_pos,
                 unimodal=self.unimodal,
                 fitness=self.fitness,
             )
@@ -80,8 +89,29 @@ class Individual:
         n, adj = nx_to_adj(self.graph)
         self.poly = independence_poly(n, adj)
         self.lc_ratio, self.lc_pos = log_concavity_ratio(self.poly)
+        self.nm_ratio, self.nm_pos = near_miss_ratio(self.poly)
+        # Local LC around central mass to avoid tail-artifact optimization.
+        peak = max(range(len(self.poly)), key=lambda i: (self.poly[i], i))
+        lo = max(1, peak - 4)
+        hi = min(len(self.poly) - 2, peak + 4)
+        local_best = (0.0, -1)
+        for k in range(lo, hi + 1):
+            c = self.poly[k]
+            if c <= 0:
+                continue
+            ratio = (self.poly[k - 1] * self.poly[k + 1]) / (c * c)
+            if ratio > local_best[0]:
+                local_best = (ratio, k)
+        self.lc_local_ratio, self.lc_local_pos = local_best
         self.unimodal = is_unimodal(self.poly)
-        self.fitness = self.lc_ratio + (100.0 if not self.unimodal else 0.0)
+        # Fitness emphasizes near-miss (valley pressure) and central LC distortion,
+        # while keeping global LC as a weak auxiliary signal.
+        self.fitness = (
+            3.0 * self.nm_ratio
+            + 2.0 * self.lc_local_ratio
+            + 0.25 * log1p(self.lc_ratio)
+            + (100.0 if not self.unimodal else 0.0)
+        )
 
 
 def mutate_add_leaf(ind: Individual, rng: random.Random, max_nodes: int) -> Individual:
@@ -182,7 +212,11 @@ def _extract_cut(
 
 
 def _build_child(
-    base: nx.Graph, sub: nx.Graph, attach_base: int, attach_sub: int
+    base: nx.Graph,
+    sub: nx.Graph,
+    attach_base: int,
+    attach_sub: int,
+    max_nodes: int,
 ) -> Individual | None:
     if base.number_of_nodes() == 0 or sub.number_of_nodes() == 0:
         return None
@@ -197,13 +231,18 @@ def _build_child(
 
     child = nx.compose(base_r, sub_r)
     child.add_edge(attach_base_r, attach_sub_r)
+    if child.number_of_nodes() > max_nodes:
+        return None
     if not nx.is_tree(child):
         return None
     return Individual(child)
 
 
 def crossover_subtree_exchange(
-    p1: Individual, p2: Individual, rng: random.Random
+    p1: Individual,
+    p2: Individual,
+    rng: random.Random,
+    max_nodes: int,
 ) -> tuple[Individual, Individual]:
     c1 = _extract_cut(p1.graph, rng)
     c2 = _extract_cut(p2.graph, rng)
@@ -211,8 +250,8 @@ def crossover_subtree_exchange(
         return p1.clone(keep_eval=True), p2.clone(keep_eval=True)
     b1, s1, a1, x1 = c1
     b2, s2, a2, x2 = c2
-    ch1 = _build_child(b1, s2, a1, x2)
-    ch2 = _build_child(b2, s1, a2, x1)
+    ch1 = _build_child(b1, s2, a1, x2, max_nodes)
+    ch2 = _build_child(b2, s1, a2, x1, max_nodes)
     if ch1 is None or ch2 is None:
         return p1.clone(keep_eval=True), p2.clone(keep_eval=True)
     return ch1, ch2
@@ -368,7 +407,9 @@ def main() -> None:
             while len(nxt) < size:
                 if rng.random() < args.crossover_prob and len(pool) >= 2:
                     p1, p2 = rng.sample(pool, 2)
-                    c1, c2 = crossover_subtree_exchange(p1, p2, rng)
+                    c1, c2 = crossover_subtree_exchange(
+                        p1, p2, rng, args.max_nodes
+                    )
                     nxt.append(c1)
                     if len(nxt) < size:
                         nxt.append(c2)
@@ -400,12 +441,16 @@ def main() -> None:
             row = {
                 "generation": gen,
                 "best_lc_ratio": best.lc_ratio if best else None,
+                "best_lc_local_ratio": best.lc_local_ratio if best else None,
+                "best_nm_ratio": best.nm_ratio if best else None,
                 "best_unimodal": best.unimodal if best else None,
                 "island_best_mean": sum(island_best) / len(island_best),
             }
             history.append(row)
             print(
                 f"gen={gen:4d} best_lc={row['best_lc_ratio']:.12f} "
+                f"best_lc_local={row['best_lc_local_ratio']:.12f} "
+                f"best_nm={row['best_nm_ratio']:.12f} "
                 f"best_unimodal={row['best_unimodal']} "
                 f"island_mean={row['island_best_mean']:.6f}",
                 flush=True,
@@ -434,6 +479,10 @@ def main() -> None:
             "poly": best.poly,
             "lc_ratio": best.lc_ratio,
             "lc_pos": best.lc_pos,
+            "lc_local_ratio": best.lc_local_ratio,
+            "lc_local_pos": best.lc_local_pos,
+            "nm_ratio": best.nm_ratio,
+            "nm_pos": best.nm_pos,
             "unimodal": best.unimodal,
             "fitness": best.fitness,
         },

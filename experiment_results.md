@@ -28,6 +28,11 @@ The hypothesis is that maximizing this ratio locally might eventually break the 
 - Replaced single-population loop with a **multi-island GA** in `evolutionary_lc_search.py`.
 - Added periodic ring migration and fixed crossover to return two distinct children.
 - Added explicit seed anchoring per island so known LC-failure structures are preserved.
+- Added hard cap enforcement on child size (`--max-nodes`) for both mutation and crossover.
+- Changed fitness from global LC-only to a mixed objective targeting the boundary region:
+  - near-miss ratio (primary),
+  - local LC ratio near the peak window,
+  - global LC only as a weak auxiliary.
 
 ### Smoke run after upgrade
 Command:
@@ -42,3 +47,22 @@ python3 evolutionary_lc_search.py \
 Observed:
 - Best LC ratio increased to `1.4919833354` (at `n=32`), still unimodal.
 - No non-unimodal counterexample in this short run.
+
+## Objective Retarget Results
+Command:
+
+```bash
+python3 evolutionary_lc_search.py \
+  --generations 160 --pop-size 96 --islands 8 \
+  --migration-interval 10 --migrants 2 --report-every 20 \
+  --seed 998 --max-nodes 60 \
+  --out results/best_evolutionary_tree_multiisland_seed998_g160_cap60_nmfit.json
+```
+
+Observed:
+- Best near-miss ratio reached `0.9271937066` (up from the `~0.845` seed baseline).
+- Best individual remained unimodal.
+- Best individual summary:
+  - `n = 60`
+  - `nm_pos = 26`
+  - `lc_local_ratio = 0.9272822566`
