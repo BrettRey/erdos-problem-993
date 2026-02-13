@@ -1,402 +1,449 @@
-import random
-import time
-import copy
-import math
-import networkx as nx
+#!/usr/bin/env python3
+"""Multi-island evolutionary LC-breaker search.
+
+Goal: maximize log-concavity violation ratio
+    max_k (i_{k-1} i_{k+1} / i_k^2)
+with a large bonus for non-unimodality hits.
+"""
+
+from __future__ import annotations
+
 import argparse
 import json
 import os
-import sys
+import random
+import time
+from dataclasses import dataclass
+from typing import Any
 
-# Import local modules
+import networkx as nx
+
 from graph6 import parse_graph6
-from indpoly import independence_poly, log_concavity_ratio, is_unimodal
+from indpoly import independence_poly, is_unimodal, log_concavity_ratio
 
-def adj_to_nx(n, adj):
-    """Convert adjacency list to NetworkX graph."""
-    G = nx.Graph()
-    G.add_nodes_from(range(n))
-    for u, neighbors in enumerate(adj):
-        for v in neighbors:
+
+def adj_to_nx(n: int, adj: list[list[int]]) -> nx.Graph:
+    g = nx.Graph()
+    g.add_nodes_from(range(n))
+    for u, neigh in enumerate(adj):
+        for v in neigh:
             if u < v:
-                G.add_edge(u, v)
-    return G
+                g.add_edge(u, v)
+    return g
 
-def nx_to_adj(G):
-    """Convert NetworkX graph to adjacency list (relabeling nodes to 0..n-1)."""
-    mapping = {node: i for i, node in enumerate(G.nodes())}
-    G_relabeled = nx.relabel_nodes(G, mapping)
-    n = G_relabeled.number_of_nodes()
+
+def nx_to_adj(g: nx.Graph) -> tuple[int, list[list[int]]]:
+    mapping = {node: i for i, node in enumerate(g.nodes())}
+    h = nx.relabel_nodes(g, mapping)
+    n = h.number_of_nodes()
     adj = [[] for _ in range(n)]
-    for u, v in G_relabeled.edges():
+    for u, v in h.edges():
         adj[u].append(v)
         adj[v].append(u)
+    for u in range(n):
+        adj[u].sort()
     return n, adj
 
+
+@dataclass
 class Individual:
-    def __init__(self, graph):
-        self.graph = graph
-        self.poly = None
-        self.lc_ratio = None
-        self.lc_pos = None
-        self.is_unimodal = None
-        self.n = graph.number_of_nodes()
-        self.fitness = -1.0
+    graph: nx.Graph
+    poly: list[int] | None = None
+    lc_ratio: float | None = None
+    lc_pos: int | None = None
+    unimodal: bool | None = None
+    fitness: float | None = None
 
-    def evaluate(self):
-        if self.poly is None:
-            n, adj = nx_to_adj(self.graph)
-            # Basic sanity check for connectivity
-            if not nx.is_connected(self.graph):
-                 # Disconnected graphs are not trees, but their independence poly 
-                 # is product of components. The conjecture is for trees.
-                 # We can just penalize disconnected graphs or extract the largest component.
-                 # Let's extract largest component to be safe.
-                 largest_cc = max(nx.connected_components(self.graph), key=len)
-                 self.graph = self.graph.subgraph(largest_cc).copy()
-                 # Re-convert
-                 n, adj = nx_to_adj(self.graph)
-                 self.n = n
-            
-            self.poly = independence_poly(n, adj)
-            self.lc_ratio, self.lc_pos = log_concavity_ratio(self.poly)
-            self.is_unimodal = is_unimodal(self.poly)
-            
-            # Fitness: Primary is LC ratio. 
-            # Bonus for being non-unimodal (which is the ultimate goal).
-            # We want to maximize this ratio.
-            self.fitness = self.lc_ratio
-            if not self.is_unimodal:
-                self.fitness += 100.0  # Massive bonus found it!
+    def clone(self, keep_eval: bool = False) -> "Individual":
+        if keep_eval:
+            return Individual(
+                graph=self.graph.copy(),
+                poly=None if self.poly is None else self.poly[:],
+                lc_ratio=self.lc_ratio,
+                lc_pos=self.lc_pos,
+                unimodal=self.unimodal,
+                fitness=self.fitness,
+            )
+        return Individual(graph=self.graph.copy())
 
-    def clone(self):
-        new_ind = Individual(self.graph.copy())
-        # Don't copy poly/fitness to force re-evaluation if mutated, 
-        # but if we just clone without mutation we could copy. 
-        # For safety in GA, assume we might mutate copy.
-        return new_ind
+    def evaluate(self) -> None:
+        if self.fitness is not None:
+            return
+        if not nx.is_tree(self.graph):
+            # Penalize invalid graphs hard.
+            self.poly = [1]
+            self.lc_ratio = 0.0
+            self.lc_pos = -1
+            self.unimodal = False
+            self.fitness = -1e9
+            return
+        n, adj = nx_to_adj(self.graph)
+        self.poly = independence_poly(n, adj)
+        self.lc_ratio, self.lc_pos = log_concavity_ratio(self.poly)
+        self.unimodal = is_unimodal(self.poly)
+        self.fitness = self.lc_ratio + (100.0 if not self.unimodal else 0.0)
 
-# --- Mutation Operators ---
 
-def mutate_add_leaf(ind):
-    """Attach a new leaf to a random existing node."""
-    G = ind.graph.copy()
-    if G.number_of_nodes() >= 60: # Limit size to prevent explosion
-        return ind
-    
-    nodes = list(G.nodes())
-    parent = random.choice(nodes)
-    new_node = max(nodes) + 1 if nodes else 0
-    G.add_edge(parent, new_node)
-    return Individual(G)
+def mutate_add_leaf(ind: Individual, rng: random.Random, max_nodes: int) -> Individual:
+    g = ind.graph.copy()
+    if g.number_of_nodes() >= max_nodes:
+        return ind.clone(keep_eval=True)
+    parent = rng.choice(list(g.nodes()))
+    new_node = max(g.nodes()) + 1 if g.number_of_nodes() else 0
+    g.add_edge(parent, new_node)
+    return Individual(g)
 
-def mutate_remove_leaf(ind):
-    """Remove a random leaf."""
-    G = ind.graph.copy()
-    if G.number_of_nodes() <= 10: # Don't shrink too much
-        return ind
-    
-    leaves = [x for x in G.nodes() if G.degree(x) == 1]
+
+def mutate_remove_leaf(
+    ind: Individual, rng: random.Random, min_nodes: int = 10
+) -> Individual:
+    g = ind.graph.copy()
+    if g.number_of_nodes() <= min_nodes:
+        return ind.clone(keep_eval=True)
+    leaves = [v for v in g.nodes() if g.degree(v) == 1]
     if not leaves:
-        return ind
-    
-    leaf = random.choice(leaves)
-    G.remove_node(leaf)
-    if not nx.is_connected(G):
-        # Should not happen if we remove a leaf from a tree, 
-        # but just in case of weird state
-        largest_cc = max(nx.connected_components(G), key=len)
-        G = G.subgraph(largest_cc).copy()
-        
-    return Individual(G)
+        return ind.clone(keep_eval=True)
+    g.remove_node(rng.choice(leaves))
+    return Individual(g) if nx.is_tree(g) else ind.clone(keep_eval=True)
 
-def mutate_graft(ind):
-    """Cut a branch and reattach it to a different node."""
-    G = ind.graph.copy()
-    n = G.number_of_nodes()
-    if n < 4:
-        return ind
-    
-    # 1. Pick a random edge to cut
-    edges = list(G.edges())
-    u, v = random.choice(edges)
-    G.remove_edge(u, v)
-    
-    # 2. Identify the two components
-    comps = list(nx.connected_components(G))
+
+def mutate_graft(ind: Individual, rng: random.Random) -> Individual:
+    g = ind.graph.copy()
+    if g.number_of_nodes() < 4:
+        return ind.clone(keep_eval=True)
+    u, v = rng.choice(list(g.edges()))
+    g.remove_edge(u, v)
+    comps = list(nx.connected_components(g))
     if len(comps) != 2:
-        # Should be 2 for a tree
-        return ind
-    
-    comp1 = list(comps[0])
-    comp2 = list(comps[1])
-    
-    # 3. Pick a new attachment point
-    # We want to attach a node from comp1 to a node from comp2
-    # But NOT the original edge (u,v).
-    new_u = random.choice(comp1)
-    new_v = random.choice(comp2)
-    
-    G.add_edge(new_u, new_v)
-    return Individual(G)
+        return ind.clone(keep_eval=True)
+    c1 = list(comps[0])
+    c2 = list(comps[1])
+    a = rng.choice(c1)
+    b = rng.choice(c2)
+    g.add_edge(a, b)
+    return Individual(g) if nx.is_tree(g) else ind.clone(keep_eval=True)
 
-def mutate_rewire_leaf(ind):
-    """Move a leaf from one parent to another."""
-    G = ind.graph.copy()
-    leaves = [x for x in G.nodes() if G.degree(x) == 1]
+
+def mutate_rewire_leaf(ind: Individual, rng: random.Random) -> Individual:
+    g = ind.graph.copy()
+    leaves = [v for v in g.nodes() if g.degree(v) == 1]
     if not leaves:
-        return ind
-    
-    leaf = random.choice(leaves)
-    neighbor = list(G.neighbors(leaf))[0]
-    
-    G.remove_edge(leaf, neighbor)
-    
-    # Pick new parent
-    possibilities = [n for n in G.nodes() if n != leaf and n != neighbor]
-    if not possibilities:
-        G.add_edge(leaf, neighbor) # Put it back
-        return ind
-        
-    new_parent = random.choice(possibilities)
-    G.add_edge(leaf, new_parent)
-    return Individual(G)
+        return ind.clone(keep_eval=True)
+    leaf = rng.choice(leaves)
+    old_parent = next(iter(g.neighbors(leaf)))
+    candidates = [v for v in g.nodes() if v != leaf and v != old_parent]
+    if not candidates:
+        return ind.clone(keep_eval=True)
+    new_parent = rng.choice(candidates)
+    g.remove_edge(leaf, old_parent)
+    g.add_edge(leaf, new_parent)
+    return Individual(g) if nx.is_tree(g) else ind.clone(keep_eval=True)
 
-def mutate_inject_broom_features(ind):
-    """Tendency to make nodes high degree (broom hubs)."""
-    G = ind.graph.copy()
-    # Pick a high degree node and add a leaf to it, 
-    # OR move a leaf to it
-    degrees = sorted(G.degree, key=lambda x: x[1], reverse=True)
-    hub = degrees[0][0] # Highest degree node
-    
-    if random.random() < 0.5:
-        # Add leaf to hub
-        new_node = max(G.nodes()) + 1
-        G.add_edge(hub, new_node)
+
+def mutate_inject_broom(ind: Individual, rng: random.Random, max_nodes: int) -> Individual:
+    g = ind.graph.copy()
+    hub = max(g.nodes(), key=lambda x: g.degree(x))
+    if rng.random() < 0.55 and g.number_of_nodes() < max_nodes:
+        new_node = max(g.nodes()) + 1
+        g.add_edge(hub, new_node)
+        return Individual(g)
+    leaves = [v for v in g.nodes() if g.degree(v) == 1 and next(iter(g.neighbors(v))) != hub]
+    if not leaves:
+        return ind.clone(keep_eval=True)
+    leaf = rng.choice(leaves)
+    old_parent = next(iter(g.neighbors(leaf)))
+    g.remove_edge(leaf, old_parent)
+    g.add_edge(leaf, hub)
+    return Individual(g) if nx.is_tree(g) else ind.clone(keep_eval=True)
+
+
+def _extract_cut(
+    g: nx.Graph, rng: random.Random
+) -> tuple[nx.Graph, nx.Graph, int, int] | None:
+    if g.number_of_edges() == 0:
+        return None
+    u, v = rng.choice(list(g.edges()))
+    h = g.copy()
+    h.remove_edge(u, v)
+    comps = list(nx.connected_components(h))
+    if len(comps) != 2:
+        return None
+    cu, cv = (comps[0], comps[1]) if u in comps[0] else (comps[1], comps[0])
+    # Use larger side as base to keep child size stable-ish.
+    if len(cu) >= len(cv):
+        base_nodes, sub_nodes = cu, cv
+        attach_base, attach_sub = u, v
     else:
-        # Move random leaf to hub
-        leaves = [x for x in G.nodes() if G.degree(x) == 1 and list(G.neighbors(x))[0] != hub]
-        if leaves:
-            leaf = random.choice(leaves)
-            old_parent = list(G.neighbors(leaf))[0]
-            G.remove_edge(leaf, old_parent)
-            G.add_edge(leaf, hub)
-            
-    return Individual(G)
+        base_nodes, sub_nodes = cv, cu
+        attach_base, attach_sub = v, u
+    base = g.subgraph(base_nodes).copy()
+    sub = g.subgraph(sub_nodes).copy()
+    return base, sub, attach_base, attach_sub
 
 
-# --- Crossover ---
-def crossover_subtree_exchange(parent1, parent2):
-    """Swap subtrees between two trees."""
-    # This is tricky because we need to maintain validity.
-    # Simplified approach: 
-    # 1. Cut edge in P1 -> (Main1, Sub1)
-    # 2. Cut edge in P2 -> (Main2, Sub2)
-    # 3. Form Child1 = Main1 + Sub2
-    # 4. Form Child2 = Main2 + Sub1
-    
-    def cut_random(G):
-        if G.number_of_nodes() < 2:
-            return None, None, None
-        edges = list(G.edges())
-        if not edges: return None, None, None
-        u, v = random.choice(edges)
-        G_cut = G.copy()
-        G_cut.remove_edge(u, v)
-        comps = list(nx.connected_components(G_cut))
-        if len(comps) != 2: return None, None, None
-        # Return the larger component as Main (usually root-side conceptually)
-        # But for trees it's arbitrary. Let's just return both components sets.
-        return comps[0], comps[1], (u, v)
+def _build_child(
+    base: nx.Graph, sub: nx.Graph, attach_base: int, attach_sub: int
+) -> Individual | None:
+    if base.number_of_nodes() == 0 or sub.number_of_nodes() == 0:
+        return None
+    base_map = {node: i for i, node in enumerate(base.nodes())}
+    base_r = nx.relabel_nodes(base, base_map)
+    attach_base_r = base_map[attach_base]
 
-    c1a, c1b, edge1 = cut_random(parent1.graph)
-    c2a, c2b, edge2 = cut_random(parent2.graph)
-    
-    if not c1a or not c2a:
-        return parent1.clone(), parent2.clone()
-    
-    # Relabel nodes to avoid collision
-    # Create disjoint unions
-    
-    def stitch(nodes_main, nodes_sub):
-        # Create a graph with these nodes
-        # We need to preserve internal structure of Main and Sub
-        # And add ONE bridge edge.
-        
-        # This requires extracting the subgraphs.
-        # It's computationally expensive to do full isomorphism checks or relabeling safely.
-        # Let's try a simpler strategy: Just graft a copy of Sub2 onto P1 (removing Sub1).
-        pass
+    off = base_r.number_of_nodes()
+    sub_map = {node: off + i for i, node in enumerate(sub.nodes())}
+    sub_r = nx.relabel_nodes(sub, sub_map)
+    attach_sub_r = sub_map[attach_sub]
 
-    # Actually, simpler crossover:
-    # Child = Parent1 with a random subtree replaced by a random subtree from Parent2.
-    # To implement this easily with NetworkX:
-    # 1. Cut P1 at edge (u, v). Keep the larger part P1_keep.
-    # 2. Cut P2 at edge (x, y). Keep the smaller part P2_sub.
-    # 3. Disjoint union P1_keep and P2_sub (relabeling P2_sub).
-    # 4. Add edge between u (in P1_keep) and y (in P2_sub).
-    
-    def extract_cut(G):
-        if G.number_of_nodes() < 2: return None
-        edges = list(G.edges())
-        u, v = random.choice(edges)
-        G_cut = G.copy()
-        G_cut.remove_edge(u, v)
-        comps = list(nx.connected_components(G_cut))
-        if len(comps) != 2: return None
-        
-        # Heuristic: keep the part containing node 'u' as base, 'v' as sub
-        base_nodes = comps[0] if u in comps[0] else comps[1]
-        sub_nodes = comps[1] if u in comps[0] else comps[0]
-        
-        return G.subgraph(base_nodes).copy(), G.subgraph(sub_nodes).copy(), u, v
-    
-    res1 = extract_cut(parent1.graph)
-    res2 = extract_cut(parent2.graph)
-    
-    if not res1 or not res2:
-        return parent1.clone(), parent2.clone()
-        
-    base1, sub1, u1, v1 = res1
-    base2, sub2, u2, v2 = res2
-    
-    # Child 1: Base1 + Sub2
-    # We need to relabel Sub2 to not conflict with Base1
-    max_id1 = max(base1.nodes())
-    mapping2 = {n: n + max_id1 + 10 for n in sub2.nodes()}
-    sub2_relabeled = nx.relabel_nodes(sub2, mapping2)
-    
-    C1 = nx.compose(base1, sub2_relabeled)
-    # Add bridge edge. u1 is in base1. v2 mapped is in sub2_relabeled.
-    C1.add_edge(u1, mapping2[v2])
-    
-    return Individual(C1), Individual(C1) # Just return one distinct child type for now
+    child = nx.compose(base_r, sub_r)
+    child.add_edge(attach_base_r, attach_sub_r)
+    if not nx.is_tree(child):
+        return None
+    return Individual(child)
 
-def generate_seeds(lc_failures):
-    seeds = []
-    for fail in lc_failures:
-        if "graph6" in fail:
-            n, adj = parse_graph6(fail["graph6"].encode('utf-8'))
-            G = adj_to_nx(n, adj)
-            ind = Individual(G)
-            seeds.append(ind)
-    return seeds
 
-def main():
-    parser = argparse.ArgumentParser(description="Evolutionary search for non-unimodal trees.")
-    parser.add_argument("--generations", type=int, default=1000)
-    parser.add_argument("--pop-size", type=int, default=100)
-    parser.add_argument("--seeds-file", type=str, default="results/analysis_n26.json")
-    args = parser.parse_args()
+def crossover_subtree_exchange(
+    p1: Individual, p2: Individual, rng: random.Random
+) -> tuple[Individual, Individual]:
+    c1 = _extract_cut(p1.graph, rng)
+    c2 = _extract_cut(p2.graph, rng)
+    if c1 is None or c2 is None:
+        return p1.clone(keep_eval=True), p2.clone(keep_eval=True)
+    b1, s1, a1, x1 = c1
+    b2, s2, a2, x2 = c2
+    ch1 = _build_child(b1, s2, a1, x2)
+    ch2 = _build_child(b2, s1, a2, x1)
+    if ch1 is None or ch2 is None:
+        return p1.clone(keep_eval=True), p2.clone(keep_eval=True)
+    return ch1, ch2
 
-    # Load seeds
-    with open(args.seeds_file, 'r') as f:
+
+def mutate_individual(
+    ind: Individual,
+    rng: random.Random,
+    max_nodes: int,
+    allow_remove_leaf: bool,
+) -> Individual:
+    r = rng.random()
+    if r < 0.38:
+        return mutate_add_leaf(ind, rng, max_nodes)
+    if allow_remove_leaf and r < 0.48:
+        return mutate_remove_leaf(ind, rng)
+    if r < 0.72:
+        return mutate_graft(ind, rng)
+    if r < 0.86:
+        return mutate_rewire_leaf(ind, rng)
+    return mutate_inject_broom(ind, rng, max_nodes)
+
+
+def load_seeds(path: str) -> list[Individual]:
+    with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
-        
-    failures = data.get("lc_failures", [])
-    near_misses = data.get("top_near_misses", [])
-    
-    population = generate_seeds(failures)
-    
-    # Add near misses as well
-    population.extend(generate_seeds(near_misses))
-    
-    # Fill remaining population with mutated clones of seeds
-    initial_seeds = copy.deepcopy(population)
-    while len(population) < args.pop_size:
-        parent = random.choice(initial_seeds)
-        # Apply multi-mutation to initial population to spread them out
-        child = parent
-        for _ in range(3):
-            child = mutate_add_leaf(child)
-        population.append(child)
-        
-    print(f"Initialized population: {len(population)}")
-    
-    # Evaluation loop
-    best_ever_ratio = 0.0
-    best_ever_ind = None
-    
-    for gen in range(args.generations):
-        # Evaluate
-        for ind in population:
-            if ind.fitness < 0:
-                ind.evaluate()
-        
-        # Sort
-        population.sort(key=lambda x: x.fitness, reverse=True)
-        
-        best = population[0]
-        if best.fitness > best_ever_ratio:
-            best_ever_ratio = best.fitness
-            best_ever_ind = best
-            
-        if gen % 50 == 0:
-            diversity = len(set([ind.fitness for ind in population]))
-            print(f"Gen {gen}: Best Ratio = {best.fitness:.6f} (n={best.n}, pos={best.lc_pos}) Unimodal={best.is_unimodal}, PopDiv={diversity}")
-            if not best.is_unimodal:
-                print("FOUND NON-UNIMODAL TREE!")
-                print(f"Poly: {best.poly}")
-                nx_to_adj(best.graph) # just to verify
-                break
+    out: list[Individual] = []
+    seen: set[str] = set()
+    for key in ("lc_failures", "top_near_misses"):
+        for item in data.get(key, []):
+            g6 = item.get("graph6")
+            if not g6 or g6 in seen:
+                continue
+            seen.add(g6)
+            n, adj = parse_graph6(g6.encode("ascii"))
+            g = adj_to_nx(n, adj)
+            if nx.is_tree(g):
+                out.append(Individual(g))
+    if not out:
+        raise RuntimeError(f"No seeds loaded from {path}")
+    return out
 
-        # Selection (Elitism + Tournament)
-        elite_count = int(args.pop_size * 0.1)
-        new_pop = population[:elite_count]
-        
-        # Tournament selection pool
-        pool = population[:int(args.pop_size * 0.5)] # Top 50%
-        
-        while len(new_pop) < args.pop_size:
-            if random.random() < 0.2: # Crossover
-                p1 = random.choice(pool)
-                p2 = random.choice(pool)
-                c1, c2 = crossover_subtree_exchange(p1, p2)
-                new_pop.append(c1)
-                if len(new_pop) < args.pop_size:
-                    new_pop.append(c2)
-            else: # Mutation
-                parent = random.choice(pool)
-                
-                # Multi-mutation: apply 1 to 3 mutations
-                child = parent.clone()
-                num_mutations = random.randint(1, 3)
-                for _ in range(num_mutations):
-                    r = random.random()
-                    if r < 0.4: # Increased add probability
-                        child = mutate_add_leaf(child)
-                    # elif r < 0.5: # REMOVED remove_leaf to force growth
-                    #     child = mutate_remove_leaf(child)
-                    elif r < 0.7:
-                        child = mutate_graft(child)
-                    elif r < 0.8:
-                        child = mutate_rewire_leaf(child)
-                    else:
-                        child = mutate_inject_broom_features(child)
-                
-                new_pop.append(child)
-        
-        population = new_pop
-        
-    print("Search finished.")
-    print(f"Best Ratio: {best_ever_ratio}")
-    if best_ever_ind:
-        n, adj = nx_to_adj(best_ever_ind.graph)
-        print(f"Best Tree (n={n}): {adj}")
-        
-        # Save result
-        result = {
-            "n": n,
-            "adj": adj,
-            "poly": best_ever_ind.poly,
-            "lc_ratio": best_ever_ind.lc_ratio,
-            "lc_pos": best_ever_ind.lc_pos,
-            "unimodal": best_ever_ind.is_unimodal
-        }
-        os.makedirs("results", exist_ok=True)
-        with open("results/best_evolutionary_tree.json", "w") as f:
-            json.dump(result, f, indent=2)
+
+def init_islands(
+    seeds: list[Individual],
+    pop_size: int,
+    islands: int,
+    rng: random.Random,
+    max_nodes: int,
+    allow_remove_leaf: bool,
+) -> list[list[Individual]]:
+    islands = max(1, min(islands, pop_size))
+    sizes = [pop_size // islands] * islands
+    for i in range(pop_size % islands):
+        sizes[i] += 1
+
+    pops: list[list[Individual]] = []
+    for island_idx, size in enumerate(sizes):
+        pop: list[Individual] = []
+        # Keep at least one exact seed anchor per island.
+        pop.append(seeds[island_idx % len(seeds)].clone(keep_eval=True))
+        while len(pop) < size:
+            if rng.random() < 0.2:
+                pop.append(rng.choice(seeds).clone(keep_eval=True))
+                continue
+            parent = rng.choice(seeds).clone()
+            child = parent
+            for _ in range(rng.randint(1, 3)):
+                child = mutate_individual(child, rng, max_nodes, allow_remove_leaf)
+            pop.append(child)
+        pops.append(pop)
+    return pops
+
+
+def migrate_ring(
+    islands: list[list[Individual]], migrants: int
+) -> None:
+    if len(islands) < 2 or migrants <= 0:
+        return
+    outgoing: list[list[Individual]] = []
+    for pop in islands:
+        pop.sort(key=lambda x: x.fitness if x.fitness is not None else -1e12, reverse=True)
+        m = min(migrants, max(1, len(pop) // 3))
+        outgoing.append([ind.clone(keep_eval=True) for ind in pop[:m]])
+    for i in range(len(islands)):
+        target = islands[(i + 1) % len(islands)]
+        incoming = outgoing[i]
+        target.sort(key=lambda x: x.fitness if x.fitness is not None else -1e12)
+        del target[: len(incoming)]
+        target.extend(incoming)
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser(description="Multi-island evolutionary LC-breaker search.")
+    ap.add_argument("--generations", type=int, default=600)
+    ap.add_argument("--pop-size", type=int, default=120)
+    ap.add_argument("--seeds-file", default="results/analysis_n26.json")
+    ap.add_argument("--out", default="results/best_evolutionary_tree.json")
+    ap.add_argument("--seed", type=int, default=993)
+    ap.add_argument("--max-nodes", type=int, default=60)
+    ap.add_argument("--islands", type=int, default=6)
+    ap.add_argument("--elite-frac", type=float, default=0.15)
+    ap.add_argument("--crossover-prob", type=float, default=0.25)
+    ap.add_argument("--allow-remove-leaf", action="store_true")
+    ap.add_argument("--migration-interval", type=int, default=20)
+    ap.add_argument("--migrants", type=int, default=2)
+    ap.add_argument("--report-every", type=int, default=25)
+    args = ap.parse_args()
+
+    rng = random.Random(args.seed)
+    t0 = time.time()
+    seeds = load_seeds(args.seeds_file)
+    islands = init_islands(
+        seeds,
+        args.pop_size,
+        args.islands,
+        rng,
+        args.max_nodes,
+        args.allow_remove_leaf,
+    )
+
+    best: Individual | None = None
+    history: list[dict[str, Any]] = []
+    counterexample: dict[str, Any] | None = None
+
+    for gen in range(1, args.generations + 1):
+        for pop in islands:
+            for ind in pop:
+                ind.evaluate()
+            pop.sort(key=lambda x: x.fitness if x.fitness is not None else -1e12, reverse=True)
+            if best is None or (pop[0].fitness or -1e12) > (best.fitness or -1e12):
+                best = pop[0].clone(keep_eval=True)
+            if not pop[0].unimodal:
+                counterexample = {
+                    "generation": gen,
+                    "lc_ratio": pop[0].lc_ratio,
+                    "lc_pos": pop[0].lc_pos,
+                    "poly": pop[0].poly,
+                }
+                best = pop[0].clone(keep_eval=True)
+                break
+        if counterexample is not None:
+            break
+
+        next_islands: list[list[Individual]] = []
+        for pop in islands:
+            size = len(pop)
+            elite_count = max(2, int(size * args.elite_frac))
+            pool_count = max(elite_count, int(size * 0.5))
+            elite = [x.clone(keep_eval=True) for x in pop[:elite_count]]
+            pool = pop[:pool_count]
+            nxt = elite[:]
+            while len(nxt) < size:
+                if rng.random() < args.crossover_prob and len(pool) >= 2:
+                    p1, p2 = rng.sample(pool, 2)
+                    c1, c2 = crossover_subtree_exchange(p1, p2, rng)
+                    nxt.append(c1)
+                    if len(nxt) < size:
+                        nxt.append(c2)
+                else:
+                    parent = rng.choice(pool).clone(keep_eval=True)
+                    child = parent
+                    for _ in range(rng.randint(1, 3)):
+                        child = mutate_individual(
+                            child, rng, args.max_nodes, args.allow_remove_leaf
+                        )
+                    nxt.append(child)
+            next_islands.append(nxt)
+        islands = next_islands
+
+        if args.migration_interval > 0 and gen % args.migration_interval == 0:
+            # Evaluate before migration so ring uses known fitness values.
+            for pop in islands:
+                for ind in pop:
+                    ind.evaluate()
+            migrate_ring(islands, args.migrants)
+
+        if gen % args.report_every == 0 or gen == 1:
+            island_best = []
+            for pop in islands:
+                for ind in pop:
+                    ind.evaluate()
+                pop.sort(key=lambda x: x.fitness if x.fitness is not None else -1e12, reverse=True)
+                island_best.append(pop[0].fitness or -1e12)
+            row = {
+                "generation": gen,
+                "best_lc_ratio": best.lc_ratio if best else None,
+                "best_unimodal": best.unimodal if best else None,
+                "island_best_mean": sum(island_best) / len(island_best),
+            }
+            history.append(row)
+            print(
+                f"gen={gen:4d} best_lc={row['best_lc_ratio']:.12f} "
+                f"best_unimodal={row['best_unimodal']} "
+                f"island_mean={row['island_best_mean']:.6f}"
+            )
+
+    if best is None:
+        raise RuntimeError("No individuals evaluated.")
+    best.evaluate()
+    n_best, adj_best = nx_to_adj(best.graph)
+
+    result = {
+        "generations": args.generations,
+        "pop_size": args.pop_size,
+        "islands": args.islands,
+        "seed": args.seed,
+        "max_nodes": args.max_nodes,
+        "allow_remove_leaf": args.allow_remove_leaf,
+        "migration_interval": args.migration_interval,
+        "migrants": args.migrants,
+        "elapsed_s": time.time() - t0,
+        "counterexample_found": counterexample is not None,
+        "counterexample": counterexample,
+        "best": {
+            "n": n_best,
+            "adj": adj_best,
+            "poly": best.poly,
+            "lc_ratio": best.lc_ratio,
+            "lc_pos": best.lc_pos,
+            "unimodal": best.unimodal,
+            "fitness": best.fitness,
+        },
+        "history": history,
+    }
+
+    os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
+    with open(args.out, "w", encoding="utf-8") as f:
+        json.dump(result, f, indent=2)
+    print(f"wrote {args.out}")
+
 
 if __name__ == "__main__":
     main()

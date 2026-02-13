@@ -23,3 +23,22 @@ The hypothesis is that maximizing this ratio locally might eventually break the 
 - **Optimize:** Implement the polynomial computation in C or optimize the Python version (profiling needed).
 - **Diversity:** Use a fitness sharing or novelty search approach to maintain population diversity and stop the $N=26$ seed from dominating.
 - **Target:** Instead of global max ratio, target specific indices (e.g., "maximize $i_{10}$ while minimizing $i_{11}$").
+
+## Multi-Island Upgrade (implemented)
+- Replaced single-population loop with a **multi-island GA** in `evolutionary_lc_search.py`.
+- Added periodic ring migration and fixed crossover to return two distinct children.
+- Added explicit seed anchoring per island so known LC-failure structures are preserved.
+
+### Smoke run after upgrade
+Command:
+
+```bash
+python3 evolutionary_lc_search.py \
+  --generations 20 --pop-size 40 --islands 4 \
+  --migration-interval 5 --migrants 2 --report-every 5 \
+  --out results/best_evolutionary_tree_multiisland_smoke.json
+```
+
+Observed:
+- Best LC ratio increased to `1.4919833354` (at `n=32`), still unimodal.
+- No non-unimodal counterexample in this short run.
