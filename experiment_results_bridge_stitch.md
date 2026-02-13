@@ -21,8 +21,12 @@ $$ I(T) = I(T_1-r_1) \cdot I(T_2) + x \cdot I(T_1-N[r_1]) \cdot I(T_2-r_2) $$
 - **Run B (seed=994, random-samples=300k):**
     - `checked = 12,646,354`
     - `max_lc_ratio = 1.2222222222`
+- **Run C (seed=995, random-samples=500k):**
+    - `checked = 18,646,354`
+    - `max_lc_ratio = 1.3125`
 - **Max LC witness polynomial:**
-    - `[1, 3, 11, 36, 59, 46, 18, 3]` (first seen at total size $N=16$, with $n_1=1, n_2=15$).
+    - `[1, 4, 21, 75, 142, 146, 81, 22, 2]` (from Run C).
+    - Earlier witness `[1, 3, 11, 36, 59, 46, 18, 3]` remains reproducible in Runs A/B.
 - **Validation:** The search successfully found trees with LC ratios $> 1.0$, confirming that the method explores the "dangerous" territory of log-concavity violations, even if it hasn't broken unimodality yet.
 
 ## Conclusion

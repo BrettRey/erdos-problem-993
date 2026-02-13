@@ -27,10 +27,14 @@ Three novel search strategies were implemented and executed to attack the unimod
 ## 2. Bridge Stitching Scan
 **Goal:** Construct $T$ by bridging $T_1, T_2$.
 $$ I(T) = A_0 B_0 + x(A_0 B_1 + A_1 B_0) $$
-- **Setup:** Library of rooted signatures for $n \in [1, 15]$. Sampled $O(10^6)$ pairs for large $N$.
+- **Setup:** Library of rooted signatures for $n \in [1, 15]$, with seeded randomized sampling on large batches.
+- **Runs:**
+  - `seed=993`, `random_samples=100k`: `6,646,354` pairs checked.
+  - `seed=994`, `random_samples=300k`: `12,646,354` pairs checked.
+  - `seed=995`, `random_samples=500k`: `18,646,354` pairs checked.
 - **Result:**
-    - Sampled ~6.6 million pairs up to $N=30$.
-    - **Max LC Ratio:** $1.222$ (at $N=16$).
+    - Sampled up to ~18.6 million pairs up to $N=30$.
+    - **Max LC Ratio:** $1.3125$.
     - **Unimodality:** All constructed polynomials were unimodal.
 - **Significance:** This method is extremely fast ($10^6$ checks/sec) compared to full tree generation. It successfully creates "dangerous" polynomials but hasn't broken unimodality.
 
