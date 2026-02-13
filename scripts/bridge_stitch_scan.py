@@ -114,9 +114,11 @@ def solve_bridge_poly(sig1: Tuple[List[int], List[int]], sig2: Tuple[List[int], 
 def main():
     parser = argparse.ArgumentParser(description="Bridge Stitching Search")
     parser.add_argument("--max-n", type=int, default=12, help="Max size of component trees (total size ~2*max-n)")
-    parser.add_argument("--random-samples", type=int, default=1000000, help="Number of random pairs to check if exhaustive is too big")
+    parser.add_argument("--random-samples", type=int, default=100000, help="Number of random pairs checked per large (n1,n2) batch")
+    parser.add_argument("--seed", type=int, default=993, help="Random seed for sampling")
     parser.add_argument("--out", type=str, default="results/bridge_stitch_scan.json")
     args = parser.parse_args()
+    random.seed(args.seed)
     
     print(f"Generating signatures up to n={args.max_n}...")
     signatures_by_n = {}
@@ -173,7 +175,7 @@ def main():
             # If sampling, pick random indices
             # Otherwise iterate all
             
-            iterations = 100000 if use_sampling else total_pairs
+            iterations = args.random_samples if use_sampling else total_pairs
             
             # Create iterators or random samplers
             if use_sampling:
@@ -229,6 +231,8 @@ def main():
                 "status": "clean", 
                 "checked": checked, 
                 "max_n": args.max_n,
+                "random_samples": args.random_samples,
+                "seed": args.seed,
                 "max_lc_ratio": max_lc_ratio,
                 "max_lc_poly": max_lc_poly
             }, f, indent=2)
