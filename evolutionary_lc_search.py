@@ -407,7 +407,8 @@ def main() -> None:
             print(
                 f"gen={gen:4d} best_lc={row['best_lc_ratio']:.12f} "
                 f"best_unimodal={row['best_unimodal']} "
-                f"island_mean={row['island_best_mean']:.6f}"
+                f"island_mean={row['island_best_mean']:.6f}",
+                flush=True,
             )
 
     if best is None:
@@ -442,7 +443,7 @@ def main() -> None:
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2)
-    print(f"wrote {args.out}")
+    print(f"wrote {args.out}", flush=True)
 
 
 if __name__ == "__main__":
