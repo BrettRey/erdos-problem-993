@@ -193,24 +193,146 @@ Possible approaches:
 4. **Private Neighbor Bound + pigeonhole** (new): covers 99.85% of cases.
    The 0.15% double-star exceptions need a separate structural argument.
 
+## Sign-Reversing Involution (SRI)
+
+### Motivation
+
+The augmented matching (Hopcroft-Karp) proves a matching EXISTS but doesn't
+construct one canonically. A sign-reversing involution gives a CANONICAL
+pairing phi: IS_k u IS_{k+1} -> IS_k u IS_{k+1} where phi^2 = id,
+phi swaps sizes (sign-reversing), and fixed points are all at size k+1.
+This directly proves i_{k+1} >= i_k.
+
+### Strategies Tested (n=5..12, 982 trees, 3,679 levels)
+
+| Strategy | Perfect Levels | % |
+|----------|---------------|---|
+| toggle/label | 0 | 0.0% |
+| toggle/rev_label | 0 | 0.0% |
+| toggle/deg_asc | 0 | 0.0% |
+| toggle/deg_desc | 0 | 0.0% |
+| toggle/bfs | 0 | 0.0% |
+| toggle/dfs_post | 0 | 0.0% |
+| leaf_swap alone | 0 | 0.0% |
+| **contain_first/label** | **3,679** | **100.0%** |
+| **contain_first/deg_asc** | **3,679** | **100.0%** |
+| hybrid/label | 982 | 26.7% |
+
+### The Winning Strategy: Containment-First Involution
+
+**Definition.** For k < mode(I(T)), define phi on IS_k u IS_{k+1}:
+
+**Forward (size k -> size k+1):**
+- If S is **non-maximal**: phi(S) = S u {v}, where v is the first vertex
+  (label order) not in S with no neighbor in S.
+- If S is **maximal**: phi(S) = (S \ {u}) u {v, w}, where (u, v, w) is the
+  canonical swap triple: u is the highest-degree vertex in S with >=2
+  leaf-neighbors outside S, and v, w are the two smallest-label such leaves.
+
+**Reverse (size k+1 -> size k):**
+- If T = S u {v} for some non-maximal S at level k where v is the first
+  free vertex: phi(T) = T \ {v} = S. (Containment reverse.)
+- If T = (S \ {u}) u {v, w} for some maximal S at level k with canonical
+  triple (u, v, w): phi(T) = (T \ {v, w}) u {u} = S. (Swap reverse.)
+- Otherwise: phi(T) = T (fixed point at size k+1).
+
+**Key design choices:**
+1. `max_deg` canonical triple: prefer highest-degree u (not smallest label).
+   This is critical because the high-degree hub is uniquely identifiable
+   from both sides of the involution.
+2. `require_maximal` filter: the reverse only considers swap triples whose
+   preimage is a maximal IS. This prevents the reverse from matching a
+   non-maximal preimage when only maximal ISes use swaps.
+
+### Verification
+
+| n | Trees | Levels | Involution failures |
+|---|-------|--------|-------------------|
+| 5-9 | 87 | 230 | 0 |
+| 10 | 106 | 338 | 0 |
+| 11 | 235 | 854 | 0 |
+| 12 | 551 | 2,238 | 0 |
+| 13 | 1,301 | 5,448 | 0 |
+| 14 | 3,159 | 14,416 | 0 |
+| 15 | 7,741 | 39,069 | 0 |
+| 16 | 19,320 | 100,176 | 0 |
+| **Total** | **32,503** | **162,788** | **0** |
+
+**Zero failures across 32,503 trees and 162,788 level checks.**
+
+### Why Other Strategies Fail
+
+**Toggle (all orderings):** The toggle rule finds the first vertex in a
+given ordering where toggling (add if absent, remove if present) changes
+the set. This breaks phi^2 = id because the first toggleable vertex for S
+is generally not the same as for phi(S). All 6 orderings tested give 0%
+perfect levels.
+
+**Leaf-swap alone:** The leaf-swap works well for maximal IS (which have
+the necessary leaf-neighbor structure), but non-maximal IS often lack the
+required >=2 leaf-neighbors for any vertex in S. Forward map fails for
+~50% of left sets.
+
+**Hybrid (stricter involution check):** The hybrid strategy uses a more
+aggressive involution check where the reverse must identify which rule
+(containment vs swap) produced the image. The containment-reverse
+identification is expensive and fragile, giving only 26.7% success.
+
+### Technical Lessons
+
+1. **Canonical triple selection matters enormously.** Using smallest-label u
+   (min_label) gives 99.7% success through n=12 but fails at n=13.
+   Using highest-degree u (max_deg) gives 100% through n=16. The reason:
+   when multiple maximal ISes can swap through the same target t, the
+   highest-degree hub is more likely to be uniquely determined.
+
+2. **The require_maximal filter is essential.** Without it, the reverse may
+   find a non-maximal preimage (which never uses swaps forward), creating
+   an inconsistency. With it, the reverse only matches maximal preimages,
+   ensuring consistency.
+
+3. **Containment-first separation is key.** By handling non-maximal IS
+   (the easy majority) with simple containment, the swap mechanism only
+   needs to handle the small number of maximal IS below the mode. This
+   dramatically simplifies the involution.
+
+### Remaining Gaps
+
+1. **Prove the involution is well-defined for all trees.** The empirical
+   verification covers n <= 16. A proof would need:
+   - Every non-maximal IS below mode has a free vertex (trivially true)
+   - Every maximal IS below mode has a vertex with >=2 leaf-neighbors
+     (the Leaf-Neighbor Property, empirically 100%)
+   - The canonical swap triple is consistently identifiable from both sides
+   - No collisions (two forward maps hitting the same target)
+
+2. **Prove phi^2 = id.** The involution property requires that applying
+   phi twice recovers the original. This holds empirically but needs
+   a structural proof.
+
+3. **Connection to Hall's condition.** A valid SRI directly proves
+   i_{k+1} >= i_k without needing Hall's condition. This is strictly
+   stronger than the matching-existence result.
+
 ## Implications for the Taxonomy Mapping
 
 | Stanley category | Status in this project | New insight |
 |-----------------|----------------------|-------------|
-| Generating function | Heavily explored (approaches 2,4,6,8) | — |
-| Real-rootedness | Blocked | — |
-| Log-concavity | Blocked (Galvin 2025) | — |
+| Generating function | Heavily explored (approaches 2,4,6,8) | -- |
+| Real-rootedness | Blocked | -- |
+| Log-concavity | Blocked (Galvin 2025) | -- |
 | **Direct injection** | **Now explored** | **Containment fails; augmented works** |
-| sl_2 representations | Not explored | — |
-| Sign-reversing involution | Not explored | — |
-| Chain decomposition | Not explored | — |
+| sl_2 representations | Not explored | -- |
+| **Sign-reversing involution** | **Now explored** | **Containment-first SRI: 100% through n=16** |
+| Chain decomposition | Not explored | -- |
 
 ## Files
 
 - `explore_injection.py`: Containment-only matching + canonical rules
 - `explore_augmented_injection.py`: Containment + swap matching
 - `explore_why_augmented_works.py`: Structural analysis of swap mechanism
+- `explore_sri.py`: Sign-reversing involution (4 strategies, 6 orderings)
 - `verify_mode_bound.py`: Checks mode > (n-1)/3 and P bound tightness
-- `verify_n3k_claim.py`: Detailed n ≥ 3k analysis
+- `verify_n3k_claim.py`: Detailed n >= 3k analysis
 - `analyze_violations.py`: Tree structure of n < 3k cases
 - `results/injection_exploration.json`: Containment results data
