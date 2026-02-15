@@ -120,8 +120,7 @@ non-adjacent (since a triangle u-v-w is impossible in a tree). Therefore
 If P ≥ n - 2k + 1 > k (i.e., n > 3k - 1, i.e., n ≥ 3k), then by
 pigeonhole some u ∈ S has priv(u) ≥ ⌈P/k⌉ ≥ 2.
 
-**Verified for 99.85% of cases** (13,022/13,042 maximal IS below mode,
-n ≤ 16). The remaining 0.15% have n < 3k.
+**Verified for 99.6% of cases** (n ≤ 18). The remaining 0.4% have n < 3k.
 
 ### The n < 3k Violations: Double-Star Structure
 
@@ -143,33 +142,58 @@ neighbors.
 **Key observation**: In all 13,042 cases (including all 20 violations),
 max_priv ≥ 2. This is strictly stronger than the pigeonhole argument.
 
-### The Leaf-Neighbor Property (strongest individual result)
+### The Leaf-Neighbor Property (CORRECTED: fails at n=18)
 
-**Empirical fact (n ≤ 16, 13,042 cases, 0 failures):** For any tree T
+**Original claim (n ≤ 16, 13,042 cases, 0 failures):** For any tree T
 and any maximal IS S of size k < mode(I(T)), some vertex u ∈ S has ≥ 2
 leaf-neighbors in the tree.
 
+**Status: FALSE.** Fails at n=18 for a spider tree (center degree 5,
+four arms of length 4, one pendant leaf). The tree has arms:
+17-4-13-9-0, 17-5-14-10-1, 17-6-15-11-2, 17-7-16-12-3, 17-8.
+IS S = {0, 1, 2, 3, 17} (center + four distant feet), k=5, mode=6.
+Center vertex 17 has only 1 leaf-neighbor (vertex 8, the pendant).
+But priv(17) = 5: all 5 neighbors are private because the "next" nodes
+down each arm (13, 14, 15, 16) are not in S.
+
+Discovered by Gemini (2026-02-14). Also see `notes/leaf_neighbor_proof.md`.
+
+### The Private Neighbor Property (correct statement)
+
+**Conjecture (PNP, n ≤ 18, 99,147 cases, 0 failures):** For any tree T
+and any maximal IS S of size k < mode(I(T)), some u ∈ S has priv(u) ≥ 2.
+
 Why this suffices for swap existence:
-- A leaf-neighbor v of u ∈ S has deg(v) = 1, so v ∈ V\S and u is v's
-  only neighbor (hence only S-neighbor): v is automatically private for u.
-- Two leaf-neighbors v, w of u each have degree 1, so v-w edge is
-  impossible: they're non-adjacent.
+- Two private neighbors v, w of u ∈ S are non-adjacent in a tree
+  (acyclicity prevents triangle u-v-w).
 - Therefore (S \ {u}) ∪ {v, w} is independent of size k+1: valid swap. ∎
 
-This is cleaner than the pigeonhole route because:
-- No dependence on n ≥ 3k (covers ALL cases including the 20 violations)
-- The proof of swap validity is trivial once we have 2 leaf-neighbors
-- Leaf-neighbors are structurally visible (easy to verify)
+For the n=18 counterexample: max_priv = 5 (vertex 17 has 5 private
+neighbors). The swap is trivially available via private (non-leaf)
+neighbors.
+
+PNP is proved for 99.6% of cases via pigeonhole (when n ≥ 3k).
+The remaining 0.4% (all n < 3k): if PNP fails, then priv(u) ≤ 1 for
+all u, giving P ≤ k, hence k ≥ (n+1)/3. For trees with mode ≤ ⌊n/3⌋+1
+this already gives k ≥ mode. For high-mode trees, no such IS exists
+(verified exhaustively through n = 18; 99,147 IS, 0 failures).
+
+**Note on Bollobás-Cockayne:** The claim priv(u) ≥ 1 (external) for all
+u in a maximal IS is FALSE in general (counterexample: K_{1,4}, S = all
+leaves, priv = 0 for every leaf). The proof does NOT require this: it
+only needs P ≤ k when all priv ≤ 1 (PNP failure). Verified: 34,055
+maximal IS below mode at n=18 have some vertex with priv = 0, yet
+max_priv ≥ 2 in all cases.
 
 ### The Remaining Gaps
 
 Two theoretical questions remain open:
 
-1. **Leaf-neighbor existence (the "leaf lemma")**: Prove that every maximal
-   IS of size k < mode(I(T)) has some u with ≥ 2 leaf-neighbors.
-   - 100% success in 13,042 cases (n ≤ 16)
-   - Key ingredients: relationship between IS size, tree leaf structure,
-     and the mode of the independence polynomial
+1. **PNP for n < 3k**: Prove that every maximal IS of size k < mode(I(T))
+   has some u with priv(u) ≥ 2, even when n < 3k.
+   - 405 empirical cases, 0 failures
+   - All are double-star-like trees with one high-degree hub in S
+   - Likely provable via degree concentration arguments
 
 2. **From individual degree to Hall's condition**: Even proving every IS
    has augmented degree ≥ 1 is not enough for a full matching. Hall's
@@ -214,11 +238,11 @@ This directly proves i_{k+1} >= i_k.
 | toggle/bfs | 0 | 0.0% |
 | toggle/dfs_post | 0 | 0.0% |
 | leaf_swap alone | 0 | 0.0% |
-| **contain_first/label** | **3,679** | **100.0%** |
-| **contain_first/deg_asc** | **3,679** | **100.0%** |
+| contain_first/label | 3,679 (weak test) | see correction below |
+| contain_first/deg_asc | 3,679 (weak test) | see correction below |
 | hybrid/label | 982 | 26.7% |
 
-### The Winning Strategy: Containment-First Involution
+### Containment-First Involution (CORRECTED)
 
 **Definition.** For k < mode(I(T)), define phi on IS_k u IS_{k+1}:
 
@@ -226,93 +250,65 @@ This directly proves i_{k+1} >= i_k.
 - If S is **non-maximal**: phi(S) = S u {v}, where v is the first vertex
   (label order) not in S with no neighbor in S.
 - If S is **maximal**: phi(S) = (S \ {u}) u {v, w}, where (u, v, w) is the
-  canonical swap triple: u is the highest-degree vertex in S with >=2
-  leaf-neighbors outside S, and v, w are the two smallest-label such leaves.
+  canonical swap triple (leaf-swap or private-neighbor swap).
 
-**Reverse (size k+1 -> size k):**
-- If T = S u {v} for some non-maximal S at level k where v is the first
-  free vertex: phi(T) = T \ {v} = S. (Containment reverse.)
-- If T = (S \ {u}) u {v, w} for some maximal S at level k with canonical
-  triple (u, v, w): phi(T) = (T \ {v, w}) u {u} = S. (Swap reverse.)
-- Otherwise: phi(T) = T (fixed point at size k+1).
+**The collision problem.** The original test (`explore_sri.py`) checked each
+forward-reverse pair (S -> T -> S') individually using the known forward rule
+type, but did NOT check whether multiple left elements map to the same right
+element. A stronger test (`diagnose_sri_collision.py`) reveals **massive
+collisions**: containment and swap forward maps frequently target the same T.
 
-**Key design choices:**
-1. `max_deg` canonical triple: prefer highest-degree u (not smallest label).
-   This is critical because the high-degree hub is uniquely identifiable
-   from both sides of the involution.
-2. `require_maximal` filter: the reverse only considers swap triples whose
-   preimage is a maximal IS. This prevents the reverse from matching a
-   non-maximal preimage when only maximal ISes use swaps.
+| n | Levels | Collision levels | % |
+|---|--------|-----------------|---|
+| 5 | 6 | 3 | 50.0% |
+| 8 | 64 | 41 | 64.1% |
+| 10 | 338 | 232 | 68.6% |
+| 12 | 2,238 | 1,687 | 75.4% |
+| 13 | 5,448 | 4,147 | 76.1% |
 
-### Verification
+**Example (K_{1,4}, k=1):** T = {leaf1, leaf2} is simultaneously:
+- Containment image of {leaf1} (adding leaf2 as first free vertex)
+- Containment image of {leaf2} (adding leaf1 as first free vertex)
+- Swap image of {center} (removing center, adding leaf1 + leaf2)
 
-| n | Trees | Levels | Involution failures |
-|---|-------|--------|-------------------|
-| 5-9 | 87 | 230 | 0 |
-| 10 | 106 | 338 | 0 |
-| 11 | 235 | 854 | 0 |
-| 12 | 551 | 2,238 | 0 |
-| 13 | 1,301 | 5,448 | 0 |
-| 14 | 3,159 | 14,416 | 0 |
-| 15 | 7,741 | 39,069 | 0 |
-| 16 | 19,320 | 100,176 | 0 |
-| **Total** | **32,503** | **162,788** | **0** |
+Three left elements target the same right element, so the forward map is
+not injective and phi is not a valid involution.
 
-**Zero failures across 32,503 trees and 162,788 level checks.**
+**Conclusion:** The containment-first SRI as designed does NOT produce a
+valid sign-reversing involution. The original "100% success through n=16"
+claim was an artifact of an insufficient correctness test. Designing a
+collision-free SRI for tree independence polynomials remains open.
 
-### Why Other Strategies Fail
+### Why Collisions Are Fundamental
 
-**Toggle (all orderings):** The toggle rule finds the first vertex in a
-given ordering where toggling (add if absent, remove if present) changes
-the set. This breaks phi^2 = id because the first toggleable vertex for S
-is generally not the same as for phi(S). All 6 orderings tested give 0%
-perfect levels.
+The collision arises because:
+1. Multiple non-maximal IS can share the same "first free vertex," so
+   their containment images coincide.
+2. A swap image T = (S \ {u}) u {v, w} can also be the containment image
+   of a non-maximal IS S' = T \ {x} for some x in T.
 
-**Leaf-swap alone:** The leaf-swap works well for maximal IS (which have
-the necessary leaf-neighbor structure), but non-maximal IS often lack the
-required >=2 leaf-neighbors for any vertex in S. Forward map fails for
-~50% of left sets.
+Resolving collisions would require a modified forward map that redirects
+some IS to alternative targets when the canonical target is already claimed.
+This requires global coordination (knowing all forward targets) rather than
+a local per-element rule, which is antithetical to the SRI framework.
 
-**Hybrid (stricter involution check):** The hybrid strategy uses a more
-aggressive involution check where the reverse must identify which rule
-(containment vs swap) produced the image. The containment-reverse
-identification is expensive and fragile, giving only 26.7% success.
+### What DOES Work
 
-### Technical Lessons
+The **augmented bipartite matching** (Hopcroft-Karp algorithm) correctly
+finds an injection IS_k -> IS_{k+1} for every k < mode, verified through
+n=18 across 204,909 trees. This non-constructive existence proof is valid,
+even though we lack a canonical/constructive injection.
 
-1. **Canonical triple selection matters enormously.** Using smallest-label u
-   (min_label) gives 99.7% success through n=12 but fails at n=13.
-   Using highest-degree u (max_deg) gives 100% through n=16. The reason:
-   when multiple maximal ISes can swap through the same target t, the
-   highest-degree hub is more likely to be uniquely determined.
+### Open Question
 
-2. **The require_maximal filter is essential.** Without it, the reverse may
-   find a non-maximal preimage (which never uses swaps forward), creating
-   an inconsistency. With it, the reverse only matches maximal preimages,
-   ensuring consistency.
-
-3. **Containment-first separation is key.** By handling non-maximal IS
-   (the easy majority) with simple containment, the swap mechanism only
-   needs to handle the small number of maximal IS below the mode. This
-   dramatically simplifies the involution.
-
-### Remaining Gaps
-
-1. **Prove the involution is well-defined for all trees.** The empirical
-   verification covers n <= 16. A proof would need:
-   - Every non-maximal IS below mode has a free vertex (trivially true)
-   - Every maximal IS below mode has a vertex with >=2 leaf-neighbors
-     (the Leaf-Neighbor Property, empirically 100%)
-   - The canonical swap triple is consistently identifiable from both sides
-   - No collisions (two forward maps hitting the same target)
-
-2. **Prove phi^2 = id.** The involution property requires that applying
-   phi twice recovers the original. This holds empirically but needs
-   a structural proof.
-
-3. **Connection to Hall's condition.** A valid SRI directly proves
-   i_{k+1} >= i_k without needing Hall's condition. This is strictly
-   stronger than the matching-existence result.
+Can a valid SRI be designed for tree independence polynomials? This would
+require either:
+1. A collision-free forward rule (seems difficult given the structural
+   reasons for collisions)
+2. A fundamentally different involution design (e.g., operating on a
+   different combinatorial object)
+3. An SRI on a related polynomial (e.g., matching polynomial) with a
+   transfer argument
 
 ## Implications for the Taxonomy Mapping
 
@@ -323,7 +319,7 @@ identification is expensive and fragile, giving only 26.7% success.
 | Log-concavity | Blocked (Galvin 2025) | -- |
 | **Direct injection** | **Now explored** | **Containment fails; augmented works** |
 | sl_2 representations | Not explored | -- |
-| **Sign-reversing involution** | **Now explored** | **Containment-first SRI: 100% through n=16** |
+| **Sign-reversing involution** | **Explored; collision problem** | **Naive SRI fails; valid SRI open** |
 | Chain decomposition | Not explored | -- |
 
 ## Files
@@ -335,4 +331,8 @@ identification is expensive and fragile, giving only 26.7% success.
 - `verify_mode_bound.py`: Checks mode > (n-1)/3 and P bound tightness
 - `verify_n3k_claim.py`: Detailed n >= 3k analysis
 - `analyze_violations.py`: Tree structure of n < 3k cases
+- `explore_sri_priv.py`: SRI with private-neighbor swaps (strong test)
+- `diagnose_sri_collision.py`: Collision diagnosis for containment-first SRI
+- `verify_pnp_extended.py`: PNP verification through n=18
 - `results/injection_exploration.json`: Containment results data
+- `notes/pnp_n_lt_3k_proof.md`: 1-Private Conjecture (Gemini analysis)

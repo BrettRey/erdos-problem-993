@@ -59,61 +59,104 @@ def independence_poly(n: int, adj: list[list[int]]) -> list[int]:
     if n == 1:
         return [1, 1]
 
-    # Root at vertex 0, BFS to get parent/children and post-order
-    parent = [-1] * n
-    children: list[list[int]] = [[] for _ in range(n)]
-    visited = [False] * n
-    order = []  # will hold post-order
-    visited[0] = True
-    bfs_queue = [0]
-    head = 0
-    while head < len(bfs_queue):
-        v = bfs_queue[head]
-        head += 1
-        for u in adj[v]:
-            if not visited[u]:
-                visited[u] = True
-                parent[u] = v
-                children[v].append(u)
-                bfs_queue.append(u)
-
-    # Post-order from BFS order (reverse of BFS = approximate post-order,
-    # but we need true post-order; use iterative DFS instead)
-    stack = [(0, False)]
-    order = []
-    while stack:
-        v, processed = stack.pop()
-        if processed:
-            order.append(v)
+    # Handle forest by multiplying polynomials of components
+    components_polys = []
+    global_visited = [False] * n
+    
+    for start_node in range(n):
+        if global_visited[start_node]:
             continue
-        stack.append((v, True))
-        for c in children[v]:
-            stack.append((c, False))
-
-    # DP: dp0[v] = poly when v excluded, dp1[v] = poly when v included
-    dp0: list[list[int]] = [[] for _ in range(n)]
-    dp1: list[list[int]] = [[] for _ in range(n)]
-
-    for v in order:
-        if not children[v]:
-            # Leaf
-            dp0[v] = [1]
-            dp1[v] = [0, 1]
-        else:
-            # dp0[v] = product over children c of (dp0[c] + dp1[c])
-            prod = [1]
+            
+        # Extract component
+        component_nodes = []
+        q = [start_node]
+        global_visited[start_node] = True
+        idx = 0
+        while idx < len(q):
+            u = q[idx]
+            idx += 1
+            component_nodes.append(u)
+            for v in adj[u]:
+                if not global_visited[v]:
+                    global_visited[v] = True
+                    q.append(v)
+        
+        # If single node component
+        if len(component_nodes) == 1:
+            components_polys.append([1, 1])
+            continue
+            
+        # Relabel nodes for this component to 0..k-1
+        k = len(component_nodes)
+        mapping = {old: new for new, old in enumerate(component_nodes)}
+        comp_adj = [[] for _ in range(k)]
+        for u in component_nodes:
+            for v in adj[u]:
+                comp_adj[mapping[u]].append(mapping[v])
+                
+        # Compute poly for this component (it's a tree)
+        # We can use the existing tree logic inline or recursive call
+        # Let's use the tree logic here to avoid overhead of creating new list
+        
+        # Root at 0 (which is mapping[start_node])
+        parent = [-1] * k
+        children = [[] for _ in range(k)]
+        visited = [False] * k
+        order = []
+        
+        visited[0] = True
+        bfs_queue = [0]
+        head = 0
+        while head < len(bfs_queue):
+            v = bfs_queue[head]
+            head += 1
+            for u in comp_adj[v]:
+                if not visited[u]:
+                    visited[u] = True
+                    parent[u] = v
+                    children[v].append(u)
+                    bfs_queue.append(u)
+                    
+        stack = [(0, False)]
+        while stack:
+            v, processed = stack.pop()
+            if processed:
+                order.append(v)
+                continue
+            stack.append((v, True))
             for c in children[v]:
-                summand = _polyadd(dp0[c], dp1[c])
-                prod = _polymul(prod, summand)
-            dp0[v] = prod
+                stack.append((c, False))
+                
+        dp0 = [[] for _ in range(k)]
+        dp1 = [[] for _ in range(k)]
+        
+        for v in order:
+            if not children[v]:
+                dp0[v] = [1]
+                dp1[v] = [0, 1]
+            else:
+                prod = [1]
+                for c in children[v]:
+                    summand = _polyadd(dp0[c], dp1[c])
+                    prod = _polymul(prod, summand)
+                dp0[v] = prod
+                
+                prod = [1]
+                for c in children[v]:
+                    prod = _polymul(prod, dp0[c])
+                dp1[v] = [0] + prod
+                
+        components_polys.append(_polyadd(dp0[0], dp1[0]))
 
-            # dp1[v] = x * product over children c of dp0[c]
-            prod = [1]
-            for c in children[v]:
-                prod = _polymul(prod, dp0[c])
-            dp1[v] = [0] + prod  # multiply by x
-
-    return _polyadd(dp0[0], dp1[0])
+    # Multiply all component polynomials
+    if not components_polys:
+        return [1]
+    
+    result = components_polys[0]
+    for p in components_polys[1:]:
+        result = _polymul(result, p)
+        
+    return result
 
 
 def _polyadd(a: list[int], b: list[int]) -> list[int]:

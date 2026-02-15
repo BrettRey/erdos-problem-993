@@ -45,6 +45,7 @@ Third, an evolutionary search over tree space identifies \emph{multi-arm stars}~
 The near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \approx 4.0$ for the best multi-arm configurations (vs.\ $C \approx 4.1$ for brooms), so the margin of unimodality shrinks as $O(1/s)$ but never vanishes.
 The same asymptotic mechanism applies to any fixed core with $s$ pendant leaves at a single vertex.
 I also give an elementary proof that brooms are unimodal whenever the star size dominates the path ($s \ge p$).
+Finally, I develop an augmented injection framework for proving unimodality: every maximal independent set below the mode admits a ``swap'' to a larger set (removing one vertex, adding two private neighbors), and the resulting augmented bipartite graph satisfies Hall's condition for all trees on $n \le 18$ vertices.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -81,6 +82,7 @@ My contributions:
   \item Identification of multi-arm stars as the extremal family for the near-miss ratio, discovered via evolutionary optimization over tree space (Section~\ref{sec:targeted}).
   \item An empirical asymptotic analysis showing that leaf-attachment trees approach the unimodality boundary at rate $O(1/s)$ (Section~\ref{sec:broom}).
   \item An elementary proof that brooms are unimodal whenever $s \ge p$ (Section~\ref{sec:broom}).
+  \item An augmented injection framework~-- combining containment and swap edges~-- that reduces unimodality to a Private Neighbor Property, verified for all trees on $n \le 18$ vertices (Section~\ref{sec:discussion}).
 \end{enumerate}
 Note added. Since this work was completed, Li, Li, Yang, and Zhang proved that all spiders are strongly log-concave, which implies log-concavity (hence unimodality) for brooms as a special case \citep{li2025spiders}. I include the elementary $s \ge p$ proof as a self-contained argument that aligns with the asymptotic analysis.
 These results should be read as four complementary evidence types: exhaustive verification provides certified confirmation within the tested range; targeted family searches are adversarial stress-tests; evolutionary optimization identifies extremal structure; and the leaf-attachment analysis offers an explanatory asymptotic model rather than a general proof.
@@ -475,6 +477,33 @@ Since $m - (\mu + \tfrac{1}{2}) \in [0, 1)$, we have $C \in [4, 8)$, so
 $\nm(s) < 1$ for all sufficiently large $s$.
 \end{proof}
 
+\begin{lemma}[Leaf-attachment boundary negativity]\label{lem:leaf-attach-boundary}
+Let $I_s(x) = (1+x)^s A(x) + x B(x)$ with $A(x)=\sum_{j=0}^d a_j x^j$,
+$B(x)=\sum_{j=0}^e b_j x^j$, and $a_j,b_j \ge 0$.
+Assume $s \ge e+1-d$ so $\alpha_s=\deg I_s = s+d$, and set
+$t_s=\lceil(2\alpha_s-1)/3\rceil$.
+If
+\[
+  s \;\ge\; s_0(d,e) \;:=\; \max\!\left(e+1-d,\; 2d+11,\; \Big\lceil\frac{3e-2d+8}{2}\Big\rceil\right),
+\]
+then
+\[
+  \Delta I_s{}_{t_s-2} \le 0
+  \quad\text{and}\quad
+  \Delta I_s{}_{t_s-1} \le 0.
+\]
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+Write $U_s=(1+x)^sA$ and $V=xB$. The ratio envelope
+$U_{s,k+1}/U_{s,k} \le (s-k+d)/(k+1-d)$ implies $\Delta U_{s,k}\le 0$ once
+$k\ge (s+2d-1)/2$.
+The condition $s\ge 2d+11$ places $k=t_s-2,t_s-1$ to the right of this threshold.
+The condition $s\ge \lceil(3e-2d+8)/2\rceil$ ensures $t_s-2\ge e+1$, so
+$\Delta V_{t_s-2},\Delta V_{t_s-1}\le 0$ (indeed $=0$ except possibly at $e+1$).
+Thus $\Delta I_s=\Delta U_s+\Delta V$ is nonpositive at both boundary indices.
+\end{proof}
+
 \begin{remark}
   The constant $C$ depends only on $\mu$ and its ceiling. For brooms,
   $\mu = G_{p-1}/F_{p-1}$ by the Fibonacci recurrences~\eqref{eq:Fn}--\eqref{eq:Gn},
@@ -482,7 +511,9 @@ $\nm(s) < 1$ for all sufficiently large $s$.
   Multi-arm stars have a different core $H$ and hence different $\mu$; the champion 4-arm$(5,5,4,2)$
   achieves $C \approx 3.98$, slightly below the broom optimum of $C \approx 4.12$.
   The theorem gives eventual unimodality for any fixed core; it does not
-  address small $s$. For brooms, log-concavity (hence unimodality) for all
+  address small $s$. Lemma~\ref{lem:leaf-attach-boundary} shows that once the
+  leaf attachment is large enough relative to the core, the boundary indices are
+  already nonincreasing. For brooms, log-concavity (hence unimodality) for all
   $s$ follows from the spider theorem of Li et al.\ \citep{li2025spiders}.
 \end{remark}
 
@@ -494,6 +525,8 @@ Across 447.7 million exhaustively tested trees and 145 thousand structurally tar
 The conjecture appears robust, but the asymptotic analysis reveals that it is also tight: the margin of unimodality can be made arbitrarily small.
 Read as evidence types, the exhaustive portion certifies the conjecture within the tested range, the targeted families act as adversarial probes, the evolutionary optimizer identifies extremal structure, and the leaf-attachment analysis offers an explanatory asymptotic model for near-boundary behavior.
 The fixed-core leaf-attachment theorem shows that the $1/s$ near-miss scaling is a generic effect of binomial smoothing, applying equally to brooms and multi-arm stars.
+As a finite-core stress test motivated by the leaf-heavy reduction, I enumerated all degree-2-free trees obtained by attaching at most $\lambda_0$ leaves to each core vertex for several bounds.
+No non-unimodal example appears for $(b_0,\lambda_0)=(8,4)$ (711{,}191 candidates) or $(7,5)$ (513{,}699 candidates), suggesting that any minimal obstruction must be very small if it exists.
 
 Two structural surprises emerge.
 First, subdivided stars~-- despite producing abundant log-concavity failures~-- stay well within the unimodality threshold.
@@ -502,10 +535,54 @@ Second, distributing the path structure across several short arms (multi-arm sta
 The optimal arm configuration changes with~$n$: two arms at small~$n$, transitioning to three or four arms by $n = 200$.
 Intuitively, shorter balanced arms preserve more pendant leaves for the same~$n$, and the resulting perturbation of the independence polynomial produces more effective near-miss amplification.
 
-Several directions remain:
+\subsection*{Toward a proof: augmented injection}
+
+The computational evidence raises a natural question: can unimodality be proved by injecting level~$k$ into level~$k+1$ for each $k$ below the mode?
+The obvious approach~-- containment injection, where each size-$k$ independent set $S$ maps to $S \cup \{v\}$ for some vertex~$v$~-- fails because maximal independent sets below the mode cannot be extended.
+At $n = 14$, roughly 54\% of trees have at least one such obstruction.
+
+Adding \emph{swap edges} resolves this.
+A swap edge connects $S$ at level~$k$ to $T = (S \setminus \{u\}) \cup \{v, w\}$ at level~$k+1$, where $u \in S$ and $v, w \notin S$ are non-adjacent vertices outside~$S$.
+I verified computationally that the augmented bipartite graph (containment plus swap edges) between levels~$k$ and~$k+1$ satisfies Hall's condition for every tree on $n \le 18$ vertices (204\,909 trees, over 160\,000 level checks, zero failures).
+By Hall's theorem, this gives an injection $i_k \hookrightarrow i_{k+1}$, confirming $i_k \le i_{k+1}$ for all $k$ below the mode.
+
+The swap mechanism is guaranteed to exist by an analytic result.
+Call a vertex $v \notin S$ \emph{private for~$u \in S$} if $u$ is the only $S$-neighbor of~$v$.
+
+\begin{lemma}[Private Neighbor Bound]\label{lem:pnb}
+  For any tree~$T$ on $n$~vertices and any dominating independent set~$S$ of size~$k$, the total number of private vertices $P$ satisfies $P \ge n - 2k + 1$.
+\end{lemma}
+
+\begin{proof}
+Since $S$ is independent, all edges from $S$ go to $V \setminus S$.
+Let $Q = n - k - P$ be the number of non-$S$ vertices with $\ge 2$ $S$-neighbors.
+Counting edges from~$S$: $|E(S, V \setminus S)| \ge P + 2Q = 2(n - k) - P$.
+Since $T$ has $n - 1$ edges total, $P \ge 2(n - k) - (n - 1) = n - 2k + 1$.
+\end{proof}
+
+By pigeonhole, if $n \ge 3k$ then some $u \in S$ has $\mathrm{priv}(u) \ge 2$.
+In a tree, two private neighbors of the same vertex are non-adjacent (since a triangle is impossible), so $(S \setminus \{u\}) \cup \{v, w\}$ is an independent set of size $k + 1$: a valid swap.
+This covers 99.6\% of maximal independent sets below the mode through $n = 18$.
+
+For the remaining 0.4\% (where $n < 3k$), a reduction argument applies.
+If no vertex in~$S$ has $\mathrm{priv}(u) \ge 2$, then $P = \sum_{u \in S} \mathrm{priv}(u) \le k$, and the bound gives $k \ge (n + 1)/3$.
+A computational search confirms that no tree with $\mathrm{mode}(I(T)) > \lfloor n/3 \rfloor + 1$ admits a maximal independent set in which every vertex has $\mathrm{priv} \le 1$ (verified exhaustively through $n = 18$; 99{,}147 maximal IS below the mode, zero failures).
+Since $k \ge \lceil (n + 1)/3 \rceil = \lfloor n/3 \rfloor + 1 \ge \mathrm{mode}$ in the remaining case, the Private Neighbor Property holds universally through $n = 18$: every maximal independent set of size $k < \mathrm{mode}$ has some vertex with $\ge 2$ private neighbors.
+
+Structurally, high-mode trees ($\mathrm{mode} > \lfloor n/3 \rfloor + 1$) are star-like: all have a vertex of degree $\ge 4$ with $\ge 2$ pendant leaf-neighbors (verified through $n = 20$).
+When such a vertex belongs to~$S$, its leaf-neighbors are automatically private, giving $\mathrm{priv} \ge 2$; when it is excluded from~$S$, the subtree IS vertices typically inherit high private-neighbor counts.
+An additional observation: $\mathrm{mode}(I(T)) \le \lfloor (n-1)/2 \rfloor$ for every tree (verified through $n = 20$, with equality at $K_{1,n-1}$ for odd~$n$).
+
+Two gaps remain for a complete proof of unimodality via this route.
+First, the absence of maximal IS with all $\mathrm{priv} \le 1$ below the mode in high-mode trees is verified only computationally; an analytic argument would close the Private Neighbor Property.
+Second, proving that every independent set below the mode has augmented degree $\ge 1$ is necessary but not sufficient for Hall's condition; the full matching requires expansion properties of the augmented bipartite graph that remain unproved.
+
+\subsection*{Remaining directions}
+
 \begin{itemize}
+  \item Prove analytically that high-mode trees ($\mathrm{mode} > \lfloor n/3 \rfloor + 1$) admit no maximal independent set in which every vertex has $\mathrm{priv} \le 1$.
+  \item Establish Hall's condition for the augmented bipartite graph, or find an alternative route from individual swap existence to a full injection.
   \item A closed-form characterization of the optimal multi-arm configuration as a function of~$n$, and whether the number of arms grows without bound.
-  \item Extension of log-concavity proofs to larger structural classes (e.g., trees with at most two branch vertices).
   \item Extension of the exhaustive search to $n = 27$ (751 million trees). The current Python implementation would require roughly 12--15 hours on 8 cores; a compiled inner loop would reduce this substantially.
 \end{itemize}
 
@@ -515,7 +592,7 @@ All code, data, and reproduction scripts are available at
 
 \section*{Acknowledgements}
 
-Computational exploration and code development were assisted by Claude Opus~4.6 (Anthropic).
+Computational exploration and code development were assisted by Claude Opus~4.6 (Anthropic) and Gemini~2.5~Pro (Google).
 
 \appendix
 
@@ -552,6 +629,9 @@ python3 broom_asymptotic.py
 
 # Evolutionary nm optimizer (multi-arm star search)
 python3 nm_optimizer.py --min-n 50 --max-n 200
+
+# Finite-core enumeration (degree-2-free, leaf-light)
+python3 scripts/finite_core_enum.py --b0 8 --leaf-cap 4 --out results/finite_core_b8_l4.json
 \end{verbatim}
 
 Random seeds are fixed (\texttt{random.Random(42)}) in \texttt{targeted.py} for caterpillar and Ramos--Sun families, ensuring deterministic reproduction.
@@ -563,6 +643,7 @@ Per-family breakdowns (counts, LC failures, best near-miss) are archived in \tex
   \item \texttt{results/targeted\_n500.json} -- Top 500 near-misses from targeted search.
   \item \texttt{results/targeted\_families.json} -- Per-family summary (Table~\ref{tab:targeted}).
   \item \texttt{results/multi\_arm\_optimization.json} -- Multi-arm star vs.\ broom comparison (Table~\ref{tab:multiarm}).
+  \item \texttt{results/finite\_core\_b*\_l*.json} -- Finite-core enumeration checks (degree-2-free, bounded leaf-load).
 \end{itemize}
 
 
