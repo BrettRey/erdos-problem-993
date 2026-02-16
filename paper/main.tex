@@ -45,7 +45,7 @@ Third, an evolutionary search over tree space identifies \emph{multi-arm stars}~
 The near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \approx 4.0$ for the best multi-arm configurations (vs.\ $C \approx 4.1$ for brooms), so the margin of unimodality shrinks as $O(1/s)$ but never vanishes.
 The same asymptotic mechanism applies to any fixed core with $s$ pendant leaves at a single vertex.
 I also give an elementary proof that brooms are unimodal whenever the star size dominates the path ($s \ge p$).
-Finally, I develop an augmented injection framework for proving unimodality: every maximal independent set below the mode admits a ``swap'' to a larger set (removing one vertex, adding two private neighbors), and the resulting augmented bipartite graph satisfies Hall's condition for all trees on $n \le 18$ vertices.
+Finally, I develop a reduction framework: via a Hub Exclusion Lemma and a Transfer Lemma, unimodality for all trees reduces to a single conjecture about trees in which every vertex has at most one leaf-child, verified computationally for over 8.9 million trees through $n = 22$.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -82,9 +82,11 @@ My contributions:
   \item Identification of multi-arm stars as the extremal family for the near-miss ratio, discovered via evolutionary optimization over tree space (Section~\ref{sec:targeted}).
   \item An empirical asymptotic analysis showing that leaf-attachment trees approach the unimodality boundary at rate $O(1/s)$ (Section~\ref{sec:broom}).
   \item An elementary proof that brooms are unimodal whenever $s \ge p$ (Section~\ref{sec:broom}).
-  \item An augmented injection framework~-- combining containment and swap edges~-- that reduces unimodality to a Private Neighbor Property, verified for all trees on $n \le 18$ vertices (Section~\ref{sec:discussion}).
+  \item A reduction framework~-- via Hub Exclusion and Transfer Lemmas~-- showing that unimodality for all trees reduces to a single conjecture about $d_{\mathrm{leaf}} \le 1$ trees, verified for over 8.9 million trees through $n = 22$ (Section~\ref{sec:discussion}).
 \end{enumerate}
-Note added. Since this work was completed, Li, Li, Yang, and Zhang proved that all spiders are strongly log-concave, which implies log-concavity (hence unimodality) for brooms as a special case \citep{li2025spiders}. I include the elementary $s \ge p$ proof as a self-contained argument that aligns with the asymptotic analysis.
+\begin{remark}
+  Li, Li, Yang, and Zhang~\citep{li2025spiders} have proved that all spiders are strongly log-concave, which implies log-concavity (hence unimodality) for brooms as a special case. I include the elementary $s \ge p$ proof below as a self-contained argument that aligns with the asymptotic analysis in Section~\ref{sec:broom}.
+\end{remark}
 These results should be read as four complementary evidence types: exhaustive verification provides certified confirmation within the tested range; targeted family searches are adversarial stress-tests; evolutionary optimization identifies extremal structure; and the leaf-attachment analysis offers an explanatory asymptotic model rather than a general proof.
 
 
@@ -206,6 +208,10 @@ Equivalently: all trees with at most two branch vertices up to $n=24$ are log-co
 The worst observed log-concavity ratio was $0.846153846\ldots$, still well below the violation threshold of~1.
 Full run details are archived in \texttt{results/two\_branch\_lc\_n24.json}.
 
+\begin{conjecture}\label{conj:c2}
+  Every tree in~$\mathcal{C}_2$ (at most two branch vertices) is log-concave.
+\end{conjecture}
+
 \begin{table}[ht]
   \centering
   \caption{Compact summary of the $\mathcal{C}_2$ scan for $n=20,\dots,24$.}
@@ -236,8 +242,12 @@ However, brooms are not the true extremal family.
 
 \paragraph*{Multi-arm stars.}
 To search for trees that maximize $\nm$, I ran an evolutionary optimizer over tree space using mutations (leaf relocation, subtree prune-and-regraft, pendant concentration) with elite selection.
-The optimizer consistently converged to a generalization of brooms that I call \emph{multi-arm stars}: a central hub vertex with $s$ pendant leaves and $k \ge 2$ paths of lengths $a_1, \dotsc, a_k$ emanating from the hub (total $n = 1 + s + \sum a_i$ vertices).
-A standard broom is the special case $k = 1$.
+The optimizer consistently converged to a generalization of brooms that I call \emph{multi-arm stars}.
+
+\begin{definition}[Multi-arm star]
+  For integers $s \ge 0$ and $k \ge 1$ with arm lengths $a_1 \ge a_2 \ge \cdots \ge a_k \ge 1$, the \emph{multi-arm star} $M(s;\, a_1, \dotsc, a_k)$ is the tree with a central hub vertex~$h$, $s$~pendant leaves adjacent to~$h$, and $k$~paths of lengths $a_1, \dotsc, a_k$ emanating from~$h$.  The total vertex count is $n = 1 + s + \sum a_i$.
+  A standard broom $\broom(p,s)$ is the special case $M(s;\, p-1)$ with $k = 1$.
+\end{definition}
 
 Table~\ref{tab:multiarm} compares the best standard broom against the best multi-arm star at each vertex count.
 Multi-arm stars achieve higher $\nm$ at every~$n$ tested, with the optimal arm configuration transitioning from two arms at small~$n$ to four arms at $n \ge 200$.
@@ -535,19 +545,12 @@ Second, distributing the path structure across several short arms (multi-arm sta
 The optimal arm configuration changes with~$n$: two arms at small~$n$, transitioning to three or four arms by $n = 200$.
 Intuitively, shorter balanced arms preserve more pendant leaves for the same~$n$, and the resulting perturbation of the independence polynomial produces more effective near-miss amplification.
 
-\subsection*{Toward a proof: augmented injection}
+\subsection*{Toward a proof: a single-conjecture reduction}
 
-The computational evidence raises a natural question: can unimodality be proved by injecting level~$k$ into level~$k+1$ for each $k$ below the mode?
-The obvious approach~-- containment injection, where each size-$k$ independent set $S$ maps to $S \cup \{v\}$ for some vertex~$v$~-- fails because maximal independent sets below the mode cannot be extended.
-At $n = 14$, roughly 54\% of trees have at least one such obstruction.
+The computational evidence motivates a search for a proof.
+I develop a reduction showing that the conjecture follows from a single structural property of trees.
 
-Adding \emph{swap edges} resolves this.
-A swap edge connects $S$ at level~$k$ to $T = (S \setminus \{u\}) \cup \{v, w\}$ at level~$k+1$, where $u \in S$ and $v, w \notin S$ are non-adjacent vertices outside~$S$.
-I verified computationally that the augmented bipartite graph (containment plus swap edges) between levels~$k$ and~$k+1$ satisfies Hall's condition for every tree on $n \le 18$ vertices (204\,909 trees, over 160\,000 level checks, zero failures).
-By Hall's theorem, this gives an injection $i_k \hookrightarrow i_{k+1}$, confirming $i_k \le i_{k+1}$ for all $k$ below the mode.
-
-The swap mechanism is guaranteed to exist by an analytic result.
-Call a vertex $v \notin S$ \emph{private for~$u \in S$} if $u$ is the only $S$-neighbor of~$v$.
+Call a maximal independent set $S$ \emph{1-Private} if every $u \in S$ has at most one private neighbor (a vertex $v \notin S$ whose only $S$-neighbor is~$u$).
 
 \begin{lemma}[Private Neighbor Bound]\label{lem:pnb}
   For any tree~$T$ on $n$~vertices and any dominating independent set~$S$ of size~$k$, the total number of private vertices $P$ satisfies $P \ge n - 2k + 1$.
@@ -560,30 +563,65 @@ Counting edges from~$S$: $|E(S, V \setminus S)| \ge P + 2Q = 2(n - k) - P$.
 Since $T$ has $n - 1$ edges total, $P \ge 2(n - k) - (n - 1) = n - 2k + 1$.
 \end{proof}
 
-By pigeonhole, if $n \ge 3k$ then some $u \in S$ has $\mathrm{priv}(u) \ge 2$.
-In a tree, two private neighbors of the same vertex are non-adjacent (since a triangle is impossible), so $(S \setminus \{u\}) \cup \{v, w\}$ is an independent set of size $k + 1$: a valid swap.
-This covers 99.6\% of maximal independent sets below the mode through $n = 18$.
+If $S$ is 1-Private, then $P \le k$, so $k \ge \lceil(n+1)/3\rceil = \lfloor n/3 \rfloor + 1$.
+Thus every 1-Private maximal IS has $|S| \ge \lfloor n/3 \rfloor + 1$, and the Private Neighbor Property~-- that every maximal IS of size $k < \mathrm{mode}(I(T))$ has some $u$ with $\mathrm{priv}(u) \ge 2$~-- holds whenever $\mathrm{mode} \le \lfloor n/3 \rfloor + 1$.
 
-For the remaining 0.4\% (where $n < 3k$), a reduction argument applies.
-If no vertex in~$S$ has $\mathrm{priv}(u) \ge 2$, then $P = \sum_{u \in S} \mathrm{priv}(u) \le k$, and the bound gives $k \ge (n + 1)/3$.
-A computational search confirms that no tree with $\mathrm{mode}(I(T)) > \lfloor n/3 \rfloor + 1$ admits a maximal independent set in which every vertex has $\mathrm{priv} \le 1$ (verified exhaustively through $n = 18$; 99{,}147 maximal IS below the mode, zero failures).
-Since $k \ge \lceil (n + 1)/3 \rceil = \lfloor n/3 \rfloor + 1 \ge \mathrm{mode}$ in the remaining case, the Private Neighbor Property holds universally through $n = 18$: every maximal independent set of size $k < \mathrm{mode}$ has some vertex with $\ge 2$ private neighbors.
+For trees with higher modes, write $d_{\mathrm{leaf}}(v)$ for the number of leaf-children of~$v$.
 
-Structurally, high-mode trees ($\mathrm{mode} > \lfloor n/3 \rfloor + 1$) are star-like: all have a vertex of degree $\ge 4$ with $\ge 2$ pendant leaf-neighbors (verified through $n = 20$).
-When such a vertex belongs to~$S$, its leaf-neighbors are automatically private, giving $\mathrm{priv} \ge 2$; when it is excluded from~$S$, the subtree IS vertices typically inherit high private-neighbor counts.
-An additional observation: $\mathrm{mode}(I(T)) \le \lfloor (n-1)/2 \rfloor$ for every tree (verified through $n = 20$, with equality at $K_{1,n-1}$ for odd~$n$).
+\begin{lemma}[Hub Exclusion]\label{lem:hub-excl}
+  If $S$ is a 1-Private maximal IS and $d_{\mathrm{leaf}}(v) \ge 2$, then $v \notin S$ and all leaf-children of~$v$ lie in~$S$.
+\end{lemma}
 
-Two gaps remain for a complete proof of unimodality via this route.
-First, the absence of maximal IS with all $\mathrm{priv} \le 1$ below the mode in high-mode trees is verified only computationally; an analytic argument would close the Private Neighbor Property.
-Second, proving that every independent set below the mode has augmented degree $\ge 1$ is necessary but not sufficient for Hall's condition; the full matching requires expansion properties of the augmented bipartite graph that remain unproved.
+\begin{proof}
+If $v \in S$, every leaf-child $w$ satisfies $N(w) \cap S = \{v\}$, making $w$ private to~$v$; since $d_{\mathrm{leaf}}(v) \ge 2$, this gives $\mathrm{priv}(v) \ge 2$, contradicting 1-Private.
+Since $v \notin S$, each leaf-child (with only~$v$ as a neighbor) must be in~$S$ for domination.
+\end{proof}
+
+\begin{lemma}[Transfer]\label{lem:transfer}
+  Let $S$ be a 1-Private maximal IS in a tree~$T$ with a vertex~$v$ having $d_{\mathrm{leaf}}(v) = d \ge 2$ leaf-children $w_1, \dotsc, w_d$.
+  Let $T' = T - \{v, w_1, \dotsc, w_d\}$.
+  Then $S' = S \cap V(T')$ is a 1-Private maximal IS in~$T'$.
+\end{lemma}
+
+\begin{proof}
+\emph{Maximality:} For $u \in V(T') \setminus S$, adding~$u$ to~$S$ in~$T$ creates a conflict with some $s \in S$.
+If $s = w_i$, then $u$ is adjacent to~$w_i$, forcing $u = v$ (since $\deg(w_i) = 1$); but $v \notin V(T')$.
+So $s \in S'$, and $u$ conflicts within~$T'$.
+
+\emph{1-Private transfers:} The vertex~$v$ has $d \ge 2$ $S$-neighbors (the leaf-children in~$S$), so $v$ is not private to any $u \in S'$.
+Each~$w_i$ has $N(w_i) = \{v\}$ and $v \notin S$, so $w_i$ is not private to any $u \in S'$ either.
+Thus $\mathrm{priv}_{T'}(u) \subseteq \mathrm{priv}_T(u)$ and $|\mathrm{priv}_{T'}(u)| \le 1$.
+\end{proof}
+
+Hub Exclusion forces $|S| \ge d + |S'|$.
+Applying the Private Neighbor Bound to each component of~$T'$ gives $|S'| \ge \sum_j \lceil(|C_j|+1)/3\rceil$.
+Iterating~-- removing all vertices with $d_{\mathrm{leaf}} \ge 2$ and their leaf-children~-- terminates at a residual forest in which every vertex has $d_{\mathrm{leaf}} \le 1$.
+The entire proof of unimodality thus reduces to a single conjecture about these residual trees.
+
+\begin{conjecture}\label{conj:A}
+  If every vertex of a tree~$T$ has $d_{\mathrm{leaf}}(v) \le 1$, then $\mathrm{mode}(I(T)) \le \lfloor n/3 \rfloor + 1$.
+\end{conjecture}
+
+I verified Conjecture~\ref{conj:A} for all 227\,678 $d_{\mathrm{leaf}} \le 1$ trees through $n = 22$ (zero violations).
+The complementary bound for Case~B~-- $k \ge F + \lceil(n - F - h + c)/3\rceil$ where $F$ counts forced leaves, $h$ counts multi-leaf hubs, and $c$ counts residual components~-- was verified for all 8\,710\,881 trees with $d_{\mathrm{leaf}} \ge 2$ through $n = 22$ (zero violations, minimum surplus~1).
+
+\paragraph*{Mean bound approach.}
+In the hard-core model at fugacity $\lambda = 1$, the mean IS size is $\mu = \sum_v P(v \in S)$ where $P$ is the uniform measure over independent sets.
+The tree recursion $R(v) = \prod_c 1/(1 + R(c))$ gives $P(v) = R(v)/(1 + R(v))$.
+For any support vertex~$v$ with a leaf-child, the leaf contributes a factor $1/2$ to~$R(v)$, so $R(v) \le 1/2$ and $P(v) \le 1/3$.
+Pairing each leaf with its support gives combined load $P(w) + P(v) \le 2/3$, exactly matching the $n/3$ budget.
+The remaining core vertices can individually exceed $P(v) = 1/3$ (up to~${\approx}\,0.43$), but the accumulated slack from leaf-support pairs compensates; core path vertices relax toward the infinite-path limit of $P \approx 0.276$.
+The mean satisfies $\mu < n/3$ for all 43\,029 $d_{\mathrm{leaf}} \le 1$ trees through $n = 20$ (max $\mu/(n/3) = 0.973$); the extremal family $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$.
 
 \subsection*{Remaining directions}
 
 \begin{itemize}
-  \item Prove analytically that high-mode trees ($\mathrm{mode} > \lfloor n/3 \rfloor + 1$) admit no maximal independent set in which every vertex has $\mathrm{priv} \le 1$.
-  \item Establish Hall's condition for the augmented bipartite graph, or find an alternative route from individual swap existence to a full injection.
-  \item A closed-form characterization of the optimal multi-arm configuration as a function of~$n$, and whether the number of arms grows without bound.
-  \item Extension of the exhaustive search to $n = 27$ (751 million trees). The current Python implementation would require roughly 12--15 hours on 8 cores; a compiled inner loop would reduce this substantially.
+  \item Prove Conjecture~\ref{conj:A}.
+    The hard-core decomposition into leaf-support pairs ($P(v) \le 1/3$ proved) and core vertices provides a candidate proof structure; bounding the core load is the remaining step.
+  \item Establish an injection from level~$k$ to level~$k+1$ for $k$ below the mode.
+    An augmented bipartite graph (containment plus swap edges) satisfies Hall's condition through $n = 18$ (204\,909 trees, zero failures), but a general proof remains open.
+  \item A closed-form characterization of the optimal multi-arm configuration as a function of~$n$.
+  \item Extension of the exhaustive search to $n = 27$ (751 million trees).
 \end{itemize}
 
 All code, data, and reproduction scripts are available at
@@ -609,7 +647,7 @@ Python~3.14.2, NumPy~2.4.2, NetworkX~3.6.1, nauty/geng~2.9301 (32-bit).
 pip install networkx numpy
 brew install nauty
 
-# Unit tests (36 tests)
+# Unit tests (37 tests)
 python3 -m unittest test_all.py -v
 
 # Exhaustive search, n <= 20 (single process)
@@ -669,7 +707,7 @@ Per-family breakdowns (counts, LC failures, best near-miss) are archived in \tex
     The guard triggers for tree families at $n \gtrsim 90$.
 
   \item \textbf{Unit tests.}
-    36 tests cover: independence polynomial correctness on small graphs (paths, stars, known examples), unimodality and LC checks, near-miss ratio computation, graph6 parsing, and tree generation.
+    37 tests cover: independence polynomial correctness on small graphs (paths, stars, known examples), unimodality and LC checks, near-miss ratio computation, graph6 parsing, and tree generation.
 \end{enumerate}
 
 \newpage

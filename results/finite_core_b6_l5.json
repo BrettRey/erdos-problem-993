@@ -1,0 +1,14 @@
+{
+  "b0": 6,
+  "core_backend": "networkx",
+  "dedup": "none",
+  "first_counterexample": null,
+  "generated": 58579,
+  "leaf_cap": 5,
+  "non_unimodal": 0,
+  "time_canonicalize_s": 0.0,
+  "time_check_s": 6.178,
+  "time_generate_s": 1.11,
+  "time_total_s": 7.288,
+  "unique_checked": 58579
+}

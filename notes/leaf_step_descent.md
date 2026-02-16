@@ -185,6 +185,11 @@ This is the current best conceptual synthesis:
 the right covariance monotonicity is **windowed by the descent boundary**, not
 global in `lambda`.
 
+Auxiliary empirical clue:
+in exhaustive leaf-cases at `n=19`, `q=I(T-N[w])` showed no log-concavity
+violations (global or prewindow checks), artifact
+`/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/leaf_q_lc_n19.json`.
+
 ### Bridge problem (covariance -> coefficient ratio)
 
 Current leaf bottleneck can now be stated as two candidate statements:
@@ -210,8 +215,15 @@ Even adding basic tree-like prefix constraints (`f_0=1`, `f_1=n`,
 Artifact:
 `/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/bridge_counterexample_structural.json`.
 
-So any successful bridge proof must use genuinely **leaf-realizable**
-structure, not just LC/prefix moment constraints.
+Even the stronger condition “`f` and `g` are each independence polynomials of
+trees (of sizes `n` and `n-1`)” is still insufficient without common-leaf
+linkage.
+Artifact:
+`/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/bridge_counterexample_treepair.json`
+finds such a pair where `H_CW` (grid-checked) holds but `H_R` fails.
+
+So any successful bridge proof must use genuinely **leaf-realizable common-tree
+structure**, not just LC/prefix/tree-polynomial marginals.
 
 Practical consequence:
 if this bridge is proved for leaf-realizable pairs, then leaf-step monotonicity

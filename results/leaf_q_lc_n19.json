@@ -1,0 +1,11 @@
+{
+  "n": 19,
+  "claim": "q=I(T-N[w]) has no observed LC violations (global and prewindow) in leaf cases",
+  "leaf_cases": 2902599,
+  "prewindow_checks": 17372102,
+  "prewindow_q_lc_failures": 0,
+  "prewindow_hr_failures": 0,
+  "global_q_lc_checks": 28758941,
+  "global_q_lc_failures": 0,
+  "notes": "From exhaustive leaf-case scan over all trees n=19."
+}

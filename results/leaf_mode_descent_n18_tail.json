@@ -1,0 +1,24 @@
+{
+  "min_n": 17,
+  "max_n": 18,
+  "leaf_cases": 1478824,
+  "fail_mode_le_d": 0,
+  "fail_mode_lt_d": 0,
+  "fail_d_monotone": 0,
+  "by_n": {
+    "17": {
+      "leaf_cases": 401761,
+      "fail_mode_le_d": 0,
+      "fail_mode_lt_d": 0,
+      "fail_d_monotone": 0
+    },
+    "18": {
+      "leaf_cases": 1077063,
+      "fail_mode_le_d": 0,
+      "fail_mode_lt_d": 0,
+      "fail_d_monotone": 0
+    }
+  },
+  "source": "direct exhaustive run outputs from scripts using geng backend",
+  "created_epoch": 1770924980.177134
+}

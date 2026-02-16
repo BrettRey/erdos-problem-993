@@ -1,0 +1,191 @@
+{
+  "generations": 20,
+  "pop_size": 40,
+  "islands": 4,
+  "seed": 996,
+  "max_nodes": 60,
+  "allow_remove_leaf": false,
+  "migration_interval": 5,
+  "migrants": 2,
+  "elapsed_s": 0.3159308433532715,
+  "counterexample_found": false,
+  "counterexample": null,
+  "best": {
+    "n": 30,
+    "adj": [
+      [
+        11,
+        20
+      ],
+      [
+        12,
+        20
+      ],
+      [
+        13,
+        20
+      ],
+      [
+        14,
+        21
+      ],
+      [
+        15,
+        21
+      ],
+      [
+        16,
+        21
+      ],
+      [
+        21,
+        25
+      ],
+      [
+        17,
+        22
+      ],
+      [
+        18,
+        22
+      ],
+      [
+        19,
+        22
+      ],
+      [
+        20,
+        21,
+        22
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3
+      ],
+      [
+        4
+      ],
+      [
+        5
+      ],
+      [
+        7
+      ],
+      [
+        8
+      ],
+      [
+        9
+      ],
+      [
+        0,
+        1,
+        2,
+        10
+      ],
+      [
+        3,
+        4,
+        5,
+        6,
+        10
+      ],
+      [
+        7,
+        8,
+        9,
+        10,
+        29
+      ],
+      [
+        24,
+        25
+      ],
+      [
+        23
+      ],
+      [
+        6,
+        23
+      ],
+      [
+        27,
+        28
+      ],
+      [
+        26
+      ],
+      [
+        26,
+        29
+      ],
+      [
+        22,
+        28
+      ]
+    ],
+    "poly": [
+      1,
+      30,
+      406,
+      3292,
+      17901,
+      69183,
+      196317,
+      416226,
+      663643,
+      793126,
+      700494,
+      444161,
+      191628,
+      50647,
+      6345,
+      71,
+      1
+    ],
+    "lc_ratio": 1.258678833564769,
+    "lc_pos": 15,
+    "unimodal": true,
+    "fitness": 1.258678833564769
+  },
+  "history": [
+    {
+      "generation": 1,
+      "best_lc_ratio": 1.1453287197231834,
+      "best_unimodal": true,
+      "island_best_mean": 0.9762237439704105
+    },
+    {
+      "generation": 5,
+      "best_lc_ratio": 1.1453287197231834,
+      "best_unimodal": true,
+      "island_best_mean": 1.0535371738325896
+    },
+    {
+      "generation": 10,
+      "best_lc_ratio": 1.1706530502553076,
+      "best_unimodal": true,
+      "island_best_mean": 1.1290371772806718
+    },
+    {
+      "generation": 15,
+      "best_lc_ratio": 1.1706530502553076,
+      "best_unimodal": true,
+      "island_best_mean": 1.1643219676222767
+    },
+    {
+      "generation": 20,
+      "best_lc_ratio": 1.258678833564769,
+      "best_unimodal": true,
+      "island_best_mean": 1.2146659419100383
+    }
+  ]
+}

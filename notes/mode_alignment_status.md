@@ -133,6 +133,9 @@ Counterexample search shows this bridge is false for generic LC/prefix-matched
 sequence pairs; the missing ingredient must be leaf-realizable tree structure
 (see `results/bridge_counterexample_hcw_not_hr.json` and
 `results/bridge_counterexample_structural.json`).
+It is also false for unconstrained pairs where `f` and `g` are each tree
+polynomials but not linked by a common leaf-deletion relation
+(`results/bridge_counterexample_treepair.json`).
 
 ## n = 24 partition run status
 

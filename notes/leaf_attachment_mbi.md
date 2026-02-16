@@ -84,15 +84,17 @@ at k = t-2, t-1.
 
 ## Corollary (Leaf-Heavy Cutoff; explicit s0)
 
-Let e = deg B, d = deg A. A crude explicit sufficient condition for MBI at
-k = t-2, t-1 is:
+Let e = deg B, d = deg A, and assume s >= e+1-d so alpha_s = s + d. A sufficient
+condition for boundary negativity at k = t-2, t-1 (t = ceil((2 alpha_s - 1)/3)) is:
 
-  s >= s0(d,e) := max(e+1-d, 2d+11, ceil((3e-2d+13)/2)).
+  s >= s0(d,e) := max(e+1-d, 2d+11, ceil((3e-2d+8)/2)).
 
 Then:
-  \Delta U_{t-2}, \Delta U_{t-1} < 0  and  \Delta V_{t-2} = \Delta V_{t-1} = 0.
+  \Delta U_{t-2}, \Delta U_{t-1} <= 0  and  \Delta V_{t-2}, \Delta V_{t-1} <= 0,
+so \Delta I_{t-2}, \Delta I_{t-1} <= 0 and MBI holds at those indices.
 
-Thus MBI holds automatically at those boundary indices.
+If you want \Delta V_{t-2} = \Delta V_{t-1} = 0 explicitly, use the slightly
+stronger cutoff max(e+1-d, 2d+11, ceil((3e-2d+11)/2)).
 
 Notes:
 - The constants are sufficient, not optimized.

@@ -130,6 +130,61 @@ given the sign pattern on either side.
 This reduces subdivision preservation to a tail inequality plus mode-ordering
 of A (no boundary condition at k=d is required).
 
+## Tail ratio-monotonicity sufficient condition (new)
+
+Define
+  p = P_u P_v,
+  q = Q_u Q_v,
+  r = P_u Q_v + Q_u P_v,
+  i_k = p_k + r_k,
+  a_k = q_k + p_{k-1},
+  j_k = q_k + r_k.
+
+Then
+  Δa_k + Δi_k = (p_{k+1} - p_{k-1}) + Δj_k.   (*)
+
+Lemma (sufficient). Assume nonnegative coefficients and:
+  (1) the tail ratios ρ^p_t = p_t/p_{t-1} are nonincreasing for t >= d+1,
+  (2) the tail ratios ρ^j_t = j_t/j_{t-1} are nonincreasing for t >= d+2,
+  (3) p_{d+2} <= p_d,
+  (4) j_{d+2} <= j_{d+1}.
+
+Then Δa_k <= -Δi_k for all k >= d+1.
+
+Sketch: (3) implies ρ^p_{d+2} ρ^p_{d+1} <= 1; with (1), this yields
+p_{k+1} <= p_{k-1} for all k >= d+1. Condition (4) and (2) give
+Δj_k <= 0 for all k >= d+1. Plug into (*) to get Δa_k + Δi_k <= 0.
+
+This replaces the too-strong requirement “j is log-concave everywhere” with
+tail ratio monotonicity plus two boundary checks.
+
+Empirical note (TODO verify): in scans through n<=19, boundary checks (3)(4)
+and tail dominance held for all edges, while j sometimes failed log-concavity.
+So a proof requiring global log-concavity of j is likely too strong.
+
+New ratio-tail scan (n<=14, all trees/all edges, networkx backend) found no
+counterexample to any of the four conditions above:
+  results/subdivision_ratio_n14.json
+with 66,698 edge checks and no failures of (3), (4), or tail ratio monotonicity
+for p and j. This supports the feasibility of the ratio-tail route.
+
+Extended scan (n<=16, backend auto) likewise found no failures:
+  results/subdivision_ratio_n16.json
+with 464,872 edge checks and no failures of (3), (4), or tail ratio monotonicity.
+
+Finite-core ratio check (b0=6, lambda0=5, networkx cores) also found no failures:
+  results/finite_core_ratio_b6_l5.json
+with 1,387,276 edge checks and no failures of (3), (4), or tail ratio monotonicity
+for p and j. This supports the “finite kernel + ratio-tail” closure route.
+
+Finite-core ratio check (b0=7, lambda0=4) likewise found no failures:
+  results/finite_core_ratio_b7_l4.json
+with 2,226,670 edge checks and no failures of (3), (4), or tail ratio monotonicity.
+
+Finite-core ratio check (b0=8, lambda0=4) likewise found no failures:
+  results/finite_core_ratio_b8_l4.json
+with 19,752,622 edge checks and no failures of (3), (4), or tail ratio monotonicity.
+
 ### Boundary inequality is false (small counterexample)
 
 The boundary condition ΔA_d <= -ΔI_d fails for T = K_{1,3} when subdividing
@@ -212,6 +267,120 @@ The inequality A <= (1+x)I is now proved algebraically. A purely
 combinatorial injection from independent sets counted by A_k into those
 counted by I_k and I_{k-1} might give the missing “difference control.”
 If the injection is edge-local, it would likely yield Path A.
+
+### Path D: Tail ratio monotonicity (new)
+
+Use the sufficient condition above: prove tail ratio monotonicity for
+p = P_u P_v (from t >= d+1) and j = q + r (from t >= d+2), plus the two
+boundary checks p_{d+2} <= p_d and j_{d+2} <= j_{d+1}. This is weaker than
+global log-concavity and is consistent with current empirical scans.
+
+Sketch of a proof route for Path D:
+  1) Interpret p, q, r as independence polynomials of explicit forests:
+       p = I((A-u) ⊔ (B-v)),
+       q = x^2 I((A-N[u]) ⊔ (B-N[v])),
+       r = x I((A-u) ⊔ (B-N[v])) + x I((A-N[u]) ⊔ (B-v)).
+     Hence j = q + r is the “at least one root chosen” polynomial for the
+     forest F=(A ⊔ B) with the uv edge removed.
+  2) Prove a tail log-concavity / tail ratio-monotonicity lemma for forests
+     that starts earlier than the LM threshold. For example, show that if a
+     forest is leaf-heavy (has a hub with s large compared to the core), then
+     its coefficient ratios are nonincreasing from k >= d(I)+1. This should
+     be approachable with the leaf-attachment MBI bounds.
+  3) Reduce the remaining “leaf-light” cases to a finite kernel class, then
+     verify Path D’s boundary checks and ratio monotonicity by enumeration.
+
+This would complete subdivision preservation without requiring global
+log-concavity of rooted polynomials. The missing step is a rigorous tail
+ratio-monotonicity lemma for forest polynomials that aligns with d(I)+1.
+
+#### Lemma attempt A (PF∞ core, conditional)
+
+If A is PF∞ (real-rooted with nonpositive zeros), then (1+x)^s A is PF∞ for all s
+(Hoggar), hence its coefficient ratios are globally nonincreasing. This yields
+tail ratio monotonicity for p whenever the core polynomial for p is PF∞. A similar
+statement applies to the fixed-core form of j when its core is PF∞. This is too
+strong for general trees but may cover leaf-heavy regimes where the effective core
+is a small PF∞ polynomial (paths, stars, and their small unions).
+
+#### Lemma attempt B (binomial mixtures, open)
+
+Let U_s(x) = (1+x)^s A(x), with A(x)=∑ a_j x^j, a_j≥0. Define r_k = U_{s,k+1}/U_{s,k}.
+We need r_k to be nonincreasing for k ≥ k0 (ideally k0 = d(I)+1).
+
+Observations:
+  - r_k is a weighted average of r_j(k) = (s-k+j)/(k+1-j), with weights
+    w_j(k) ∝ a_j C(s,k-j).
+  - For fixed j, r_j(k) is strictly decreasing in k.
+  - The weight family w_j(k) is TP2/MLR in (k,j) because the binomial matrix
+    C(s,k-j) is totally positive.
+  - Update formula: with weights w_j(k) at level k,
+      r_k = E_k[r_J(k)],
+    and
+      r_{k+1} = E_k[r_J(k) r_J(k+1)] / E_k[r_J(k)].
+    Also w_j(k+1) ∝ w_j(k) r_j(k), so w(k+1) is a size-biased tilt of w(k).
+
+Plausible route: show that for k in the right tail, the decrease of r_j(k) in k
+dominates the upward shift of the weights w_j(k), yielding r_{k+1} ≤ r_k. This is
+an “expectation of a decreasing function under an MLR family” type statement, but
+the monotonicity direction is not immediate. A clean TP2 inequality or a discrete
+Chebyshev sum bound might settle this.
+
+#### Lemma attempt C (pairwise log-concavity decomposition)
+
+For U_s(x) = (1+x)^s A(x) with A(x)=∑ a_j x^j, define
+  U_k = ∑_j a_j C(s,k-j),
+  r_j(k) = C(s,k+1-j)/C(s,k-j).
+Then
+  U_{k+1}^2 - U_k U_{k+2}
+    = ∑_{i,j} a_i a_j C(s,k-i) C(s,k+1-j) [r_i(k) - r_j(k+1)].
+
+Diagonal terms (i=j) are nonnegative because each binomial row is log-concave.
+Thus a sufficient condition for tail log-concavity at index k is:
+
+  r_i(k) >= r_j(k+1)  for all i,j with a_i,a_j>0.
+
+Since r_j(k) increases in j and decreases in k, the strongest needed check is
+  r_{j_{\max}}(k) >= r_{j_{\min}}(k+1).
+
+This is not always true, but in right-tail regimes (k >= s/2 + d + O(1)) it may
+hold uniformly, which would imply tail log-concavity of U_s without any LC
+assumption on A. Turning this into a clean inequality is open, but it provides
+an explicit target for a TP2/MLR argument.
+
+Quick check: the “min >= max” condition reduces to r_0(k) >= r_d(k+1), i.e.
+  (s-k)/(k+1) >= (s-k-1+d)/(k+2-d).
+This inequality simplifies to (s+1)(1-d) >= 0, so it only holds for d <= 1.
+Thus the pairwise-min/max sufficient condition is too strong for general d >= 2
+(even in far-right tails). This route is therefore a dead end unless the
+effective support of A excludes one of the extremes.
+
+#### Finite-core fallback (kernelization + check)
+
+If leaf-attachment MBI bounds force each hub to be leaf-light (s(v) ≤ λ0), then
+the remaining class is finite once subdivision preservation removes degree-2
+vertices. In that finite class, the ratio-tail conditions can be checked directly.
+
+Evidence: for (b0=6, λ0=5), the ratio-tail conditions and boundary checks hold for
+all edges (1,387,276 checks; `results/finite_core_ratio_b6_l5.json`).
+
+This suggests a viable proof strategy:
+  (i) prove leaf-heavy hubs are boundary-safe (Lemma~ref in notes/leaf_attachment_mbi.md),
+  (ii) prove subdivision preservation for the finite residual class by direct
+       verification of the ratio-tail conditions.
+
+#### Lemma attempt D (fixed-core asymptotic ratio monotonicity)
+
+For fixed core (A,B) in a leaf-attachment model U_s=(1+x)^s A, the ratio expansion
+from notes/general_core_asymptotics.md gives, in the central window
+k = floor(s/2) + y with |y| = O(1),
+
+  r_k = U_{s,k+1}/U_{s,k} = 1 - (4y + 2 - 4μ)/s + O(1/s^2).
+
+Hence r_{k+1} = r_k - 4/s + O(1/s^2), so r_k is strictly decreasing in k across
+the entire descent window once s is large (O_H(1) terms fixed). This yields the
+tail ratio monotonicity needed in Lemma 2 for leaf-heavy cases; the remaining
+leaf-light cases are finite and can be checked.
 
 ## Next step (proof attempt)
 

@@ -1,0 +1,103 @@
+{
+  "claim": "mode(I(T-w)) <= d(I(T)) for all trees T and vertices w",
+  "max_n": 20,
+  "min_n": 19,
+  "total_trees": 1141020,
+  "total_vertex_cases": 22502445,
+  "max_mode_gap": 0,
+  "max_abs_mode_diff": 1,
+  "equality_count": 175159,
+  "failures": 0,
+  "verified": true,
+  "tightest_examples": [
+    {
+      "graph6": "R?????????????o?E??W??oAg?CD{?",
+      "vertex": 18,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "R?????????????o?E??W??oAg?AD{?",
+      "vertex": 18,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "R?????????????o?E??W??oAg??D}?",
+      "vertex": 18,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "R?????????????o?E??W??oAg?C@{O",
+      "vertex": 18,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "R?????????????o?E??W??oAg?A@{O",
+      "vertex": 18,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "R?????????????o?E??W??oAg??@}O",
+      "vertex": 18,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "R?????????????o?E??W??oAg??D{G",
+      "vertex": 18,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "R?????????????o?E??W??oAg??@{W",
+      "vertex": 18,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "R?????????????o?E??W??o??oDT[?",
+      "vertex": 18,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "R?????????????o?E??W??o??o@T]?",
+      "vertex": 18,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    }
+  ],
+  "per_n_counts": {
+    "19": {
+      "trees": 317955,
+      "vertex_cases": 6041145,
+      "failures": 0,
+      "equality_count": 30605,
+      "max_mode_gap": 0,
+      "max_abs_mode_diff": 1
+    },
+    "20": {
+      "trees": 823065,
+      "vertex_cases": 16461300,
+      "failures": 0,
+      "equality_count": 144554,
+      "max_mode_gap": 0,
+      "max_abs_mode_diff": 1
+    }
+  },
+  "wall_time_seconds": 466.0
+}

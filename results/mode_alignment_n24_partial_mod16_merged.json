@@ -11,10 +11,13 @@
     5,
     6,
     7,
+    8,
     9,
     10,
+    11,
     12,
-    13
+    13,
+    14
   ],
   "partitions_expected": [
     0,
@@ -35,11 +38,11 @@
     15
   ],
   "is_complete": false,
-  "files_read": 12,
-  "total_trees": 28156954,
-  "total_vertex_cases": 675766896,
+  "files_read": 15,
+  "total_trees": 36635105,
+  "total_vertex_cases": 879242520,
   "total_failures": 0,
-  "total_equality_count": 4091472,
+  "total_equality_count": 5211812,
   "max_mode_gap": 0,
   "max_abs_mode_diff": 1,
   "sample_failures": [],
