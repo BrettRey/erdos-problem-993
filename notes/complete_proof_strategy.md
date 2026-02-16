@@ -1,4 +1,17 @@
-# Complete Proof Strategy: Unimodality of Independence Polynomials of Trees
+# PARTIALLY SUPERSEDED — USES WRONG SUBDIVISION FORMULA
+
+**The subdivision sections use the wrong polynomial identity** (A = Q_uQ_v + xP_uP_v).
+The correct identity is A = P_uP_v + xR_uR_v, proved via the
+subdivision-contraction identity I(T') = I(T) + x·I(T/e).
+
+Computational certificates and asymptotic results are still valid.
+The PNP framework has been significantly expanded (see `notes/one_private_status.md`).
+
+**See `notes/subdivision_new_findings.md` for the definitive subdivision analysis.**
+
+---
+
+# Proof Strategy: Unimodality of Independence Polynomials of Trees (PARTIALLY SUPERSEDED)
 
 ## Executive Summary
 

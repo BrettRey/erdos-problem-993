@@ -11,6 +11,16 @@ The current manuscript is `paper/main_v2.tex` (11 pages, XeLaTeX + biber). Numer
 
 ## Current state (2026-02-15)
 
+### Recent Progress (Proof Push)
+
+- **Analytic Subdivision Lemma:**
+    - Analytically proved that $i_k(T/e) \le i_k(T)$ for all $k$.
+    - Verified this bound on 123,867 trees ($n=18$).
+    - This bound, combined with ECMS, proves that subdivision preserves unimodality.
+- **Edge Contraction Mode Stability (ECMS):**
+    - Verified the conjecture $|\text{mode}(I(T)) - \text{mode}(I(T/e))| \le 1$ on all trees up to $n=18$.
+    - This conjecture implies that minimal counterexamples have no degree-2 vertices.
+
 ### Paper v2: "A subdivision-contraction identity and structural reductions"
 
 The paper has been completely rewritten to foreground proved theorems rather than just computational verification. Target venue: Experimental Mathematics.

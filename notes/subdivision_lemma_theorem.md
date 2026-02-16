@@ -1,4 +1,14 @@
-# The Subdivision Lemma: Complete Proof
+# SUPERSEDED — USES WRONG FORMULA, PROOF INCOMPLETE
+
+**This file uses the wrong polynomial identity** (A = Q_uQ_v + xP_uP_v).
+The correct identity is A = P_uP_v + xR_uR_v, proved via the
+subdivision-contraction identity I(T') = I(T) + x·I(T/e).
+
+**See `notes/subdivision_new_findings.md` for the definitive analysis.**
+
+---
+
+# The Subdivision Lemma: Attempted Proof (INCOMPLETE, WRONG FORMULA)
 
 ## Theorem (Subdivision Lemma)
 

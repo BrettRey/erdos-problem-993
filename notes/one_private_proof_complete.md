@@ -1,6 +1,19 @@
-# Analytic Proof of the 1-Private Mode Conjecture
+# SUPERSEDED — PROOF INCOMPLETE
 
-## Theorem
+**This file claims an analytic proof but contains a critical gap in Step 3.**
+The claim that "the sum of log-concave polynomials sharing a common
+bound on their modes will generally satisfy the same bound" is not
+proved and is not true in general (sums of unimodal/LC sequences can
+fail to be unimodal).
+
+**See `notes/one_private_status.md` for the definitive, honest status
+of the PNP framework.**
+
+---
+
+# Attempted Proof of the 1-Private Mode Conjecture (INCOMPLETE)
+
+## Conjecture (not theorem)
 For any tree $T$, if $S$ is a **1-Private Maximal Independent Set** (where every vertex $u \in S$ has at most 1 private neighbor), then $|S| \ge \text{mode}(I(T))$.
 
 ---
@@ -56,10 +69,12 @@ $$ \text{Peak}_X \le k - 0.5 $$
 
 Since the mode must be an integer, **$\text{Peak}_X \le k-1$**.
 
-**Conclusion:**
+**GAP (unresolved):**
 Every term $P_X(x)$ in the decomposition has a mode strictly less than $k$.
-The sum of log-concave polynomials sharing a common bound on their modes will generally satisfy the same bound (or close to it). Specifically, since every term decays after $k$, the sum must be non-increasing for $j \ge k$.
-Therefore, $\text{mode}(I(T)) \le k$.
+However, the claim that the sum inherits this mode bound is NOT proved.
+Sums of unimodal/log-concave sequences can fail to be unimodal, so
+this step requires a rigorous argument (e.g., showing the sum is LC,
+or using interlacing/real-rootedness). No such argument is available.
 
 ---
 
@@ -69,5 +84,6 @@ Therefore, $\text{mode}(I(T)) \le k$.
 2.  **Upper Bound:** $\text{mode}(I(T)) \le k$.
 3.  **Result:** $|S| \ge \text{mode}(I(T))$.
 
-The **1-Private Mode Conjecture** is analytically proved.
-This implies the **Private Neighbor Property**.
+The **1-Private Mode Conjecture** remains OPEN due to the gap in Step 3.
+The lower bound (Step 2) and the decomposition are valid, but the
+summation step is not proved.

@@ -1,5 +1,17 @@
 ================================================================================
-THEOREM: Influence Concentration Bounds Near-Miss Ratio
+SUPERSEDED — NOT A THEOREM
+
+This file contains an empirical observation, not a proved theorem.
+The "proof sketch" only shows the broom family exhibits a linear
+relationship asymptotically; it does not prove the bound for all trees.
+The constant C is estimated empirically (~4-5), not derived analytically.
+
+The rigorous version of this phenomenon is the leaf-attachment
+asymptotics theorem in paper/main_v2.tex (Theorem 6.2):
+  nm(H_s) = 1 - C/s + O(1/s^2), C in [4, 8).
+
+================================================================================
+CONJECTURE (not theorem): Influence Concentration Bounds Near-Miss Ratio
 
 ================================================================================
 
@@ -22,8 +34,8 @@ For a tree T with vertex set V:
    nm(T) = max_{j ≥ d} (i_{j+1} / i_j)
    where d is the first descent and i_j are polynomial coefficients.
 
-THEOREM:
---------
+CONJECTURE (unproved):
+---------------------
 For any tree T with n vertices:
 
     nm(T) ≥ 1 - C × (1 - G(T))
@@ -34,8 +46,8 @@ EQUIVALENTLY:
 
     1 - nm(T) ≤ C × (1 - G(T))
 
-PROOF SKETCH:
--------------
+HEURISTIC ARGUMENT (not a proof):
+---------------------------------
 
 1. BROOM FAMILY: B(p,s) with handle length p and star size s
    

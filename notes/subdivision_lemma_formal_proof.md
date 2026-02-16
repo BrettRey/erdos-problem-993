@@ -1,4 +1,16 @@
-# Formal Proof: Tail Dominance Lemma for Edge Subdivision
+# SUPERSEDED — USES WRONG FORMULA, PROOF HAS GAPS
+
+**This file uses the wrong polynomial identity** (A = x²·I(A_u)·I(B_v) + x·I(A_u')·I(B_v')).
+The correct identity is A = P_uP_v + xR_uR_v, or equivalently A = x·I(T/e).
+
+The proofs contain hand-wavy bounds ("exponential gap", "standard results
+on sums of unimodal polynomials") that are not rigorous.
+
+**See `notes/subdivision_new_findings.md` for the definitive analysis.**
+
+---
+
+# Attempted Proof: Tail Dominance Lemma for Edge Subdivision (INCOMPLETE)
 
 ## Theorem (Tail Dominance Lemma)
 

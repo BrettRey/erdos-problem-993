@@ -1,4 +1,14 @@
-# Subdivision Lemma: Complete Proof Strategy
+# SUPERSEDED — USES WRONG FORMULA, PROOF INCOMPLETE
+
+**This file uses the wrong polynomial identity** (A = Q_uQ_v + xP_uP_v).
+The correct identity is A = P_uP_v + xR_uR_v.
+The "formal proof" was never completed (see "What's Still Needed" below).
+
+**See `notes/subdivision_new_findings.md` for the definitive analysis.**
+
+---
+
+# Subdivision Lemma: Proof Strategy (INCOMPLETE)
 
 ## The Goal
 

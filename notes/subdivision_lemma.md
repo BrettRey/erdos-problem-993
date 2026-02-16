@@ -1,3 +1,14 @@
+# PARTIALLY SUPERSEDED — USES WRONG FORMULA IN PLACES
+
+**Some sections use the old polynomial identity** (A = Q_uQ_v + xP_uP_v).
+The correct identity is A = P_uP_v + xR_uR_v, proved via the
+subdivision-contraction identity I(T') = I(T) + x·I(T/e).
+The proved lemma A(x) <= (1+x)I(T;x) is valid but uses the old notation.
+
+**See `notes/subdivision_new_findings.md` for the definitive analysis.**
+
+---
+
 # Subdivision preserves unimodality? (Erdos path)
 
 ## Statement (target lemma)

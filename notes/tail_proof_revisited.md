@@ -1,4 +1,14 @@
-# The Correct Proof Approach
+# SUPERSEDED — USES WRONG FORMULA, NO PROOF
+
+**This file uses the wrong polynomial identity** (A = Q_uQ_v + xP_uP_v).
+The correct identity is A = P_uP_v + xR_uR_v.
+No proof is given; this is an exploratory note.
+
+**See `notes/subdivision_new_findings.md` for the definitive analysis.**
+
+---
+
+# Exploratory: Tail Dominance Approach (SUPERSEDED)
 
 ## The Key Observation
 

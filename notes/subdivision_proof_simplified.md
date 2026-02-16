@@ -1,4 +1,14 @@
-# KEY BREAKTHROUGH: The Proof is Easier Than We Thought
+# SUPERSEDED — USES WRONG FORMULA, NO PROOF
+
+**This file uses the wrong polynomial identity** (A = Q_uQ_v + xP_uP_v).
+The correct identity is A = P_uP_v + xR_uR_v.
+The "proof sketch" is an empirical observation, not a proof.
+
+**See `notes/subdivision_new_findings.md` for the definitive analysis.**
+
+---
+
+# Empirical Observation: Boundary Violations Don't Matter
 
 ## Discovery
 

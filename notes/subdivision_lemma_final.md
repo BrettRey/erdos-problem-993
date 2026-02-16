@@ -1,4 +1,14 @@
-# Final Proof: Subdivision Lemma
+# SUPERSEDED — USES WRONG FORMULA, PROOF INCOMPLETE
+
+**This file uses the wrong polynomial identity** (A = Q_uQ_v + xP_uP_v).
+The correct identity is A = P_uP_v + xR_uR_v.
+The "key bounds" are empirically verified, not proved (as the file itself admits at the end).
+
+**See `notes/subdivision_new_findings.md` for the definitive analysis.**
+
+---
+
+# Subdivision Lemma: Empirical Verification (SUPERSEDED)
 
 ## Theorem
 

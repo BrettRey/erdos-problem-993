@@ -43,7 +43,7 @@
 
 \begin{abstract}
 \textcite{alavi1987} conjectured that the independence polynomial of every tree is unimodal.
-I prove that for any tree~$T$ and edge~$e$, the subdivided tree~$T_e$ and contracted tree~$T/e$ satisfy $I(T_e;\, x) = I(T;\, x) + x \cdot I(T/e;\, x)$.
+I prove that for any tree~$T$ and edge~$e$, the subdivided tree~$T_e$ and the contracted tree~$T/e$ satisfy $I(T_e;\, x) = I(T;\, x) + x \cdot I(T/e;\, x)$.
 This identity reduces subdivision to a conjectured mode stability property: that edge contraction shifts the mode by at most~1.
 I verify this Edge Contraction Mode Stability conjecture for all 24.7~million edges in trees on at most 20~vertices, finding zero violations.
 Assuming ECMS, subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible.
@@ -68,12 +68,11 @@ The \emph{independence polynomial} is $I(G;\, x) = \sum_{k=0}^{\alpha(G)} i_k(G)
 The stronger property of log-concavity ($i_k^2 \ge i_{k-1}\, i_{k+1}$ for all~$k$) held for all trees tested until $n = 26$, when \textcite{kadrawi2023} found exactly two log-concavity failures.
 \textcite{galvin2025} subsequently constructed infinite families of subdivided stars with log-concavity failures arbitrarily far from the ends of the sequence, and \textcite{ramos2025} used machine learning to find tens of thousands more, but no unimodality failure.
 
-On the positive side, unimodality has been proved for paths, centipedes, regular caterpillars, and Fibonacci trees.
+On the positive side, unimodality has been proved for paths and centipedes \citep{alavi1987}, regular caterpillars, and Fibonacci trees.
 \textcite{levit2006} showed that $i_k(T)$ is strictly decreasing for $k \ge \lceil (2\alpha - 1)/3 \rceil$, so any violation has to occur in roughly the first two-thirds of the sequence.
 \textcite{heilman2025} proved that for a uniformly random labelled tree, roughly 85\% of the sequence behaves as expected almost surely.
 \textcite{li2025spiders} proved that all spiders are strongly log-concave, implying unimodality for brooms as a special case.
 
-This paper contributes both algebraic structure and structural reductions.
 My contributions:
 \begin{enumerate}
   \item A subdivision-contraction identity: $I(T_e) = I(T) + x \cdot I(T/e)$ for any tree edge~$e$ (Section~\ref{sec:identity}).
@@ -152,7 +151,7 @@ Summing all pairs and subtracting the forbidden case:
 \emph{Contraction.}
 Let $w'$ be the merged vertex in~$T/e$.
 If $w' \notin S$, the subtrees rooted at children of~$u$ (in~$T_u$) and children of~$v$ (in~$T_v$) are independent, contributing $R_u R_v$.
-If $w' \in S$, all children of~$w'$ are excluded; the contribution is $x \cdot (P_u/x)(P_v/x) = P_u P_v / x$.
+If $w' \in S$, all neighbors of~$w'$ are excluded; the contribution is $x \cdot (P_u/x)(P_v/x) = P_u P_v / x$.
 This quotient is a polynomial because $P_u$ and $P_v$ are each divisible by~$x$ (any IS including a vertex has size~$\ge 1$).
 So
 \begin{equation}\label{eq:contract}
@@ -170,7 +169,7 @@ I verified \eqref{eq:subdiv}--\eqref{eq:contract} computationally for 66\,697 ed
 
 \begin{remark}
   The identity can also be derived from the standard vertex-deletion formula $I(G) = I(G - v) + x \cdot I(G - N[v])$ applied to the subdivision vertex~$w$: deleting~$w$ gives the graph $T_u \sqcup T_v$ (with IS polynomial $I_u I_v$), and deleting $N[w] = \{w, u, v\}$ gives $(T_u - u) \sqcup (T_v - v)$ (contributing $R_u R_v$).
-  I haven't found this particular corollary~-- connecting subdivision, original, and contraction~-- stated in the literature, including the surveys by \textcite{levit2006} and the edge elimination polynomial framework.
+  I haven't found this particular corollary~-- connecting subdivision, original, and contraction~-- stated in the literature, including the work of \textcite{levit2006} and the edge elimination polynomial framework.
 \end{remark}
 
 The identity naturally leads to the following question: if $I(T)$ and $I(T/e)$ are both unimodal, when is their combination $I(T) + x \cdot I(T/e)$ unimodal?
@@ -189,10 +188,11 @@ The distribution of $\mathrm{mode}(I(T/e)) - \mathrm{mode}(I(T))$ is $-1$ in 26.
 
 \begin{theorem}[Conditional subdivision lemma]\label{thm:conditional}
   Assume ECMS (Conjecture~\ref{conj:ecms}).
-  If $I(T)$ is unimodal with mode~$M$, then $I(T_e)$ is unimodal for any edge~$e$.
+  If $I(T)$ and $I(T/e)$ are both unimodal, then $I(T_e)$ is unimodal.
 \end{theorem}
 
 \begin{proof}
+Let $M = \mathrm{mode}(I(T))$.
 Write $I(T_e) = F + G$ where $F = I(T)$ has mode~$M$ and $G = x \cdot I(T/e)$ has mode $M' + 1$, with $M' = \mathrm{mode}(I(T/e))$.
 Both $F$ and $G$ are unimodal with nonnegative coefficients.
 By ECMS, $M' \in \{M{-}1, M, M{+}1\}$, so $G$ has mode in $\{M, M{+}1, M{+}2\}$.
@@ -295,7 +295,9 @@ The complementary Case~B bound~-- that every tree with some $\dleaf \ge 2$ has t
 \subsection{The mean bound}\label{subsec:mean}
 
 Conjecture~A can be approached through the hard-core model.
-At fugacity $\lambda = 1$, the probability that vertex~$v$ belongs to a uniformly random IS is $P(v) = I'_v(1) / I(T;\, 1)$, and the mean IS size is $\mu = \sum_v P(v) = I'(T;\, 1) / I(T;\, 1)$.
+At fugacity $\lambda = 1$, each IS is equally likely.
+Write $P(v)$ for the probability that vertex~$v$ belongs to a uniformly random IS, and $\mu = \sum_v P(v)$ for the expected IS size.
+Since $I(T;\, 1)$ counts all IS and $I'(T;\, 1) = \sum_k k\, i_k$, we have $\mu = I'(T;\, 1) / I(T;\, 1)$.
 
 All $\dleaf \le 1$ trees tested through $n = 22$ (227\,678 trees) have log-concave independence sequences.
 For a log-concave sequence of positive terms, $\mathrm{mode} \le \lceil \mu \rceil$.
@@ -338,7 +340,7 @@ Both ratios are at most~1, giving $r_u + r_v < 2$ and $P(u) + P(v) < 2/3$.
 \end{proof}
 
 The edge bound implies that the set $\{v : P(v) > 1/3\}$ is independent (two adjacent vertices can't both exceed $1/3$).
-For $\dleaf \le 1$ trees, every support vertex~$v$ (having a leaf-child~$w$) satisfies $r_v \le 1/2$ (the leaf contributes a cavity factor of $1/2$), giving $P(v) \le 1/3$.
+For $\dleaf \le 1$ trees, every support vertex~$v$ (having a leaf-child~$w$) satisfies $r_v \le 1/2$ (the leaf contributes a factor $1/(1+1) = 1/2$ in the cavity recursion $r_v = \prod_c 1/(1+r_c)$), so $P(v) + P(w) \le 2/3$ by the edge bound.
 Pairing each leaf with its support vertex, the combined load $P(w) + P(v) \le 2/3$ exactly matches the $n/3$ budget.
 The remaining interior vertices have individual loads that can exceed $1/3$, but they relax toward the infinite-path limit of $P \approx 0.276$, and the accumulated slack from leaf-support pairs compensates.
 A proof of the global bound $\mu < n/3$ remains open.
@@ -462,7 +464,7 @@ Agreement is within 0.5\% in all cases.
   \end{tabular}
 \end{table}
 
-The multi-arm star champion $M(s;\, 5, 5, 4, 2)$ achieves $C \approx 3.98$, slightly below the broom optimum~-- but the theorem gives $C \ge 4$ for any fixed core, so the margin of unimodality never vanishes.
+The multi-arm star champion $M(s;\, 5, 5, 4, 2)$ achieves $C \approx 3.98$, slightly below the broom optimum~-- but the theorem gives $C \ge 4$ for any fixed core, so the margin remains positive for every finite~$s$.
 
 
 \section{Discussion}\label{sec:discussion}

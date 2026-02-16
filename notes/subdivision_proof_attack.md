@@ -1,4 +1,13 @@
-# Formal Proof Attack: Subdivision Lemma
+# SUPERSEDED — USES WRONG FORMULA
+
+**This file uses the wrong polynomial identity** (A = Q_uQ_v + xP_uP_v).
+The correct identity is A = P_uP_v + xR_uR_v.
+
+**See `notes/subdivision_new_findings.md` for the definitive analysis.**
+
+---
+
+# Proof Attack: Subdivision Lemma (SUPERSEDED)
 
 ## Current Status
 
