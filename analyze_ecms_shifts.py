@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """
-Verify the Edge Contraction Mode Stability (ECMS) conjecture.
-And collect statistics on mode shifts.
-
-Conjecture: |mode(I(T)) - mode(I(T/e))| <= 1 for all edges e in T.
+Analyze ECMS positive shifts.
+Find trees T and edges e where mode(I(T/e)) > mode(I(T)).
+These are the "dangerous" cases where contraction shifts the mode to the right.
+We want to see if shift >= 2 is possible.
 """
 
 import sys
-from collections import Counter
 from indpoly import independence_poly
 from graph6 import parse_graph6
 
@@ -16,9 +15,11 @@ def get_mode(poly):
     indices = [i for i, x in enumerate(poly) if x == m]
     return min(indices), max(indices)
 
-def check_ecms(n, adj, stats):
+def analyze_shifts(n, adj):
     poly_T = independence_poly(n, adj)
     min_mode_T, max_mode_T = get_mode(poly_T)
+    
+    results = []
     
     # Iterate edges
     edges = []
@@ -54,47 +55,44 @@ def check_ecms(n, adj, stats):
         
         min_mode_Te, max_mode_Te = get_mode(poly_Te)
         
-        # Calculate shift
-        # We compare the intervals.
-        # If intervals overlap, shift is 0.
-        # If Te is strictly left, shift is negative.
-        # If Te is strictly right, shift is positive.
-        
-        shift = 0
-        if max_mode_Te < min_mode_T:
-            shift = max_mode_Te - min_mode_T # Negative
-        elif min_mode_Te > max_mode_T:
-            shift = min_mode_Te - max_mode_T # Positive
+        # Check for positive shift
+        # We define positive shift if the interval moves strictly to the right
+        if min_mode_Te > max_mode_T:
+            shift = min_mode_Te - max_mode_T
+            results.append({
+                'edge': (u, v),
+                'mode_T': (min_mode_T, max_mode_T),
+                'mode_Te': (min_mode_Te, max_mode_Te),
+                'shift': shift,
+                'poly_T': poly_T,
+                'poly_Te': poly_Te
+            })
             
-        stats[shift] += 1
-            
-        if abs(shift) > 1:
-            print(f"FAIL ECMS: n={n} edge={u}-{v} shift={shift}")
-            print(f"  Mode T: [{min_mode_T}, {max_mode_T}]")
-            print(f"  Mode T/e: [{min_mode_Te}, {max_mode_Te}]")
-            return False
-            
-    return True
+    return results
 
 def main():
     count = 0
-    stats = Counter()
+    positive_shifts = 0
+    
+    print(f"Scanning for positive mode shifts (T/e > T)...")
+    
     for line in sys.stdin.buffer:
         line = line.strip()
         if not line: continue
         n, adj = parse_graph6(line)
-        if not check_ecms(n, adj, stats):
-            sys.exit(1)
+        
+        shifts = analyze_shifts(n, adj)
+        if shifts:
+            for res in shifts:
+                positive_shifts += 1
+                print(f"FOUND +{res['shift']} SHIFT: n={n} edge={res['edge']}")
+                print(f"  T  modes: {res['mode_T']}  poly: {res['poly_T']}")
+                print(f"  Te modes: {res['mode_Te']}  poly: {res['poly_Te']}")
+                print("-" * 40)
+                
         count += 1
-        if count % 1000 == 0:
-            print(f"Verified {count} trees...", file=sys.stderr)
-            
-    print(f"Success! Verified {count} trees.")
-    print("Mode shift distribution (T/e - T):")
-    total_edges = sum(stats.values())
-    for shift in sorted(stats.keys()):
-        pct = 100 * stats[shift] / total_edges if total_edges > 0 else 0
-        print(f"  Shift {shift:+d}: {stats[shift]:10d} ({pct:6.2f}%)")
+        
+    print(f"Scanned {count} trees. Found {positive_shifts} positive shifts.")
 
 if __name__ == "__main__":
     main()

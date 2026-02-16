@@ -30,8 +30,8 @@ def main():
     
     violation_found = False
     
-    # Check up to n=18 (fast enough)
-    for n in range(3, 19):
+    # Check up to n=20 (fast enough)
+    for n in range(3, 21):
         cmd = f"/opt/homebrew/bin/geng {n} {n-1}:{n-1} -c -q"
         # If geng not found, skip or warn
         try:
