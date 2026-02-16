@@ -303,7 +303,7 @@ Write $P(v)$ for the probability that vertex~$v$ belongs to a uniformly random I
 Since $I(T;\, 1)$ counts all IS and $I'(T;\, 1) = \sum_k k\, i_k$, we have $\mu = I'(T;\, 1) / I(T;\, 1)$.
 
 All $\dleaf \le 1$ trees tested through $n = 22$ (227\,678 trees) have log-concave independence sequences.
-For a log-concave sequence of positive terms, $\mathrm{mode} \le \lceil \mu \rceil$.
+For a log-concave sequence of positive terms, the ratios $a_{k+1}/a_k$ are non-increasing, so the mode and mean lie within~1 of each other; in particular, $\mathrm{mode} \le \lceil \mu \rceil$.
 Since $\lceil \mu \rceil \le \lfloor n/3 \rfloor + 1$ whenever $\mu < n/3$, Conjecture~A reduces to showing $\mu < n/3$ for all $\dleaf \le 1$ trees.
 
 I verified $\mu < n/3$ for all 528\,196 such trees through $n = 23$; the worst ratio is $\mu / (n/3) = 0.973$.
@@ -386,6 +386,14 @@ No unimodality violation was found at any~$n$.
 The case $n = 26$ is the first at which log-concavity fails: \textcite{kadrawi2023} found exactly two failures through exhaustive enumeration, implicitly confirming unimodality at every~$n$ up to~26.
 My independent re-analysis reproduces these two failures (both at $k = 13$, worst ratio $i_{12}\, i_{14} / i_{13}^2 = 1.145$) and adds the near-miss metric: $\nm = 0.845$~-- far below the violation threshold.
 Even where log-concavity breaks, unimodality holds with a comfortable margin.
+Figure~\ref{fig:roots26} plots the roots of the independence polynomials of these two trees in the complex plane; neither polynomial is real-rooted.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{figures/roots_n26_lc_failures.pdf}
+  \caption{Roots of the independence polynomials of the two LC-failing trees at $n = 26$.  All 12 displayed roots lie inside the unit circle; each tree also has a conjugate pair with modulus $\approx 52$ and~$45$, respectively (not shown).  Neither polynomial is real-rooted.}
+  \label{fig:roots26}
+\end{figure}
 
 Beyond exhaustive enumeration, I tested 145\,362 trees from five structured families (subdivided stars, caterpillars, spiders, brooms, and random perturbations) at sizes up to $n = 500$, finding zero unimodality violations and 378 log-concavity failures (all but 2 in subdivided stars).
 The highest near-miss ratio among these families is $\nm = 0.992$ (spiders and brooms), but brooms aren't the true extremal family.
@@ -493,6 +501,10 @@ First, prove ECMS~-- either by direct analysis of how contraction affects the IS
 Second, prove Conjecture~A, perhaps via the mean bound $\mu < n/3$; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the bound is tight.
 Third, extend the exhaustive search to $n = 27$ (751~million trees).
 On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
+
+The conjecture remains unproved, but the computational evidence increasingly constrains the terrain.
+Any counterexample must be homeomorphically irreducible (if ECMS holds), must have high leaf-degree vertices (by the PNP reduction), and cannot arise from pendant-leaf attachment to a fixed core (by the asymptotic theorem).
+The margin of unimodality can be made arbitrarily small~-- multi-arm stars approach the boundary at rate $1/s$~-- but the boundary itself appears inviolable.
 
 All code, data, and reproduction scripts are available at
 \href{https://github.com/BrettRey/erdos-problem-993}{github.com/BrettRey/\allowbreak erdos-problem-993}.
