@@ -10,6 +10,20 @@
 % Load local bibliography
 \addbibresource{references-local.bib}
 
+% APA style suppresses eprint fields; append arXiv links at end of each entry
+\DeclareFieldFormat{eprint:arXiv}{%
+  \ifhyperref
+    {\href{https://arxiv.org/abs/#1}{arXiv:\space #1}}
+    {arXiv:\space #1}%
+}
+\renewbibmacro{finentry}{%
+  \iffieldundef{eprint}{}{%
+    \newunit\newblock
+    \printfield[eprint:\strfield{eprinttype}]{eprint}%
+  }%
+  \finentry
+}
+
 % Theorem environments (numbered within sections, shared counter)
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}

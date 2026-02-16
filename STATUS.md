@@ -9,7 +9,22 @@
 
 The current manuscript is `paper/main_v2.tex` (11 pages, XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. Detailed notes are in `notes/subdivision_new_findings.md`, `notes/one_private_status.md`, and `notes/conjecture_A_analysis.md`.
 
-## Current state (2026-02-15)
+## Current state (2026-02-16)
+
+### Session notes (2026-02-16, afternoon)
+- Reviewed Gemini 3's unsolicited patent application ("Hub Exclusion Scheduling")
+- Assessment: not patentable (prior art: crown reduction is decades old; math theorems aren't patentable; internal inconsistencies; thin evidence)
+- No patentable applications of the project's math results identified
+- Deleted all 8 patent-related files (PDF, tex, draft, scripts, figures)
+
+### Session notes (2026-02-16, morning)
+- Rewrote `plot_roots_n26.py` using house style (EB Garamond via `text.usetex`, house palette, frameless legend, zoomed clip at |z| < 1.4)
+- Integrated root plot as Figure 1 in Section 5 of `main_v2.tex`
+- Drafted email to David Galvin (dgalvin1@nd.edu) for feedback on the paper
+- Created biology paper folder: `papers/Tree_Independence_Polynomials_and_Biological_Network_Motifs/`
+- n=27 exhaustive search running in background (8 geng workers, caffeinate on, est. 30-40 hours)
+
+## Previous state (2026-02-15)
 
 ### Recent Progress (Proof Push)
 
@@ -106,7 +121,10 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 
 ## Artifacts
 
-- `paper/main_v2.tex` -- current manuscript (11pp, compiles cleanly)
+- `paper/main_v2.tex` -- current manuscript (12pp, compiles cleanly)
+- `paper/figures/roots_n26_lc_failures.pdf` -- root plot (Figure 1)
+- `plot_roots_n26.py` -- generates the root plot
+- `email_galvin.md` -- draft email to David Galvin for feedback
 - `paper/main.tex` -- previous version (9pp, computational verification + broom asymptotics)
 - `results/analysis_n26.json` -- n=26 exhaustive LC and near-miss summary
 - `results/targeted_n500.json` -- targeted search summary + top near-misses
