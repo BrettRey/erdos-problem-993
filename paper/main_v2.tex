@@ -229,7 +229,7 @@ Theorem~\ref{thm:conditional} then gives $I(T) = I(T'_e)$ unimodal, contradictin
 
 Write $\dleaf(v)$ for the number of leaf-children of vertex~$v$ in tree~$T$.
 Call a maximal independent set~$S$ \emph{1-Private} if every $u \in S$ has at most one private neighbor (a non-$S$ vertex whose only $S$-neighbor is~$u$).
-The following chain of lemmas reduces the unimodality conjecture to a single structural property.
+The following chain of lemmas reduces the mode bound to a single structural property.
 
 \begin{lemma}[Private Neighbor Bound]\label{lem:pnb}
   For any tree~$T$ on $n$~vertices and any dominating independent set~$S$ of size~$k$, the total number of private vertices satisfies $P \ge n - 2k + 1$.
@@ -492,6 +492,7 @@ Three open problems stand out.
 First, prove ECMS~-- either by direct analysis of how contraction affects the IS polynomial's mode, or by establishing that $A = x \cdot I(T/e)$ is always nondecreasing through the mode of~$I(T)$.
 Second, prove Conjecture~A, perhaps via the mean bound $\mu < n/3$; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the bound is tight.
 Third, extend the exhaustive search to $n = 27$ (751~million trees).
+On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
 
 All code, data, and reproduction scripts are available at
 \href{https://github.com/BrettRey/erdos-problem-993}{github.com/BrettRey/\allowbreak erdos-problem-993}.
