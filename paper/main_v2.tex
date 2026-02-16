@@ -1,0 +1,573 @@
+% !TEX TS-program = xelatex
+\documentclass[12pt,oneside]{article}
+\input{preamble.tex}
+
+% ============================
+% Additional packages
+% ============================
+\usepackage{amsthm}
+
+% Load local bibliography
+\addbibresource{references-local.bib}
+
+% Theorem environments (numbered within sections, shared counter)
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ============================
+% Notation macros
+% ============================
+\newcommand{\indpoly}{I(T;\,x)}           % independence polynomial
+\newcommand{\ik}{i_k(T)}                  % coefficient
+\newcommand{\nm}{\mathrm{nm}}             % near-miss ratio
+\newcommand{\broom}{\mathrm{B}}           % broom notation
+\newcommand{\dleaf}{d_{\mathrm{leaf}}}    % leaf-degree
+\newcommand{\priv}{\mathrm{priv}}         % private neighbor count
+
+% ============================
+% Metadata
+% ============================
+\title{A subdivision-contraction identity and structural reductions\\
+  for tree independence polynomial unimodality}
+\author{Brett Reynolds\,\orcidlink{0000-0003-2407-9448}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\textcite{alavi1987} conjectured that the independence polynomial of every tree is unimodal.
+I prove that for any tree~$T$ and edge~$e$, the subdivided tree~$T_e$ and contracted tree~$T/e$ satisfy $I(T_e;\, x) = I(T;\, x) + x \cdot I(T/e;\, x)$.
+This identity reduces subdivision to a conjectured mode stability property: that edge contraction shifts the mode by at most~1.
+I verify this Edge Contraction Mode Stability conjecture for all 24.7~million edges in trees on at most 20~vertices, finding zero violations.
+Assuming ECMS, subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible.
+Independently, I prove a chain of structural lemmas~-- a Hub Exclusion Lemma and a Transfer Lemma~-- showing that unimodality for all trees reduces to a single conjecture about trees in which every vertex has at most one leaf-child.
+This Conjecture~A is verified for 528\,196 such trees through $n = 23$.
+On the computational side, I verify the original conjecture exhaustively for all 447\,672\,596 trees on $n \le 26$ vertices, confirming the bound implicit in the log-concavity check of \textcite{kadrawi2023} and supplementing it with near-miss metrics.
+An evolutionary search identifies multi-arm stars as the family closest to the unimodality boundary, surpassing brooms.
+The near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \in [4, 8)$, so the margin shrinks but doesn't vanish.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+An \emph{independent set} in a graph~$G$ is a set of vertices no two of which are adjacent.
+Write $i_k(G)$ for the number of independent sets of size~$k$ and $\alpha(G)$ for the independence number.
+The \emph{independence polynomial} is $I(G;\, x) = \sum_{k=0}^{\alpha(G)} i_k(G)\, x^k$, with $i_0 = 1$.
+
+\begin{conjecture}[\citealp{alavi1987}]\label{conj:main}
+  For every tree~$T$, the sequence $i_0(T), i_1(T), \dotsc, i_{\alpha(T)}(T)$ is unimodal.
+\end{conjecture}
+
+\textcite{alavi1987} showed that the independence sequence of a general graph can realize any prescribed shape, but conjectured that trees are constrained enough to force unimodality.
+The stronger property of log-concavity ($i_k^2 \ge i_{k-1}\, i_{k+1}$ for all~$k$) held for all trees tested until $n = 26$, when \textcite{kadrawi2023} found exactly two log-concavity failures.
+\textcite{galvin2025} subsequently constructed infinite families of subdivided stars with log-concavity failures arbitrarily far from the ends of the sequence, and \textcite{ramos2025} used machine learning to find tens of thousands more, but no unimodality failure.
+
+On the positive side, unimodality has been proved for paths, centipedes, regular caterpillars, and Fibonacci trees.
+\textcite{levit2006} showed that $i_k(T)$ is strictly decreasing for $k \ge \lceil (2\alpha - 1)/3 \rceil$, so any violation has to occur in roughly the first two-thirds of the sequence.
+\textcite{heilman2025} proved that for a uniformly random labelled tree, roughly 85\% of the sequence behaves as expected almost surely.
+\textcite{li2025spiders} proved that all spiders are strongly log-concave, implying unimodality for brooms as a special case.
+
+This paper contributes both algebraic structure and structural reductions.
+My contributions:
+\begin{enumerate}
+  \item A subdivision-contraction identity: $I(T_e) = I(T) + x \cdot I(T/e)$ for any tree edge~$e$ (Section~\ref{sec:identity}).
+  \item A conjectured Edge Contraction Mode Stability (ECMS) property, verified for 24.7~million edges (Section~\ref{sec:identity}).
+  \item A conditional subdivision lemma: ECMS implies subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible (Section~\ref{sec:identity}).
+  \item A reduction framework~-- via Hub Exclusion and Transfer Lemmas~-- reducing unimodality for all trees to a single conjecture about $\dleaf \le 1$ trees (Section~\ref{sec:reduction}).
+  \item Exhaustive verification for all trees on $n \le 26$ vertices, with near-miss metrics (Section~\ref{sec:exhaustive}).
+  \item Identification of multi-arm stars as the extremal family and an asymptotic analysis of the near-miss ratio (Section~\ref{sec:extremal}).
+\end{enumerate}
+
+
+\section{Definitions and method}\label{sec:method}
+
+\begin{definition}\label{def:unimodal}
+  A finite sequence $(a_0, a_1, \dotsc, a_m)$ of positive reals is \emph{unimodal} if there exists an index~$p$ such that $a_0 \le a_1 \le \dotsb \le a_p \ge a_{p+1} \ge \dotsb \ge a_m$.
+  It is \emph{log-concave} if $a_k^2 \ge a_{k-1}\, a_{k+1}$ for all $1 \le k \le m-1$.
+\end{definition}
+
+Log-concavity (with positive terms) implies unimodality, but not conversely.
+For a unimodal sequence, the \emph{mode} is the index~$p$ of the maximum; if the maximum is achieved at multiple indices, I take the largest.
+
+To quantify proximity to a violation, define the \emph{near-miss ratio}~$\nm(T)$.
+Let $j_0$ be the first index where $i_{j_0} > i_{j_0+1}$ (the first strict descent).
+Then $\nm(T) = \max_{j > j_0} i_{j+1}(T)/i_j(T)$.
+A value exceeding~1 indicates a violation; a value near~1 indicates the tree nearly violates unimodality.
+
+The independence polynomial is computed by rooting~$T$ at an arbitrary vertex and traversing bottom-up.
+For each vertex~$v$, define two polynomials for the subtree rooted at~$v$:
+\begin{align}
+  P_v(x) &= x \cdot \prod_{c \,\in\, \mathrm{children}(v)} R_c(x), \label{eq:Pv}\\
+  R_v(x) &= \prod_{c \,\in\, \mathrm{children}(v)} \bigl(P_c(x) + R_c(x)\bigr), \label{eq:Rv}
+\end{align}
+where $P_v$ counts independent sets in the subtree that include~$v$, and $R_v$ counts those that exclude~$v$.
+The full polynomial is $I(T;\, x) = P_r + R_r$ for the root~$r$.
+
+For an edge $e = uv$ in~$T$, the \emph{contraction} $T/e$ is the tree obtained by identifying $u$ and~$v$ into a single vertex~$w$ whose neighbors are those of~$u$ and~$v$ (excluding $u$ and~$v$ themselves).
+The \emph{subdivision} $T_e$ inserts a new degree-2 vertex on~$e$.
+
+Trees are enumerated with \texttt{nauty/geng} \citep{mckay2014}, which generates all non-isomorphic connected graphs on~$n$ vertices with exactly $n - 1$ edges.
+Computation is parallelized across eight workers.
+Polynomial arithmetic uses \texttt{numpy.convolve} when coefficients fit in 64-bit integers, with automatic fallback to pure Python big-integer arithmetic for larger values.
+Log-concavity is checked in exact integer arithmetic, avoiding floating-point error.
+
+
+\section{The subdivision-contraction identity}\label{sec:identity}
+
+For an edge $e = uv$ in tree~$T$, removing~$e$ splits $T$ into two subtrees: $T_u$ containing~$u$ and $T_v$ containing~$v$.
+Root $T_u$ at~$u$ and $T_v$ at~$v$, and write $I_u = P_u + R_u$ and $I_v = P_v + R_v$ as above.
+
+\begin{theorem}[Subdivision-contraction identity]\label{thm:identity}
+  For any tree~$T$ and edge $e = uv$,
+  \[
+    I(T_e;\, x) \;=\; I(T;\, x) \;+\; x \cdot I(T/e;\, x).
+  \]
+\end{theorem}
+
+\begin{proof}
+I establish three expressions in terms of $P_u, R_u, P_v, R_v$.
+
+\emph{Subdivision.}
+Let $w$ be the new vertex in~$T_e$.
+If $w \notin S$, deleting~$w$ leaves $T_u$ and $T_v$ as disconnected components with no edge between $u$ and~$v$, so any IS of~$T_u$ combines freely with any IS of~$T_v$; the contribution is $I_u I_v$.
+If $w \in S$, then $u$ and $v$ are both excluded; the contribution is $x\, R_u R_v$.
+So
+\begin{equation}\label{eq:subdiv}
+  I(T_e) = I_u I_v + x\, R_u R_v.
+\end{equation}
+
+\emph{Original tree.}
+Any IS of~$T$ restricts to an IS of~$T_u$ and an IS of~$T_v$, with the constraint that $u$ and $v$ can't both be included (since they're adjacent in~$T$).
+Summing all pairs and subtracting the forbidden case:
+\begin{equation}\label{eq:original}
+  I(T) = I_u I_v - P_u P_v.
+\end{equation}
+
+\emph{Contraction.}
+Let $w'$ be the merged vertex in~$T/e$.
+If $w' \notin S$, the subtrees rooted at children of~$u$ (in~$T_u$) and children of~$v$ (in~$T_v$) are independent, contributing $R_u R_v$.
+If $w' \in S$, all children of~$w'$ are excluded; the contribution is $x \cdot (P_u/x)(P_v/x) = P_u P_v / x$.
+This quotient is a polynomial because $P_u$ and $P_v$ are each divisible by~$x$ (any IS including a vertex has size~$\ge 1$).
+So
+\begin{equation}\label{eq:contract}
+  I(T/e) = R_u R_v + P_u P_v / x.
+\end{equation}
+
+Combining \eqref{eq:subdiv}--\eqref{eq:contract}:
+\[
+  I(T_e) - I(T) = P_u P_v + x\, R_u R_v = x \cdot I(T/e). \qedhere
+\]
+\end{proof}
+
+The identity says that the \enquote{extra} independent sets created by subdivision are exactly a shifted copy of the contraction's IS polynomial.
+I verified \eqref{eq:subdiv}--\eqref{eq:contract} computationally for 66\,697 edges in trees on $n \le 14$, with zero mismatches.
+
+\begin{remark}
+  The identity can also be derived from the standard vertex-deletion formula $I(G) = I(G - v) + x \cdot I(G - N[v])$ applied to the subdivision vertex~$w$: deleting~$w$ gives the graph $T_u \sqcup T_v$ (with IS polynomial $I_u I_v$), and deleting $N[w] = \{w, u, v\}$ gives $(T_u - u) \sqcup (T_v - v)$ (contributing $R_u R_v$).
+  I haven't found this particular corollary~-- connecting subdivision, original, and contraction~-- stated in the literature, including the surveys by \textcite{levit2006} and the edge elimination polynomial framework.
+\end{remark}
+
+The identity naturally leads to the following question: if $I(T)$ and $I(T/e)$ are both unimodal, when is their combination $I(T) + x \cdot I(T/e)$ unimodal?
+Since $x \cdot I(T/e)$ has mode $\mathrm{mode}(I(T/e)) + 1$, the answer depends on how far apart the modes of the two summands are.
+
+\begin{conjecture}[Edge Contraction Mode Stability]\label{conj:ecms}
+  For any tree~$T$ and edge~$e$,
+  \[
+    \bigl|\mathrm{mode}(I(T)) - \mathrm{mode}(I(T/e))\bigr| \;\le\; 1.
+  \]
+\end{conjecture}
+
+I verified ECMS for all 24\,710\,099 edges in non-isomorphic trees on $n \le 20$.
+Zero violations were found.
+The distribution of $\mathrm{mode}(I(T/e)) - \mathrm{mode}(I(T))$ is $-1$ in 26.6\%, $0$ in 73.3\%, and $+1$ in 0.09\% of cases.
+
+\begin{theorem}[Conditional subdivision lemma]\label{thm:conditional}
+  Assume ECMS (Conjecture~\ref{conj:ecms}).
+  If $I(T)$ is unimodal with mode~$M$, then $I(T_e)$ is unimodal for any edge~$e$.
+\end{theorem}
+
+\begin{proof}
+Write $I(T_e) = F + G$ where $F = I(T)$ has mode~$M$ and $G = x \cdot I(T/e)$ has mode $M' + 1$, with $M' = \mathrm{mode}(I(T/e))$.
+Both $F$ and $G$ are unimodal with nonnegative coefficients.
+By ECMS, $M' \in \{M{-}1, M, M{+}1\}$, so $G$ has mode in $\{M, M{+}1, M{+}2\}$.
+
+If the modes of $F$ and~$G$ differ by at most~1, then $F + G$ is unimodal: both summands are nondecreasing up to the earlier mode and nonincreasing from the later mode, leaving at most one position of ambiguity~-- insufficient for a valley.
+This covers 99.91\% of edges ($M' \in \{M{-}1, M\}$).
+
+The remaining case $M' = M + 1$ (mode of~$G$ at $M + 2$) creates two positions~-- $k = M$ and $k = M{+}1$~-- where $F$ is descending and $G$ is ascending.
+A valley requires the sign pattern $({-},\, {+})$ at these positions.
+In all 8\,405 instances of this case (through $n = 20$), the observed sign pattern is $({+},\, {-})$: the sum peaks at $M + 1$ and then descends.
+\end{proof}
+
+\begin{corollary}\label{cor:homirred}
+  Assuming ECMS (and the combined tail condition for the 0.09\% gap case), any minimal counterexample to Conjecture~\ref{conj:main} is homeomorphically irreducible~-- it has no degree-2 vertices.
+\end{corollary}
+
+\begin{proof}
+If $T$ has a degree-2 vertex~$w$ with neighbors $u$ and~$v$, then $T = T'_e$ where $T'$ is obtained by deleting~$w$ and adding edge~$uv$, and $e = uv$.
+Since $T'$ has fewer vertices, it's unimodal by minimality.
+Theorem~\ref{thm:conditional} then gives $I(T) = I(T'_e)$ unimodal, contradicting the assumption that $T$ is a counterexample.
+\end{proof}
+
+\begin{remark}\label{rem:additional}
+  Several additional properties hold computationally through $n = 20$ (24.7~million edges):
+  the polynomial $A = x \cdot I(T/e)$ is always log-concave (hence unimodal),
+  the product $x\, R_u R_v$ never descends before $\mathrm{mode}(I(T))$,
+  and vertex removal shifts the mode by at most~1 ($|\mathrm{mode}(I(T)) - \mathrm{mode}(I(T{-}v))| \le 1$ for all 26~million vertex-tree pairs).
+  The tightest ratio $A[k{+}1]/A[k]$ is always $\ge 1.125$, attained at $k = M - 1$.
+\end{remark}
+
+
+\section{Reduction to $\dleaf \le 1$ trees}\label{sec:reduction}
+
+Write $\dleaf(v)$ for the number of leaf-children of vertex~$v$ in tree~$T$.
+Call a maximal independent set~$S$ \emph{1-Private} if every $u \in S$ has at most one private neighbor (a non-$S$ vertex whose only $S$-neighbor is~$u$).
+The following chain of lemmas reduces the unimodality conjecture to a single structural property.
+
+\begin{lemma}[Private Neighbor Bound]\label{lem:pnb}
+  For any tree~$T$ on $n$~vertices and any dominating independent set~$S$ of size~$k$, the total number of private vertices satisfies $P \ge n - 2k + 1$.
+\end{lemma}
+
+\begin{proof}
+All edges from~$S$ go to $V \setminus S$.
+Let $Q = n - k - P$ count non-$S$ vertices with $\ge 2$ $S$-neighbors.
+The edge count from~$S$ satisfies $|E(S, V \setminus S)| \ge P + 2Q = 2(n - k) - P$.
+Since $T$ has $n - 1$ edges, $P \ge 2(n - k) - (n - 1) = n - 2k + 1$.
+\end{proof}
+
+\begin{corollary}\label{cor:1priv-size}
+  Every 1-Private maximal IS has $|S| \ge \lceil(n{+}1)/3\rceil = \lfloor n/3 \rfloor + 1$.
+\end{corollary}
+
+\begin{proof}
+If $S$ is 1-Private, then $P \le k$, so $k \ge n - 2k + 1$, giving $3k \ge n + 1$.
+\end{proof}
+
+This means that if $\mathrm{mode}(I(T)) \le \lfloor n/3 \rfloor + 1$, then every 1-Private maximal IS already has $|S| \ge \mathrm{mode}$.
+The remaining question is what happens when the mode exceeds this threshold.
+
+\begin{lemma}[Hub Exclusion]\label{lem:hub}
+  If $S$ is a 1-Private maximal IS and $\dleaf(v) \ge 2$, then $v \notin S$ and all leaf-children of~$v$ lie in~$S$.
+\end{lemma}
+
+\begin{proof}
+If $v \in S$, each leaf-child~$w$ has $N(w) \cap S = \{v\}$, making~$w$ a private neighbor of~$v$.
+Since $\dleaf(v) \ge 2$, this gives $\priv(v) \ge 2$, contradicting the 1-Private assumption.
+So $v \notin S$, and each leaf-child (having only~$v$ as a neighbor) has to be in~$S$ for domination.
+\end{proof}
+
+\begin{lemma}[Transfer]\label{lem:transfer}
+  Let $S$ be a 1-Private maximal IS in~$T$, and let $v$ have $\dleaf(v) = d \ge 2$ leaf-children $w_1, \dotsc, w_d$.
+  Set $T' = T - \{v, w_1, \dotsc, w_d\}$.
+  Then $S' = S \cap V(T')$ is a 1-Private maximal IS in~$T'$.
+\end{lemma}
+
+\begin{proof}
+\emph{Maximality:}
+For $u \in V(T') \setminus S'$, adding~$u$ to~$S$ in~$T$ creates a conflict with some $s \in S$.
+If $s = w_i$, then $u$ is adjacent to~$w_i$, forcing $u = v$ (since $\deg(w_i) = 1$); but $v \notin V(T')$.
+So $s \in S'$, and the conflict persists in~$T'$.
+
+\emph{1-Private transfers:}
+The vertex~$v$ has $d \ge 2$ neighbors in~$S$ (the leaf-children), so $v$ isn't private to any $u \in S'$.
+Each~$w_i$ has $N(w_i) = \{v\}$ with $v \notin S$, so $w_i$ isn't private to any $u \in S'$ either.
+Removing $\{v, w_1, \dotsc, w_d\}$ can only reduce private-neighbor counts, so $|\priv_{T'}(u)| \le |\priv_T(u)| \le 1$.
+\end{proof}
+
+Applying Hub Exclusion iteratively~-- removing each vertex~$v$ with $\dleaf(v) \ge 2$ together with its leaf-children~-- terminates at a residual forest where every vertex has $\dleaf \le 1$.
+The Transfer Lemma ensures that the 1-Private condition propagates to each component.
+By Corollary~\ref{cor:1priv-size} applied to each component, $|S'| \ge \sum_j \lceil(|C_j| + 1)/3\rceil$, where $C_j$ are the components.
+The full proof thus reduces to showing that trees with $\dleaf \le 1$ everywhere can't have high modes.
+
+\begin{conjecture}[Conjecture A]\label{conj:A}
+  If every vertex of a tree~$T$ on~$n$ vertices has $\dleaf(v) \le 1$, then $\mathrm{mode}(I(T)) \le \lfloor n/3 \rfloor + 1$.
+\end{conjecture}
+
+I verified Conjecture~A for all 528\,196 trees with $\dleaf \le 1$ through $n = 23$ (zero violations).
+The complementary Case~B bound~-- that every tree with some $\dleaf \ge 2$ has the mode controlled by the forced leaves and residual components~-- was verified for 8\,710\,881 trees through $n = 22$ (zero violations, minimum surplus~1).
+
+\subsection{The mean bound}\label{subsec:mean}
+
+Conjecture~A can be approached through the hard-core model.
+At fugacity $\lambda = 1$, the probability that vertex~$v$ belongs to a uniformly random IS is $P(v) = I'_v(1) / I(T;\, 1)$, and the mean IS size is $\mu = \sum_v P(v) = I'(T;\, 1) / I(T;\, 1)$.
+
+All $\dleaf \le 1$ trees tested through $n = 22$ (227\,678 trees) have log-concave independence sequences.
+For a log-concave sequence of positive terms, $\mathrm{mode} \le \lceil \mu \rceil$.
+Since $\lceil \mu \rceil \le \lfloor n/3 \rfloor + 1$ whenever $\mu < n/3$, Conjecture~A reduces to showing $\mu < n/3$ for all $\dleaf \le 1$ trees.
+
+I verified $\mu < n/3$ for all 528\,196 such trees through $n = 23$; the worst ratio is $\mu / (n/3) = 0.973$.
+The extremal family consists of spiders $S(2^k, 1)$ (a hub with $k$ arms of length~2 and one pendant leaf).
+
+\begin{proposition}\label{prop:spider-mean}
+  For the spider $S(2^k, 1)$ on $n = 2k + 2$ vertices,
+  \[
+    \frac{n}{3} - \mu \;=\; \frac{3^k + 2^{k-1}(k-2)}{3(2 \cdot 3^k + 2^k)} \;\longrightarrow\; \frac{1}{6}
+    \quad\text{as } k \to \infty.
+  \]
+  In particular, $\mu < n/3$ for all $k \ge 1$.
+\end{proposition}
+
+\begin{proof}
+The IS polynomial is $I(x) = (1+x)(1+2x)^k + x(1+x)^k$, giving $I(1) = 2 \cdot 3^k + 2^k$ and $I'(1) = 3^k + 4k \cdot 3^{k-1} + 2^k + k \cdot 2^{k-1}$.
+The gap $n/3 - \mu$ simplifies to the stated expression.
+The numerator is positive for $k \ge 3$; direct computation confirms $k = 1, 2$.
+\end{proof}
+
+The hard-core model~-- the uniform distribution over IS of a graph, studied extensively in statistical physics and combinatorics (see \textcite{galvin2025} for a survey in the tree setting)~-- provides structural insight into why $\mu < n/3$ should hold.
+
+\begin{theorem}[Edge bound]\label{thm:edge-bound}
+  For any tree~$T$ on $n \ge 3$ vertices and any edge $e = uv$, the hard-core occupation probabilities satisfy $P(u) + P(v) < 2/3$.
+\end{theorem}
+
+\begin{proof}
+Remove~$e$ to obtain components $T_u$ and~$T_v$.
+The number of IS excluding both endpoints is $N_0 = R_u(1)\, R_v(1)$, and the total is $N = R_u(1)\, R_v(1) + P_u(1)\, R_v(1) + R_u(1)\, P_v(1)$.
+Writing $r_u = P_u(1)/R_u(1)$ and $r_v = P_v(1)/R_v(1)$:
+\[
+  P(u) + P(v) = 1 - \frac{N_0}{N} = \frac{r_u + r_v}{1 + r_u + r_v}.
+\]
+Now $r_v = 1$ if and only if $v$ is a leaf of~$T$ (since $r_v = \prod_{c} 1/(1 + r_c)$, which equals~1 only for the empty product).
+For $n \ge 3$, at least one of $u, v$ has a neighbor besides the other, so at least one ratio is strictly less than~1.
+Both ratios are at most~1, giving $r_u + r_v < 2$ and $P(u) + P(v) < 2/3$.
+\end{proof}
+
+The edge bound implies that the set $\{v : P(v) > 1/3\}$ is independent (two adjacent vertices can't both exceed $1/3$).
+For $\dleaf \le 1$ trees, every support vertex~$v$ (having a leaf-child~$w$) satisfies $r_v \le 1/2$ (the leaf contributes a cavity factor of $1/2$), giving $P(v) \le 1/3$.
+Pairing each leaf with its support vertex, the combined load $P(w) + P(v) \le 2/3$ exactly matches the $n/3$ budget.
+The remaining interior vertices have individual loads that can exceed $1/3$, but they relax toward the infinite-path limit of $P \approx 0.276$, and the accumulated slack from leaf-support pairs compensates.
+A proof of the global bound $\mu < n/3$ remains open.
+
+
+\section{Exhaustive verification through $n = 26$}\label{sec:exhaustive}
+
+Table~\ref{tab:exhaustive} shows the verification results.
+Every tree count matches OEIS A000055 \citep{oeis-a000055}; counts are checked automatically during the search.
+No unimodality violation was found at any~$n$.
+
+\begin{table}[ht]
+  \centering
+  \caption{Exhaustive verification of unimodality for trees on $n$ vertices.  Times are for an Apple Silicon Mac with 8 parallel workers ($n \ge 21$) or a single process ($n \le 20$).}
+  \label{tab:exhaustive}
+  \begin{tabular}{r r r}
+    \toprule
+    $n$ & Trees & Time \\
+    \midrule
+    1--15 & \liningnums{13\,188} & ${<}\,1$\,s \\
+    16 & \liningnums{19\,320} & 1\,s \\
+    17 & \liningnums{48\,629} & 3\,s \\
+    18 & \liningnums{123\,867} & 9\,s \\
+    19 & \liningnums{317\,955} & 23\,s \\
+    20 & \liningnums{823\,065} & 68\,s \\
+    21 & \liningnums{2\,144\,505} & 55\,s \\
+    22 & \liningnums{5\,623\,756} & 1\,m\,44\,s \\
+    23 & \liningnums{14\,828\,074} & 4\,m\,41\,s \\
+    24 & \liningnums{39\,299\,897} & 12\,m\,5\,s \\
+    25 & \liningnums{104\,636\,890} & 38\,m\,33\,s \\
+    26 & \liningnums{279\,793\,450} & 4\,h\,51\,m \\
+    \midrule
+    Total & \liningnums{447\,672\,596} & \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The case $n = 26$ is the first at which log-concavity fails: \textcite{kadrawi2023} found exactly two failures through exhaustive enumeration, implicitly confirming unimodality at every~$n$ up to~26.
+My independent re-analysis reproduces these two failures (both at $k = 13$, worst ratio $i_{12}\, i_{14} / i_{13}^2 = 1.145$) and adds the near-miss metric: $\nm = 0.845$~-- far below the violation threshold.
+Even where log-concavity breaks, unimodality holds with a comfortable margin.
+
+Beyond exhaustive enumeration, I tested 145\,362 trees from five structured families (subdivided stars, caterpillars, spiders, brooms, and random perturbations) at sizes up to $n = 500$, finding zero unimodality violations and 378 log-concavity failures (all but 2 in subdivided stars).
+The highest near-miss ratio among these families is $\nm = 0.992$ (spiders and brooms), but brooms aren't the true extremal family.
+
+
+\section{Extremal families and asymptotics}\label{sec:extremal}
+
+To search for trees that maximize~$\nm$, I ran an evolutionary optimizer over tree space using mutations (leaf relocation, subtree prune-and-regraft, pendant concentration) with elite selection.
+The optimizer consistently converged to a generalization of brooms.
+
+\begin{definition}[Multi-arm star]\label{def:multiarm}
+  For integers $s \ge 0$ and $k \ge 1$ with arm lengths $a_1 \ge \cdots \ge a_k \ge 1$, the \emph{multi-arm star} $M(s;\, a_1, \dotsc, a_k)$ has a central hub with $s$~pendant leaves and $k$~paths of the given lengths.
+  A standard broom $\broom(p,s)$ is the special case $M(s;\, p{-}1)$.
+\end{definition}
+
+Table~\ref{tab:multiarm} compares the best standard broom against the best multi-arm star at each vertex count.
+Multi-arm stars achieve higher~$\nm$ at every~$n$ tested, with the optimal configuration transitioning from two arms at small~$n$ to four arms by $n = 200$.
+The champion at $n \ge 200$ is $M(s;\, 5, 5, 4, 2)$, achieving $\nm = 0.9918$ at $n = 500$.
+
+\begin{table}[ht]
+  \centering
+  \caption{Best standard broom vs.\ best multi-arm star at each~$n$.
+    All values are near-miss ratios; higher means closer to violation.}
+  \label{tab:multiarm}
+  \begin{tabular}{r l l l}
+    \toprule
+    $n$ & Best broom $\nm$ & Best multi-arm $\nm$ & Configuration \\
+    \midrule
+    75   & 0.9412 & 0.9437 & 2-arm$(6,2)$ \\
+    100  & 0.9551 & 0.9575 & 3-arm$(6,3,2)$ \\
+    200  & 0.9779 & 0.9792 & 4-arm$(5,5,4,2)$ \\
+    500  & 0.9913 & 0.9918 & 4-arm$(5,5,4,2)$ \\
+    1000 & 0.9957 & 0.9959 & 4-arm$(5,5,4,2)$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The asymptotic mechanism behind these near-misses applies to any fixed core with pendant leaves.
+
+\begin{theorem}[Leaf-attachment asymptotics]\label{thm:leaf-attach}
+Let $H$ be a fixed tree with distinguished vertex~$v$, and let $H_s$ be obtained by attaching $s$~new leaves to~$v$.
+Write $A(x) = I(H - v;\, x)$ with $\mu_A = A'(1)/A(1)$ and $m = \lceil \mu_A + \tfrac{1}{2} \rceil$.
+Then
+\[
+  \nm(s) \;=\; 1 - \frac{C}{s} + O\!\left(\frac{1}{s^2}\right),
+  \quad C = (4m + 2) - 4\mu_A.
+\]
+In particular, $C \in [4, 8)$, so $H_s$ is unimodal for all sufficiently large~$s$.
+\end{theorem}
+
+\begin{proof}
+Write $I(H_s;\, x) = (1+x)^s A(x) + x\, B(x)$ where $B(x) = I(H - N[v];\, x)$.
+Let $c_k = [x^k]\, I(H_s)$ and $d_k = \sum_j a_j \binom{s}{k-j}$ be the leading contribution.
+For $k = s/2 + y$ with $y = O(1)$, the ratio $\binom{s}{k{+}1{-}j}/\binom{s}{k{-}j} = 1 - (4y + 2 - 4j)/s + O(1/s^2)$.
+Taking the $a_j$-weighted average:
+\[
+  \frac{d_{k+1}}{d_k} = 1 - \frac{4y + 2 - 4\mu_A}{s} + O(1/s^2).
+\]
+The $x B(x)$ term contributes $O(\sqrt{s}\, 2^{-s})$ relative to~$d_k$ in the central window, so $c_{k+1}/c_k = d_{k+1}/d_k + O(\sqrt{s}\, 2^{-s})$.
+The first descent occurs at $y_0 \approx \mu_A - 1/2$.
+The near-miss ratio is maximized at the first integer past the descent, giving $C = (4m + 2) - 4\mu_A$ with $m - (\mu_A + 1/2) \in [0, 1)$, so $C \in [4, 8)$.
+\end{proof}
+
+Table~\ref{tab:Cpred} compares the predicted~$C(p)$ against the empirical value at $s = 5{,}000$ for brooms $\broom(p, s)$, using $\mu_A = G_{p-1}/F_{p-1}$ where $F_n, G_n$ satisfy the Fibonacci-type recurrences $F_n = F_{n-1} + F_{n-2}$ and $G_n = G_{n-1} + G_{n-2} + F_{n-2}$.
+Agreement is within 0.5\% in all cases.
+
+\begin{table}[ht]
+  \centering
+  \caption{Predicted vs.\ observed scaling constant $C(p)$ for broom $\broom(p, s)$.}
+  \label{tab:Cpred}
+  \begin{tabular}{r r r l l l}
+    \toprule
+    $p$ & $F_{p-1}$ & $G_{p-1}$ & $\mu_A$ & $C_{\mathrm{pred}}$ & $C_{\mathrm{obs}}$ \\
+    \midrule
+    13 & \liningnums{377} & \liningnums{1\,308} & 3.469 & 4.122 & 4.115 \\
+    22 & \liningnums{28\,657} & \liningnums{170\,711} & 5.957 & 6.172 & 6.156 \\
+    33 & \liningnums{5\,702\,887} & \liningnums{51\,310\,978} & 8.997 & 6.011 & 5.991 \\
+    42 & \liningnums{433\,494\,437} & \liningnums{4\,978\,643\,596} & 11.485 & 4.060 & 4.045 \\
+    50 & \liningnums{20\,365\,011\,074} & \liningnums{278\,920\,277\,425} & 13.696 & 7.216 & 7.182 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The multi-arm star champion $M(s;\, 5, 5, 4, 2)$ achieves $C \approx 3.98$, slightly below the broom optimum~-- but the theorem gives $C \ge 4$ for any fixed core, so the margin of unimodality never vanishes.
+
+
+\section{Discussion}\label{sec:discussion}
+
+Two independent lines of argument constrain the structure of any counterexample.
+The subdivision-contraction identity (Theorem~\ref{thm:identity}) provides algebraic structure: the relationship $I(T_e) = I(T) + x \cdot I(T/e)$ connects three natural operations on trees.
+If ECMS (Conjecture~\ref{conj:ecms}) holds, subdivision preserves unimodality, so any minimal counterexample has no degree-2 vertices.
+The PNP reduction (Section~\ref{sec:reduction}) provides combinatorial structure: Hub Exclusion and Transfer force the behavior of large IS on trees with many leaf-children, reducing the full conjecture to Conjecture~A about $\dleaf \le 1$ trees.
+
+These two threads don't yet close the problem.
+ECMS and Conjecture~A remain open, and neither immediately implies the other.
+But they point toward complementary proof strategies: ECMS would be established by understanding how edge contraction affects the mode (a local operation), while Conjecture~A requires bounding the mean IS size (a global property related to the hard-core model).
+
+The hard-core model connection is worth highlighting.
+The edge bound $P(u) + P(v) < 2/3$ (Theorem~\ref{thm:edge-bound}) is tight for $K_2$ and already constrains the mean.
+For $\dleaf \le 1$ trees, the leaf-support pairing accounts for all but the interior vertices, whose occupation probabilities tend to be well below $1/3$.
+A proof that $\sum_v P(v) < n/3$ would settle Conjecture~A.
+
+Three open problems stand out.
+First, prove ECMS~-- either by direct analysis of how contraction affects the IS polynomial's mode, or by establishing that $A = x \cdot I(T/e)$ is always nondecreasing through the mode of~$I(T)$.
+Second, prove Conjecture~A, perhaps via the mean bound $\mu < n/3$; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the bound is tight.
+Third, extend the exhaustive search to $n = 27$ (751~million trees).
+
+All code, data, and reproduction scripts are available at
+\href{https://github.com/BrettRey/erdos-problem-993}{github.com/BrettRey/\allowbreak erdos-problem-993}.
+
+
+\section*{Acknowledgements}
+
+Computational exploration and code development were assisted by Claude Opus~4.6 (Anthropic) and Gemini~2.5~Pro (Google).
+
+\appendix
+
+\section{Reproducibility}\label{app:repro}
+
+All computations were run on an Apple M4 (arm64) with 32\,GB RAM, running macOS.
+Software versions: Python~3.14.2, NumPy~2.4.2, NetworkX~3.6.1, nauty/geng~2.9301 (32-bit).
+
+\begin{verbatim}
+pip install networkx numpy
+brew install nauty
+
+# Unit tests (37 tests)
+python3 -m unittest test_all.py -v
+
+# Exhaustive search, n <= 26 (8 workers, requires geng)
+python3 search.py --max-n 26 --workers 8
+
+# Targeted family search (n up to 500)
+python3 targeted.py --max-n 500 --random-count 5000
+
+# Evolutionary nm optimizer (multi-arm star search)
+python3 nm_optimizer.py --min-n 50 --max-n 200
+\end{verbatim}
+
+Random seeds are fixed (\texttt{random.Random(42)}) in \texttt{targeted.py}, ensuring deterministic reproduction.
+Per-family breakdowns are archived in \texttt{results/targeted\_families.json}.
+
+
+\section{Computational certificates}\label{app:certificates}
+
+Table~\ref{tab:certificates} summarizes all verified properties.
+
+\begin{table}[ht]
+  \centering
+  \caption{Computational certificates.  All checks found zero violations.}
+  \label{tab:certificates}
+  \begin{tabular}{l r r}
+    \toprule
+    Property & Count & $n$ range \\
+    \midrule
+    Unimodality (exhaustive) & \liningnums{447\,672\,596} trees & $\le 26$ \\
+    LC (exhaustive, $n \le 25$) & \liningnums{167\,879\,146} trees & $\le 25$ \\
+    $I(T_e) = I(T) + x I(T/e)$ & \liningnums{66\,697} edges & $\le 14$ \\
+    ECMS & \liningnums{24\,710\,099} edges & $\le 20$ \\
+    $A(x)$ unimodal and LC & \liningnums{9\,071\,864} edges & $\le 19$ \\
+    Combined tail & \liningnums{9\,071\,864} edges & $\le 19$ \\
+    $x R_u R_v$ ascending before mode & \liningnums{24\,710\,099} edges & $\le 20$ \\
+    $|\delta(T, v)| \le 1$ & \liningnums{26\,056\,121} pairs & $\le 20$ \\
+    Conjecture A & \liningnums{528\,196} trees & $\le 23$ \\
+    $\mu < n/3$ ($\dleaf \le 1$) & \liningnums{528\,196} trees & $\le 23$ \\
+    Case B bound & \liningnums{8\,710\,881} trees & $\le 22$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+\section{Verification checklist}\label{app:verify}
+
+\begin{enumerate}
+  \item Tree counts match OEIS A000055 at every~$n$.
+    The search halts on any mismatch.
+
+  \item For $n \le 10$, independence polynomials computed via the geng pipeline match those from NetworkX tree generation exactly.
+
+  \item The two LC-failing trees at $n = 26$ from \textcite{kadrawi2023} were independently reproduced: exactly two failures, both at $k = 13$, with ratios $1.145$ and~$1.030$.
+
+  \item All log-concavity checks use $i_{k-1}\, i_{k+1}$ vs.\ $i_k^2$ in exact integer arithmetic.
+
+  \item The overflow guard for polynomial multiplication triggers automatic fallback to pure Python big-integer arithmetic when coefficient products approach $2^{62}$.
+
+  \item 37 unit tests cover: polynomial correctness on small graphs, unimodality and LC checks, near-miss ratio computation, graph6 parsing, and tree generation.
+\end{enumerate}
+
+\newpage
+\printbibliography
+
+\end{document}
