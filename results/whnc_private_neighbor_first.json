@@ -1,0 +1,57 @@
+{
+  "params": {
+    "min_n": 3,
+    "max_n": 23,
+    "all_trees": false,
+    "tol": 1e-12,
+    "stop_on_first": true
+  },
+  "summary": {
+    "seen": 38,
+    "considered": 8,
+    "strong_fail_trees": 1,
+    "weak_fail_trees": 1,
+    "first_strong": {
+      "n": 8,
+      "g6": "G?B@dO",
+      "H": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "S": [
+        0,
+        1
+      ],
+      "private_map_S": {
+        "0": true,
+        "1": false
+      }
+    },
+    "first_weak": {
+      "n": 8,
+      "g6": "G?B@dO",
+      "H": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "S": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "private_map_S": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false
+      }
+    }
+  }
+}

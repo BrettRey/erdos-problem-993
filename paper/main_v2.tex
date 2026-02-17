@@ -62,7 +62,8 @@ This identity reduces subdivision to a conjectured mode stability property: that
 I verify this Edge Contraction Mode Stability conjecture for all 24.7~million edges in trees on at most 20~vertices, finding zero violations.
 Together with a verified tail condition, ECMS implies that subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible.
 Independently, I prove a chain of structural lemmas~-- a Hub Exclusion Lemma and a Transfer Lemma~-- showing that the mode bound for all trees reduces to a single conjecture about trees in which every vertex has at most one leaf-child.
-This Conjecture~A is verified for 528\,196 such trees through $n = 23$.
+This Conjecture~A is verified for 931\,596 such trees through $n = 23$.
+A proved singleton compensation lemma gives a direct path via a weighted Hall condition on the heavy vertices.
 On the computational side, I verify the original conjecture exhaustively for all 1\,198\,738\,056 trees on $n \le 27$ vertices, confirming the bound implicit in the log-concavity check of \textcite{kadrawi2023} and supplementing it with near-miss metrics through $n = 26$.
 An evolutionary search identifies multi-arm stars as the family closest to the unimodality boundary, surpassing brooms.
 The near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \in [4, 8)$, so the margin shrinks but doesn't vanish.
@@ -238,6 +239,22 @@ An immediate consequence is that $\mathrm{mode}(I(T_e)) - \mathrm{mode}(I(T)) \i
   Proving $|\mu(T) - \mu(T/e)| < 1$ would therefore establish ECMS for any tree with log-concave IS sequence.
 \end{remark}
 
+\begin{proposition}[Distance-1 perturbation formula]\label{prop:s1-formula}
+  In the setting of Remark~\textup{\ref{rem:mean-shift}}, define the edge factors
+  \[
+    F_u = \frac{A(B^2 + B - 1)}{(1+A+B)(1+AB)}, \qquad
+    F_v = \frac{B(A^2 + A - 1)}{(1+A+B)(1+AB)}.
+  \]
+  For each $w \in N(u) \setminus \{v\}$ with cavity message $q_w = R_{w \to u}$,
+  \[
+    P_T(w) - P_{T/e}(w) \;=\; F_u \cdot \frac{q_w}{1 + q_w},
+  \]
+  and symmetrically for $w \in N(v) \setminus \{u\}$ with $F_v$ and $R_{w \to v}$.
+\end{proposition}
+
+I verified this formula exactly (max error ${<}\, 2 \times 10^{-16}$) for all edges in trees on $n \le 18$.
+Using $\sum_w q_w/(1+q_w) \le -\log A$ (from $\log(1+x) \ge x/(1+x)$ and $A = \prod_w (1+q_w)^{-1}$), the total distance-1 contribution satisfies $|S_1| \le |F_u|(-\log A) + |F_v|(-\log B)$; numerical optimisation over $[0,1]^2$ gives $\max |S_1| < 0.355$, well below the $1/2$ threshold.
+
 \begin{definition}\label{def:combined_tail}
   For an edge $e$ in tree~$T$ with $\mathrm{mode}(I(T/e)) = \mathrm{mode}(I(T)) + 1$ (the \emph{gap case}), the \emph{combined tail condition} requires that $I(T_e)$ is non-increasing for all $k \ge \mathrm{mode}(I(T)) + 1$.
 \end{definition}
@@ -350,7 +367,7 @@ The mode bound for all trees thus reduces to Conjecture~A below: if every $\dlea
   If every vertex of a tree~$T$ on~$n$ vertices has $\dleaf(v) \le 1$, then $\mathrm{mode}(I(T)) \le \lfloor n/3 \rfloor + 1$.
 \end{conjecture}
 
-I verified Conjecture~A for all 528\,196 trees with $\dleaf \le 1$ through $n = 23$ (zero violations).
+I verified Conjecture~A for all 931\,596 trees with $\dleaf \le 1$ through $n = 23$ (zero violations).
 The complementary Case~B bound~-- that every tree with some $\dleaf \ge 2$ has the mode controlled by the forced leaves and residual components~-- was verified for 8\,710\,881 trees through $n = 22$ (zero violations, minimum surplus~1).
 
 \subsection{The mean bound}\label{subsec:mean}
@@ -365,7 +382,7 @@ All $\dleaf \le 1$ trees tested through $n = 22$ (227\,678 trees) have log-conca
 For a log-concave sequence of positive terms, the ratios $a_{k+1}/a_k$ are non-increasing, so the mode and mean lie within~1 of each other; in particular, $\mathrm{mode} \le \lceil \mu \rceil$.
 Since $\lceil \mu \rceil \le \lfloor n/3 \rfloor + 1$ whenever $\mu < n/3$, Conjecture~A reduces to showing $\mu < n/3$ for all $\dleaf \le 1$ trees.
 
-I verified $\mu < n/3$ for all 528\,196 such trees through $n = 23$; the worst ratio is $\mu / (n/3) = 0.973$.
+I verified $\mu < n/3$ for all 931\,596 such trees through $n = 23$; the worst ratio is $\mu / (n/3) = 0.973$.
 The extremal family consists of \emph{spiders}~-- trees with exactly one vertex of degree $\ge 3$ (the hub) and paths radiating from it.
 The notation $S(a_1, \dotsc, a_m)$ denotes the spider whose $m$~arms have lengths $a_1, \dotsc, a_m$.
 The worst case is $S(2^k, 1)$ (a hub with $k$ arms of length~2 and one pendant leaf).
@@ -408,6 +425,36 @@ For $\dleaf \le 1$ trees, every support vertex~$v$ (having a leaf-child~$w$) sat
 Pairing each leaf~$w$ with its support vertex~$v$, these $2\ell$ vertices (where $\ell$ is the number of leaves) contribute at most $2\ell/3$ to $\mu$.
 For the global bound $\mu < n/3$ to hold, the remaining $n - 2\ell$ interior vertices must contribute less than $(n - 2\ell)/3$.
 Their occupation probabilities tend toward the infinite-path limit $P \approx 0.276 < 1/3$, but a proof of the global bound remains open.
+
+The bound can be reformulated as a compensation condition.
+Since $H$ is independent and every $v \notin H$ has $P(v) \le 1/3$,
+\[
+  \mu
+  = \sum_{h \in H}\! P(h) + \sum_{u \in N(H)}\! P(u) + \sum_{w \notin H \cup N(H)}\! P(w)
+  \;\le\; \frac{n}{3} + \sum_{h \in H}\!\bigl(P(h) - \tfrac{1}{3}\bigr) - \sum_{u \in N(H)}\!\bigl(\tfrac{1}{3} - P(u)\bigr),
+\]
+so $\mu \le n/3$ whenever the heavy surplus is absorbed by the neighbourhood deficit:
+\begin{equation}\label{eq:whnc}
+  \sum_{h \in H}\!\bigl(P(h) - \tfrac{1}{3}\bigr)
+  \;\le\;
+  \sum_{u \in N(H)}\!\bigl(\tfrac{1}{3} - P(u)\bigr).
+\end{equation}
+
+\begin{proposition}[Singleton compensation]\label{prop:singleton}
+  For each $h \in H$,
+  \[
+    \sum_{u \in N(h)}\!\bigl(\tfrac{1}{3} - P(u)\bigr) \;>\; P(h) - \tfrac{1}{3}.
+  \]
+\end{proposition}
+
+\begin{proof}
+Each $u \in N(h)$ satisfies $P(u) < 2/3 - P(h) < 1/3$ by the edge bound, so every summand exceeds $P(h) - 1/3$.
+\end{proof}
+
+Condition~\eqref{eq:whnc} is a weighted analogue of Hall's marriage condition: the probability deficit in $N(S)$ must cover the surplus from every subset $S \subseteq H$, not just singletons.
+I verified~\eqref{eq:whnc} for all 931\,596 trees with $\dleaf \le 1$ through $n = 23$ (zero violations).
+In every tree tested, the minimum slack over all $S \subseteq H$ is attained at $|S| = 1$, where Proposition~\ref{prop:singleton} guarantees positivity.
+A proof of the full condition would settle Conjecture~A.
 
 
 \section{Exhaustive verification through \texorpdfstring{$n = 27$}{n = 27}}\label{sec:exhaustive}
@@ -561,8 +608,10 @@ Two main open problems remain.
 First, prove ECMS.
 The mean shift approach (Remark~\ref{rem:mean-shift}) reduces this to showing $|\mu(T) - \mu(T/e)| < 1$, with the local component of the shift proved to lie in $(0, 1/2)$.
 The remaining remote component decays geometrically with distance from the contracted edge at rate $\approx 1/\varphi^2 \approx 0.382$ per hop (where $\varphi$ is the golden ratio), and is empirically less than $0.264$ in absolute value across all $3\,348\,675$ edges in trees on $n \le 18$.
+The distance-1 contribution admits an exact formula (Proposition~\ref{prop:s1-formula}), with $|S_1| < 0.355$; the tail from distances $2$ and beyond alternates in sign and partially cancels $S_1$ in $90\%$ of edges.
 For all parameterised families tested (paths, stars, caterpillars, tripods, brooms) through $n = 300$, the maximum $|\text{remote}|$ converges and never exceeds~$0.254$.
 Second, prove Conjecture~A, perhaps via the mean bound $\mu < n/3$; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the bound is tight.
+The compensation condition~\eqref{eq:whnc} provides a more direct path: Proposition~\ref{prop:singleton} settles the singleton case, and in all 931\,596 trees tested through $n = 23$, the tightest subset is always a singleton.
 On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
 
 The hard-core model tools developed here~-- the edge bound, Hub Exclusion, and the occupation probability framework~-- also have applications to biological network analysis, where tree-like backbones arise in protein interaction and phylogenetic networks; these connections are explored in a companion paper (\href{https://github.com/BrettRey/tree-independence-bio}{github.com/BrettRey/tree-independence-bio}).
@@ -634,9 +683,13 @@ Table~\ref{tab:certificates} summarizes all verified properties.
     Combined tail & \liningnums{9\,071\,864} edges & $\le 19$ \\
     $x R_u R_v$ ascending before mode & \liningnums{24\,710\,099} edges & $\le 20$ \\
     $|\delta(T, v)| \le 1$ & \liningnums{26\,056\,121} pairs & $\le 20$ \\
-    Conjecture A & \liningnums{528\,196} trees & $\le 23$ \\
-    $\mu < n/3$ ($\dleaf \le 1$) & \liningnums{528\,196} trees & $\le 23$ \\
+    Conjecture A & \liningnums{931\,596} trees & $\le 23$ \\
+    $\mu < n/3$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ \\
+    Compensation~\eqref{eq:whnc} ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ \\
+    Singleton argmin & \liningnums{931\,596} trees & $\le 23$ \\
     Case B bound & \liningnums{8\,710\,881} trees & $\le 22$ \\
+    $S_1$ formula (Prop.~\ref{prop:s1-formula}) & \liningnums{3\,348\,674} edges & $\le 18$ \\
+    $|\delta\mu| < 0.537$ & \liningnums{3\,348\,675} edges & $\le 18$ \\
     \bottomrule
   \end{tabular}
 \end{table}

@@ -103,6 +103,285 @@ Asymptotically:
 So WHNC is strictly positive in tested range but not bounded away from zero along this
 extremal family.
 
+### 1B) Allocation-based attacks (new)
+
+#### Equal-share allocation (fails)
+
+Tested the proposed split
+
+`P(h) - 1/3 <= sum_{u~h} (1/3 - P(u)) / deg_H(u)`, where `deg_H(u)=|N(u) cap H|`.
+
+Repro script:
+
+```bash
+python3 conjecture_a_equal_share_allocation.py --min-n 23 --max-n 23 \
+  --out results/whnc_equal_share_n23.json
+```
+
+Result through `n<=23` (`931,596` d_leaf<=1 trees; full run done in-session):
+- Fails heavily (`277,921` heavy-vertex failures).
+- First failures at `n=8`.
+- Worst ratio `(P(h)-1/3) / RHS = 4.0` at `n=23`.
+
+So equal-share is too rigid.
+
+#### Edge-constrained transport feasibility (holds)
+
+Defined bipartite transport from heavy excess to neighbor deficits:
+- demands on `H`: `d(h)=P(h)-1/3`
+- supplies on `U=N(H)`: `s(u)=1/3-P(u)`
+- flow allowed only on edges `(h,u)` with `u~h`.
+
+Max-flow feasibility holds for all tested trees:
+
+```bash
+python3 conjecture_a_flow_allocation.py --min-n 3 --max-n 23 --workers 8
+```
+
+Result:
+- Checked all `931,596` d_leaf<=1 trees through `n=23`.
+- Feasibility failures: `0`.
+- Maximum unmet-demand gap: `0`.
+
+Per-`n=23` certificate saved as:
+- `results/whnc_flow_alloc_n23.json`
+
+This is strictly stronger evidence than WHNC itself: every instance admits a
+local edge-respecting compensation plan.
+
+#### Weighted Hall subset scan (strong structure)
+
+For non-empty `S subseteq H`, define Hall slack
+
+`slack(S) = supply(N(S)) - demand(S)`.
+
+Scanned all non-empty subsets of `H` (bitmask DP) and found:
+
+```bash
+python3 conjecture_a_hall_subset_scan.py --min-n 23 --max-n 23 \
+  --out results/whnc_hall_subset_n23.json
+```
+
+And separately for `n<=20,21,22`:
+- `n<=20`: all `77,141` trees
+- `n=21`: all `98,581` trees
+- `n=22`: all `227,678` trees
+- `n=23`: all `528,196` trees
+
+In every tested tree (through `n=23`):
+- Minimum non-empty Hall slack is attained by a singleton subset `S={h}`.
+- Argmin subset size distribution is **100% at size 1**.
+- Hall failures: `0`.
+
+This suggests a sharpened conjecture:
+
+`min_{nonempty S subseteq H} slack(S) = min_{h in H} slack({h}).`
+
+If proved, WHNC and full transport feasibility follow immediately from local
+singleton bounds.
+
+### Additional diagnostics from this pass
+
+#### Private-neighbor strategy is false in this form
+
+Two candidate structural statements were tested and both fail (even with `d_leaf<=1`):
+
+1. **Strong form (false):** for every nonempty `S subseteq H`, every `h in S` has a
+   private neighbor (a `u` with `N(u) cap S = {h}`).
+2. **Weak form (false):** for every nonempty `S subseteq H`, at least one `h in S`
+   has a private neighbor.
+
+Repro script:
+
+```bash
+python3 conjecture_a_private_neighbor_scan.py --min-n 3 --max-n 23 \
+  --stop-on-first --out results/whnc_private_neighbor_first.json
+```
+
+First counterexamples already at `n=8`:
+- `g6 = G?B@dO`
+- `H = [0,1,2,3,4]`
+- Strong-form failure witness: `S = {0,1}` (`0` private, `1` not private).
+- For `S = {0,1,2,3}`, every neighbor of each `h in S` is shared.
+
+So a proof through universal private-neighbor existence cannot work directly.
+
+#### Stronger singleton-dominance law holds (through n=23)
+
+Beyond global singleton argmin, we checked the stronger statement:
+
+`slack(S) >= min_{h in S} slack({h})` for every non-empty `S subseteq H`.
+
+Repro script:
+
+```bash
+python3 conjecture_a_singleton_dominance_scan.py --min-n 3 --max-n 23 \
+  --out results/whnc_singleton_dominance_n23.json
+```
+
+Result through all `931,596` d_leaf<=1 trees (`n<=23`):
+- Global singleton-argmin failures: `0`.
+- Strong local singleton-dominance failures: `0`.
+- Argmin subset size distribution: `{1: 931596}`.
+
+This is stronger than the earlier Hall-scan summary and further supports a proof
+strategy based on singleton lower bounds.
+
+#### Degree-only fractional allocation attempt fails
+
+Tested the purely combinatorial weighting
+
+`x_{h,u} = 1/deg(h)` on heavy-side edges (which would prove WHNC if
+`sum_{h~u} 1/deg(h) <= 1` for every `u in N(H)`).
+
+Repro script:
+
+```bash
+python3 conjecture_a_degree_allocation_scan.py --min-n 3 --max-n 23 \
+  --out results/whnc_degree_allocation_n23.json
+```
+
+This fails frequently for d_leaf<=1 trees (`n>=8`):
+- Fail trees through `n<=23`: `650,763 / 931,596`.
+- Worst observed `sum_{h~u} 1/deg(h) = 4.5` at `n=23`.
+
+So a proof cannot ignore the probability weights `P(v)` and rely only on
+heavy-neighborhood incidence degrees.
+
+#### Local-overlap failures are almost always leaf-driven (diagnostic)
+
+Repro script:
+
+```bash
+python3 conjecture_a_overlap_leaf_split.py --min-n 3 --max-n 23 \
+  --out results/whnc_overlap_leaf_split_n23.json
+```
+
+This scans local-overlap failures (`local_excess(u) > deficit(u)`) through
+`n<=23` and splits by whether `u` has at least one heavy leaf neighbor.
+
+Counts:
+- Total local-overlap failures: `23,277`.
+- With a heavy leaf adjacent to `u`: `23,245`.
+- Without any heavy leaf adjacent to `u`: `32`.
+
+So while local-overlap control is false globally, the obstruction is highly
+concentrated in configurations where an overloaded `u` sees heavy leaves.
+This suggests a proof decomposition by handling leaf-heavy overlaps first.
+
+#### Submodularity/marginal-removal scan (new)
+
+For
+
+`F(S) = supply(N(S)) - demand(S)`,
+
+define removal marginal
+
+`M(h,S) = F(S) - F(S\\{h}) = supply(N(h)\\N(S\\{h})) - demand(h)`.
+
+A natural singleton-argmin proof attempt is a peeling argument:
+for every non-singleton `S`, find `h in S` with `M(h,S) >= 0`, then delete `h`.
+If always possible, this reduces to a singleton and proves
+`F(S) >= min_{h in S} F({h})`.
+
+Repro script:
+
+```bash
+python3 conjecture_a_marginal_scan.py --min-n 3 --max-n 22 \
+  --out results/whnc_marginal_scan_n22.json
+```
+
+Status (through `n<=22`):
+- Peeling criterion is **false**: many subsets have `M(h,S) < 0` for all `h in S`.
+- Quantitatively: among `403,400` d_leaf<=1 trees (`n<=22`), `193,208` contain at
+  least one all-negative subset, with `665,029` all-negative subsets total.
+- But these all-negative subsets are **always leaf-involving**:
+  - `allneg_subsets_without_leaf = 0` through `n<=22`.
+  - Every all-negative subset contains at least one heavy leaf.
+- Even for all-negative subsets, singleton dominance still has positive slack:
+  - minimum observed `F(S) - min_{h in S} F({h})` is `0.022372600469548365` (at `n=21`).
+
+Artifacts:
+- `results/whnc_marginal_scan_n20.json`
+- `results/whnc_marginal_scan_n21.json`
+- `results/whnc_marginal_scan_n22.json`
+
+This supports a two-case proof strategy for singleton argmin:
+1) non-leaf-heavy subsets (where all-negative marginals may be impossible),
+2) leaf-heavy subsets (the only observed obstruction class).
+
+#### Non-leaf heavy case appears structurally solved (computationally)
+
+Define `H_nl = {h in H : deg(h) >= 2}`.
+For non-empty `S subseteq H_nl` with `|S| >= 2`, check whether some `h in S`
+has a private neighbor relative to `S`.
+
+Repro script:
+
+```bash
+python3 conjecture_a_nonleaf_private_scan.py --min-n 3 --max-n 23 \
+  --out results/whnc_nonleaf_private_n23.json
+```
+
+Result through all `931,596` d_leaf<=1 trees (`n<=23`):
+- Failures: `0` (no non-leaf subset without a private-neighbor vertex).
+
+Consequence with edge surplus:
+if `h` has a private neighbor `u`, then
+`M(h,S) = supply(N(h)\\N(S\\{h})) - demand(h) >= supply(u) - demand(h) > 0`.
+So every non-leaf subset has at least one strictly positive removal marginal.
+
+This isolates the singleton-argmin obstruction to subsets containing heavy leaves.
+
+#### Leaf-block certificate prototype (rewrite + exact arithmetic)
+
+A dedicated prototype now emits exact (Fraction) certificates for the hard
+leaf-heavy all-negative subsets.
+
+Repro scripts:
+
+```bash
+python3 conjecture_a_leaf_block_certificate.py --min-n 8 --max-n 20 \
+  --max-certs 40 --out results/whnc_leaf_block_certs_n20.json
+
+python3 conjecture_a_leaf_block_certificate.py --min-n 21 --max-n 21 \
+  --max-certs 40 --out results/whnc_leaf_block_certs_n21.json
+```
+
+For each certificate subset `S`, it records exact values of:
+- `F(S)`,
+- `m = min_{h in S} F({h})`,
+- `gap = F(S) - m`,
+- singleton credits `credit(h) = F({h}) - m`,
+- overlap costs `overlap_cost(u) = (deg_S(u)-1) * supply(u)`.
+
+and verifies the canonical identity:
+
+`F(S) - m = (|S|-1)m + sum_h credit(h) - sum_u overlap_cost(u)`.
+
+Coverage:
+- `n<=20`: `108,447` leaf-heavy all-negative subsets scanned.
+- `n=21`: `159,204` leaf-heavy all-negative subsets scanned.
+- For all kept hardest certificates, identity check passes exactly.
+
+Hardest recorded certificates:
+- `n=20` hardest kept gap: `15/514 ≈ 0.029182879377`.
+- `n=21` hardest kept gap: `162/7241 ≈ 0.022372600470`.
+
+This does not yet prove the leaf-heavy case, but it gives a formal algebraic
+normal form to target and concrete minimal witnesses for inequality design.
+
+#### General-tree check: singleton-Hall is not universal
+
+Running `conjecture_a_hall_subset_scan.py --all-trees` on general trees
+(`n=10..16` tested) shows:
+- many Hall failures (`17,625`/`32,413` trees in that range),
+- singleton argmin only ~`9.65%` overall,
+- worst slack strongly negative.
+
+Hence the singleton-min phenomenon appears specific to the `d_leaf<=1` regime,
+which supports using that structural hypothesis in the proof.
+
 ## 2) ECMS attack: contraction mode vs endpoint-deletion modes
 
 For edge `e = uv` in `T`, define:

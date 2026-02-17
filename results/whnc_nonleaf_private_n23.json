@@ -1,0 +1,121 @@
+{
+  "params": {
+    "min_n": 3,
+    "max_n": 23,
+    "tol": 1e-12
+  },
+  "summary": {
+    "seen": 23942357,
+    "considered": 931596,
+    "bad_trees": 0,
+    "first_bad": null,
+    "wall_s": 379.0587420463562
+  },
+  "per_n": {
+    "3": {
+      "seen": 1,
+      "considered": 0,
+      "bad_trees": 0
+    },
+    "4": {
+      "seen": 2,
+      "considered": 1,
+      "bad_trees": 0
+    },
+    "5": {
+      "seen": 3,
+      "considered": 1,
+      "bad_trees": 0
+    },
+    "6": {
+      "seen": 6,
+      "considered": 2,
+      "bad_trees": 0
+    },
+    "7": {
+      "seen": 11,
+      "considered": 3,
+      "bad_trees": 0
+    },
+    "8": {
+      "seen": 23,
+      "considered": 6,
+      "bad_trees": 0
+    },
+    "9": {
+      "seen": 47,
+      "considered": 10,
+      "bad_trees": 0
+    },
+    "10": {
+      "seen": 106,
+      "considered": 21,
+      "bad_trees": 0
+    },
+    "11": {
+      "seen": 235,
+      "considered": 39,
+      "bad_trees": 0
+    },
+    "12": {
+      "seen": 551,
+      "considered": 82,
+      "bad_trees": 0
+    },
+    "13": {
+      "seen": 1301,
+      "considered": 167,
+      "bad_trees": 0
+    },
+    "14": {
+      "seen": 3159,
+      "considered": 360,
+      "bad_trees": 0
+    },
+    "15": {
+      "seen": 7741,
+      "considered": 766,
+      "bad_trees": 0
+    },
+    "16": {
+      "seen": 19320,
+      "considered": 1692,
+      "bad_trees": 0
+    },
+    "17": {
+      "seen": 48629,
+      "considered": 3726,
+      "bad_trees": 0
+    },
+    "18": {
+      "seen": 123867,
+      "considered": 8370,
+      "bad_trees": 0
+    },
+    "19": {
+      "seen": 317955,
+      "considered": 18866,
+      "bad_trees": 0
+    },
+    "20": {
+      "seen": 823065,
+      "considered": 43029,
+      "bad_trees": 0
+    },
+    "21": {
+      "seen": 2144505,
+      "considered": 98581,
+      "bad_trees": 0
+    },
+    "22": {
+      "seen": 5623756,
+      "considered": 227678,
+      "bad_trees": 0
+    },
+    "23": {
+      "seen": 14828074,
+      "considered": 528196,
+      "bad_trees": 0
+    }
+  }
+}
