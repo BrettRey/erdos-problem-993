@@ -1,0 +1,14 @@
+{
+  "max_n": 18,
+  "total_edges": 3348674,
+  "remote_exceeds_S1": 395679,
+  "max_remote_over_S1": 35176.50000004,
+  "max_abs_remote": 0.26349958,
+  "max_abs_S1": 0.28088866,
+  "tail_opp_sign": 3012856,
+  "tail_same_sign": 333372,
+  "remote_exceeds_g": 11214,
+  "max_remote_over_g": 6.499901,
+  "max_subtree_ratio": 6.5,
+  "total_time_s": 161.23
+}

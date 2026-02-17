@@ -1,0 +1,22 @@
+{
+  "max_n": 18,
+  "total_edges": 3348674,
+  "max_amplification": 6.5,
+  "max_amplification_info": {
+    "n": 18,
+    "edge": [
+      0,
+      16
+    ],
+    "w": 17,
+    "subtree_sum": -3.305953257939417e-05,
+    "root_dP": 5.086081935201132e-06,
+    "amp": 6.500000000115376,
+    "subtree_size": 16
+  },
+  "sign_same": 9530597,
+  "sign_opposite": 957271,
+  "sign_zero": 41178,
+  "max_remote_over_dist1": 6.5,
+  "total_time_s": 80.6
+}

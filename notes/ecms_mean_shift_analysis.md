@@ -135,6 +135,78 @@ For infinite caterpillar with k leaves per spine vertex:
 
 Worst k for |remote|: k=3 (remote = -0.231). Falls off rapidly for k ≥ 4.
 
+### S_1 Formula (THEOREM, 2026-02-17)
+
+**Exact algebraic formula for distance-1 perturbation:**
+
+For edge e = (u,v) with cavity messages A = R_{u→v}, B = R_{v→u}:
+
+    ΔP(w) = F_u × q_w/(1+q_w)    for each w ∈ N(u)\{v}
+
+where:
+- F_u = A(B²+B-1) / [(1+A+B)(1+AB)]  (the "edge factor")
+- q_w = R_{w→u}  (cavity message from w to u)
+- q_w/(1+q_w) = P_w^{(u-cavity)}  (occupation probability in the u-cavity tree)
+
+Similarly for w ∈ N(v)\{u}: ΔP(w) = F_v × R_{w→v}/(1+R_{w→v})
+where F_v = B(A²+A-1)/[(1+A+B)(1+AB)].
+
+**Derivation:**
+- In T: R_{u→w} = A(1+q_w)/(1+B)
+- In T/e: R_{m→w} = A(1+q_w)B  (merged vertex sends product of both sides)
+- Change: β-α = A(1+q_w)(B²+B-1)/(1+B)
+- After substitution: ΔP(w) = Q(β-α)/[(1+α+Q)(1+β+Q)] simplifies to F × q_w/(1+q_w)
+
+**Verification:** 3,348,674 edges (n ≤ 18), 0 mismatches (max error 1.94×10⁻¹⁶).
+
+**Corollary (S_1 bound):**
+S_1 = F_u × Σ P_w^{(u-cav)} + F_v × Σ P_w^{(v-cav)}
+
+Using log(1+x) ≥ x/(1+x) and A = ∏ 1/(1+q_w):
+  Σ P_w^{(u-cav)} ≤ -log A
+
+So: |S_1| ≤ g(A,B) = |F_u|(-log A) + |F_v|(-log B)
+
+Numerically: max g(A,B) = **0.3546 < 1/2** on both exhaustive data and dense grid.
+Maximum at A ≈ B ≈ 0.143 (caterpillar-like structures).
+
+### Signed Decay and Alternation (2026-02-17)
+
+**Signed sums at each distance alternate 94-100% of the time:**
+
+| Distance | max S_d | min S_d | Alternation % |
+|----------|---------|---------|---------------|
+| 1 | +0.107 | -0.281 | -- |
+| 2 | +0.203 | -0.109 | 94.3% |
+| 3 | +0.041 | -0.078 | 94.6% |
+| 4 | +0.028 | -0.015 | 97.9% |
+| 5+ | <0.005 | <0.010 | 99%+ |
+
+Partial sums oscillate: max |cumulative partial| = 0.281 (at d=1), never exceeds this.
+
+**Alternating dominance** (|partial(d)| ≤ |S_1| for all d): fails 9.25% of (edge,d) pairs.
+**|remote| ≤ |S_1|**: fails 11.82% of edges (dist-2+ tail can amplify).
+**Tail has opposite sign to S_1**: 90.0% of edges (cancellation typical).
+
+### Mean Response Bound (KEY, 2026-02-17)
+
+**M = subtree_sum / δR (mean response per unit cavity perturbation) is universally bounded:**
+
+    |M| < 0.273    for ALL subtrees of ALL trees through n ≤ 18
+
+- 0.00% of subtrees exceed |M| = 0.5
+- Mean |M| = 0.133, median = 0.146
+- Convergence: max |M| grows at ~0.003/step, likely converging to ~0.28
+
+This means every subtree DISSIPATES the incoming cavity perturbation by at least ~73%.
+The total mean change in a subtree is always less than 27.3% of the incoming stimulus.
+
+**Bound on remote:** |remote| ≤ max|M| × Σ|δR_w|. And using A×Σ(1+q_w) ≤ deg-1:
+  Σ|δR_w| ≤ (deg_u - 1)|B²+B-1|/(1+B) + (deg_v - 1)|A²+A-1|/(1+A)
+
+This bound grows with degree, BUT the product max|M| × g(A,B) ≈ 0.097 is far below 1/2.
+The issue is translating between Σ|δR_w| (unsigned cavity changes) and g(A,B) (signed S_1 bound).
+
 ### Key Scripts
 
 - `ecms_remote_decay.py` + `results/ecms_remote_decay.json`: Distance decomposition
@@ -143,19 +215,35 @@ Worst k for |remote|: k=3 (remote = -0.231). Falls off rapidly for k ≥ 4.
 - `ecms_worst_remote.py` + `results/ecms_worst_remote.json`: Exhaustive worst trees
 - `ecms_mixed_caterpillar.py` + `results/ecms_mixed_caterpillar.json`: Mixed structures
 - `ecms_caterpillar_algebra.py`: Algebraic fixed points
+- `ecms_signed_decay.py` + `results/ecms_signed_decay.json`: Signed per-distance sums
+- `ecms_alternating_proof.py` + `results/ecms_alternating_proof.json`: Alternating dominance tests
+- `ecms_S1_algebra.py` + `results/ecms_S1_algebra.json`: S_1 formula verification
+- `ecms_remote_vs_S1.py` + `results/ecms_remote_vs_S1.json`: Remote vs S_1 comparison
+- `ecms_subtree_bound.py` + `results/ecms_subtree_bound.json`: Subtree amplification
+- `ecms_recursive_bound.py` + `results/ecms_recursive_bound.json`: Mean response analysis
 
 ### Dead ends for proving |δμ| < 1
 
 - Pure algebraic manipulation of the identity: all routes are circular (α < 1+β ⟺ α < 1+β)
 - Global bounds μ(T) < (2/3)(n-1) minus μ(T/e) > 0: gives O(n), useless
-- Naive cavity decay bound: local ≤ 1/2, total decay ≤ 1/2 × 1.618 ≈ 0.81. Gives total ≤ 1.3, too weak (but not by much!)
-- Per-vertex γ < 1: FAILS (γ → 1 on long paths)
+- Naive cavity decay bound: local ≤ 1/2, total decay ≤ 1/2 × 1.618 ≈ 0.81. Gives total ≤ 1.3, too weak
+- Per-vertex γ < 1: FAILS (γ → 1 on long paths, up to 0.9998)
 - Bound |remote| < 1/4: FAILS (exhaustive max = 0.264 > 0.250)
+- Subtree amplification ratio: grows linearly with n (unbounded)
+- Bound remote by S_1 alone: FAILS (|remote| > |S_1| for 11.82% of edges)
+- g(A,B) directly bounds remote: FAILS (|remote| > g(A,B) for 11K edges)
+- max|M| × Σ|δR_w| with degree bound: gives max|M| × (d-1), grows with d
 
 ### Remaining path to proof
 
-**Need: |remote| < 1/2.** Empirically |remote| < 0.264. Gap is large.
+**Need: |remote| < 1/2.** Empirically |remote| < 0.264. Gap is 0.236.
 
-Best prospect: **path-level decay product.** While individual γ → 1, the product along any path from the contracted edge to a distant vertex decays at rate ~(1/φ²)^d ≈ 0.382^d per hop. The total remote contribution at distance d is bounded by initial_perturbation × 0.382^d × (branching at d). Need to show branching doesn't overwhelm decay.
+**S_1 formula + mean response** is the most promising framework:
+1. S_1 = F × Σ P_w^{cavity} (PROVED, exact)
+2. |S_1| ≤ g(A,B) < 0.355 (PROVED numerically, needs analytic proof)
+3. |M| < 0.273 (EMPIRICAL, needs proof) -- subtree dissipation
+4. Need: connect (1)-(3) to bound total remote, accounting for sign cancellation
 
-Alternative: **Codex's WHNC inequality** (weighted heavy-neighborhood compensation). If proved, gives Conjecture A directly, bypassing ECMS entirely.
+**Key structural insight:** cavity perturbations alternate sign at each tree level (from the multiplicative structure of R_w→parent). This creates oscillating partial sums that converge rapidly. The alternation rate is 94%+ at dist ≥ 2.
+
+**Alternative:** Codex's WHNC inequality (weighted heavy-neighborhood compensation). If proved, gives Conjecture A directly, bypassing ECMS entirely. Verified 931K trees n ≤ 23, 0 failures.

@@ -1,0 +1,26 @@
+{
+  "max_n": 18,
+  "total_edges": 3348674,
+  "max_M": 0.2728972,
+  "max_M_info": {
+    "n": 18,
+    "edge": [
+      8,
+      17
+    ],
+    "w": 0,
+    "M": 0.2728972,
+    "delta_R": 0.0078125,
+    "sub_sum": 0.00213201,
+    "subtree_size": 10
+  },
+  "max_remote_over_local": 3.992111,
+  "remote_exceeds_local": 43144,
+  "M_stats": {
+    "mean": 0.133289,
+    "median": 0.146133,
+    "max": 0.272897,
+    "pct_gt_1": 0.0
+  },
+  "total_time_s": 93.2
+}

@@ -1,0 +1,24 @@
+{
+  "max_n": 18,
+  "total_edges": 3348674,
+  "alt_dom_total": 19507186,
+  "alt_dom_failures": 1804478,
+  "max_abs_S1": 0.2808886579,
+  "max_S1_info": {
+    "n": 18,
+    "edge": [
+      16,
+      17
+    ],
+    "S1": -0.28088866,
+    "A": 0.14814815,
+    "B": 0.17777778,
+    "local": 0.22014847
+  },
+  "max_S1_uside": 0.22865808,
+  "max_S1_vside": 0.20832595,
+  "S1_vs_local_max_ratio": 3.992111,
+  "S1_exceeds_local": 61216,
+  "vertex_sign_alt_match_pct": 34.94,
+  "total_time_s": 93.74
+}
