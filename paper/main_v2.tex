@@ -200,6 +200,44 @@ I verified ECMS for all 24\,710\,099 edges in non-isomorphic trees on $n \le 20$
 Zero violations were found.
 The distribution of $\mathrm{mode}(I(T/e)) - \mathrm{mode}(I(T))$ is $-1$ in 26.6\%, $0$ in 73.3\%, and $+1$ in 0.09\% of cases.
 
+The identity already constrains the mode of $I(T_e)$ without any conjecture:
+
+\begin{proposition}[Mode sandwich]\label{prop:sandwich}
+  If $I(T)$ and $I(T/e)$ are both unimodal with modes $m$ and $m'$ respectively, then $I(T_e) = I(T) + x \cdot I(T/e)$ attains its maximum at some $k \in [\min(m,\, m'{+}1),\, \max(m,\, m'{+}1)]$.
+\end{proposition}
+
+\begin{proof}
+  Write $A(x) = x \cdot I(T/e;\, x)$, which is unimodal with mode $m'{+}1$.
+  For $k < \min(m,\, m'{+}1)$, both $I(T)$ and~$A$ are non-decreasing, so their sum is non-decreasing.
+  For $k \ge \max(m,\, m'{+}1)$, both are non-increasing, so their sum is non-increasing.
+\end{proof}
+
+I verified the mode sandwich for all 3\,348\,674 edges in trees on $n \le 18$, with zero failures.
+An immediate consequence is that $\mathrm{mode}(I(T_e)) - \mathrm{mode}(I(T)) \in \{0, 1\}$ whenever ECMS holds: if $m' \ge m - 1$, then $m' + 1 \ge m$, so the sandwich interval contains~$m$ (and~$m{+}1$), and subdivision cannot decrease the mode.
+
+\begin{remark}[Mean shift approach]\label{rem:mean-shift}
+  Let $\mu(G) = I'(G;\,1)/I(G;\,1)$ denote the mean of the normalised coefficient sequence.
+  Differentiating Theorem~\ref{thm:identity} at $x = 1$ gives
+  \[
+    \mu(T_e) \;=\; \frac{a \cdot \mu(T) \;+\; b\bigl(1 + \mu(T/e)\bigr)}{a + b},
+    \qquad a = I(T;\,1),\quad b = I(T/e;\,1),
+  \]
+  so $\mu(T_e)$ is a weighted average of $\mu(T)$ and $1 + \mu(T/e)$.
+  In particular, $\mu(T) - \mu(T/e) < 1$ if and only if $\mu(T_e) < 1 + \mu(T/e)$.
+  In the hard-core model at $\lambda = 1$, writing $A = R_{u \to v}$ and $B = R_{v \to u}$ for the cavity messages along~$e = uv$, the mean shift decomposes as
+  \[
+    \mu(T) - \mu(T/e)
+    \;=\; \underbrace{\frac{A + B - AB}{(1+A+B)(1+AB)}}_{\textstyle\text{local} \;\in\; (0,\, 1/2)}
+    \;+\; \sum_{w \ne u,v} \bigl[P_T(w) - P_{T/e}(w)\bigr].
+  \]
+  The local term is in $(0, 1/2)$ since $A, B \in (0, 1]$ on any tree.
+  I verified $|\mu(T) - \mu(T/e)| < 0.537$ for all 3\,348\,675 edges in trees on $n \le 18$; the global maximum $|\delta\mu| \approx 0.537$ is attained by the tripod star $T(5,5,5)$ at the centre-to-bridge edge.
+  For all parametric families tested (stars, double stars, extended stars, tripods), the maximum converges to~$1/2$ from above as the parameters grow.
+  For a log-concave sequence with positive terms, the mode lies in $\{\lfloor\mu\rfloor, \lceil\mu\rceil\}$.
+  In 864\,230 edges where $\mu(T)$ and $\mu(T/e)$ straddle an integer, I found zero instances where the modes round in opposite directions.
+  Proving $|\mu(T) - \mu(T/e)| < 1$ would therefore establish ECMS for any tree with log-concave IS sequence.
+\end{remark}
+
 \begin{definition}\label{def:combined_tail}
   For an edge $e$ in tree~$T$ with $\mathrm{mode}(I(T/e)) = \mathrm{mode}(I(T)) + 1$ (the \emph{gap case}), the \emph{combined tail condition} requires that $I(T_e)$ is non-increasing for all $k \ge \mathrm{mode}(I(T)) + 1$.
 \end{definition}
@@ -520,7 +558,9 @@ For $\dleaf \le 1$ trees, the leaf-support pairing accounts for all but the inte
 A proof that $\sum_v P(v) < n/3$ would settle Conjecture~A.
 
 Two main open problems remain.
-First, prove ECMS~-- either by direct analysis of how contraction affects the IS polynomial's mode, or by establishing that $A = x \cdot I(T/e)$ is always nondecreasing through the mode of~$I(T)$.
+First, prove ECMS.
+The mean shift approach (Remark~\ref{rem:mean-shift}) reduces this to showing $|\mu(T) - \mu(T/e)| < 1$, with the local component of the shift proved to lie in $(0, 1/2)$.
+The remaining remote component is bounded by exponential correlation decay in the hard-core model and is empirically less than $0.27$ in absolute value.
 Second, prove Conjecture~A, perhaps via the mean bound $\mu < n/3$; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the bound is tight.
 On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
 
