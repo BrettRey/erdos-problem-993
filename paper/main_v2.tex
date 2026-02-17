@@ -60,10 +60,10 @@
 I prove that for any tree~$T$ and edge~$e$, the subdivided tree~$T_e$ and the contracted tree~$T/e$ satisfy $I(T_e;\, x) = I(T;\, x) + x \cdot I(T/e;\, x)$.
 This identity reduces subdivision to a conjectured mode stability property: that edge contraction shifts the mode by at most~1.
 I verify this Edge Contraction Mode Stability conjecture for all 24.7~million edges in trees on at most 20~vertices, finding zero violations.
-Assuming ECMS, subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible.
+Together with a verified tail condition, ECMS implies that subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible.
 Independently, I prove a chain of structural lemmas~-- a Hub Exclusion Lemma and a Transfer Lemma~-- showing that the mode bound for all trees reduces to a single conjecture about trees in which every vertex has at most one leaf-child.
 This Conjecture~A is verified for 528\,196 such trees through $n = 23$.
-On the computational side, I verify the original conjecture exhaustively for all 447\,672\,596 trees on $n \le 26$ vertices, confirming the bound implicit in the log-concavity check of \textcite{kadrawi2023} and supplementing it with near-miss metrics.
+On the computational side, I verify the original conjecture exhaustively for all 1\,198\,738\,056 trees on $n \le 27$ vertices, confirming the bound implicit in the log-concavity check of \textcite{kadrawi2023} and supplementing it with near-miss metrics through $n = 26$.
 An evolutionary search identifies multi-arm stars as the family closest to the unimodality boundary, surpassing brooms.
 The near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \in [4, 8)$, so the margin shrinks but doesn't vanish.
 \end{abstract}
@@ -91,9 +91,9 @@ My contributions:
 \begin{enumerate}
   \item A subdivision-contraction identity: $I(T_e) = I(T) + x \cdot I(T/e)$ for any tree edge~$e$ (Section~\ref{sec:identity}).
   \item A conjectured Edge Contraction Mode Stability (ECMS) property, verified for 24.7~million edges (Section~\ref{sec:identity}).
-  \item A conditional subdivision lemma: ECMS implies subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible (Section~\ref{sec:identity}).
+  \item A conditional subdivision lemma: ECMS and a verified tail condition together imply subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible (Section~\ref{sec:identity}).
   \item A reduction framework~-- via Hub Exclusion and Transfer Lemmas~-- reducing the mode bound for all trees to a single conjecture about $\dleaf \le 1$ trees (Section~\ref{sec:reduction}).
-  \item Exhaustive verification for all trees on $n \le 26$ vertices, with near-miss metrics (Section~\ref{sec:exhaustive}).
+  \item Exhaustive verification for all trees on $n \le 27$ vertices, with near-miss metrics through $n = 26$ (Section~\ref{sec:exhaustive}).
   \item Identification of multi-arm stars as the extremal family and an asymptotic analysis of the near-miss ratio (Section~\ref{sec:extremal}).
 \end{enumerate}
 
@@ -126,8 +126,7 @@ For an edge $e = uv$ in~$T$, the \emph{contraction} $T/e$ is the tree obtained b
 The \emph{subdivision} $T_e$ inserts a new degree-2 vertex on~$e$.
 A tree is \emph{homeomorphically irreducible} if it has no degree-2 vertex; equivalently, it is not the subdivision of a smaller tree.
 
-Trees are enumerated with \texttt{nauty/geng} \citep{mckay2014}, which generates all non-isomorphic connected graphs on~$n$ vertices with exactly $n - 1$ edges.
-Computation is parallelized across eight workers.
+Non-isomorphic trees on~$n$ vertices are enumerated with \texttt{nauty/geng} \citep{mckay2014}, parallelized across eight workers.
 Polynomial arithmetic uses \texttt{numpy.convolve} when coefficients fit in 64-bit integers, with automatic fallback to pure Python big-integer arithmetic for larger values.
 Log-concavity is checked in exact integer arithmetic, avoiding floating-point error.
 
@@ -201,27 +200,35 @@ I verified ECMS for all 24\,710\,099 edges in non-isomorphic trees on $n \le 20$
 Zero violations were found.
 The distribution of $\mathrm{mode}(I(T/e)) - \mathrm{mode}(I(T))$ is $-1$ in 26.6\%, $0$ in 73.3\%, and $+1$ in 0.09\% of cases.
 
+\begin{definition}\label{def:combined_tail}
+  For an edge $e$ in tree~$T$ with $\mathrm{mode}(I(T/e)) = \mathrm{mode}(I(T)) + 1$ (the \emph{gap case}), the \emph{combined tail condition} requires that $I(T_e)$ is non-increasing for all $k \ge \mathrm{mode}(I(T)) + 1$.
+\end{definition}
+
+I verified the combined tail condition for 9\,071\,864 edges in trees on $n \le 19$, finding zero violations.
+The gap case arises in 8\,405 of these edges (0.09\%); in every instance the sign pattern at the two ambiguous positions is $({+},\, {-})$, confirming that the sum peaks and then descends.
+
 \begin{theorem}[Conditional subdivision lemma]\label{thm:conditional}
-  Assume ECMS (Conjecture~\ref{conj:ecms}).
+  Assume ECMS (Conjecture~\ref{conj:ecms}) and the combined tail condition (Definition~\ref{def:combined_tail}).
   If $I(T)$ and $I(T/e)$ are both unimodal, then $I(T_e)$ is unimodal.
 \end{theorem}
 
 \begin{proof}
 Let $M = \mathrm{mode}(I(T))$.
-Write $I(T_e) = F + G$ where $F = I(T)$ has mode~$M$ and $G = x \cdot I(T/e)$ has mode $M' + 1$, with $M' = \mathrm{mode}(I(T/e))$.
-Both $F$ and $G$ are unimodal with nonnegative coefficients.
-By ECMS, $M' \in \{M{-}1, M, M{+}1\}$, so $G$ has mode in $\{M, M{+}1, M{+}2\}$.
+Define $A(x) = x \cdot I(T/e)$.
+Then $I(T_e) = I(T) + A(x)$.
+Let $M' = \mathrm{mode}(I(T/e))$.
+The polynomial $A(x)$ has mode $M' + 1$.
+Both $I(T)$ and $A(x)$ are unimodal with nonnegative coefficients.
+By ECMS, $M' \in \{M{-}1, M, M{+}1\}$, so $A(x)$ has mode in $\{M, M{+}1, M{+}2\}$.
 
-If the modes of $F$ and~$G$ differ by at most~1, then $F + G$ is unimodal: both summands are nondecreasing up to the earlier mode and nonincreasing from the later mode, leaving at most one position of ambiguity~-- insufficient for a valley.
-This covers 99.91\% of edges ($M' \in \{M{-}1, M\}$).
+If the modes of $I(T)$ and $A(x)$ differ by at most~1, then their sum is unimodal: both summands are nondecreasing up to the earlier mode and nonincreasing from the later mode, leaving at most one position of ambiguity~-- insufficient for a valley.
 
-The remaining case $M' = M + 1$ (mode of~$G$ at $M + 2$) creates two positions~-- $k = M$ and $k = M{+}1$~-- where $F$ is descending and $G$ is ascending.
-A valley requires the sign pattern $({-},\, {+})$ at these positions.
-In all 8\,405 instances of this case (through $n = 20$), the observed sign pattern is $({+},\, {-})$: the sum peaks at $M + 1$ and then descends.
+In the gap case ($M' = M + 1$, mode of~$A(x)$ at $M + 2$), there are two positions~-- $k = M$ and $k = M{+}1$~-- where $I(T)$ is descending and $A(x)$ is ascending.
+The combined tail condition ensures the sum is non-increasing from $M + 1$, preventing any valley.
 \end{proof}
 
 \begin{corollary}\label{cor:homirred}
-  Assuming ECMS (and the combined tail condition for the 0.09\% gap case), any minimal counterexample to Conjecture~\ref{conj:main} is homeomorphically irreducible~-- it has no degree-2 vertices.
+  Assuming ECMS and the combined tail condition, any minimal counterexample to Conjecture~\ref{conj:main} is homeomorphically irreducible~-- it has no degree-2 vertices.
 \end{corollary}
 
 \begin{proof}
@@ -231,15 +238,14 @@ Theorem~\ref{thm:conditional} then gives $I(T) = I(T'_e)$ unimodal, contradictin
 \end{proof}
 
 \begin{remark}\label{rem:additional}
-  Several additional properties hold computationally through $n = 20$ (24.7~million edges):
-  the polynomial $A = x \cdot I(T/e)$ is always log-concave (hence unimodal),
-  the product $x\, R_u R_v$ never descends before $\mathrm{mode}(I(T))$,
-  and vertex removal shifts the mode by at most~1 ($|\mathrm{mode}(I(T)) - \mathrm{mode}(I(T{-}v))| \le 1$ for all 26~million vertex-tree pairs).
-  The tightest ratio $A[k{+}1]/A[k]$ is always $\ge 1.125$, attained at $k = M - 1$.
+  Several additional properties hold computationally.
+  Through $n = 19$ (9~million edges), the polynomial $A(x)$ is always log-concave (hence unimodal).
+  Through $n = 18$ (3.3~million edges), the tightest ratio $A[k{+}1]/A[k] \ge 1.125$, attained at $k = M - 1$.
+  Through $n = 20$ (24.7~million edges), the product $x\, R_u R_v$ never descends before $\mathrm{mode}(I(T))$, and vertex removal shifts the mode by at most~1 ($|\mathrm{mode}(I(T)) - \mathrm{mode}(I(T{-}v))| \le 1$ for all 26~million vertex-tree pairs).
 \end{remark}
 
 
-\section{Reduction to $\dleaf \le 1$ trees}\label{sec:reduction}
+\section{Reduction to \texorpdfstring{$\dleaf \le 1$}{d\_leaf ≤ 1} trees}\label{sec:reduction}
 
 Write $\dleaf(v)$ for the number of leaf-children of vertex~$v$ in tree~$T$.
 Call a maximal independent set~$S$ \emph{1-Private} if every $u \in S$ has at most one private neighbor (a non-$S$ vertex whose only $S$-neighbor is~$u$).
@@ -313,7 +319,8 @@ The complementary Case~B bound~-- that every tree with some $\dleaf \ge 2$ has t
 
 Conjecture~A can be approached through the hard-core model.
 At fugacity $\lambda = 1$, each IS is equally likely.
-Write $P(v)$ for the probability that vertex~$v$ belongs to a uniformly random IS (the scalar occupation probability, not to be confused with the polynomial~$P_v(x)$ of Section~\ref{sec:definitions}), and $\mu = \sum_v P(v)$ for the expected IS size.
+Write $P(v)$ for the probability that vertex~$v$ belongs to a uniformly random IS (the scalar occupation probability, not the polynomial~$P_v(x)$ of Section~\ref{sec:method}).
+The expected IS size is $\mu = \sum_v P(v)$.
 Since $I(T;\, 1)$ counts all IS and $I'(T;\, 1) = \sum_k k\, i_k$, we have $\mu = I'(T;\, 1) / I(T;\, 1)$.
 
 All $\dleaf \le 1$ trees tested through $n = 22$ (227\,678 trees) have log-concave independence sequences.
@@ -365,7 +372,7 @@ For the global bound $\mu < n/3$ to hold, the remaining $n - 2\ell$ interior ver
 Their occupation probabilities tend toward the infinite-path limit $P \approx 0.276 < 1/3$, but a proof of the global bound remains open.
 
 
-\section{Exhaustive verification through $n = 26$}\label{sec:exhaustive}
+\section{Exhaustive verification through \texorpdfstring{$n = 27$}{n = 27}}\label{sec:exhaustive}
 
 Table~\ref{tab:exhaustive} shows the verification results.
 Every tree count matches OEIS A000055 \citep{oeis-a000055}; counts are checked automatically during the search.
@@ -373,7 +380,7 @@ No unimodality violation was found at any~$n$.
 
 \begin{table}[ht]
   \centering
-  \caption{Exhaustive verification of unimodality for trees on $n$ vertices.  Times are for an Apple Silicon Mac with 8 parallel workers ($n \ge 21$) or a single process ($n \le 20$).}
+  \caption{Exhaustive verification of unimodality for trees on $n$ vertices.  Times are for an Apple Silicon Mac with 8 parallel workers ($n \le 26$) or Modal cloud compute with 1024 workers ($n = 27$).}
   \label{tab:exhaustive}
   \begin{tabular}{r r r}
     \toprule
@@ -391,8 +398,9 @@ No unimodality violation was found at any~$n$.
     24 & \liningnums{39\,299\,897} & 12\,m\,5\,s \\
     25 & \liningnums{104\,636\,890} & 38\,m\,33\,s \\
     26 & \liningnums{279\,793\,450} & 4\,h\,51\,m \\
+    27 & \liningnums{751\,065\,460} & 1\,h\,18\,m \\
     \midrule
-    Total & \liningnums{447\,672\,596} & \\
+    Total & \liningnums{1\,198\,738\,056} & \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -400,6 +408,7 @@ No unimodality violation was found at any~$n$.
 The case $n = 26$ is the first at which log-concavity fails: \textcite{kadrawi2023} found exactly two failures through exhaustive enumeration, implicitly confirming unimodality at every~$n$ up to~26.
 My independent re-analysis reproduces these two failures (both at $k = 13$, worst ratio $i_{12}\, i_{14} / i_{13}^2 = 1.145$) and adds the near-miss metric: $\nm = 0.845$~-- far below the violation threshold.
 Even where log-concavity breaks, unimodality holds with a comfortable margin.
+Extending to $n = 27$ (751~million trees, run on Modal cloud compute with 1024 parallel workers) finds no unimodality violations, bringing the total to nearly 1.2~billion trees checked.
 Figure~\ref{fig:roots26} plots the roots of the independence polynomials of these two trees in the complex plane; neither polynomial is real-rooted.
 
 \begin{figure}[ht]
@@ -430,7 +439,7 @@ The champion at $n \ge 200$ is $M(s;\, 5, 5, 4, 2)$, achieving $\nm = 0.9918$ at
 \begin{table}[ht]
   \centering
   \caption{Best standard broom vs.\ best multi-arm star at each~$n$.
-    All values are near-miss ratios; higher means closer to violation.}
+    All values are near-miss ratios (higher is closer to violation); the multi-arm star exceeds the broom at every~$n$ at full precision.}
   \label{tab:multiarm}
   \begin{tabular}{r l l l}
     \toprule
@@ -439,8 +448,8 @@ The champion at $n \ge 200$ is $M(s;\, 5, 5, 4, 2)$, achieving $\nm = 0.9918$ at
     75   & 0.9412 & 0.9437 & 2-arm$(6,2)$ \\
     100  & 0.9551 & 0.9575 & 3-arm$(6,3,2)$ \\
     200  & 0.9779 & 0.9792 & 4-arm$(5,5,4,2)$ \\
-    500  & 0.9913 & 0.9918 & 4-arm$(5,5,4,2)$ \\
-    1000 & 0.9957 & 0.9959 & 4-arm$(5,5,4,2)$ \\
+    500  & 0.9917 & 0.9918 & 4-arm$(5,5,4,2)$ \\
+    1000 & 0.9959 & 0.9959 & 4-arm$(5,5,4,2)$ \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -491,14 +500,14 @@ Agreement is within 0.5\% in all cases.
   \end{tabular}
 \end{table}
 
-The multi-arm star champion $M(s;\, 5, 5, 4, 2)$ achieves $C \approx 3.98$, slightly below the broom optimum~-- but the theorem gives $C \ge 4$ for any fixed core, so the margin remains positive for every finite~$s$.
+The multi-arm star champion $M(s;\, 5, 5, 4, 2)$ has an empirical rate $\hat{C} \approx 3.98$ at the tested range (a finite-$s$ estimate that absorbs the $O(1/s^2)$ remainder); the theorem guarantees the asymptotic value $C \ge 4$ for any fixed core, so the margin is positive for all sufficiently large~$s$.
 
 
 \section{Discussion}\label{sec:discussion}
 
 Two independent lines of argument constrain the structure of any counterexample.
 The subdivision-contraction identity (Theorem~\ref{thm:identity}) provides algebraic structure: the relationship $I(T_e) = I(T) + x \cdot I(T/e)$ connects three natural operations on trees.
-If ECMS (Conjecture~\ref{conj:ecms}) holds, subdivision preserves unimodality, so any minimal counterexample has no degree-2 vertices.
+If ECMS (Conjecture~\ref{conj:ecms}) and the combined tail condition hold, subdivision preserves unimodality, so any minimal counterexample has no degree-2 vertices.
 The PNP reduction (Section~\ref{sec:reduction}) provides combinatorial structure: Hub Exclusion and Transfer force the behavior of large IS on trees with many leaf-children, reducing the mode bound to Conjecture~A about $\dleaf \le 1$ trees.
 
 These two threads don't yet close the problem.
@@ -510,14 +519,15 @@ The edge bound $P(u) + P(v) < 2/3$ (Theorem~\ref{thm:edge-bound}) is tight for $
 For $\dleaf \le 1$ trees, the leaf-support pairing accounts for all but the interior vertices, whose occupation probabilities tend to be well below $1/3$.
 A proof that $\sum_v P(v) < n/3$ would settle Conjecture~A.
 
-Three open problems stand out.
+Two main open problems remain.
 First, prove ECMS~-- either by direct analysis of how contraction affects the IS polynomial's mode, or by establishing that $A = x \cdot I(T/e)$ is always nondecreasing through the mode of~$I(T)$.
 Second, prove Conjecture~A, perhaps via the mean bound $\mu < n/3$; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the bound is tight.
-Third, extend the exhaustive search to $n = 27$ (751~million trees).
 On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
 
+The hard-core model tools developed here~-- the edge bound, Hub Exclusion, and the occupation probability framework~-- also have applications to biological network analysis, where tree-like backbones arise in protein interaction and phylogenetic networks; these connections are explored in a companion paper (\href{https://github.com/BrettRey/tree-independence-bio}{github.com/BrettRey/tree-independence-bio}).
+
 The conjecture remains unproved, but the computational evidence increasingly constrains the terrain.
-Any counterexample must be homeomorphically irreducible (if ECMS holds), must have high leaf-degree vertices (by the PNP reduction), and cannot arise from pendant-leaf attachment to a fixed core (by the asymptotic theorem).
+Any counterexample must be homeomorphically irreducible (if ECMS and the combined tail condition hold), must have high leaf-degree vertices (by the PNP reduction), and cannot arise from pendant-leaf attachment to a fixed core (by the asymptotic theorem).
 The margin of unimodality can be made arbitrarily small~-- multi-arm stars approach the boundary at rate $1/s$~-- but the boundary itself appears inviolable.
 
 All code, data, and reproduction scripts are available at
@@ -534,7 +544,8 @@ I take responsibility for all claims and any errors.
 
 \section{Reproducibility}\label{app:repro}
 
-All computations were run on an Apple M4 (arm64) with 32\,GB RAM, running macOS.
+Computations through $n = 26$ were run on an Apple M4 (arm64) with 32\,GB RAM, running macOS.
+The $n = 27$ search used Modal cloud compute with 1024 parallel workers (78~minutes wall time).
 Software versions: Python~3.14.2, NumPy~2.4.2, NetworkX~3.6.1, nauty/geng~2.9301 (32-bit).
 
 \begin{verbatim}
@@ -546,6 +557,10 @@ python3 -m unittest test_all.py -v
 
 # Exhaustive search, n <= 26 (8 workers, requires geng)
 python3 search.py --max-n 26 --workers 8
+
+# n = 27 (Modal cloud compute, 1024 workers)
+# App ID: ap-T9RkZ9fGOtXyvZgPEuYBkZ
+modal run search_modal.py
 
 # Targeted family search (n up to 500)
 python3 targeted.py --max-n 500 --random-count 5000
@@ -570,7 +585,7 @@ Table~\ref{tab:certificates} summarizes all verified properties.
     \toprule
     Property & Count & $n$ range \\
     \midrule
-    Unimodality (exhaustive) & \liningnums{447\,672\,596} trees & $\le 26$ \\
+    Unimodality (exhaustive) & \liningnums{1\,198\,738\,056} trees & $\le 27$ \\
     LC (exhaustive, $n \le 25$) & \liningnums{167\,879\,146} trees & $\le 25$ \\
     $I(T_e) = I(T) + x I(T/e)$ & \liningnums{66\,697} edges & $\le 14$ \\
     ECMS & \liningnums{24\,710\,099} edges & $\le 20$ \\

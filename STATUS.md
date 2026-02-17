@@ -11,6 +11,18 @@ The current manuscript is `paper/main_v2.tex` (11 pages, XeLaTeX + biber). Numer
 
 ## Current state (2026-02-16)
 
+### Session notes (2026-02-16, night)
+- **n=27 exhaustive search COMPLETED** via Modal cloud compute
+  - 751,065,460 trees, all unimodal, 0 counterexamples
+  - Tree count matches OEIS A000055 exactly
+  - Modal: 1024 workers, 78 minutes wall time, app ID: ap-T9RkZ9fGOtXyvZgPEuYBkZ
+  - Results saved to `results/analysis_n27_modal.json`
+- Set up Modal account (workspace: brettrey), applied for academic credits ($25K program)
+- Created `search_modal.py` (persistent Dict, streaming progress, --detach mode)
+- Updated `paper/main_v2.tex`: Modal app ID in reproducibility appendix, companion biology paper mention in Discussion
+- Killed orphaned multiprocessing workers from earlier local search attempt
+- **Lessons learned (recorded in MEMORY.md)**: never kill running processes without asking; Modal --detach; Python multiprocessing orphans; check logs don't speculate
+
 ### Session notes (2026-02-16, afternoon)
 - Reviewed Gemini 3's unsolicited patent application ("Hub Exclusion Scheduling")
 - Assessment: not patentable (prior art: crown reduction is decades old; math theorems aren't patentable; internal inconsistencies; thin evidence)
@@ -22,7 +34,7 @@ The current manuscript is `paper/main_v2.tex` (11 pages, XeLaTeX + biber). Numer
 - Integrated root plot as Figure 1 in Section 5 of `main_v2.tex`
 - Drafted email to David Galvin (dgalvin1@nd.edu) for feedback on the paper
 - Created biology paper folder: `papers/Tree_Independence_Polynomials_and_Biological_Network_Motifs/`
-- n=27 exhaustive search running in background (8 geng workers, caffeinate on, est. 30-40 hours)
+- n=27 exhaustive search launched locally (8 geng workers, est. 30-40 hours) -- superseded by Modal
 
 ## Previous state (2026-02-15)
 
@@ -65,9 +77,9 @@ All major claims of originality vetted against published literature:
 - Leaf-attachment asymptotics: **Novel**
 - n=26 exhaustive verification: Kadrawi & Levit (2023) checked LC at n=26 (implicitly confirming unimodality); our contribution is explicit unimodality check + near-miss metrics. Paper now acknowledges this.
 
-### Exhaustive verification through n = 26
+### Exhaustive verification through n = 27
 
-No unimodality violations among all 447,672,596 non-isomorphic trees on n <= 26 vertices. Tree counts match OEIS A000055.
+No unimodality violations among all 1,198,738,056 non-isomorphic trees on n <= 27 vertices. Tree counts match OEIS A000055.
 
 | n | Trees | Time |
 |---|------:|------:|
@@ -83,17 +95,22 @@ No unimodality violations among all 447,672,596 non-isomorphic trees on n <= 26 
 | 24 | 39,299,897 | 12m 5s |
 | 25 | 104,636,890 | 38m 33s |
 | 26 | 279,793,450 | 4h 51m |
-| **Total** | **447,672,596** | |
+| 27 | 751,065,460 | 78m (Modal, 1024 workers) |
+| **Total** | **1,198,738,056** | |
 
 n=26 details:
 - Exactly 2 log-concavity failures (both at k = 13), matching Kadrawi & Levit (2023).
 - Best near-miss ratio nm = 0.845.
 
+n=27 details:
+- Computed on Modal cloud (app ID: ap-T9RkZ9fGOtXyvZgPEuYBkZ)
+- LC failures and near-miss ratio not yet computed (search only checked unimodality)
+
 ### Computational certificates
 
 | Check | Count | n range | Failures |
 |-------|-------|---------|----------|
-| Unimodality (exhaustive) | 447,672,596 trees | <= 26 | 0 |
+| Unimodality (exhaustive) | 1,198,738,056 trees | <= 27 | 0 |
 | I(T_e) = I(T) + x I(T/e) | 66,697 edges | <= 14 | 0 |
 | ECMS | 24,710,099 edges | <= 20 | 0 |
 | A(x) unimodal and LC | 9,071,864 edges | <= 19 | 0 |
@@ -126,7 +143,9 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 - `plot_roots_n26.py` -- generates the root plot
 - `email_galvin.md` -- draft email to David Galvin for feedback
 - `paper/main.tex` -- previous version (9pp, computational verification + broom asymptotics)
+- `search_modal.py` -- Modal cloud search script (n=27)
 - `results/analysis_n26.json` -- n=26 exhaustive LC and near-miss summary
+- `results/analysis_n27_modal.json` -- n=27 exhaustive unimodality check (Modal)
 - `results/targeted_n500.json` -- targeted search summary + top near-misses
 - `results/targeted_families.json` -- per-family summary for the targeted search
 - `notes/subdivision_new_findings.md` -- definitive subdivision analysis
@@ -137,7 +156,7 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 
 1. Prove ECMS (edge contraction shifts mode by at most 1)
 2. Prove Conjecture A (d_leaf <= 1 => mode <= floor(n/3)+1), perhaps via mu < n/3
-3. Extend exhaustive search to n = 27 (751M trees)
+3. Compute LC failures and near-miss ratios for n=27 (unimodality confirmed, but LC/nm not yet run)
 4. Submit paper to Experimental Mathematics
 
 ## Dead ends (do NOT revisit)

@@ -103,3 +103,4 @@ python3 search.py --max-n 26 --workers 8   # requires geng
 - For $n > 18$, consider C extensions or rewriting the core DP in C/Rust.
 - Parallelism: tree enumeration and checking are embarrassingly parallel. Use `multiprocessing.Pool`.
 - Rust and Cargo are **not installed** on this system. If needed: `brew install rust`.
+- **Cloud compute (Modal):** Brett has a Modal account with free credits. For searches at $n \geq 27$ (estimated 30+ hours locally), deploy to Modal instead of running on the laptop. Modal supports massively parallel Python functions with `modal run`. See portfolio-level `CLAUDE.md` for setup.
