@@ -560,7 +560,8 @@ A proof that $\sum_v P(v) < n/3$ would settle Conjecture~A.
 Two main open problems remain.
 First, prove ECMS.
 The mean shift approach (Remark~\ref{rem:mean-shift}) reduces this to showing $|\mu(T) - \mu(T/e)| < 1$, with the local component of the shift proved to lie in $(0, 1/2)$.
-The remaining remote component is bounded by exponential correlation decay in the hard-core model and is empirically less than $0.27$ in absolute value.
+The remaining remote component decays geometrically with distance from the contracted edge at rate $\approx 1/\varphi^2 \approx 0.382$ per hop (where $\varphi$ is the golden ratio), and is empirically less than $0.264$ in absolute value across all $3\,348\,675$ edges in trees on $n \le 18$.
+For all parameterised families tested (paths, stars, caterpillars, tripods, brooms) through $n = 300$, the maximum $|\text{remote}|$ converges and never exceeds~$0.254$.
 Second, prove Conjecture~A, perhaps via the mean bound $\mu < n/3$; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the bound is tight.
 On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
 
