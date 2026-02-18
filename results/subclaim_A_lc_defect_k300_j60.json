@@ -1,0 +1,43 @@
+{
+  "params": {
+    "k_max": 300,
+    "j_max": 60,
+    "out": "results/subclaim_A_lc_defect_k300_j60.json"
+  },
+  "j0_closed_form": {
+    "k_max": 300,
+    "failures": [],
+    "min_excess": 0.01507537688442211,
+    "min_rec": {
+      "k": 298,
+      "m": 199,
+      "delta_ratio": 1.015075376884422,
+      "excess": 0.01507537688442211
+    }
+  },
+  "general": {
+    "total": 17995,
+    "F_fails": 0,
+    "T1_fails": 0,
+    "T2_pos": 0,
+    "max_ratio_T2_T1": 0.4474667774086379,
+    "max_ratio_rec": {
+      "k": 6,
+      "j": 1,
+      "m": 5,
+      "lc_m": 84224,
+      "lc_m1": -64960,
+      "T1": 19264,
+      "T2": -8620,
+      "F": 10644,
+      "ratio_T2_T1": -0.4474667774086379,
+      "delta_m": 84224,
+      "delta_m1": 64960,
+      "delta_ratio": 1.296551724137931,
+      "ok": true
+    },
+    "min_F": 10644,
+    "min_delta_ratio": 1.0032934099006359
+  },
+  "wall_s": 157.6293339729309
+}
