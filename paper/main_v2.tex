@@ -388,6 +388,9 @@ The latter is proved in Corollary~\ref{cor:mu-bound} below via the Steiner peeli
 The mode-mean bound $\mathrm{mode}(I(T)) \le \lceil \mu(T) \rceil$ holds for all 205\,002 trees through $n = 18$ (zero violations), including both log-concavity-failing trees at $n = 26$ (where $\mu \approx 7.83$ and $\mathrm{mode} = 8$).
 Log-concavity suffices to prove this bound classically, but the bound appears to hold universally regardless of log-concavity.
 If this mode-mean bound could be proved directly for $\dleaf \le 1$ trees, Conjecture~A would follow from Corollary~\ref{cor:mu-bound} without requiring log-concavity.
+
+The stronger Darroch conclusion $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ -- which log-concavity implies classically -- also holds for all 175\,722 $\dleaf \le 1$ trees through $n = 21$; of these, 69.65\,\% have $\mathrm{mode} = \lfloor\mu\rfloor$ and 30.35\,\% have $\mathrm{mode} = \lceil\mu\rceil$.
+This mode-localisation is as tight as Darroch's theorem predicts from log-concavity, appearing to hold here without log-concavity being established.
 \end{remark}
 
 I verified $\mu < n/3$ for all 931\,596 such trees through $n = 23$; the worst ratio is $\mu / (n/3) = 0.973$.
@@ -810,6 +813,7 @@ Table~\ref{tab:certificates} summarizes all verified properties.
     $|\delta\mu| < 0.537$ & \liningnums{3\,348\,675} edges & $\le 18$ \\
     LC ($\dleaf \le 1$ trees) & \liningnums{403\,400} trees & $\le 22$ \\
     $\mathrm{mode} \le \lceil\mu\rceil$ (all trees) & \liningnums{205\,002} trees & $\le 18$ \\
+    $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ ($\dleaf \le 1$) & \liningnums{175\,722} trees & $\le 21$ \\
     \bottomrule
   \end{tabular}
 \end{table}
