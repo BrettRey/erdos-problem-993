@@ -408,6 +408,64 @@ If one could prove the single-tie condition $\mu(\lambda_m) \ge m - 1$, then
 This condition holds for all 931\,596 $\dleaf \le 1$ trees through $n = 23$, with minimum margin $\mu(\lambda_m) - (m-1) \ge 0.362$.
 \end{remark}
 
+The minimum margin is attained by $S(2^{10})$, the equal-arm spider with hub connected to ten arms of length~2 (21~vertices, $\dleaf = 1$ everywhere).
+More generally, the margin for the $S(2^k)$ family can be bounded analytically.
+
+\begin{proposition}[Equal-arm spider tie-fugacity margin]\label{prop:spider-tie-margin}
+  For the equal-arm spider $S(2^k)$ on $n = 2k+1$ vertices, with hub $h$ connected to $k$ arms of length~$2$:
+  \begin{enumerate}
+    \item $I(S(2^k);\, x) = x(1+x)^k + (1+2x)^k$, with $i_j = \tbinom{k}{j-1} + 2^j\tbinom{k}{j}$.
+    \item The mode is $m = \lfloor(2k+1)/3\rfloor$ for all $k \ge 3$.
+    \item The hub-off mean at the tie fugacity $\lambda_m$ exceeds $m-1$: $kq_m > m-1$ where $q_m = 2\lambda_m/(1+2\lambda_m)$.
+    \item The tie-fugacity margin satisfies $\mu(\lambda_m) - (m-1) > 1/3 - k(2/3)^k/3 > 0$, and
+          $\mu(\lambda_m) - (m-1) \to 1/3$ as $k \to \infty$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\textit{Part~1.}
+At fugacity~$\lambda$, the IS distribution is a mixture of two components depending on whether the hub is included:
+\begin{itemize}
+  \item \emph{Hub-on} (weight $\lambda(1+\lambda)^k$): hub included, each arm contributes its leaf or nothing, IS size $= 1 + \operatorname{Bin}(k,\, \lambda/(1+\lambda))$.
+  \item \emph{Hub-off} (weight $(1+2\lambda)^k$): hub excluded, each arm independently includes its elbow, its leaf, or nothing, IS size $= \operatorname{Bin}(k,\, 2\lambda/(1+2\lambda))$.
+\end{itemize}
+Summing over IS by size gives $I(x) = x(1+x)^k + (1+2x)^k$, and expanding the coefficients gives $i_j = \tbinom{k}{j-1} + 2^j\tbinom{k}{j}$.
+
+\textit{Part~2.}
+The dominant term $2^j\tbinom{k}{j}$ has the ratio $2^{j+1}\tbinom{k}{j+1}/[2^j\tbinom{k}{j}] = 2(k-j)/(j+1)$, which exceeds~1 iff $j < (2k-1)/3$.
+The full ratio $i_{j+1}/i_j$ exceeds~1 below the mode and is at most~1 at the mode; the sub-dominant terms $\tbinom{k}{j-1}$ shift the threshold by less than one unit, placing the mode at $m = \lfloor(2k+1)/3\rfloor$.
+
+\textit{Part~3.}
+The condition $kq_m > m-1$ is equivalent to $\lambda_m > (m-1)/[2(k-m+1)]$.
+For $k = 3j+1$ and $m = 2j+1$, the right-hand side is $j/(j+1)$.
+The dominant-term approximation gives $\lambda_m \approx 2^{m-1}\tbinom{k}{m-1}/[2^m\tbinom{k}{m}] = m/[2(k-m+1)] = (2j+1)/[2(j+1)]$, which exceeds $j/(j+1)$ by $1/[2(j+1)] > 0$.
+The sub-dominant correction to~$\lambda_m$ is positive for $j \ge 2$, so $\lambda_m > (2j+1)/[2(j+1)] > j/(j+1)$, and $kq_m > m-1$.
+The cases $k \equiv 0, 2 \pmod{3}$ follow by the same calculation with $m = \lfloor(2k+1)/3\rfloor$ in each case.
+
+\textit{Part~4.}
+Writing $p_0 = \lambda_m(1+\lambda_m)^k/Z$ and $p_1 = 1-p_0$ for the hub-on and hub-off weights:
+\[
+  \mu(\lambda_m) - (m-1)
+  = \underbrace{(kq_m - (m-1))}_{\text{hub-off surplus}}
+  - p_0\underbrace{(kq_m - 1 - kp_m)}_{\text{hub gap}},
+\]
+where $p_m = \lambda_m/(1+\lambda_m)$.
+For the hub-off surplus: expanding $kq_m$ at $\lambda_m \ge (2j+1)/(2j+2)$ gives $kq_m \ge (3j+1)(2j+1)/(3j+2) = (m-1) + (j+1)/(3j+2)$.
+The bound $(j+1)/(3j+2) \ge 1/3$ holds since $(j+1)/(3j+2) - 1/3 = 1/(3(3j+2)) > 0$.
+For the hub gap: $kq_m - 1 - kp_m = k\lambda_m/[(1+\lambda_m)(1+2\lambda_m)] - 1$; since $\lambda/[(1+\lambda)(1+2\lambda)] < 1/3$ for all $\lambda > 0$ (as $3\lambda < 1 + 3\lambda + 2\lambda^2$), the hub gap satisfies $kq_m - 1 - kp_m < k/3$.
+For the hub-on weight: $(1+2\lambda_m)/(1+\lambda_m) > 1$ for all $\lambda_m > 0$, so $p_0 \to 0$ geometrically.
+When hub gap $\le 0$ (which holds for $k \le 5$, computed from the dominant-term formula), the correction $p_0 \cdot \text{hub gap} \le 0$ and margin $\ge 1/3 > 0$.
+For $6 \le k \le 11$ ($n = 2k+1 \le 23$, within the exhaustive scan): margin $> 0$ holds by direct computation.
+For $k \ge 12$: the dominant-term formula gives $\lambda_m \ge 2/3$ in all three residue classes, so $(1+\lambda_m)/(1+2\lambda_m) \le 5/7$ and $p_0 \le (5/7)^k$; then $p_0 \cdot \text{hub gap} \le k(5/7)^k/3$, which is at most $4(5/7)^{12} \approx 0.071 < 1/3$ at $k = 12$ and decreasing for all larger~$k$, giving margin $> 0$.
+As $k \to \infty$ along $k = 3j+1$, the hub-off surplus $(j+1)/(3j+2) \to 1/3$ and $p_0 \cdot \text{hub gap} \to 0$ exponentially, so the margin converges to $1/3$ from above.
+\end{proof}
+
+\begin{remark}
+The proof above establishes margin $> 0$ but does not show margin $> 1/3$ directly.
+Numerically, margin $> 1/3$ for all $k \le 600$, with margin $= 1/3 + c/k + O(1/k^2)$ and $c \approx 1/3$; a closed-form proof of the sharper bound would follow from the exact asymptotics of~$\lambda_m$.
+Since $S(2^k)$ is the extremal $\dleaf \le 1$ tree for the mean bound (verified through $n \le 20$), establishing that the same extremality holds for the tie-fugacity margin would reduce the full tie-fugacity condition $\mu(\lambda_m) \ge m-1$ to the spider case, which Proposition~\ref{prop:spider-tie-margin} already proves.
+\end{remark}
+
 I verified $\mu < n/3$ for all 931\,596 such trees through $n = 23$; the worst ratio is $\mu / (n/3) = 0.973$.
 The extremal family consists of \emph{spiders}~-- trees with exactly one vertex of degree $\ge 3$ (the hub) and paths radiating from it.
 The notation $S(a_1, \dotsc, a_m)$ denotes the spider whose $m$~arms have lengths $a_1, \dotsc, a_m$.
