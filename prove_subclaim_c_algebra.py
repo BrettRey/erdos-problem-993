@@ -174,6 +174,7 @@ def main() -> None:
     bad_a_gap: list[dict[str, object]] = []
     bad_e1_sign: list[int] = []
     bad_a_beats_minus_e0: list[dict[str, object]] = []
+    bad_minus_e0_quarterk: list[dict[str, object]] = []
 
     finite_witness: dict[int, Fraction] = {}
 
@@ -215,6 +216,14 @@ def main() -> None:
         e1 = margin1 - a1
         if k >= 5 and e1 > 0:
             bad_e1_sign.append(k)
+        if k >= 6 and (-e0) >= Fraction(1, 4 * k):
+            bad_minus_e0_quarterk.append(
+                {
+                    "k": k,
+                    "minus_e0": -e0,
+                    "bound": Fraction(1, 4 * k),
+                }
+            )
         if k >= 6 and not (a_gap > -e0):
             bad_a_beats_minus_e0.append(
                 {
@@ -255,6 +264,7 @@ def main() -> None:
     print(f"B1-A1 <= 0 for k>=5 failures: {len(bad_sign_b1)}")
     print(f"A-gap >= 1/(4k) for k>=6 failures: {len(bad_a_gap)}")
     print(f"E1 <= 0 for k>=5 failures: {len(bad_e1_sign)}")
+    print(f"-E0 < 1/(4k) for k>=6 failures: {len(bad_minus_e0_quarterk)}")
     print(f"A-gap > -E0 for k>=6 failures: {len(bad_a_beats_minus_e0)}")
 
 

@@ -275,7 +275,8 @@ Combined scan size: `648,000` pairs (`k=1..8000`, `j=0..80`).
 3. **Residue comparison `j=0` vs `j=1`**
    - `k ≡ 1 (mod 3)`: `margin(k,0) <= margin(k,1)` for all checked `k=1..8000` (strict for `k>=4`).  
      Sub-claim B is proved algebraically; see `notes/subclaim_B_mod1_algebra_2026-02-18.md`.
-   - `k ≡ 0,2 (mod 3)`: `margin(k,1) <= margin(k,0)` for all checked `k=3..8000`; only exception is `k=2`.
+   - `k ≡ 0,2 (mod 3)`: `margin(k,1) <= margin(k,0)` for all checked `k=3..8000`; only exception is `k=2`.  
+     Sub-claim C is now proved; see `notes/subclaim_c_complete_proof_2026-02-18.md`.
 
 4. **Global minimizer over scanned j-range**
    - For `k>=2`, `argmin_{0<=j<=80} margin(k,j)` is always in `{0,1}`.
@@ -284,26 +285,19 @@ Combined scan size: `648,000` pairs (`k=1..8000`, `j=0..80`).
 ### Consequence for reduction strategy
 
 Given the proved reduced-branch positivity (`j=0`, `j=1`) and the above structure,
-the remaining analytic gap is now sharply concentrated in two places:
+the remaining analytic gap is now sharply concentrated in one place:
 
 1. prove the parity-tail monotonicity claim for `k>=6`, and
-2. prove the `k ≡ 0,2 (mod 3)` residue comparison (`j=1` beats `j=0`) for all `k>=3`.
 
-Once those are closed, minimizer reduction to `j in {0,1}` follows (with the tiny
+once this is closed, minimizer reduction to `j in {0,1}` follows (with the tiny
 `k=1,2` cases handled explicitly).
 
-## Sub-claim C: E₁ ≤ 0 now PROVED (2026-02-18)
+## Sub-claim C Closed (2026-02-18)
 
-The sufficient-lane condition `E_1 <= 0` for Sub-claim C is now algebraically proved.
+Sub-claim C (`k ≡ 0,2`: `margin(k,1) < margin(k,0)`) is now proved.
 
-Key: `B_1 - A_1 = [1-(k-2)lambda_1] / [(1+lambda_1)(1+2lambda_1)]`, so `E_1 <= 0 iff
-lambda_1 >= 1/(k-2)`. The b-bound from `unit_leaf_c2_algebra_2026-02-18.md` gives
-`lambda_1 >= tau`, and `(k-2)*tau >= 1` reduces to quadratic inequalities:
-- `k = 3t+2`, `t >= 1`: `6t^2+t-4 >= 0`. Min value 3 at `t=1`. PROVED.
-- `k = 3t`,   `t >= 2`: `3t^2-3t-1 >= 0`. Min value 5 at `t=2`. PROVED.
-
-See `notes/subclaim_c_E1_le0_proof_2026-02-18.md` and `verify_subclaim_c_E1_le0.py`
-(all 5 checks PASS, k <= 200, exact Fraction arithmetic).
-
-Remaining gap for Sub-claim C: `A_gap > -E_0` globally. Verified for `k <= 500`, open
-in closed form. For large `k`: `A_gap >= 1/(4k)` while `|E_0|` decays exponentially.
+Proof package:
+- `notes/subclaim_c_E1_le0_proof_2026-02-18.md` (proved `E_1 <= 0`),
+- `notes/subclaim_c_complete_proof_2026-02-18.md` (new complete closure),
+- `prove_subclaim_c_complete.py`,
+- `results/whnc_subclaim_c_complete_proof_check.txt`.
