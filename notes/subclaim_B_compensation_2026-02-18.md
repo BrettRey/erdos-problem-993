@@ -47,6 +47,15 @@ Therefore:
 
 **Sub-claim B compensation holds for all `S(2^k,1)` (all `k>=1`) algebraically.**
 
+Sanity checks run:
+- Exact rational checker (`prove_subclaim_B_compensation_j1.py`) for `k<=120`:
+  - `c1<0` cases: `114`,
+  - compensation failures: `0`,
+  - minimum compensation gap in `c1<0` regime: `0.336233...` at `k=120`.
+- Stable-float sweep (`k<=5000`) confirms trend:
+  - minimum compensation gap in `c1<0` regime: `0.333404...` at `k=4998`
+    (approaching `1/3` from above).
+
 ---
 
 ## What remains open

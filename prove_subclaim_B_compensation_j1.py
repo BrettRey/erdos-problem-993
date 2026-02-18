@@ -19,7 +19,7 @@ from conjecture_a_mixed_spider_exact_margin import unit_leaf_decomp
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Check Sub-claim B compensation on j=1 branch.")
-    ap.add_argument("--k-max", type=int, default=300)
+    ap.add_argument("--k-max", type=int, default=120)
     args = ap.parse_args()
 
     if args.k_max < 1:
@@ -27,6 +27,8 @@ def main() -> None:
 
     min_gap = None
     min_row = None
+    min_gap_neg = None
+    min_row_neg = None
     n_neg_c1 = 0
     bad = 0
 
@@ -69,6 +71,20 @@ def main() -> None:
                 "margin": margin,
             }
 
+        if c1 < 0 and (min_gap_neg is None or gap_comp < min_gap_neg):
+            min_gap_neg = gap_comp
+            min_row_neg = {
+                "k": k,
+                "m": d["m"],
+                "lambda": d["lam"],
+                "c1": c1,
+                "c2": c2,
+                "alpha": alpha,
+                "beta": beta,
+                "gap_comp": gap_comp,
+                "margin": margin,
+            }
+
     if min_gap is None or min_row is None:
         raise AssertionError("No rows checked")
 
@@ -89,8 +105,21 @@ def main() -> None:
         f"  gap_comp={float(min_row['gap_comp']):.12f} "
         f"margin={float(min_row['margin']):.12f}"
     )
+    if min_row_neg is not None:
+        print("minimum gap in c1<0 regime:")
+        print(
+            f"  k={min_row_neg['k']} m={min_row_neg['m']} "
+            f"lambda={float(min_row_neg['lambda']):.12f}"
+        )
+        print(
+            f"  c1={float(min_row_neg['c1']):.12f} c2={float(min_row_neg['c2']):.12f} "
+            f"alpha={float(min_row_neg['alpha']):.12f} beta={float(min_row_neg['beta']):.12f}"
+        )
+        print(
+            f"  gap_comp={float(min_row_neg['gap_comp']):.12f} "
+            f"margin={float(min_row_neg['margin']):.12f}"
+        )
 
 
 if __name__ == "__main__":
     main()
-
