@@ -444,6 +444,105 @@ thus μ(T'')+1 > m'. The β-term contributes positively. The α-term contributes
 which can be negative (if μ(T') < m', e.g., tight spiders with μ(T') ≈ m'-1/3).
 **Gap**: For μ(T) > m', need β·(μ(T'')+1-m') > α·(m'-μ(T')). No clean algebraic bound.
 
+## Mixed Spider Algebraic Structure (KEY TARGET, 2026-02-18)
+
+**IS polynomial (exact)**:
+  I(S(2^k, 1^j); x) = (1+2x)^k · (1+x)^j + x·(1+x)^k
+
+Two summands: A(x) = (1+2x)^k·(1+x)^j (center excluded), B(x) = x·(1+x)^k (center included).
+
+**Leaf-removal closure** (Codex verified, algebraically confirmed):
+- Tip-leaf removal: T → T-l = S(2^{k-1}, 1^{j+1}), T-{l,s} = S(2^{k-1}, 1^j)  [CLOSED in family]
+- Unit-leaf removal: T → T-l = S(2^k, 1^{j-1}), T-{l,s} = k·P₂ ∪ (j-1) isolated
+  - I(T-{l,s}; x) = (1+2x)^k·(1+x)^{j-1}  [exact]
+  - Leaf decomposition: I(S(2^k,1^j); x) = I(S(2^k,1^{j-1}); x) + x·(1+2x)^k·(1+x)^{j-1}  ✓
+
+**Codex scan** (k≤3000, j≤400, whnc_mixed_spider_combined_k3000_j40.json):
+- combined_fail = 0 for ALL (k,j) tested
+- Tip-leaf: c1≥0 always; min combined = 0.33344 at (k=2998, j=0) → 1/3 from above
+- Unit-leaf: c1<0 in 157,802/160,000 cases (min c1=-0.166); but min combined = 0.33345 at (k=3000,j=1)
+- Both types approach 1/3 from above; infimum = 1/3, never achieved
+
+**Key algebraic identity**: combined = margin = μ(T, λ_m^T) - (m-1) (margin is the combined bound directly).
+Proof: combined = α·c1+β·c2 = μ(T,λ_m^T)-(m-1) by the leaf-decomposition mean formula.
+
+**Algebraic proof target**: show margin(S(2^k,1^j), λ_m) > 0 for ALL k≥1, j≥0.
+Since margin→1/3>0 asymptotically and min empirically=0.333+, this is strong evidence of provability.
+
+**Strategy for proof**:
+1. Compute mode m(k,j) via the coefficient ratio formula (m≈(2k+j)/3, exact for k=3j+1 when j=0)
+2. Tie-fugacity λ_m = i_{m-1}(T)/i_m(T) using A_m + B_{m-1} = i_m, A_{m-1}+B_{m-2}=i_{m-1}
+3. Show μ(T,λ_m) > m-1 using the two-term structure of I(T;x)
+4. Induction on k+j using tip-leaf closure: margin(S(2^k,1^j)) bounds margin(S(2^{k-1},1^{j+1}))
+
+## Exact margin analysis (conjecture_a_mixed_spider_exact_margin.py, 2026-02-18)
+
+Script uses Python's `fractions.Fraction` for exact rational arithmetic.
+Verified: k=1..50, j=0..20 (1050 trees), 0 margin ≤ 1/3.
+Min margin = 0.33999998... = exact rational at (k=49, j=0).
+
+### Tip-leaf c1, c2 sign structure (EXACT, k≤30, j≤20)
+
+| c1 < 0 | c2 < 0 | combined ≤ 0 |
+|--------|--------|--------------|
+| 0      | 0      | 0            |
+
+**Both c1 ≥ 0 AND c2 ≥ 0 for ALL tip-leaf cases.** This is the key algebraic fact.
+
+**Why c2 ≥ 0 for tip-leaf (PROOF SKETCH)**:
+- B = S(2^{k-1}, 1^j), mode(B) = m_B. Two sub-cases:
+  - If m_B = m-2: i_{m-2}(B) ≥ i_{m-1}(B) (ascending to mode), so λ_{m-1}^B ≥ 1.
+    STRONG C2: λ_m^T ≥ λ_{m-1}^B ≥ 1 ≥ λ_{m-2}^B (tie-fug of B at its mode level).
+    So μ(B, λ_m^T) ≥ μ(B, λ_{m-1}^B) = margin(B) + (m-2) > m-2. ✓
+  - If m_B = m-1: STRONG C2 gives λ_m^T ≥ λ_{m-1}^B. IH on B gives μ(B, λ_{m-1}^B) ≥ m-2.
+    Since λ_m^T ≥ λ_{m-1}^B: μ(B, λ_m^T) ≥ margin(B) + (m-2) > m-2. ✓
+- **Conclusion**: c2 ≥ 0 follows from STRONG C2 + IH on B (margin(B) > 0) + mode non-decrease.
+
+**Why c1 ≥ 0 for tip-leaf (VERIFIED, proof gap identified)**:
+- A = S(2^{k-1}, 1^{j+1}), mode(A) = m_A.
+- c1 = μ(A, λ_m^T) - (m-1) ≥ 0 iff λ_m^T ≥ λ* where λ* is the unique fugacity s.t. μ(A,λ*)=m-1.
+- Verified: λ_m^T ≥ λ_{m-1}^A = i_{m-2}(A)/i_{m-1}(A) in ALL 285 cases (0 failures).
+  - Proof: from mediant λ_m^T ≥ min(λ_m^A, λ_{m-1}^B) and both are ≥ λ_{m-1}^A by:
+    (a) log-concavity of A at pos m-1: λ_m^A ≥ λ_{m-1}^A [VERIFIED, 0 fails]
+    (b) cross-family comparison: λ_{m-1}^B ≥ λ_{m-1}^A [VERIFIED, 0 fails]
+- BUT: μ(A, λ_{m-1}^A) < m-1 in 202/204 checked cases. So λ_{m-1}^A is NOT the threshold λ*.
+- The threshold λ* (s.t. μ(A,λ*)=m-1) satisfies λ* < λ_{m-1}^A in all these failure cases.
+  Wait -- no: μ is increasing, so μ(A, λ_{m-1}^A) < m-1 means λ_{m-1}^A < λ*.
+  And we need λ_m^T ≥ λ* > λ_{m-1}^A. So the proved bound λ_m^T ≥ λ_{m-1}^A is WEAKER than needed!
+- **RESOLUTION**: c1 ≥ 0 holds empirically despite the insufficient bound. The true threshold λ*
+  satisfies λ_m^T ≥ λ* always (0 failures), but this doesn't follow from the mediant+log-conc argument.
+- **Open**: Direct algebraic proof that μ(S(2^{k-1},1^{j+1}), λ_m^{S(2^k,1^j)}) ≥ m-1 for all k,j.
+  This is a new two-parameter inequality about the mixed spider IS polynomial coefficients.
+- **Status**: 0 failures (c1<0) for k≤30, j≤20. Min c1 = 0.1667 → 1/6 asymptotically (large k, j=0).
+
+### Unit-leaf c1, c2 sign structure (EXACT, k≤20, j=1..15)
+
+| c1 < 0 | c2 < 0 | combined ≤ 1/3 |
+|--------|--------|----------------|
+| 221/300 (73.7%) | 0 | 0 |
+
+**c2 ≥ 0 always for unit-leaf** (verified exact, 300 cases).
+- B = (1+2x)^k·(1+x)^{j-1} (product graph), μ_B(λ) = k·2λ/(1+2λ) + (j-1)·λ/(1+λ)
+- STRONG C2: λ_m^T ≥ λ_{m-1}^B. Since B is a product graph, c2 ≥ 0 is potentially provable
+  from the explicit mean formula (c2 = k·2λ/(1+2λ) + (j-1)·λ/(1+λ) - (m-2)).
+
+**c1 < 0 is common for unit-leaf** (A = S(2^k,1^{j-1}) has smaller j): as j increases, the
+tie-fugacity of T increases while the mode stays at m, making μ(A,λ_m^T) potentially < m-1.
+But combined is always > 0 because c2 is large and β is ~1/2.
+
+### Monotonicity of margin(k,0) in k
+
+margin(k,0) is NOT globally monotone. It oscillates with period-3:
+- Non-monotone increases at k ≡ 2 (mod 3): k=3,5,8,11,14,17,...
+- Global minima at k = 3q+1 sub-sequence: 0.579→0.362→0.340→...→1/3+1/(2k)
+- The k=3q+1 sub-sequence is monotone decreasing → 1/3 from above.
+
+**Proof structure for S(2^k)**:
+- Divide into k ≡ 0, 1, 2 (mod 3) sub-cases
+- For k ≡ 1 (mod 3) [extremal]: show margin > 1/3 + 1/(2k) using exact binomial formulas
+- For k ≡ 0, 2 (mod 3): show margin > 1/3 + ε(k) for some ε > 0
+  (empirically easier since margins are higher, but still needs proof)
+
 ## Next steps
 
 1. **Prove margin ≥ 1/3 for all trees** (the natural clean goal given the asymptotic).

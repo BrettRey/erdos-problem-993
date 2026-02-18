@@ -84,3 +84,37 @@ Empirically on this family:
    combined stays strictly positive with a large buffer (`~1/3` asymptotically).
 3. The worst combined cases occur near `j=0`/`j=1` and large `k`, matching the
    mixed-spider extremal pattern seen elsewhere.
+
+## Per-k minimizer structure (new, stronger)
+
+We extended with per-`k` minimizer tracking:
+
+- `results/whnc_mixed_spider_combined_k3000_j40_v2.json`
+- `results/whnc_mixed_spider_combined_k8000_j6.json`
+
+### `k<=3000`, `j<=40`
+
+- `combined_fail=0`.
+- For each residue class `k mod 3`, per-`k` minima are monotone decreasing from
+  `k>=20`.
+- Dominant minimizer signatures by residue:
+  - `k ≡ 1 (mod 3)`: almost always `j=0`, tip leaf (`999/1000` in this run).
+  - `k ≡ 0 (mod 3)`: almost always `j=1` (tip or unit).
+  - `k ≡ 2 (mod 3)`: almost always `j=1` (tip or unit).
+
+### `k<=8000`, `j<=6`
+
+- `combined_fail=0`.
+- Same residue pattern persists:
+  - `k ≡ 1`: `j=0`, tip in `2666/2667` cases.
+  - `k ≡ 0`: `j=1` (tip/unit split `1337/1329`).
+  - `k ≡ 2`: `j=1` (tip/unit split `1348/1318`).
+- No monotonicity violations for per-`k` minima from `k>=20` in any residue
+  class.
+
+This gives a compressed target:
+
+1. prove the minimizer reduction to `j in {0,1}` by residue class, then
+2. prove explicit positivity for the reduced branches:
+   - `j=0` tip (balanced spider lane),
+   - `j=1` tip/unit (mixed lane).
