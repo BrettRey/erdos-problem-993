@@ -72,6 +72,44 @@ Witness for minimum margin:
 - `lambda_m=0.879383429672447`,
 - `mu(lambda_m)=6.362259038199566`.
 
+## Dedicated focused scan (packaged)
+
+To isolate the proof target and track extremals, we added:
+
+- `conjecture_a_mode_tie_focused_scan.py`
+
+Runs:
+
+```bash
+# d_leaf<=1 frontier
+python3 conjecture_a_mode_tie_focused_scan.py \
+  --min-n 3 --max-n 23 \
+  --out results/whnc_mode_tie_focused_dleaf_n23.json
+
+# all-tree extension
+python3 conjecture_a_mode_tie_focused_scan.py --all-trees \
+  --min-n 3 --max-n 22 \
+  --out results/whnc_mode_tie_focused_alltrees_n22.json
+```
+
+Results:
+
+- `d_leaf<=1` (`n<=23`): checked `931,596`, failures `0`, minimum margin
+  `0.36225903819956606`.
+- all trees (`n<=22`): checked `9,114,283`, failures `0`, minimum margin
+  `0.36225903819956606`.
+
+Both minima are attained by the same witness at `n=21`:
+
+- `g6=T???????C?G?G?C?@??G??_?@??@???_B~o?`,
+- degree signature `{1:10, 2:10, 10:1}` (balanced length-2 spider `S(2^10)`),
+- `m=7`, `lambda_m=0.879383429672447`,
+- `mu(lambda_m)=6.362259038199566`.
+
+Additional per-`n` scan (d_leaf<=1) shows `n=23` minimum is again a balanced
+length-2 spider (`{1:11,2:11,11:1}`), while even `n` minima can come from
+near-spider mixed signatures.
+
 ## Interpretation
 
 The broad tiepoint claim (`mu(lambda_k) >= k-1` for all `k`) is false, so that

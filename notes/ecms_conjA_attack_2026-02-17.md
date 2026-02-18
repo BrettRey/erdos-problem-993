@@ -682,3 +682,27 @@ Most promising refinement:
 
 This suggests a narrower proof target: prove the single mode-centered tie
 inequality, then lift via monotonicity of `mu(lambda)`.
+
+Dedicated packaged run:
+
+```bash
+python3 conjecture_a_mode_tie_focused_scan.py \
+  --min-n 3 --max-n 23 \
+  --out results/whnc_mode_tie_focused_dleaf_n23.json
+```
+
+- `d_leaf<=1` summary (`n<=23`): `checked=931,596`, `fail=0`,
+  `minimum_margin=0.36225903819956606`.
+
+All-tree extension:
+
+```bash
+python3 conjecture_a_mode_tie_focused_scan.py --all-trees \
+  --min-n 3 --max-n 22 \
+  --out results/whnc_mode_tie_focused_alltrees_n22.json
+```
+
+- all-tree summary (`n<=22`): `checked=9,114,283`, `fail=0`,
+  `minimum_margin=0.36225903819956606`.
+- global minimum witness in both runs is the balanced length-2 spider at `n=21`
+  (`g6=T???????C?G?G?C?@??G??_?@??@???_B~o?`, degree signature `{1:10,2:10,10:1}`).
