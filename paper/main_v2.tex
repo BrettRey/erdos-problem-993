@@ -379,13 +379,13 @@ Write $P(v)$ for the probability that vertex~$v$ belongs to a uniformly random I
 The expected IS size is $\mu = \sum_v P(v)$.
 Since $I(T;\, 1)$ counts all IS and $I'(T;\, 1) = \sum_k k\, i_k$, we have $\mu = I'(T;\, 1) / I(T;\, 1)$.
 
-All $\dleaf \le 1$ trees tested through $n = 22$ (403\,400 trees) have log-concave independence sequences.
+All $\dleaf \le 1$ trees tested through $n = 23$ (931\,596 trees) have log-concave independence sequences.
 For a log-concave sequence of positive terms, the ratios $a_{k+1}/a_k$ are non-increasing, so the mode and mean lie within~1 of each other; in particular, $\mathrm{mode} \le \lceil \mu \rceil$.
 Since $\lceil \mu \rceil \le \lfloor n/3 \rfloor + 1$ whenever $\mu < n/3$, Conjecture~A would follow from log-concavity of $\dleaf \le 1$ IS polynomials together with $\mu < n/3$.
 The latter is proved in Corollary~\ref{cor:mu-bound} below via the Steiner peeling method.
 
 \begin{remark}
-The mode-mean bound $\mathrm{mode}(I(T)) \le \lceil \mu(T) \rceil$ holds for all 205\,002 trees through $n = 18$ (zero violations), including both log-concavity-failing trees at $n = 26$ (where $\mu \approx 7.83$ and $\mathrm{mode} = 8$).
+The mode-mean bound $\mathrm{mode}(I(T)) \le \lceil \mu(T) \rceil$ holds for all 931\,596 $\dleaf \le 1$ trees through $n = 23$ (zero violations), and for all 205\,002 trees (of any type) through $n = 18$, including both log-concavity-failing trees at $n = 26$ (where $\mu \approx 7.83$ and $\mathrm{mode} = 8$).
 Log-concavity suffices to prove this bound classically, but the bound appears to hold universally regardless of log-concavity.
 If this mode-mean bound could be proved directly for $\dleaf \le 1$ trees, Conjecture~A would follow from Corollary~\ref{cor:mu-bound} without requiring log-concavity.
 
@@ -811,7 +811,7 @@ Table~\ref{tab:certificates} summarizes all verified properties.
     Case B bound & \liningnums{8\,710\,881} trees & $\le 22$ \\
     $S_1$ formula (Prop.~\ref{prop:s1-formula}) & \liningnums{3\,348\,674} edges & $\le 18$ \\
     $|\delta\mu| < 0.537$ & \liningnums{3\,348\,675} edges & $\le 18$ \\
-    LC ($\dleaf \le 1$ trees) & \liningnums{403\,400} trees & $\le 22$ \\
+    LC ($\dleaf \le 1$ trees) & \liningnums{931\,596} trees & $\le 23$ \\
     $\mathrm{mode} \le \lceil\mu\rceil$ (all trees) & \liningnums{205\,002} trees & $\le 18$ \\
     $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ ($\dleaf \le 1$) & \liningnums{175\,722} trees & $\le 21$ \\
     \bottomrule
