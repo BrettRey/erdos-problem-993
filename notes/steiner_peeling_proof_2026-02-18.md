@@ -111,8 +111,18 @@ mode ≤ ⌈μ⌉ for log-concave sequences:
 
 ## Numerical verification
 
-- verify_steiner_peeling.py: 0 failures through n≤18 (15,246 trees).
-  All checks: H_A=∅, leaf identity, n/3-μ≥0, F_gap≥0, Steiner M_gap≥0.
+- Exact full scan (`conjecture_a_steiner_gap_scan.py`):
+  - `python3 conjecture_a_steiner_gap_scan.py --min-n 3 --max-n 23 --out results/whnc_steiner_gap_scan_n23.json`
+  - Through full `n<=23` (`931,596` d_leaf<=1 trees):
+    - `F_gap(S) >= 0` for all `2,881,985` non-empty subsets of `H_core`
+      (`fgap_fail=0`),
+    - Steiner-leaf criterion holds on all `1,580,936` non-singleton subsets
+      (`steiner_fail=0`),
+    - strict margins on this frontier:
+      `minimum F_gap = 0.1380801129345332`,
+      `minimum best-Steiner marginal = 0.0031308091184815007`.
+- Earlier exploratory scan (`verify_steiner_peeling.py`) had 0 failures through
+  n≤18 with approximate BP and `|H_core|<=8`.
 - Degree-2 h with A-neighbor: 53,281 cases, max formula error 1.67e-16.
 - Worst margin in all-A singleton case: +0.138 (well above 0).
 

@@ -1,0 +1,286 @@
+{
+  "params": {
+    "min_n": 3,
+    "max_n": 23,
+    "tol": 1e-12,
+    "max_heavy": 24
+  },
+  "summary": {
+    "seen": 23942357,
+    "considered": 931596,
+    "with_H": 674393,
+    "subsets": 2881985,
+    "steiner_subsets": 1580936,
+    "fgap_fail": 0,
+    "steiner_fail": 0,
+    "fgap_zero": 0,
+    "steiner_zero": 0,
+    "skipped_heavy": 0,
+    "minimum_fgap": 0.1380801129345332,
+    "minimum_best_steiner_marginal": 0.0031308091184815007,
+    "worst_fgap": {
+      "n": 23,
+      "g6": "V???????????_?O?C??_?B??I?CA?A@??@O?GEA?`GG?",
+      "H_core_indices": [
+        4
+      ],
+      "argmin_size": 1,
+      "argmin_subset": [
+        4
+      ],
+      "min_fgap": 0.1380801129345332
+    },
+    "worst_steiner": {
+      "n": 23,
+      "g6": "V?????????????_?G?@??C??G??G??E???o??B?F|S??",
+      "H_core_indices": [
+        6,
+        7,
+        8
+      ],
+      "argmin_subset": [
+        6,
+        7
+      ],
+      "min_best_steiner_marginal": 0.0031308091184815007
+    },
+    "argmin_fgap_size_dist": {
+      "0": 257203,
+      "1": 674393
+    },
+    "wall_s": 400.83861088752747
+  },
+  "per_n": {
+    "3": {
+      "seen": 1,
+      "considered": 0,
+      "with_H": 0,
+      "skipped_heavy": 0,
+      "subset_count": 0,
+      "steiner_subset_count": 0,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.0021669864654541016
+    },
+    "4": {
+      "seen": 2,
+      "considered": 1,
+      "with_H": 0,
+      "skipped_heavy": 0,
+      "subset_count": 0,
+      "steiner_subset_count": 0,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.001821279525756836
+    },
+    "5": {
+      "seen": 3,
+      "considered": 1,
+      "with_H": 0,
+      "skipped_heavy": 0,
+      "subset_count": 0,
+      "steiner_subset_count": 0,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.001569986343383789
+    },
+    "6": {
+      "seen": 6,
+      "considered": 2,
+      "with_H": 0,
+      "skipped_heavy": 0,
+      "subset_count": 0,
+      "steiner_subset_count": 0,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.0016298294067382812
+    },
+    "7": {
+      "seen": 11,
+      "considered": 3,
+      "with_H": 0,
+      "skipped_heavy": 0,
+      "subset_count": 0,
+      "steiner_subset_count": 0,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.001500844955444336
+    },
+    "8": {
+      "seen": 23,
+      "considered": 6,
+      "with_H": 1,
+      "skipped_heavy": 0,
+      "subset_count": 3,
+      "steiner_subset_count": 1,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.0016407966613769531
+    },
+    "9": {
+      "seen": 47,
+      "considered": 10,
+      "with_H": 3,
+      "skipped_heavy": 0,
+      "subset_count": 3,
+      "steiner_subset_count": 0,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.0019550323486328125
+    },
+    "10": {
+      "seen": 106,
+      "considered": 21,
+      "with_H": 5,
+      "skipped_heavy": 0,
+      "subset_count": 9,
+      "steiner_subset_count": 2,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.0025899410247802734
+    },
+    "11": {
+      "seen": 235,
+      "considered": 39,
+      "with_H": 14,
+      "skipped_heavy": 0,
+      "subset_count": 30,
+      "steiner_subset_count": 10,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.004029989242553711
+    },
+    "12": {
+      "seen": 551,
+      "considered": 82,
+      "with_H": 30,
+      "skipped_heavy": 0,
+      "subset_count": 62,
+      "steiner_subset_count": 18,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.007773876190185547
+    },
+    "13": {
+      "seen": 1301,
+      "considered": 167,
+      "with_H": 77,
+      "skipped_heavy": 0,
+      "subset_count": 169,
+      "steiner_subset_count": 56,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.016206979751586914
+    },
+    "14": {
+      "seen": 3159,
+      "considered": 360,
+      "with_H": 175,
+      "skipped_heavy": 0,
+      "subset_count": 423,
+      "steiner_subset_count": 153,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.03492116928100586
+    },
+    "15": {
+      "seen": 7741,
+      "considered": 766,
+      "with_H": 408,
+      "skipped_heavy": 0,
+      "subset_count": 1012,
+      "steiner_subset_count": 380,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.08565783500671387
+    },
+    "16": {
+      "seen": 19320,
+      "considered": 1692,
+      "with_H": 950,
+      "skipped_heavy": 0,
+      "subset_count": 2576,
+      "steiner_subset_count": 1046,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.21752095222473145
+    },
+    "17": {
+      "seen": 48629,
+      "considered": 3726,
+      "with_H": 2217,
+      "skipped_heavy": 0,
+      "subset_count": 6457,
+      "steiner_subset_count": 2776,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 0.5670888423919678
+    },
+    "18": {
+      "seen": 123867,
+      "considered": 8370,
+      "with_H": 5210,
+      "skipped_heavy": 0,
+      "subset_count": 16272,
+      "steiner_subset_count": 7368,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 1.5732421875
+    },
+    "19": {
+      "seen": 317955,
+      "considered": 18866,
+      "with_H": 12296,
+      "skipped_heavy": 0,
+      "subset_count": 41284,
+      "steiner_subset_count": 19669,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 4.216226816177368
+    },
+    "20": {
+      "seen": 823065,
+      "considered": 43029,
+      "with_H": 29075,
+      "skipped_heavy": 0,
+      "subset_count": 104859,
+      "steiner_subset_count": 52265,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 11.73835802078247
+    },
+    "21": {
+      "seen": 2144505,
+      "considered": 98581,
+      "with_H": 68950,
+      "skipped_heavy": 0,
+      "subset_count": 267334,
+      "steiner_subset_count": 139076,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 32.311171770095825
+    },
+    "22": {
+      "seen": 5623756,
+      "considered": 227678,
+      "with_H": 163974,
+      "skipped_heavy": 0,
+      "subset_count": 684640,
+      "steiner_subset_count": 370750,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 90.19131302833557
+    },
+    "23": {
+      "seen": 14828074,
+      "considered": 528196,
+      "with_H": 391008,
+      "skipped_heavy": 0,
+      "subset_count": 1756852,
+      "steiner_subset_count": 987366,
+      "fgap_fail": 0,
+      "steiner_fail": 0,
+      "wall_s": 259.8597490787506
+    }
+  }
+}

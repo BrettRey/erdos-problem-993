@@ -98,6 +98,13 @@ Verification artifact:
 So in the decimated weighted model, the exact obstruction that appears in the
 original WHNC scan (all-negative subsets) is absent on the full frontier.
 
+An analytic proof attempt is now written in:
+
+- `notes/decimated_peeling_proof_attempt_2026-02-18.md`
+
+It gives a clean peeling theorem (private-neighbor existence + strict edge
+surplus) proving decimated singleton-argmin/Hall directly.
+
 ## 5) Why this route is different and useful
 
 - It integrates out leaves exactly (renormalization step), instead of handling
@@ -112,32 +119,35 @@ This now looks like the strongest proof lane:
 2. prove no-all-negative-marginal subsets in the decimated core model (peeling);
 3. pull back to `mu(T)<n/3`.
 
-## 6) Steiner peeling with gap-formula weights (NEW 2026-02-18)
+## 6) Steiner peeling with gap-formula weights (updated exact scan)
 
-Script `verify_steiner_peeling.py` runs through n≤18 (15,246 d_leaf≤1 trees).
+Gap-formula weights:
 
-All five checks pass with zero failures:
-- P(v) < 1/3 for all v ∈ A: 0 failures (H_A = ∅ confirmed)
-- P(l) = (1-P(s))/2: 0 failures (decimation identity exact)
-- n/3 - μ ≥ 0: 0 failures
-- F_gap(H_core) ≥ 0: 0 failures
-- **Steiner leaf M_gap ≥ 0: 0 failures** (key claim)
-- Tight cases M_gap = 0: 0
+- `s(u) = (1/2)(1/3-P(u))` for `u ∈ A`,
+- `s(u) = 1/3-P(u)` for `u ∈ C\A`.
 
-**Gap-formula weights:** s(u) = (1/2)(1/3-P(u)) for u ∈ A, 1/3-P(u) for u ∈ C\A.
+Exact full scan script:
 
-**Sub-case analysis:** When the Steiner leaf h has ALL private C-neighbors in A
-(18,482 singleton cases checked through n≤18):
-- Worst margin: +0.138 (n=18, two A-neighbors)
-- The margin is large because: when h has only A-private-neighbors,
-  R_{u→h} ≤ 1/2 for each (leaf forces suppression), so P(h) is bounded
-  close to 1/3 (small demand), while A-supply is adequate at half weight.
+- `conjecture_a_steiner_gap_scan.py`
 
-**Proof outline for singleton F_gap({h}) ≥ 0:**
-1. h has a private C\A-neighbor u: edge bound gives 2/3-P(h)-P(u) > 0,
-   which equals supply(u) - demand(h). Done.
-2. All private C-neighbors are in A: use complementarity — leaf suppression
-   bounds P(h) close to 1/3, keeping demand small while supply ≥ 0.138 slack.
+Run:
 
-**Remaining analytic gap:** Prove case 2 formally via cavity inequalities.
-This is a well-defined finite-dimensional optimization problem in the R_{u→h}.
+```bash
+python3 conjecture_a_steiner_gap_scan.py \
+  --min-n 3 --max-n 23 \
+  --out results/whnc_steiner_gap_scan_n23.json
+```
+
+Result through full `n<=23` (`931,596` d_leaf<=1 trees):
+
+- `with_H=674,393`,
+- non-empty subsets checked: `2,881,985`,
+- non-singleton subsets checked for Steiner peeling: `1,580,936`,
+- `fgap_fail=0` (`F_gap(S) >= 0` for every non-empty `S ⊆ H_core`),
+- `steiner_fail=0` (every non-singleton `S` has a Steiner leaf with `M_gap>=0`),
+- `fgap_zero=0`, `steiner_zero=0` (strict positivity on this frontier),
+- minimum `F_gap(S)`: `0.1380801129345332`,
+- minimum best-Steiner marginal: `0.0031308091184815007`.
+
+This substantially upgrades the earlier partial BP check (`n<=18`, `|H_core|<=8`)
+to an exact full-frontier verification.

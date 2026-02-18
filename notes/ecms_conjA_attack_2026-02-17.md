@@ -604,3 +604,81 @@ Result through full `n<=23`:
 
 So the all-negative marginal obstruction observed in the original (non-decimated)
 WHNC scan vanishes completely after exact leaf decimation on the full frontier.
+
+### Decimated peeling theorem attempt (new)
+
+See `notes/decimated_peeling_proof_attempt_2026-02-18.md`.
+
+Main point:
+
+- In the decimated model, every non-empty `S subseteq H` has a private-neighbor
+  heavy vertex (forest degree argument + `deg_C(h)>=2` for `h in H`).
+- Combined with Theorem 6 edge surplus, this gives a strict positive removal
+  marginal at each peeling step.
+- Therefore decimated Hall feasibility and singleton-argmin follow analytically
+  (no brute-force subset optimization needed).
+
+The remaining gap is the final bridge from decimated Hall to `n/3-mu(T)`:
+an extra support penalty term `-|A cap N(H)|/6` appears in the exact identity.
+
+### Gap-formula Steiner scan (exact full frontier)
+
+To avoid the support-penalty bridge term, we also scanned the gap-formula
+weights directly:
+
+- `s_gap(u)=1/3-P(u)` for `u in C\\A`,
+- `s_gap(u)=(1/2)(1/3-P(u))` for `u in A`.
+
+Script:
+
+```bash
+python3 conjecture_a_steiner_gap_scan.py --min-n 3 --max-n 23 \
+  --out results/whnc_steiner_gap_scan_n23.json
+```
+
+Result through full `n<=23` (`931,596` d_leaf<=1 trees):
+
+- `F_gap(S) >= 0` for all `2,881,985` non-empty subsets `S subseteq H_core`
+  (`fgap_fail=0`),
+- for all `1,580,936` non-singleton subsets, some Steiner leaf has
+  `M_gap(h,S) >= 0` (`steiner_fail=0`),
+- strict margins on this frontier:
+  - `minimum F_gap = 0.1380801129345332`,
+  - `minimum best-Steiner marginal = 0.0031308091184815007`.
+
+This is currently the strongest computational support for the Steiner-proof lane.
+
+### Mode-vs-mean bridge: tiepoint scan (new)
+
+To push the remaining gap (`mode` from `mu`) without assuming full LC, we scanned
+adjacent tie fugacities:
+
+`lambda_k = i_{k-1}/i_k`, with `mu(lambda_k)` from the tilted IS distribution.
+
+Script:
+
+```bash
+python3 conjecture_a_tie_mean_scan.py --min-n 3 --max-n 23 \
+  --out results/whnc_tie_mean_scan_n23_modefocus.json
+```
+
+Results through full `n<=23` (`931,596` d_leaf<=1 trees):
+
+- all adjacent ties checked: `11,172,104`,
+- global lower bound `mu(lambda_k) >= k-1` is **false** (2 failures; worst margin
+  `-0.04470192405278617` at `n=22`, `k=12`, `lambda=33`),
+- global upper bound `mu(lambda_k) <= k` has 0 failures.
+
+At `lambda=1`, still:
+
+- `mode <= ceil(mu)`: 0 failures,
+- Darroch set-membership (`mode in {floor(mu), ceil(mu)}`): 0 failures.
+
+Most promising refinement:
+
+- For `m = mode(I_T)` (at `lambda=1`), focused tie condition
+  `mu(lambda_m) >= m-1` had **0 failures** over all `931,596` trees,
+  with minimum margin `0.36225903819956606`.
+
+This suggests a narrower proof target: prove the single mode-centered tie
+inequality, then lift via monotonicity of `mu(lambda)`.
