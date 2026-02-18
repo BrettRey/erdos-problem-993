@@ -59,3 +59,50 @@ Given all-tree support through `n<=22`, try proving the focused inequality as a
 
 Fallback lane: prove extremality of balanced length-2 spiders for the focused
 margin, then close that family analytically.
+
+## Update: Leaf-Bridge Reduction
+
+See `notes/mode_tie_leaf_bridge_2026-02-18.md` for a stronger staged result:
+
+- full `d_leaf<=1` frontier (`931,596` trees through `n<=23`) has
+  zero failures for existence of a leaf with both bridge terms nonnegative;
+- choosing a leaf with minimum support degree has zero failures on this frontier;
+- a new local target emerges: prove the bridge inequalities for support-degree-2
+  leaves (tested on `4,543,370` degree-2-support leaf checks, 0 failures).
+
+## Update: Large-k Spider Stability (staged)
+
+To continue the focused tie lane without overflow at large `k`, we added:
+
+- `conjecture_a_spider_mode_tie_asymptotic.py`
+
+This script evaluates `S(2^k)` at `lambda_m(T)` with log-scaled closed forms
+for `mu(T), mu(T-l), mu(T-{l,s})`, and tracks:
+
+- `margin = mu(T,lambda_m)-(m-1)`
+- `c1 = mu(T-l,lambda_m)-(m-1)`
+- `c2 = mu(T-{l,s},lambda_m)-(m-2)`
+- `dmu = mu(T-l,lambda_m)-mu(T-{l,s},lambda_m)`
+
+Staged artifacts:
+
+- `results/whnc_mode_tie_spider_asymptotic_smoke_k40.json`
+- `results/whnc_mode_tie_spider_asymptotic_stage1_k41_500.json`
+- `results/whnc_mode_tie_spider_asymptotic_stage2_k501_5000.json`
+- `results/whnc_mode_tie_spider_asymptotic_stage3_k5001_50000.json`
+- aggregate: `results/whnc_mode_tie_spider_asymptotic_staged_summary_k2_50000.json`
+
+Aggregate (`k=2..50,000`, 49,999 cases):
+
+- mode-formula mismatches: `0` (`m=(2k+1)//3`),
+- `margin > 0`, `c1 > 0`, `c2 > 0` throughout,
+- global minima:
+  - `min margin = 0.33333995565772057` at `k=49906`,
+  - `min c1 = 0.1666724541428266` at `k=49906`,
+  - `min c2 = 0.6666799680824624` at `k=49906`,
+- decomposition consistency stayed near machine precision:
+  - `max |alpha+beta-1| = 2.22e-16`,
+  - `max |(alpha*c1+beta*c2)-margin| = 1.10e-11`.
+
+The smallest margins remain on the `k ≡ 1 (mod 3)` subsequence, consistent with
+the observed extremal pattern.

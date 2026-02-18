@@ -1,0 +1,12 @@
+{
+  "description": "Staged summary for degree-2-support local bridge checks (d_leaf<=1)",
+  "counts": {
+    "n_le_20": 334140,
+    "n_21": 458915,
+    "n_22": 1100831,
+    "n_23": 2649484,
+    "total": 4543370,
+    "failures": 0
+  },
+  "notes": "Counts obtained from staged stop-on-first runs in session on 2026-02-18."
+}

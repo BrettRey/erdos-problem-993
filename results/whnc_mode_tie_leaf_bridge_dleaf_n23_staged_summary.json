@@ -1,0 +1,20 @@
+{
+  "description": "Aggregated staged leaf-bridge results for d_leaf<=1 up to n=23",
+  "summary": {
+    "checked": 931596,
+    "exists_both_nonneg_fail": 0,
+    "all_both_nonneg_fail": 4754,
+    "heuristic_fail": {
+      "first_leaf": 342,
+      "max_parent_deg": 4726,
+      "min_parent_deg": 0,
+      "parent_deg2_else_max": 0
+    },
+    "sources": [
+      "results/whnc_mode_tie_leaf_bridge_stage2_dleaf_n20.json",
+      "results/whnc_mode_tie_leaf_bridge_stage3_dleaf_n21.json",
+      "results/whnc_mode_tie_leaf_bridge_stage3_dleaf_n22.json",
+      "results/whnc_mode_tie_leaf_bridge_stage3_dleaf_n23.json"
+    ]
+  }
+}

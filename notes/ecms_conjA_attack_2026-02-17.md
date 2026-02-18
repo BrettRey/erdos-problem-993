@@ -706,3 +706,38 @@ python3 conjecture_a_mode_tie_focused_scan.py --all-trees \
   `minimum_margin=0.36225903819956606`.
 - global minimum witness in both runs is the balanced length-2 spider at `n=21`
   (`g6=T???????C?G?G?C?@??G??_?@??@???_B~o?`, degree signature `{1:10,2:10,10:1}`).
+
+### Mode-tie leaf-bridge reduction (new)
+
+Define for a leaf `l` with support `s`:
+
+- `A=T-l`,
+- `B=T-{l,s}`,
+- `Phi_q(F;lambda)=lambda I'_F(lambda)-(q-1)I_F(lambda)`.
+
+At `lambda=lambda_m(T)` (`m=mode(I_T)`), identity:
+
+`Phi_m(T)=Phi_m(A)+lambda*Phi_{m-1}(B)`.
+
+Staged scans on full `d_leaf<=1` frontier (`n<=23`, `931,596` trees) using
+`conjecture_a_mode_tie_leaf_bridge_scan.py`:
+
+- existence failures (`exists leaf with both bridge terms >=0`): `0`,
+- not-all-leaves-good cases: `4,754`,
+- deterministic choice `leaf with minimum support degree`: `0` failures.
+
+Contrast: on all trees (`n<=16`), existence already fails (`2` cases), so this
+bridge is class-specific to the reduced `d_leaf<=1` regime.
+
+Further local strengthening (new scanner `conjecture_a_mode_tie_deg2_support_scan.py`):
+
+- for every checked leaf whose support has degree `2`, both bridge terms are
+  nonnegative,
+- verified on `4,543,370` degree-2-support leaf checks (staged `n<=23`), `0`
+  failures.
+
+This isolates a high-value analytic target:
+
+1. prove every `d_leaf<=1` tree has a support vertex of degree `2` (counting
+   lemma), and
+2. prove the support-degree-2 local bridge lemma analytically.
