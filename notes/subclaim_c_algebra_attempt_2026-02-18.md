@@ -73,13 +73,22 @@ Finite base witnesses (exact):
 - `k=6`: `diff = -21495253443141677102383384978632 / 351455149421499530933336519680607`.
 - `k=8`: `diff = -24550857995345285589064229633421759052 / 501196238048458555120781129690463817441`.
 
-## 4) Remaining gap to a full symbolic proof
+## 4) Status update (2026-02-18)
 
-The checks above support the sufficient lane, but a complete paper-proof still needs
-closed-form inequalities for all `t` proving:
+**`E_1 <= 0` is now PROVED** (see `notes/subclaim_c_E1_le0_proof_2026-02-18.md`):
 
-- `E_1 <= 0` (equivalently `B_1 <= A_1`) for all relevant `k`, and
-- `A_gap > -E_0` globally.
+Key algebraic identity: `B_1 - A_1 = [1 - (k-2)lambda_1] / [(1+lambda_1)(1+2lambda_1)]`,
+so `E_1 <= 0 iff lambda_1 >= 1/(k-2)`.
 
-So this is a strong algebraic reduction + exact verification, not yet a fully closed
-all-`k` symbolic proof.
+The b-bound from `unit_leaf_c2_algebra_2026-02-18.md` gives `lambda_1 >= tau =
+(m_1-1)/[2(k-m_1+2)]`. Then `(k-2)*tau >= 1` reduces to:
+- `k = 3t+2`, `t >= 1`: `6t^2+t-4 >= 0` (true for all `t >= 1`, min value 3 at `t=1`).
+- `k = 3t`,   `t >= 2`: `3t^2-3t-1 >= 0` (true for all `t >= 2`, min value 5 at `t=2`).
+
+Verified exactly: `verify_subclaim_c_E1_le0.py`, all 5 checks PASS (k <= 200).
+
+**Remaining gap for a full paper-proof of Sub-claim C:**
+
+`A_gap > -E_0` globally. This is verified for `k <= 500` in `prove_subclaim_c_algebra.py`
+(0 failures). For large `k`, `A_gap >= 1/(4k)` while `|E_0|` decays exponentially. A
+closed-form proof of `A_gap >= 1/(4k)` for all `k` would close Sub-claim C completely.

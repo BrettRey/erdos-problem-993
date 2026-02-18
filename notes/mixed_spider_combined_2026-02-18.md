@@ -248,30 +248,62 @@ Given `margin >= 1/3`, this gives `c2 >= 7/18 > 0` (using `k*(2/3)^k <= 8/9` for
 
 ## Minimizer-reduction: structural analysis (2026-02-18)
 
-The empirical minimizer structure breaks into three provable sub-claims:
+New verifier script:
+- `verify_mixed_spider_minimizer_reduction.py`
 
-**Observation (period-2 oscillation in j)**: `margin(k,j+1) - margin(k,j)` alternates sign:
-positive when the mode stays the same (j+1 leaves, same mode), negative when mode increases by 1.
-The net effect over 2-step increments is always positive for `k >= 7`.
+Artifacts:
+- `results/whnc_mixed_spider_minreduction_k1_5_j80.json`
+- `results/whnc_mixed_spider_minreduction_k6_3000_j80.json`
+- `results/whnc_mixed_spider_minreduction_k3001_5000_j80.json`
+- `results/whnc_mixed_spider_minreduction_k5001_8000_j80.json`
+- `results/whnc_mixed_spider_minreduction_k1_8000_j80_aggregate.json`
 
-**Sub-claim A (even/odd monotonicity)**: For `k >= 7` and all `j >= 0`:
-`margin(k, j+2) > margin(k, j)`.
-Verified: `k=7..25`, `j<=20`, 0 failures. Open: algebraic proof.
+Combined scan size: `648,000` pairs (`k=1..8000`, `j=0..80`).
 
-**Sub-claim B (k ≡ 1 mod 3 comparison)**: For `k >= 4`, `k ≡ 1 (mod 3)`:
-`margin(k, 0) < margin(k, 1)`, so `j=0` is the global minimum.
-**PROVED** (Codex, 2026-02-18). See `notes/subclaim_B_mod1_algebra_2026-02-18.md`.
-Proof: set `k=3t+1`. Decompose `margin_j = A_j(lambda_j) - p_j g_j`. Define
-`G(t) = A_1(r_F) - A_0(a)` (exact closed-form, all-positive coefficients). Bound
-`delta_0 < 4/(3t^3)` and `p_1 g_1 < 1/t^3`. For `t>=6`: margin gap `>= G(t) - delta_0 - p_1 g_1 > (t^2-28)/(12t^3) > 0`. Exact checks for `t=1..5` close it.
+### Verified structural claims (current strongest form)
 
-**Sub-claim C (k ≡ 0,2 mod 3 comparison)**: For `k >= 3`, `k ≡ 0 or 2 (mod 3)`:
-`margin(k, 1) < margin(k, 0)`, so `j=1` is the global minimum.
-Verified: all such `k=3..24`. Open: algebraic proof.
+1. **Parity-tail monotonicity (A-even/A-odd)**  
+   For `k >= 6`:
+   - `margin(k, j+2) >= margin(k, j)` for all even `j >= 4`,
+   - `margin(k, j+2) >= margin(k, j)` for all odd `j >= 5`.
+   No failures in `k=6..8000`, `j<=80`.
 
-**Small cases** (`k=3..6`): Verified explicitly that the global minimum over `j=0..40` is at `j=0` (k≡1) or `j=1` (k≡0,2).
-Exception: `k=2 (≡2)`: minimum at `j=0` (not `j=1`). This is a genuine small case.
+2. **Min over `j>=2` is at `j in {2,3}` (A')**  
+   No failures for `k=4..8000`, `j<=80`.  
+   Only exceptions are tiny: `k=1,2,3`.
 
-**Proof path for Sub-claim A**: Adding 2 unit leaves shifts the IS polynomial mean by `~2/3` per leaf (since each unit leaf contributes `lambda/(1+lambda) ~ 1/2` at the tie-fugacity), while the mode reference shifts by at most 1 every 3 unit leaves. Net margin gain per 2 leaves: `~4/6 - 1/3 = 1/6 > 0`. Making this rigorous requires bounding the mode change and mean shift jointly.
+3. **Residue comparison `j=0` vs `j=1`**
+   - `k ≡ 1 (mod 3)`: `margin(k,0) <= margin(k,1)` for all checked `k=1..8000` (strict for `k>=4`).  
+     Sub-claim B is proved algebraically; see `notes/subclaim_B_mod1_algebra_2026-02-18.md`.
+   - `k ≡ 0,2 (mod 3)`: `margin(k,1) <= margin(k,0)` for all checked `k=3..8000`; only exception is `k=2`.
 
-**What completing A and C would give**: With B now proved, Sub-claims A and C remain open. Together with the j=0/j=1 branch proofs (proved) and Sub-claim B (proved), A and C would establish that `margin(S(2^k,1^j)) >= 1/3` for all `k >= 1`, `j >= 0`, `k != 2` (with `k=2` checked explicitly). Combined with `c2 >= 0` (proved), this completes the mixed-spider tie-fugacity bound.
+4. **Global minimizer over scanned j-range**
+   - For `k>=2`, `argmin_{0<=j<=80} margin(k,j)` is always in `{0,1}`.
+   - Only exception in `k=1..8000` is `k=1` (minimum at `j=6`).
+
+### Consequence for reduction strategy
+
+Given the proved reduced-branch positivity (`j=0`, `j=1`) and the above structure,
+the remaining analytic gap is now sharply concentrated in two places:
+
+1. prove the parity-tail monotonicity claim for `k>=6`, and
+2. prove the `k ≡ 0,2 (mod 3)` residue comparison (`j=1` beats `j=0`) for all `k>=3`.
+
+Once those are closed, minimizer reduction to `j in {0,1}` follows (with the tiny
+`k=1,2` cases handled explicitly).
+
+## Sub-claim C: E₁ ≤ 0 now PROVED (2026-02-18)
+
+The sufficient-lane condition `E_1 <= 0` for Sub-claim C is now algebraically proved.
+
+Key: `B_1 - A_1 = [1-(k-2)lambda_1] / [(1+lambda_1)(1+2lambda_1)]`, so `E_1 <= 0 iff
+lambda_1 >= 1/(k-2)`. The b-bound from `unit_leaf_c2_algebra_2026-02-18.md` gives
+`lambda_1 >= tau`, and `(k-2)*tau >= 1` reduces to quadratic inequalities:
+- `k = 3t+2`, `t >= 1`: `6t^2+t-4 >= 0`. Min value 3 at `t=1`. PROVED.
+- `k = 3t`,   `t >= 2`: `3t^2-3t-1 >= 0`. Min value 5 at `t=2`. PROVED.
+
+See `notes/subclaim_c_E1_le0_proof_2026-02-18.md` and `verify_subclaim_c_E1_le0.py`
+(all 5 checks PASS, k <= 200, exact Fraction arithmetic).
+
+Remaining gap for Sub-claim C: `A_gap > -E_0` globally. Verified for `k <= 500`, open
+in closed form. For large `k`: `A_gap >= 1/(4k)` while `|E_0|` decays exponentially.
