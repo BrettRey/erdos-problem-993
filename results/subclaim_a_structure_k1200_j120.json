@@ -1,0 +1,50 @@
+{
+  "params": {
+    "k_min": 6,
+    "k_max": 1200,
+    "j_max": 120,
+    "tol": 1e-12,
+    "out": "results/subclaim_a_structure_k1200_j120.json"
+  },
+  "overall": {
+    "pairs": 144595,
+    "wall_s": 31.387685298919678
+  },
+  "failures": {
+    "mode_step_eq_1": [],
+    "lambda_step_nonneg": [],
+    "margin_step_nonneg": []
+  },
+  "mins": {
+    "mode_step": {
+      "value": 1,
+      "k": 6,
+      "j": 0
+    },
+    "lambda_step": {
+      "value": 1.699163521662328e-06,
+      "k": 1200,
+      "j": 119
+    },
+    "margin_step": {
+      "value": 4.5166827945308796e-05,
+      "k": 8,
+      "j": 120
+    },
+    "mu_fixed_step": {
+      "value": 0.7709778353917036,
+      "k": 8,
+      "j": 0
+    },
+    "mu_lambda_gain": {
+      "value": 0.00022469807967695488,
+      "k": 6,
+      "j": 119
+    },
+    "mu_total_step": {
+      "value": 1.0000451668279453,
+      "k": 8,
+      "j": 120
+    }
+  }
+}
