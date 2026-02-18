@@ -385,7 +385,7 @@ Since $\lceil \mu \rceil \le \lfloor n/3 \rfloor + 1$ whenever $\mu < n/3$, Conj
 The latter is proved in Corollary~\ref{cor:mu-bound} below via the Steiner peeling method.
 
 \begin{remark}
-The mode-mean bound $\mathrm{mode}(I(T)) \le \lceil \mu(T) \rceil$ holds for all 931\,596 $\dleaf \le 1$ trees through $n = 23$ (zero violations), and for all 205\,002 trees (of any type) through $n = 18$, including both log-concavity-failing trees at $n = 26$ (where $\mu \approx 7.83$ and $\mathrm{mode} = 8$).
+The mode-mean bound $\mathrm{mode}(I(T)) \le \lceil \mu(T) \rceil$ holds for all 931\,596 $\dleaf \le 1$ trees through $n = 23$ (zero violations), and for all 9\,114\,283 trees (of any type) through $n = 22$, including both log-concavity-failing trees at $n = 26$ (where $\mu \approx 7.83$ and $\mathrm{mode} = 8$).
 Log-concavity suffices to prove this bound classically, but the bound appears to hold universally regardless of log-concavity.
 If this mode-mean bound could be proved directly for $\dleaf \le 1$ trees, Conjecture~A would follow from Corollary~\ref{cor:mu-bound} without requiring log-concavity.
 
@@ -406,9 +406,11 @@ If one could prove the single-tie condition $\mu(\lambda_m) \ge m - 1$, then
 \]
 (the last inequality by Corollary~\ref{cor:mu-bound}), giving $\mathrm{mode} = m \le \mu(T) + 1 < n/3 + 1$, and hence $\mathrm{mode} \le \lfloor n/3 \rfloor + 1$~-- Conjecture~A~-- with no log-concavity required.
 This condition holds for all 931\,596 $\dleaf \le 1$ trees through $n = 23$, with minimum margin $\mu(\lambda_m) - (m-1) \ge 0.362$.
+The condition also holds for all 9\,114\,283 trees of any type through $n = 22$; the global minimum margin is still $0.362$, attained by the same tree $S(2^{10})$.
 \end{remark}
 
 The minimum margin is attained by $S(2^{10})$, the equal-arm spider with hub connected to ten arms of length~2 (21~vertices, $\dleaf = 1$ everywhere).
+This tree is the global minimiser across all tree types through $n = 22$, not only among $\dleaf \le 1$ trees.
 More generally, the margin for the $S(2^k)$ family can be bounded analytically.
 
 \begin{proposition}[Equal-arm spider tie-fugacity margin]\label{prop:spider-tie-margin}
@@ -463,7 +465,7 @@ As $k \to \infty$ along $k = 3j+1$, the hub-off surplus $(j+1)/(3j+2) \to 1/3$ a
 \begin{remark}
 The proof above establishes margin $> 0$ but does not show margin $> 1/3$ directly.
 Numerically, margin $> 1/3$ for all $k \le 600$, with margin $= 1/3 + c/k + O(1/k^2)$ and $c \approx 1/3$; a closed-form proof of the sharper bound would follow from the exact asymptotics of~$\lambda_m$.
-Since $S(2^k)$ is the extremal $\dleaf \le 1$ tree for the mean bound (verified through $n \le 20$), establishing that the same extremality holds for the tie-fugacity margin would reduce the full tie-fugacity condition $\mu(\lambda_m) \ge m-1$ to the spider case, which Proposition~\ref{prop:spider-tie-margin} already proves.
+Since $S(2^k)$ is the extremal $\dleaf \le 1$ tree for the mean bound (verified through $n \le 20$), and $S(2^{10})$ is also the global minimiser for the tie-fugacity margin across all 9\,114\,283 trees through $n = 22$, establishing analytically that $S(2^k)$ minimises the margin for all tree types would reduce the full tie-fugacity condition $\mu(\lambda_m) \ge m-1$ to the spider case, which Proposition~\ref{prop:spider-tie-margin} already proves.
 \end{remark}
 
 I verified $\mu < n/3$ for all 931\,596 such trees through $n = 23$; the worst ratio is $\mu / (n/3) = 0.973$.
@@ -885,9 +887,10 @@ Table~\ref{tab:certificates} summarizes all verified properties.
     $S_1$ formula (Prop.~\ref{prop:s1-formula}) & \liningnums{3\,348\,674} edges & $\le 18$ \\
     $|\delta\mu| < 0.537$ & \liningnums{3\,348\,675} edges & $\le 18$ \\
     LC ($\dleaf \le 1$ trees) & \liningnums{931\,596} trees & $\le 23$ \\
-    $\mathrm{mode} \le \lceil\mu\rceil$ (all trees) & \liningnums{205\,002} trees & $\le 18$ \\
+    $\mathrm{mode} \le \lceil\mu\rceil$ (all trees) & \liningnums{9\,114\,283} trees & $\le 22$ \\
     $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ ($\dleaf \le 1$) & \liningnums{175\,722} trees & $\le 21$ \\
     Tie-fugacity: $\mu(\lambda_m) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ \\
+    Tie-fugacity: $\mu(\lambda_m) \ge m-1$ (all trees) & \liningnums{9\,114\,283} trees & $\le 22$ \\
     \bottomrule
   \end{tabular}
 \end{table}
