@@ -393,6 +393,21 @@ The stronger Darroch conclusion $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\m
 This mode-localisation is as tight as Darroch's theorem predicts from log-concavity, appearing to hold here without log-concavity being established.
 \end{remark}
 
+\begin{remark}[Tie-fugacity condition]
+A sharpened proof target avoids log-concavity entirely.
+For a tree~$T$ with IS polynomial $I(x) = \sum_k i_k x^k$ and mode $m$ at fugacity~$1$, define the \emph{tie fugacity} $\lambda_m = i_{m-1}/i_m$.
+At fugacity~$\lambda_m$, IS of sizes $m-1$ and~$m$ have equal probability weight $i_{m-1}\lambda_m^{m-1} = i_m\lambda_m^m$, and every other size has strictly smaller weight (verified for all 11\,172\,104 adjacent pairs across 931\,596 trees).
+Since $m$ is the mode at fugacity~1, we have $i_m \ge i_{m-1}$, so $\lambda_m \le 1$.
+The expected IS size $\mu(\lambda) = \sum_v P(v;\lambda)$ is strictly increasing in~$\lambda$, so $\mu(\lambda_m) \le \mu(1) = \mu(T)$.
+
+If one could prove the single-tie condition $\mu(\lambda_m) \ge m - 1$, then
+\[
+  m - 1 \;\le\; \mu(\lambda_m) \;\le\; \mu(T) \;<\; \frac{n}{3}
+\]
+(the last inequality by Corollary~\ref{cor:mu-bound}), giving $\mathrm{mode} = m \le \mu(T) + 1 < n/3 + 1$, and hence $\mathrm{mode} \le \lfloor n/3 \rfloor + 1$~-- Conjecture~A~-- with no log-concavity required.
+This condition holds for all 931\,596 $\dleaf \le 1$ trees through $n = 23$, with minimum margin $\mu(\lambda_m) - (m-1) \ge 0.362$.
+\end{remark}
+
 I verified $\mu < n/3$ for all 931\,596 such trees through $n = 23$; the worst ratio is $\mu / (n/3) = 0.973$.
 The extremal family consists of \emph{spiders}~-- trees with exactly one vertex of degree $\ge 3$ (the hub) and paths radiating from it.
 The notation $S(a_1, \dotsc, a_m)$ denotes the spider whose $m$~arms have lengths $a_1, \dotsc, a_m$.
@@ -814,6 +829,7 @@ Table~\ref{tab:certificates} summarizes all verified properties.
     LC ($\dleaf \le 1$ trees) & \liningnums{931\,596} trees & $\le 23$ \\
     $\mathrm{mode} \le \lceil\mu\rceil$ (all trees) & \liningnums{205\,002} trees & $\le 18$ \\
     $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ ($\dleaf \le 1$) & \liningnums{175\,722} trees & $\le 21$ \\
+    Tie-fugacity: $\mu(\lambda_m) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ \\
     \bottomrule
   \end{tabular}
 \end{table}
