@@ -1,0 +1,19 @@
+{
+  "status": "clean",
+  "checked": 18646354,
+  "max_n": 15,
+  "random_samples": 500000,
+  "seed": 995,
+  "max_lc_ratio": 1.3125,
+  "max_lc_poly": [
+    1,
+    4,
+    21,
+    75,
+    142,
+    146,
+    81,
+    22,
+    2
+  ]
+}

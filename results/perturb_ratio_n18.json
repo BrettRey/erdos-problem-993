@@ -1,0 +1,257 @@
+{
+  "min_n": 4,
+  "max_n": 18,
+  "backend": "auto",
+  "trees": 205001,
+  "leaf_cases": 452656,
+  "ratio_failures": 5608,
+  "mode_failures": 0,
+  "tail_h_failures": 0,
+  "by_n": [
+    {
+      "n": 4,
+      "trees": 2,
+      "leaf_cases": 2,
+      "ratio_failures": 0,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 5,
+      "trees": 3,
+      "leaf_cases": 3,
+      "ratio_failures": 0,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 6,
+      "trees": 6,
+      "leaf_cases": 6,
+      "ratio_failures": 0,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 7,
+      "trees": 11,
+      "leaf_cases": 13,
+      "ratio_failures": 0,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 8,
+      "trees": 23,
+      "leaf_cases": 28,
+      "ratio_failures": 0,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 9,
+      "trees": 47,
+      "leaf_cases": 64,
+      "ratio_failures": 1,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 10,
+      "trees": 106,
+      "leaf_cases": 153,
+      "ratio_failures": 1,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 11,
+      "trees": 235,
+      "leaf_cases": 366,
+      "ratio_failures": 4,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 12,
+      "trees": 551,
+      "leaf_cases": 910,
+      "ratio_failures": 7,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 13,
+      "trees": 1301,
+      "leaf_cases": 2288,
+      "ratio_failures": 31,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 14,
+      "trees": 3159,
+      "leaf_cases": 5873,
+      "ratio_failures": 58,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 15,
+      "trees": 7741,
+      "leaf_cases": 15208,
+      "ratio_failures": 190,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 16,
+      "trees": 19320,
+      "leaf_cases": 39948,
+      "ratio_failures": 463,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 17,
+      "trees": 48629,
+      "leaf_cases": 105669,
+      "ratio_failures": 1366,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    },
+    {
+      "n": 18,
+      "trees": 123867,
+      "leaf_cases": 282125,
+      "ratio_failures": 3487,
+      "mode_failures": 0,
+      "tail_h_failures": 0
+    }
+  ],
+  "witnesses": [
+    {
+      "n": 9,
+      "graph6": "H?AE@`g",
+      "leaf": 5,
+      "u": 0,
+      "w": 6,
+      "d_f": 3,
+      "bad_k": 3,
+      "f": [
+        1,
+        7,
+        15,
+        11,
+        2
+      ],
+      "g": [
+        1,
+        6,
+        10,
+        5,
+        1
+      ]
+    },
+    {
+      "n": 10,
+      "graph6": "I??E@_KAo",
+      "leaf": 5,
+      "u": 8,
+      "w": 4,
+      "d_f": 4,
+      "bad_k": 4,
+      "f": [
+        1,
+        8,
+        21,
+        23,
+        11,
+        2
+      ],
+      "g": [
+        1,
+        7,
+        15,
+        12,
+        5,
+        1
+      ]
+    },
+    {
+      "n": 11,
+      "graph6": "J??CAA_MAg?",
+      "leaf": 6,
+      "u": 0,
+      "w": 8,
+      "d_f": 4,
+      "bad_k": 4,
+      "f": [
+        1,
+        9,
+        28,
+        37,
+        21,
+        4
+      ],
+      "g": [
+        1,
+        8,
+        21,
+        22,
+        10,
+        2
+      ]
+    },
+    {
+      "n": 11,
+      "graph6": "J??CE?oBBO?",
+      "leaf": 6,
+      "u": 0,
+      "w": 7,
+      "d_f": 4,
+      "bad_k": 4,
+      "f": [
+        1,
+        9,
+        28,
+        36,
+        17,
+        2
+      ],
+      "g": [
+        1,
+        8,
+        21,
+        21,
+        7,
+        1
+      ]
+    },
+    {
+      "n": 11,
+      "graph6": "J??CB@Oa@W?",
+      "leaf": 6,
+      "u": 0,
+      "w": 9,
+      "d_f": 4,
+      "bad_k": 4,
+      "f": [
+        1,
+        9,
+        28,
+        36,
+        18,
+        2
+      ],
+      "g": [
+        1,
+        8,
+        21,
+        21,
+        8,
+        1
+      ]
+    }
+  ]
+}

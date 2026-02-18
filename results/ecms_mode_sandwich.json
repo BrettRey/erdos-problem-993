@@ -1,0 +1,20 @@
+{
+  "sandwich_holds": 3348674,
+  "sandwich_fails": 0,
+  "subdiv_mode_shift": {
+    "0": 2580626,
+    "1": 768048
+  },
+  "ecms_Te_Te_div_e": {
+    "0": 1241007,
+    "1": 2107667
+  },
+  "ecms_T_Te": {
+    "0": 2004755,
+    "1": 1341769,
+    "-1": 2150
+  },
+  "subdiv_ecms_implies_ecms": true,
+  "total_edges": 3348674,
+  "total_time_s": 810.67
+}

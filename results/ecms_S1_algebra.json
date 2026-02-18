@@ -1,0 +1,35 @@
+{
+  "max_n": 18,
+  "total_edges": 3348674,
+  "formula_errors": 0,
+  "formula_max_err": 1.942890293094024e-16,
+  "S1_formula_errors": 0,
+  "max_actual_S1": 0.2808886579,
+  "max_S1_bound": 0.3545895193,
+  "max_S1_bound_info": {
+    "n": 18,
+    "edge": [
+      15,
+      17
+    ],
+    "A": 0.14473684,
+    "B": 0.14285714,
+    "F_u": -0.09215093,
+    "F_v": -0.09069108,
+    "sum_u": 1.42105263,
+    "sum_v": 1.42857143,
+    "log_A": 1.93283807,
+    "log_B": 1.94591015,
+    "bound": 0.35458952,
+    "actual": -0.26051001
+  },
+  "max_g": 0.3545895193,
+  "max_tighter_ratio": 0.99998474,
+  "max_remote_minus_S1": 0.20262478,
+  "numerical_max_g": 0.3545913791,
+  "numerical_max_AB": [
+    0.143,
+    0.144
+  ],
+  "total_time_s": 72.54
+}

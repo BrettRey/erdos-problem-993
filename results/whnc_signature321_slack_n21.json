@@ -1,0 +1,242 @@
+{
+  "params": {
+    "min_n": 3,
+    "max_n": 21,
+    "tol": 1e-12
+  },
+  "summary": {
+    "seen": 3490527,
+    "considered": 175722,
+    "signature_count": 104976,
+    "identity_fail": 0,
+    "positivity_fail": 0,
+    "structure_fail": 0,
+    "worst_identity_diff": {
+      "n": 21,
+      "g6": "T???????????_?O?C?C_?B??B??D?QOo?oS?",
+      "S": [
+        4,
+        5,
+        10
+      ],
+      "h_nonleaf": 4,
+      "u_nodes": [
+        16,
+        19
+      ],
+      "F_S": 0.1533663547972846,
+      "rhs": 0.15336635479728486,
+      "diff": 2.498001805406602e-16
+    },
+    "minimum_slack": {
+      "n": 21,
+      "g6": "T?????????O?O?G?A??W?A_A@?A@?@A__OgG",
+      "S": [
+        4,
+        5,
+        6
+      ],
+      "h_nonleaf": 4,
+      "u_nodes": [
+        15,
+        16
+      ],
+      "F_S": 0.13811789584985446,
+      "edge_surplus_hu1": 0.1381178958498545,
+      "edge_surplus_hu2": 0.1381178958498545,
+      "avg_edge_surplus": 0.1381178958498545
+    },
+    "minimum_avg_edge_surplus": {
+      "n": 21,
+      "g6": "T?????????O?O?G?A??W?A_A@?A@?@A__OgG",
+      "S": [
+        4,
+        5,
+        6
+      ],
+      "h_nonleaf": 4,
+      "u_nodes": [
+        15,
+        16
+      ],
+      "F_S": 0.13811789584985446,
+      "edge_surplus_hu1": 0.1381178958498545,
+      "edge_surplus_hu2": 0.1381178958498545,
+      "avg_edge_surplus": 0.1381178958498545
+    },
+    "wall_s": 98.81955575942993
+  },
+  "per_n": {
+    "3": {
+      "seen": 1,
+      "considered": 0,
+      "signature_count": 0,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.004502058029174805
+    },
+    "4": {
+      "seen": 2,
+      "considered": 1,
+      "signature_count": 0,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.003068208694458008
+    },
+    "5": {
+      "seen": 3,
+      "considered": 1,
+      "signature_count": 0,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.0031499862670898438
+    },
+    "6": {
+      "seen": 6,
+      "considered": 2,
+      "signature_count": 0,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.00443267822265625
+    },
+    "7": {
+      "seen": 11,
+      "considered": 3,
+      "signature_count": 0,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.003650665283203125
+    },
+    "8": {
+      "seen": 23,
+      "considered": 6,
+      "signature_count": 2,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.003339052200317383
+    },
+    "9": {
+      "seen": 47,
+      "considered": 10,
+      "signature_count": 3,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.0035042762756347656
+    },
+    "10": {
+      "seen": 106,
+      "considered": 21,
+      "signature_count": 5,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.0048999786376953125
+    },
+    "11": {
+      "seen": 235,
+      "considered": 39,
+      "signature_count": 15,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.008561134338378906
+    },
+    "12": {
+      "seen": 551,
+      "considered": 82,
+      "signature_count": 28,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.014811992645263672
+    },
+    "13": {
+      "seen": 1301,
+      "considered": 167,
+      "signature_count": 68,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.031658172607421875
+    },
+    "14": {
+      "seen": 3159,
+      "considered": 360,
+      "signature_count": 151,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.06721282005310059
+    },
+    "15": {
+      "seen": 7741,
+      "considered": 766,
+      "signature_count": 348,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.1637101173400879
+    },
+    "16": {
+      "seen": 19320,
+      "considered": 1692,
+      "signature_count": 810,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 0.41999316215515137
+    },
+    "17": {
+      "seen": 48629,
+      "considered": 3726,
+      "signature_count": 1899,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 1.1150140762329102
+    },
+    "18": {
+      "seen": 123867,
+      "considered": 8370,
+      "signature_count": 4484,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 3.0235230922698975
+    },
+    "19": {
+      "seen": 317955,
+      "considered": 18866,
+      "signature_count": 10652,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 8.055155992507935
+    },
+    "20": {
+      "seen": 823065,
+      "considered": 43029,
+      "signature_count": 25448,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 22.340410947799683
+    },
+    "21": {
+      "seen": 2144505,
+      "considered": 98581,
+      "signature_count": 61063,
+      "identity_fail": 0,
+      "positivity_fail": 0,
+      "structure_fail": 0,
+      "wall_s": 63.54794788360596
+    }
+  }
+}

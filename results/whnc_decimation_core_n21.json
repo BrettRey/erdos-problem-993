@@ -1,0 +1,211 @@
+{
+  "params": {
+    "min_n": 3,
+    "max_n": 21,
+    "tol": 1e-10
+  },
+  "summary": {
+    "seen": 3490527,
+    "considered": 175722,
+    "z_fail": 0,
+    "core_prob_fail": 0,
+    "leaf_prob_fail": 0,
+    "gap_identity_fail": 0,
+    "min_gap": {
+      "n": 4,
+      "g6": "CU",
+      "gap_t": 0.08333333333333326,
+      "mu_t": 1.25,
+      "core_size": 2,
+      "leaf_count": 2,
+      "support_count": 2,
+      "rhs_gap": 0.08333333333333331,
+      "w_occ": 0.25
+    },
+    "min_gap_core": {
+      "n": 4,
+      "g6": "CU",
+      "gap_t": 0.08333333333333326,
+      "mu_t": 1.25,
+      "core_size": 2,
+      "leaf_count": 2,
+      "support_count": 2,
+      "rhs_gap": 0.08333333333333331,
+      "w_occ": 0.25
+    },
+    "wall_s": 118.48344898223877
+  },
+  "per_n": {
+    "3": {
+      "seen": 1,
+      "considered": 0,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.004354953765869141
+    },
+    "4": {
+      "seen": 2,
+      "considered": 1,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.0031690597534179688
+    },
+    "5": {
+      "seen": 3,
+      "considered": 1,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.0032482147216796875
+    },
+    "6": {
+      "seen": 6,
+      "considered": 2,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.0030803680419921875
+    },
+    "7": {
+      "seen": 11,
+      "considered": 3,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.003443002700805664
+    },
+    "8": {
+      "seen": 23,
+      "considered": 6,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.003519773483276367
+    },
+    "9": {
+      "seen": 47,
+      "considered": 10,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.0044307708740234375
+    },
+    "10": {
+      "seen": 106,
+      "considered": 21,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.00746917724609375
+    },
+    "11": {
+      "seen": 235,
+      "considered": 39,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.012401103973388672
+    },
+    "12": {
+      "seen": 551,
+      "considered": 82,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.02429509162902832
+    },
+    "13": {
+      "seen": 1301,
+      "considered": 167,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.049378156661987305
+    },
+    "14": {
+      "seen": 3159,
+      "considered": 360,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.09914708137512207
+    },
+    "15": {
+      "seen": 7741,
+      "considered": 766,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.23305416107177734
+    },
+    "16": {
+      "seen": 19320,
+      "considered": 1692,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 0.5722229480743408
+    },
+    "17": {
+      "seen": 48629,
+      "considered": 3726,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 1.4541640281677246
+    },
+    "18": {
+      "seen": 123867,
+      "considered": 8370,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 3.809744119644165
+    },
+    "19": {
+      "seen": 317955,
+      "considered": 18866,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 10.019332885742188
+    },
+    "20": {
+      "seen": 823065,
+      "considered": 43029,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 27.253496170043945
+    },
+    "21": {
+      "seen": 2144505,
+      "considered": 98581,
+      "z_fail": 0,
+      "core_prob_fail": 0,
+      "leaf_prob_fail": 0,
+      "gap_identity_fail": 0,
+      "wall_s": 74.92262887954712
+    }
+  }
+}

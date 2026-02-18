@@ -1,0 +1,84 @@
+{
+  "description": "ECMS mean shift test for n=17 and n=18",
+  "prior_max_abs_dmu": 0.5263,
+  "prior_max_n": 16,
+  "tested_n": [
+    17,
+    18
+  ],
+  "total_trees": 172496,
+  "total_edges": 2883803,
+  "total_time_s": 421.6,
+  "max_abs_dmu": 0.5330431188708896,
+  "max_abs_dmu_exact": "21466253/40271138",
+  "max_abs_dmu_info": {
+    "n": 18,
+    "edge": [
+      0,
+      16
+    ],
+    "dmu": "21466253/40271138",
+    "dmu_float": 0.5330431188708896,
+    "mu_T": "257891/34897",
+    "mu_T_float": 7.390062182995673,
+    "mu_Te": "7913/1154",
+    "mu_Te_float": 6.857019064124783,
+    "mode_T": 7,
+    "mode_Te": 7
+  },
+  "dmu_lt_1_holds": true,
+  "dmu_ge_1_count": 0,
+  "dmu_ge_1_examples": [],
+  "max_mode_shift": 1,
+  "ecms_holds": true,
+  "ecms_violations": 0,
+  "ecms_violation_examples": [],
+  "max_mode_shift_info": {
+    "n": 17,
+    "edge": [
+      0,
+      16
+    ],
+    "mode_T": 8,
+    "mode_Te": 7,
+    "shift": 1
+  },
+  "histogram": {
+    "-0.10": 5501,
+    "-0.05": 14923,
+    "+0.00": 33621,
+    "+0.05": 39927,
+    "+0.10": 51255,
+    "+0.15": 124475,
+    "+0.20": 338292,
+    "+0.25": 523663,
+    "+0.30": 557230,
+    "+0.35": 287276,
+    "+0.40": 268931,
+    "+0.45": 256022,
+    "+0.50": 382655,
+    "+0.55": 32
+  },
+  "per_n": {
+    "17": {
+      "trees": 48629,
+      "edges": 778064,
+      "max_abs_dmu": 0.5292123483504836,
+      "max_abs_dmu_exact": "5573149/10531026",
+      "max_mode_shift": 1,
+      "dmu_ge_1": 0,
+      "ecms_violations": 0,
+      "time_s": 109.79
+    },
+    "18": {
+      "trees": 123867,
+      "edges": 2105739,
+      "max_abs_dmu": 0.5330431188708896,
+      "max_abs_dmu_exact": "21466253/40271138",
+      "max_mode_shift": 1,
+      "dmu_ge_1": 0,
+      "ecms_violations": 0,
+      "time_s": 311.81
+    }
+  }
+}

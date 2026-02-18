@@ -1,0 +1,37 @@
+{
+  "config": {
+    "min_n": 23,
+    "max_n": 23,
+    "geng": "/opt/homebrew/bin/geng",
+    "tol": 1e-12
+  },
+  "summary": {
+    "total_dleaf": 528196,
+    "hall_fail": 0,
+    "singleton_best": 528196,
+    "singleton_not_best": 0,
+    "global_min_slack": 0.0012905437423751387,
+    "global_min_singleton": 0.0012905437423751387,
+    "worst": {
+      "n": 23,
+      "g6": "V???????????_?O?C??_?A??C??C??A???_??E?F~g??",
+      "min_slack": 0.0012905437423751387,
+      "argmin_size": 1,
+      "min_singleton": 0.0012905437423751387
+    },
+    "wall_s": 434.3757839202881
+  },
+  "argmin_size_dist": {
+    "1": 528196
+  },
+  "per_n": {
+    "23": {
+      "dleaf": 528196,
+      "hall_fail": 0,
+      "singleton_best": 528196,
+      "singleton_not_best": 0,
+      "singleton_best_pct": 100.0,
+      "elapsed_s": 434.3757390975952
+    }
+  }
+}

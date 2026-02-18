@@ -1,0 +1,29 @@
+{
+  "min_a": 14,
+  "max_a": 16,
+  "min_b": 2,
+  "max_b": 15,
+  "backend": "geng",
+  "require_b_le_a": true,
+  "tested_pairs": 163730609,
+  "frankenstein_valleys": 0,
+  "first_examples": [],
+  "stats_by_a": [
+    {
+      "a_n": 14,
+      "tested_pairs": 4238823,
+      "valley_pairs": 0
+    },
+    {
+      "a_n": 15,
+      "tested_pairs": 23588031,
+      "valley_pairs": 0
+    },
+    {
+      "a_n": 16,
+      "tested_pairs": 135903755,
+      "valley_pairs": 0
+    }
+  ],
+  "elapsed_s": 324.70902395248413
+}

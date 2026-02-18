@@ -1,0 +1,3156 @@
+{
+  "generated_at_utc": "2026-02-11T11:53:25.842040+00:00",
+  "description": "Lamport transition scan for rooted tree composition. Tracks where first-difference tail violations occur relative to d(IU).",
+  "definitions": {
+    "transition": "P'=P(U+V), Q'=QU, I'=IU+PV with I=P+Q",
+    "d": "first descent index of IU (smallest k with Delta(IU)_k<0)",
+    "difference_dominance": "Delta(PV)_k <= -Delta(IU)_k for k>=d",
+    "positive_tail_after_boundary": "exists k>d with Delta(I')_k>0"
+  },
+  "stratified_samples": [
+    {
+      "n": 18,
+      "sampling": {
+        "type": "geng_partition_prefix",
+        "mod": 16,
+        "per_partition": 200,
+        "partition_counts": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          118,
+          200,
+          200,
+          200,
+          0,
+          200
+        ]
+      },
+      "elapsed_s": 7.349,
+      "trees_scanned": 2918,
+      "lamport_steps": 892908,
+      "steps_no_descent": 232648,
+      "steps_with_descent": 660260,
+      "dd_all_hold": 574382,
+      "dd_failures": 85878,
+      "dd_failures_boundary_only": 85878,
+      "dd_failures_interior": 0,
+      "positive_tail_after_boundary": 0,
+      "pv_positive_after_d": 1823,
+      "pv_positive_after_d_plus_1": 0,
+      "dd_boundary_fail": 85878,
+      "dd_boundary_hold": 574382,
+      "dd_boundary_fail_and_pv_positive_after_d": 1823,
+      "dd_boundary_hold_and_pv_positive_after_d": 0,
+      "pv_positive_offset_hist": {
+        "1": 1823
+      },
+      "profile_by_child_size": {
+        "17": {
+          "steps": 27227,
+          "boundary_fail": 1225,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 230211,
+          "boundary_fail": 73574,
+          "pv_positive_after_d": 1823
+        },
+        "16": {
+          "steps": 12568,
+          "boundary_fail": 465,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 100544,
+          "boundary_fail": 388,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 11514,
+          "boundary_fail": 713,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 57570,
+          "boundary_fail": 507,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 15044,
+          "boundary_fail": 723,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 52654,
+          "boundary_fail": 442,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 9430,
+          "boundary_fail": 420,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 24518,
+          "boundary_fail": 711,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 10710,
+          "boundary_fail": 512,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 21420,
+          "boundary_fail": 1291,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 15988,
+          "boundary_fail": 729,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 25124,
+          "boundary_fail": 2107,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 13544,
+          "boundary_fail": 969,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 16930,
+          "boundary_fail": 460,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 15264,
+          "boundary_fail": 642,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_child_arity": {
+        "16": {
+          "steps": 17,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 230211,
+          "boundary_fail": 73574,
+          "pv_positive_after_d": 1823
+        },
+        "15": {
+          "steps": 17,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 257771,
+          "boundary_fail": 9874,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 51,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 97223,
+          "boundary_fail": 2198,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 102,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 32419,
+          "boundary_fail": 227,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 255,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 14127,
+          "boundary_fail": 5,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 408,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 9503,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 935,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 6681,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 1751,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 5423,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 3366,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_deg_u": {
+        "16": {
+          "steps": 17,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 230211,
+          "boundary_fail": 73574,
+          "pv_positive_after_d": 1823
+        },
+        "15": {
+          "steps": 235,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 141149,
+          "boundary_fail": 879,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 2647,
+          "boundary_fail": 24,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 68015,
+          "boundary_fail": 577,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 274,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 39233,
+          "boundary_fail": 1310,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 7634,
+          "boundary_fail": 298,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 33820,
+          "boundary_fail": 2799,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 11897,
+          "boundary_fail": 397,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 25238,
+          "boundary_fail": 950,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 18599,
+          "boundary_fail": 522,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 22549,
+          "boundary_fail": 1310,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 20183,
+          "boundary_fail": 805,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 20225,
+          "boundary_fail": 1190,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 18334,
+          "boundary_fail": 1243,
+          "pv_positive_after_d": 0
+        }
+      },
+      "dplus1_positive_num": 1823,
+      "dplus1_zero_den_positive_num": 0,
+      "dplus1_ratio_max": 0.125,
+      "dplus1_ratio_max_witness": {
+        "n": 18,
+        "tree_index": 29,
+        "graph6": "Q?????????????????C??{?@N~_",
+        "root": 4,
+        "parent": 17,
+        "child": 8,
+        "child_pos": 4,
+        "child_size": 1,
+        "child_arity": 0,
+        "deg_u": 0,
+        "d": 3,
+        "num": 3,
+        "den": 24,
+        "ratio": 0.125,
+        "delta_IU_dplus1": -24,
+        "delta_PV_dplus1": 3
+      },
+      "first_boundary_witness": {
+        "n": 18,
+        "tree_index": 1,
+        "graph6": "Q??????????????????????B~~w",
+        "root": 0,
+        "parent": 17,
+        "child": 4,
+        "child_pos": 3,
+        "d": 1,
+        "violations": [
+          1
+        ],
+        "delta_IU": [
+          3,
+          -1,
+          -2,
+          0
+        ],
+        "delta_PV": [
+          1,
+          2,
+          0,
+          -2
+        ],
+        "delta_Iprime": [
+          4,
+          1,
+          -2,
+          -3
+        ]
+      },
+      "first_interior_witness": null,
+      "first_positive_tail_witness": null,
+      "first_pv_positive_after_d_witness": {
+        "n": 18,
+        "tree_index": 29,
+        "graph6": "Q?????????????????C??{?@N~_",
+        "root": 4,
+        "parent": 17,
+        "child": 8,
+        "child_pos": 4,
+        "d": 3,
+        "positive_k": [
+          4
+        ],
+        "delta_IU": [
+          9,
+          26,
+          26,
+          -1,
+          -24,
+          -24,
+          -11,
+          0
+        ],
+        "delta_PV": [
+          1,
+          8,
+          22,
+          25,
+          3,
+          -22,
+          -24,
+          -11
+        ],
+        "delta_Iprime": [
+          10,
+          34,
+          48,
+          24,
+          -21,
+          -46,
+          -35,
+          -13
+        ],
+        "boundary_fails": true
+      }
+    },
+    {
+      "n": 19,
+      "sampling": {
+        "type": "geng_partition_prefix",
+        "mod": 16,
+        "per_partition": 200,
+        "partition_counts": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ]
+      },
+      "elapsed_s": 9.431,
+      "trees_scanned": 3200,
+      "lamport_steps": 1094400,
+      "steps_no_descent": 293518,
+      "steps_with_descent": 800882,
+      "dd_all_hold": 692077,
+      "dd_failures": 108805,
+      "dd_failures_boundary_only": 108805,
+      "dd_failures_interior": 0,
+      "positive_tail_after_boundary": 0,
+      "pv_positive_after_d": 2319,
+      "pv_positive_after_d_plus_1": 0,
+      "dd_boundary_fail": 108805,
+      "dd_boundary_hold": 692077,
+      "dd_boundary_fail_and_pv_positive_after_d": 2319,
+      "dd_boundary_hold_and_pv_positive_after_d": 0,
+      "pv_positive_offset_hist": {
+        "1": 2319
+      },
+      "profile_by_child_size": {
+        "18": {
+          "steps": 32660,
+          "boundary_fail": 311,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 294362,
+          "boundary_fail": 90579,
+          "pv_positive_after_d": 2319
+        },
+        "17": {
+          "steps": 9084,
+          "boundary_fail": 541,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 77214,
+          "boundary_fail": 274,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 14235,
+          "boundary_fail": 1060,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 75920,
+          "boundary_fail": 624,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 16704,
+          "boundary_fail": 462,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 62640,
+          "boundary_fail": 741,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 12885,
+          "boundary_fail": 648,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 36078,
+          "boundary_fail": 1056,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 14124,
+          "boundary_fail": 1232,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 30602,
+          "boundary_fail": 1751,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 17094,
+          "boundary_fail": 759,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 29304,
+          "boundary_fail": 4101,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 16328,
+          "boundary_fail": 685,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 22451,
+          "boundary_fail": 661,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 18567,
+          "boundary_fail": 2465,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 20630,
+          "boundary_fail": 855,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_child_arity": {
+        "17": {
+          "steps": 18,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 294362,
+          "boundary_fail": 90579,
+          "pv_positive_after_d": 2319
+        },
+        "16": {
+          "steps": 18,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 261612,
+          "boundary_fail": 14678,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 54,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 150804,
+          "boundary_fail": 3257,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 108,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 48096,
+          "boundary_fail": 291,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 270,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 16614,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 414,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 7722,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 918,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 7056,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 1440,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 5040,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 2430,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 3906,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_deg_u": {
+        "17": {
+          "steps": 18,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 294362,
+          "boundary_fail": 90579,
+          "pv_positive_after_d": 2319
+        },
+        "16": {
+          "steps": 266,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 109310,
+          "boundary_fail": 898,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 2821,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 98028,
+          "boundary_fail": 875,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 295,
+          "boundary_fail": 48,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 54975,
+          "boundary_fail": 1602,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 8260,
+          "boundary_fail": 77,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 45856,
+          "boundary_fail": 5179,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 16855,
+          "boundary_fail": 520,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 31135,
+          "boundary_fail": 1082,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 17230,
+          "boundary_fail": 184,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 30356,
+          "boundary_fail": 3050,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 20275,
+          "boundary_fail": 1057,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 24503,
+          "boundary_fail": 1004,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 23742,
+          "boundary_fail": 900,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 22595,
+          "boundary_fail": 1750,
+          "pv_positive_after_d": 0
+        }
+      },
+      "dplus1_positive_num": 2319,
+      "dplus1_zero_den_positive_num": 0,
+      "dplus1_ratio_max": 0.125,
+      "dplus1_ratio_max_witness": {
+        "n": 19,
+        "tree_index": 30,
+        "graph6": "R????????????????????_?Bo?A^~_",
+        "root": 4,
+        "parent": 18,
+        "child": 8,
+        "child_pos": 4,
+        "child_size": 1,
+        "child_arity": 0,
+        "deg_u": 0,
+        "d": 3,
+        "num": 3,
+        "den": 24,
+        "ratio": 0.125,
+        "delta_IU_dplus1": -24,
+        "delta_PV_dplus1": 3
+      },
+      "first_boundary_witness": {
+        "n": 19,
+        "tree_index": 1,
+        "graph6": "R?????????????????????????F~~w",
+        "root": 0,
+        "parent": 18,
+        "child": 4,
+        "child_pos": 3,
+        "d": 1,
+        "violations": [
+          1
+        ],
+        "delta_IU": [
+          3,
+          -1,
+          -2,
+          0
+        ],
+        "delta_PV": [
+          1,
+          2,
+          0,
+          -2
+        ],
+        "delta_Iprime": [
+          4,
+          1,
+          -2,
+          -3
+        ]
+      },
+      "first_interior_witness": null,
+      "first_positive_tail_witness": null,
+      "first_pv_positive_after_d_witness": {
+        "n": 19,
+        "tree_index": 30,
+        "graph6": "R????????????????????_?Bo?A^~_",
+        "root": 4,
+        "parent": 18,
+        "child": 8,
+        "child_pos": 4,
+        "d": 3,
+        "positive_k": [
+          4
+        ],
+        "delta_IU": [
+          9,
+          26,
+          26,
+          -1,
+          -24,
+          -24,
+          -11,
+          0
+        ],
+        "delta_PV": [
+          1,
+          8,
+          22,
+          25,
+          3,
+          -22,
+          -24,
+          -11
+        ],
+        "delta_Iprime": [
+          10,
+          34,
+          48,
+          24,
+          -21,
+          -46,
+          -35,
+          -13
+        ],
+        "boundary_fails": true
+      }
+    },
+    {
+      "n": 20,
+      "sampling": {
+        "type": "geng_partition_prefix",
+        "mod": 16,
+        "per_partition": 200,
+        "partition_counts": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ]
+      },
+      "elapsed_s": 10.87,
+      "trees_scanned": 3200,
+      "lamport_steps": 1216000,
+      "steps_no_descent": 314186,
+      "steps_with_descent": 901814,
+      "dd_all_hold": 783384,
+      "dd_failures": 118430,
+      "dd_failures_boundary_only": 118430,
+      "dd_failures_interior": 0,
+      "positive_tail_after_boundary": 0,
+      "pv_positive_after_d": 2963,
+      "pv_positive_after_d_plus_1": 0,
+      "dd_boundary_fail": 118430,
+      "dd_boundary_hold": 783384,
+      "dd_boundary_fail_and_pv_positive_after_d": 2963,
+      "dd_boundary_hold_and_pv_positive_after_d": 0,
+      "pv_positive_offset_hist": {
+        "1": 2963
+      },
+      "profile_by_child_size": {
+        "19": {
+          "steps": 34600,
+          "boundary_fail": 363,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 343214,
+          "boundary_fail": 101401,
+          "pv_positive_after_d": 2957
+        },
+        "18": {
+          "steps": 8758,
+          "boundary_fail": 255,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 78822,
+          "boundary_fail": 252,
+          "pv_positive_after_d": 0
+        },
+        "17": {
+          "steps": 17034,
+          "boundary_fail": 923,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 96526,
+          "boundary_fail": 811,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 18000,
+          "boundary_fail": 758,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 72000,
+          "boundary_fail": 1082,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 11790,
+          "boundary_fail": 271,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 35370,
+          "boundary_fail": 889,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 11922,
+          "boundary_fail": 934,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 27818,
+          "boundary_fail": 1758,
+          "pv_positive_after_d": 2
+        },
+        "13": {
+          "steps": 17003,
+          "boundary_fail": 787,
+          "pv_positive_after_d": 1
+        },
+        "7": {
+          "steps": 31577,
+          "boundary_fail": 3080,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 15520,
+          "boundary_fail": 564,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 23280,
+          "boundary_fail": 700,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 16965,
+          "boundary_fail": 867,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 20735,
+          "boundary_fail": 1171,
+          "pv_positive_after_d": 3
+        },
+        "10": {
+          "steps": 20880,
+          "boundary_fail": 1564,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_child_arity": {
+        "18": {
+          "steps": 19,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 343214,
+          "boundary_fail": 101401,
+          "pv_positive_after_d": 2957
+        },
+        "17": {
+          "steps": 19,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 295393,
+          "boundary_fail": 13420,
+          "pv_positive_after_d": 2
+        },
+        "16": {
+          "steps": 57,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 160892,
+          "boundary_fail": 3305,
+          "pv_positive_after_d": 4
+        },
+        "15": {
+          "steps": 114,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 52611,
+          "boundary_fail": 304,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 285,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 11932,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 437,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 9956,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 950,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 7942,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 1444,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 6327,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 2204,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 4503,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 3515,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_deg_u": {
+        "18": {
+          "steps": 19,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 343214,
+          "boundary_fail": 101401,
+          "pv_positive_after_d": 2957
+        },
+        "17": {
+          "steps": 300,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 126133,
+          "boundary_fail": 1063,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 2996,
+          "boundary_fail": 29,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 111204,
+          "boundary_fail": 1152,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 314,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 56505,
+          "boundary_fail": 1035,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 8916,
+          "boundary_fail": 302,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 43977,
+          "boundary_fail": 4733,
+          "pv_positive_after_d": 2
+        },
+        "13": {
+          "steps": 13447,
+          "boundary_fail": 6,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 32881,
+          "boundary_fail": 1190,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 19158,
+          "boundary_fail": 615,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 30975,
+          "boundary_fail": 2176,
+          "pv_positive_after_d": 3
+        },
+        "11": {
+          "steps": 19931,
+          "boundary_fail": 463,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 24869,
+          "boundary_fail": 803,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 25575,
+          "boundary_fail": 1267,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 20005,
+          "boundary_fail": 1276,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 21395,
+          "boundary_fail": 919,
+          "pv_positive_after_d": 1
+        }
+      },
+      "dplus1_positive_num": 2963,
+      "dplus1_zero_den_positive_num": 0,
+      "dplus1_ratio_max": 0.125,
+      "dplus1_ratio_max_witness": {
+        "n": 20,
+        "tree_index": 31,
+        "graph6": "S??????????????????????A??F_?A^~o",
+        "root": 4,
+        "parent": 19,
+        "child": 8,
+        "child_pos": 4,
+        "child_size": 1,
+        "child_arity": 0,
+        "deg_u": 0,
+        "d": 3,
+        "num": 3,
+        "den": 24,
+        "ratio": 0.125,
+        "delta_IU_dplus1": -24,
+        "delta_PV_dplus1": 3
+      },
+      "first_boundary_witness": {
+        "n": 20,
+        "tree_index": 1,
+        "graph6": "S????????????????????????????F~~{",
+        "root": 0,
+        "parent": 19,
+        "child": 4,
+        "child_pos": 3,
+        "d": 1,
+        "violations": [
+          1
+        ],
+        "delta_IU": [
+          3,
+          -1,
+          -2,
+          0
+        ],
+        "delta_PV": [
+          1,
+          2,
+          0,
+          -2
+        ],
+        "delta_Iprime": [
+          4,
+          1,
+          -2,
+          -3
+        ]
+      },
+      "first_interior_witness": null,
+      "first_positive_tail_witness": null,
+      "first_pv_positive_after_d_witness": {
+        "n": 20,
+        "tree_index": 31,
+        "graph6": "S??????????????????????A??F_?A^~o",
+        "root": 4,
+        "parent": 19,
+        "child": 8,
+        "child_pos": 4,
+        "d": 3,
+        "positive_k": [
+          4
+        ],
+        "delta_IU": [
+          9,
+          26,
+          26,
+          -1,
+          -24,
+          -24,
+          -11,
+          0
+        ],
+        "delta_PV": [
+          1,
+          8,
+          22,
+          25,
+          3,
+          -22,
+          -24,
+          -11
+        ],
+        "delta_Iprime": [
+          10,
+          34,
+          48,
+          24,
+          -21,
+          -46,
+          -35,
+          -13
+        ],
+        "boundary_fails": true
+      }
+    },
+    {
+      "n": 21,
+      "sampling": {
+        "type": "geng_partition_prefix",
+        "mod": 16,
+        "per_partition": 200,
+        "partition_counts": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ]
+      },
+      "elapsed_s": 12.729,
+      "trees_scanned": 3200,
+      "lamport_steps": 1344000,
+      "steps_no_descent": 352724,
+      "steps_with_descent": 991276,
+      "dd_all_hold": 832461,
+      "dd_failures": 158815,
+      "dd_failures_boundary_only": 158815,
+      "dd_failures_interior": 0,
+      "positive_tail_after_boundary": 0,
+      "pv_positive_after_d": 4072,
+      "pv_positive_after_d_plus_1": 0,
+      "dd_boundary_fail": 158815,
+      "dd_boundary_hold": 832461,
+      "dd_boundary_fail_and_pv_positive_after_d": 4072,
+      "dd_boundary_hold_and_pv_positive_after_d": 0,
+      "pv_positive_offset_hist": {
+        "1": 4072
+      },
+      "profile_by_child_size": {
+        "20": {
+          "steps": 39733,
+          "boundary_fail": 107,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 441936,
+          "boundary_fail": 136219,
+          "pv_positive_after_d": 4066
+        },
+        "19": {
+          "steps": 6460,
+          "boundary_fail": 161,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 61370,
+          "boundary_fail": 199,
+          "pv_positive_after_d": 0
+        },
+        "18": {
+          "steps": 13212,
+          "boundary_fail": 1197,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 79272,
+          "boundary_fail": 430,
+          "pv_positive_after_d": 0
+        },
+        "17": {
+          "steps": 17364,
+          "boundary_fail": 314,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 73797,
+          "boundary_fail": 1315,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 14800,
+          "boundary_fail": 714,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 47360,
+          "boundary_fail": 1385,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 12522,
+          "boundary_fail": 1060,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 31305,
+          "boundary_fail": 3977,
+          "pv_positive_after_d": 6
+        },
+        "14": {
+          "steps": 13356,
+          "boundary_fail": 755,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 26712,
+          "boundary_fail": 2824,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 14840,
+          "boundary_fail": 1263,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 24115,
+          "boundary_fail": 658,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 16038,
+          "boundary_fail": 886,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 21384,
+          "boundary_fail": 2689,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 17000,
+          "boundary_fail": 1073,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 18700,
+          "boundary_fail": 1589,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_child_arity": {
+        "19": {
+          "steps": 20,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 441936,
+          "boundary_fail": 136219,
+          "pv_positive_after_d": 4066
+        },
+        "18": {
+          "steps": 20,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 248260,
+          "boundary_fail": 16645,
+          "pv_positive_after_d": 6
+        },
+        "17": {
+          "steps": 60,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 168400,
+          "boundary_fail": 5392,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 120,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 62140,
+          "boundary_fail": 512,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 300,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 25400,
+          "boundary_fail": 47,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 480,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 10740,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 1080,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 8860,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 1800,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 6620,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 2960,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 5100,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 3000,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 3980,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_deg_u": {
+        "19": {
+          "steps": 20,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 441936,
+          "boundary_fail": 136219,
+          "pv_positive_after_d": 4066
+        },
+        "18": {
+          "steps": 335,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 88856,
+          "boundary_fail": 629,
+          "pv_positive_after_d": 0
+        },
+        "17": {
+          "steps": 3159,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 105514,
+          "boundary_fail": 1360,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 335,
+          "boundary_fail": 58,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 67061,
+          "boundary_fail": 1681,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 11092,
+          "boundary_fail": 105,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 44847,
+          "boundary_fail": 6391,
+          "pv_positive_after_d": 6
+        },
+        "14": {
+          "steps": 17783,
+          "boundary_fail": 131,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 31531,
+          "boundary_fail": 913,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 17955,
+          "boundary_fail": 142,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 31501,
+          "boundary_fail": 3890,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 18845,
+          "boundary_fail": 1151,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 25126,
+          "boundary_fail": 760,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 23450,
+          "boundary_fail": 718,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 23146,
+          "boundary_fail": 2425,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 21198,
+          "boundary_fail": 1563,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 17586,
+          "boundary_fail": 679,
+          "pv_positive_after_d": 0
+        }
+      },
+      "dplus1_positive_num": 4072,
+      "dplus1_zero_den_positive_num": 0,
+      "dplus1_ratio_max": 0.125,
+      "dplus1_ratio_max_witness": {
+        "n": 21,
+        "tree_index": 32,
+        "graph6": "T?????????????????????????C??F_?@N~{",
+        "root": 4,
+        "parent": 20,
+        "child": 8,
+        "child_pos": 4,
+        "child_size": 1,
+        "child_arity": 0,
+        "deg_u": 0,
+        "d": 3,
+        "num": 3,
+        "den": 24,
+        "ratio": 0.125,
+        "delta_IU_dplus1": -24,
+        "delta_PV_dplus1": 3
+      },
+      "first_boundary_witness": {
+        "n": 21,
+        "tree_index": 1,
+        "graph6": "T???????????????????????????????B~~~",
+        "root": 0,
+        "parent": 20,
+        "child": 4,
+        "child_pos": 3,
+        "d": 1,
+        "violations": [
+          1
+        ],
+        "delta_IU": [
+          3,
+          -1,
+          -2,
+          0
+        ],
+        "delta_PV": [
+          1,
+          2,
+          0,
+          -2
+        ],
+        "delta_Iprime": [
+          4,
+          1,
+          -2,
+          -3
+        ]
+      },
+      "first_interior_witness": null,
+      "first_positive_tail_witness": null,
+      "first_pv_positive_after_d_witness": {
+        "n": 21,
+        "tree_index": 32,
+        "graph6": "T?????????????????????????C??F_?@N~{",
+        "root": 4,
+        "parent": 20,
+        "child": 8,
+        "child_pos": 4,
+        "d": 3,
+        "positive_k": [
+          4
+        ],
+        "delta_IU": [
+          9,
+          26,
+          26,
+          -1,
+          -24,
+          -24,
+          -11,
+          0
+        ],
+        "delta_PV": [
+          1,
+          8,
+          22,
+          25,
+          3,
+          -22,
+          -24,
+          -11
+        ],
+        "delta_Iprime": [
+          10,
+          34,
+          48,
+          24,
+          -21,
+          -46,
+          -35,
+          -13
+        ],
+        "boundary_fails": true
+      }
+    },
+    {
+      "n": 22,
+      "sampling": {
+        "type": "geng_partition_prefix",
+        "mod": 16,
+        "per_partition": 200,
+        "partition_counts": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ]
+      },
+      "elapsed_s": 14.856,
+      "trees_scanned": 3200,
+      "lamport_steps": 1478400,
+      "steps_no_descent": 368914,
+      "steps_with_descent": 1109486,
+      "dd_all_hold": 923267,
+      "dd_failures": 186219,
+      "dd_failures_boundary_only": 186219,
+      "dd_failures_interior": 0,
+      "positive_tail_after_boundary": 0,
+      "pv_positive_after_d": 4037,
+      "pv_positive_after_d_plus_1": 0,
+      "dd_boundary_fail": 186219,
+      "dd_boundary_hold": 923267,
+      "dd_boundary_fail_and_pv_positive_after_d": 4037,
+      "dd_boundary_hold_and_pv_positive_after_d": 0,
+      "pv_positive_offset_hist": {
+        "1": 4037
+      },
+      "profile_by_child_size": {
+        "21": {
+          "steps": 43015,
+          "boundary_fail": 692,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 534401,
+          "boundary_fail": 159663,
+          "pv_positive_after_d": 4034
+        },
+        "20": {
+          "steps": 6872,
+          "boundary_fail": 409,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 68720,
+          "boundary_fail": 326,
+          "pv_positive_after_d": 0
+        },
+        "19": {
+          "steps": 10293,
+          "boundary_fail": 2055,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 65189,
+          "boundary_fail": 497,
+          "pv_positive_after_d": 0
+        },
+        "18": {
+          "steps": 15784,
+          "boundary_fail": 920,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 71028,
+          "boundary_fail": 867,
+          "pv_positive_after_d": 0
+        },
+        "17": {
+          "steps": 14480,
+          "boundary_fail": 785,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 49232,
+          "boundary_fail": 906,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 16392,
+          "boundary_fail": 1307,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 43712,
+          "boundary_fail": 5598,
+          "pv_positive_after_d": 1
+        },
+        "15": {
+          "steps": 12502,
+          "boundary_fail": 959,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 26790,
+          "boundary_fail": 1661,
+          "pv_positive_after_d": 1
+        },
+        "14": {
+          "steps": 13248,
+          "boundary_fail": 990,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 23184,
+          "boundary_fail": 537,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 15489,
+          "boundary_fail": 1418,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 22373,
+          "boundary_fail": 2075,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 17760,
+          "boundary_fail": 595,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 21312,
+          "boundary_fail": 1941,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 17710,
+          "boundary_fail": 2018,
+          "pv_positive_after_d": 1
+        }
+      },
+      "profile_by_child_arity": {
+        "20": {
+          "steps": 21,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 534401,
+          "boundary_fail": 159663,
+          "pv_positive_after_d": 4034
+        },
+        "19": {
+          "steps": 21,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 266574,
+          "boundary_fail": 19667,
+          "pv_positive_after_d": 2
+        },
+        "18": {
+          "steps": 63,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 149457,
+          "boundary_fail": 6171,
+          "pv_positive_after_d": 1
+        },
+        "17": {
+          "steps": 126,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 66360,
+          "boundary_fail": 658,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 315,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 32466,
+          "boundary_fail": 60,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 504,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 18144,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 1134,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 11088,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 1827,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 7350,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 2520,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 7350,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 2226,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 4368,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 3171,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_deg_u": {
+        "20": {
+          "steps": 21,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 534401,
+          "boundary_fail": 159663,
+          "pv_positive_after_d": 4034
+        },
+        "19": {
+          "steps": 373,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 98512,
+          "boundary_fail": 823,
+          "pv_positive_after_d": 0
+        },
+        "18": {
+          "steps": 3331,
+          "boundary_fail": 34,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 81735,
+          "boundary_fail": 906,
+          "pv_positive_after_d": 0
+        },
+        "17": {
+          "steps": 354,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 71844,
+          "boundary_fail": 1161,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 12249,
+          "boundary_fail": 346,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 51294,
+          "boundary_fail": 6805,
+          "pv_positive_after_d": 1
+        },
+        "15": {
+          "steps": 16855,
+          "boundary_fail": 311,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 37076,
+          "boundary_fail": 968,
+          "pv_positive_after_d": 1
+        },
+        "14": {
+          "steps": 20334,
+          "boundary_fail": 1503,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 31125,
+          "boundary_fail": 3614,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 17216,
+          "boundary_fail": 734,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 25558,
+          "boundary_fail": 756,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 20537,
+          "boundary_fail": 2012,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 26087,
+          "boundary_fail": 2970,
+          "pv_positive_after_d": 1
+        },
+        "11": {
+          "steps": 22405,
+          "boundary_fail": 561,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 19436,
+          "boundary_fail": 477,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 18743,
+          "boundary_fail": 2575,
+          "pv_positive_after_d": 0
+        }
+      },
+      "dplus1_positive_num": 4037,
+      "dplus1_zero_den_positive_num": 0,
+      "dplus1_ratio_max": 0.125,
+      "dplus1_ratio_max_witness": {
+        "n": 22,
+        "tree_index": 33,
+        "graph6": "U????????????????????????????C??Bo??R~~_",
+        "root": 4,
+        "parent": 21,
+        "child": 8,
+        "child_pos": 4,
+        "child_size": 1,
+        "child_arity": 0,
+        "deg_u": 0,
+        "d": 3,
+        "num": 3,
+        "den": 24,
+        "ratio": 0.125,
+        "delta_IU_dplus1": -24,
+        "delta_PV_dplus1": 3
+      },
+      "first_boundary_witness": {
+        "n": 22,
+        "tree_index": 1,
+        "graph6": "U???????????????????????????????????~~~w",
+        "root": 0,
+        "parent": 21,
+        "child": 4,
+        "child_pos": 3,
+        "d": 1,
+        "violations": [
+          1
+        ],
+        "delta_IU": [
+          3,
+          -1,
+          -2,
+          0
+        ],
+        "delta_PV": [
+          1,
+          2,
+          0,
+          -2
+        ],
+        "delta_Iprime": [
+          4,
+          1,
+          -2,
+          -3
+        ]
+      },
+      "first_interior_witness": null,
+      "first_positive_tail_witness": null,
+      "first_pv_positive_after_d_witness": {
+        "n": 22,
+        "tree_index": 33,
+        "graph6": "U????????????????????????????C??Bo??R~~_",
+        "root": 4,
+        "parent": 21,
+        "child": 8,
+        "child_pos": 4,
+        "d": 3,
+        "positive_k": [
+          4
+        ],
+        "delta_IU": [
+          9,
+          26,
+          26,
+          -1,
+          -24,
+          -24,
+          -11,
+          0
+        ],
+        "delta_PV": [
+          1,
+          8,
+          22,
+          25,
+          3,
+          -22,
+          -24,
+          -11
+        ],
+        "delta_Iprime": [
+          10,
+          34,
+          48,
+          24,
+          -21,
+          -46,
+          -35,
+          -13
+        ],
+        "boundary_fails": true
+      }
+    },
+    {
+      "n": 23,
+      "sampling": {
+        "type": "geng_partition_prefix",
+        "mod": 16,
+        "per_partition": 200,
+        "partition_counts": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ]
+      },
+      "elapsed_s": 17.676,
+      "trees_scanned": 3200,
+      "lamport_steps": 1619200,
+      "steps_no_descent": 408915,
+      "steps_with_descent": 1210285,
+      "dd_all_hold": 999752,
+      "dd_failures": 210533,
+      "dd_failures_boundary_only": 210533,
+      "dd_failures_interior": 0,
+      "positive_tail_after_boundary": 0,
+      "pv_positive_after_d": 5342,
+      "pv_positive_after_d_plus_1": 0,
+      "dd_boundary_fail": 210533,
+      "dd_boundary_hold": 999752,
+      "dd_boundary_fail_and_pv_positive_after_d": 5342,
+      "dd_boundary_hold_and_pv_positive_after_d": 0,
+      "pv_positive_offset_hist": {
+        "1": 5342
+      },
+      "profile_by_child_size": {
+        "22": {
+          "steps": 47583,
+          "boundary_fail": 605,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 637911,
+          "boundary_fail": 187705,
+          "pv_positive_after_d": 5342
+        },
+        "21": {
+          "steps": 4516,
+          "boundary_fail": 586,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 47418,
+          "boundary_fail": 123,
+          "pv_positive_after_d": 0
+        },
+        "20": {
+          "steps": 10701,
+          "boundary_fail": 754,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 71340,
+          "boundary_fail": 432,
+          "pv_positive_after_d": 0
+        },
+        "19": {
+          "steps": 16124,
+          "boundary_fail": 1098,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 76589,
+          "boundary_fail": 1052,
+          "pv_positive_after_d": 0
+        },
+        "18": {
+          "steps": 13960,
+          "boundary_fail": 707,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 50256,
+          "boundary_fail": 1270,
+          "pv_positive_after_d": 0
+        },
+        "17": {
+          "steps": 12246,
+          "boundary_fail": 831,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 34697,
+          "boundary_fail": 5143,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 13146,
+          "boundary_fail": 1131,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 30048,
+          "boundary_fail": 1262,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 12968,
+          "boundary_fail": 754,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 24315,
+          "boundary_fail": 621,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 13680,
+          "boundary_fail": 772,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 21280,
+          "boundary_fail": 1085,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 15190,
+          "boundary_fail": 712,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 19747,
+          "boundary_fail": 1703,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 17490,
+          "boundary_fail": 890,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 19080,
+          "boundary_fail": 1297,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_child_arity": {
+        "21": {
+          "steps": 22,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 637911,
+          "boundary_fail": 187705,
+          "pv_positive_after_d": 5342
+        },
+        "20": {
+          "steps": 22,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 211596,
+          "boundary_fail": 17012,
+          "pv_positive_after_d": 0
+        },
+        "19": {
+          "steps": 66,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 173536,
+          "boundary_fail": 5125,
+          "pv_positive_after_d": 0
+        },
+        "18": {
+          "steps": 132,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 89232,
+          "boundary_fail": 671,
+          "pv_positive_after_d": 0
+        },
+        "17": {
+          "steps": 330,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 30976,
+          "boundary_fail": 20,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 506,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 17776,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 1100,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 13134,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 1628,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 6908,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 2134,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 4290,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 2552,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 6314,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 3850,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 6270,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_deg_u": {
+        "21": {
+          "steps": 22,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 637911,
+          "boundary_fail": 187705,
+          "pv_positive_after_d": 5342
+        },
+        "20": {
+          "steps": 412,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 68438,
+          "boundary_fail": 555,
+          "pv_positive_after_d": 0
+        },
+        "19": {
+          "steps": 3500,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 89782,
+          "boundary_fail": 1078,
+          "pv_positive_after_d": 0
+        },
+        "18": {
+          "steps": 375,
+          "boundary_fail": 68,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 77867,
+          "boundary_fail": 1404,
+          "pv_positive_after_d": 0
+        },
+        "17": {
+          "steps": 12831,
+          "boundary_fail": 133,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 50338,
+          "boundary_fail": 6039,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 24680,
+          "boundary_fail": 500,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 34401,
+          "boundary_fail": 893,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 18561,
+          "boundary_fail": 791,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 32402,
+          "boundary_fail": 2456,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 16937,
+          "boundary_fail": 798,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 26912,
+          "boundary_fail": 644,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 18021,
+          "boundary_fail": 358,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 19628,
+          "boundary_fail": 1867,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 18530,
+          "boundary_fail": 2187,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 20902,
+          "boundary_fail": 543,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 16534,
+          "boundary_fail": 359,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 21301,
+          "boundary_fail": 2155,
+          "pv_positive_after_d": 0
+        }
+      },
+      "dplus1_positive_num": 5342,
+      "dplus1_zero_den_positive_num": 0,
+      "dplus1_ratio_max": 0.125,
+      "dplus1_ratio_max_witness": {
+        "n": 23,
+        "tree_index": 34,
+        "graph6": "V???????????????????????????????A???{??A^~}?",
+        "root": 4,
+        "parent": 22,
+        "child": 8,
+        "child_pos": 4,
+        "child_size": 1,
+        "child_arity": 0,
+        "deg_u": 0,
+        "d": 3,
+        "num": 3,
+        "den": 24,
+        "ratio": 0.125,
+        "delta_IU_dplus1": -24,
+        "delta_PV_dplus1": 3
+      },
+      "first_boundary_witness": {
+        "n": 23,
+        "tree_index": 1,
+        "graph6": "V??????????????????????????????????????F~~~_",
+        "root": 0,
+        "parent": 22,
+        "child": 4,
+        "child_pos": 3,
+        "d": 1,
+        "violations": [
+          1
+        ],
+        "delta_IU": [
+          3,
+          -1,
+          -2,
+          0
+        ],
+        "delta_PV": [
+          1,
+          2,
+          0,
+          -2
+        ],
+        "delta_Iprime": [
+          4,
+          1,
+          -2,
+          -3
+        ]
+      },
+      "first_interior_witness": null,
+      "first_positive_tail_witness": null,
+      "first_pv_positive_after_d_witness": {
+        "n": 23,
+        "tree_index": 34,
+        "graph6": "V???????????????????????????????A???{??A^~}?",
+        "root": 4,
+        "parent": 22,
+        "child": 8,
+        "child_pos": 4,
+        "d": 3,
+        "positive_k": [
+          4
+        ],
+        "delta_IU": [
+          9,
+          26,
+          26,
+          -1,
+          -24,
+          -24,
+          -11,
+          0
+        ],
+        "delta_PV": [
+          1,
+          8,
+          22,
+          25,
+          3,
+          -22,
+          -24,
+          -11
+        ],
+        "delta_Iprime": [
+          10,
+          34,
+          48,
+          24,
+          -21,
+          -46,
+          -35,
+          -13
+        ],
+        "boundary_fails": true
+      }
+    },
+    {
+      "n": 24,
+      "sampling": {
+        "type": "geng_partition_prefix",
+        "mod": 16,
+        "per_partition": 200,
+        "partition_counts": [
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200,
+          200
+        ]
+      },
+      "elapsed_s": 22.144,
+      "trees_scanned": 3200,
+      "lamport_steps": 1766400,
+      "steps_no_descent": 442374,
+      "steps_with_descent": 1324026,
+      "dd_all_hold": 1087356,
+      "dd_failures": 236670,
+      "dd_failures_boundary_only": 236670,
+      "dd_failures_interior": 0,
+      "positive_tail_after_boundary": 0,
+      "pv_positive_after_d": 5616,
+      "pv_positive_after_d_plus_1": 0,
+      "dd_boundary_fail": 236670,
+      "dd_boundary_hold": 1087356,
+      "dd_boundary_fail_and_pv_positive_after_d": 5616,
+      "dd_boundary_hold_and_pv_positive_after_d": 0,
+      "pv_positive_offset_hist": {
+        "1": 5616
+      },
+      "profile_by_child_size": {
+        "23": {
+          "steps": 50670,
+          "boundary_fail": 678,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 723036,
+          "boundary_fail": 206884,
+          "pv_positive_after_d": 5616
+        },
+        "22": {
+          "steps": 5012,
+          "boundary_fail": 157,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 55132,
+          "boundary_fail": 564,
+          "pv_positive_after_d": 0
+        },
+        "21": {
+          "steps": 6918,
+          "boundary_fail": 1542,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 48426,
+          "boundary_fail": 780,
+          "pv_positive_after_d": 0
+        },
+        "20": {
+          "steps": 17948,
+          "boundary_fail": 512,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 89740,
+          "boundary_fail": 906,
+          "pv_positive_after_d": 0
+        },
+        "19": {
+          "steps": 14865,
+          "boundary_fail": 900,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 56487,
+          "boundary_fail": 2225,
+          "pv_positive_after_d": 0
+        },
+        "18": {
+          "steps": 12240,
+          "boundary_fail": 902,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 36720,
+          "boundary_fail": 6515,
+          "pv_positive_after_d": 0
+        },
+        "17": {
+          "steps": 10857,
+          "boundary_fail": 553,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 26367,
+          "boundary_fail": 2106,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 13880,
+          "boundary_fail": 2186,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 27760,
+          "boundary_fail": 601,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 14805,
+          "boundary_fail": 586,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 24675,
+          "boundary_fail": 2496,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 14460,
+          "boundary_fail": 577,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 20244,
+          "boundary_fail": 1440,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 15796,
+          "boundary_fail": 1270,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 18668,
+          "boundary_fail": 1766,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 19320,
+          "boundary_fail": 524,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_child_arity": {
+        "22": {
+          "steps": 23,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 723036,
+          "boundary_fail": 206884,
+          "pv_positive_after_d": 5616
+        },
+        "21": {
+          "steps": 23,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 221881,
+          "boundary_fail": 22060,
+          "pv_positive_after_d": 0
+        },
+        "20": {
+          "steps": 69,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 151662,
+          "boundary_fail": 6675,
+          "pv_positive_after_d": 0
+        },
+        "19": {
+          "steps": 138,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 117645,
+          "boundary_fail": 964,
+          "pv_positive_after_d": 0
+        },
+        "18": {
+          "steps": 345,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 35052,
+          "boundary_fail": 87,
+          "pv_positive_after_d": 0
+        },
+        "17": {
+          "steps": 552,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 18170,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 1242,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 14559,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 2001,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 10212,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 2346,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 7130,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 2277,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 4968,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 2990,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 4140,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 3565,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        }
+      },
+      "profile_by_deg_u": {
+        "22": {
+          "steps": 23,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "0": {
+          "steps": 723036,
+          "boundary_fail": 206884,
+          "pv_positive_after_d": 5616
+        },
+        "21": {
+          "steps": 454,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "1": {
+          "steps": 69139,
+          "boundary_fail": 1344,
+          "pv_positive_after_d": 0
+        },
+        "20": {
+          "steps": 3668,
+          "boundary_fail": 39,
+          "pv_positive_after_d": 0
+        },
+        "2": {
+          "steps": 68018,
+          "boundary_fail": 1209,
+          "pv_positive_after_d": 0
+        },
+        "19": {
+          "steps": 394,
+          "boundary_fail": 0,
+          "pv_positive_after_d": 0
+        },
+        "3": {
+          "steps": 99354,
+          "boundary_fail": 2239,
+          "pv_positive_after_d": 0
+        },
+        "18": {
+          "steps": 16652,
+          "boundary_fail": 278,
+          "pv_positive_after_d": 0
+        },
+        "4": {
+          "steps": 51959,
+          "boundary_fail": 8038,
+          "pv_positive_after_d": 0
+        },
+        "17": {
+          "steps": 22382,
+          "boundary_fail": 383,
+          "pv_positive_after_d": 0
+        },
+        "5": {
+          "steps": 32260,
+          "boundary_fail": 1359,
+          "pv_positive_after_d": 0
+        },
+        "16": {
+          "steps": 18052,
+          "boundary_fail": 1445,
+          "pv_positive_after_d": 0
+        },
+        "6": {
+          "steps": 36418,
+          "boundary_fail": 3241,
+          "pv_positive_after_d": 0
+        },
+        "15": {
+          "steps": 14725,
+          "boundary_fail": 93,
+          "pv_positive_after_d": 0
+        },
+        "7": {
+          "steps": 29540,
+          "boundary_fail": 525,
+          "pv_positive_after_d": 0
+        },
+        "14": {
+          "steps": 17027,
+          "boundary_fail": 1671,
+          "pv_positive_after_d": 0
+        },
+        "8": {
+          "steps": 23256,
+          "boundary_fail": 2190,
+          "pv_positive_after_d": 0
+        },
+        "13": {
+          "steps": 18738,
+          "boundary_fail": 523,
+          "pv_positive_after_d": 0
+        },
+        "9": {
+          "steps": 21114,
+          "boundary_fail": 592,
+          "pv_positive_after_d": 0
+        },
+        "12": {
+          "steps": 16756,
+          "boundary_fail": 2146,
+          "pv_positive_after_d": 0
+        },
+        "10": {
+          "steps": 21750,
+          "boundary_fail": 2161,
+          "pv_positive_after_d": 0
+        },
+        "11": {
+          "steps": 19311,
+          "boundary_fail": 310,
+          "pv_positive_after_d": 0
+        }
+      },
+      "dplus1_positive_num": 5616,
+      "dplus1_zero_den_positive_num": 0,
+      "dplus1_ratio_max": 0.125,
+      "dplus1_ratio_max_witness": {
+        "n": 24,
+        "tree_index": 35,
+        "graph6": "W???????????????????????????????????_??F_??H~~{",
+        "root": 4,
+        "parent": 23,
+        "child": 8,
+        "child_pos": 4,
+        "child_size": 1,
+        "child_arity": 0,
+        "deg_u": 0,
+        "d": 3,
+        "num": 3,
+        "den": 24,
+        "ratio": 0.125,
+        "delta_IU_dplus1": -24,
+        "delta_PV_dplus1": 3
+      },
+      "first_boundary_witness": {
+        "n": 24,
+        "tree_index": 1,
+        "graph6": "W??????????????????????????????????????????^~~~",
+        "root": 0,
+        "parent": 23,
+        "child": 4,
+        "child_pos": 3,
+        "d": 1,
+        "violations": [
+          1
+        ],
+        "delta_IU": [
+          3,
+          -1,
+          -2,
+          0
+        ],
+        "delta_PV": [
+          1,
+          2,
+          0,
+          -2
+        ],
+        "delta_Iprime": [
+          4,
+          1,
+          -2,
+          -3
+        ]
+      },
+      "first_interior_witness": null,
+      "first_positive_tail_witness": null,
+      "first_pv_positive_after_d_witness": {
+        "n": 24,
+        "tree_index": 35,
+        "graph6": "W???????????????????????????????????_??F_??H~~{",
+        "root": 4,
+        "parent": 23,
+        "child": 8,
+        "child_pos": 4,
+        "d": 3,
+        "positive_k": [
+          4
+        ],
+        "delta_IU": [
+          9,
+          26,
+          26,
+          -1,
+          -24,
+          -24,
+          -11,
+          0
+        ],
+        "delta_PV": [
+          1,
+          8,
+          22,
+          25,
+          3,
+          -22,
+          -24,
+          -11
+        ],
+        "delta_Iprime": [
+          10,
+          34,
+          48,
+          24,
+          -21,
+          -46,
+          -35,
+          -13
+        ],
+        "boundary_fails": true
+      }
+    }
+  ],
+  "elapsed_total_s": 95.056
+}

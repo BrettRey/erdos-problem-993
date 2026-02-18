@@ -1,0 +1,221 @@
+{
+  "min_n": 17,
+  "max_n": 18,
+  "backend": "geng",
+  "trees": 172496,
+  "leaf_cases": 1478824,
+  "gap_values": {
+    "0": 759954,
+    "1": 718870
+  },
+  "h_delta_q_dminus1_nonpos_failures": 32254,
+  "h_boundary_transfer_failures": 0,
+  "h_prewindow_nonneg_failures": 0,
+  "h_argmin_at_boundary_failures": 1478824,
+  "h_pref_window_nonincreasing_failures": 1478824,
+  "gap_vs_dq_dminus1_sign": {
+    "0:neg": 759954,
+    "1:neg": 685054,
+    "1:zero": 1562,
+    "1:pos": 32254
+  },
+  "gap_vs_boundary_margin_sign": {
+    "0:pos": 759954,
+    "1:pos": 718870
+  },
+  "witnesses": {
+    "delta_q_dminus1_nonpos": [
+      {
+        "n": 17,
+        "graph6": "P???????????_?o?F_DE?GN?",
+        "leaf": 8,
+        "u": 16,
+        "d_f": 7,
+        "d_g": 6,
+        "delta_q_dminus1": 39
+      },
+      {
+        "n": 17,
+        "graph6": "P???????????_?o?F_DE?GN?",
+        "leaf": 9,
+        "u": 16,
+        "d_f": 7,
+        "d_g": 6,
+        "delta_q_dminus1": 39
+      },
+      {
+        "n": 17,
+        "graph6": "P???????????_?o?F_DE?GN?",
+        "leaf": 10,
+        "u": 16,
+        "d_f": 7,
+        "d_g": 6,
+        "delta_q_dminus1": 39
+      },
+      {
+        "n": 17,
+        "graph6": "P???????????_?o?F_DE?GN?",
+        "leaf": 11,
+        "u": 16,
+        "d_f": 7,
+        "d_g": 6,
+        "delta_q_dminus1": 39
+      },
+      {
+        "n": 17,
+        "graph6": "P???????????_?o?F_BE?GN?",
+        "leaf": 8,
+        "u": 16,
+        "d_f": 7,
+        "d_g": 6,
+        "delta_q_dminus1": 34
+      }
+    ],
+    "boundary_transfer": [],
+    "prewindow_nonneg": [],
+    "argmin_at_boundary": [
+      {
+        "n": 17,
+        "graph6": "P????????????????????~~{",
+        "leaf": 0,
+        "u": 16,
+        "d_f": 9,
+        "d_g": 9,
+        "argmin_k": 0,
+        "boundary_k": 7
+      },
+      {
+        "n": 17,
+        "graph6": "P????????????????????~~{",
+        "leaf": 1,
+        "u": 16,
+        "d_f": 9,
+        "d_g": 9,
+        "argmin_k": 0,
+        "boundary_k": 7
+      },
+      {
+        "n": 17,
+        "graph6": "P????????????????????~~{",
+        "leaf": 2,
+        "u": 16,
+        "d_f": 9,
+        "d_g": 9,
+        "argmin_k": 0,
+        "boundary_k": 7
+      },
+      {
+        "n": 17,
+        "graph6": "P????????????????????~~{",
+        "leaf": 3,
+        "u": 16,
+        "d_f": 9,
+        "d_g": 9,
+        "argmin_k": 0,
+        "boundary_k": 7
+      },
+      {
+        "n": 17,
+        "graph6": "P????????????????????~~{",
+        "leaf": 4,
+        "u": 16,
+        "d_f": 9,
+        "d_g": 9,
+        "argmin_k": 0,
+        "boundary_k": 7
+      }
+    ],
+    "pref_window_nonincreasing": [
+      {
+        "n": 17,
+        "graph6": "P????????????????????~~{",
+        "leaf": 0,
+        "u": 16,
+        "d_f": 9,
+        "d_g": 9
+      },
+      {
+        "n": 17,
+        "graph6": "P????????????????????~~{",
+        "leaf": 1,
+        "u": 16,
+        "d_f": 9,
+        "d_g": 9
+      },
+      {
+        "n": 17,
+        "graph6": "P????????????????????~~{",
+        "leaf": 2,
+        "u": 16,
+        "d_f": 9,
+        "d_g": 9
+      },
+      {
+        "n": 17,
+        "graph6": "P????????????????????~~{",
+        "leaf": 3,
+        "u": 16,
+        "d_f": 9,
+        "d_g": 9
+      },
+      {
+        "n": 17,
+        "graph6": "P????????????????????~~{",
+        "leaf": 4,
+        "u": 16,
+        "d_f": 9,
+        "d_g": 9
+      }
+    ]
+  },
+  "by_n": [
+    {
+      "n": 17,
+      "trees": 48629,
+      "leaf_cases": 401761,
+      "gap_values": {
+        "0": 238838,
+        "1": 162923
+      },
+      "h_delta_q_dminus1_nonpos_failures": 6666,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 401761,
+      "h_pref_window_nonincreasing_failures": 401761,
+      "gap_vs_dq_dminus1_sign": {
+        "0:neg": 238838,
+        "1:neg": 155598,
+        "1:zero": 659,
+        "1:pos": 6666
+      },
+      "gap_vs_boundary_margin_sign": {
+        "0:pos": 238838,
+        "1:pos": 162923
+      }
+    },
+    {
+      "n": 18,
+      "trees": 123867,
+      "leaf_cases": 1077063,
+      "gap_values": {
+        "1": 555947,
+        "0": 521116
+      },
+      "h_delta_q_dminus1_nonpos_failures": 25588,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 1077063,
+      "h_pref_window_nonincreasing_failures": 1077063,
+      "gap_vs_dq_dminus1_sign": {
+        "1:neg": 529456,
+        "0:neg": 521116,
+        "1:zero": 903,
+        "1:pos": 25588
+      },
+      "gap_vs_boundary_margin_sign": {
+        "1:pos": 555947,
+        "0:pos": 521116
+      }
+    }
+  ]
+}

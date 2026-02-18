@@ -1,0 +1,300 @@
+{
+  "params": {
+    "min_n": 3,
+    "max_n": 23,
+    "tol": 1e-12
+  },
+  "summary": {
+    "seen": 23942357,
+    "considered": 931596,
+    "u_count": 7749703,
+    "fail_count": 23277,
+    "wall_s": 769.9140186309814
+  },
+  "profile": {
+    "degH=1,leafH=0": {
+      "deg_H": 1,
+      "leaf_H": 0,
+      "count": 494859,
+      "fail_count": 0,
+      "fail_pct": 0.0,
+      "min_slack": 0.021903464487004864,
+      "max_ratio": 0.4645378427187659
+    },
+    "degH=1,leafH=1": {
+      "deg_H": 1,
+      "leaf_H": 1,
+      "count": 5631569,
+      "fail_count": 0,
+      "fail_pct": 0.0,
+      "min_slack": 0.0012905437423751387,
+      "max_ratio": 0.5000000000000215
+    },
+    "degH=2,leafH=0": {
+      "deg_H": 2,
+      "leaf_H": 0,
+      "count": 87749,
+      "fail_count": 0,
+      "fail_pct": 0.0,
+      "min_slack": 0.03693544444746197,
+      "max_ratio": 0.7226846112980345
+    },
+    "degH=2,leafH=1": {
+      "deg_H": 2,
+      "leaf_H": 1,
+      "count": 1223823,
+      "fail_count": 0,
+      "fail_pct": 0.0,
+      "min_slack": 0.0025810874847503884,
+      "max_ratio": 0.9804907788446885
+    },
+    "degH=3,leafH=0": {
+      "deg_H": 3,
+      "leaf_H": 0,
+      "count": 28064,
+      "fail_count": 0,
+      "fail_pct": 0.0,
+      "min_slack": 0.02900247106255685,
+      "max_ratio": 0.8579876102872164
+    },
+    "degH=3,leafH=1": {
+      "deg_H": 3,
+      "leaf_H": 1,
+      "count": 236006,
+      "fail_count": 9837,
+      "fail_pct": 4.168114369973645,
+      "min_slack": -0.06338528848783165,
+      "max_ratio": 1.272345301757067
+    },
+    "degH=4,leafH=0": {
+      "deg_H": 4,
+      "leaf_H": 0,
+      "count": 5136,
+      "fail_count": 2,
+      "fail_pct": 0.03894080996884735,
+      "min_slack": -0.0005728891239204503,
+      "max_ratio": 1.0023844460748355
+    },
+    "degH=4,leafH=1": {
+      "deg_H": 4,
+      "leaf_H": 1,
+      "count": 38205,
+      "fail_count": 10583,
+      "fail_pct": 27.700562753566288,
+      "min_slack": -0.11805435347065946,
+      "max_ratio": 1.4601889338731442
+    },
+    "degH=5,leafH=0": {
+      "deg_H": 5,
+      "leaf_H": 0,
+      "count": 544,
+      "fail_count": 11,
+      "fail_pct": 2.0220588235294117,
+      "min_slack": -0.023895896428928087,
+      "max_ratio": 1.0881666734886009
+    },
+    "degH=5,leafH=1": {
+      "deg_H": 5,
+      "leaf_H": 1,
+      "count": 3461,
+      "fail_count": 2580,
+      "fail_pct": 74.54492921121063,
+      "min_slack": -0.15936183022275752,
+      "max_ratio": 1.562632846818762
+    },
+    "degH=6,leafH=0": {
+      "deg_H": 6,
+      "leaf_H": 0,
+      "count": 37,
+      "fail_count": 17,
+      "fail_pct": 45.945945945945944,
+      "min_slack": -0.06464918601129932,
+      "max_ratio": 1.2208468590589683
+    },
+    "degH=6,leafH=1": {
+      "deg_H": 6,
+      "leaf_H": 1,
+      "count": 233,
+      "fail_count": 230,
+      "fail_pct": 98.71244635193133,
+      "min_slack": -0.20085373650757854,
+      "max_ratio": 1.667645955744469
+    },
+    "degH=7,leafH=0": {
+      "deg_H": 7,
+      "leaf_H": 0,
+      "count": 2,
+      "fail_count": 2,
+      "fail_pct": 100.0,
+      "min_slack": -0.08431699704485823,
+      "max_ratio": 1.2754538921506144
+    },
+    "degH=7,leafH=1": {
+      "deg_H": 7,
+      "leaf_H": 1,
+      "count": 14,
+      "fail_count": 14,
+      "fail_pct": 100.0,
+      "min_slack": -0.22651210386475074,
+      "max_ratio": 1.7263955992781885
+    },
+    "degH=8,leafH=1": {
+      "deg_H": 8,
+      "leaf_H": 1,
+      "count": 1,
+      "fail_count": 1,
+      "fail_pct": 100.0,
+      "min_slack": -0.2682517341277612,
+      "max_ratio": 1.8395203982196022
+    }
+  },
+  "per_n": {
+    "3": {
+      "seen": 1,
+      "considered": 0,
+      "u_count": 0,
+      "fail_count": 0,
+      "wall_s": 0.004937887191772461
+    },
+    "4": {
+      "seen": 2,
+      "considered": 1,
+      "u_count": 2,
+      "fail_count": 0,
+      "wall_s": 0.004151105880737305
+    },
+    "5": {
+      "seen": 3,
+      "considered": 1,
+      "u_count": 2,
+      "fail_count": 0,
+      "wall_s": 0.0036411285400390625
+    },
+    "6": {
+      "seen": 6,
+      "considered": 2,
+      "u_count": 5,
+      "fail_count": 0,
+      "wall_s": 0.0031418800354003906
+    },
+    "7": {
+      "seen": 11,
+      "considered": 3,
+      "u_count": 8,
+      "fail_count": 0,
+      "wall_s": 0.0037508010864257812
+    },
+    "8": {
+      "seen": 23,
+      "considered": 6,
+      "u_count": 19,
+      "fail_count": 0,
+      "wall_s": 0.004105091094970703
+    },
+    "9": {
+      "seen": 47,
+      "considered": 10,
+      "u_count": 34,
+      "fail_count": 0,
+      "wall_s": 0.0041577816009521484
+    },
+    "10": {
+      "seen": 106,
+      "considered": 21,
+      "u_count": 81,
+      "fail_count": 0,
+      "wall_s": 0.0052089691162109375
+    },
+    "11": {
+      "seen": 235,
+      "considered": 39,
+      "u_count": 162,
+      "fail_count": 0,
+      "wall_s": 0.00775599479675293
+    },
+    "12": {
+      "seen": 551,
+      "considered": 82,
+      "u_count": 375,
+      "fail_count": 0,
+      "wall_s": 0.015098094940185547
+    },
+    "13": {
+      "seen": 1301,
+      "considered": 167,
+      "u_count": 826,
+      "fail_count": 0,
+      "wall_s": 0.0313258171081543
+    },
+    "14": {
+      "seen": 3159,
+      "considered": 360,
+      "u_count": 1919,
+      "fail_count": 2,
+      "wall_s": 0.0667867660522461
+    },
+    "15": {
+      "seen": 7741,
+      "considered": 766,
+      "u_count": 4348,
+      "fail_count": 5,
+      "wall_s": 0.15082502365112305
+    },
+    "16": {
+      "seen": 19320,
+      "considered": 1692,
+      "u_count": 10235,
+      "fail_count": 15,
+      "wall_s": 0.385113000869751
+    },
+    "17": {
+      "seen": 48629,
+      "considered": 3726,
+      "u_count": 23885,
+      "fail_count": 44,
+      "wall_s": 1.029994010925293
+    },
+    "18": {
+      "seen": 123867,
+      "considered": 8370,
+      "u_count": 56714,
+      "fail_count": 125,
+      "wall_s": 2.876746416091919
+    },
+    "19": {
+      "seen": 317955,
+      "considered": 18866,
+      "u_count": 134720,
+      "fail_count": 319,
+      "wall_s": 7.92358922958374
+    },
+    "20": {
+      "seen": 823065,
+      "considered": 43029,
+      "u_count": 322959,
+      "fail_count": 832,
+      "wall_s": 21.44831395149231
+    },
+    "21": {
+      "seen": 2144505,
+      "considered": 98581,
+      "u_count": 775857,
+      "fail_count": 2154,
+      "wall_s": 59.64986610412598
+    },
+    "22": {
+      "seen": 5623756,
+      "considered": 227678,
+      "u_count": 1874977,
+      "fail_count": 5539,
+      "wall_s": 167.2710621356964
+    },
+    "23": {
+      "seen": 14828074,
+      "considered": 528196,
+      "u_count": 4542575,
+      "fail_count": 14242,
+      "wall_s": 509.02340483665466
+    }
+  }
+}

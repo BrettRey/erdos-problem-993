@@ -1,0 +1,51 @@
+{
+  "claim": "mode(I(T-w)) <= d(I(T))",
+  "n": 21,
+  "res": 4,
+  "mod": 8,
+  "trees": 157214,
+  "vertex_cases": 3301494,
+  "failures": 0,
+  "equality_count": 19169,
+  "max_mode_gap": 0,
+  "max_abs_mode_diff": 1,
+  "sample_failures": [],
+  "sample_equalities": [
+    {
+      "graph6": "T?????????????o?S??o?@_?@_A__AI?A?M?",
+      "vertex": 20,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "T?????????????o?S??o?@_?@_A__AI??_M?",
+      "vertex": 20,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "T?????????????o?S??o?@_?@_A__AI??OM?",
+      "vertex": 20,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "T?????????????o?S??o?@_?@_A__AI??GM?",
+      "vertex": 20,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    },
+    {
+      "graph6": "T?????????????o?S??o?@_?@_A__AI??CM?",
+      "vertex": 20,
+      "mode_Tw": 7,
+      "d_IT": 7,
+      "mode_IT": 6
+    }
+  ],
+  "wall_time_seconds": 321.1
+}

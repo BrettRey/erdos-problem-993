@@ -1,0 +1,113 @@
+================================================================================
+SUPERSEDED — NOT A THEOREM
+
+This file contains an empirical observation, not a proved theorem.
+The "proof sketch" only shows the broom family exhibits a linear
+relationship asymptotically; it does not prove the bound for all trees.
+The constant C is estimated empirically (~4-5), not derived analytically.
+
+The rigorous version of this phenomenon is the leaf-attachment
+asymptotics theorem in paper/main_v2.tex (Theorem 6.2):
+  nm(H_s) = 1 - C/s + O(1/s^2), C in [4, 8).
+
+================================================================================
+CONJECTURE (not theorem): Influence Concentration Bounds Near-Miss Ratio
+
+================================================================================
+
+DEFINITIONS:
+-----------
+For a tree T with vertex set V:
+
+1. Influence Set: For each vertex v ∈ V, define
+   S(v) = {k : there exists an independent set of size k containing v}
+
+2. Average Influence Position: 
+   a(v) = (1/|S(v)|) × Σ_{k∈S(v)} k
+
+3. Influence Gini Coefficient:
+   G(T) = Gini({a(v) : v ∈ V})
+   
+   where Gini({x_1,...,x_n}) = (Σ_{i<j} |x_i - x_j|) / (n × Σ_i x_i)
+
+4. Near-Miss Ratio:
+   nm(T) = max_{j ≥ d} (i_{j+1} / i_j)
+   where d is the first descent and i_j are polynomial coefficients.
+
+CONJECTURE (unproved):
+---------------------
+For any tree T with n vertices:
+
+    nm(T) ≥ 1 - C × (1 - G(T))
+
+for some constant C > 0, as n → ∞.
+
+EQUIVALENTLY:
+
+    1 - nm(T) ≤ C × (1 - G(T))
+
+HEURISTIC ARGUMENT (not a proof):
+---------------------------------
+
+1. BROOM FAMILY: B(p,s) with handle length p and star size s
+   
+   As s → ∞:
+   - G(B(p,s)) → 1 (concentrated influence)
+   - nm(B(p,s)) → 1 (known from broom asymptotics)
+   
+   Moreover:
+   - G(B(p,s)) = 1 - O(1/s)
+   - nm(B(p,s)) = 1 - C_broom/s + O(1/s²)
+   
+   Therefore:
+   nm - 1 ≈ -(C_broom/s) and G - 1 ≈ -c/s
+   So: nm - 1 ≈ -(C_broom/c)(1 - G)
+   
+   This gives the linear relationship in the limit.
+
+2. PATH FAMILY: P_n
+
+   For paths:
+   - G(P_n) is bounded (approximately 1/3 for large n)
+   - nm(P_n) → 1 as n → ∞ but slowly
+   
+   This shows the bound is not tight for all families,
+   but provides a lower bound.
+
+3. STAR FAMILY: S_k
+
+   For stars:
+   - G(S_k) ≈ 1/2 for large k
+   - nm(S_k) → 1 as k → ∞
+   
+   This shows stars achieve the limit behavior.
+
+COROLLARIES:
+------------
+
+1. If G(T) ≥ 1 - ε, then nm(T) ≥ 1 - C×ε for small ε.
+
+2. The broom family achieves the bound asymptotically:
+   lim_{s→∞} (1 - nm(B(p,s))) / (1 - G(B(p,s))) = C_broom/c ≈ 4.12
+
+3. Trees with maximum influence concentration (like brooms)
+   are the closest to violating unimodality.
+
+================================================================================
+REMARKS:
+================================================================================
+
+1. The constant C is approximately 4-5 based on empirical fitting.
+
+2. This provides a STRUCTURAL interpretation of near-miss behavior:
+   - High influence inequality → close to unimodality violation
+   - Low influence inequality → far from unimodality violation
+
+3. The theorem does not guarantee unimodality violation for any G < 1,
+   but provides a quantitative bound on how close a tree can get.
+
+4. The proof uses the broom family as a reference case, since
+   these achieve maximal influence concentration while being
+   analytically tractable.
+
+================================================================================

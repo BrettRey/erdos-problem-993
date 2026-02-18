@@ -1,0 +1,172 @@
+{
+  "min_n": 2,
+  "max_n": 12,
+  "total_trees": 986,
+  "total_vertex_cases": 11005,
+  "by_gw": {
+    "0": {
+      "cases": 3398,
+      "mode_gt_d": 0,
+      "mode_eq_d": 0,
+      "mode_lt_d": 3398,
+      "d_eq_modep1": 3398,
+      "eq_and_d_eq_modep1": 0
+    },
+    "-1": {
+      "cases": 5226,
+      "mode_gt_d": 0,
+      "mode_eq_d": 0,
+      "mode_lt_d": 5226,
+      "d_eq_modep1": 5226,
+      "eq_and_d_eq_modep1": 0
+    },
+    "1": {
+      "cases": 1477,
+      "mode_gt_d": 0,
+      "mode_eq_d": 9,
+      "mode_lt_d": 1468,
+      "d_eq_modep1": 1477,
+      "eq_and_d_eq_modep1": 9
+    },
+    "2": {
+      "cases": 562,
+      "mode_gt_d": 0,
+      "mode_eq_d": 23,
+      "mode_lt_d": 539,
+      "d_eq_modep1": 562,
+      "eq_and_d_eq_modep1": 23
+    },
+    "3": {
+      "cases": 201,
+      "mode_gt_d": 0,
+      "mode_eq_d": 8,
+      "mode_lt_d": 193,
+      "d_eq_modep1": 201,
+      "eq_and_d_eq_modep1": 8
+    },
+    "4": {
+      "cases": 86,
+      "mode_gt_d": 0,
+      "mode_eq_d": 6,
+      "mode_lt_d": 80,
+      "d_eq_modep1": 86,
+      "eq_and_d_eq_modep1": 6
+    },
+    "5": {
+      "cases": 30,
+      "mode_gt_d": 0,
+      "mode_eq_d": 2,
+      "mode_lt_d": 28,
+      "d_eq_modep1": 30,
+      "eq_and_d_eq_modep1": 2
+    },
+    "6": {
+      "cases": 15,
+      "mode_gt_d": 0,
+      "mode_eq_d": 0,
+      "mode_lt_d": 15,
+      "d_eq_modep1": 15,
+      "eq_and_d_eq_modep1": 0
+    },
+    "7": {
+      "cases": 5,
+      "mode_gt_d": 0,
+      "mode_eq_d": 0,
+      "mode_lt_d": 5,
+      "d_eq_modep1": 5,
+      "eq_and_d_eq_modep1": 0
+    },
+    "8": {
+      "cases": 3,
+      "mode_gt_d": 0,
+      "mode_eq_d": 0,
+      "mode_lt_d": 3,
+      "d_eq_modep1": 3,
+      "eq_and_d_eq_modep1": 0
+    },
+    "9": {
+      "cases": 1,
+      "mode_gt_d": 0,
+      "mode_eq_d": 0,
+      "mode_lt_d": 1,
+      "d_eq_modep1": 1,
+      "eq_and_d_eq_modep1": 0
+    },
+    "10": {
+      "cases": 1,
+      "mode_gt_d": 0,
+      "mode_eq_d": 0,
+      "mode_lt_d": 1,
+      "d_eq_modep1": 1,
+      "eq_and_d_eq_modep1": 0
+    }
+  },
+  "by_n": [
+    {
+      "n": 2,
+      "trees": 1,
+      "vertex_cases": 2,
+      "mode_gt_d_failures": 0
+    },
+    {
+      "n": 3,
+      "trees": 1,
+      "vertex_cases": 3,
+      "mode_gt_d_failures": 0
+    },
+    {
+      "n": 4,
+      "trees": 2,
+      "vertex_cases": 8,
+      "mode_gt_d_failures": 0
+    },
+    {
+      "n": 5,
+      "trees": 3,
+      "vertex_cases": 15,
+      "mode_gt_d_failures": 0
+    },
+    {
+      "n": 6,
+      "trees": 6,
+      "vertex_cases": 36,
+      "mode_gt_d_failures": 0
+    },
+    {
+      "n": 7,
+      "trees": 11,
+      "vertex_cases": 77,
+      "mode_gt_d_failures": 0
+    },
+    {
+      "n": 8,
+      "trees": 23,
+      "vertex_cases": 184,
+      "mode_gt_d_failures": 0
+    },
+    {
+      "n": 9,
+      "trees": 47,
+      "vertex_cases": 423,
+      "mode_gt_d_failures": 0
+    },
+    {
+      "n": 10,
+      "trees": 106,
+      "vertex_cases": 1060,
+      "mode_gt_d_failures": 0
+    },
+    {
+      "n": 11,
+      "trees": 235,
+      "vertex_cases": 2585,
+      "mode_gt_d_failures": 0
+    },
+    {
+      "n": 12,
+      "trees": 551,
+      "vertex_cases": 6612,
+      "mode_gt_d_failures": 0
+    }
+  ]
+}

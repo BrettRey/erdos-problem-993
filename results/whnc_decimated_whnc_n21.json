@@ -1,0 +1,179 @@
+{
+  "params": {
+    "min_n": 3,
+    "max_n": 21,
+    "tol": 1e-12
+  },
+  "summary": {
+    "seen": 3490527,
+    "considered": 175722,
+    "global_fail": 0,
+    "local_fail": 5,
+    "minimum_global_margin": 0.27617923062581556,
+    "minimum_local_margin": -0.03446112545775515,
+    "worst_global": {
+      "n": 21,
+      "g6": "T???????C?G?G?C?@??K?@OA?_A@_@C_?X??",
+      "core_size": 16,
+      "A_size": 5,
+      "H_size": 1,
+      "excess": 2.0715513848357237e-05,
+      "supply": 0.2761999461396639,
+      "margin": 0.27617923062581556
+    },
+    "worst_local": {
+      "n": 21,
+      "g6": "T?????????????_?K??o?@_?@_??oC?K@TS?",
+      "u_core_index": 13,
+      "u_is_A": false,
+      "degH_u": 6,
+      "heavy_neighbors": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "local_excess": 0.3252505799448504,
+      "local_supply": 0.29078945448709526,
+      "margin": -0.03446112545775515
+    },
+    "wall_s": 96.18739819526672
+  },
+  "per_n": {
+    "3": {
+      "seen": 1,
+      "considered": 0,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.004278898239135742
+    },
+    "4": {
+      "seen": 2,
+      "considered": 1,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.0032079219818115234
+    },
+    "5": {
+      "seen": 3,
+      "considered": 1,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.002974987030029297
+    },
+    "6": {
+      "seen": 6,
+      "considered": 2,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.0028798580169677734
+    },
+    "7": {
+      "seen": 11,
+      "considered": 3,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.002928018569946289
+    },
+    "8": {
+      "seen": 23,
+      "considered": 6,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.003777027130126953
+    },
+    "9": {
+      "seen": 47,
+      "considered": 10,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.0038132667541503906
+    },
+    "10": {
+      "seen": 106,
+      "considered": 21,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.004793882369995117
+    },
+    "11": {
+      "seen": 235,
+      "considered": 39,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.007354021072387695
+    },
+    "12": {
+      "seen": 551,
+      "considered": 82,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.014701128005981445
+    },
+    "13": {
+      "seen": 1301,
+      "considered": 167,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.03053593635559082
+    },
+    "14": {
+      "seen": 3159,
+      "considered": 360,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.06564021110534668
+    },
+    "15": {
+      "seen": 7741,
+      "considered": 766,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.15562796592712402
+    },
+    "16": {
+      "seen": 19320,
+      "considered": 1692,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 0.39185094833374023
+    },
+    "17": {
+      "seen": 48629,
+      "considered": 3726,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 1.0562732219696045
+    },
+    "18": {
+      "seen": 123867,
+      "considered": 8370,
+      "global_fail": 0,
+      "local_fail": 0,
+      "wall_s": 2.9191319942474365
+    },
+    "19": {
+      "seen": 317955,
+      "considered": 18866,
+      "global_fail": 0,
+      "local_fail": 1,
+      "wall_s": 8.01819109916687
+    },
+    "20": {
+      "seen": 823065,
+      "considered": 43029,
+      "global_fail": 0,
+      "local_fail": 1,
+      "wall_s": 22.08109474182129
+    },
+    "21": {
+      "seen": 2144505,
+      "considered": 98581,
+      "global_fail": 0,
+      "local_fail": 3,
+      "wall_s": 61.41752600669861
+    }
+  }
+}

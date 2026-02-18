@@ -1,0 +1,7 @@
+{
+  "max_n": 16,
+  "leaf_cases": 244692,
+  "criterion_true": 48938,
+  "rate": 0.19999836529187714,
+  "criterion": "Delta q_t >= 0 for all t <= d(g)-2 in leaf normal form"
+}

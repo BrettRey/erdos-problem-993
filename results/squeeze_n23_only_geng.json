@@ -1,0 +1,62 @@
+{
+  "description": "Squeeze-from-both-ends scan: first descent vs Levit\u2013Mandrescu tail start",
+  "range": {
+    "min_n": 23,
+    "max_n": 23
+  },
+  "backend": "geng",
+  "partition": {
+    "res": null,
+    "mod": null
+  },
+  "by_n": [
+    {
+      "n": 23,
+      "total_trees": 14828074,
+      "squeeze_ok": 2004047,
+      "squeeze_fail": 12824027,
+      "min_first_descent": 12,
+      "min_peak_index": 7,
+      "min_peak_ratio": 0.4375,
+      "min_margin": -3,
+      "elapsed_s": 1507.223
+    }
+  ],
+  "totals": {
+    "total_trees": 14828074,
+    "squeeze_ok": 2004047,
+    "squeeze_fail": 12824027,
+    "worst_margin": -3,
+    "worst_peak_ratio": 0.4375,
+    "elapsed_total_s": 1507.223
+  },
+  "examples": [
+    {
+      "n": 23,
+      "alpha": 22,
+      "tail_start": 15,
+      "first_descent": 12,
+      "peak_index": 11,
+      "peak_ratio": 0.5,
+      "graph6": "V??????????????????????????????????????F~~~_"
+    },
+    {
+      "n": 23,
+      "alpha": 21,
+      "tail_start": 14,
+      "first_descent": 12,
+      "peak_index": 11,
+      "peak_ratio": 0.5238095238095238,
+      "graph6": "V???????????????????????????????????_??F~~~?"
+    },
+    {
+      "n": 23,
+      "alpha": 21,
+      "tail_start": 14,
+      "first_descent": 12,
+      "peak_index": 10,
+      "peak_ratio": 0.47619047619047616,
+      "graph6": "V???????????????????????????????????o??D~~~?"
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "params": {
+    "min_n": 3,
+    "max_n": 21,
+    "tol": 1e-12
+  },
+  "summary": {
+    "seen": 3490527,
+    "considered": 175722,
+    "trees_with_allneg": 81360,
+    "trees_with_allneg_leaf": 81360,
+    "trees_with_allneg_nonleaf": 0,
+    "allneg_subsets": 267651,
+    "allneg_subsets_with_leaf": 267651,
+    "allneg_subsets_without_leaf": 0,
+    "global_best": {
+      "n": 21,
+      "g6": "T?????????O?O?G?A??O?@??A??A?F`_?Ng?",
+      "H": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "S": [
+        8,
+        9,
+        10
+      ],
+      "gap": 0.022372600469548365,
+      "subset_has_leaf": true
+    },
+    "wall_s": 147.70603609085083
+  },
+  "per_n": {
+    "3": {
+      "seen": 1,
+      "considered": 0,
+      "trees_with_allneg": 0,
+      "trees_with_allneg_leaf": 0,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 0,
+      "allneg_subsets_with_leaf": 0,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": null
+    },
+    "4": {
+      "seen": 2,
+      "considered": 1,
+      "trees_with_allneg": 0,
+      "trees_with_allneg_leaf": 0,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 0,
+      "allneg_subsets_with_leaf": 0,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": null
+    },
+    "5": {
+      "seen": 3,
+      "considered": 1,
+      "trees_with_allneg": 0,
+      "trees_with_allneg_leaf": 0,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 0,
+      "allneg_subsets_with_leaf": 0,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": null
+    },
+    "6": {
+      "seen": 6,
+      "considered": 2,
+      "trees_with_allneg": 0,
+      "trees_with_allneg_leaf": 0,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 0,
+      "allneg_subsets_with_leaf": 0,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": null
+    },
+    "7": {
+      "seen": 11,
+      "considered": 3,
+      "trees_with_allneg": 0,
+      "trees_with_allneg_leaf": 0,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 0,
+      "allneg_subsets_with_leaf": 0,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": null
+    },
+    "8": {
+      "seen": 23,
+      "considered": 6,
+      "trees_with_allneg": 1,
+      "trees_with_allneg_leaf": 1,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 4,
+      "allneg_subsets_with_leaf": 4,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.08474576271186443
+    },
+    "9": {
+      "seen": 47,
+      "considered": 10,
+      "trees_with_allneg": 3,
+      "trees_with_allneg_leaf": 3,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 3,
+      "allneg_subsets_with_leaf": 3,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.059999999999999915
+    },
+    "10": {
+      "seen": 106,
+      "considered": 21,
+      "trees_with_allneg": 3,
+      "trees_with_allneg_leaf": 3,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 9,
+      "allneg_subsets_with_leaf": 9,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.06097560975609759
+    },
+    "11": {
+      "seen": 235,
+      "considered": 39,
+      "trees_with_allneg": 12,
+      "trees_with_allneg_leaf": 12,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 33,
+      "allneg_subsets_with_leaf": 33,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.0557620817843866
+    },
+    "12": {
+      "seen": 551,
+      "considered": 82,
+      "trees_with_allneg": 20,
+      "trees_with_allneg_leaf": 20,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 49,
+      "allneg_subsets_with_leaf": 49,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.05773672055427248
+    },
+    "13": {
+      "seen": 1301,
+      "considered": 167,
+      "trees_with_allneg": 58,
+      "trees_with_allneg_leaf": 58,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 132,
+      "allneg_subsets_with_leaf": 132,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.04455445544554454
+    },
+    "14": {
+      "seen": 3159,
+      "considered": 360,
+      "trees_with_allneg": 115,
+      "trees_with_allneg_leaf": 115,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 327,
+      "allneg_subsets_with_leaf": 327,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.045045045045044974
+    },
+    "15": {
+      "seen": 7741,
+      "considered": 766,
+      "trees_with_allneg": 286,
+      "trees_with_allneg_leaf": 286,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 720,
+      "allneg_subsets_with_leaf": 720,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.040983606557376984
+    },
+    "16": {
+      "seen": 19320,
+      "considered": 1692,
+      "trees_with_allneg": 626,
+      "trees_with_allneg_leaf": 626,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 1821,
+      "allneg_subsets_with_leaf": 1821,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.041390728476821126
+    },
+    "17": {
+      "seen": 48629,
+      "considered": 3726,
+      "trees_with_allneg": 1529,
+      "trees_with_allneg_leaf": 1529,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 4380,
+      "allneg_subsets_with_leaf": 4380,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.0319526627218934
+    },
+    "18": {
+      "seen": 123867,
+      "considered": 8370,
+      "trees_with_allneg": 3477,
+      "trees_with_allneg_leaf": 3477,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 10546,
+      "allneg_subsets_with_leaf": 10546,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.03218884120171667
+    },
+    "19": {
+      "seen": 317955,
+      "considered": 18866,
+      "trees_with_allneg": 8410,
+      "trees_with_allneg_leaf": 8410,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 26148,
+      "allneg_subsets_with_leaf": 26148,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.029182879377431803
+    },
+    "20": {
+      "seen": 823065,
+      "considered": 43029,
+      "trees_with_allneg": 19607,
+      "trees_with_allneg_leaf": 19607,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 64275,
+      "allneg_subsets_with_leaf": 64275,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.029377203290246734
+    },
+    "21": {
+      "seen": 2144505,
+      "considered": 98581,
+      "trees_with_allneg": 47213,
+      "trees_with_allneg_leaf": 47213,
+      "trees_with_allneg_nonleaf": 0,
+      "allneg_subsets": 159204,
+      "allneg_subsets_with_leaf": 159204,
+      "allneg_subsets_without_leaf": 0,
+      "best_gap": 0.022372600469548365
+    }
+  }
+}

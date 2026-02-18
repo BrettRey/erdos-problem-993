@@ -1,0 +1,506 @@
+{
+  "min_n": 2,
+  "max_n": 16,
+  "backend": "geng",
+  "trees": 32507,
+  "leaf_cases": 244692,
+  "gap_values": {
+    "0": 173135,
+    "1": 71557
+  },
+  "h_delta_q_dminus1_nonpos_failures": 2785,
+  "h_boundary_transfer_failures": 0,
+  "h_prewindow_nonneg_failures": 0,
+  "h_argmin_at_boundary_failures": 244638,
+  "h_pref_window_nonincreasing_failures": 244653,
+  "gap_vs_dq_dminus1_sign": {
+    "0:zero": 2,
+    "0:neg": 173133,
+    "1:zero": 678,
+    "1:neg": 68094,
+    "1:pos": 2785
+  },
+  "gap_vs_boundary_margin_sign": {
+    "0:pos": 173135,
+    "1:pos": 71557
+  },
+  "witnesses": {
+    "delta_q_dminus1_nonpos": [
+      {
+        "n": 11,
+        "graph6": "J????A?{A]?",
+        "leaf": 4,
+        "u": 10,
+        "d_f": 5,
+        "d_g": 4,
+        "delta_q_dminus1": 3
+      },
+      {
+        "n": 11,
+        "graph6": "J????A?{A]?",
+        "leaf": 5,
+        "u": 10,
+        "d_f": 5,
+        "d_g": 4,
+        "delta_q_dminus1": 3
+      },
+      {
+        "n": 11,
+        "graph6": "J????A?{A]?",
+        "leaf": 6,
+        "u": 10,
+        "d_f": 5,
+        "d_g": 4,
+        "delta_q_dminus1": 3
+      },
+      {
+        "n": 11,
+        "graph6": "J????A?{A]?",
+        "leaf": 7,
+        "u": 10,
+        "d_f": 5,
+        "d_g": 4,
+        "delta_q_dminus1": 3
+      },
+      {
+        "n": 11,
+        "graph6": "J????A?]EM?",
+        "leaf": 5,
+        "u": 10,
+        "d_f": 5,
+        "d_g": 4,
+        "delta_q_dminus1": 2
+      }
+    ],
+    "boundary_transfer": [],
+    "prewindow_nonneg": [],
+    "argmin_at_boundary": [
+      {
+        "n": 7,
+        "graph6": "F?AFo",
+        "leaf": 1,
+        "u": 6,
+        "d_f": 4,
+        "d_g": 3,
+        "argmin_k": 0,
+        "boundary_k": 1
+      },
+      {
+        "n": 7,
+        "graph6": "F?AFo",
+        "leaf": 2,
+        "u": 6,
+        "d_f": 4,
+        "d_g": 3,
+        "argmin_k": 0,
+        "boundary_k": 1
+      },
+      {
+        "n": 7,
+        "graph6": "F?AFo",
+        "leaf": 3,
+        "u": 6,
+        "d_f": 4,
+        "d_g": 3,
+        "argmin_k": 0,
+        "boundary_k": 1
+      },
+      {
+        "n": 7,
+        "graph6": "F?AFo",
+        "leaf": 4,
+        "u": 6,
+        "d_f": 4,
+        "d_g": 3,
+        "argmin_k": 0,
+        "boundary_k": 1
+      },
+      {
+        "n": 7,
+        "graph6": "F?BDo",
+        "leaf": 1,
+        "u": 5,
+        "d_f": 3,
+        "d_g": 3,
+        "argmin_k": 0,
+        "boundary_k": 1
+      }
+    ],
+    "pref_window_nonincreasing": [
+      {
+        "n": 7,
+        "graph6": "F??Fw",
+        "leaf": 0,
+        "u": 6,
+        "d_f": 4,
+        "d_g": 4
+      },
+      {
+        "n": 7,
+        "graph6": "F??Fw",
+        "leaf": 1,
+        "u": 6,
+        "d_f": 4,
+        "d_g": 4
+      },
+      {
+        "n": 7,
+        "graph6": "F??Fw",
+        "leaf": 2,
+        "u": 6,
+        "d_f": 4,
+        "d_g": 4
+      },
+      {
+        "n": 7,
+        "graph6": "F??Fw",
+        "leaf": 3,
+        "u": 6,
+        "d_f": 4,
+        "d_g": 4
+      },
+      {
+        "n": 7,
+        "graph6": "F??Fw",
+        "leaf": 4,
+        "u": 6,
+        "d_f": 4,
+        "d_g": 4
+      }
+    ]
+  },
+  "by_n": [
+    {
+      "n": 2,
+      "trees": 1,
+      "leaf_cases": 2,
+      "gap_values": {
+        "0": 2
+      },
+      "h_delta_q_dminus1_nonpos_failures": 0,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 0,
+      "h_pref_window_nonincreasing_failures": 0,
+      "gap_vs_dq_dminus1_sign": {
+        "0:zero": 2
+      },
+      "gap_vs_boundary_margin_sign": {
+        "0:pos": 2
+      }
+    },
+    {
+      "n": 3,
+      "trees": 1,
+      "leaf_cases": 2,
+      "gap_values": {
+        "0": 2
+      },
+      "h_delta_q_dminus1_nonpos_failures": 0,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 0,
+      "h_pref_window_nonincreasing_failures": 0,
+      "gap_vs_dq_dminus1_sign": {
+        "0:neg": 2
+      },
+      "gap_vs_boundary_margin_sign": {
+        "0:pos": 2
+      }
+    },
+    {
+      "n": 4,
+      "trees": 2,
+      "leaf_cases": 5,
+      "gap_values": {
+        "0": 5
+      },
+      "h_delta_q_dminus1_nonpos_failures": 0,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 0,
+      "h_pref_window_nonincreasing_failures": 0,
+      "gap_vs_dq_dminus1_sign": {
+        "0:neg": 5
+      },
+      "gap_vs_boundary_margin_sign": {
+        "0:pos": 5
+      }
+    },
+    {
+      "n": 5,
+      "trees": 3,
+      "leaf_cases": 9,
+      "gap_values": {
+        "1": 9
+      },
+      "h_delta_q_dminus1_nonpos_failures": 0,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 0,
+      "h_pref_window_nonincreasing_failures": 0,
+      "gap_vs_dq_dminus1_sign": {
+        "1:zero": 4,
+        "1:neg": 5
+      },
+      "gap_vs_boundary_margin_sign": {
+        "1:pos": 9
+      }
+    },
+    {
+      "n": 6,
+      "trees": 6,
+      "leaf_cases": 21,
+      "gap_values": {
+        "1": 5,
+        "0": 16
+      },
+      "h_delta_q_dminus1_nonpos_failures": 0,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 0,
+      "h_pref_window_nonincreasing_failures": 0,
+      "gap_vs_dq_dminus1_sign": {
+        "1:neg": 5,
+        "0:neg": 16
+      },
+      "gap_vs_boundary_margin_sign": {
+        "1:pos": 5,
+        "0:pos": 16
+      }
+    },
+    {
+      "n": 7,
+      "trees": 11,
+      "leaf_cases": 43,
+      "gap_values": {
+        "0": 39,
+        "1": 4
+      },
+      "h_delta_q_dminus1_nonpos_failures": 0,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 36,
+      "h_pref_window_nonincreasing_failures": 43,
+      "gap_vs_dq_dminus1_sign": {
+        "0:neg": 39,
+        "1:neg": 4
+      },
+      "gap_vs_boundary_margin_sign": {
+        "0:pos": 39,
+        "1:pos": 4
+      }
+    },
+    {
+      "n": 8,
+      "trees": 23,
+      "leaf_cases": 101,
+      "gap_values": {
+        "1": 88,
+        "0": 13
+      },
+      "h_delta_q_dminus1_nonpos_failures": 0,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 96,
+      "h_pref_window_nonincreasing_failures": 101,
+      "gap_vs_dq_dminus1_sign": {
+        "1:neg": 80,
+        "0:neg": 13,
+        "1:zero": 8
+      },
+      "gap_vs_boundary_margin_sign": {
+        "1:pos": 88,
+        "0:pos": 13
+      }
+    },
+    {
+      "n": 9,
+      "trees": 47,
+      "leaf_cases": 226,
+      "gap_values": {
+        "0": 208,
+        "1": 18
+      },
+      "h_delta_q_dminus1_nonpos_failures": 0,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 225,
+      "h_pref_window_nonincreasing_failures": 226,
+      "gap_vs_dq_dminus1_sign": {
+        "0:neg": 208,
+        "1:neg": 18
+      },
+      "gap_vs_boundary_margin_sign": {
+        "0:pos": 208,
+        "1:pos": 18
+      }
+    },
+    {
+      "n": 10,
+      "trees": 106,
+      "leaf_cases": 556,
+      "gap_values": {
+        "1": 129,
+        "0": 427
+      },
+      "h_delta_q_dminus1_nonpos_failures": 0,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 554,
+      "h_pref_window_nonincreasing_failures": 556,
+      "gap_vs_dq_dminus1_sign": {
+        "1:neg": 123,
+        "0:neg": 427,
+        "1:zero": 6
+      },
+      "gap_vs_boundary_margin_sign": {
+        "1:pos": 129,
+        "0:pos": 427
+      }
+    },
+    {
+      "n": 11,
+      "trees": 235,
+      "leaf_cases": 1333,
+      "gap_values": {
+        "0": 575,
+        "1": 758
+      },
+      "h_delta_q_dminus1_nonpos_failures": 22,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 1333,
+      "h_pref_window_nonincreasing_failures": 1333,
+      "gap_vs_dq_dminus1_sign": {
+        "0:neg": 575,
+        "1:neg": 716,
+        "1:pos": 22,
+        "1:zero": 20
+      },
+      "gap_vs_boundary_margin_sign": {
+        "0:pos": 575,
+        "1:pos": 758
+      }
+    },
+    {
+      "n": 12,
+      "trees": 551,
+      "leaf_cases": 3365,
+      "gap_values": {
+        "1": 1340,
+        "0": 2025
+      },
+      "h_delta_q_dminus1_nonpos_failures": 47,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 3365,
+      "h_pref_window_nonincreasing_failures": 3365,
+      "gap_vs_dq_dminus1_sign": {
+        "1:neg": 1264,
+        "0:neg": 2025,
+        "1:zero": 29,
+        "1:pos": 47
+      },
+      "gap_vs_boundary_margin_sign": {
+        "1:pos": 1340,
+        "0:pos": 2025
+      }
+    },
+    {
+      "n": 13,
+      "trees": 1301,
+      "leaf_cases": 8500,
+      "gap_values": {
+        "0": 6837,
+        "1": 1663
+      },
+      "h_delta_q_dminus1_nonpos_failures": 0,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 8500,
+      "h_pref_window_nonincreasing_failures": 8500,
+      "gap_vs_dq_dminus1_sign": {
+        "0:neg": 6837,
+        "1:neg": 1639,
+        "1:zero": 24
+      },
+      "gap_vs_boundary_margin_sign": {
+        "0:pos": 6837,
+        "1:pos": 1663
+      }
+    },
+    {
+      "n": 14,
+      "trees": 3159,
+      "leaf_cases": 22007,
+      "gap_values": {
+        "1": 10155,
+        "0": 11852
+      },
+      "h_delta_q_dminus1_nonpos_failures": 439,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 22007,
+      "h_pref_window_nonincreasing_failures": 22007,
+      "gap_vs_dq_dminus1_sign": {
+        "1:neg": 9596,
+        "0:neg": 11852,
+        "1:zero": 120,
+        "1:pos": 439
+      },
+      "gap_vs_boundary_margin_sign": {
+        "1:pos": 10155,
+        "0:pos": 11852
+      }
+    },
+    {
+      "n": 15,
+      "trees": 7741,
+      "leaf_cases": 57258,
+      "gap_values": {
+        "0": 28544,
+        "1": 28714
+      },
+      "h_delta_q_dminus1_nonpos_failures": 1343,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 57258,
+      "h_pref_window_nonincreasing_failures": 57258,
+      "gap_vs_dq_dminus1_sign": {
+        "0:neg": 28544,
+        "1:neg": 27160,
+        "1:zero": 211,
+        "1:pos": 1343
+      },
+      "gap_vs_boundary_margin_sign": {
+        "0:pos": 28544,
+        "1:pos": 28714
+      }
+    },
+    {
+      "n": 16,
+      "trees": 19320,
+      "leaf_cases": 151264,
+      "gap_values": {
+        "1": 28674,
+        "0": 122590
+      },
+      "h_delta_q_dminus1_nonpos_failures": 934,
+      "h_boundary_transfer_failures": 0,
+      "h_prewindow_nonneg_failures": 0,
+      "h_argmin_at_boundary_failures": 151264,
+      "h_pref_window_nonincreasing_failures": 151264,
+      "gap_vs_dq_dminus1_sign": {
+        "1:neg": 27484,
+        "0:neg": 122590,
+        "1:zero": 256,
+        "1:pos": 934
+      },
+      "gap_vs_boundary_margin_sign": {
+        "1:pos": 28674,
+        "0:pos": 122590
+      }
+    }
+  ]
+}
