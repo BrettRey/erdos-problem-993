@@ -1,0 +1,40 @@
+{
+  "params": {
+    "k_min": 1,
+    "k_max": 1200,
+    "j_max": 120,
+    "store_cap": 50,
+    "out": "results/whnc_mixed_spider_mode_formula_k1_1200_j120.json"
+  },
+  "summary": {
+    "mode_formula_checks": 145200,
+    "mode_shift_checks": 145200,
+    "mode_formula_fail_count": 1,
+    "mode_shift_fail_count": 1,
+    "first_mode": {
+      "k": 1,
+      "j": 0,
+      "mode": 1
+    },
+    "wall_s": 24.636785745620728
+  },
+  "fails": {
+    "mode_formula": [
+      {
+        "k": 2,
+        "j": 0,
+        "mode": 2,
+        "mode_formula": 1
+      }
+    ],
+    "mode_shift": [
+      {
+        "k": 2,
+        "j": 0,
+        "mode_j": 2,
+        "mode_j2": 2,
+        "mode_step": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "params": {
+    "k_min": 6,
+    "k_max": 3000,
+    "j_max": 120,
+    "store_cap": 50,
+    "out": "results/whnc_mixed_spider_mode_formula_k6_3000_j120.json"
+  },
+  "summary": {
+    "mode_formula_checks": 362395,
+    "mode_shift_checks": 362395,
+    "mode_formula_fail_count": 0,
+    "mode_shift_fail_count": 0,
+    "first_mode": {
+      "k": 6,
+      "j": 0,
+      "mode": 4
+    },
+    "wall_s": 210.63681197166443
+  },
+  "fails": {
+    "mode_formula": [],
+    "mode_shift": []
+  }
+}
