@@ -260,7 +260,10 @@ Verified: `k=7..25`, `j<=20`, 0 failures. Open: algebraic proof.
 
 **Sub-claim B (k ≡ 1 mod 3 comparison)**: For `k >= 4`, `k ≡ 1 (mod 3)`:
 `margin(k, 0) < margin(k, 1)`, so `j=0` is the global minimum.
-Verified: all `k=4,7,10,...,22`. Open: algebraic proof.
+**PROVED** (Codex, 2026-02-18). See `notes/subclaim_B_mod1_algebra_2026-02-18.md`.
+Proof: set `k=3t+1`. Decompose `margin_j = A_j(lambda_j) - p_j g_j`. Define
+`G(t) = A_1(r_F) - A_0(a)` (exact closed-form, all-positive coefficients). Bound
+`delta_0 < 4/(3t^3)` and `p_1 g_1 < 1/t^3`. For `t>=6`: margin gap `>= G(t) - delta_0 - p_1 g_1 > (t^2-28)/(12t^3) > 0`. Exact checks for `t=1..5` close it.
 
 **Sub-claim C (k ≡ 0,2 mod 3 comparison)**: For `k >= 3`, `k ≡ 0 or 2 (mod 3)`:
 `margin(k, 1) < margin(k, 0)`, so `j=1` is the global minimum.
@@ -271,4 +274,4 @@ Exception: `k=2 (≡2)`: minimum at `j=0` (not `j=1`). This is a genuine small c
 
 **Proof path for Sub-claim A**: Adding 2 unit leaves shifts the IS polynomial mean by `~2/3` per leaf (since each unit leaf contributes `lambda/(1+lambda) ~ 1/2` at the tie-fugacity), while the mode reference shifts by at most 1 every 3 unit leaves. Net margin gain per 2 leaves: `~4/6 - 1/3 = 1/6 > 0`. Making this rigorous requires bounding the mode change and mean shift jointly.
 
-**What completing A+B+C would give**: Together with the j=0/j=1 branch proofs (already proved), Sub-claims A, B, C would establish that `margin(S(2^k,1^j)) >= 1/3` for all `k >= 1`, `j >= 0`, `k != 2` (with `k=2` checked explicitly). Combined with `c2 >= 0` (proved), this completes the mixed-spider tie-fugacity bound.
+**What completing A and C would give**: With B now proved, Sub-claims A and C remain open. Together with the j=0/j=1 branch proofs (proved) and Sub-claim B (proved), A and C would establish that `margin(S(2^k,1^j)) >= 1/3` for all `k >= 1`, `j >= 0`, `k != 2` (with `k=2` checked explicitly). Combined with `c2 >= 0` (proved), this completes the mixed-spider tie-fugacity bound.
