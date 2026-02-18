@@ -1,0 +1,4 @@
+Finite exact checks: PASS
+j=0 template inequality checks: PASS
+j=1 closed-form and correction checks: PASS
+Result: reduced-branch proof templates for j=0 and j=1 are internally consistent and positive.

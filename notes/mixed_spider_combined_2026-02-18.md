@@ -60,8 +60,9 @@ Summary:
 
 ### Grid B: `k=1..3000`, `j=0..40`
 
-Artifact:
+Artifacts:
 - `results/whnc_mixed_spider_combined_k3000_j40.json`
+- `results/whnc_mixed_spider_combined_k3000_j40_v2.json`
 
 Summary:
 - `combined_fail = 0`,
@@ -118,3 +119,156 @@ This gives a compressed target:
 2. prove explicit positivity for the reduced branches:
    - `j=0` tip (balanced spider lane),
    - `j=1` tip/unit (mixed lane).
+
+## New: analytic positivity templates for reduced branches
+
+Script:
+
+- `prove_mixed_spider_j0_j1_branches.py`
+
+This script checks exact finite bases and validates the closed-form inequalities
+used below.
+
+### Branch 1: `j=0` (`T = S(2^k)`)
+
+Let `m=(2k+1)//3`, `lambda=lambda_m(T)`, and write
+
+- `margin = mu(T,lambda)-(m-1)`,
+- `margin = (A + rB)/(1+r)`,
+- `A = 2k*lambda/(1+2lambda) - (m-1)`,
+- `B = 1 + k*lambda/(1+lambda) - (m-1)`,
+- `r = lambda * ((1+lambda)/(1+2lambda))^k`.
+
+Using coefficient split `i_t = U_t + V_t` with
+`U_t = C(k,t)2^t`, `V_t = C(k,t-1)`, mediant gives
+`lambda >= min(U_{m-1}/U_m, V_{m-1}/V_m)`.
+For `k>=5`, `U_{m-1}/U_m <= V_{m-1}/V_m`, so
+
+`lambda >= m/(2(k-m+1))`.
+
+Hence
+
+`A >= 1 - m/(k+1) >= (k+2)/(3(k+1))`.
+
+Also:
+
+- `B >= 2-m`,
+- `r <= (2/3)^k`.
+
+So, for `k>=5`:
+
+`(1+r)margin = A + rB >= (k+2)/(3(k+1)) - (m-2)(2/3)^k`
+`>= (1/3)*((k+2)/(k+1) - (2k-5)(2/3)^k) > 0`.
+
+(`(2k-5)(2/3)^k` decreases for `k>=5` and is `<1` at `k=5`.)
+
+Finite exact checks for `k=2,3,4` are positive.
+
+### Branch 2: `j=1` (`T = S(2^k,1)`)
+
+Let `m=(2k+3)//3`, same decomposition
+`margin=(A+rB)/(1+r)` with
+
+- `A = 2k*lambda/(1+2lambda) + lambda/(1+lambda) - (m-1)`,
+- `B = 1 + k*lambda/(1+lambda) - (m-1)`,
+- `r = lambda * ((1+lambda)/(1+2lambda))^(k-1)`.
+
+Split coefficients as `i_t = F_t + Q_t`, where
+`F_t` comes from `(1+2x)^k(1+x)` and `Q_t=C(k,t-1)`.
+Mediant gives `lambda >= min(F_{m-1}/F_m, Q_{m-1}/Q_m)`.
+For `k>=3`, `F_{m-1}/F_m <= Q_{m-1}/Q_m`, so
+
+`lambda >= r_F := F_{m-1}/F_m`.
+
+Since `A` increases in `lambda`,
+`A >= A(r_F)`.
+And `A(r_F)-1/3` has explicit positive residue formulas:
+
+- `k=3t`:
+  `(68 t^3 + 102 t^2 + 44 t + 6) / (3*(192 t^4 + 424 t^3 + 330 t^2 + 106 t + 12))`
+- `k=3t+1`:
+  `(196 t^3 + 582 t^2 + 528 t + 152) / (3*(192 t^4 + 776 t^3 + 1134 t^2 + 708 t + 160))`
+- `k=3t+2`:
+  `(132 t^3 + 492 t^2 + 588 t + 228) / (3*(192 t^4 + 984 t^3 + 1860 t^2 + 1536 t + 468))`
+
+So `A(r_F) > 1/3`.
+
+Also:
+
+- `B >= 2-m`,
+- `r <= (2/3)^(k-1)`.
+
+Thus for `k>=7`:
+
+`(1+r)margin = A + rB >= A(r_F) - (m-2)(2/3)^(k-1)`
+`> 1/3 - ((2k-3)/3)(2/3)^(k-1) > 0`.
+
+(`((2k-3)/3)(2/3)^(k-1)` decreases for `k>=3` and at `k=7` is `704/2187 < 1/3`.)
+
+Finite exact checks for `k=1..6` are positive.
+
+### Status of this proof attempt
+
+- Positivity is now established for the reduced branches `j=0` and `j=1`
+  under the above templates.
+- Remaining gap is still the minimizer-reduction theorem
+  (`j in {0,1}` extremality by residue), which is strongly supported by
+  scans but not yet proved.
+
+---
+
+## Unit-leaf `c2 >= 0`: algebraic proof (2026-02-18)
+
+See full write-up: `notes/unit_leaf_c2_algebra_2026-02-18.md`
+
+For the unit-leaf decomposition `I_T = (1+x)I_B + x(1+x)^k` with
+`B = (1+2x)^k(1+x)^{j-1}`:
+
+**Step 1 (lower bound on `lambda_m^T`)**: Using log-concavity of `B` (product of
+linear factors) and the elementary-symmetric bound `e_r/e_{r-1} >= (n-r+1)/r`:
+
+`lambda_m^T >= tau = b_{m-2}/b_{m-1}`.
+
+Verified: `k<=3000`, `j<=40`, `1,380,000` pairs, 0 violations.
+Minimum gap: `lambda_m^T - tau = 0.000738` at `(k=2999, j=40, m=2019)`.
+
+**Step 2 (mean at tau)**: Since `mu_B(lambda)` is increasing, `mu_B(lambda_m^T) >= mu_B(tau)`.
+At `lambda=tau`, the distribution `w_t = b_t tau^t` is log-concave with mode at `m-1`.
+By **Darroch's mode-mean inequality** (`|mode - mean| < 1`):
+`mu_B(tau) > (m-1)-1 = m-2`.
+
+Therefore `c2 = mu_B(lambda_m^T) - (m-2) > 0`. QED.
+
+**Corollary (alternative formula)**: The algebraic identity
+`c2 = 1/(1+lambda) + (1+r)*margin - r*(k*lambda/(1+lambda) - m + 2)`
+(where `r = lambda*(1+lambda)^{k-j}/(1+2lambda)^k`) is verified exactly.
+Given `margin >= 1/3`, this gives `c2 >= 7/18 > 0` (using `k*(2/3)^k <= 8/9` for all `k>=1`).
+
+---
+
+## Minimizer-reduction: structural analysis (2026-02-18)
+
+The empirical minimizer structure breaks into three provable sub-claims:
+
+**Observation (period-2 oscillation in j)**: `margin(k,j+1) - margin(k,j)` alternates sign:
+positive when the mode stays the same (j+1 leaves, same mode), negative when mode increases by 1.
+The net effect over 2-step increments is always positive for `k >= 7`.
+
+**Sub-claim A (even/odd monotonicity)**: For `k >= 7` and all `j >= 0`:
+`margin(k, j+2) > margin(k, j)`.
+Verified: `k=7..25`, `j<=20`, 0 failures. Open: algebraic proof.
+
+**Sub-claim B (k ≡ 1 mod 3 comparison)**: For `k >= 4`, `k ≡ 1 (mod 3)`:
+`margin(k, 0) < margin(k, 1)`, so `j=0` is the global minimum.
+Verified: all `k=4,7,10,...,22`. Open: algebraic proof.
+
+**Sub-claim C (k ≡ 0,2 mod 3 comparison)**: For `k >= 3`, `k ≡ 0 or 2 (mod 3)`:
+`margin(k, 1) < margin(k, 0)`, so `j=1` is the global minimum.
+Verified: all such `k=3..24`. Open: algebraic proof.
+
+**Small cases** (`k=3..6`): Verified explicitly that the global minimum over `j=0..40` is at `j=0` (k≡1) or `j=1` (k≡0,2).
+Exception: `k=2 (≡2)`: minimum at `j=0` (not `j=1`). This is a genuine small case.
+
+**Proof path for Sub-claim A**: Adding 2 unit leaves shifts the IS polynomial mean by `~2/3` per leaf (since each unit leaf contributes `lambda/(1+lambda) ~ 1/2` at the tie-fugacity), while the mode reference shifts by at most 1 every 3 unit leaves. Net margin gain per 2 leaves: `~4/6 - 1/3 = 1/6 > 0`. Making this rigorous requires bounding the mode change and mean shift jointly.
+
+**What completing A+B+C would give**: Together with the j=0/j=1 branch proofs (already proved), Sub-claims A, B, C would establish that `margin(S(2^k,1^j)) >= 1/3` for all `k >= 1`, `j >= 0`, `k != 2` (with `k=2` checked explicitly). Combined with `c2 >= 0` (proved), this completes the mixed-spider tie-fugacity bound.
