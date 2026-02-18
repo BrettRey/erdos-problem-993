@@ -1,0 +1,255 @@
+{
+  "params": {
+    "min_n": 3,
+    "max_n": 23,
+    "tol": 1e-12,
+    "max_heavy": 24
+  },
+  "summary": {
+    "seen": 23942357,
+    "considered": 931596,
+    "hall_fail": 0,
+    "singleton_fail": 0,
+    "local_fail": 0,
+    "skipped_heavy": 0,
+    "nonempty_h_trees": 674393,
+    "worst_hall": {
+      "n": 22,
+      "g6": "U???????C?G?G?C?@??G??_?@_CA_B?_?W_?@`??",
+      "H_core_indices": [
+        9
+      ],
+      "argmin_size": 1,
+      "argmin_subset": [
+        9
+      ],
+      "min_slack": 0.27615847319174214,
+      "min_singleton": 0.27615847319174214
+    },
+    "worst_singleton": {
+      "n": 8,
+      "g6": "G?B@dO",
+      "H_core_indices": [
+        0,
+        1
+      ],
+      "argmin_size": 1,
+      "argmin_subset": [
+        0
+      ],
+      "min_slack": 0.4745762711864406,
+      "min_singleton": 0.4745762711864406,
+      "min_global_gap": 0.0
+    },
+    "worst_local": {
+      "n": 8,
+      "g6": "G?B@dO",
+      "H_core_indices": [
+        0,
+        1
+      ],
+      "argmin_size": 1,
+      "argmin_subset": [
+        0
+      ],
+      "local_bad_subset": [],
+      "min_local_gap": 0.0
+    },
+    "argmin_size_dist": {
+      "0": 257203,
+      "1": 674393
+    },
+    "wall_s": 772.9258959293365
+  },
+  "per_n": {
+    "3": {
+      "seen": 1,
+      "considered": 0,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.007252931594848633
+    },
+    "4": {
+      "seen": 2,
+      "considered": 1,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.0038688182830810547
+    },
+    "5": {
+      "seen": 3,
+      "considered": 1,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.003905057907104492
+    },
+    "6": {
+      "seen": 6,
+      "considered": 2,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.0052258968353271484
+    },
+    "7": {
+      "seen": 11,
+      "considered": 3,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.0036101341247558594
+    },
+    "8": {
+      "seen": 23,
+      "considered": 6,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.0034918785095214844
+    },
+    "9": {
+      "seen": 47,
+      "considered": 10,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.003651142120361328
+    },
+    "10": {
+      "seen": 106,
+      "considered": 21,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.006253719329833984
+    },
+    "11": {
+      "seen": 235,
+      "considered": 39,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.008412837982177734
+    },
+    "12": {
+      "seen": 551,
+      "considered": 82,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.014981985092163086
+    },
+    "13": {
+      "seen": 1301,
+      "considered": 167,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.033007144927978516
+    },
+    "14": {
+      "seen": 3159,
+      "considered": 360,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.06845498085021973
+    },
+    "15": {
+      "seen": 7741,
+      "considered": 766,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.16121506690979004
+    },
+    "16": {
+      "seen": 19320,
+      "considered": 1692,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 0.4045848846435547
+    },
+    "17": {
+      "seen": 48629,
+      "considered": 3726,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 1.0710630416870117
+    },
+    "18": {
+      "seen": 123867,
+      "considered": 8370,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 2.903312921524048
+    },
+    "19": {
+      "seen": 317955,
+      "considered": 18866,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 7.821815013885498
+    },
+    "20": {
+      "seen": 823065,
+      "considered": 43029,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 22.27600598335266
+    },
+    "21": {
+      "seen": 2144505,
+      "considered": 98581,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 62.127346992492676
+    },
+    "22": {
+      "seen": 5623756,
+      "considered": 227678,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 171.14627599716187
+    },
+    "23": {
+      "seen": 14828074,
+      "considered": 528196,
+      "hall_fail": 0,
+      "singleton_fail": 0,
+      "local_fail": 0,
+      "skipped_heavy": 0,
+      "wall_s": 504.8510649204254
+    }
+  }
+}

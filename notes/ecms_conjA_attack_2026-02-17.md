@@ -417,3 +417,159 @@ Distributions:
 
 The bridge statistic is much tighter than raw ECMS shift and may offer a better handle
 for a proof attempt (localizing contraction mode against endpoint deletions).
+
+## 3) Packaged submodularity scans + analytic updates (2026-02-18)
+
+Today’s in-session ad hoc scans were packaged into reproducible scripts and rerun.
+
+### Packaged scripts
+
+- `conjecture_a_local_overlap_profile.py`
+  - profiles local-overlap failure by key `(deg_H(u), heavy_leaf_count(u))`.
+- `conjecture_a_leaf_signature_scan.py`
+  - scans all-negative leaf-heavy subsets and aggregates structural signatures.
+- `conjecture_a_leaf_overload_exceptions.py`
+  - isolates overload-key behavior and extracts rare non-`leaf_S=1` exceptions.
+- `conjecture_a_signature321_slack.py`
+  - verifies identity/positivity for the dominant signature `(3,2,1,(2,2))`.
+
+### New artifacts
+
+- `results/whnc_local_overlap_profile_n23.json`
+- `results/whnc_leaf_signature_allneg_n21.json`
+- `results/whnc_leaf_overload_exceptions_n21.json`
+- `results/whnc_signature321_slack_n21.json`
+
+### Key numerical outcomes
+
+From `whnc_local_overlap_profile_n23.json` (full `n<=23` frontier):
+
+- totals: `seen=23,942,357`, `considered=931,596`, `u_count=7,749,703`,
+  `fail_count=23,277`.
+- leaf-overlap concentration is explicit:
+  - `(deg_H,leaf_H)=(3,1)`: `9,837 / 236,006` fails,
+  - `(4,1)`: `10,583 / 38,205`,
+  - `(5,1)`: `2,580 / 3,461`,
+  - `(6,1)`: `230 / 233`,
+  - `(8,1)`: `1 / 1`.
+- non-leaf keys remain tiny:
+  - `(4,0)`: `2 / 5,136`,
+  - `(5,0)`: `11 / 544`,
+  - `(6,0)`: `17 / 37`,
+  - `(7,0)`: `2 / 2`.
+
+From `whnc_leaf_signature_allneg_n21.json`:
+
+- all-negative leaf-heavy subsets (`n<=21`): `267,651`.
+- dominant signature: `(k,l,r,degs)=(3,2,1,(2,2))`, count `104,976`.
+- global minimum gap remains `0.022372600469548365` at this signature.
+
+From `whnc_leaf_overload_exceptions_n21.json`:
+
+- subset-with-overload count: `10,815`.
+- subset with at least one overloaded `u` and `leaf_S(u)=1`: `10,808`.
+- subset with any non-`leaf_S=1` overload: `7` total.
+- best gap among those 7 exceptions: `0.28533719979180583` (far from extremal).
+
+From `whnc_signature321_slack_n21.json`:
+
+- signature instances checked: `104,976`.
+- identity failures: `0`,
+- positivity failures: `0`,
+- structure failures: `0`.
+
+### Formal lemmas/proof note
+
+See `notes/whnc_submodularity_progress_2026-02-17.md`:
+
+- Lemma A: non-leaf private-neighbor peeling terminates at singleton and yields
+  singleton dominance on `H_nonleaf`.
+- Lemma B: dominant signature `(3,2,1,(2,2))` has explicit algebraic slack
+  formula and strict positivity from Theorem 6 edge bounds.
+
+## 4) New analogy trial: statistical-physics decimation (2026-02-18)
+
+To try a genuinely different lane, we decimated leaves exactly and rewrote the
+problem as an inhomogeneous hard-core model on the leaf-stripped core.
+
+### Exact decimation identities
+
+For `d_leaf<=1` tree `T`, let:
+
+- `L` = leaves,
+- `A` = supports adjacent to leaves,
+- `C = V(T) \ L` (core graph).
+
+On `C`, define vertex activities:
+
+- `lambda_v = 1/2` for `v in A`,
+- `lambda_v = 1` for `v in C\A`.
+
+Then at `lambda=1`:
+
+- `Z_T = 2^{|L|} * Z_C^(lambda_v)`,
+- `P_T(v) = P_C(v)` for `v in C`,
+- `P_T(leaf l with support s) = (1 - P_C(s))/2`.
+
+Hence:
+
+`mu(T) = |A|/2 + sum_{v in C\A} P_C(v) + (1/2) sum_{v in A} P_C(v).`
+
+And equivalently:
+
+`n/3 - mu(T) = (|C|/3 - |A|/6) - [sum_{v in C\A} P_C(v) + (1/2) sum_{v in A} P_C(v)].`
+
+Verified computationally (`conjecture_a_decimation_core_model.py`):
+
+```bash
+python3 conjecture_a_decimation_core_model.py --min-n 3 --max-n 21 \
+  --out results/whnc_decimation_core_n21.json
+```
+
+Result:
+
+- `seen=3,490,527`, `considered=175,722`,
+- `z_fail=0`, `core_prob_fail=0`, `leaf_prob_fail=0`, `gap_identity_fail=0`.
+
+### Decimated weighted-WHNC (new structural inequality)
+
+On `C`, define heavy set:
+
+`H = {v in C\A : P(v) > 1/3}`.
+
+Define weighted supply:
+
+- `s(u)=1/3-P(u)` for `u in C\A`,
+- `s(u)= (1/2)*(2/3-P(u))` for `u in A`.
+
+Candidate inequality:
+
+`sum_{h in H}(P(h)-1/3) <= sum_{u in N(H)} s(u).`
+
+Scanned by `conjecture_a_decimated_whnc.py`.
+
+Through full `n<=23` frontier:
+
+```bash
+python3 conjecture_a_decimated_whnc.py --min-n 3 --max-n 23 \
+  --out results/whnc_decimated_whnc_n23.json
+```
+
+Result:
+
+- `seen=23,942,357`, `considered=931,596`,
+- **global failures: `0`**,
+- minimum global margin: `0.27615847319174214`.
+
+Also tested local weighted overlap at each `u in N(H)`:
+
+`sum_{h~u, h in H}(P(h)-1/3) <= s(u)`.
+
+This stronger local form is almost true but not universal:
+
+- local failures: `54` through `n<=23`,
+- worst local margin: `-0.10158506746109458`.
+
+Interpretation: decimation substantially regularizes the overlap pathology
+(global weighted inequality is empirically robust), while preserving a small
+residual nonlocal overlap effect.

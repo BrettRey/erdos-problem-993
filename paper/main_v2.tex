@@ -451,10 +451,46 @@ so $\mu \le n/3$ whenever the heavy surplus is absorbed by the neighbourhood def
 Each $u \in N(h)$ satisfies $P(u) < 2/3 - P(h) < 1/3$ by the edge bound, so every summand exceeds $P(h) - 1/3$.
 \end{proof}
 
+The case with a single non-leaf heavy vertex is also provable.
+
+\begin{proposition}[Mixed single-hub compensation]\label{prop:mixed-single}
+  In any $\dleaf \le 1$ tree, let $L \ne \emptyset$ be a set of heavy leaves and $h \in H$ a non-leaf heavy vertex.
+  Then $F(L \cup \{h\}) > 0$.
+\end{proposition}
+
+\begin{proof}
+Write $s_l$ for the (unique) support of leaf~$l$, set $A_l = 2/3 - P(s_l) - P(l) > 0$ (edge bound on $l$--$s_l$), and let $J = N(h) \setminus \{s_l : l \in L\}$.
+The $\dleaf \le 1$ condition gives distinct supports, and
+\[
+  F(L \cup \{h\}) = \sum_{l \in L} A_l + \sum_{j \in J}\bigl(\tfrac{1}{3} - P(j)\bigr) - \bigl(P(h) - \tfrac{1}{3}\bigr).
+\]
+
+\textit{Case~1: $J \ne \emptyset$.}
+Any $j \in J$ satisfies $P(h) + P(j) < 2/3$ (edge bound on $h$--$j$), so $\tfrac{1}{3} - P(j) > P(h) - \tfrac{1}{3}$.
+The $J$-supply alone exceeds the $h$-demand, giving $F > \sum_l A_l \ge 0$.
+
+\textit{Case~2: $J = \emptyset$.}
+Let $L_I = \{l \in L : s_l \in N(h)\}$; leaves in $L \setminus L_I$ contribute only non-negative $A_l$ terms.
+Since $J = \emptyset$, we have $N(h) = \{s_i\}_{i=1}^m$ where $m = \deg(h) \ge 2$.
+Write $q_i = R_{s_i \to h}$; the leaf child $l_i$ forces $q_i \le 1/2$.
+Set $Q = \prod_i(1+q_i)$ and $Y = Q+1$; the cavity formulas give
+\[
+  P(h) = \frac{1}{Y}, \qquad P(s_i) = \frac{q_i Q}{Y(1+q_i)}, \qquad P(l_i) = \frac{Q+1+q_i}{2Y(1+q_i)}.
+\]
+Direct expansion yields
+\[
+  F_I := \sum_{i=1}^m A_i - \bigl(P(h) - \tfrac{1}{3}\bigr) = \frac{m+2}{6} - \frac{1}{Y} - \frac{Q}{2Y}\sum_{i=1}^m \frac{q_i}{1+q_i}.
+\]
+Since $q_i \le 1/2$, we have $q_i/(1+q_i) \le 1/3$, so $F_I \ge (m+2)/6 - (6+Qm)/(6Y)$, which is positive iff $2Q + m > 4$.
+For $m = 2$: $Q > 1$ since $q_i > 0$ strictly.
+For $m \ge 3$: $2Q + m \ge 2 + 3 = 5 > 4$.
+Hence $F_I > 0$, and $F(L \cup \{h\}) \ge F_I > 0$.
+\end{proof}
+
 Condition~\eqref{eq:whnc} is a weighted analogue of Hall's marriage condition: the probability deficit in $N(S)$ must cover the surplus from every subset $S \subseteq H$, not just singletons.
 I verified~\eqref{eq:whnc} for all 931\,596 trees with $\dleaf \le 1$ through $n = 23$ (zero violations).
-In every tree tested, the minimum slack over all $S \subseteq H$ is attained at $|S| = 1$, where Proposition~\ref{prop:singleton} guarantees positivity.
-A proof of the full condition would settle Conjecture~A.
+In every tree tested, the minimum slack is attained at a singleton, where Proposition~\ref{prop:singleton} applies.
+Propositions~\ref{prop:singleton} and~\ref{prop:mixed-single} together cover all $S \subseteq H$ with at most one non-leaf heavy vertex; the remaining case $|S \cap H_{\mathrm{nl}}| \ge 2$ is open.
 
 
 \section{Exhaustive verification through \texorpdfstring{$n = 27$}{n = 27}}\label{sec:exhaustive}
@@ -611,7 +647,7 @@ The remaining remote component decays geometrically with distance from the contr
 The distance-1 contribution admits an exact formula (Proposition~\ref{prop:s1-formula}), with $|S_1| < 0.355$; the tail from distances $2$ and beyond alternates in sign and partially cancels $S_1$ in $90\%$ of edges.
 For all parameterised families tested (paths, stars, caterpillars, tripods, brooms) through $n = 300$, the maximum $|\text{remote}|$ converges and never exceeds~$0.254$.
 Second, prove Conjecture~A, perhaps via the mean bound $\mu < n/3$; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the bound is tight.
-The compensation condition~\eqref{eq:whnc} provides a more direct path: Proposition~\ref{prop:singleton} settles the singleton case, and in all 931\,596 trees tested through $n = 23$, the tightest subset is always a singleton.
+The compensation condition~\eqref{eq:whnc} provides a more direct path: Propositions~\ref{prop:singleton} and~\ref{prop:mixed-single} together cover all $S \subseteq H$ with at most one non-leaf heavy vertex, and in all 931\,596 trees tested through $n = 23$, the tightest subset is always a singleton.
 On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
 
 The hard-core model tools developed here~-- the edge bound, Hub Exclusion, and the occupation probability framework~-- also have applications to biological network analysis, where tree-like backbones arise in protein interaction and phylogenetic networks; these connections are explored in a companion paper (\href{https://github.com/BrettRey/tree-independence-bio}{github.com/BrettRey/tree-independence-bio}).
