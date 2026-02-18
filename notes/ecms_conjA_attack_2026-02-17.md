@@ -573,3 +573,34 @@ This stronger local form is almost true but not universal:
 Interpretation: decimation substantially regularizes the overlap pathology
 (global weighted inequality is empirically robust), while preserving a small
 residual nonlocal overlap effect.
+
+### Decimated marginal scan (new strongest empirical signal)
+
+In the decimated model, define for non-empty `S subseteq H`:
+
+`M(h,S)=s(N_priv(h,S))-(P(h)-1/3)`.
+
+A peeling proof would follow if every `S` has some `h` with `M(h,S) >= 0`.
+So we scanned for all-negative subsets (`M(h,S)<0` for all `h in S`).
+
+```bash
+python3 conjecture_a_decimated_marginal_scan.py --min-n 3 --max-n 21 \
+  --out results/whnc_decimated_marginal_scan_n21.json
+
+python3 conjecture_a_decimated_marginal_scan.py --min-n 22 --max-n 23 \
+  --out results/whnc_decimated_marginal_scan_n23_tail.json
+```
+
+Merged artifact:
+
+- `results/whnc_decimated_marginal_scan_n23.json`
+
+Result through full `n<=23`:
+
+- `seen=23,942,357`, `considered=931,596`,
+- `trees_with_h=674,393`,
+- `trees_with_allneg=0`,
+- `allneg_subsets=0`.
+
+So the all-negative marginal obstruction observed in the original (non-decimated)
+WHNC scan vanishes completely after exact leaf decimation on the full frontier.

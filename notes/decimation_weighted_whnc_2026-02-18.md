@@ -75,7 +75,30 @@ Through `n<=23`:
 
 Hence the right target is global Hall-type compensation, not per-vertex domination.
 
-## 4) Why this route is different and useful
+## 4) Decimated marginal obstruction disappears on current frontier
+
+Define decimated removal marginal for non-empty `S ⊆ H`:
+
+`M(h,S) = s(N_priv(h,S)) - (P_C(h)-1/3),`
+
+`N_priv(h,S)=N(h)\N(S\{h}).`
+
+A peeling proof would follow if every non-empty `S` had some `h` with
+`M(h,S) >= 0`.
+Equivalently, there should be no all-negative subsets (`M(h,S)<0` for all `h∈S`).
+
+Verification artifact:
+
+- `results/whnc_decimated_marginal_scan_n23.json`
+- Through full `n<=23` (`931,596` d_leaf<=1 trees):
+  - `trees_with_h = 674,393`,
+  - `trees_with_allneg = 0`,
+  - `allneg_subsets = 0`.
+
+So in the decimated weighted model, the exact obstruction that appears in the
+original WHNC scan (all-negative subsets) is absent on the full frontier.
+
+## 5) Why this route is different and useful
 
 - It integrates out leaves exactly (renormalization step), instead of handling
   leaf/support overlap directly in original graph.
@@ -83,8 +106,38 @@ Hence the right target is global Hall-type compensation, not per-vertex dominati
 - It keeps a large positive global margin computationally, while isolating only
   a small nonlocal overlap obstruction.
 
-This looks like a viable proof lane:
+This now looks like the strongest proof lane:
 
 1. formalize decimation identities;
-2. prove weighted Hall inequality on the core for `H ⊆ C\A`;
+2. prove no-all-negative-marginal subsets in the decimated core model (peeling);
 3. pull back to `mu(T)<n/3`.
+
+## 6) Steiner peeling with gap-formula weights (NEW 2026-02-18)
+
+Script `verify_steiner_peeling.py` runs through n≤18 (15,246 d_leaf≤1 trees).
+
+All five checks pass with zero failures:
+- P(v) < 1/3 for all v ∈ A: 0 failures (H_A = ∅ confirmed)
+- P(l) = (1-P(s))/2: 0 failures (decimation identity exact)
+- n/3 - μ ≥ 0: 0 failures
+- F_gap(H_core) ≥ 0: 0 failures
+- **Steiner leaf M_gap ≥ 0: 0 failures** (key claim)
+- Tight cases M_gap = 0: 0
+
+**Gap-formula weights:** s(u) = (1/2)(1/3-P(u)) for u ∈ A, 1/3-P(u) for u ∈ C\A.
+
+**Sub-case analysis:** When the Steiner leaf h has ALL private C-neighbors in A
+(18,482 singleton cases checked through n≤18):
+- Worst margin: +0.138 (n=18, two A-neighbors)
+- The margin is large because: when h has only A-private-neighbors,
+  R_{u→h} ≤ 1/2 for each (leaf forces suppression), so P(h) is bounded
+  close to 1/3 (small demand), while A-supply is adequate at half weight.
+
+**Proof outline for singleton F_gap({h}) ≥ 0:**
+1. h has a private C\A-neighbor u: edge bound gives 2/3-P(h)-P(u) > 0,
+   which equals supply(u) - demand(h). Done.
+2. All private C-neighbors are in A: use complementarity — leaf suppression
+   bounds P(h) close to 1/3, keeping demand small while supply ≥ 0.138 slack.
+
+**Remaining analytic gap:** Prove case 2 formally via cavity inequalities.
+This is a well-defined finite-dimensional optimization problem in the R_{u→h}.

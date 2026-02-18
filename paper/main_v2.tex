@@ -489,8 +489,81 @@ Hence $F_I > 0$, and $F(L \cup \{h\}) \ge F_I > 0$.
 
 Condition~\eqref{eq:whnc} is a weighted analogue of Hall's marriage condition: the probability deficit in $N(S)$ must cover the surplus from every subset $S \subseteq H$, not just singletons.
 I verified~\eqref{eq:whnc} for all 931\,596 trees with $\dleaf \le 1$ through $n = 23$ (zero violations).
-In every tree tested, the minimum slack is attained at a singleton, where Proposition~\ref{prop:singleton} applies.
-Propositions~\ref{prop:singleton} and~\ref{prop:mixed-single} together cover all $S \subseteq H$ with at most one non-leaf heavy vertex; the remaining case $|S \cap H_{\mathrm{nl}}| \ge 2$ is open.
+
+The $\dleaf \le 1$ structure enables a decimation reduction that resolves the global compensation problem.
+
+\begin{lemma}[Decimation identity]\label{lem:decimation}
+For any $\dleaf \le 1$ tree~$T$ with leaves $L$, support vertices $A$ (those adjacent to leaves), and core $C = V \setminus L$,
+\[
+  \frac{n}{3} - \mu(T)
+  = \sum_{v \in C \setminus A}\!\Bigl(\frac{1}{3} - P(v)\Bigr)
+  + \frac{1}{2}\sum_{v \in A}\!\Bigl(\frac{1}{3} - P(v)\Bigr).
+\]
+Every support vertex satisfies $P(v) < 1/3$, so every heavy vertex lies in $H_{\mathrm{core}} := \{v \in C \setminus A : P(v) > 1/3\}$.
+\end{lemma}
+
+\begin{proof}
+Each support $s \in A$ has exactly one leaf child $l_s$ (since $\dleaf \le 1$), with $P(l_s) = (1 - P(s))/2$ by the cavity recursion.
+Summing over all vertices and using $n = 2|A| + |C \setminus A|$ gives the identity.
+The support bound holds because the leaf forces the factor $1/(1+1) = 1/2$ in $R_{s \to h} = \prod_{c \ne h} 1/(1 + R_{c \to s})$, so $R_{s \to h} \le 1/2$; the edge bound then gives $P(s) < 1/3$.
+\end{proof}
+
+Since the identity decomposes $n/3 - \mu$ as a sum of non-negative terms over all $C$-vertices, with the heavy interior vertices contributing negative terms, the global gap is bounded below by the \emph{gap-formula surplus}:
+\[
+  F_{\mathrm{gap}}(S)
+  = \sum_{u \in N_C(S) \cap C \setminus A}\!\!\!\Bigl(\frac{1}{3} - P(u)\Bigr)
+  + \frac{1}{2}\!\!\sum_{u \in N_C(S) \cap A}\!\!\Bigl(\frac{1}{3} - P(u)\Bigr)
+  - \sum_{h \in S}\!\Bigl(P(h) - \frac{1}{3}\Bigr),
+\]
+where $N_C(S) = N(S) \cap (C \setminus S)$.
+Vertices in $C \setminus (H_{\mathrm{core}} \cup N_C(H_{\mathrm{core}}))$ have $P \le 1/3$ and contribute non-negatively to the identity, so $n/3 - \mu(T) \ge F_{\mathrm{gap}}(H_{\mathrm{core}})$.
+
+\begin{theorem}[Gap-formula compensation by Steiner peeling]\label{thm:steiner-peeling}
+For any $\dleaf \le 1$ tree~$T$ and every non-empty $S \subseteq H_{\mathrm{core}}$, $F_{\mathrm{gap}}(S) > 0$.
+\end{theorem}
+
+\begin{proof}
+Induction on $|S|$.
+Write $s(u) = 1/3 - P(u)$ for $u \in C \setminus A$ and $s(u) = \tfrac{1}{2}(1/3 - P(u))$ for $u \in A$.
+
+\textit{Base case} $S = \{h\}$.
+All $m = \deg_T(h) \ge 2$ neighbours $u_1, \ldots, u_m$ of $h$ are in $C$ (since $h \in H_{\mathrm{core}} \subset C \setminus A$) and are private.
+$F_{\mathrm{gap}}(\{h\}) = \sum_i s(u_i) - (P(h) - 1/3)$.
+
+If any $u_i \in C \setminus A$: the edge bound gives $s(u_i) - (P(h) - 1/3) = 2/3 - P(h) - P(u_i) > 0$, so $F_{\mathrm{gap}}(\{h\}) > 0$.
+
+If all $u_i \in A$, we show $2P(h) + \sum P(u_i) < (m+2)/3$, which is equivalent to $F_{\mathrm{gap}}(\{h\}) > 0$:
+\begin{itemize}
+  \item $m = 2$: summing the two edge bounds $P(h) + P(u_i) < 2/3$ gives $2P(h) + P(u_1) + P(u_2) < 4/3$.
+  \item $m \ge 3$: summing $m$ edge bounds gives $m P(h) + \sum P(u_i) < 2m/3$; subtracting $(m-2)P(h) > (m-2)/3$ yields $2P(h) + \sum P(u_i) < (m+2)/3$.
+\end{itemize}
+
+\textit{Inductive step} $|S| \ge 2$.
+Let $h$ be a leaf of the Steiner tree of $S$ in $T$ (minimal subtree spanning $S$).
+Then $h$ has $k = \deg_T(h) - 1 \ge 1$ private $C$-neighbours $u_1, \ldots, u_k$ and one non-private neighbour $v_0$.
+The removal marginal is $M_{\mathrm{gap}}(h, S) = \sum_i s(u_i) - (P(h) - 1/3)$.
+
+If any $u_i \in C \setminus A$: the edge bound gives $M_{\mathrm{gap}} \ge 2/3 - P(h) - P(u_i) > 0$.
+
+If all $u_i \in A$, the same counting argument as the base case shows $M_{\mathrm{gap}} > 0$ for $k \ge 2$.
+For $k = 1$ (so $\deg_T(h) = 2$, with sole private $A$-neighbour $u_1$ and non-private $v_0$), the belief-propagation fixed-point equations give
+\[
+  P(h) = \frac{1}{D}, \qquad P(u_1) = \frac{(1 + \alpha)a}{D}, \qquad D = 2 + a + \alpha + a\alpha,
+\]
+where $a = R_{u_1 \to h} \le 1/2$ (leaf-suppression at $u_1$) and $\alpha = R_{v_0 \to h} > 0$ (strictly positive at $\lambda = 1$).
+Then $2P(h) + P(u_1) = (2 + a + a\alpha)/D = 1 - \alpha/D < 1$, so $M_{\mathrm{gap}} = (1 - 2P(h) - P(u_1))/2 > 0$.
+
+In every case $M_{\mathrm{gap}}(h, S) > 0$, so $F_{\mathrm{gap}}(S) = F_{\mathrm{gap}}(S \setminus \{h\}) + M_{\mathrm{gap}}(h, S) > F_{\mathrm{gap}}(S \setminus \{h\}) > 0$ by induction.
+\end{proof}
+
+\begin{corollary}\label{cor:mu-bound}
+For every $\dleaf \le 1$ tree~$T$, $\mu(T) < n/3$.
+\end{corollary}
+
+\begin{proof}
+If $H_{\mathrm{core}} = \emptyset$, all terms in Lemma~\ref{lem:decimation} are positive ($P(v) \le 1/3$ throughout $C$, strictly so in $A$), giving $n/3 - \mu > 0$.
+If $H_{\mathrm{core}} \ne \emptyset$, Theorem~\ref{thm:steiner-peeling} gives $F_{\mathrm{gap}}(H_{\mathrm{core}}) > 0$, and $n/3 - \mu \ge F_{\mathrm{gap}}(H_{\mathrm{core}}) > 0$.
+\end{proof}
 
 
 \section{Exhaustive verification through \texorpdfstring{$n = 27$}{n = 27}}\label{sec:exhaustive}
