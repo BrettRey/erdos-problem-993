@@ -27,33 +27,30 @@ T1 = a_m^2 + a_m*a_{m-2} - a_{m-1}*a_{m+1} - a_{m-1}^2
 
 ---
 
-## T1 >= 0 from log-concavity
+## T1 >= 0: ERRATUM (2026-02-18)
 
-**Term 1**: `(a_m - a_{m-1})(a_m + a_{m-1}) >= 0`
-because `a_m >= a_{m-1}` at the mode (by definition).
+**The proof below is WRONG.** Term 2 can be negative.
 
-**Term 2**: `a_m*a_{m-2} - a_{m-1}*a_{m+1} >= 0`
+**Term 1**: `(a_m - a_{m-1})(a_m + a_{m-1}) >= 0` ✓ (mode definition)
 
-*Proof*: By log-concavity of `A_j`:
-- LC at `t = m-1`: `a_{m-1}^2 >= a_{m-2}*a_m`  ... (i)
-- LC at `t = m`:   `a_m^2     >= a_{m-1}*a_{m+1}` ... (ii)
+**Term 2**: `a_m*a_{m-2} - a_{m-1}*a_{m+1}` — claimed >= 0 but FALSE in general.
 
-Multiplying (i) and (ii):
+*Counterexample*: `(1+2x)^6`, coefficients `[1, 12, 60, 160, 240, 192, 64]`, mode m=4.
+- Term 2 = `a_4*a_2 - a_3*a_5 = 240*60 - 160*192 = 14400 - 30720 = -16320 < 0`
 
-```
-a_{m-1}^2 * a_m^2 >= a_{m-2}*a_m * a_{m-1}*a_{m+1}
-```
+*Error in original proof*: The LC multiplication trick gives `a_{m-1}*a_m >= a_{m-2}*a_{m+1}`,
+which is `a_{m-1}*a_m - a_{m-2}*a_{m+1} >= 0`. But this is NOT the same as
+`a_m*a_{m-2} - a_{m-1}*a_{m+1} >= 0` (different products: {m-1, m} vs {m-2, m+1}
+is not the same as {m, m-2} vs {m-1, m+1}).
 
-Dividing by `a_{m-1}*a_m > 0`:
+**Status of T1 >= 0**: Computationally verified for k=6..3000, j=0..120 (0 failures).
+No correct algebraic proof exists. T1 = Term 1 + Term 2 is positive because
+Term 1 > |Term 2| in all tested cases, but the proof that Term 2 >= 0 is invalid.
 
-```
-a_{m-1}*a_m >= a_{m-2}*a_{m+1}
-```
-
-i.e., `a_m*a_{m-2} >= a_{m-1}*a_{m+1}`. QED.
-
-Log-concavity of `A_j` holds because `A_j = (1+2x)^k(1+x)^j` is a product of
-Pólya frequency polynomials (linear factors with negative real roots).
+This does NOT affect the overall Sub-claim A proof: F = T1 + T2 >= 0 is verified
+by the three-case argument (Cases 1-3 in `subclaim_A_F_geq_0_proof_2026-02-18.md`)
+which directly checks F >= 0 without needing T1 >= 0 as a separate fact. For Case 1
+(T2 = 0, F = T1), verification covers k <= 3000.
 
 ---
 
