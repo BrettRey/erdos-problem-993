@@ -70,6 +70,81 @@ Checks performed (all `d_leaf<=1`):
 
 Total: `4,543,370` checks, `0` failures.
 
+## Three-term bridge decomposition diagnostic (2026-02-18)
+
+New diagnostic: `diagnose_bridge_decomposition.py`.
+
+When `s` has degree 2 (adjacent to `l` and `u`), define P = dp_B[u][0], Q = dp_B[u][1].
+Then I(T) = (1+2x)P + (1+x)Q, I(A) = (1+x)P + Q, I(B) = P + Q. The Φ_m functional
+decomposes as:
+
+```
+Φ_m(A; λ) = (1+λ)Φ_m(B; λ) + λ·Z_B(λ) + λ·Φ_{m-1}(P; λ)
+```
+
+where λ·Z_B is the "pendant bonus" (always positive).
+
+### d_leaf ≤ 1 results (n ≤ 20, 77,141 trees):
+
+- **identity_fail = 0**: P,Q decomposition exact
+- **Φ_{m-1}(P) < 0: 0 failures** (min 0.375). P always has μ_P(λ) ≥ m-2.
+- **P always log-concave, unimodal**: 0 failures
+- **pendant bonus compensates: min ratio 1.65** (term2/|term1| when term1 < 0)
+- **STRONG C2: 0 failures** (min margin 0.114)
+- **total Φ_m(T) < 0: 0 failures**
+
+### ALL trees results (n ≤ 16, 29,355 trees with deg-2 support):
+
+All findings replicate: 0 failures on STRONG C2, Φ_{m-1}(P), LC of P.
+
+### Critical finding: B and A can exit d_leaf ≤ 1
+
+- B_not_dleaf1: 17,653 of 77,141 (23%)
+- A_not_dleaf1: 14,953 of 77,141 (19%)
+
+Naive induction within d_leaf ≤ 1 does not close. Need broader result or different
+induction structure. See `notes/bridge_algebraic_proof_2026-02-18.md`.
+
+### Structural insight: P is a product of subtree IS polynomials
+
+P = ∏_c I(subtree_c) where c ranges over children of u in B. Products of LC
+sequences are LC, explaining P_not_lc = 0. The weighted mean μ_P(λ) = Σ_c μ_{T_c}(λ).
+
+### Artifacts:
+
+- `results/bridge_decomposition_diagnostic_n20.json`
+- `results/bridge_decomposition_diagnostic_all_n16.json`
+
+## Degree-2 support: stronger local profile (2026-02-19)
+
+New checkpointed profiler:
+
+- `conjecture_a_mode_tie_deg2_local_profile.py`
+
+Artifacts:
+
+- `results/whnc_mode_tie_deg2_local_profile_n20.json`
+- `results/whnc_mode_tie_deg2_local_profile_n21.json`
+- `results/whnc_mode_tie_deg2_local_profile_n22.json`
+- `results/whnc_mode_tie_deg2_local_profile_n23.json`
+- aggregate: `results/whnc_mode_tie_deg2_local_profile_staged_summary_n23.json`
+
+In addition to `Phi_m(A) >= 0` and `Phi_{m-1}(B) >= 0`, this checks two stronger
+properties for every degree-2-support leaf:
+
+1. `mode(B) >= m-1` where `B=T-{l,s}` and `m=mode(T)`,
+2. tie-fugacity ordering: `lambda_m(T) >= lambda_{m-1}(B)` where
+   `lambda_{m-1}(B)=b_{m-2}/b_{m-1}`.
+
+Aggregate through full `d_leaf<=1` frontier (`n<=23`):
+
+- trees checked: `931,596`,
+- degree-2-support leaves checked: `4,543,370`,
+- `Phi` failures: `0`,
+- `mode(B) >= m-1` failures: `0`,
+- tie-fugacity ordering failures: `0`,
+- global minimum tie gap `lambda_m(T)-lambda_{m-1}(B) = 0.0922382758`.
+
 ## Structural mode profile for chosen leaf (min support degree)
 
 One-leaf-per-tree scan through full `n<=23` (`931,596` trees):

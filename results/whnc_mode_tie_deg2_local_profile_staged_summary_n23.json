@@ -1,0 +1,126 @@
+{
+  "description": "Staged summary for degree-2 local bridge profile through n<=23 (d_leaf<=1)",
+  "sources": [
+    "results/whnc_mode_tie_deg2_local_profile_n20.json",
+    "results/whnc_mode_tie_deg2_local_profile_n21.json",
+    "results/whnc_mode_tie_deg2_local_profile_n22.json",
+    "results/whnc_mode_tie_deg2_local_profile_n23.json"
+  ],
+  "per_source": [
+    {
+      "source": "results/whnc_mode_tie_deg2_local_profile_n20.json",
+      "seen": 1346021,
+      "considered": 77141,
+      "checked_trees": 77141,
+      "checked_deg2_leaves": 334140,
+      "fail_phi": 0,
+      "fail_mode_b": 0,
+      "fail_tie_gap": 0,
+      "tie_skipped": 2,
+      "min_phi_a": 0.875,
+      "min_phi_b": 2.0,
+      "min_tie_gap": 0.10628954523184819
+    },
+    {
+      "source": "results/whnc_mode_tie_deg2_local_profile_n21.json",
+      "seen": 2144505,
+      "considered": 98581,
+      "checked_trees": 98581,
+      "checked_deg2_leaves": 458915,
+      "fail_phi": 0,
+      "fail_mode_b": 0,
+      "fail_tie_gap": 0,
+      "tie_skipped": 0,
+      "min_phi_a": 541.441802845818,
+      "min_phi_b": 1535.7363778309436,
+      "min_tie_gap": 0.10497931139835281
+    },
+    {
+      "source": "results/whnc_mode_tie_deg2_local_profile_n22.json",
+      "seen": 5623756,
+      "considered": 227678,
+      "checked_trees": 227678,
+      "checked_deg2_leaves": 1100831,
+      "fail_phi": 0,
+      "fail_mode_b": 0,
+      "fail_tie_gap": 0,
+      "tie_skipped": 0,
+      "min_phi_a": 678.006295263044,
+      "min_phi_b": 1940.3829196871377,
+      "min_tie_gap": 0.09808660743023878
+    },
+    {
+      "source": "results/whnc_mode_tie_deg2_local_profile_n23.json",
+      "seen": 14828074,
+      "considered": 528196,
+      "checked_trees": 528196,
+      "checked_deg2_leaves": 2649484,
+      "fail_phi": 0,
+      "fail_mode_b": 0,
+      "fail_tie_gap": 0,
+      "tie_skipped": 0,
+      "min_phi_a": 1899.921035714145,
+      "min_phi_b": 5520.111978297961,
+      "min_tie_gap": 0.09223827583244837
+    }
+  ],
+  "summary": {
+    "seen": 23942356,
+    "considered": 931596,
+    "checked_trees": 931596,
+    "checked_deg2_leaves": 4543370,
+    "fail_phi": 0,
+    "fail_mode_b": 0,
+    "fail_tie_gap": 0,
+    "tie_skipped": 2
+  },
+  "global_minima": {
+    "phi_a": {
+      "value": 0.875,
+      "witness": {
+        "n": 4,
+        "g6": "CU",
+        "mode": 1,
+        "lambda_mode": 0.25,
+        "leaf": 1,
+        "support": 3,
+        "phi_a": 0.875,
+        "phi_b": 2.0,
+        "mode_b": 1,
+        "mode_b_shift": 1
+      }
+    },
+    "phi_b": {
+      "value": 2.0,
+      "witness": {
+        "n": 4,
+        "g6": "CU",
+        "mode": 1,
+        "lambda_mode": 0.25,
+        "leaf": 1,
+        "support": 3,
+        "phi_a": 0.875,
+        "phi_b": 2.0,
+        "mode_b": 1,
+        "mode_b_shift": 1
+      }
+    },
+    "tie_gap": {
+      "value": 0.09223827583244837,
+      "witness": {
+        "n": 23,
+        "g6": "V???????????????O?A??G??W??K??B???W?_@_Bii??",
+        "mode": 7,
+        "lambda_mode": 0.731792399319342,
+        "leaf": 15,
+        "support": 1,
+        "phi_a": 4402.131308001281,
+        "phi_b": 6812.854830163452,
+        "mode_b": 7,
+        "mode_b_shift": 1,
+        "lambda_tie_b": 0.6395541234868937,
+        "tie_gap": 0.09223827583244837
+      }
+    }
+  }
+}
