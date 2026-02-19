@@ -1,0 +1,51 @@
+{
+  "params": {
+    "k_min": 6,
+    "k_max": 1200,
+    "j_max": 160,
+    "store_cap": 100,
+    "out": "results/subclaimA_lane2_envelope_k1200_j160.json"
+  },
+  "overall": {
+    "pairs_total": 192395,
+    "pairs_mode_step_plus1": 192395,
+    "g_zero_pairs": 17787,
+    "t2_negative_pairs": 174608,
+    "t2_nonnegative_pairs": 0,
+    "wall_s": 38.07045388221741
+  },
+  "failures": {
+    "mode_step_plus1": [],
+    "mode_equals_product_mode": [],
+    "direct_F_nonnegative": [],
+    "s_upper_bound": [],
+    "envelope_nonnegative": [],
+    "t1_nonnegative_when_t2_nonnegative": []
+  },
+  "extrema": {
+    "min_F_over_A2": {
+      "value": 6.1487527760063325e-06,
+      "witness": {
+        "k": 1200,
+        "j": 159,
+        "mode": 880
+      }
+    },
+    "min_envelope_lower_bound": {
+      "value": 6.1487527760063325e-06,
+      "witness": {
+        "k": 1200,
+        "j": 159,
+        "mode": 880
+      }
+    },
+    "max_s_over_s_hat": {
+      "value": 1.0,
+      "witness": {
+        "k": 6,
+        "j": 0,
+        "mode": 4
+      }
+    }
+  }
+}

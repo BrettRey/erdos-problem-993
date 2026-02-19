@@ -1,0 +1,25 @@
+{
+  "params": {
+    "n": 23,
+    "res": 4,
+    "mod": 16,
+    "geng": "/opt/homebrew/bin/geng",
+    "progress_every": 250000,
+    "out": "results/darroch_n23_chunks/chunk_4_of_16.json"
+  },
+  "summary": {
+    "n": 23,
+    "chunk": {
+      "res": 4,
+      "mod": 16
+    },
+    "total_trees": 350088,
+    "mode_ceil_fail": 0,
+    "darroch_fail": 0,
+    "min_mode_ceil_margin": 0,
+    "min_set_margin": 0,
+    "first_mode_ceil_fail": null,
+    "first_darroch_fail": null,
+    "wall_s": 64.70763802528381
+  }
+}

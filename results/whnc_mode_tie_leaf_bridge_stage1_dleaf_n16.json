@@ -1,0 +1,262 @@
+{
+  "params": {
+    "min_n": 4,
+    "max_n": 16,
+    "all_trees": false,
+    "tol": 1e-12,
+    "stop_on_first": false
+  },
+  "summary": {
+    "seen": 32505,
+    "considered": 3150,
+    "checked": 3150,
+    "exists_both_nonneg_fail": 0,
+    "all_both_nonneg_fail": 6,
+    "heuristic_fail": {
+      "first_leaf": 2,
+      "max_parent_deg": 6,
+      "min_parent_deg": 0,
+      "parent_deg2_else_max": 0
+    },
+    "worst_best_leaf_margin": 0.875,
+    "worst_best_leaf_witness": {
+      "n": 4,
+      "g6": "CU",
+      "mode": 1,
+      "lambda_mode": 0.25,
+      "best_leaf": 1,
+      "best_support": 3,
+      "best_margin": 0.875,
+      "phi_a": 0.875,
+      "phi_b": 2.0,
+      "mode_a": 1,
+      "mode_b": 1,
+      "degree_signature": {
+        "1": 2,
+        "2": 2
+      }
+    },
+    "first_exists_fail": null,
+    "first_heuristic_fail": {
+      "max_parent_deg": {
+        "n": 11,
+        "g6": "J??CA?_EFg?",
+        "mode": 4,
+        "lambda_mode": 0.967741935483871,
+        "leaf": 5,
+        "support": 10,
+        "phi_a": -1.3796585515231643,
+        "phi_b": 118.12648681059393,
+        "mode_a": 3,
+        "mode_b": 3,
+        "degree_signature": {
+          "1": 5,
+          "2": 5,
+          "5": 1
+        }
+      },
+      "first_leaf": {
+        "n": 14,
+        "g6": "M???C@?G?_@?@?~_?",
+        "mode": 5,
+        "lambda_mode": 0.9395973154362416,
+        "leaf": 6,
+        "support": 13,
+        "phi_a": -52.478658454443654,
+        "phi_b": 521.8688811722951,
+        "mode_a": 4,
+        "mode_b": 4,
+        "degree_signature": {
+          "1": 7,
+          "2": 6,
+          "7": 1
+        }
+      }
+    },
+    "wall_s": 2.5712502002716064
+  },
+  "per_n": {
+    "4": {
+      "seen": 2,
+      "considered": 1,
+      "checked": 1,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 0,
+      "heuristic_fail": {
+        "first_leaf": 0,
+        "max_parent_deg": 0,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 0.004161834716796875
+    },
+    "5": {
+      "seen": 3,
+      "considered": 1,
+      "checked": 1,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 0,
+      "heuristic_fail": {
+        "first_leaf": 0,
+        "max_parent_deg": 0,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 0.0030107498168945312
+    },
+    "6": {
+      "seen": 6,
+      "considered": 2,
+      "checked": 2,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 0,
+      "heuristic_fail": {
+        "first_leaf": 0,
+        "max_parent_deg": 0,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 0.0027031898498535156
+    },
+    "7": {
+      "seen": 11,
+      "considered": 3,
+      "checked": 3,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 0,
+      "heuristic_fail": {
+        "first_leaf": 0,
+        "max_parent_deg": 0,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 0.0026581287384033203
+    },
+    "8": {
+      "seen": 23,
+      "considered": 6,
+      "checked": 6,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 0,
+      "heuristic_fail": {
+        "first_leaf": 0,
+        "max_parent_deg": 0,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 0.003033161163330078
+    },
+    "9": {
+      "seen": 47,
+      "considered": 10,
+      "checked": 10,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 0,
+      "heuristic_fail": {
+        "first_leaf": 0,
+        "max_parent_deg": 0,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 0.004730224609375
+    },
+    "10": {
+      "seen": 106,
+      "considered": 21,
+      "checked": 21,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 0,
+      "heuristic_fail": {
+        "first_leaf": 0,
+        "max_parent_deg": 0,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 0.008486270904541016
+    },
+    "11": {
+      "seen": 235,
+      "considered": 39,
+      "checked": 39,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 1,
+      "heuristic_fail": {
+        "first_leaf": 0,
+        "max_parent_deg": 1,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 0.017348051071166992
+    },
+    "12": {
+      "seen": 551,
+      "considered": 82,
+      "checked": 82,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 0,
+      "heuristic_fail": {
+        "first_leaf": 0,
+        "max_parent_deg": 0,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 0.040770769119262695
+    },
+    "13": {
+      "seen": 1301,
+      "considered": 167,
+      "checked": 167,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 0,
+      "heuristic_fail": {
+        "first_leaf": 0,
+        "max_parent_deg": 0,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 0.10130190849304199
+    },
+    "14": {
+      "seen": 3159,
+      "considered": 360,
+      "checked": 360,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 4,
+      "heuristic_fail": {
+        "first_leaf": 2,
+        "max_parent_deg": 4,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 0.24356317520141602
+    },
+    "15": {
+      "seen": 7741,
+      "considered": 766,
+      "checked": 766,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 1,
+      "heuristic_fail": {
+        "first_leaf": 0,
+        "max_parent_deg": 1,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 0.6485579013824463
+    },
+    "16": {
+      "seen": 19320,
+      "considered": 1692,
+      "checked": 1692,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 0,
+      "heuristic_fail": {
+        "first_leaf": 0,
+        "max_parent_deg": 0,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 1.4905540943145752
+    }
+  }
+}

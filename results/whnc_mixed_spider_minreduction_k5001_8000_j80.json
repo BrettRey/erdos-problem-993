@@ -1,0 +1,48 @@
+{
+  "params": {
+    "k_min": 5001,
+    "k_max": 8000,
+    "j_max": 80,
+    "tol": 1e-12,
+    "store_cap": 200,
+    "out": "results/whnc_mixed_spider_minreduction_k5001_8000_j80.json"
+  },
+  "overall": {
+    "total_pairs": 243000,
+    "wall_s": 1457.2248010635376,
+    "global_min": {
+      "k": 7999,
+      "j": 0,
+      "leaf_type": "tip",
+      "mode": 5333,
+      "lambda_mode": 0.9998125234345707,
+      "margin": 0.3333750000002762
+    }
+  },
+  "claims": {
+    "A_even_tail_monotone_from_j4": {
+      "fail_count": 0,
+      "fails": []
+    },
+    "A_odd_tail_monotone_from_j5": {
+      "fail_count": 0,
+      "fails": []
+    },
+    "A_prime_min_ge2_in_{2,3}": {
+      "fail_count": 0,
+      "fails": []
+    },
+    "B_mod1_prefers_j0": {
+      "fail_count": 0,
+      "fails": []
+    },
+    "C_mod0or2_prefers_j1": {
+      "fail_count": 0,
+      "fails": []
+    },
+    "global_min_over_j0_jmax_in_{0,1}": {
+      "fail_count": 0,
+      "fails": []
+    }
+  }
+}

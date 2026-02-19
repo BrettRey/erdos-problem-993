@@ -1,0 +1,20 @@
+Sub-claim C complete lane (analytic + finite exact checks)
+Target: margin(k,1) < margin(k,0) for k>=3, k%3 in {0,2}
+
+1) Validating transcribed A_gap-1/(4k) fraction identities...
+   PASS
+
+2) Proving A_gap > 1/(4k) for k>=14...
+   PASS
+
+3) Proving -E0 < 1/(4k) for k>=14...
+   PASS
+
+4) Finite exact base checks for remaining small k...
+   PASS
+
+5) Optional sanity scan (direct diff) up to k=500...
+   PASS
+
+Conclusion:
+  Combined with the proved E1<=0 theorem, this closes Sub-claim C.

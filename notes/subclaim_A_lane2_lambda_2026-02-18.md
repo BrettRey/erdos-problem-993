@@ -71,3 +71,17 @@ Scan diagnostics (`k<=3000, j<=120`):
 
 This reduction should help the full Sub-claim A proof effort: once `F>=0` is proved
 symbolically, lane #2 is done.
+
+---
+
+## Update: envelope lane (same date)
+
+A stronger algebraic envelope step was added in:
+
+- `notes/subclaim_A_lane2_envelope_2026-02-18.md`
+- script `prove_subclaim_A_lane2_envelope.py`
+
+Key idea: in the hard `T2<0` regime (`F=T1+T2`), write
+`F/A^2 = T1/A^2 + s*(T2/(AG))` with `s=G/A`, then bound `s` above by a closed
+coefficient lower bound on `A`. This yields an explicit lower envelope for `F`
+that was verified with zero failures on large scans (up to `k<=3000, j<=120`).

@@ -1,0 +1,336 @@
+{
+  "params": {
+    "min_n": 3,
+    "max_n": 23,
+    "geng": "/opt/homebrew/bin/geng",
+    "resume": true
+  },
+  "per_n": {
+    "3": {
+      "seen": 1,
+      "dleaf": 0,
+      "trees_with_support": 0,
+      "has_deg2_support": 0,
+      "min_support_deg_eq2": 0,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {},
+      "first_no_deg2": null,
+      "wall_s": 0.0029549598693847656
+    },
+    "4": {
+      "seen": 2,
+      "dleaf": 1,
+      "trees_with_support": 1,
+      "has_deg2_support": 1,
+      "min_support_deg_eq2": 1,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 1
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.0018019676208496094
+    },
+    "5": {
+      "seen": 3,
+      "dleaf": 1,
+      "trees_with_support": 1,
+      "has_deg2_support": 1,
+      "min_support_deg_eq2": 1,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 1
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.0016369819641113281
+    },
+    "6": {
+      "seen": 6,
+      "dleaf": 2,
+      "trees_with_support": 2,
+      "has_deg2_support": 2,
+      "min_support_deg_eq2": 2,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 2
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.001676797866821289
+    },
+    "7": {
+      "seen": 11,
+      "dleaf": 3,
+      "trees_with_support": 3,
+      "has_deg2_support": 3,
+      "min_support_deg_eq2": 3,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 3
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.0016019344329833984
+    },
+    "8": {
+      "seen": 23,
+      "dleaf": 6,
+      "trees_with_support": 6,
+      "has_deg2_support": 6,
+      "min_support_deg_eq2": 6,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 6
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.0032167434692382812
+    },
+    "9": {
+      "seen": 47,
+      "dleaf": 10,
+      "trees_with_support": 10,
+      "has_deg2_support": 10,
+      "min_support_deg_eq2": 10,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 10
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.002332925796508789
+    },
+    "10": {
+      "seen": 106,
+      "dleaf": 21,
+      "trees_with_support": 21,
+      "has_deg2_support": 21,
+      "min_support_deg_eq2": 21,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 21
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.0027129650115966797
+    },
+    "11": {
+      "seen": 235,
+      "dleaf": 39,
+      "trees_with_support": 39,
+      "has_deg2_support": 39,
+      "min_support_deg_eq2": 39,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 39
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.003916025161743164
+    },
+    "12": {
+      "seen": 551,
+      "dleaf": 82,
+      "trees_with_support": 82,
+      "has_deg2_support": 82,
+      "min_support_deg_eq2": 82,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 82
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.007895946502685547
+    },
+    "13": {
+      "seen": 1301,
+      "dleaf": 167,
+      "trees_with_support": 167,
+      "has_deg2_support": 167,
+      "min_support_deg_eq2": 167,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 167
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.017598867416381836
+    },
+    "14": {
+      "seen": 3159,
+      "dleaf": 360,
+      "trees_with_support": 360,
+      "has_deg2_support": 360,
+      "min_support_deg_eq2": 360,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 360
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.03708696365356445
+    },
+    "15": {
+      "seen": 7741,
+      "dleaf": 766,
+      "trees_with_support": 766,
+      "has_deg2_support": 766,
+      "min_support_deg_eq2": 766,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 766
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.08448219299316406
+    },
+    "16": {
+      "seen": 19320,
+      "dleaf": 1692,
+      "trees_with_support": 1692,
+      "has_deg2_support": 1692,
+      "min_support_deg_eq2": 1692,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 1692
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.23342108726501465
+    },
+    "17": {
+      "seen": 48629,
+      "dleaf": 3726,
+      "trees_with_support": 3726,
+      "has_deg2_support": 3726,
+      "min_support_deg_eq2": 3726,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 3726
+      },
+      "first_no_deg2": null,
+      "wall_s": 0.6039090156555176
+    },
+    "18": {
+      "seen": 123867,
+      "dleaf": 8370,
+      "trees_with_support": 8370,
+      "has_deg2_support": 8370,
+      "min_support_deg_eq2": 8370,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 8370
+      },
+      "first_no_deg2": null,
+      "wall_s": 1.6239707469940186
+    },
+    "19": {
+      "seen": 317955,
+      "dleaf": 18866,
+      "trees_with_support": 18866,
+      "has_deg2_support": 18866,
+      "min_support_deg_eq2": 18866,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 18866
+      },
+      "first_no_deg2": null,
+      "wall_s": 4.7021708488464355
+    },
+    "20": {
+      "seen": 823065,
+      "dleaf": 43029,
+      "trees_with_support": 43029,
+      "has_deg2_support": 43029,
+      "min_support_deg_eq2": 43029,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 43029
+      },
+      "first_no_deg2": null,
+      "wall_s": 13.836026191711426
+    },
+    "21": {
+      "seen": 2144505,
+      "dleaf": 98581,
+      "trees_with_support": 98581,
+      "has_deg2_support": 98581,
+      "min_support_deg_eq2": 98581,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 98581
+      },
+      "first_no_deg2": null,
+      "wall_s": 39.889816999435425
+    },
+    "22": {
+      "seen": 5623756,
+      "dleaf": 227678,
+      "trees_with_support": 227678,
+      "has_deg2_support": 227678,
+      "min_support_deg_eq2": 227678,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 227678
+      },
+      "first_no_deg2": null,
+      "wall_s": 114.70858383178711
+    },
+    "23": {
+      "seen": 14828074,
+      "dleaf": 528196,
+      "trees_with_support": 528196,
+      "has_deg2_support": 528196,
+      "min_support_deg_eq2": 528196,
+      "min_support_deg_gt2": 0,
+      "support_deg_hist": {
+        "2": 528196
+      },
+      "first_no_deg2": null,
+      "parts": [
+        {
+          "res": 0,
+          "seen": 2096750,
+          "returncode": 0
+        },
+        {
+          "res": 1,
+          "seen": 1715598,
+          "returncode": 0
+        },
+        {
+          "res": 2,
+          "seen": 2103437,
+          "returncode": 0
+        },
+        {
+          "res": 3,
+          "seen": 1983156,
+          "returncode": 0
+        },
+        {
+          "res": 4,
+          "seen": 1772329,
+          "returncode": 0
+        },
+        {
+          "res": 5,
+          "seen": 2490302,
+          "returncode": 0
+        },
+        {
+          "res": 6,
+          "seen": 692282,
+          "returncode": 0
+        },
+        {
+          "res": 7,
+          "seen": 1974220,
+          "returncode": 0
+        }
+      ],
+      "wall_s": 297.25819301605225
+    }
+  },
+  "summary": {
+    "seen_total": 23942357,
+    "total_dleaf": 931596,
+    "trees_with_support": 931596,
+    "has_deg2_support": 931596,
+    "min_support_deg_eq2": 931596,
+    "min_support_deg_gt2": 0,
+    "support_deg_hist": {
+      "2": 931596
+    },
+    "first_no_deg2": null,
+    "wall_s": 297.2591280937195
+  }
+}

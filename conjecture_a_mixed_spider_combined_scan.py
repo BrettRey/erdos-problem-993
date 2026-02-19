@@ -210,11 +210,19 @@ def main() -> None:
     unit = init_case_stats()
     global_min_combined: dict[str, Any] | None = None
     combined_fail = 0
+    per_k_min_all: list[dict[str, Any]] = []
+    per_k_min_tip: list[dict[str, Any]] = []
+    per_k_min_unit: list[dict[str, Any]] = []
+    per_k_j0_tip_is_min_all = 0
+    per_k_j0_is_min_tip = 0
 
     for k in range(args.k_min, args.k_max + 1):
         h = build_h_coeffs_2k(k)  # (1+2x)^k
         g = build_g_coeffs_shift_binom(k)  # x(1+x)^k
         f = h[:]  # j=0: (1+2x)^k
+        k_min_all: dict[str, Any] | None = None
+        k_min_tip: dict[str, Any] | None = None
+        k_min_unit: dict[str, Any] | None = None
 
         for j in range(0, args.j_max + 1):
             if j >= args.j_min:
@@ -274,6 +282,10 @@ def main() -> None:
 
                 if global_min_combined is None or combined_tip < global_min_combined["combined"]:
                     global_min_combined = wit_tip
+                if k_min_all is None or combined_tip < k_min_all["combined"]:
+                    k_min_all = wit_tip
+                if k_min_tip is None or combined_tip < k_min_tip["combined"]:
+                    k_min_tip = wit_tip
 
                 # Unit leaf case: A=S(2^k,1^(j-1)), B=(1+2x)^k(1+x)^(j-1)
                 if j >= 1:
@@ -332,10 +344,59 @@ def main() -> None:
                         or combined_unit < global_min_combined["combined"]
                     ):
                         global_min_combined = wit_unit
+                    if k_min_all is None or combined_unit < k_min_all["combined"]:
+                        k_min_all = wit_unit
+                    if k_min_unit is None or combined_unit < k_min_unit["combined"]:
+                        k_min_unit = wit_unit
 
             # Advance j -> j+1 for F_j.
             if j < args.j_max:
                 f = next_f_times_1px(f)
+
+        if k_min_all is not None:
+            per_k_min_all.append(
+                {
+                    "k": k,
+                    "j": k_min_all["j"],
+                    "leaf_type": k_min_all["leaf_type"],
+                    "combined": k_min_all["combined"],
+                    "c1": k_min_all["c1"],
+                    "c2": k_min_all["c2"],
+                    "w1": k_min_all["w1"],
+                    "w2": k_min_all["w2"],
+                    "margin": k_min_all["margin"],
+                }
+            )
+            if k_min_all["j"] == 0 and k_min_all["leaf_type"] == "tip":
+                per_k_j0_tip_is_min_all += 1
+        if k_min_tip is not None:
+            per_k_min_tip.append(
+                {
+                    "k": k,
+                    "j": k_min_tip["j"],
+                    "combined": k_min_tip["combined"],
+                    "c1": k_min_tip["c1"],
+                    "c2": k_min_tip["c2"],
+                    "w1": k_min_tip["w1"],
+                    "w2": k_min_tip["w2"],
+                    "margin": k_min_tip["margin"],
+                }
+            )
+            if k_min_tip["j"] == 0:
+                per_k_j0_is_min_tip += 1
+        if k_min_unit is not None:
+            per_k_min_unit.append(
+                {
+                    "k": k,
+                    "j": k_min_unit["j"],
+                    "combined": k_min_unit["combined"],
+                    "c1": k_min_unit["c1"],
+                    "c2": k_min_unit["c2"],
+                    "w1": k_min_unit["w1"],
+                    "w2": k_min_unit["w2"],
+                    "margin": k_min_unit["margin"],
+                }
+            )
 
         if (k - args.k_min) % 25 == 0 or k == args.k_max:
             tip_min = None if tip["min_combined"] is None else tip["min_combined"]["value"]
@@ -351,10 +412,16 @@ def main() -> None:
         "overall": {
             "combined_fail": combined_fail,
             "global_min_combined": global_min_combined,
+            "per_k_j0_tip_is_min_all": per_k_j0_tip_is_min_all,
+            "per_k_j0_is_min_tip": per_k_j0_is_min_tip,
+            "per_k_count": len(per_k_min_all),
             "wall_s": time.time() - t0,
         },
         "tip_leaf": tip,
         "unit_leaf": unit,
+        "per_k_min_all": per_k_min_all,
+        "per_k_min_tip": per_k_min_tip,
+        "per_k_min_unit": per_k_min_unit,
     }
 
     print("-" * 96, flush=True)

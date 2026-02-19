@@ -1,0 +1,35 @@
+{
+  "params": {
+    "glob": "results/darroch_n10_chunk*smoke.json",
+    "expect_mod": 0
+  },
+  "summary": {
+    "n": 10,
+    "mod": 4,
+    "chunks_found": 1,
+    "missing_residues": [
+      1,
+      2,
+      3
+    ],
+    "total_trees": 38,
+    "mode_ceil_fail": 0,
+    "darroch_fail": 0,
+    "min_mode_ceil_margin": 0,
+    "min_set_margin": 0,
+    "first_mode_ceil_fail": null,
+    "first_darroch_fail": null,
+    "sum_chunk_wall_s": 0.004125356674194336
+  },
+  "chunks": {
+    "0": {
+      "path": "results/darroch_n10_chunk0of4_smoke.json",
+      "total_trees": 38,
+      "mode_ceil_fail": 0,
+      "darroch_fail": 0,
+      "min_mode_ceil_margin": 0,
+      "min_set_margin": 0,
+      "wall_s": 0.004125356674194336
+    }
+  }
+}

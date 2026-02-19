@@ -1,0 +1,96 @@
+{
+  "params": {
+    "min_n": 23,
+    "max_n": 23,
+    "all_trees": false,
+    "tol": 1e-12,
+    "stop_on_first": true
+  },
+  "summary": {
+    "seen": 14828074,
+    "considered": 528196,
+    "checked": 528196,
+    "exists_both_nonneg_fail": 0,
+    "all_both_nonneg_fail": 12,
+    "heuristic_fail": {
+      "first_leaf": 3,
+      "max_parent_deg": 12,
+      "min_parent_deg": 0,
+      "parent_deg2_else_max": 0
+    },
+    "worst_best_leaf_margin": 2730.5750032674214,
+    "worst_best_leaf_witness": {
+      "n": 23,
+      "g6": "V?????????O?O?G?A??O?@??A??A??@???O??A?F~o??",
+      "mode": 7,
+      "lambda_mode": 0.7032457496136012,
+      "best_leaf": 11,
+      "best_support": 0,
+      "best_margin": 2730.5750032674214,
+      "phi_a": 2730.5750032674214,
+      "phi_b": 5520.111978297961,
+      "mode_a": 7,
+      "mode_b": 7,
+      "degree_signature": {
+        "1": 11,
+        "2": 11,
+        "11": 1
+      }
+    },
+    "first_exists_fail": null,
+    "first_heuristic_fail": {
+      "max_parent_deg": {
+        "n": 23,
+        "g6": "V???????????????O?A??G??W??K??B???W??@_Fii??",
+        "mode": 8,
+        "lambda_mode": 0.9932366383979288,
+        "leaf": 13,
+        "support": 22,
+        "phi_a": -3660.2656309434856,
+        "phi_b": 79008.89024585995,
+        "mode_a": 7,
+        "mode_b": 7,
+        "degree_signature": {
+          "1": 9,
+          "2": 13,
+          "9": 1
+        }
+      },
+      "first_leaf": {
+        "n": 23,
+        "g6": "V???????????_?O?C??_?A??C??C??A???_?oE?@~g??",
+        "mode": 8,
+        "lambda_mode": 0.9795407712687666,
+        "leaf": 10,
+        "support": 21,
+        "phi_a": -3220.4396570347776,
+        "phi_b": 64413.075399741094,
+        "mode_a": 7,
+        "mode_b": 7,
+        "degree_signature": {
+          "1": 11,
+          "2": 10,
+          "4": 1,
+          "9": 1
+        }
+      }
+    },
+    "wall_s": 1110.7700581550598
+  },
+  "per_n": {
+    "23": {
+      "seen": 14828074,
+      "considered": 528196,
+      "checked": 528196,
+      "exists_both_nonneg_fail": 0,
+      "all_both_nonneg_fail": 12,
+      "heuristic_fail": {
+        "first_leaf": 3,
+        "max_parent_deg": 12,
+        "min_parent_deg": 0,
+        "parent_deg2_else_max": 0
+      },
+      "wall_s": 1110.7699520587921
+    }
+  }
+}

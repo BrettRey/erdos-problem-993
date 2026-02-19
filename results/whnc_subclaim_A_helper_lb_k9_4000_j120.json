@@ -1,0 +1,47 @@
+{
+  "params": {
+    "k_min": 9,
+    "k_max": 4000,
+    "j_max": 120,
+    "tol": 1e-12,
+    "store_cap": 200,
+    "exact_cap": 0,
+    "out": "results/whnc_subclaim_A_helper_lb_k9_4000_j120.json"
+  },
+  "overall": {
+    "pairs_total": 483032,
+    "pairs_mode_step_plus1": 483032,
+    "wall_s": 461.5684518814087
+  },
+  "failures": {
+    "mode_step_plus1": {
+      "count": 0,
+      "examples": []
+    },
+    "lb_u2_ge_1": {
+      "count": 0,
+      "examples": []
+    }
+  },
+  "extrema": {
+    "min_lb_all": {
+      "k": 3998,
+      "j": 120,
+      "mode_j": 2725,
+      "mode_j2": 2726,
+      "lambda_j": 0.9989181654702101,
+      "u2": 0.9989188487218709,
+      "lb_u2": 1.0000875591399563
+    },
+    "min_lb_k_ge_9": {
+      "k": 3998,
+      "j": 120,
+      "mode_j": 2725,
+      "mode_j2": 2726,
+      "lambda_j": 0.9989181654702101,
+      "u2": 0.9989188487218709,
+      "lb_u2": 1.0000875591399563
+    }
+  },
+  "exact_bad_lb": []
+}

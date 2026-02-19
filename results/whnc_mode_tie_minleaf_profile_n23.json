@@ -1,0 +1,1184 @@
+{
+  "params": {
+    "min_n": 4,
+    "max_n": 23,
+    "tol": 1e-12,
+    "all_trees": false
+  },
+  "summary": {
+    "seen": 23942356,
+    "considered": 931596,
+    "checked": 931596,
+    "fail_phi": 0,
+    "chosen_support_deg2": 931596,
+    "chosen_support_deg_dist": {
+      "2": 931596
+    },
+    "mode_a_shift_dist": {
+      "0": 711896,
+      "-1": 219700
+    },
+    "mode_b_shift_dist": {
+      "1": 222501,
+      "0": 709095
+    },
+    "min_phi_a": 0.875,
+    "min_phi_b": 2.0,
+    "min_phi_a_witness": {
+      "n": 4,
+      "g6": "CU",
+      "mode": 1,
+      "lambda_mode": 0.25,
+      "leaf": 1,
+      "support": 3,
+      "support_degree": 2,
+      "mode_a": 1,
+      "mode_b": 1,
+      "degree_signature": {
+        "1": 2,
+        "2": 2
+      },
+      "phi_a": 0.875,
+      "phi_b": 2.0
+    },
+    "min_phi_b_witness": {
+      "n": 4,
+      "g6": "CU",
+      "mode": 1,
+      "lambda_mode": 0.25,
+      "leaf": 1,
+      "support": 3,
+      "support_degree": 2,
+      "mode_a": 1,
+      "mode_b": 1,
+      "degree_signature": {
+        "1": 2,
+        "2": 2
+      },
+      "phi_a": 0.875,
+      "phi_b": 2.0
+    }
+  },
+  "per_n": {
+    "4": {
+      "seen": 2,
+      "considered": 1,
+      "checked": 1,
+      "fail_phi": 0,
+      "chosen_support_deg2": 1,
+      "chosen_support_deg_dist": {
+        "2": 1
+      },
+      "mode_a_shift_dist": {
+        "0": 1
+      },
+      "mode_b_shift_dist": {
+        "1": 1
+      },
+      "min_phi_a": 0.875,
+      "min_phi_b": 2.0,
+      "min_phi_a_witness": {
+        "n": 4,
+        "g6": "CU",
+        "mode": 1,
+        "lambda_mode": 0.25,
+        "leaf": 1,
+        "support": 3,
+        "support_degree": 2,
+        "mode_a": 1,
+        "mode_b": 1,
+        "degree_signature": {
+          "1": 2,
+          "2": 2
+        },
+        "phi_a": 0.875,
+        "phi_b": 2.0
+      },
+      "min_phi_b_witness": {
+        "n": 4,
+        "g6": "CU",
+        "mode": 1,
+        "lambda_mode": 0.25,
+        "leaf": 1,
+        "support": 3,
+        "support_degree": 2,
+        "mode_a": 1,
+        "mode_b": 1,
+        "degree_signature": {
+          "1": 2,
+          "2": 2
+        },
+        "phi_a": 0.875,
+        "phi_b": 2.0
+      },
+      "wall_s": 0.0028281211853027344
+    },
+    "5": {
+      "seen": 3,
+      "considered": 1,
+      "checked": 1,
+      "fail_phi": 0,
+      "chosen_support_deg2": 1,
+      "chosen_support_deg_dist": {
+        "2": 1
+      },
+      "mode_a_shift_dist": {
+        "-1": 1
+      },
+      "mode_b_shift_dist": {
+        "0": 1
+      },
+      "min_phi_a": 1.0833333333333317,
+      "min_phi_b": 3.8888888888888893,
+      "min_phi_a_witness": {
+        "n": 5,
+        "g6": "DQo",
+        "mode": 2,
+        "lambda_mode": 0.8333333333333334,
+        "leaf": 2,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 1,
+        "mode_b": 1,
+        "degree_signature": {
+          "1": 2,
+          "2": 3
+        },
+        "phi_a": 1.0833333333333317,
+        "phi_b": 3.8888888888888893
+      },
+      "min_phi_b_witness": {
+        "n": 5,
+        "g6": "DQo",
+        "mode": 2,
+        "lambda_mode": 0.8333333333333334,
+        "leaf": 2,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 1,
+        "mode_b": 1,
+        "degree_signature": {
+          "1": 2,
+          "2": 3
+        },
+        "phi_a": 1.0833333333333317,
+        "phi_b": 3.8888888888888893
+      },
+      "wall_s": 0.004483699798583984
+    },
+    "6": {
+      "seen": 6,
+      "considered": 2,
+      "checked": 2,
+      "fail_phi": 0,
+      "chosen_support_deg2": 2,
+      "chosen_support_deg_dist": {
+        "2": 2
+      },
+      "mode_a_shift_dist": {
+        "0": 2
+      },
+      "mode_b_shift_dist": {
+        "0": 2
+      },
+      "min_phi_a": 1.5919999999999992,
+      "min_phi_b": 4.5600000000000005,
+      "min_phi_a_witness": {
+        "n": 6,
+        "g6": "ECZ?",
+        "mode": 2,
+        "lambda_mode": 0.6,
+        "leaf": 2,
+        "support": 4,
+        "support_degree": 2,
+        "mode_a": 2,
+        "mode_b": 1,
+        "degree_signature": {
+          "1": 2,
+          "2": 4
+        },
+        "phi_a": 1.5919999999999992,
+        "phi_b": 4.5600000000000005
+      },
+      "min_phi_b_witness": {
+        "n": 6,
+        "g6": "ECR_",
+        "mode": 2,
+        "lambda_mode": 0.6,
+        "leaf": 3,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 2,
+        "mode_b": 1,
+        "degree_signature": {
+          "1": 3,
+          "2": 2,
+          "3": 1
+        },
+        "phi_a": 2.0239999999999987,
+        "phi_b": 4.5600000000000005
+      },
+      "wall_s": 0.0020799636840820312
+    },
+    "7": {
+      "seen": 11,
+      "considered": 3,
+      "checked": 3,
+      "fail_phi": 0,
+      "chosen_support_deg2": 3,
+      "chosen_support_deg_dist": {
+        "2": 3
+      },
+      "mode_a_shift_dist": {
+        "0": 3
+      },
+      "mode_b_shift_dist": {
+        "1": 3
+      },
+      "min_phi_a": 1.9908148148148148,
+      "min_phi_b": 5.251555555555556,
+      "min_phi_a_witness": {
+        "n": 7,
+        "g6": "FCQb?",
+        "mode": 2,
+        "lambda_mode": 0.4666666666666667,
+        "leaf": 3,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 2,
+        "mode_b": 2,
+        "degree_signature": {
+          "1": 2,
+          "2": 5
+        },
+        "phi_a": 1.9908148148148148,
+        "phi_b": 5.251555555555556
+      },
+      "min_phi_b_witness": {
+        "n": 7,
+        "g6": "FCOf?",
+        "mode": 2,
+        "lambda_mode": 0.4666666666666667,
+        "leaf": 3,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 2,
+        "mode_b": 2,
+        "degree_signature": {
+          "1": 3,
+          "2": 3,
+          "3": 1
+        },
+        "phi_a": 2.1940740740740745,
+        "phi_b": 5.251555555555556
+      },
+      "wall_s": 0.002240896224975586
+    },
+    "8": {
+      "seen": 23,
+      "considered": 6,
+      "checked": 6,
+      "fail_phi": 0,
+      "chosen_support_deg2": 6,
+      "chosen_support_deg_dist": {
+        "2": 6
+      },
+      "mode_a_shift_dist": {
+        "0": 4,
+        "-1": 2
+      },
+      "mode_b_shift_dist": {
+        "1": 4,
+        "0": 2
+      },
+      "min_phi_a": 2.345766424483625,
+      "min_phi_b": 5.85163589245222,
+      "min_phi_a_witness": {
+        "n": 8,
+        "g6": "G?`ad?",
+        "mode": 2,
+        "lambda_mode": 0.38095238095238093,
+        "leaf": 3,
+        "support": 6,
+        "support_degree": 2,
+        "mode_a": 2,
+        "mode_b": 2,
+        "degree_signature": {
+          "1": 2,
+          "2": 6
+        },
+        "phi_a": 2.345766424483625,
+        "phi_b": 5.85163589245222
+      },
+      "min_phi_b_witness": {
+        "n": 8,
+        "g6": "G?`ad?",
+        "mode": 2,
+        "lambda_mode": 0.38095238095238093,
+        "leaf": 3,
+        "support": 6,
+        "support_degree": 2,
+        "mode_a": 2,
+        "mode_b": 2,
+        "degree_signature": {
+          "1": 2,
+          "2": 6
+        },
+        "phi_a": 2.345766424483625,
+        "phi_b": 5.85163589245222
+      },
+      "wall_s": 0.004026889801025391
+    },
+    "9": {
+      "seen": 47,
+      "considered": 10,
+      "checked": 10,
+      "fail_phi": 0,
+      "chosen_support_deg2": 10,
+      "chosen_support_deg_dist": {
+        "2": 10
+      },
+      "mode_a_shift_dist": {
+        "0": 5,
+        "-1": 5
+      },
+      "mode_b_shift_dist": {
+        "0": 10
+      },
+      "min_phi_a": 5.936000000000006,
+      "min_phi_b": 16.829666745958054,
+      "min_phi_a_witness": {
+        "n": 9,
+        "g6": "H?`D@`O",
+        "mode": 3,
+        "lambda_mode": 0.8,
+        "leaf": 4,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 2,
+        "mode_b": 2,
+        "degree_signature": {
+          "1": 2,
+          "2": 7
+        },
+        "phi_a": 5.936000000000006,
+        "phi_b": 20.068800000000003
+      },
+      "min_phi_b_witness": {
+        "n": 9,
+        "g6": "H?`@?bo",
+        "mode": 3,
+        "lambda_mode": 0.7368421052631579,
+        "leaf": 4,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 3,
+        "mode_b": 2,
+        "degree_signature": {
+          "1": 4,
+          "2": 4,
+          "4": 1
+        },
+        "phi_a": 6.612641093914266,
+        "phi_b": 16.829666745958054
+      },
+      "wall_s": 0.003803730010986328
+    },
+    "10": {
+      "seen": 106,
+      "considered": 21,
+      "checked": 21,
+      "fail_phi": 0,
+      "chosen_support_deg2": 21,
+      "chosen_support_deg_dist": {
+        "2": 21
+      },
+      "mode_a_shift_dist": {
+        "0": 21
+      },
+      "mode_b_shift_dist": {
+        "1": 10,
+        "0": 11
+      },
+      "min_phi_a": 6.939169784743882,
+      "min_phi_b": 18.154332170031868,
+      "min_phi_a_witness": {
+        "n": 10,
+        "g6": "I?AA@?W{?",
+        "mode": 3,
+        "lambda_mode": 0.6101694915254238,
+        "leaf": 4,
+        "support": 8,
+        "support_degree": 2,
+        "mode_a": 3,
+        "mode_b": 3,
+        "degree_signature": {
+          "1": 4,
+          "2": 5,
+          "4": 1
+        },
+        "phi_a": 6.939169784743882,
+        "phi_b": 21.01080845903659
+      },
+      "min_phi_b_witness": {
+        "n": 10,
+        "g6": "I?AA@?O}?",
+        "mode": 3,
+        "lambda_mode": 0.5806451612903226,
+        "leaf": 5,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 3,
+        "mode_b": 3,
+        "degree_signature": {
+          "1": 5,
+          "2": 4,
+          "5": 1
+        },
+        "phi_a": 8.977367439223055,
+        "phi_b": 18.154332170031868
+      },
+      "wall_s": 0.006740093231201172
+    },
+    "11": {
+      "seen": 235,
+      "considered": 39,
+      "checked": 39,
+      "fail_phi": 0,
+      "chosen_support_deg2": 39,
+      "chosen_support_deg_dist": {
+        "2": 39
+      },
+      "mode_a_shift_dist": {
+        "0": 38,
+        "-1": 1
+      },
+      "mode_b_shift_dist": {
+        "1": 38,
+        "0": 1
+      },
+      "min_phi_a": 7.812187049109008,
+      "min_phi_b": 19.374999999999996,
+      "min_phi_a_witness": {
+        "n": 11,
+        "g6": "J?AAD?oEAO?",
+        "mode": 3,
+        "lambda_mode": 0.5357142857142857,
+        "leaf": 5,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 3,
+        "mode_b": 3,
+        "degree_signature": {
+          "1": 2,
+          "2": 9
+        },
+        "phi_a": 7.812187049109008,
+        "phi_b": 21.680665515112743
+      },
+      "min_phi_b_witness": {
+        "n": 11,
+        "g6": "J?AA@?OAFo?",
+        "mode": 3,
+        "lambda_mode": 0.5,
+        "leaf": 5,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 3,
+        "mode_b": 3,
+        "degree_signature": {
+          "1": 5,
+          "2": 5,
+          "5": 1
+        },
+        "phi_a": 8.843750000000004,
+        "phi_b": 19.374999999999996
+      },
+      "wall_s": 0.01622605323791504
+    },
+    "12": {
+      "seen": 551,
+      "considered": 82,
+      "checked": 82,
+      "fail_phi": 0,
+      "chosen_support_deg2": 82,
+      "chosen_support_deg_dist": {
+        "2": 82
+      },
+      "mode_a_shift_dist": {
+        "0": 8,
+        "-1": 74
+      },
+      "mode_b_shift_dist": {
+        "0": 82
+      },
+      "min_phi_a": 20.27537580437702,
+      "min_phi_b": 66.9787119407095,
+      "min_phi_a_witness": {
+        "n": 12,
+        "g6": "K??CA?_C?W^?",
+        "mode": 4,
+        "lambda_mode": 0.8289473684210527,
+        "leaf": 5,
+        "support": 10,
+        "support_degree": 2,
+        "mode_a": 3,
+        "mode_b": 3,
+        "degree_signature": {
+          "1": 5,
+          "2": 6,
+          "5": 1
+        },
+        "phi_a": 20.27537580437702,
+        "phi_b": 94.09540102705718
+      },
+      "min_phi_b_witness": {
+        "n": 12,
+        "g6": "K??CA?_C?O^_",
+        "mode": 4,
+        "lambda_mode": 0.7647058823529411,
+        "leaf": 6,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 4,
+        "mode_b": 3,
+        "degree_signature": {
+          "1": 6,
+          "2": 5,
+          "6": 1
+        },
+        "phi_a": 34.38711164326457,
+        "phi_b": 66.9787119407095
+      },
+      "wall_s": 0.022148847579956055
+    },
+    "13": {
+      "seen": 1301,
+      "considered": 167,
+      "checked": 167,
+      "fail_phi": 0,
+      "chosen_support_deg2": 167,
+      "chosen_support_deg_dist": {
+        "2": 167
+      },
+      "mode_a_shift_dist": {
+        "0": 167
+      },
+      "mode_b_shift_dist": {
+        "1": 18,
+        "0": 149
+      },
+      "min_phi_a": 28.095516877270136,
+      "min_phi_b": 70.6880008812661,
+      "min_phi_a_witness": {
+        "n": 13,
+        "g6": "L???C@?G?_@_}_",
+        "mode": 4,
+        "lambda_mode": 0.6628787878787878,
+        "leaf": 5,
+        "support": 11,
+        "support_degree": 2,
+        "mode_a": 4,
+        "mode_b": 4,
+        "degree_signature": {
+          "1": 6,
+          "2": 6,
+          "6": 1
+        },
+        "phi_a": 28.095516877270136,
+        "phi_b": 90.18088177996135
+      },
+      "min_phi_b_witness": {
+        "n": 13,
+        "g6": "L??CA?_C?O?_~?",
+        "mode": 4,
+        "lambda_mode": 0.6730769230769231,
+        "leaf": 6,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 4,
+        "mode_b": 3,
+        "degree_signature": {
+          "1": 6,
+          "2": 6,
+          "6": 1
+        },
+        "phi_a": 32.34995980764308,
+        "phi_b": 70.6880008812661
+      },
+      "wall_s": 0.04636406898498535
+    },
+    "14": {
+      "seen": 3159,
+      "considered": 360,
+      "checked": 360,
+      "fail_phi": 0,
+      "chosen_support_deg2": 360,
+      "chosen_support_deg_dist": {
+        "2": 360
+      },
+      "mode_a_shift_dist": {
+        "0": 356,
+        "-1": 4
+      },
+      "mode_b_shift_dist": {
+        "1": 356,
+        "0": 4
+      },
+      "min_phi_a": 28.630127959851464,
+      "min_phi_b": 82.4013988388263,
+      "min_phi_a_witness": {
+        "n": 14,
+        "g6": "M???C@?G?_@?@_~??",
+        "mode": 4,
+        "lambda_mode": 0.5897435897435898,
+        "leaf": 6,
+        "support": 12,
+        "support_degree": 2,
+        "mode_a": 4,
+        "mode_b": 4,
+        "degree_signature": {
+          "1": 6,
+          "2": 7,
+          "6": 1
+        },
+        "phi_a": 28.630127959851464,
+        "phi_b": 89.30769666777111
+      },
+      "min_phi_b_witness": {
+        "n": 14,
+        "g6": "M???C@?G?_@?p?M__",
+        "mode": 4,
+        "lambda_mode": 0.5917312661498708,
+        "leaf": 7,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 4,
+        "mode_b": 4,
+        "degree_signature": {
+          "1": 7,
+          "2": 5,
+          "4": 1,
+          "5": 1
+        },
+        "phi_a": 37.02668594504551,
+        "phi_b": 82.4013988388263
+      },
+      "wall_s": 0.11280298233032227
+    },
+    "15": {
+      "seen": 7741,
+      "considered": 766,
+      "checked": 766,
+      "fail_phi": 0,
+      "chosen_support_deg2": 766,
+      "chosen_support_deg_dist": {
+        "2": 766
+      },
+      "mode_a_shift_dist": {
+        "0": 81,
+        "-1": 685
+      },
+      "mode_b_shift_dist": {
+        "0": 697,
+        "1": 69
+      },
+      "min_phi_a": 34.04315312516892,
+      "min_phi_b": 90.6002896912396,
+      "min_phi_a_witness": {
+        "n": 15,
+        "g6": "N???C@?G?_P?@_Y?Ag?",
+        "mode": 4,
+        "lambda_mode": 0.5636007827788649,
+        "leaf": 6,
+        "support": 12,
+        "support_degree": 2,
+        "mode_a": 4,
+        "mode_b": 4,
+        "degree_signature": {
+          "1": 4,
+          "2": 9,
+          "3": 2
+        },
+        "phi_a": 34.04315312516892,
+        "phi_b": 97.02520365824155
+      },
+      "min_phi_b_witness": {
+        "n": 15,
+        "g6": "N???C@?G?_P?B?P_EG?",
+        "mode": 4,
+        "lambda_mode": 0.5625,
+        "leaf": 8,
+        "support": 1,
+        "support_degree": 2,
+        "mode_a": 4,
+        "mode_b": 4,
+        "degree_signature": {
+          "1": 4,
+          "2": 9,
+          "3": 2
+        },
+        "phi_a": 38.69131164369172,
+        "phi_b": 90.6002896912396
+      },
+      "wall_s": 0.24132204055786133
+    },
+    "16": {
+      "seen": 19320,
+      "considered": 1692,
+      "checked": 1692,
+      "fail_phi": 0,
+      "chosen_support_deg2": 1692,
+      "chosen_support_deg_dist": {
+        "2": 1692
+      },
+      "mode_a_shift_dist": {
+        "0": 1593,
+        "-1": 99
+      },
+      "mode_b_shift_dist": {
+        "1": 44,
+        "0": 1648
+      },
+      "min_phi_a": 94.69190378555797,
+      "min_phi_b": 281.1938810464652,
+      "min_phi_a_witness": {
+        "n": 16,
+        "g6": "O????A?O@?A?A?@??WF{?",
+        "mode": 5,
+        "lambda_mode": 0.7364685004436557,
+        "leaf": 7,
+        "support": 14,
+        "support_degree": 2,
+        "mode_a": 5,
+        "mode_b": 5,
+        "degree_signature": {
+          "1": 7,
+          "2": 8,
+          "7": 1
+        },
+        "phi_a": 94.69190378555797,
+        "phi_b": 407.28730222343177
+      },
+      "min_phi_b_witness": {
+        "n": 16,
+        "g6": "O????A?O@?A?A?@??OF}?",
+        "mode": 5,
+        "lambda_mode": 0.6906077348066298,
+        "leaf": 8,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 5,
+        "mode_b": 5,
+        "degree_signature": {
+          "1": 8,
+          "2": 7,
+          "8": 1
+        },
+        "phi_a": 146.0402590084071,
+        "phi_b": 281.1938810464652
+      },
+      "wall_s": 0.5660121440887451
+    },
+    "17": {
+      "seen": 48629,
+      "considered": 3726,
+      "checked": 3726,
+      "fail_phi": 0,
+      "chosen_support_deg2": 3726,
+      "chosen_support_deg_dist": {
+        "2": 3726
+      },
+      "mode_a_shift_dist": {
+        "0": 3721,
+        "-1": 5
+      },
+      "mode_b_shift_dist": {
+        "1": 3507,
+        "0": 219
+      },
+      "min_phi_a": 118.80045200190614,
+      "min_phi_b": 289.59947799053816,
+      "min_phi_a_witness": {
+        "n": 17,
+        "g6": "P??????_A?C?C?A??o?B?~O?",
+        "mode": 5,
+        "lambda_mode": 0.6548928778228141,
+        "leaf": 6,
+        "support": 14,
+        "support_degree": 2,
+        "mode_a": 5,
+        "mode_b": 5,
+        "degree_signature": {
+          "1": 7,
+          "2": 9,
+          "7": 1
+        },
+        "phi_a": 118.80045200190614,
+        "phi_b": 402.6281761673582
+      },
+      "min_phi_b_witness": {
+        "n": 17,
+        "g6": "P????A?O@?A?A?@??O?A?~o?",
+        "mode": 5,
+        "lambda_mode": 0.631578947368421,
+        "leaf": 8,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 5,
+        "mode_b": 5,
+        "degree_signature": {
+          "1": 8,
+          "2": 8,
+          "8": 1
+        },
+        "phi_a": 140.26055144667262,
+        "phi_b": 289.59947799053816
+      },
+      "wall_s": 1.5402281284332275
+    },
+    "18": {
+      "seen": 123867,
+      "considered": 8370,
+      "checked": 8370,
+      "fail_phi": 0,
+      "chosen_support_deg2": 8370,
+      "chosen_support_deg_dist": {
+        "2": 8370
+      },
+      "mode_a_shift_dist": {
+        "0": 5200,
+        "-1": 3170
+      },
+      "mode_b_shift_dist": {
+        "0": 3200,
+        "1": 5170
+      },
+      "min_phi_a": 138.1208998146538,
+      "min_phi_b": 380.5107899801005,
+      "min_phi_a_witness": {
+        "n": 18,
+        "g6": "Q??????_A?C?C?A??o?B?p??z??",
+        "mode": 5,
+        "lambda_mode": 0.6271260357610118,
+        "leaf": 8,
+        "support": 15,
+        "support_degree": 2,
+        "mode_a": 5,
+        "mode_b": 5,
+        "degree_signature": {
+          "1": 6,
+          "2": 10,
+          "3": 1,
+          "5": 1
+        },
+        "phi_a": 138.1208998146538,
+        "phi_b": 436.14919438433446
+      },
+      "min_phi_b_witness": {
+        "n": 18,
+        "g6": "Q??????_A?C?C?A??o?I?og?x??",
+        "mode": 5,
+        "lambda_mode": 0.6284584980237155,
+        "leaf": 9,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 5,
+        "mode_b": 5,
+        "degree_signature": {
+          "1": 6,
+          "2": 10,
+          "4": 2
+        },
+        "phi_a": 176.89453444526484,
+        "phi_b": 380.5107899801005
+      },
+      "wall_s": 3.8418450355529785
+    },
+    "19": {
+      "seen": 317955,
+      "considered": 18866,
+      "checked": 18866,
+      "fail_phi": 0,
+      "chosen_support_deg2": 18866,
+      "chosen_support_deg_dist": {
+        "2": 18866
+      },
+      "mode_a_shift_dist": {
+        "0": 9440,
+        "-1": 9426
+      },
+      "mode_b_shift_dist": {
+        "1": 99,
+        "0": 18767
+      },
+      "min_phi_a": 156.40236768141102,
+      "min_phi_b": 459.01308759428144,
+      "min_phi_a_witness": {
+        "n": 19,
+        "g6": "R??????_A?S?K?E?@_?K??o?@_A@??",
+        "mode": 5,
+        "lambda_mode": 0.6060606060606061,
+        "leaf": 9,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 5,
+        "mode_b": 5,
+        "degree_signature": {
+          "1": 2,
+          "2": 17
+        },
+        "phi_a": 156.40236768141102,
+        "phi_b": 459.01308759428144
+      },
+      "min_phi_b_witness": {
+        "n": 19,
+        "g6": "R??????_A?S?K?E?@_?K??o?@_A@??",
+        "mode": 5,
+        "lambda_mode": 0.6060606060606061,
+        "leaf": 9,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 5,
+        "mode_b": 5,
+        "degree_signature": {
+          "1": 2,
+          "2": 17
+        },
+        "phi_a": 156.40236768141102,
+        "phi_b": 459.01308759428144
+      },
+      "wall_s": 9.961779832839966
+    },
+    "20": {
+      "seen": 823065,
+      "considered": 43029,
+      "checked": 43029,
+      "fail_phi": 0,
+      "chosen_support_deg2": 43029,
+      "chosen_support_deg_dist": {
+        "2": 43029
+      },
+      "mode_a_shift_dist": {
+        "0": 43020,
+        "-1": 9
+      },
+      "mode_b_shift_dist": {
+        "1": 23177,
+        "0": 19852
+      },
+      "min_phi_a": 413.7777354807443,
+      "min_phi_b": 1466.7684091924614,
+      "min_phi_a_witness": {
+        "n": 20,
+        "g6": "S???????C?G?G?C?@??G??_?@??@_F~??",
+        "mode": 6,
+        "lambda_mode": 0.6815181518151815,
+        "leaf": 9,
+        "support": 18,
+        "support_degree": 2,
+        "mode_a": 6,
+        "mode_b": 6,
+        "degree_signature": {
+          "1": 9,
+          "2": 10,
+          "9": 1
+        },
+        "phi_a": 413.7777354807443,
+        "phi_b": 1677.7680812832493
+      },
+      "min_phi_b_witness": {
+        "n": 20,
+        "g6": "S???????C?G?G?C?@??G??_?@?F`??]_C",
+        "mode": 6,
+        "lambda_mode": 0.6976329854924918,
+        "leaf": 10,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 6,
+        "mode_b": 6,
+        "degree_signature": {
+          "1": 10,
+          "2": 8,
+          "6": 2
+        },
+        "phi_a": 730.8932309690182,
+        "phi_b": 1466.7684091924614
+      },
+      "wall_s": 25.80185294151306
+    },
+    "21": {
+      "seen": 2144505,
+      "considered": 98581,
+      "checked": 98581,
+      "fail_phi": 0,
+      "chosen_support_deg2": 98581,
+      "chosen_support_deg_dist": {
+        "2": 98581
+      },
+      "mode_a_shift_dist": {
+        "0": 89954,
+        "-1": 8627
+      },
+      "mode_b_shift_dist": {
+        "0": 8669,
+        "1": 89912
+      },
+      "min_phi_a": 541.441802845818,
+      "min_phi_b": 1642.3822119816352,
+      "min_phi_a_witness": {
+        "n": 21,
+        "g6": "T???????C?G?G?C?@??G??_?@??@_F_??Ng?",
+        "mode": 6,
+        "lambda_mode": 0.6713623900917084,
+        "leaf": 9,
+        "support": 18,
+        "support_degree": 2,
+        "mode_a": 6,
+        "mode_b": 6,
+        "degree_signature": {
+          "1": 8,
+          "2": 11,
+          "4": 1,
+          "6": 1
+        },
+        "phi_a": 541.441802845818,
+        "phi_b": 1934.9870932139945
+      },
+      "min_phi_b_witness": {
+        "n": 21,
+        "g6": "T???????C?G?G?C?@??G??_?@??@_F`??NO?",
+        "mode": 6,
+        "lambda_mode": 0.6763294298329814,
+        "leaf": 10,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 6,
+        "mode_b": 6,
+        "degree_signature": {
+          "1": 8,
+          "2": 11,
+          "5": 2
+        },
+        "phi_a": 748.307694060606,
+        "phi_b": 1642.3822119816352
+      },
+      "wall_s": 67.788654088974
+    },
+    "22": {
+      "seen": 5623756,
+      "considered": 227678,
+      "checked": 227678,
+      "fail_phi": 0,
+      "chosen_support_deg2": 227678,
+      "chosen_support_deg_dist": {
+        "2": 227678
+      },
+      "mode_a_shift_dist": {
+        "0": 36226,
+        "-1": 191452
+      },
+      "mode_b_shift_dist": {
+        "1": 4875,
+        "0": 222803
+      },
+      "min_phi_a": 678.006295263044,
+      "min_phi_b": 2004.1296512873646,
+      "min_phi_a_witness": {
+        "n": 22,
+        "g6": "U?????????O?O?G?A??W?A_?D??D???oB@??KK??",
+        "mode": 6,
+        "lambda_mode": 0.6608650570285883,
+        "leaf": 10,
+        "support": 19,
+        "support_degree": 2,
+        "mode_a": 6,
+        "mode_b": 6,
+        "degree_signature": {
+          "1": 5,
+          "2": 15,
+          "3": 1,
+          "4": 1
+        },
+        "phi_a": 678.006295263044,
+        "phi_b": 2215.386542834638
+      },
+      "min_phi_b_witness": {
+        "n": 22,
+        "g6": "U???????C?G?G?C?@?CG?O_?D??B??@_?oO?Q?C?",
+        "mode": 6,
+        "lambda_mode": 0.6604499703966844,
+        "leaf": 6,
+        "support": 16,
+        "support_degree": 2,
+        "mode_a": 6,
+        "mode_b": 6,
+        "degree_signature": {
+          "1": 6,
+          "2": 12,
+          "3": 4
+        },
+        "phi_a": 821.79760905578,
+        "phi_b": 2004.1296512873646
+      },
+      "wall_s": 199.56183695793152
+    },
+    "23": {
+      "seen": 14828074,
+      "considered": 528196,
+      "checked": 528196,
+      "fail_phi": 0,
+      "chosen_support_deg2": 528196,
+      "chosen_support_deg_dist": {
+        "2": 528196
+      },
+      "mode_a_shift_dist": {
+        "0": 522056,
+        "-1": 6140
+      },
+      "mode_b_shift_dist": {
+        "1": 95218,
+        "0": 432978
+      },
+      "min_phi_a": 1899.921035714145,
+      "min_phi_b": 5520.111978297961,
+      "min_phi_a_witness": {
+        "n": 23,
+        "g6": "V???????????_?O?C??_?A??C??C??A???o??B?F~O??",
+        "mode": 7,
+        "lambda_mode": 0.720220475655813,
+        "leaf": 9,
+        "support": 20,
+        "support_degree": 2,
+        "mode_a": 7,
+        "mode_b": 7,
+        "degree_signature": {
+          "1": 10,
+          "2": 12,
+          "10": 1
+        },
+        "phi_a": 1899.921035714145,
+        "phi_b": 8033.25396704105
+      },
+      "min_phi_b_witness": {
+        "n": 23,
+        "g6": "V?????????O?O?G?A??O?@??A??A??@???O??A?F~o??",
+        "mode": 7,
+        "lambda_mode": 0.7032457496136012,
+        "leaf": 11,
+        "support": 0,
+        "support_degree": 2,
+        "mode_a": 7,
+        "mode_b": 7,
+        "degree_signature": {
+          "1": 11,
+          "2": 11,
+          "11": 1
+        },
+        "phi_a": 2730.5750032674214,
+        "phi_b": 5520.111978297961
+      },
+      "wall_s": 448.33920097351074
+    }
+  }
+}
