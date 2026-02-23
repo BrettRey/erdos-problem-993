@@ -1,0 +1,21 @@
+{
+  "title": "Erdos Problem #993: Tree Independence Polynomial Unimodality",
+  "upload_type": "software",
+  "description": "Code, manuscript, and reproducibility artifacts for computational and structural investigation of Erdos Problem #993 (unimodality of tree independence polynomials).",
+  "access_right": "open",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Reynolds, Brett",
+      "orcid": "0000-0003-2407-9448"
+    }
+  ],
+  "keywords": [
+    "graph theory",
+    "independence polynomial",
+    "trees",
+    "unimodality",
+    "erdos problems",
+    "hard-core model"
+  ]
+}
