@@ -856,6 +856,7 @@ For all parameterised families tested (paths, stars, caterpillars, tripods, broo
 Second, prove Conjecture~A.
 The proved mean bound $\mu < n/3$ reduces this to the mode-mean inequality $\mathrm{mode} \le \lceil\mu\rceil$; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the mean bound is tight.
 The compensation condition~\eqref{eq:whnc} provides a more direct path: Propositions~\ref{prop:singleton} and~\ref{prop:mixed-single} together cover all $S \subseteq H$ with at most one non-leaf heavy vertex, and in all 931\,596 trees tested through $n = 23$, the tightest subset is always a singleton.
+An alternative algebraic approach decomposes the IS polynomial at any degree-2 vertex in a $\dleaf \le 1$ tree, expressing $I(T)$ as a linear combination of subtree polynomials whose log-concavity is inherited from the product structure; the mode bound then reduces to local coefficient inequalities on these factors, which hold computationally for all 931\,596 trees through $n = 23$ but remain open.
 On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
 
 The hard-core model tools developed here~-- the edge bound, Hub Exclusion, and the occupation probability framework~-- also have applications to biological network analysis, where tree-like backbones arise in protein interaction and phylogenetic networks; these connections are explored in a companion paper (\href{https://github.com/BrettRey/tree-independence-bio}{github.com/BrettRey/tree-independence-bio}).
@@ -871,6 +872,7 @@ All code, data, and reproduction scripts are available at
 \section*{Acknowledgements}
 
 Claude Opus~4.6 (Anthropic) assisted with computational exploration, code development, and manuscript drafting.
+ChatGPT~5.2~Pro and Codex~5.3 (OpenAI) contributed to proof-strategy exploration.
 Gemini~3~Pro (Google) contributed to computational exploration.
 I take responsibility for all claims and any errors.
 
@@ -939,6 +941,7 @@ Table~\ref{tab:certificates} summarizes all verified properties.
     $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ ($\dleaf \le 1$) & \liningnums{175\,722} trees & $\le 21$ \\
     Tie-fugacity: $\mu(\lambda_m) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ \\
     Tie-fugacity: $\mu(\lambda_m) \ge m-1$ (all trees) & \liningnums{9\,114\,283} trees & $\le 22$ \\
+    Bridge mode bound: $\mathrm{mode}(P) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ \\
     \bottomrule
   \end{tabular}
 \end{table}
