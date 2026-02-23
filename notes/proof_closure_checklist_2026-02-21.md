@@ -412,6 +412,65 @@ For fast artifact-only precheck (no full rerun), add:
 - Next action prepared:
   - `notes/prompt_for_52pro_round22_route1_mu3_nogo_2026-02-22.md`
   - Forces explicit mu3-class no-go statement (or strictly stronger class beyond mu3 with full witness checks).
+
+### 2026-02-22 22:46:51Z - round22_output_audit - mu3_nogo_accepted_with_string_correction
+- Audited round-22 response:
+  - Core verdict (`BLOCKED` for class `C_{deg,mu,mu2,mu3}`) is accepted.
+  - No-go mechanism and threshold comparison align with independent recomputation on the failing witness.
+- Critical correction:
+  - In pasted output, witness strings used `*` in place of `_` in W3/W4 rows.
+  - `*`-variants decode to different non-tree graphs and different `(m, i_{m-1}, i_m, lambda)`.
+  - Correct strings for this workflow are:
+    - W3-old: `S???????????_?O?C??o?@_?@_??oFig?` (tree, `m=7`, `i_6=8088`, `i_7=8142`, `lambda=8088/8142`).
+    - W4-new-fail: `S???????C?G?G?C?@??G??_?@??@?F~_?` (tree, `m=7`, `i_6=9534`, `i_7=10068`, `lambda=9534/10068`).
+- Decision:
+  - Treat mu3-class no-go as established using underscore strings only.
+  - Next step: force a strictly stronger local class (mu4 or non-moment local shape) with exact-string witness gate.
+- Next action prepared:
+  - `notes/prompt_for_52pro_round23_route1_mu4_or_shape_2026-02-22.md`
+  - Requires either:
+    - explicit stronger local class (mu4/non-moment shape) closing `R1_tail2`, or
+    - formal no-go for that class on the exact 4-witness set.
 - Next action prepared:
   - `notes/prompt_for_52pro_round20_route1_localclass_mu2_2026-02-22.md`
   - Resolves class `C_{deg,mu,mu2}` (degree + first + second factorial moment only) with mandatory exact g6 decode table before any bound claims.
+
+### 2026-02-23 00:26:40Z - mu4_stencil_family_quick_audit - immediate_base_failure
+- Audited proposed local family:
+  - `mu4(A)_n := [z^n]((1-z)^4 A(z)) = a_n - 4a_{n-1} + 6a_{n-2} - 4a_{n-3} + a_{n-4}`
+  - local condition: `mu4(A)_n >= 0` for all `n>=0`
+  - closure identity under one-step multiplication by nonnegative `B` is algebraically correct:
+    `mu4(A*B) = mu4(A) * b` (Cauchy convolution).
+- Critical obstruction:
+  - In canonical product chain for `P=dp_B[u][0]`, admissible starts/factors already violate `mu4>=0`.
+  - Quick witness checks (canonical bridge decomposition):
+    - `DQo`: `min mu4(P) = -7`; child factor min `-7`.
+    - 'G?`@F_': `min mu4(P) = -8`; child factors min `-7,-7,-3`.
+    - `S???????????_?O?C??o?@_?@_??oFig?`: `min mu4(P) = -500`.
+    - `S???????C?G?G?C?@??G??_?@??@?F~_?`: `min mu4(P) = -1024`; all child factors violate (`min -7` or `-3`).
+- Decision:
+  - Treat raw global `mu4(A)>=0` as nonstarter for current DP chain (fails at base/factor level before any telescoping argument).
+  - Keep only as a transform identity; if revisited, it must be via a shifted/renormalized stencil class whose positivity is actually satisfied on canonical factors.
+
+### 2026-02-23 00:55:23Z - mu4_lpmoment_class_frontier_scan - strong empirical pass through n23
+- Audited the stronger LP-dual class `C_{deg,mu,mu2,mu3,mu4}` (step-local moments up to 4th factorial moment + full local `F` data), using:
+  - step lower bound from LP dual constraints on `beta_i(F,m,lambda)`,
+  - subset-DP over child-factor orders to compute class-optimal `B_max`,
+  - threshold test `B_max >= Threshold` equivalent to certifying `R1_tail2` for each tree.
+- Independent witness recomputation (mandatory pack):
+  - `DQo`: pass
+  - 'G?`@F_': pass
+  - `S???????????_?O?C??o?@_?@_??oFig?`: pass
+  - `S???????C?G?G?C?@??G??_?@??@?F~_?`: pass (critical mu3-fail witness now has positive gap).
+- Full canonical scan results (geng trees, `d_leaf<=1`, canonical `deg(s)=2` bridge):
+  - `n<=20`: checked `77,141`, failures `0`, min gap `0.1158090805` at
+    `S???????C?G?G?C?@??G??_?@??@?F~_?`.
+  - `n=21`: checked `98,581`, failures `0`, min gap `0.0962029096` at
+    `T???????C?G?G?C?@??G??_?@??@???_B~o?`.
+  - `n=22`: checked `227,678`, failures `0`, min gap `0.0177369780` at
+    `U?????????O?O?G?A??O?@??A??A??@???O?~}??`.
+  - `n=23`: checked `528,196`, failures `0`, min gap `0.0002818864` at
+    `V?????????O?O?G?A??O?@??A??A??@???O??A?F~o??`.
+  - Aggregate through `n<=23`: checked `931,596`, failures `0`.
+- Status interpretation:
+  - This is not a symbolic proof, but it is the strongest empirical support so far for a local class that survives all known frontier data, including the prior global mu3 failure witness.
