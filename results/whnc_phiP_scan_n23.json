@@ -1,0 +1,3026 @@
+{
+  "params": {
+    "min_n": 4,
+    "max_n": 23,
+    "tol": 1e-12,
+    "all_trees": false
+  },
+  "summary": {
+    "seen": 16923261,
+    "considered": 403704,
+    "checked": 403703,
+    "no_deg2_support": 1,
+    "phiP_fail": 0,
+    "lambda_gap_fail": 1,
+    "modeP_fail": 0,
+    "ulc_fail": 0,
+    "tau_skipped": 1,
+    "modeP_shift_dist": {
+      "0": 340021,
+      "1": 63682
+    },
+    "degP_shift_dist": {
+      "1": 17,
+      "0": 1,
+      "2": 556,
+      "3": 14689,
+      "4": 241696,
+      "5": 140237,
+      "6": 6421,
+      "7": 86
+    },
+    "min_phiP": 1.5,
+    "min_phiP_witness": {
+      "n": 4,
+      "g6": "CU",
+      "mode": 1,
+      "lambda_mode": 0.25,
+      "leaf": 1,
+      "support": 3,
+      "mode_p": 0,
+      "mode_p_shift": 0,
+      "deg_p": 1,
+      "deg_p_shift": 1,
+      "phi_p": 1.5,
+      "mu_p": 0.2,
+      "mu_gap": 1.2,
+      "degree_signature": {
+        "1": 2,
+        "2": 2
+      }
+    },
+    "min_mu_gap": 0.40778807501486725,
+    "min_mu_gap_witness": {
+      "n": 21,
+      "g6": "T???????C?G?G?C?@??G??_?@??@_F???^g?",
+      "mode": 7,
+      "lambda_mode": 0.9821141119656591,
+      "leaf": 9,
+      "support": 18,
+      "mode_p": 6,
+      "mode_p_shift": 0,
+      "deg_p": 9,
+      "deg_p_shift": 3,
+      "phi_p": 3405.0967040609294,
+      "mu_p": 5.407788075014867,
+      "mu_gap": 0.40778807501486725,
+      "degree_signature": {
+        "1": 8,
+        "2": 11,
+        "3": 1,
+        "7": 1
+      }
+    },
+    "min_lambda_gap": -0.00013108452027321693,
+    "min_lambda_gap_witness": {
+      "n": 23,
+      "g6": "V???????????????O?A??G??W??K??B???W??@_Fii??",
+      "mode": 8,
+      "lambda_mode": 0.9932366383979288,
+      "leaf": 4,
+      "support": 17,
+      "mode_p": 7,
+      "mode_p_shift": 0,
+      "deg_p": 12,
+      "deg_p_shift": 5,
+      "phi_p": 15067.624460866242,
+      "mu_p": 6.45768794816449,
+      "mu_gap": 0.45768794816449,
+      "degree_signature": {
+        "1": 9,
+        "2": 13,
+        "9": 1
+      },
+      "tau_p": 0.993367722918202,
+      "lambda_gap": -0.00013108452027321693,
+      "tau_mu_gap": 0.4580223988607841
+    },
+    "min_tau_mu_gap": 0.36971048457085587,
+    "min_tau_mu_gap_witness": {
+      "n": 21,
+      "g6": "T???????C?G?G?C?@??G??_?@??@_F_??N_@",
+      "mode": 7,
+      "lambda_mode": 0.9985197520584698,
+      "leaf": 9,
+      "support": 18,
+      "mode_p": 6,
+      "mode_p_shift": 0,
+      "deg_p": 9,
+      "deg_p_shift": 3,
+      "phi_p": 3859.0132575383705,
+      "mu_p": 5.425014560757681,
+      "mu_gap": 0.4250145607576812,
+      "degree_signature": {
+        "1": 9,
+        "2": 10,
+        "5": 1,
+        "6": 1
+      },
+      "tau_p": 0.9689490445859873,
+      "lambda_gap": 0.02957070747248247,
+      "tau_mu_gap": 0.36971048457085587
+    },
+    "small_deg_shift_cases": [
+      {
+        "n": 4,
+        "g6": "CU",
+        "mode": 1,
+        "lambda_mode": 0.25,
+        "leaf": 1,
+        "support": 3,
+        "mode_p": 0,
+        "mode_p_shift": 0,
+        "deg_p": 1,
+        "deg_p_shift": 1,
+        "phi_p": 1.5,
+        "mu_p": 0.2,
+        "mu_gap": 1.2,
+        "degree_signature": {
+          "1": 2,
+          "2": 2
+        }
+      },
+      {
+        "n": 5,
+        "g6": "DQo",
+        "mode": 2,
+        "lambda_mode": 0.8333333333333334,
+        "leaf": 2,
+        "support": 0,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 1,
+        "deg_p_shift": 0,
+        "phi_p": 1.666666666666667,
+        "mu_p": 0.625,
+        "mu_gap": 0.625,
+        "degree_signature": {
+          "1": 2,
+          "2": 3
+        }
+      },
+      {
+        "n": 6,
+        "g6": "ECR_",
+        "mode": 2,
+        "lambda_mode": 0.6,
+        "leaf": 3,
+        "support": 0,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 3.2399999999999998,
+        "mu_p": 0.9204545454545455,
+        "mu_gap": 0.9204545454545455,
+        "degree_signature": {
+          "1": 3,
+          "2": 2,
+          "3": 1
+        }
+      },
+      {
+        "n": 6,
+        "g6": "ECZ?",
+        "mode": 2,
+        "lambda_mode": 0.6,
+        "leaf": 2,
+        "support": 4,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 2.5199999999999996,
+        "mu_p": 0.7974683544303797,
+        "mu_gap": 0.7974683544303797,
+        "degree_signature": {
+          "1": 2,
+          "2": 4
+        }
+      },
+      {
+        "n": 7,
+        "g6": "F?`e_",
+        "mode": 2,
+        "lambda_mode": 0.4666666666666667,
+        "leaf": 2,
+        "support": 5,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 3.1733333333333333,
+        "mu_p": 0.9015151515151515,
+        "mu_gap": 0.9015151515151515,
+        "degree_signature": {
+          "1": 3,
+          "2": 3,
+          "3": 1
+        }
+      },
+      {
+        "n": 7,
+        "g6": "FCOf?",
+        "mode": 2,
+        "lambda_mode": 0.4666666666666667,
+        "leaf": 3,
+        "support": 0,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 3.608888888888889,
+        "mu_p": 0.9655172413793104,
+        "mu_gap": 0.9655172413793104,
+        "degree_signature": {
+          "1": 3,
+          "2": 3,
+          "3": 1
+        }
+      },
+      {
+        "n": 7,
+        "g6": "FCQb?",
+        "mode": 2,
+        "lambda_mode": 0.4666666666666667,
+        "leaf": 3,
+        "support": 0,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 3.1733333333333333,
+        "mu_p": 0.9015151515151515,
+        "mu_gap": 0.9015151515151515,
+        "degree_signature": {
+          "1": 2,
+          "2": 5
+        }
+      },
+      {
+        "n": 8,
+        "g6": "G?`@F_",
+        "mode": 3,
+        "lambda_mode": 0.9130434782608695,
+        "leaf": 4,
+        "support": 0,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 11.7584449741103,
+        "mu_p": 1.76958041958042,
+        "mu_gap": 0.7695804195804199,
+        "degree_signature": {
+          "1": 4,
+          "2": 3,
+          "4": 1
+        }
+      },
+      {
+        "n": 8,
+        "g6": "G?`DE_",
+        "mode": 3,
+        "lambda_mode": 0.9545454545454546,
+        "leaf": 2,
+        "support": 6,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 10.596543951915853,
+        "mu_p": 1.717920656634747,
+        "mu_gap": 0.7179206566347469,
+        "degree_signature": {
+          "1": 4,
+          "2": 2,
+          "3": 2
+        }
+      },
+      {
+        "n": 9,
+        "g6": "H?AA@bg",
+        "mode": 3,
+        "lambda_mode": 0.7368421052631579,
+        "leaf": 3,
+        "support": 7,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 8.429946056276425,
+        "mu_p": 1.6559908330780664,
+        "mu_gap": 0.6559908330780664,
+        "degree_signature": {
+          "1": 4,
+          "2": 4,
+          "4": 1
+        }
+      },
+      {
+        "n": 9,
+        "g6": "H?AE@`g",
+        "mode": 3,
+        "lambda_mode": 0.7777777777777778,
+        "leaf": 3,
+        "support": 7,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 8.813443072702336,
+        "mu_p": 1.6481388076263495,
+        "mu_gap": 0.6481388076263495,
+        "degree_signature": {
+          "1": 3,
+          "2": 5,
+          "3": 1
+        }
+      },
+      {
+        "n": 9,
+        "g6": "H?ABAag",
+        "mode": 3,
+        "lambda_mode": 0.7777777777777778,
+        "leaf": 3,
+        "support": 7,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 9.754458161865571,
+        "mu_p": 1.6933502340093605,
+        "mu_gap": 0.6933502340093605,
+        "degree_signature": {
+          "1": 3,
+          "2": 5,
+          "3": 1
+        }
+      },
+      {
+        "n": 9,
+        "g6": "H?ABAaI",
+        "mode": 3,
+        "lambda_mode": 0.7567567567567568,
+        "leaf": 3,
+        "support": 7,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 9.060608453596037,
+        "mu_p": 1.674441023681639,
+        "mu_gap": 0.6744410236816389,
+        "degree_signature": {
+          "1": 4,
+          "2": 3,
+          "3": 2
+        }
+      },
+      {
+        "n": 9,
+        "g6": "H?AB?rO",
+        "mode": 3,
+        "lambda_mode": 0.7777777777777778,
+        "leaf": 2,
+        "support": 6,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 8.813443072702336,
+        "mu_p": 1.6481388076263495,
+        "mu_gap": 0.6481388076263495,
+        "degree_signature": {
+          "1": 3,
+          "2": 5,
+          "3": 1
+        }
+      },
+      {
+        "n": 9,
+        "g6": "H?`@?bo",
+        "mode": 3,
+        "lambda_mode": 0.7368421052631579,
+        "leaf": 4,
+        "support": 0,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 11.916168537687707,
+        "mu_p": 1.7872340425531914,
+        "mu_gap": 0.7872340425531914,
+        "degree_signature": {
+          "1": 4,
+          "2": 4,
+          "4": 1
+        }
+      },
+      {
+        "n": 9,
+        "g6": "H?`@C`o",
+        "mode": 3,
+        "lambda_mode": 0.7777777777777778,
+        "leaf": 4,
+        "support": 0,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 9.754458161865571,
+        "mu_p": 1.6933502340093605,
+        "mu_gap": 0.6933502340093605,
+        "degree_signature": {
+          "1": 3,
+          "2": 5,
+          "3": 1
+        }
+      },
+      {
+        "n": 9,
+        "g6": "H?`D@`O",
+        "mode": 3,
+        "lambda_mode": 0.8,
+        "leaf": 4,
+        "support": 0,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 9.496,
+        "mu_p": 1.6664795058955642,
+        "mu_gap": 0.6664795058955642,
+        "degree_signature": {
+          "1": 2,
+          "2": 7
+        }
+      },
+      {
+        "n": 11,
+        "g6": "J??CA?_EFg?",
+        "mode": 4,
+        "lambda_mode": 0.967741935483871,
+        "leaf": 4,
+        "support": 9,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 4,
+        "deg_p_shift": 1,
+        "phi_p": 26.89069116998963,
+        "mu_p": 2.470545790544151,
+        "mu_gap": 0.470545790544151,
+        "degree_signature": {
+          "1": 5,
+          "2": 5,
+          "5": 1
+        }
+      }
+    ]
+  },
+  "per_n": {
+    "4": {
+      "seen": 2,
+      "considered": 1,
+      "checked": 1,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 1,
+      "modeP_shift_dist": {
+        "0": 1
+      },
+      "degP_shift_dist": {
+        "1": 1
+      },
+      "min_phiP": 1.5,
+      "min_phiP_witness": {
+        "n": 4,
+        "g6": "CU",
+        "mode": 1,
+        "lambda_mode": 0.25,
+        "leaf": 1,
+        "support": 3,
+        "mode_p": 0,
+        "mode_p_shift": 0,
+        "deg_p": 1,
+        "deg_p_shift": 1,
+        "phi_p": 1.5,
+        "mu_p": 0.2,
+        "mu_gap": 1.2,
+        "degree_signature": {
+          "1": 2,
+          "2": 2
+        }
+      },
+      "min_mu_gap": 1.2,
+      "min_mu_gap_witness": {
+        "n": 4,
+        "g6": "CU",
+        "mode": 1,
+        "lambda_mode": 0.25,
+        "leaf": 1,
+        "support": 3,
+        "mode_p": 0,
+        "mode_p_shift": 0,
+        "deg_p": 1,
+        "deg_p_shift": 1,
+        "phi_p": 1.5,
+        "mu_p": 0.2,
+        "mu_gap": 1.2,
+        "degree_signature": {
+          "1": 2,
+          "2": 2
+        }
+      },
+      "min_lambda_gap": null,
+      "min_lambda_gap_witness": null,
+      "min_tau_mu_gap": null,
+      "min_tau_mu_gap_witness": null,
+      "small_deg_shift_cases": [
+        {
+          "n": 4,
+          "g6": "CU",
+          "mode": 1,
+          "lambda_mode": 0.25,
+          "leaf": 1,
+          "support": 3,
+          "mode_p": 0,
+          "mode_p_shift": 0,
+          "deg_p": 1,
+          "deg_p_shift": 1,
+          "phi_p": 1.5,
+          "mu_p": 0.2,
+          "mu_gap": 1.2,
+          "degree_signature": {
+            "1": 2,
+            "2": 2
+          }
+        }
+      ],
+      "wall_s": 0.0038652420043945312
+    },
+    "5": {
+      "seen": 3,
+      "considered": 1,
+      "checked": 1,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 1
+      },
+      "degP_shift_dist": {
+        "0": 1
+      },
+      "min_phiP": 1.666666666666667,
+      "min_phiP_witness": {
+        "n": 5,
+        "g6": "DQo",
+        "mode": 2,
+        "lambda_mode": 0.8333333333333334,
+        "leaf": 2,
+        "support": 0,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 1,
+        "deg_p_shift": 0,
+        "phi_p": 1.666666666666667,
+        "mu_p": 0.625,
+        "mu_gap": 0.625,
+        "degree_signature": {
+          "1": 2,
+          "2": 3
+        }
+      },
+      "min_mu_gap": 0.625,
+      "min_mu_gap_witness": {
+        "n": 5,
+        "g6": "DQo",
+        "mode": 2,
+        "lambda_mode": 0.8333333333333334,
+        "leaf": 2,
+        "support": 0,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 1,
+        "deg_p_shift": 0,
+        "phi_p": 1.666666666666667,
+        "mu_p": 0.625,
+        "mu_gap": 0.625,
+        "degree_signature": {
+          "1": 2,
+          "2": 3
+        }
+      },
+      "min_lambda_gap": 0.33333333333333337,
+      "min_lambda_gap_witness": {
+        "n": 5,
+        "g6": "DQo",
+        "mode": 2,
+        "lambda_mode": 0.8333333333333334,
+        "leaf": 2,
+        "support": 0,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 1,
+        "deg_p_shift": 0,
+        "phi_p": 1.666666666666667,
+        "mu_p": 0.625,
+        "mu_gap": 0.625,
+        "degree_signature": {
+          "1": 2,
+          "2": 3
+        },
+        "tau_p": 0.5,
+        "lambda_gap": 0.33333333333333337,
+        "tau_mu_gap": 0.5
+      },
+      "min_tau_mu_gap": 0.5,
+      "min_tau_mu_gap_witness": {
+        "n": 5,
+        "g6": "DQo",
+        "mode": 2,
+        "lambda_mode": 0.8333333333333334,
+        "leaf": 2,
+        "support": 0,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 1,
+        "deg_p_shift": 0,
+        "phi_p": 1.666666666666667,
+        "mu_p": 0.625,
+        "mu_gap": 0.625,
+        "degree_signature": {
+          "1": 2,
+          "2": 3
+        },
+        "tau_p": 0.5,
+        "lambda_gap": 0.33333333333333337,
+        "tau_mu_gap": 0.5
+      },
+      "small_deg_shift_cases": [
+        {
+          "n": 5,
+          "g6": "DQo",
+          "mode": 2,
+          "lambda_mode": 0.8333333333333334,
+          "leaf": 2,
+          "support": 0,
+          "mode_p": 1,
+          "mode_p_shift": 0,
+          "deg_p": 1,
+          "deg_p_shift": 0,
+          "phi_p": 1.666666666666667,
+          "mu_p": 0.625,
+          "mu_gap": 0.625,
+          "degree_signature": {
+            "1": 2,
+            "2": 3
+          }
+        }
+      ],
+      "wall_s": 0.003103971481323242
+    },
+    "6": {
+      "seen": 6,
+      "considered": 2,
+      "checked": 2,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 2
+      },
+      "degP_shift_dist": {
+        "1": 2
+      },
+      "min_phiP": 2.5199999999999996,
+      "min_phiP_witness": {
+        "n": 6,
+        "g6": "ECZ?",
+        "mode": 2,
+        "lambda_mode": 0.6,
+        "leaf": 2,
+        "support": 4,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 2.5199999999999996,
+        "mu_p": 0.7974683544303797,
+        "mu_gap": 0.7974683544303797,
+        "degree_signature": {
+          "1": 2,
+          "2": 4
+        }
+      },
+      "min_mu_gap": 0.7974683544303797,
+      "min_mu_gap_witness": {
+        "n": 6,
+        "g6": "ECZ?",
+        "mode": 2,
+        "lambda_mode": 0.6,
+        "leaf": 2,
+        "support": 4,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 2.5199999999999996,
+        "mu_p": 0.7974683544303797,
+        "mu_gap": 0.7974683544303797,
+        "degree_signature": {
+          "1": 2,
+          "2": 4
+        }
+      },
+      "min_lambda_gap": 0.26666666666666666,
+      "min_lambda_gap_witness": {
+        "n": 6,
+        "g6": "ECR_",
+        "mode": 2,
+        "lambda_mode": 0.6,
+        "leaf": 3,
+        "support": 0,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 3.2399999999999998,
+        "mu_p": 0.9204545454545455,
+        "mu_gap": 0.9204545454545455,
+        "degree_signature": {
+          "1": 3,
+          "2": 2,
+          "3": 1
+        },
+        "tau_p": 0.3333333333333333,
+        "lambda_gap": 0.26666666666666666,
+        "tau_mu_gap": 0.6499999999999999
+      },
+      "min_tau_mu_gap": 0.5789473684210527,
+      "min_tau_mu_gap_witness": {
+        "n": 6,
+        "g6": "ECZ?",
+        "mode": 2,
+        "lambda_mode": 0.6,
+        "leaf": 2,
+        "support": 4,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 2.5199999999999996,
+        "mu_p": 0.7974683544303797,
+        "mu_gap": 0.7974683544303797,
+        "degree_signature": {
+          "1": 2,
+          "2": 4
+        },
+        "tau_p": 0.3333333333333333,
+        "lambda_gap": 0.26666666666666666,
+        "tau_mu_gap": 0.5789473684210527
+      },
+      "small_deg_shift_cases": [
+        {
+          "n": 6,
+          "g6": "ECR_",
+          "mode": 2,
+          "lambda_mode": 0.6,
+          "leaf": 3,
+          "support": 0,
+          "mode_p": 1,
+          "mode_p_shift": 0,
+          "deg_p": 2,
+          "deg_p_shift": 1,
+          "phi_p": 3.2399999999999998,
+          "mu_p": 0.9204545454545455,
+          "mu_gap": 0.9204545454545455,
+          "degree_signature": {
+            "1": 3,
+            "2": 2,
+            "3": 1
+          }
+        },
+        {
+          "n": 6,
+          "g6": "ECZ?",
+          "mode": 2,
+          "lambda_mode": 0.6,
+          "leaf": 2,
+          "support": 4,
+          "mode_p": 1,
+          "mode_p_shift": 0,
+          "deg_p": 2,
+          "deg_p_shift": 1,
+          "phi_p": 2.5199999999999996,
+          "mu_p": 0.7974683544303797,
+          "mu_gap": 0.7974683544303797,
+          "degree_signature": {
+            "1": 2,
+            "2": 4
+          }
+        }
+      ],
+      "wall_s": 0.0025930404663085938
+    },
+    "7": {
+      "seen": 11,
+      "considered": 3,
+      "checked": 3,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 3
+      },
+      "degP_shift_dist": {
+        "1": 3
+      },
+      "min_phiP": 3.1733333333333333,
+      "min_phiP_witness": {
+        "n": 7,
+        "g6": "F?`e_",
+        "mode": 2,
+        "lambda_mode": 0.4666666666666667,
+        "leaf": 2,
+        "support": 5,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 3.1733333333333333,
+        "mu_p": 0.9015151515151515,
+        "mu_gap": 0.9015151515151515,
+        "degree_signature": {
+          "1": 3,
+          "2": 3,
+          "3": 1
+        }
+      },
+      "min_mu_gap": 0.9015151515151515,
+      "min_mu_gap_witness": {
+        "n": 7,
+        "g6": "F?`e_",
+        "mode": 2,
+        "lambda_mode": 0.4666666666666667,
+        "leaf": 2,
+        "support": 5,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 3.1733333333333333,
+        "mu_p": 0.9015151515151515,
+        "mu_gap": 0.9015151515151515,
+        "degree_signature": {
+          "1": 3,
+          "2": 3,
+          "3": 1
+        }
+      },
+      "min_lambda_gap": 0.21666666666666667,
+      "min_lambda_gap_witness": {
+        "n": 7,
+        "g6": "F?`e_",
+        "mode": 2,
+        "lambda_mode": 0.4666666666666667,
+        "leaf": 2,
+        "support": 5,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 3.1733333333333333,
+        "mu_p": 0.9015151515151515,
+        "mu_gap": 0.9015151515151515,
+        "degree_signature": {
+          "1": 3,
+          "2": 3,
+          "3": 1
+        },
+        "tau_p": 0.25,
+        "lambda_gap": 0.21666666666666667,
+        "tau_mu_gap": 0.6285714285714286
+      },
+      "min_tau_mu_gap": 0.6285714285714286,
+      "min_tau_mu_gap_witness": {
+        "n": 7,
+        "g6": "F?`e_",
+        "mode": 2,
+        "lambda_mode": 0.4666666666666667,
+        "leaf": 2,
+        "support": 5,
+        "mode_p": 1,
+        "mode_p_shift": 0,
+        "deg_p": 2,
+        "deg_p_shift": 1,
+        "phi_p": 3.1733333333333333,
+        "mu_p": 0.9015151515151515,
+        "mu_gap": 0.9015151515151515,
+        "degree_signature": {
+          "1": 3,
+          "2": 3,
+          "3": 1
+        },
+        "tau_p": 0.25,
+        "lambda_gap": 0.21666666666666667,
+        "tau_mu_gap": 0.6285714285714286
+      },
+      "small_deg_shift_cases": [
+        {
+          "n": 7,
+          "g6": "F?`e_",
+          "mode": 2,
+          "lambda_mode": 0.4666666666666667,
+          "leaf": 2,
+          "support": 5,
+          "mode_p": 1,
+          "mode_p_shift": 0,
+          "deg_p": 2,
+          "deg_p_shift": 1,
+          "phi_p": 3.1733333333333333,
+          "mu_p": 0.9015151515151515,
+          "mu_gap": 0.9015151515151515,
+          "degree_signature": {
+            "1": 3,
+            "2": 3,
+            "3": 1
+          }
+        },
+        {
+          "n": 7,
+          "g6": "FCOf?",
+          "mode": 2,
+          "lambda_mode": 0.4666666666666667,
+          "leaf": 3,
+          "support": 0,
+          "mode_p": 1,
+          "mode_p_shift": 0,
+          "deg_p": 2,
+          "deg_p_shift": 1,
+          "phi_p": 3.608888888888889,
+          "mu_p": 0.9655172413793104,
+          "mu_gap": 0.9655172413793104,
+          "degree_signature": {
+            "1": 3,
+            "2": 3,
+            "3": 1
+          }
+        },
+        {
+          "n": 7,
+          "g6": "FCQb?",
+          "mode": 2,
+          "lambda_mode": 0.4666666666666667,
+          "leaf": 3,
+          "support": 0,
+          "mode_p": 1,
+          "mode_p_shift": 0,
+          "deg_p": 2,
+          "deg_p_shift": 1,
+          "phi_p": 3.1733333333333333,
+          "mu_p": 0.9015151515151515,
+          "mu_gap": 0.9015151515151515,
+          "degree_signature": {
+            "1": 2,
+            "2": 5
+          }
+        }
+      ],
+      "wall_s": 0.002505064010620117
+    },
+    "8": {
+      "seen": 23,
+      "considered": 6,
+      "checked": 6,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "1": 4,
+        "0": 2
+      },
+      "degP_shift_dist": {
+        "2": 4,
+        "1": 2
+      },
+      "min_phiP": 3.8121153223194035,
+      "min_phiP_witness": {
+        "n": 8,
+        "g6": "G?B@dO",
+        "mode": 2,
+        "lambda_mode": 0.38095238095238093,
+        "leaf": 1,
+        "support": 5,
+        "mode_p": 2,
+        "mode_p_shift": 1,
+        "deg_p": 3,
+        "deg_p_shift": 2,
+        "phi_p": 3.8121153223194035,
+        "mu_p": 0.9951236012064155,
+        "mu_gap": 0.9951236012064155,
+        "degree_signature": {
+          "1": 3,
+          "2": 4,
+          "3": 1
+        }
+      },
+      "min_mu_gap": 0.7179206566347469,
+      "min_mu_gap_witness": {
+        "n": 8,
+        "g6": "G?`DE_",
+        "mode": 3,
+        "lambda_mode": 0.9545454545454546,
+        "leaf": 2,
+        "support": 6,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 10.596543951915853,
+        "mu_p": 1.717920656634747,
+        "mu_gap": 0.7179206566347469,
+        "degree_signature": {
+          "1": 4,
+          "2": 2,
+          "3": 2
+        }
+      },
+      "min_lambda_gap": 0.18095238095238092,
+      "min_lambda_gap_witness": {
+        "n": 8,
+        "g6": "G?B@dO",
+        "mode": 2,
+        "lambda_mode": 0.38095238095238093,
+        "leaf": 1,
+        "support": 5,
+        "mode_p": 2,
+        "mode_p_shift": 1,
+        "deg_p": 3,
+        "deg_p_shift": 2,
+        "phi_p": 3.8121153223194035,
+        "mu_p": 0.9951236012064155,
+        "mu_gap": 0.9951236012064155,
+        "degree_signature": {
+          "1": 3,
+          "2": 4,
+          "3": 1
+        },
+        "tau_p": 0.2,
+        "lambda_gap": 0.18095238095238092,
+        "tau_mu_gap": 0.6690391459074733
+      },
+      "min_tau_mu_gap": 0.49572649572649574,
+      "min_tau_mu_gap_witness": {
+        "n": 8,
+        "g6": "G?`@F_",
+        "mode": 3,
+        "lambda_mode": 0.9130434782608695,
+        "leaf": 4,
+        "support": 0,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 11.7584449741103,
+        "mu_p": 1.76958041958042,
+        "mu_gap": 0.7695804195804199,
+        "degree_signature": {
+          "1": 4,
+          "2": 3,
+          "4": 1
+        },
+        "tau_p": 0.625,
+        "lambda_gap": 0.2880434782608695,
+        "tau_mu_gap": 0.49572649572649574
+      },
+      "small_deg_shift_cases": [
+        {
+          "n": 8,
+          "g6": "G?`@F_",
+          "mode": 3,
+          "lambda_mode": 0.9130434782608695,
+          "leaf": 4,
+          "support": 0,
+          "mode_p": 2,
+          "mode_p_shift": 0,
+          "deg_p": 3,
+          "deg_p_shift": 1,
+          "phi_p": 11.7584449741103,
+          "mu_p": 1.76958041958042,
+          "mu_gap": 0.7695804195804199,
+          "degree_signature": {
+            "1": 4,
+            "2": 3,
+            "4": 1
+          }
+        },
+        {
+          "n": 8,
+          "g6": "G?`DE_",
+          "mode": 3,
+          "lambda_mode": 0.9545454545454546,
+          "leaf": 2,
+          "support": 6,
+          "mode_p": 2,
+          "mode_p_shift": 0,
+          "deg_p": 3,
+          "deg_p_shift": 1,
+          "phi_p": 10.596543951915853,
+          "mu_p": 1.717920656634747,
+          "mu_gap": 0.7179206566347469,
+          "degree_signature": {
+            "1": 4,
+            "2": 2,
+            "3": 2
+          }
+        }
+      ],
+      "wall_s": 0.0023353099822998047
+    },
+    "9": {
+      "seen": 47,
+      "considered": 10,
+      "checked": 10,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 10
+      },
+      "degP_shift_dist": {
+        "1": 8,
+        "2": 2
+      },
+      "min_phiP": 8.429946056276425,
+      "min_phiP_witness": {
+        "n": 9,
+        "g6": "H?AA@bg",
+        "mode": 3,
+        "lambda_mode": 0.7368421052631579,
+        "leaf": 3,
+        "support": 7,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 8.429946056276425,
+        "mu_p": 1.6559908330780664,
+        "mu_gap": 0.6559908330780664,
+        "degree_signature": {
+          "1": 4,
+          "2": 4,
+          "4": 1
+        }
+      },
+      "min_mu_gap": 0.6481388076263495,
+      "min_mu_gap_witness": {
+        "n": 9,
+        "g6": "H?AE@`g",
+        "mode": 3,
+        "lambda_mode": 0.7777777777777778,
+        "leaf": 3,
+        "support": 7,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 8.813443072702336,
+        "mu_p": 1.6481388076263495,
+        "mu_gap": 0.6481388076263495,
+        "degree_signature": {
+          "1": 3,
+          "2": 5,
+          "3": 1
+        }
+      },
+      "min_lambda_gap": 0.13684210526315788,
+      "min_lambda_gap_witness": {
+        "n": 9,
+        "g6": "H?AA@bg",
+        "mode": 3,
+        "lambda_mode": 0.7368421052631579,
+        "leaf": 3,
+        "support": 7,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 8.429946056276425,
+        "mu_p": 1.6559908330780664,
+        "mu_gap": 0.6559908330780664,
+        "degree_signature": {
+          "1": 4,
+          "2": 4,
+          "4": 1
+        },
+        "tau_p": 0.6,
+        "lambda_gap": 0.13684210526315788,
+        "tau_mu_gap": 0.5129310344827587
+      },
+      "min_tau_mu_gap": 0.47749338040600176,
+      "min_tau_mu_gap_witness": {
+        "n": 9,
+        "g6": "H?AE@`g",
+        "mode": 3,
+        "lambda_mode": 0.7777777777777778,
+        "leaf": 3,
+        "support": 7,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 3,
+        "deg_p_shift": 1,
+        "phi_p": 8.813443072702336,
+        "mu_p": 1.6481388076263495,
+        "mu_gap": 0.6481388076263495,
+        "degree_signature": {
+          "1": 3,
+          "2": 5,
+          "3": 1
+        },
+        "tau_p": 0.6,
+        "lambda_gap": 0.1777777777777778,
+        "tau_mu_gap": 0.47749338040600176
+      },
+      "small_deg_shift_cases": [
+        {
+          "n": 9,
+          "g6": "H?AA@bg",
+          "mode": 3,
+          "lambda_mode": 0.7368421052631579,
+          "leaf": 3,
+          "support": 7,
+          "mode_p": 2,
+          "mode_p_shift": 0,
+          "deg_p": 3,
+          "deg_p_shift": 1,
+          "phi_p": 8.429946056276425,
+          "mu_p": 1.6559908330780664,
+          "mu_gap": 0.6559908330780664,
+          "degree_signature": {
+            "1": 4,
+            "2": 4,
+            "4": 1
+          }
+        },
+        {
+          "n": 9,
+          "g6": "H?AE@`g",
+          "mode": 3,
+          "lambda_mode": 0.7777777777777778,
+          "leaf": 3,
+          "support": 7,
+          "mode_p": 2,
+          "mode_p_shift": 0,
+          "deg_p": 3,
+          "deg_p_shift": 1,
+          "phi_p": 8.813443072702336,
+          "mu_p": 1.6481388076263495,
+          "mu_gap": 0.6481388076263495,
+          "degree_signature": {
+            "1": 3,
+            "2": 5,
+            "3": 1
+          }
+        },
+        {
+          "n": 9,
+          "g6": "H?ABAag",
+          "mode": 3,
+          "lambda_mode": 0.7777777777777778,
+          "leaf": 3,
+          "support": 7,
+          "mode_p": 2,
+          "mode_p_shift": 0,
+          "deg_p": 3,
+          "deg_p_shift": 1,
+          "phi_p": 9.754458161865571,
+          "mu_p": 1.6933502340093605,
+          "mu_gap": 0.6933502340093605,
+          "degree_signature": {
+            "1": 3,
+            "2": 5,
+            "3": 1
+          }
+        },
+        {
+          "n": 9,
+          "g6": "H?ABAaI",
+          "mode": 3,
+          "lambda_mode": 0.7567567567567568,
+          "leaf": 3,
+          "support": 7,
+          "mode_p": 2,
+          "mode_p_shift": 0,
+          "deg_p": 3,
+          "deg_p_shift": 1,
+          "phi_p": 9.060608453596037,
+          "mu_p": 1.674441023681639,
+          "mu_gap": 0.6744410236816389,
+          "degree_signature": {
+            "1": 4,
+            "2": 3,
+            "3": 2
+          }
+        },
+        {
+          "n": 9,
+          "g6": "H?AB?rO",
+          "mode": 3,
+          "lambda_mode": 0.7777777777777778,
+          "leaf": 2,
+          "support": 6,
+          "mode_p": 2,
+          "mode_p_shift": 0,
+          "deg_p": 3,
+          "deg_p_shift": 1,
+          "phi_p": 8.813443072702336,
+          "mu_p": 1.6481388076263495,
+          "mu_gap": 0.6481388076263495,
+          "degree_signature": {
+            "1": 3,
+            "2": 5,
+            "3": 1
+          }
+        },
+        {
+          "n": 9,
+          "g6": "H?`@?bo",
+          "mode": 3,
+          "lambda_mode": 0.7368421052631579,
+          "leaf": 4,
+          "support": 0,
+          "mode_p": 2,
+          "mode_p_shift": 0,
+          "deg_p": 3,
+          "deg_p_shift": 1,
+          "phi_p": 11.916168537687707,
+          "mu_p": 1.7872340425531914,
+          "mu_gap": 0.7872340425531914,
+          "degree_signature": {
+            "1": 4,
+            "2": 4,
+            "4": 1
+          }
+        },
+        {
+          "n": 9,
+          "g6": "H?`@C`o",
+          "mode": 3,
+          "lambda_mode": 0.7777777777777778,
+          "leaf": 4,
+          "support": 0,
+          "mode_p": 2,
+          "mode_p_shift": 0,
+          "deg_p": 3,
+          "deg_p_shift": 1,
+          "phi_p": 9.754458161865571,
+          "mu_p": 1.6933502340093605,
+          "mu_gap": 0.6933502340093605,
+          "degree_signature": {
+            "1": 3,
+            "2": 5,
+            "3": 1
+          }
+        },
+        {
+          "n": 9,
+          "g6": "H?`D@`O",
+          "mode": 3,
+          "lambda_mode": 0.8,
+          "leaf": 4,
+          "support": 0,
+          "mode_p": 2,
+          "mode_p_shift": 0,
+          "deg_p": 3,
+          "deg_p_shift": 1,
+          "phi_p": 9.496,
+          "mu_p": 1.6664795058955642,
+          "mu_gap": 0.6664795058955642,
+          "degree_signature": {
+            "1": 2,
+            "2": 7
+          }
+        }
+      ],
+      "wall_s": 0.004282712936401367
+    },
+    "10": {
+      "seen": 106,
+      "considered": 21,
+      "checked": 21,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 20,
+        "1": 1
+      },
+      "degP_shift_dist": {
+        "2": 21
+      },
+      "min_phiP": 9.998184835790566,
+      "min_phiP_witness": {
+        "n": 10,
+        "g6": "I?AA@?W{?",
+        "mode": 3,
+        "lambda_mode": 0.6101694915254238,
+        "leaf": 4,
+        "support": 8,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 4,
+        "deg_p_shift": 2,
+        "phi_p": 9.998184835790566,
+        "mu_p": 1.7409754687546186,
+        "mu_gap": 0.7409754687546186,
+        "degree_signature": {
+          "1": 4,
+          "2": 5,
+          "4": 1
+        }
+      },
+      "min_mu_gap": 0.7409754687546186,
+      "min_mu_gap_witness": {
+        "n": 10,
+        "g6": "I?AA@?W{?",
+        "mode": 3,
+        "lambda_mode": 0.6101694915254238,
+        "leaf": 4,
+        "support": 8,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 4,
+        "deg_p_shift": 2,
+        "phi_p": 9.998184835790566,
+        "mu_p": 1.7409754687546186,
+        "mu_gap": 0.7409754687546186,
+        "degree_signature": {
+          "1": 4,
+          "2": 5,
+          "4": 1
+        }
+      },
+      "min_lambda_gap": 0.1435028248587571,
+      "min_lambda_gap_witness": {
+        "n": 10,
+        "g6": "I??CB?Wt?",
+        "mode": 3,
+        "lambda_mode": 0.6101694915254238,
+        "leaf": 2,
+        "support": 7,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 4,
+        "deg_p_shift": 2,
+        "phi_p": 10.414021914507625,
+        "mu_p": 1.763945783961296,
+        "mu_gap": 0.763945783961296,
+        "degree_signature": {
+          "1": 4,
+          "2": 5,
+          "4": 1
+        },
+        "tau_p": 0.4666666666666667,
+        "lambda_gap": 0.1435028248587571,
+        "tau_mu_gap": 0.5473381333959695
+      },
+      "min_tau_mu_gap": 0.5166350355907048,
+      "min_tau_mu_gap_witness": {
+        "n": 10,
+        "g6": "I??E@_Ki?",
+        "mode": 3,
+        "lambda_mode": 0.631578947368421,
+        "leaf": 1,
+        "support": 6,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 4,
+        "deg_p_shift": 2,
+        "phi_p": 10.499359274407041,
+        "mu_p": 1.7455414476053688,
+        "mu_gap": 0.7455414476053688,
+        "degree_signature": {
+          "1": 3,
+          "2": 6,
+          "3": 1
+        },
+        "tau_p": 0.4666666666666667,
+        "lambda_gap": 0.16491228070175434,
+        "tau_mu_gap": 0.5166350355907048
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 0.00414276123046875
+    },
+    "11": {
+      "seen": 235,
+      "considered": 39,
+      "checked": 39,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 18,
+        "1": 21
+      },
+      "degP_shift_dist": {
+        "3": 14,
+        "1": 1,
+        "2": 24
+      },
+      "min_phiP": 11.718742621390934,
+      "min_phiP_witness": {
+        "n": 11,
+        "g6": "J??CA?oBFO?",
+        "mode": 3,
+        "lambda_mode": 0.5172413793103449,
+        "leaf": 3,
+        "support": 8,
+        "mode_p": 2,
+        "mode_p_shift": 0,
+        "deg_p": 4,
+        "deg_p_shift": 2,
+        "phi_p": 11.718742621390934,
+        "mu_p": 1.8316044118825971,
+        "mu_gap": 0.8316044118825971,
+        "degree_signature": {
+          "1": 4,
+          "2": 6,
+          "4": 1
+        }
+      },
+      "min_mu_gap": 0.470545790544151,
+      "min_mu_gap_witness": {
+        "n": 11,
+        "g6": "J??CA?_EFg?",
+        "mode": 4,
+        "lambda_mode": 0.967741935483871,
+        "leaf": 4,
+        "support": 9,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 4,
+        "deg_p_shift": 1,
+        "phi_p": 26.89069116998963,
+        "mu_p": 2.470545790544151,
+        "mu_gap": 0.470545790544151,
+        "degree_signature": {
+          "1": 5,
+          "2": 5,
+          "5": 1
+        }
+      },
+      "min_lambda_gap": 0.054698457223001484,
+      "min_lambda_gap_witness": {
+        "n": 11,
+        "g6": "J??CA?_EFg?",
+        "mode": 4,
+        "lambda_mode": 0.967741935483871,
+        "leaf": 4,
+        "support": 9,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 4,
+        "deg_p_shift": 1,
+        "phi_p": 26.89069116998963,
+        "mu_p": 2.470545790544151,
+        "mu_gap": 0.470545790544151,
+        "degree_signature": {
+          "1": 5,
+          "2": 5,
+          "5": 1
+        },
+        "tau_p": 0.9130434782608695,
+        "lambda_gap": 0.054698457223001484,
+        "tau_mu_gap": 0.41780831298832677
+      },
+      "min_tau_mu_gap": 0.41780831298832677,
+      "min_tau_mu_gap_witness": {
+        "n": 11,
+        "g6": "J??CA?_EFg?",
+        "mode": 4,
+        "lambda_mode": 0.967741935483871,
+        "leaf": 4,
+        "support": 9,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 4,
+        "deg_p_shift": 1,
+        "phi_p": 26.89069116998963,
+        "mu_p": 2.470545790544151,
+        "mu_gap": 0.470545790544151,
+        "degree_signature": {
+          "1": 5,
+          "2": 5,
+          "5": 1
+        },
+        "tau_p": 0.9130434782608695,
+        "lambda_gap": 0.054698457223001484,
+        "tau_mu_gap": 0.41780831298832677
+      },
+      "small_deg_shift_cases": [
+        {
+          "n": 11,
+          "g6": "J??CA?_EFg?",
+          "mode": 4,
+          "lambda_mode": 0.967741935483871,
+          "leaf": 4,
+          "support": 9,
+          "mode_p": 3,
+          "mode_p_shift": 0,
+          "deg_p": 4,
+          "deg_p_shift": 1,
+          "phi_p": 26.89069116998963,
+          "mu_p": 2.470545790544151,
+          "mu_gap": 0.470545790544151,
+          "degree_signature": {
+            "1": 5,
+            "2": 5,
+            "5": 1
+          }
+        }
+      ],
+      "wall_s": 0.009387969970703125
+    },
+    "12": {
+      "seen": 551,
+      "considered": 82,
+      "checked": 82,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 82
+      },
+      "degP_shift_dist": {
+        "2": 79,
+        "3": 3
+      },
+      "min_phiP": 32.24626471299019,
+      "min_phiP_witness": {
+        "n": 12,
+        "g6": "K??CA?_C?W^?",
+        "mode": 4,
+        "lambda_mode": 0.8289473684210527,
+        "leaf": 5,
+        "support": 10,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 5,
+        "deg_p_shift": 2,
+        "phi_p": 32.24626471299019,
+        "mu_p": 2.5448735285049007,
+        "mu_gap": 0.5448735285049007,
+        "degree_signature": {
+          "1": 5,
+          "2": 6,
+          "5": 1
+        }
+      },
+      "min_mu_gap": 0.5448735285049007,
+      "min_mu_gap_witness": {
+        "n": 12,
+        "g6": "K??CA?_C?W^?",
+        "mode": 4,
+        "lambda_mode": 0.8289473684210527,
+        "leaf": 5,
+        "support": 10,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 5,
+        "deg_p_shift": 2,
+        "phi_p": 32.24626471299019,
+        "mu_p": 2.5448735285049007,
+        "mu_gap": 0.5448735285049007,
+        "degree_signature": {
+          "1": 5,
+          "2": 6,
+          "5": 1
+        }
+      },
+      "min_lambda_gap": 0.07606112054329373,
+      "min_lambda_gap_witness": {
+        "n": 12,
+        "g6": "K???C@?K?W\\O",
+        "mode": 4,
+        "lambda_mode": 0.8129032258064516,
+        "leaf": 3,
+        "support": 9,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 5,
+        "deg_p_shift": 2,
+        "phi_p": 34.56979136860327,
+        "mu_p": 2.593389138483163,
+        "mu_gap": 0.5933891384831629,
+        "degree_signature": {
+          "1": 5,
+          "2": 6,
+          "5": 1
+        },
+        "tau_p": 0.7368421052631579,
+        "lambda_gap": 0.07606112054329373,
+        "tau_mu_gap": 0.48793626535458623
+      },
+      "min_tau_mu_gap": 0.43066725140125506,
+      "min_tau_mu_gap_witness": {
+        "n": 12,
+        "g6": "K??CA?_C?W^?",
+        "mode": 4,
+        "lambda_mode": 0.8289473684210527,
+        "leaf": 5,
+        "support": 10,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 5,
+        "deg_p_shift": 2,
+        "phi_p": 32.24626471299019,
+        "mu_p": 2.5448735285049007,
+        "mu_gap": 0.5448735285049007,
+        "degree_signature": {
+          "1": 5,
+          "2": 6,
+          "5": 1
+        },
+        "tau_p": 0.7368421052631579,
+        "lambda_gap": 0.0921052631578948,
+        "tau_mu_gap": 0.43066725140125506
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 0.01868891716003418
+    },
+    "13": {
+      "seen": 1301,
+      "considered": 167,
+      "checked": 167,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 165,
+        "1": 2
+      },
+      "degP_shift_dist": {
+        "3": 71,
+        "2": 96
+      },
+      "min_phiP": 36.03791822885217,
+      "min_phiP_witness": {
+        "n": 13,
+        "g6": "L???C@?G?_@_}_",
+        "mode": 4,
+        "lambda_mode": 0.6628787878787878,
+        "leaf": 5,
+        "support": 11,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 5,
+        "deg_p_shift": 2,
+        "phi_p": 36.03791822885217,
+        "mu_p": 2.6708167885031027,
+        "mu_gap": 0.6708167885031027,
+        "degree_signature": {
+          "1": 6,
+          "2": 6,
+          "6": 1
+        }
+      },
+      "min_mu_gap": 0.645359091240882,
+      "min_mu_gap_witness": {
+        "n": 13,
+        "g6": "L???CB?W@_@_E_",
+        "mode": 4,
+        "lambda_mode": 0.7649769585253456,
+        "leaf": 5,
+        "support": 11,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 5,
+        "deg_p_shift": 2,
+        "phi_p": 44.10565061476897,
+        "mu_p": 2.645359091240882,
+        "mu_gap": 0.645359091240882,
+        "degree_signature": {
+          "1": 3,
+          "2": 9,
+          "3": 1
+        }
+      },
+      "min_lambda_gap": 0.08223362658846523,
+      "min_lambda_gap_witness": {
+        "n": 13,
+        "g6": "L???C@?G?_@_}_",
+        "mode": 4,
+        "lambda_mode": 0.6628787878787878,
+        "leaf": 5,
+        "support": 11,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 5,
+        "deg_p_shift": 2,
+        "phi_p": 36.03791822885217,
+        "mu_p": 2.6708167885031027,
+        "mu_gap": 0.6708167885031027,
+        "degree_signature": {
+          "1": 6,
+          "2": 6,
+          "6": 1
+        },
+        "tau_p": 0.5806451612903226,
+        "lambda_gap": 0.08223362658846523,
+        "tau_mu_gap": 0.5121108939822627
+      },
+      "min_tau_mu_gap": 0.46509381411383544,
+      "min_tau_mu_gap_witness": {
+        "n": 13,
+        "g6": "L???CB?W@_@_E_",
+        "mode": 4,
+        "lambda_mode": 0.7649769585253456,
+        "leaf": 5,
+        "support": 11,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 5,
+        "deg_p_shift": 2,
+        "phi_p": 44.10565061476897,
+        "mu_p": 2.645359091240882,
+        "mu_gap": 0.645359091240882,
+        "degree_signature": {
+          "1": 3,
+          "2": 9,
+          "3": 1
+        },
+        "tau_p": 0.6428571428571429,
+        "lambda_gap": 0.12211981566820274,
+        "tau_mu_gap": 0.46509381411383544
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 0.04595685005187988
+    },
+    "14": {
+      "seen": 3159,
+      "considered": 360,
+      "checked": 360,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 252,
+        "1": 108
+      },
+      "degP_shift_dist": {
+        "4": 26,
+        "2": 4,
+        "3": 330
+      },
+      "min_phiP": 39.83291356349492,
+      "min_phiP_witness": {
+        "n": 14,
+        "g6": "M???C@?G?_@?@_~??",
+        "mode": 4,
+        "lambda_mode": 0.5897435897435898,
+        "leaf": 6,
+        "support": 12,
+        "mode_p": 3,
+        "mode_p_shift": 0,
+        "deg_p": 6,
+        "deg_p_shift": 3,
+        "phi_p": 39.83291356349492,
+        "mu_p": 2.7220513732795495,
+        "mu_gap": 0.7220513732795495,
+        "degree_signature": {
+          "1": 6,
+          "2": 7,
+          "6": 1
+        }
+      },
+      "min_mu_gap": 0.45642012304444224,
+      "min_mu_gap_witness": {
+        "n": 14,
+        "g6": "M????A?O@?B?@_|O?",
+        "mode": 5,
+        "lambda_mode": 0.9874686716791979,
+        "leaf": 4,
+        "support": 11,
+        "mode_p": 4,
+        "mode_p_shift": 0,
+        "deg_p": 6,
+        "deg_p_shift": 2,
+        "phi_p": 128.45103004921606,
+        "mu_p": 3.4564201230444422,
+        "mu_gap": 0.45642012304444224,
+        "degree_signature": {
+          "1": 6,
+          "2": 7,
+          "6": 1
+        }
+      },
+      "min_lambda_gap": 0.019726736195326944,
+      "min_lambda_gap_witness": {
+        "n": 14,
+        "g6": "M????A?O@?B?@_|O?",
+        "mode": 5,
+        "lambda_mode": 0.9874686716791979,
+        "leaf": 4,
+        "support": 11,
+        "mode_p": 4,
+        "mode_p_shift": 0,
+        "deg_p": 6,
+        "deg_p_shift": 2,
+        "phi_p": 128.45103004921606,
+        "mu_p": 3.4564201230444422,
+        "mu_gap": 0.45642012304444224,
+        "degree_signature": {
+          "1": 6,
+          "2": 7,
+          "6": 1
+        },
+        "tau_p": 0.967741935483871,
+        "lambda_gap": 0.019726736195326944,
+        "tau_mu_gap": 0.4301669129049097
+      },
+      "min_tau_mu_gap": 0.4285714285714284,
+      "min_tau_mu_gap_witness": {
+        "n": 14,
+        "g6": "M???C@?G?_@?@?~_?",
+        "mode": 5,
+        "lambda_mode": 0.9395973154362416,
+        "leaf": 7,
+        "support": 0,
+        "mode_p": 4,
+        "mode_p_shift": 0,
+        "deg_p": 6,
+        "deg_p_shift": 2,
+        "phi_p": 286.99275227703725,
+        "mu_p": 3.7478323291472075,
+        "mu_gap": 0.7478323291472075,
+        "degree_signature": {
+          "1": 7,
+          "2": 6,
+          "7": 1
+        },
+        "tau_p": 0.75,
+        "lambda_gap": 0.1895973154362416,
+        "tau_mu_gap": 0.4285714285714284
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 0.07510685920715332
+    },
+    "15": {
+      "seen": 7741,
+      "considered": 766,
+      "checked": 766,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 697,
+        "1": 69
+      },
+      "degP_shift_dist": {
+        "3": 418,
+        "4": 23,
+        "2": 325
+      },
+      "min_phiP": 50.502941131591804,
+      "min_phiP_witness": {
+        "n": 15,
+        "g6": "N????A?O@_D?@_DOX??",
+        "mode": 4,
+        "lambda_mode": 0.5625,
+        "leaf": 6,
+        "support": 12,
+        "mode_p": 4,
+        "mode_p_shift": 1,
+        "deg_p": 6,
+        "deg_p_shift": 3,
+        "phi_p": 50.502941131591804,
+        "mu_p": 2.794728867900354,
+        "mu_gap": 0.7947288679003539,
+        "degree_signature": {
+          "1": 4,
+          "2": 9,
+          "3": 2
+        }
+      },
+      "min_mu_gap": 0.4978991548702143,
+      "min_mu_gap_witness": {
+        "n": 15,
+        "g6": "N???C@?G?_@?@_w?Bg?",
+        "mode": 5,
+        "lambda_mode": 0.9669117647058824,
+        "leaf": 6,
+        "support": 12,
+        "mode_p": 4,
+        "mode_p_shift": 0,
+        "deg_p": 6,
+        "deg_p_shift": 2,
+        "phi_p": 178.2519886556216,
+        "mu_p": 3.4978991548702143,
+        "mu_gap": 0.4978991548702143,
+        "degree_signature": {
+          "1": 5,
+          "2": 8,
+          "3": 1,
+          "4": 1
+        }
+      },
+      "min_lambda_gap": 0.037136150234741816,
+      "min_lambda_gap_witness": {
+        "n": 15,
+        "g6": "N??????_E?E?B??oLS?",
+        "mode": 5,
+        "lambda_mode": 0.9033333333333333,
+        "leaf": 3,
+        "support": 11,
+        "mode_p": 4,
+        "mode_p_shift": 0,
+        "deg_p": 7,
+        "deg_p_shift": 3,
+        "phi_p": 172.68865609170672,
+        "mu_p": 3.5615438611843007,
+        "mu_gap": 0.5615438611843007,
+        "degree_signature": {
+          "1": 5,
+          "2": 9,
+          "5": 1
+        },
+        "tau_p": 0.8661971830985915,
+        "lambda_gap": 0.037136150234741816,
+        "tau_mu_gap": 0.5011130084001119
+      },
+      "min_tau_mu_gap": 0.40655582618594144,
+      "min_tau_mu_gap_witness": {
+        "n": 15,
+        "g6": "N???C@?G?_@?@_w?Bg?",
+        "mode": 5,
+        "lambda_mode": 0.9669117647058824,
+        "leaf": 6,
+        "support": 12,
+        "mode_p": 4,
+        "mode_p_shift": 0,
+        "deg_p": 6,
+        "deg_p_shift": 2,
+        "phi_p": 178.2519886556216,
+        "mu_p": 3.4978991548702143,
+        "mu_gap": 0.4978991548702143,
+        "degree_signature": {
+          "1": 5,
+          "2": 8,
+          "3": 1,
+          "4": 1
+        },
+        "tau_p": 0.8970588235294118,
+        "lambda_gap": 0.06985294117647056,
+        "tau_mu_gap": 0.40655582618594144
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 0.18586111068725586
+    },
+    "16": {
+      "seen": 19320,
+      "considered": 1692,
+      "checked": 1692,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 1691,
+        "1": 1
+      },
+      "degP_shift_dist": {
+        "4": 217,
+        "3": 1475
+      },
+      "min_phiP": 142.21512152283287,
+      "min_phiP_witness": {
+        "n": 16,
+        "g6": "O????A?O@?A?A?@??WF{?",
+        "mode": 5,
+        "lambda_mode": 0.7364685004436557,
+        "leaf": 7,
+        "support": 14,
+        "mode_p": 4,
+        "mode_p_shift": 0,
+        "deg_p": 7,
+        "deg_p_shift": 3,
+        "phi_p": 142.21512152283287,
+        "mu_p": 3.571380739132611,
+        "mu_gap": 0.5713807391326111,
+        "degree_signature": {
+          "1": 7,
+          "2": 8,
+          "7": 1
+        }
+      },
+      "min_mu_gap": 0.5648437040104266,
+      "min_mu_gap_witness": {
+        "n": 16,
+        "g6": "O????A?O@?A?a?B??WBk?",
+        "mode": 5,
+        "lambda_mode": 0.8103813559322034,
+        "leaf": 7,
+        "support": 14,
+        "mode_p": 4,
+        "mode_p_shift": 0,
+        "deg_p": 7,
+        "deg_p_shift": 3,
+        "phi_p": 173.88808853872425,
+        "mu_p": 3.5648437040104266,
+        "mu_gap": 0.5648437040104266,
+        "degree_signature": {
+          "1": 5,
+          "2": 10,
+          "5": 1
+        }
+      },
+      "min_lambda_gap": 0.052275558110568165,
+      "min_lambda_gap_witness": {
+        "n": 16,
+        "g6": "O???????C?K?E?@_?KEi_",
+        "mode": 5,
+        "lambda_mode": 0.7502347417840376,
+        "leaf": 2,
+        "support": 11,
+        "mode_p": 4,
+        "mode_p_shift": 0,
+        "deg_p": 8,
+        "deg_p_shift": 4,
+        "phi_p": 170.9222480209375,
+        "mu_p": 3.649277007286384,
+        "mu_gap": 0.649277007286384,
+        "degree_signature": {
+          "1": 6,
+          "2": 9,
+          "6": 1
+        },
+        "tau_p": 0.6979591836734694,
+        "lambda_gap": 0.052275558110568165,
+        "tau_mu_gap": 0.5315305389297849
+      },
+      "min_tau_mu_gap": 0.4359127476882394,
+      "min_tau_mu_gap_witness": {
+        "n": 16,
+        "g6": "O????A?OD?I?I?D??W?[?",
+        "mode": 5,
+        "lambda_mode": 0.8807785888077859,
+        "leaf": 7,
+        "support": 14,
+        "mode_p": 4,
+        "mode_p_shift": 0,
+        "deg_p": 7,
+        "deg_p_shift": 3,
+        "phi_p": 223.7213272018705,
+        "mu_p": 3.5840563246867765,
+        "mu_gap": 0.5840563246867765,
+        "degree_signature": {
+          "1": 3,
+          "2": 12,
+          "3": 1
+        },
+        "tau_p": 0.7857142857142857,
+        "lambda_gap": 0.09506430309350022,
+        "tau_mu_gap": 0.4359127476882394
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 0.45491480827331543
+    },
+    "17": {
+      "seen": 48629,
+      "considered": 3726,
+      "checked": 3726,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 3338,
+        "1": 388
+      },
+      "degP_shift_dist": {
+        "5": 63,
+        "3": 1540,
+        "4": 2122,
+        "2": 1
+      },
+      "min_phiP": 157.99995860257766,
+      "min_phiP_witness": {
+        "n": 17,
+        "g6": "P??????_A?C?C?A?O_?E?^g?",
+        "mode": 5,
+        "lambda_mode": 0.64472190692395,
+        "leaf": 7,
+        "support": 15,
+        "mode_p": 5,
+        "mode_p_shift": 1,
+        "deg_p": 7,
+        "deg_p_shift": 3,
+        "phi_p": 157.99995860257766,
+        "mu_p": 3.675586685493865,
+        "mu_gap": 0.6755866854938648,
+        "degree_signature": {
+          "1": 7,
+          "2": 9,
+          "7": 1
+        }
+      },
+      "min_mu_gap": 0.4124782117896464,
+      "min_mu_gap_witness": {
+        "n": 17,
+        "g6": "P??????_A?C?C?A??_?E?~g?",
+        "mode": 6,
+        "lambda_mode": 0.9592555331991952,
+        "leaf": 7,
+        "support": 15,
+        "mode_p": 5,
+        "mode_p_shift": 0,
+        "deg_p": 7,
+        "deg_p_shift": 2,
+        "phi_p": 521.7944859750179,
+        "mu_p": 4.412478211789646,
+        "mu_gap": 0.4124782117896464,
+        "degree_signature": {
+          "1": 8,
+          "2": 8,
+          "8": 1
+        }
+      },
+      "min_lambda_gap": 0.005227957534285177,
+      "min_lambda_gap_witness": {
+        "n": 17,
+        "g6": "P???????C?G?G?E??o?B?|S?",
+        "mode": 6,
+        "lambda_mode": 0.9926966292134831,
+        "leaf": 4,
+        "support": 13,
+        "mode_p": 5,
+        "mode_p_shift": 0,
+        "deg_p": 8,
+        "deg_p_shift": 3,
+        "phi_p": 624.4018746050873,
+        "mu_p": 4.453693655225105,
+        "mu_gap": 0.45369365522510474,
+        "degree_signature": {
+          "1": 7,
+          "2": 9,
+          "7": 1
+        },
+        "tau_p": 0.9874686716791979,
+        "lambda_gap": 0.005227957534285177,
+        "tau_mu_gap": 0.44464649893610897
+      },
+      "min_tau_mu_gap": 0.3791178366908836,
+      "min_tau_mu_gap_witness": {
+        "n": 17,
+        "g6": "P??????_A?C?C?A??_?E?~g?",
+        "mode": 6,
+        "lambda_mode": 0.9592555331991952,
+        "leaf": 7,
+        "support": 15,
+        "mode_p": 5,
+        "mode_p_shift": 0,
+        "deg_p": 7,
+        "deg_p_shift": 2,
+        "phi_p": 521.7944859750179,
+        "mu_p": 4.412478211789646,
+        "mu_gap": 0.4124782117896464,
+        "degree_signature": {
+          "1": 8,
+          "2": 8,
+          "8": 1
+        },
+        "tau_p": 0.9395973154362416,
+        "lambda_gap": 0.019658217762953623,
+        "tau_mu_gap": 0.3791178366908836
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 1.1631760597229004
+    },
+    "18": {
+      "seen": 123867,
+      "considered": 8370,
+      "checked": 8370,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 3619,
+        "1": 4751
+      },
+      "degP_shift_dist": {
+        "4": 5232,
+        "5": 731,
+        "3": 2407
+      },
+      "min_phiP": 191.59112652345922,
+      "min_phiP_witness": {
+        "n": 18,
+        "g6": "Q??????_A?C?C?A??o?B?p??z??",
+        "mode": 5,
+        "lambda_mode": 0.6271260357610118,
+        "leaf": 8,
+        "support": 15,
+        "mode_p": 5,
+        "mode_p_shift": 1,
+        "deg_p": 8,
+        "deg_p_shift": 4,
+        "phi_p": 191.59112652345922,
+        "mu_p": 3.705037211223099,
+        "mu_gap": 0.7050372112230989,
+        "degree_signature": {
+          "1": 6,
+          "2": 10,
+          "3": 1,
+          "5": 1
+        }
+      },
+      "min_mu_gap": 0.4388574266701166,
+      "min_mu_gap_witness": {
+        "n": 18,
+        "g6": "Q??????_A?C?C?A?O_?K??W@z??",
+        "mode": 6,
+        "lambda_mode": 0.9715562779357985,
+        "leaf": 8,
+        "support": 16,
+        "mode_p": 5,
+        "mode_p_shift": 0,
+        "deg_p": 8,
+        "deg_p_shift": 3,
+        "phi_p": 736.5880959895535,
+        "mu_p": 4.438857426670117,
+        "mu_gap": 0.4388574266701166,
+        "degree_signature": {
+          "1": 6,
+          "2": 11,
+          "6": 1
+        }
+      },
+      "min_lambda_gap": 0.014557438794726929,
+      "min_lambda_gap_witness": {
+        "n": 18,
+        "g6": "Q?????????O?o?K?@_?E??K@ig?",
+        "mode": 6,
+        "lambda_mode": 0.9178907721280603,
+        "leaf": 3,
+        "support": 13,
+        "mode_p": 5,
+        "mode_p_shift": 0,
+        "deg_p": 9,
+        "deg_p_shift": 4,
+        "phi_p": 779.3991383589027,
+        "mu_p": 4.542451601209752,
+        "mu_gap": 0.542451601209752,
+        "degree_signature": {
+          "1": 6,
+          "2": 11,
+          "6": 1
+        },
+        "tau_p": 0.9033333333333333,
+        "lambda_gap": 0.014557438794726929,
+        "tau_mu_gap": 0.5125862694101073
+      },
+      "min_tau_mu_gap": 0.3801983574384087,
+      "min_tau_mu_gap_witness": {
+        "n": 18,
+        "g6": "Q??????_A?C?C?A??_?C??WB~??",
+        "mode": 6,
+        "lambda_mode": 0.8786516853932584,
+        "leaf": 8,
+        "support": 16,
+        "mode_p": 5,
+        "mode_p_shift": 0,
+        "deg_p": 8,
+        "deg_p_shift": 3,
+        "phi_p": 578.8159897409278,
+        "mu_p": 4.45070064281315,
+        "mu_gap": 0.4507006428131497,
+        "degree_signature": {
+          "1": 8,
+          "2": 9,
+          "8": 1
+        },
+        "tau_p": 0.8415841584158416,
+        "lambda_gap": 0.03706752697741689,
+        "tau_mu_gap": 0.3801983574384087
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 3.0214879512786865
+    },
+    "19": {
+      "seen": 317955,
+      "considered": 18866,
+      "checked": 18866,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 18862,
+        "1": 4
+      },
+      "degP_shift_dist": {
+        "5": 612,
+        "4": 11516,
+        "3": 6738
+      },
+      "min_phiP": 248.9432981290235,
+      "min_phiP_witness": {
+        "n": 19,
+        "g6": "R??????_A?S?K?E?@_?K??o?@_A@??",
+        "mode": 5,
+        "lambda_mode": 0.6060606060606061,
+        "leaf": 9,
+        "support": 0,
+        "mode_p": 5,
+        "mode_p_shift": 1,
+        "deg_p": 8,
+        "deg_p_shift": 4,
+        "phi_p": 248.9432981290235,
+        "mu_p": 3.782390730498569,
+        "mu_gap": 0.7823907304985691,
+        "degree_signature": {
+          "1": 2,
+          "2": 17
+        }
+      },
+      "min_mu_gap": 0.5121622364105063,
+      "min_mu_gap_witness": {
+        "n": 19,
+        "g6": "R??????_A?C?C?A??_CC??W@a??y_?",
+        "mode": 6,
+        "lambda_mode": 0.8846761453396524,
+        "leaf": 8,
+        "support": 16,
+        "mode_p": 5,
+        "mode_p_shift": 0,
+        "deg_p": 8,
+        "deg_p_shift": 3,
+        "phi_p": 855.7830078723598,
+        "mu_p": 4.512162236410506,
+        "mu_gap": 0.5121622364105063,
+        "degree_signature": {
+          "1": 6,
+          "2": 11,
+          "3": 1,
+          "5": 1
+        }
+      },
+      "min_lambda_gap": 0.031037786759766095,
+      "min_lambda_gap_witness": {
+        "n": 19,
+        "g6": "R???????????_?W?B??K??WA?WAig?",
+        "mode": 6,
+        "lambda_mode": 0.8013348164627364,
+        "leaf": 2,
+        "support": 13,
+        "mode_p": 5,
+        "mode_p_shift": 0,
+        "deg_p": 10,
+        "deg_p_shift": 5,
+        "phi_p": 797.6810673862753,
+        "mu_p": 4.62980545401767,
+        "mu_gap": 0.6298054540176699,
+        "degree_signature": {
+          "1": 7,
+          "2": 10,
+          "3": 1,
+          "6": 1
+        },
+        "tau_p": 0.7702970297029703,
+        "lambda_gap": 0.031037786759766095,
+        "tau_mu_gap": 0.5483130779395626
+      },
+      "min_tau_mu_gap": 0.4134465600217867,
+      "min_tau_mu_gap_witness": {
+        "n": 19,
+        "g6": "R??????_A?C?C?A??_?C??WBo??]_?",
+        "mode": 6,
+        "lambda_mode": 0.860337972166998,
+        "leaf": 8,
+        "support": 16,
+        "mode_p": 5,
+        "mode_p_shift": 0,
+        "deg_p": 8,
+        "deg_p_shift": 3,
+        "phi_p": 805.1674078103831,
+        "mu_p": 4.51975084976044,
+        "mu_gap": 0.51975084976044,
+        "degree_signature": {
+          "1": 7,
+          "2": 10,
+          "4": 1,
+          "5": 1
+        },
+        "tau_p": 0.8073684210526316,
+        "lambda_gap": 0.05296955111436641,
+        "tau_mu_gap": 0.4134465600217867
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 8.140384912490845
+    },
+    "20": {
+      "seen": 823065,
+      "considered": 43029,
+      "checked": 43029,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 42142,
+        "1": 887
+      },
+      "degP_shift_dist": {
+        "6": 142,
+        "4": 32766,
+        "5": 10114,
+        "3": 7
+      },
+      "min_phiP": 608.0104587774124,
+      "min_phiP_witness": {
+        "n": 20,
+        "g6": "S???????C?G?G?C?@??G??_?@??@_F~??",
+        "mode": 6,
+        "lambda_mode": 0.6815181518151815,
+        "leaf": 9,
+        "support": 18,
+        "mode_p": 5,
+        "mode_p_shift": 0,
+        "deg_p": 9,
+        "deg_p_shift": 4,
+        "phi_p": 608.0104587774124,
+        "mu_p": 4.598566828607258,
+        "mu_gap": 0.5985668286072583,
+        "degree_signature": {
+          "1": 9,
+          "2": 10,
+          "9": 1
+        }
+      },
+      "min_mu_gap": 0.41784472798413574,
+      "min_mu_gap_witness": {
+        "n": 20,
+        "g6": "S?????????O?O?G?A??O?@??B??@_F|O?",
+        "mode": 7,
+        "lambda_mode": 0.9700783924036657,
+        "leaf": 7,
+        "support": 17,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 9,
+        "deg_p_shift": 3,
+        "phi_p": 2649.432042450223,
+        "mu_p": 5.417844727984136,
+        "mu_gap": 0.41784472798413574,
+        "degree_signature": {
+          "1": 9,
+          "2": 10,
+          "9": 1
+        }
+      },
+      "min_lambda_gap": 0.0006710937047188503,
+      "min_lambda_gap_witness": {
+        "n": 20,
+        "g6": "S???????????_?O?C??o?@_?@_??oFig?",
+        "mode": 7,
+        "lambda_mode": 0.993367722918202,
+        "leaf": 4,
+        "support": 15,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 10,
+        "deg_p_shift": 4,
+        "phi_p": 3055.375713929113,
+        "mu_p": 5.454847549564035,
+        "mu_gap": 0.45484754956403517,
+        "degree_signature": {
+          "1": 8,
+          "2": 11,
+          "8": 1
+        },
+        "tau_p": 0.9926966292134831,
+        "lambda_gap": 0.0006710937047188503,
+        "tau_mu_gap": 0.45341058939634316
+      },
+      "min_tau_mu_gap": 0.3953039089754107,
+      "min_tau_mu_gap_witness": {
+        "n": 20,
+        "g6": "S?????????O?O?G?A??O?@??B??@_F|O?",
+        "mode": 7,
+        "lambda_mode": 0.9700783924036657,
+        "leaf": 7,
+        "support": 17,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 9,
+        "deg_p_shift": 3,
+        "phi_p": 2649.432042450223,
+        "mu_p": 5.417844727984136,
+        "mu_gap": 0.41784472798413574,
+        "degree_signature": {
+          "1": 9,
+          "2": 10,
+          "9": 1
+        },
+        "tau_p": 0.9592555331991952,
+        "lambda_gap": 0.010822859204470459,
+        "tau_mu_gap": 0.3953039089754107
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 22.238988637924194
+    },
+    "21": {
+      "seen": 2144505,
+      "considered": 98581,
+      "checked": 98581,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 45790,
+        "1": 52791
+      },
+      "degP_shift_dist": {
+        "5": 58498,
+        "6": 4171,
+        "4": 34223,
+        "7": 3,
+        "3": 1686
+      },
+      "min_phiP": 768.1475177515165,
+      "min_phiP_witness": {
+        "n": 21,
+        "g6": "T???????C?G?G?C?@??G??_?@??@_F_??Ng?",
+        "mode": 6,
+        "lambda_mode": 0.6713623900917084,
+        "leaf": 9,
+        "support": 18,
+        "mode_p": 6,
+        "mode_p_shift": 1,
+        "deg_p": 9,
+        "deg_p_shift": 4,
+        "phi_p": 768.1475177515165,
+        "mu_p": 4.643258141527668,
+        "mu_gap": 0.6432581415276681,
+        "degree_signature": {
+          "1": 8,
+          "2": 11,
+          "4": 1,
+          "6": 1
+        }
+      },
+      "min_mu_gap": 0.40778807501486725,
+      "min_mu_gap_witness": {
+        "n": 21,
+        "g6": "T???????C?G?G?C?@??G??_?@??@_F???^g?",
+        "mode": 7,
+        "lambda_mode": 0.9821141119656591,
+        "leaf": 9,
+        "support": 18,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 9,
+        "deg_p_shift": 3,
+        "phi_p": 3405.0967040609294,
+        "mu_p": 5.407788075014867,
+        "mu_gap": 0.40778807501486725,
+        "degree_signature": {
+          "1": 8,
+          "2": 11,
+          "3": 1,
+          "7": 1
+        }
+      },
+      "min_lambda_gap": 0.002299157904170679,
+      "min_lambda_gap_witness": {
+        "n": 21,
+        "g6": "T???????????_?O?S?A_?I??E??B???o?\\S?",
+        "mode": 7,
+        "lambda_mode": 0.9846419658283739,
+        "leaf": 6,
+        "support": 17,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 10,
+        "deg_p_shift": 4,
+        "phi_p": 3979.359710909375,
+        "mu_p": 5.482229854861387,
+        "mu_gap": 0.48222985486138725,
+        "degree_signature": {
+          "1": 6,
+          "2": 14,
+          "6": 1
+        },
+        "tau_p": 0.9823428079242033,
+        "lambda_gap": 0.002299157904170679,
+        "tau_mu_gap": 0.4773157698199979
+      },
+      "min_tau_mu_gap": 0.36971048457085587,
+      "min_tau_mu_gap_witness": {
+        "n": 21,
+        "g6": "T???????C?G?G?C?@??G??_?@??@_F_??N_@",
+        "mode": 7,
+        "lambda_mode": 0.9985197520584698,
+        "leaf": 9,
+        "support": 18,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 9,
+        "deg_p_shift": 3,
+        "phi_p": 3859.0132575383705,
+        "mu_p": 5.425014560757681,
+        "mu_gap": 0.4250145607576812,
+        "degree_signature": {
+          "1": 9,
+          "2": 10,
+          "5": 1,
+          "6": 1
+        },
+        "tau_p": 0.9689490445859873,
+        "lambda_gap": 0.02957070747248247,
+        "tau_mu_gap": 0.36971048457085587
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 54.2255802154541
+    },
+    "22": {
+      "seen": 5623756,
+      "considered": 227678,
+      "checked": 227678,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 223044,
+        "1": 4634
+      },
+      "degP_shift_dist": {
+        "6": 1889,
+        "5": 70218,
+        "4": 155571
+      },
+      "min_phiP": 984.333712299851,
+      "min_phiP_witness": {
+        "n": 22,
+        "g6": "U?????????O?O?G?A??W?A_?D??D???oB@??KK??",
+        "mode": 6,
+        "lambda_mode": 0.6608650570285883,
+        "leaf": 10,
+        "support": 19,
+        "mode_p": 6,
+        "mode_p_shift": 1,
+        "deg_p": 10,
+        "deg_p_shift": 5,
+        "phi_p": 984.333712299851,
+        "mu_p": 4.691131136791883,
+        "mu_gap": 0.6911311367918831,
+        "degree_signature": {
+          "1": 5,
+          "2": 15,
+          "3": 1,
+          "4": 1
+        }
+      },
+      "min_mu_gap": 0.4613637446448662,
+      "min_mu_gap_witness": {
+        "n": 22,
+        "g6": "U?????????O?O?G?A??O?`??E??E??B???W?]K??",
+        "mode": 7,
+        "lambda_mode": 0.9347197788389042,
+        "leaf": 10,
+        "support": 20,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 10,
+        "deg_p_shift": 4,
+        "phi_p": 4158.280000224096,
+        "mu_p": 5.461363744644866,
+        "mu_gap": 0.4613637446448662,
+        "degree_signature": {
+          "1": 6,
+          "2": 15,
+          "6": 1
+        }
+      },
+      "min_lambda_gap": 0.017963007357074456,
+      "min_lambda_gap_witness": {
+        "n": 22,
+        "g6": "U?????????????_?W?B??K??K??E??@_??K?Ei_?",
+        "mode": 7,
+        "lambda_mode": 0.888468478956866,
+        "leaf": 5,
+        "support": 17,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 11,
+        "deg_p_shift": 5,
+        "phi_p": 4116.325154981343,
+        "mu_p": 5.549505217436271,
+        "mu_gap": 0.5495052174362707,
+        "degree_signature": {
+          "1": 6,
+          "2": 15,
+          "6": 1
+        },
+        "tau_p": 0.8705054715997915,
+        "lambda_gap": 0.017963007357074456,
+        "tau_mu_gap": 0.5036194680863941
+      },
+      "min_tau_mu_gap": 0.3986771412579584,
+      "min_tau_mu_gap_witness": {
+        "n": 22,
+        "g6": "U?????????O?O?G?A??O?@_?D??D???oB@??MK??",
+        "mode": 7,
+        "lambda_mode": 0.961990278152849,
+        "leaf": 10,
+        "support": 19,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 10,
+        "deg_p_shift": 4,
+        "phi_p": 4703.105183554898,
+        "mu_p": 5.4672578491072645,
+        "mu_gap": 0.46725784910726453,
+        "degree_signature": {
+          "1": 6,
+          "2": 14,
+          "3": 1,
+          "5": 1
+        },
+        "tau_p": 0.9275822273514137,
+        "lambda_gap": 0.034408050801435275,
+        "tau_mu_gap": 0.3986771412579584
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 141.82787013053894
+    },
+    "23": {
+      "seen": 7808979,
+      "considered": 304,
+      "checked": 303,
+      "no_deg2_support": 1,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 1,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 282,
+        "1": 21
+      },
+      "degP_shift_dist": {
+        "7": 83,
+        "5": 1,
+        "6": 219
+      },
+      "min_phiP": 3136.874662111728,
+      "min_phiP_witness": {
+        "n": 23,
+        "g6": "V???????????????O?A??G??W??K??B???W?_@_Bii??",
+        "mode": 7,
+        "lambda_mode": 0.731792399319342,
+        "leaf": 4,
+        "support": 17,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 12,
+        "deg_p_shift": 6,
+        "phi_p": 3136.874662111728,
+        "mu_p": 5.639347658127811,
+        "mu_gap": 0.6393476581278108,
+        "degree_signature": {
+          "1": 9,
+          "2": 12,
+          "3": 1,
+          "8": 1
+        }
+      },
+      "min_mu_gap": 0.45768794816449,
+      "min_mu_gap_witness": {
+        "n": 23,
+        "g6": "V???????????????O?A??G??W??K??B???W??@_Fii??",
+        "mode": 8,
+        "lambda_mode": 0.9932366383979288,
+        "leaf": 4,
+        "support": 17,
+        "mode_p": 7,
+        "mode_p_shift": 0,
+        "deg_p": 12,
+        "deg_p_shift": 5,
+        "phi_p": 15067.624460866242,
+        "mu_p": 6.45768794816449,
+        "mu_gap": 0.45768794816449,
+        "degree_signature": {
+          "1": 9,
+          "2": 13,
+          "9": 1
+        }
+      },
+      "min_lambda_gap": -0.00013108452027321693,
+      "min_lambda_gap_witness": {
+        "n": 23,
+        "g6": "V???????????????O?A??G??W??K??B???W??@_Fii??",
+        "mode": 8,
+        "lambda_mode": 0.9932366383979288,
+        "leaf": 4,
+        "support": 17,
+        "mode_p": 7,
+        "mode_p_shift": 0,
+        "deg_p": 12,
+        "deg_p_shift": 5,
+        "phi_p": 15067.624460866242,
+        "mu_p": 6.45768794816449,
+        "mu_gap": 0.45768794816449,
+        "degree_signature": {
+          "1": 9,
+          "2": 13,
+          "9": 1
+        },
+        "tau_p": 0.993367722918202,
+        "lambda_gap": -0.00013108452027321693,
+        "tau_mu_gap": 0.4580223988607841
+      },
+      "min_tau_mu_gap": 0.4580223988607841,
+      "min_tau_mu_gap_witness": {
+        "n": 23,
+        "g6": "V???????????????O?A??G??W??K??B???W??@_Fii??",
+        "mode": 8,
+        "lambda_mode": 0.9932366383979288,
+        "leaf": 4,
+        "support": 17,
+        "mode_p": 7,
+        "mode_p_shift": 0,
+        "deg_p": 12,
+        "deg_p_shift": 5,
+        "phi_p": 15067.624460866242,
+        "mu_p": 6.45768794816449,
+        "mu_gap": 0.45768794816449,
+        "degree_signature": {
+          "1": 9,
+          "2": 13,
+          "9": 1
+        },
+        "tau_p": 0.993367722918202,
+        "lambda_gap": -0.00013108452027321693,
+        "tau_mu_gap": 0.4580223988607841
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 163.42241430282593
+    }
+  }
+}

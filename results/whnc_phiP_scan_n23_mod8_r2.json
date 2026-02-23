@@ -1,0 +1,241 @@
+{
+  "params": {
+    "min_n": 23,
+    "max_n": 23,
+    "tol": 1e-12,
+    "all_trees": false,
+    "res": 2,
+    "mod": 8
+  },
+  "summary": {
+    "seen": 2103437,
+    "considered": 79273,
+    "checked": 79273,
+    "no_deg2_support": 0,
+    "phiP_fail": 0,
+    "lambda_gap_fail": 0,
+    "modeP_fail": 0,
+    "ulc_fail": 0,
+    "tau_skipped": 0,
+    "modeP_shift_dist": {
+      "0": 79110,
+      "1": 163
+    },
+    "degP_shift_dist": {
+      "7": 76,
+      "6": 7912,
+      "5": 57143,
+      "4": 14142
+    },
+    "min_phiP": 3143.760483842219,
+    "min_phiP_witness": {
+      "n": 23,
+      "g6": "V?????????O?O?G?A??O?@??A??A??@???W?w???~g??",
+      "mode": 7,
+      "lambda_mode": 0.7688813871413227,
+      "leaf": 10,
+      "support": 20,
+      "mode_p": 6,
+      "mode_p_shift": 0,
+      "deg_p": 10,
+      "deg_p_shift": 4,
+      "phi_p": 3143.760483842219,
+      "mu_p": 5.539471837239324,
+      "mu_gap": 0.5394718372393239,
+      "degree_signature": {
+        "1": 9,
+        "2": 12,
+        "3": 1,
+        "8": 1
+      }
+    },
+    "min_mu_gap": 0.530411338472411,
+    "min_mu_gap_witness": {
+      "n": 23,
+      "g6": "V?????????O?O?G?A??O?@??A??A?C@???W?WG??}g??",
+      "mode": 7,
+      "lambda_mode": 0.7985257150621645,
+      "leaf": 10,
+      "support": 20,
+      "mode_p": 6,
+      "mode_p_shift": 0,
+      "deg_p": 10,
+      "deg_p_shift": 4,
+      "phi_p": 3504.213294145719,
+      "mu_p": 5.530411338472411,
+      "mu_gap": 0.530411338472411,
+      "degree_signature": {
+        "1": 8,
+        "2": 13,
+        "3": 1,
+        "7": 1
+      }
+    },
+    "min_lambda_gap": 0.028928276974608536,
+    "min_lambda_gap_witness": {
+      "n": 23,
+      "g6": "V?????????????????E??K??K??E??@_??K???oDTT??",
+      "mode": 7,
+      "lambda_mode": 0.7370879758588672,
+      "leaf": 1,
+      "support": 15,
+      "mode_p": 6,
+      "mode_p_shift": 0,
+      "deg_p": 13,
+      "deg_p_shift": 7,
+      "phi_p": 3307.5634429608026,
+      "mu_p": 5.656894812218715,
+      "mu_gap": 0.6568948122187148,
+      "degree_signature": {
+        "1": 8,
+        "2": 14,
+        "8": 1
+      },
+      "tau_p": 0.7081596988842587,
+      "lambda_gap": 0.028928276974608536,
+      "tau_mu_gap": 0.5520907818071548
+    },
+    "min_tau_mu_gap": 0.41972604275056025,
+    "min_tau_mu_gap_witness": {
+      "n": 23,
+      "g6": "V???????????_?O?E?@O?D??I??I??D???W??T?E@???",
+      "mode": 7,
+      "lambda_mode": 0.9127611518915867,
+      "leaf": 10,
+      "support": 20,
+      "mode_p": 6,
+      "mode_p_shift": 0,
+      "deg_p": 10,
+      "deg_p_shift": 4,
+      "phi_p": 5928.133807180322,
+      "mu_p": 5.540889276331536,
+      "mu_gap": 0.5408892763315363,
+      "degree_signature": {
+        "1": 4,
+        "2": 17,
+        "3": 2
+      },
+      "tau_p": 0.8576402321083172,
+      "lambda_gap": 0.055120919783269495,
+      "tau_mu_gap": 0.41972604275056025
+    },
+    "small_deg_shift_cases": []
+  },
+  "per_n": {
+    "23": {
+      "seen": 2103437,
+      "considered": 79273,
+      "checked": 79273,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 79110,
+        "1": 163
+      },
+      "degP_shift_dist": {
+        "7": 76,
+        "6": 7912,
+        "5": 57143,
+        "4": 14142
+      },
+      "min_phiP": 3143.760483842219,
+      "min_phiP_witness": {
+        "n": 23,
+        "g6": "V?????????O?O?G?A??O?@??A??A??@???W?w???~g??",
+        "mode": 7,
+        "lambda_mode": 0.7688813871413227,
+        "leaf": 10,
+        "support": 20,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 10,
+        "deg_p_shift": 4,
+        "phi_p": 3143.760483842219,
+        "mu_p": 5.539471837239324,
+        "mu_gap": 0.5394718372393239,
+        "degree_signature": {
+          "1": 9,
+          "2": 12,
+          "3": 1,
+          "8": 1
+        }
+      },
+      "min_mu_gap": 0.530411338472411,
+      "min_mu_gap_witness": {
+        "n": 23,
+        "g6": "V?????????O?O?G?A??O?@??A??A?C@???W?WG??}g??",
+        "mode": 7,
+        "lambda_mode": 0.7985257150621645,
+        "leaf": 10,
+        "support": 20,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 10,
+        "deg_p_shift": 4,
+        "phi_p": 3504.213294145719,
+        "mu_p": 5.530411338472411,
+        "mu_gap": 0.530411338472411,
+        "degree_signature": {
+          "1": 8,
+          "2": 13,
+          "3": 1,
+          "7": 1
+        }
+      },
+      "min_lambda_gap": 0.028928276974608536,
+      "min_lambda_gap_witness": {
+        "n": 23,
+        "g6": "V?????????????????E??K??K??E??@_??K???oDTT??",
+        "mode": 7,
+        "lambda_mode": 0.7370879758588672,
+        "leaf": 1,
+        "support": 15,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 13,
+        "deg_p_shift": 7,
+        "phi_p": 3307.5634429608026,
+        "mu_p": 5.656894812218715,
+        "mu_gap": 0.6568948122187148,
+        "degree_signature": {
+          "1": 8,
+          "2": 14,
+          "8": 1
+        },
+        "tau_p": 0.7081596988842587,
+        "lambda_gap": 0.028928276974608536,
+        "tau_mu_gap": 0.5520907818071548
+      },
+      "min_tau_mu_gap": 0.41972604275056025,
+      "min_tau_mu_gap_witness": {
+        "n": 23,
+        "g6": "V???????????_?O?E?@O?D??I??I??D???W??T?E@???",
+        "mode": 7,
+        "lambda_mode": 0.9127611518915867,
+        "leaf": 10,
+        "support": 20,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 10,
+        "deg_p_shift": 4,
+        "phi_p": 5928.133807180322,
+        "mu_p": 5.540889276331536,
+        "mu_gap": 0.5408892763315363,
+        "degree_signature": {
+          "1": 4,
+          "2": 17,
+          "3": 2
+        },
+        "tau_p": 0.8576402321083172,
+        "lambda_gap": 0.055120919783269495,
+        "tau_mu_gap": 0.41972604275056025
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 55.4628689289093
+    }
+  }
+}

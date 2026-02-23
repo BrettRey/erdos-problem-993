@@ -1,0 +1,4005 @@
+{
+  "params": {
+    "min_n": 4,
+    "max_n": 23,
+    "res": null,
+    "mod": null
+  },
+  "summary": {
+    "seen": 23942356,
+    "considered": 931596,
+    "checked": 931596,
+    "no_deg2_support": 0,
+    "identity_fail": 0,
+    "modeP_ge_m_minus_1_fail": 0,
+    "sum_modes_ge_m_minus_1_fail": 32181,
+    "modeP_ge_sum_modes_fail": 31124,
+    "min_modeP_minus_m_minus_1": 0,
+    "min_modeP_minus_m_minus_1_witness": {
+      "n": 4,
+      "g6": "CU",
+      "m": 1,
+      "leaf": 1,
+      "support": 3,
+      "u_in_B": 0,
+      "k_children": 1,
+      "mode_P": 0,
+      "sum_modes_children": 0,
+      "margin_modeP_minus_m_minus_1": 0,
+      "margin_sum_modes_minus_m_minus_1": 0,
+      "margin_modeP_minus_sum_modes": 0,
+      "poly_T": [
+        1,
+        4,
+        3
+      ],
+      "poly_P": [
+        1,
+        1
+      ],
+      "child_polys": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "min_sum_modes_minus_m_minus_1": -1,
+    "min_sum_modes_minus_m_minus_1_witness": {
+      "n": 8,
+      "g6": "G?`DE_",
+      "m": 3,
+      "leaf": 2,
+      "support": 6,
+      "u_in_B": 0,
+      "k_children": 2,
+      "mode_P": 2,
+      "sum_modes_children": 1,
+      "margin_modeP_minus_m_minus_1": 0,
+      "margin_sum_modes_minus_m_minus_1": -1,
+      "margin_modeP_minus_sum_modes": 1,
+      "poly_T": [
+        1,
+        8,
+        21,
+        22,
+        8
+      ],
+      "poly_P": [
+        1,
+        5,
+        7,
+        3
+      ],
+      "child_polys": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4,
+          3
+        ]
+      ]
+    },
+    "min_modeP_minus_sum_modes": -3,
+    "min_modeP_minus_sum_modes_witness": {
+      "n": 19,
+      "g6": "R??????_A?C?C?A??_?C??O??_F~??",
+      "m": 6,
+      "leaf": 9,
+      "support": 0,
+      "u_in_B": 16,
+      "k_children": 8,
+      "mode_P": 5,
+      "sum_modes_children": 8,
+      "margin_modeP_minus_m_minus_1": 0,
+      "margin_sum_modes_minus_m_minus_1": 3,
+      "margin_modeP_minus_sum_modes": -3,
+      "poly_T": [
+        1,
+        19,
+        153,
+        708,
+        2100,
+        4158,
+        5502,
+        4692,
+        2340,
+        521,
+        1
+      ],
+      "poly_P": [
+        1,
+        16,
+        112,
+        448,
+        1120,
+        1792,
+        1792,
+        1024,
+        256
+      ],
+      "child_polys": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "by_k_children": {
+      "1": {
+        "checked": 590779,
+        "modeP_ge_m_minus_1_fail": 0,
+        "sum_modes_ge_m_minus_1_fail": 0,
+        "modeP_ge_sum_modes_fail": 0
+      },
+      "2": {
+        "checked": 329987,
+        "modeP_ge_m_minus_1_fail": 0,
+        "sum_modes_ge_m_minus_1_fail": 30730,
+        "modeP_ge_sum_modes_fail": 29887
+      },
+      "3": {
+        "checked": 10608,
+        "modeP_ge_m_minus_1_fail": 0,
+        "sum_modes_ge_m_minus_1_fail": 1451,
+        "modeP_ge_sum_modes_fail": 1144
+      },
+      "4": {
+        "checked": 194,
+        "modeP_ge_m_minus_1_fail": 0,
+        "sum_modes_ge_m_minus_1_fail": 0,
+        "modeP_ge_sum_modes_fail": 73
+      },
+      "5": {
+        "checked": 18,
+        "modeP_ge_m_minus_1_fail": 0,
+        "sum_modes_ge_m_minus_1_fail": 0,
+        "modeP_ge_sum_modes_fail": 10
+      },
+      "6": {
+        "checked": 2,
+        "modeP_ge_m_minus_1_fail": 0,
+        "sum_modes_ge_m_minus_1_fail": 0,
+        "modeP_ge_sum_modes_fail": 2
+      },
+      "7": {
+        "checked": 2,
+        "modeP_ge_m_minus_1_fail": 0,
+        "sum_modes_ge_m_minus_1_fail": 0,
+        "modeP_ge_sum_modes_fail": 2
+      },
+      "8": {
+        "checked": 2,
+        "modeP_ge_m_minus_1_fail": 0,
+        "sum_modes_ge_m_minus_1_fail": 0,
+        "modeP_ge_sum_modes_fail": 2
+      },
+      "9": {
+        "checked": 2,
+        "modeP_ge_m_minus_1_fail": 0,
+        "sum_modes_ge_m_minus_1_fail": 0,
+        "modeP_ge_sum_modes_fail": 2
+      },
+      "10": {
+        "checked": 2,
+        "modeP_ge_m_minus_1_fail": 0,
+        "sum_modes_ge_m_minus_1_fail": 0,
+        "modeP_ge_sum_modes_fail": 2
+      }
+    }
+  },
+  "per_n": {
+    "4": {
+      "seen": 2,
+      "considered": 1,
+      "checked": 1,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 0,
+      "modeP_ge_sum_modes_fail": 0,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 4,
+        "g6": "CU",
+        "m": 1,
+        "leaf": 1,
+        "support": 3,
+        "u_in_B": 0,
+        "k_children": 1,
+        "mode_P": 0,
+        "sum_modes_children": 0,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          4,
+          3
+        ],
+        "poly_P": [
+          1,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": 0,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 4,
+        "g6": "CU",
+        "m": 1,
+        "leaf": 1,
+        "support": 3,
+        "u_in_B": 0,
+        "k_children": 1,
+        "mode_P": 0,
+        "sum_modes_children": 0,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          4,
+          3
+        ],
+        "poly_P": [
+          1,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": 0,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 4,
+        "g6": "CU",
+        "m": 1,
+        "leaf": 1,
+        "support": 3,
+        "u_in_B": 0,
+        "k_children": 1,
+        "mode_P": 0,
+        "sum_modes_children": 0,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          4,
+          3
+        ],
+        "poly_P": [
+          1,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        }
+      },
+      "wall_s": 0.0022928714752197266
+    },
+    "5": {
+      "seen": 3,
+      "considered": 1,
+      "checked": 1,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 0,
+      "modeP_ge_sum_modes_fail": 0,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 5,
+        "g6": "DQo",
+        "m": 2,
+        "leaf": 2,
+        "support": 0,
+        "u_in_B": 2,
+        "k_children": 1,
+        "mode_P": 1,
+        "sum_modes_children": 1,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          5,
+          6,
+          1
+        ],
+        "poly_P": [
+          1,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": 0,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 5,
+        "g6": "DQo",
+        "m": 2,
+        "leaf": 2,
+        "support": 0,
+        "u_in_B": 2,
+        "k_children": 1,
+        "mode_P": 1,
+        "sum_modes_children": 1,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          5,
+          6,
+          1
+        ],
+        "poly_P": [
+          1,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": 0,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 5,
+        "g6": "DQo",
+        "m": 2,
+        "leaf": 2,
+        "support": 0,
+        "u_in_B": 2,
+        "k_children": 1,
+        "mode_P": 1,
+        "sum_modes_children": 1,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          5,
+          6,
+          1
+        ],
+        "poly_P": [
+          1,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        }
+      },
+      "wall_s": 0.001760721206665039
+    },
+    "6": {
+      "seen": 6,
+      "considered": 2,
+      "checked": 2,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 0,
+      "modeP_ge_sum_modes_fail": 0,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 6,
+        "g6": "ECR_",
+        "m": 2,
+        "leaf": 3,
+        "support": 0,
+        "u_in_B": 3,
+        "k_children": 2,
+        "mode_P": 1,
+        "sum_modes_children": 1,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          6,
+          10,
+          5
+        ],
+        "poly_P": [
+          1,
+          3,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": 0,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 6,
+        "g6": "ECR_",
+        "m": 2,
+        "leaf": 3,
+        "support": 0,
+        "u_in_B": 3,
+        "k_children": 2,
+        "mode_P": 1,
+        "sum_modes_children": 1,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          6,
+          10,
+          5
+        ],
+        "poly_P": [
+          1,
+          3,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": 0,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 6,
+        "g6": "ECR_",
+        "m": 2,
+        "leaf": 3,
+        "support": 0,
+        "u_in_B": 3,
+        "k_children": 2,
+        "mode_P": 1,
+        "sum_modes_children": 1,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          6,
+          10,
+          5
+        ],
+        "poly_P": [
+          1,
+          3,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "by_k_children": {
+        "2": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "1": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        }
+      },
+      "wall_s": 0.0016531944274902344
+    },
+    "7": {
+      "seen": 11,
+      "considered": 3,
+      "checked": 3,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 0,
+      "modeP_ge_sum_modes_fail": 1,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 7,
+        "g6": "F?`e_",
+        "m": 2,
+        "leaf": 2,
+        "support": 5,
+        "u_in_B": 1,
+        "k_children": 1,
+        "mode_P": 1,
+        "sum_modes_children": 1,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          7,
+          15,
+          11,
+          2
+        ],
+        "poly_P": [
+          1,
+          4,
+          3
+        ],
+        "child_polys": [
+          [
+            1,
+            4,
+            3
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": 0,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 7,
+        "g6": "F?`e_",
+        "m": 2,
+        "leaf": 2,
+        "support": 5,
+        "u_in_B": 1,
+        "k_children": 1,
+        "mode_P": 1,
+        "sum_modes_children": 1,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          7,
+          15,
+          11,
+          2
+        ],
+        "poly_P": [
+          1,
+          4,
+          3
+        ],
+        "child_polys": [
+          [
+            1,
+            4,
+            3
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -1,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 7,
+        "g6": "FCOf?",
+        "m": 2,
+        "leaf": 3,
+        "support": 0,
+        "u_in_B": 4,
+        "k_children": 2,
+        "mode_P": 1,
+        "sum_modes_children": 2,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 1,
+        "margin_modeP_minus_sum_modes": -1,
+        "poly_T": [
+          1,
+          7,
+          15,
+          11,
+          1
+        ],
+        "poly_P": [
+          1,
+          4,
+          4
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 2,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        }
+      },
+      "wall_s": 0.0017609596252441406
+    },
+    "8": {
+      "seen": 23,
+      "considered": 6,
+      "checked": 6,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 1,
+      "modeP_ge_sum_modes_fail": 0,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 8,
+        "g6": "G?`@F_",
+        "m": 3,
+        "leaf": 4,
+        "support": 0,
+        "u_in_B": 5,
+        "k_children": 3,
+        "mode_P": 2,
+        "sum_modes_children": 2,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          8,
+          21,
+          23,
+          9
+        ],
+        "poly_P": [
+          1,
+          5,
+          8,
+          4
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": -1,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 8,
+        "g6": "G?`DE_",
+        "m": 3,
+        "leaf": 2,
+        "support": 6,
+        "u_in_B": 0,
+        "k_children": 2,
+        "mode_P": 2,
+        "sum_modes_children": 1,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": -1,
+        "margin_modeP_minus_sum_modes": 1,
+        "poly_T": [
+          1,
+          8,
+          21,
+          22,
+          8
+        ],
+        "poly_P": [
+          1,
+          5,
+          7,
+          3
+        ],
+        "child_polys": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            4,
+            3
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": 0,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 8,
+        "g6": "G?B@dO",
+        "m": 2,
+        "leaf": 1,
+        "support": 5,
+        "u_in_B": 0,
+        "k_children": 1,
+        "mode_P": 2,
+        "sum_modes_children": 2,
+        "margin_modeP_minus_m_minus_1": 1,
+        "margin_sum_modes_minus_m_minus_1": 1,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          8,
+          21,
+          21,
+          7,
+          1
+        ],
+        "poly_P": [
+          1,
+          5,
+          6,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            5,
+            6,
+            1
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 4,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "3": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 1,
+          "modeP_ge_sum_modes_fail": 0
+        }
+      },
+      "wall_s": 0.0020928382873535156
+    },
+    "9": {
+      "seen": 47,
+      "considered": 10,
+      "checked": 10,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 0,
+      "modeP_ge_sum_modes_fail": 1,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 9,
+        "g6": "H?AA@bg",
+        "m": 3,
+        "leaf": 3,
+        "support": 7,
+        "u_in_B": 2,
+        "k_children": 1,
+        "mode_P": 2,
+        "sum_modes_children": 2,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          9,
+          28,
+          38,
+          22,
+          4
+        ],
+        "poly_P": [
+          1,
+          6,
+          10,
+          5
+        ],
+        "child_polys": [
+          [
+            1,
+            6,
+            10,
+            5
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": 0,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 9,
+        "g6": "H?AA@bg",
+        "m": 3,
+        "leaf": 3,
+        "support": 7,
+        "u_in_B": 2,
+        "k_children": 1,
+        "mode_P": 2,
+        "sum_modes_children": 2,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          9,
+          28,
+          38,
+          22,
+          4
+        ],
+        "poly_P": [
+          1,
+          6,
+          10,
+          5
+        ],
+        "child_polys": [
+          [
+            1,
+            6,
+            10,
+            5
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -1,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 9,
+        "g6": "H?`@?bo",
+        "m": 3,
+        "leaf": 4,
+        "support": 0,
+        "u_in_B": 6,
+        "k_children": 3,
+        "mode_P": 2,
+        "sum_modes_children": 3,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 1,
+        "margin_modeP_minus_sum_modes": -1,
+        "poly_T": [
+          1,
+          9,
+          28,
+          38,
+          20,
+          1
+        ],
+        "poly_P": [
+          1,
+          6,
+          12,
+          8
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 7,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 2,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "3": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        }
+      },
+      "wall_s": 0.0025708675384521484
+    },
+    "10": {
+      "seen": 106,
+      "considered": 21,
+      "checked": 21,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 0,
+      "modeP_ge_sum_modes_fail": 1,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 10,
+        "g6": "I??CB?Wt?",
+        "m": 3,
+        "leaf": 2,
+        "support": 7,
+        "u_in_B": 1,
+        "k_children": 1,
+        "mode_P": 2,
+        "sum_modes_children": 2,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          10,
+          36,
+          59,
+          45,
+          15,
+          2
+        ],
+        "poly_P": [
+          1,
+          7,
+          15,
+          11,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            7,
+            15,
+            11,
+            2
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": 0,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 10,
+        "g6": "I??CB?Wt?",
+        "m": 3,
+        "leaf": 2,
+        "support": 7,
+        "u_in_B": 1,
+        "k_children": 1,
+        "mode_P": 2,
+        "sum_modes_children": 2,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          10,
+          36,
+          59,
+          45,
+          15,
+          2
+        ],
+        "poly_P": [
+          1,
+          7,
+          15,
+          11,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            7,
+            15,
+            11,
+            2
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -1,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 10,
+        "g6": "I?AA@_gw?",
+        "m": 3,
+        "leaf": 3,
+        "support": 7,
+        "u_in_B": 2,
+        "k_children": 2,
+        "mode_P": 2,
+        "sum_modes_children": 3,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 1,
+        "margin_modeP_minus_sum_modes": -1,
+        "poly_T": [
+          1,
+          10,
+          36,
+          58,
+          40,
+          8
+        ],
+        "poly_P": [
+          1,
+          7,
+          16,
+          13,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            5,
+            6,
+            1
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 14,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "4": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 6,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        }
+      },
+      "wall_s": 0.004188060760498047
+    },
+    "11": {
+      "seen": 235,
+      "considered": 39,
+      "checked": 39,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 0,
+      "modeP_ge_sum_modes_fail": 1,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 11,
+        "g6": "J???E?oBDS?",
+        "m": 3,
+        "leaf": 1,
+        "support": 7,
+        "u_in_B": 0,
+        "k_children": 1,
+        "mode_P": 2,
+        "sum_modes_children": 2,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          11,
+          45,
+          87,
+          83,
+          39,
+          10,
+          1
+        ],
+        "poly_P": [
+          1,
+          8,
+          21,
+          21,
+          7,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            8,
+            21,
+            21,
+            7,
+            1
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": 0,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 11,
+        "g6": "J???E?oBDS?",
+        "m": 3,
+        "leaf": 1,
+        "support": 7,
+        "u_in_B": 0,
+        "k_children": 1,
+        "mode_P": 2,
+        "sum_modes_children": 2,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          11,
+          45,
+          87,
+          83,
+          39,
+          10,
+          1
+        ],
+        "poly_P": [
+          1,
+          8,
+          21,
+          21,
+          7,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            8,
+            21,
+            21,
+            7,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -1,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 11,
+        "g6": "J?AA@?OAFo?",
+        "m": 3,
+        "leaf": 5,
+        "support": 0,
+        "u_in_B": 8,
+        "k_children": 4,
+        "mode_P": 3,
+        "sum_modes_children": 4,
+        "margin_modeP_minus_m_minus_1": 1,
+        "margin_sum_modes_minus_m_minus_1": 2,
+        "margin_modeP_minus_sum_modes": -1,
+        "poly_T": [
+          1,
+          11,
+          45,
+          90,
+          90,
+          37,
+          1
+        ],
+        "poly_P": [
+          1,
+          8,
+          24,
+          32,
+          16
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 25,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 13,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "4": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        }
+      },
+      "wall_s": 0.007005929946899414
+    },
+    "12": {
+      "seen": 551,
+      "considered": 82,
+      "checked": 82,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 10,
+      "modeP_ge_sum_modes_fail": 1,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 12,
+        "g6": "K???C@?K?W\\O",
+        "m": 4,
+        "leaf": 3,
+        "support": 9,
+        "u_in_B": 2,
+        "k_children": 1,
+        "mode_P": 3,
+        "sum_modes_children": 3,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          12,
+          55,
+          126,
+          155,
+          101,
+          32,
+          4
+        ],
+        "poly_P": [
+          1,
+          9,
+          28,
+          38,
+          22,
+          4
+        ],
+        "child_polys": [
+          [
+            1,
+            9,
+            28,
+            38,
+            22,
+            4
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": -1,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 12,
+        "g6": "K???CB?K?WTO",
+        "m": 4,
+        "leaf": 1,
+        "support": 8,
+        "u_in_B": 0,
+        "k_children": 2,
+        "mode_P": 3,
+        "sum_modes_children": 2,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": -1,
+        "margin_modeP_minus_sum_modes": 1,
+        "poly_T": [
+          1,
+          12,
+          55,
+          124,
+          146,
+          88,
+          25,
+          3
+        ],
+        "poly_P": [
+          1,
+          9,
+          29,
+          42,
+          28,
+          8,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            8,
+            21,
+            21,
+            7,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -1,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 12,
+        "g6": "K??CA?_C?O^_",
+        "m": 4,
+        "leaf": 6,
+        "support": 0,
+        "u_in_B": 9,
+        "k_children": 5,
+        "mode_P": 3,
+        "sum_modes_children": 4,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 1,
+        "margin_modeP_minus_sum_modes": -1,
+        "poly_T": [
+          1,
+          12,
+          55,
+          130,
+          170,
+          117,
+          33
+        ],
+        "poly_P": [
+          1,
+          9,
+          32,
+          56,
+          48,
+          16
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 50,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 30,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 10,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "5": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        },
+        "3": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        }
+      },
+      "wall_s": 0.014132022857666016
+    },
+    "13": {
+      "seen": 1301,
+      "considered": 167,
+      "checked": 167,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 0,
+      "modeP_ge_sum_modes_fail": 10,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 13,
+        "g6": "L????A?W?o?otO",
+        "m": 4,
+        "leaf": 2,
+        "support": 9,
+        "u_in_B": 1,
+        "k_children": 1,
+        "mode_P": 3,
+        "sum_modes_children": 3,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          13,
+          66,
+          171,
+          245,
+          197,
+          88,
+          21,
+          2
+        ],
+        "poly_P": [
+          1,
+          10,
+          36,
+          59,
+          45,
+          15,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            10,
+            36,
+            59,
+            45,
+            15,
+            2
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": 0,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 13,
+        "g6": "L????A?W?o?otO",
+        "m": 4,
+        "leaf": 2,
+        "support": 9,
+        "u_in_B": 1,
+        "k_children": 1,
+        "mode_P": 3,
+        "sum_modes_children": 3,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          13,
+          66,
+          171,
+          245,
+          197,
+          88,
+          21,
+          2
+        ],
+        "poly_P": [
+          1,
+          10,
+          36,
+          59,
+          45,
+          15,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            10,
+            36,
+            59,
+            45,
+            15,
+            2
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -2,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 13,
+        "g6": "L??CA?_C?O?_~?",
+        "m": 4,
+        "leaf": 6,
+        "support": 0,
+        "u_in_B": 10,
+        "k_children": 5,
+        "mode_P": 3,
+        "sum_modes_children": 5,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 2,
+        "margin_modeP_minus_sum_modes": -2,
+        "poly_T": [
+          1,
+          13,
+          66,
+          175,
+          260,
+          207,
+          70,
+          1
+        ],
+        "poly_P": [
+          1,
+          10,
+          40,
+          80,
+          80,
+          32
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 104,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 60,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 9
+        },
+        "3": {
+          "checked": 2,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "5": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        }
+      },
+      "wall_s": 0.03164792060852051
+    },
+    "14": {
+      "seen": 3159,
+      "considered": 360,
+      "checked": 360,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 1,
+      "modeP_ge_sum_modes_fail": 21,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 14,
+        "g6": "M??????o@_@_?oig?",
+        "m": 4,
+        "leaf": 1,
+        "support": 9,
+        "u_in_B": 0,
+        "k_children": 1,
+        "mode_P": 3,
+        "sum_modes_children": 3,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          14,
+          78,
+          226,
+          371,
+          355,
+          202,
+          70,
+          13,
+          1
+        ],
+        "poly_P": [
+          1,
+          11,
+          45,
+          87,
+          83,
+          39,
+          10,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            11,
+            45,
+            87,
+            83,
+            39,
+            10,
+            1
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": -1,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 14,
+        "g6": "M???C@?G?_@?`?}_?",
+        "m": 5,
+        "leaf": 5,
+        "support": 12,
+        "u_in_B": 0,
+        "k_children": 2,
+        "mode_P": 4,
+        "sum_modes_children": 3,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": -1,
+        "margin_modeP_minus_sum_modes": 1,
+        "poly_T": [
+          1,
+          14,
+          78,
+          231,
+          398,
+          401,
+          219,
+          50
+        ],
+        "poly_P": [
+          1,
+          11,
+          46,
+          98,
+          114,
+          69,
+          17
+        ],
+        "child_polys": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            10,
+            36,
+            62,
+            52,
+            17
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -1,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 14,
+        "g6": "M????A?O@_@_I_wO?",
+        "m": 4,
+        "leaf": 3,
+        "support": 10,
+        "u_in_B": 2,
+        "k_children": 2,
+        "mode_P": 3,
+        "sum_modes_children": 4,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 1,
+        "margin_modeP_minus_sum_modes": -1,
+        "poly_T": [
+          1,
+          14,
+          78,
+          225,
+          364,
+          332,
+          162,
+          38,
+          4
+        ],
+        "poly_P": [
+          1,
+          11,
+          46,
+          92,
+          91,
+          40,
+          5
+        ],
+        "child_polys": [
+          [
+            1,
+            5,
+            6,
+            1
+          ],
+          [
+            1,
+            6,
+            10,
+            5
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 225,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 128,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 1,
+          "modeP_ge_sum_modes_fail": 20
+        },
+        "6": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        },
+        "3": {
+          "checked": 6,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        }
+      },
+      "wall_s": 0.07364511489868164
+    },
+    "15": {
+      "seen": 7741,
+      "considered": 766,
+      "checked": 766,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 154,
+      "modeP_ge_sum_modes_fail": 3,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 15,
+        "g6": "N??????_A?E?B??o\\S?",
+        "m": 5,
+        "leaf": 3,
+        "support": 11,
+        "u_in_B": 2,
+        "k_children": 1,
+        "mode_P": 4,
+        "sum_modes_children": 4,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          15,
+          91,
+          296,
+          569,
+          667,
+          474,
+          197,
+          44,
+          4
+        ],
+        "poly_P": [
+          1,
+          12,
+          55,
+          126,
+          155,
+          101,
+          32,
+          4
+        ],
+        "child_polys": [
+          [
+            1,
+            12,
+            55,
+            126,
+            155,
+            101,
+            32,
+            4
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": -1,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 15,
+        "g6": "N??????_A?F?H_cOGc?",
+        "m": 5,
+        "leaf": 9,
+        "support": 0,
+        "u_in_B": 11,
+        "k_children": 2,
+        "mode_P": 4,
+        "sum_modes_children": 3,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": -1,
+        "margin_modeP_minus_sum_modes": 1,
+        "poly_T": [
+          1,
+          15,
+          91,
+          290,
+          531,
+          579,
+          381,
+          152,
+          36,
+          4
+        ],
+        "poly_P": [
+          1,
+          12,
+          56,
+          132,
+          173,
+          132,
+          60,
+          16,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            11,
+            45,
+            87,
+            86,
+            46,
+            14,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -2,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 15,
+        "g6": "N???C@?G?_@?@??_^o?",
+        "m": 5,
+        "leaf": 7,
+        "support": 0,
+        "u_in_B": 12,
+        "k_children": 6,
+        "mode_P": 4,
+        "sum_modes_children": 6,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 2,
+        "margin_modeP_minus_sum_modes": -2,
+        "poly_T": [
+          1,
+          15,
+          91,
+          301,
+          595,
+          707,
+          469,
+          135,
+          1
+        ],
+        "poly_P": [
+          1,
+          12,
+          60,
+          160,
+          240,
+          192,
+          64
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 479,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 274,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 152,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "3": {
+          "checked": 12,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 2,
+          "modeP_ge_sum_modes_fail": 2
+        },
+        "6": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        }
+      },
+      "wall_s": 0.1735379695892334
+    },
+    "16": {
+      "seen": 19320,
+      "considered": 1692,
+      "checked": 1692,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 3,
+      "modeP_ge_sum_modes_fail": 28,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 16,
+        "g6": "O???????C?K?E?@_?KEi_",
+        "m": 5,
+        "leaf": 2,
+        "support": 11,
+        "u_in_B": 1,
+        "k_children": 1,
+        "mode_P": 4,
+        "sum_modes_children": 4,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          16,
+          105,
+          374,
+          799,
+          1065,
+          896,
+          474,
+          153,
+          27,
+          2
+        ],
+        "poly_P": [
+          1,
+          13,
+          66,
+          171,
+          245,
+          197,
+          88,
+          21,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            13,
+            66,
+            171,
+            245,
+            197,
+            88,
+            21,
+            2
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": -1,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 16,
+        "g6": "O??????_A?S?E?@_WGCh?",
+        "m": 5,
+        "leaf": 2,
+        "support": 11,
+        "u_in_B": 0,
+        "k_children": 3,
+        "mode_P": 4,
+        "sum_modes_children": 3,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": -1,
+        "margin_modeP_minus_sum_modes": 1,
+        "poly_T": [
+          1,
+          16,
+          105,
+          371,
+          775,
+          986,
+          757,
+          335,
+          78,
+          8
+        ],
+        "poly_P": [
+          1,
+          13,
+          68,
+          185,
+          283,
+          246,
+          117,
+          28,
+          3
+        ],
+        "child_polys": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            4,
+            3
+          ],
+          [
+            1,
+            8,
+            21,
+            21,
+            7,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -1,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 16,
+        "g6": "O??????_A?C?E?D??WFd?",
+        "m": 5,
+        "leaf": 4,
+        "support": 12,
+        "u_in_B": 3,
+        "k_children": 2,
+        "mode_P": 4,
+        "sum_modes_children": 5,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 1,
+        "margin_modeP_minus_sum_modes": -1,
+        "poly_T": [
+          1,
+          16,
+          105,
+          375,
+          804,
+          1066,
+          861,
+          398,
+          92,
+          8
+        ],
+        "poly_P": [
+          1,
+          13,
+          67,
+          180,
+          273,
+          232,
+          100,
+          16
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            11,
+            45,
+            90,
+            93,
+            46,
+            8
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 1058,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 603,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 21
+        },
+        "3": {
+          "checked": 29,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 3,
+          "modeP_ge_sum_modes_fail": 5
+        },
+        "7": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        },
+        "4": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        }
+      },
+      "wall_s": 0.4170839786529541
+    },
+    "17": {
+      "seen": 48629,
+      "considered": 3726,
+      "checked": 3726,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 1,
+      "modeP_ge_sum_modes_fail": 351,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 17,
+        "g6": "P?????????W?K?B??W?@_ii?",
+        "m": 5,
+        "leaf": 1,
+        "support": 11,
+        "u_in_B": 0,
+        "k_children": 1,
+        "mode_P": 4,
+        "sum_modes_children": 4,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          17,
+          120,
+          465,
+          1095,
+          1638,
+          1590,
+          1015,
+          425,
+          110,
+          16,
+          1
+        ],
+        "poly_P": [
+          1,
+          14,
+          78,
+          226,
+          371,
+          355,
+          202,
+          70,
+          13,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            14,
+            78,
+            226,
+            371,
+            355,
+            202,
+            70,
+            13,
+            1
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": -1,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 17,
+        "g6": "P??????_A?C?C?A??_CE?^g?",
+        "m": 6,
+        "leaf": 9,
+        "support": 0,
+        "u_in_B": 13,
+        "k_children": 2,
+        "mode_P": 5,
+        "sum_modes_children": 4,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": -1,
+        "margin_modeP_minus_sum_modes": 1,
+        "poly_T": [
+          1,
+          17,
+          120,
+          471,
+          1147,
+          1807,
+          1843,
+          1171,
+          419,
+          64
+        ],
+        "poly_P": [
+          1,
+          14,
+          79,
+          246,
+          470,
+          567,
+          422,
+          177,
+          32
+        ],
+        "child_polys": [
+          [
+            1,
+            13,
+            66,
+            180,
+            290,
+            277,
+            145,
+            32
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -2,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 17,
+        "g6": "P????A?O@?A?A?@??O?A?~o?",
+        "m": 5,
+        "leaf": 8,
+        "support": 0,
+        "u_in_B": 14,
+        "k_children": 7,
+        "mode_P": 5,
+        "sum_modes_children": 7,
+        "margin_modeP_minus_m_minus_1": 1,
+        "margin_sum_modes_minus_m_minus_1": 3,
+        "margin_modeP_minus_sum_modes": -2,
+        "poly_T": [
+          1,
+          17,
+          120,
+          476,
+          1176,
+          1862,
+          1848,
+          1052,
+          264,
+          1
+        ],
+        "poly_P": [
+          1,
+          14,
+          84,
+          280,
+          560,
+          672,
+          448,
+          128
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 2331,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 1337,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 1,
+          "modeP_ge_sum_modes_fail": 347
+        },
+        "3": {
+          "checked": 55,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 3
+        },
+        "4": {
+          "checked": 2,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "7": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        }
+      },
+      "wall_s": 1.0423481464385986
+    },
+    "18": {
+      "seen": 123867,
+      "considered": 8370,
+      "checked": 8370,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 860,
+      "modeP_ge_sum_modes_fail": 7,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 18,
+        "g6": "Q?????????O?O?K?@_?E??KBig?",
+        "m": 6,
+        "leaf": 3,
+        "support": 13,
+        "u_in_B": 2,
+        "k_children": 1,
+        "mode_P": 5,
+        "sum_modes_children": 5,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          18,
+          136,
+          575,
+          1515,
+          2607,
+          2978,
+          2250,
+          1101,
+          333,
+          56,
+          4
+        ],
+        "poly_P": [
+          1,
+          15,
+          91,
+          296,
+          569,
+          667,
+          474,
+          197,
+          44,
+          4
+        ],
+        "child_polys": [
+          [
+            1,
+            15,
+            91,
+            296,
+            569,
+            667,
+            474,
+            197,
+            44,
+            4
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": -1,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 18,
+        "g6": "Q?????????O?O?M?Co?b?`C@@G?",
+        "m": 6,
+        "leaf": 11,
+        "support": 0,
+        "u_in_B": 14,
+        "k_children": 2,
+        "mode_P": 5,
+        "sum_modes_children": 4,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": -1,
+        "margin_modeP_minus_sum_modes": 1,
+        "poly_T": [
+          1,
+          18,
+          136,
+          565,
+          1425,
+          2284,
+          2382,
+          1641,
+          756,
+          232,
+          44,
+          4
+        ],
+        "poly_P": [
+          1,
+          15,
+          92,
+          302,
+          587,
+          711,
+          554,
+          284,
+          96,
+          20,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            14,
+            78,
+            224,
+            363,
+            348,
+            206,
+            78,
+            18,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -2,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 18,
+        "g6": "Q??????_A?C?C?A??_?C??OB~_?",
+        "m": 6,
+        "leaf": 9,
+        "support": 0,
+        "u_in_B": 15,
+        "k_children": 8,
+        "mode_P": 5,
+        "sum_modes_children": 7,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 2,
+        "margin_modeP_minus_sum_modes": -2,
+        "poly_T": [
+          1,
+          18,
+          136,
+          588,
+          1624,
+          2982,
+          3640,
+          2844,
+          1288,
+          257
+        ],
+        "poly_P": [
+          1,
+          15,
+          98,
+          364,
+          840,
+          1232,
+          1120,
+          576,
+          128
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 5263,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 2988,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 827,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "3": {
+          "checked": 113,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 33,
+          "modeP_ge_sum_modes_fail": 5
+        },
+        "8": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        },
+        "4": {
+          "checked": 5,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        }
+      },
+      "wall_s": 2.7210752964019775
+    },
+    "19": {
+      "seen": 317955,
+      "considered": 18866,
+      "checked": 18866,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 485,
+      "modeP_ge_sum_modes_fail": 104,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 19,
+        "g6": "R???????????_?W?B??K??W??WEig?",
+        "m": 6,
+        "leaf": 2,
+        "support": 13,
+        "u_in_B": 1,
+        "k_children": 1,
+        "mode_P": 5,
+        "sum_modes_children": 5,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          19,
+          153,
+          695,
+          1985,
+          3748,
+          4786,
+          4163,
+          2455,
+          960,
+          236,
+          33,
+          2
+        ],
+        "poly_P": [
+          1,
+          16,
+          105,
+          374,
+          799,
+          1065,
+          896,
+          474,
+          153,
+          27,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            16,
+            105,
+            374,
+            799,
+            1065,
+            896,
+            474,
+            153,
+            27,
+            2
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": -1,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 19,
+        "g6": "R???????????o?K?@_?E??KAgGCDG?",
+        "m": 6,
+        "leaf": 1,
+        "support": 12,
+        "u_in_B": 0,
+        "k_children": 2,
+        "mode_P": 5,
+        "sum_modes_children": 4,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": -1,
+        "margin_modeP_minus_sum_modes": 1,
+        "poly_T": [
+          1,
+          19,
+          153,
+          687,
+          1902,
+          3391,
+          3962,
+          3057,
+          1576,
+          551,
+          126,
+          17,
+          1
+        ],
+        "poly_P": [
+          1,
+          16,
+          106,
+          378,
+          791,
+          996,
+          751,
+          336,
+          91,
+          14,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            8,
+            21,
+            21,
+            7,
+            1
+          ],
+          [
+            1,
+            8,
+            21,
+            21,
+            7,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -3,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 19,
+        "g6": "R??????_A?C?C?A??_?C??O??_F~??",
+        "m": 6,
+        "leaf": 9,
+        "support": 0,
+        "u_in_B": 16,
+        "k_children": 8,
+        "mode_P": 5,
+        "sum_modes_children": 8,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 3,
+        "margin_modeP_minus_sum_modes": -3,
+        "poly_T": [
+          1,
+          19,
+          153,
+          708,
+          2100,
+          4158,
+          5502,
+          4692,
+          2340,
+          521,
+          1
+        ],
+        "poly_P": [
+          1,
+          16,
+          112,
+          448,
+          1120,
+          1792,
+          1792,
+          1024,
+          256
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 11886,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 6740,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 432,
+          "modeP_ge_sum_modes_fail": 68
+        },
+        "3": {
+          "checked": 231,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 53,
+          "modeP_ge_sum_modes_fail": 31
+        },
+        "4": {
+          "checked": 8,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 4
+        },
+        "8": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        }
+      },
+      "wall_s": 7.251153945922852
+    },
+    "20": {
+      "seen": 823065,
+      "considered": 43029,
+      "checked": 43029,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 7,
+      "modeP_ge_sum_modes_fail": 3692,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 20,
+        "g6": "S?????????????o?E??W??o??o??WDTS?",
+        "m": 6,
+        "leaf": 1,
+        "support": 13,
+        "u_in_B": 0,
+        "k_children": 1,
+        "mode_P": 5,
+        "sum_modes_children": 5,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          20,
+          171,
+          831,
+          2560,
+          5268,
+          7439,
+          7311,
+          5028,
+          2400,
+          771,
+          159,
+          19,
+          1
+        ],
+        "poly_P": [
+          1,
+          17,
+          120,
+          465,
+          1095,
+          1638,
+          1590,
+          1015,
+          425,
+          110,
+          16,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            17,
+            120,
+            465,
+            1095,
+            1638,
+            1590,
+            1015,
+            425,
+            110,
+            16,
+            1
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": -1,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 20,
+        "g6": "S?????????O?O?G?Q??W??oB?_@@_CSO?",
+        "m": 6,
+        "leaf": 3,
+        "support": 14,
+        "u_in_B": 0,
+        "k_children": 3,
+        "mode_P": 5,
+        "sum_modes_children": 4,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": -1,
+        "margin_modeP_minus_sum_modes": 1,
+        "poly_T": [
+          1,
+          20,
+          171,
+          824,
+          2481,
+          4886,
+          6398,
+          5547,
+          3108,
+          1071,
+          207,
+          18
+        ],
+        "poly_P": [
+          1,
+          17,
+          122,
+          484,
+          1169,
+          1786,
+          1738,
+          1058,
+          385,
+          77,
+          7
+        ],
+        "child_polys": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            8,
+            21,
+            21,
+            7
+          ],
+          [
+            1,
+            8,
+            21,
+            21,
+            7,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -2,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 20,
+        "g6": "S???????C?G?G?C?@??G??_?@??@?F~_?",
+        "m": 7,
+        "leaf": 10,
+        "support": 0,
+        "u_in_B": 17,
+        "k_children": 9,
+        "mode_P": 6,
+        "sum_modes_children": 8,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 2,
+        "margin_modeP_minus_sum_modes": -2,
+        "poly_T": [
+          1,
+          20,
+          171,
+          852,
+          2772,
+          6174,
+          9534,
+          10068,
+          6948,
+          2825,
+          513
+        ],
+        "poly_P": [
+          1,
+          17,
+          128,
+          560,
+          1568,
+          2912,
+          3584,
+          2816,
+          1280,
+          256
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 27201,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 15299,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 1,
+          "modeP_ge_sum_modes_fail": 3622
+        },
+        "3": {
+          "checked": 511,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 6,
+          "modeP_ge_sum_modes_fail": 68
+        },
+        "4": {
+          "checked": 16,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        },
+        "9": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        },
+        "5": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        }
+      },
+      "wall_s": 19.929369926452637
+    },
+    "21": {
+      "seen": 2144505,
+      "considered": 98581,
+      "checked": 98581,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 2463,
+      "modeP_ge_sum_modes_fail": 2125,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 21,
+        "g6": "T?????????????_?G?@_?B??B??@_??WBii?",
+        "m": 7,
+        "leaf": 3,
+        "support": 15,
+        "u_in_B": 2,
+        "k_children": 1,
+        "mode_P": 6,
+        "sum_modes_children": 6,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          21,
+          190,
+          990,
+          3325,
+          7598,
+          12122,
+          13623,
+          10749,
+          5870,
+          2156,
+          505,
+          68,
+          4
+        ],
+        "poly_P": [
+          1,
+          18,
+          136,
+          575,
+          1515,
+          2607,
+          2978,
+          2250,
+          1101,
+          333,
+          56,
+          4
+        ],
+        "child_polys": [
+          [
+            1,
+            18,
+            136,
+            575,
+            1515,
+            2607,
+            2978,
+            2250,
+            1101,
+            333,
+            56,
+            4
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": -1,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 21,
+        "g6": "T?????????????_?G?@o?H_?P_?GoCAG@?Q?",
+        "m": 7,
+        "leaf": 13,
+        "support": 0,
+        "u_in_B": 17,
+        "k_children": 2,
+        "mode_P": 6,
+        "sum_modes_children": 5,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": -1,
+        "margin_modeP_minus_sum_modes": 1,
+        "poly_T": [
+          1,
+          21,
+          190,
+          975,
+          3150,
+          6743,
+          9838,
+          9961,
+          7101,
+          3608,
+          1308,
+          328,
+          52,
+          4
+        ],
+        "poly_P": [
+          1,
+          18,
+          137,
+          580,
+          1517,
+          2586,
+          2969,
+          2352,
+          1310,
+          516,
+          140,
+          24,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            17,
+            120,
+            460,
+            1057,
+            1529,
+            1440,
+            912,
+            398,
+            118,
+            22,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -3,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 21,
+        "g6": "T???????C?G?G?C?@??G??_?@??@???_B~o?",
+        "m": 7,
+        "leaf": 10,
+        "support": 0,
+        "u_in_B": 18,
+        "k_children": 9,
+        "mode_P": 6,
+        "sum_modes_children": 9,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 3,
+        "margin_modeP_minus_sum_modes": -3,
+        "poly_T": [
+          1,
+          21,
+          190,
+          1005,
+          3480,
+          8274,
+          13692,
+          15570,
+          11640,
+          5165,
+          1034,
+          1
+        ],
+        "poly_P": [
+          1,
+          18,
+          144,
+          672,
+          2016,
+          4032,
+          5376,
+          4608,
+          2304,
+          512
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 62360,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 35052,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 2324,
+          "modeP_ge_sum_modes_fail": 2092
+        },
+        "3": {
+          "checked": 1140,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 139,
+          "modeP_ge_sum_modes_fail": 25
+        },
+        "4": {
+          "checked": 26,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 6
+        },
+        "5": {
+          "checked": 2,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        },
+        "9": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        }
+      },
+      "wall_s": 54.4038610458374
+    },
+    "22": {
+      "seen": 5623756,
+      "considered": 227678,
+      "checked": 227678,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 27861,
+      "modeP_ge_sum_modes_fail": 462,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 22,
+        "g6": "U???????????????O?B??E??E??B???o??E?tTO?",
+        "m": 7,
+        "leaf": 2,
+        "support": 15,
+        "u_in_B": 1,
+        "k_children": 1,
+        "mode_P": 6,
+        "sum_modes_children": 6,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          22,
+          210,
+          1161,
+          4162,
+          10228,
+          17735,
+          21997,
+          19586,
+          12456,
+          5571,
+          1701,
+          337,
+          39,
+          2
+        ],
+        "poly_P": [
+          1,
+          19,
+          153,
+          695,
+          1985,
+          3748,
+          4786,
+          4163,
+          2455,
+          960,
+          236,
+          33,
+          2
+        ],
+        "child_polys": [
+          [
+            1,
+            19,
+            153,
+            695,
+            1985,
+            3748,
+            4786,
+            4163,
+            2455,
+            960,
+            236,
+            33,
+            2
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": -1,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 22,
+        "g6": "U???????????????W?@_?B??B??@_??WAgA?_iO?",
+        "m": 7,
+        "leaf": 1,
+        "support": 14,
+        "u_in_B": 0,
+        "k_children": 2,
+        "mode_P": 6,
+        "sum_modes_children": 5,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": -1,
+        "margin_modeP_minus_sum_modes": 1,
+        "poly_T": [
+          1,
+          22,
+          210,
+          1150,
+          4021,
+          9452,
+          15337,
+          17422,
+          13988,
+          8010,
+          3279,
+          938,
+          178,
+          20,
+          1
+        ],
+        "poly_P": [
+          1,
+          19,
+          154,
+          699,
+          1962,
+          3553,
+          4218,
+          3297,
+          1705,
+          587,
+          130,
+          17,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            8,
+            21,
+            21,
+            7,
+            1
+          ],
+          [
+            1,
+            11,
+            45,
+            87,
+            83,
+            39,
+            10,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -2,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 22,
+        "g6": "U?????????O?O?G?A??O?@??A??A??@???O?~}??",
+        "m": 7,
+        "leaf": 11,
+        "support": 0,
+        "u_in_B": 19,
+        "k_children": 10,
+        "mode_P": 7,
+        "sum_modes_children": 9,
+        "margin_modeP_minus_m_minus_1": 1,
+        "margin_sum_modes_minus_m_minus_1": 3,
+        "margin_modeP_minus_sum_modes": -2,
+        "poly_T": [
+          1,
+          22,
+          210,
+          1185,
+          4440,
+          11634,
+          21756,
+          29010,
+          27000,
+          16685,
+          6154,
+          1025
+        ],
+        "poly_P": [
+          1,
+          19,
+          162,
+          816,
+          2688,
+          6048,
+          9408,
+          9984,
+          6912,
+          2816,
+          512
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 144367,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 80676,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 26971,
+          "modeP_ge_sum_modes_fail": 200
+        },
+        "3": {
+          "checked": 2580,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 890,
+          "modeP_ge_sum_modes_fail": 231
+        },
+        "4": {
+          "checked": 49,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 25
+        },
+        "10": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        },
+        "5": {
+          "checked": 5,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 5
+        }
+      },
+      "wall_s": 151.57622003555298
+    },
+    "23": {
+      "seen": 14828074,
+      "considered": 528196,
+      "checked": 528196,
+      "no_deg2_support": 0,
+      "identity_fail": 0,
+      "modeP_ge_m_minus_1_fail": 0,
+      "sum_modes_ge_m_minus_1_fail": 335,
+      "modeP_ge_sum_modes_fail": 24316,
+      "min_modeP_minus_m_minus_1": 0,
+      "min_modeP_minus_m_minus_1_witness": {
+        "n": 23,
+        "g6": "V?????????????????E??K??K??E??@_??K???oDTT??",
+        "m": 7,
+        "leaf": 1,
+        "support": 15,
+        "u_in_B": 0,
+        "k_children": 1,
+        "mode_P": 6,
+        "sum_modes_children": 6,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": 0,
+        "margin_modeP_minus_sum_modes": 0,
+        "poly_T": [
+          1,
+          23,
+          231,
+          1351,
+          5152,
+          13559,
+          25403,
+          34464,
+          34144,
+          24731,
+          12999,
+          4872,
+          1267,
+          217,
+          22,
+          1
+        ],
+        "poly_P": [
+          1,
+          20,
+          171,
+          831,
+          2560,
+          5268,
+          7439,
+          7311,
+          5028,
+          2400,
+          771,
+          159,
+          19,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            20,
+            171,
+            831,
+            2560,
+            5268,
+            7439,
+            7311,
+            5028,
+            2400,
+            771,
+            159,
+            19,
+            1
+          ]
+        ]
+      },
+      "min_sum_modes_minus_m_minus_1": -1,
+      "min_sum_modes_minus_m_minus_1_witness": {
+        "n": 23,
+        "g6": "V???????????????O?E??K??K??E??@_??K?i?_CDQ??",
+        "m": 7,
+        "leaf": 1,
+        "support": 15,
+        "u_in_B": 0,
+        "k_children": 3,
+        "mode_P": 6,
+        "sum_modes_children": 5,
+        "margin_modeP_minus_m_minus_1": 0,
+        "margin_sum_modes_minus_m_minus_1": -1,
+        "margin_modeP_minus_sum_modes": 1,
+        "poly_T": [
+          1,
+          23,
+          231,
+          1342,
+          5028,
+          12812,
+          22814,
+          28746,
+          25721,
+          16309,
+          7276,
+          2242,
+          455,
+          55,
+          3
+        ],
+        "poly_P": [
+          1,
+          20,
+          173,
+          853,
+          2661,
+          5515,
+          7771,
+          7515,
+          5002,
+          2292,
+          717,
+          147,
+          18,
+          1
+        ],
+        "child_polys": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            8,
+            21,
+            21,
+            7,
+            1
+          ],
+          [
+            1,
+            11,
+            45,
+            87,
+            83,
+            39,
+            10,
+            1
+          ]
+        ]
+      },
+      "min_modeP_minus_sum_modes": -3,
+      "min_modeP_minus_sum_modes_witness": {
+        "n": 23,
+        "g6": "V?????????O?O?G?A??O?@??A??A??@???O??A?F~o??",
+        "m": 7,
+        "leaf": 11,
+        "support": 0,
+        "u_in_B": 20,
+        "k_children": 10,
+        "mode_P": 7,
+        "sum_modes_children": 10,
+        "margin_modeP_minus_m_minus_1": 1,
+        "margin_sum_modes_minus_m_minus_1": 4,
+        "margin_modeP_minus_sum_modes": -3,
+        "poly_T": [
+          1,
+          23,
+          231,
+          1375,
+          5445,
+          15114,
+          30030,
+          42702,
+          42570,
+          28325,
+          11319,
+          2059,
+          1
+        ],
+        "poly_P": [
+          1,
+          20,
+          180,
+          960,
+          3360,
+          8064,
+          13440,
+          15360,
+          11520,
+          5120,
+          1024
+        ],
+        "child_polys": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "by_k_children": {
+        "1": {
+          "checked": 335400,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 0
+        },
+        "2": {
+          "checked": 186776,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 10,
+          "modeP_ge_sum_modes_fail": 23506
+        },
+        "3": {
+          "checked": 5926,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 325,
+          "modeP_ge_sum_modes_fail": 773
+        },
+        "4": {
+          "checked": 85,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 34
+        },
+        "5": {
+          "checked": 8,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 2
+        },
+        "10": {
+          "checked": 1,
+          "modeP_ge_m_minus_1_fail": 0,
+          "sum_modes_ge_m_minus_1_fail": 0,
+          "modeP_ge_sum_modes_fail": 1
+        }
+      },
+      "wall_s": 423.4806821346283
+    }
+  }
+}

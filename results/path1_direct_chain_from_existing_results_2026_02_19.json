@@ -1,0 +1,84 @@
+{
+  "formula": {
+    "identity": "mu_P-(m-2) = exact_slack_B - exact_excess_D",
+    "exact_slack_B": "mu_B - (m - 1 - lambda/(1+lambda))",
+    "exact_excess_D": "D - (1 - lambda/(1+lambda))",
+    "D": "mu_B - mu_P"
+  },
+  "inputs": {
+    "transfer_json": "results/whnc_route1_transfer_scan_n23_merged.json",
+    "pendant_json": [
+      "results/whnc_pendant_bonus_scan_n20_canonical.json",
+      "results/whnc_pendant_bonus_scan_n23_canonical_tail.json"
+    ],
+    "phi_json": "results/whnc_phiP_scan_n23_merged.json",
+    "transfer_cap": 0.006
+  },
+  "extrema": {
+    "min_exact_slack_B": 0.1913484628930444,
+    "min_exact_slack_B_witness": {
+      "n": 21,
+      "g6": "T???????C?G?G?C?@??G??_?@??@???_B~o?",
+      "mode": 7,
+      "lambda_mode": 0.879383429672447,
+      "leaf": 10,
+      "support": 0,
+      "mu_b": 5.723437862113877,
+      "degree_signature": {
+        "1": 10,
+        "2": 10,
+        "10": 1
+      },
+      "exact_slack": 0.1913484628930444
+    },
+    "max_exact_excess_D": 0.005107340588772491,
+    "max_exact_excess_D_witness": {
+      "n": 23,
+      "g6": "V?????????????_?G?@??C??G??G??E???o?oB?@|S??",
+      "mode": 8,
+      "lambda_mode": 0.9972305185989683,
+      "leaf": 7,
+      "support": 19,
+      "mu_p": 6.4302934756640955,
+      "mu_b": 6.9360941466859956,
+      "D": 0.5058006710219001,
+      "a": 0.4993066695668724,
+      "half_excess": 0.005800671021900072,
+      "exact_excess": 0.005107340588772491,
+      "p_u": 0.49126887657403
+    },
+    "min_muP_gap_direct_phi_scan": 0.38345129375473075,
+    "min_muP_gap_direct_phi_scan_witness": {
+      "n": 23,
+      "g6": "V???????????_?O?C??_?A??C??C??A?A?_??E?B~g??",
+      "mode": 8,
+      "lambda_mode": 0.9926105361031589,
+      "leaf": 10,
+      "support": 21,
+      "mode_p": 7,
+      "mode_p_shift": 0,
+      "deg_p": 10,
+      "deg_p_shift": 3,
+      "phi_p": 13030.514444606522,
+      "mu_p": 6.383451293754731,
+      "mu_gap": 0.38345129375473075,
+      "degree_signature": {
+        "1": 10,
+        "2": 12,
+        "10": 1
+      }
+    }
+  },
+  "derived": {
+    "lower_bound_from_chain": 0.18624112230427192,
+    "cap_holds": true,
+    "cap_margin": 0.0008926594112275092,
+    "implies_muP_ge_m_minus_2": true
+  },
+  "coverage": {
+    "pendant_checked_leaves_total": 931596,
+    "pendant_seen_total": 23942356,
+    "pendant_considered_total": 931596,
+    "transfer_checked": 931596
+  }
+}

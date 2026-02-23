@@ -1,0 +1,145 @@
+{
+  "seen": 1346021,
+  "considered": 77141,
+  "checked": 77140,
+  "R_neg": 0,
+  "D1_neg": 0,
+  "D2_neg": 1049,
+  "D3_neg": 19,
+  "D1_plus_D3_neg": 3,
+  "D2_plus_D3_neg": 0,
+  "cross_minus_abs_mismatch_neg": 0,
+  "R_min": 4,
+  "D1_min": 2,
+  "D2_min": -53868,
+  "D3_min": -87808,
+  "subset_explicit_checked": 77139,
+  "subset_explicit_neg_contrib_trees": 77,
+  "subset_explicit_total_neg_contrib": 446,
+  "subset_explicit_min_contrib": -5524,
+  "layer_neg_trees": 78,
+  "layer_min_contrib": -18816,
+  "layer_stats": {
+    "0": {
+      "checked": 77140,
+      "neg": 0,
+      "min": 2
+    },
+    "1": {
+      "checked": 77140,
+      "neg": 0,
+      "min": 2
+    },
+    "2": {
+      "checked": 28489,
+      "neg": 0,
+      "min": 0
+    },
+    "3": {
+      "checked": 1006,
+      "neg": 45,
+      "min": -5524
+    },
+    "4": {
+      "checked": 44,
+      "neg": 33,
+      "min": -3242
+    },
+    "5": {
+      "checked": 10,
+      "neg": 8,
+      "min": -18816
+    },
+    "6": {
+      "checked": 7,
+      "neg": 3,
+      "min": -12152
+    },
+    "7": {
+      "checked": 5,
+      "neg": 1,
+      "min": -2520
+    },
+    "8": {
+      "checked": 3,
+      "neg": 0,
+      "min": 0
+    },
+    "9": {
+      "checked": 1,
+      "neg": 0,
+      "min": 0
+    }
+  },
+  "identity_fail_P_expand": 0,
+  "identity_fail_R_linear": 0,
+  "wall_s": 38.787323236465454,
+  "R_min_witness": {
+    "n": 5,
+    "m": 2,
+    "r": 0,
+    "g6": "DQo",
+    "deg_u_B": 1,
+    "p0": 1,
+    "p1": 2,
+    "p2": 0,
+    "q0": 0,
+    "q1": 1,
+    "qm": 1,
+    "D1": 2,
+    "D2": 1,
+    "D3": 1,
+    "R": 4
+  },
+  "D1_min_witness": {
+    "n": 5,
+    "m": 2,
+    "r": 0,
+    "g6": "DQo",
+    "deg_u_B": 1,
+    "p0": 1,
+    "p1": 2,
+    "p2": 0,
+    "q0": 0,
+    "q1": 1,
+    "qm": 1,
+    "D1": 2,
+    "D2": 1,
+    "D3": 1,
+    "R": 4
+  },
+  "D2_min_witness": {
+    "n": 20,
+    "m": 7,
+    "r": 5,
+    "g6": "S???????????_?O?C??o?@_?@_??oFig?",
+    "deg_u_B": 1,
+    "p0": 1767,
+    "p1": 1780,
+    "p2": 1137,
+    "q0": 1073,
+    "q1": 1701,
+    "qm": 1744,
+    "D1": 1807779,
+    "D2": -53868,
+    "D3": 1095727,
+    "R": 2849638
+  },
+  "D3_min_witness": {
+    "n": 20,
+    "m": 7,
+    "r": 5,
+    "g6": "S???????C?G?G?C?@??G??_?@??@?F~_?",
+    "deg_u_B": 9,
+    "p0": 2912,
+    "p1": 3584,
+    "p2": 2816,
+    "q0": 70,
+    "q1": 56,
+    "qm": 28,
+    "D1": 3584,
+    "D2": 119168,
+    "D3": -87808,
+    "R": 34944
+  }
+}

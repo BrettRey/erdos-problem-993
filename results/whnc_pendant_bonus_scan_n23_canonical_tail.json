@@ -1,0 +1,176 @@
+{
+  "params": {
+    "min_n": 21,
+    "max_n": 23,
+    "tol": 1e-12,
+    "all_trees": false,
+    "canonical_leaf_only": true
+  },
+  "summary": {
+    "seen": 22596335,
+    "considered": 854455,
+    "checked_trees": 854455,
+    "checked_leaves": 854455,
+    "fail_half": 0,
+    "fail_exact": 0,
+    "min_half_slack": 0.22343786211387684,
+    "min_half_witness": {
+      "n": 21,
+      "g6": "T???????C?G?G?C?@??G??_?@??@???_B~o?",
+      "mode": 7,
+      "lambda_mode": 0.879383429672447,
+      "leaf": 10,
+      "support": 0,
+      "mu_b": 5.723437862113877,
+      "degree_signature": {
+        "1": 10,
+        "2": 10,
+        "10": 1
+      },
+      "half_slack": 0.22343786211387684
+    },
+    "min_exact_slack": 0.1913484628930444,
+    "min_exact_witness": {
+      "n": 21,
+      "g6": "T???????C?G?G?C?@??G??_?@??@???_B~o?",
+      "mode": 7,
+      "lambda_mode": 0.879383429672447,
+      "leaf": 10,
+      "support": 0,
+      "mu_b": 5.723437862113877,
+      "degree_signature": {
+        "1": 10,
+        "2": 10,
+        "10": 1
+      },
+      "exact_slack": 0.1913484628930444
+    }
+  },
+  "per_n": {
+    "21": {
+      "seen": 2144505,
+      "considered": 98581,
+      "checked_trees": 98581,
+      "checked_leaves": 98581,
+      "fail_half": 0,
+      "fail_exact": 0,
+      "min_half_slack": 0.22343786211387684,
+      "min_half_witness": {
+        "n": 21,
+        "g6": "T???????C?G?G?C?@??G??_?@??@???_B~o?",
+        "mode": 7,
+        "lambda_mode": 0.879383429672447,
+        "leaf": 10,
+        "support": 0,
+        "mu_b": 5.723437862113877,
+        "degree_signature": {
+          "1": 10,
+          "2": 10,
+          "10": 1
+        },
+        "half_slack": 0.22343786211387684
+      },
+      "min_exact_slack": 0.1913484628930444,
+      "min_exact_witness": {
+        "n": 21,
+        "g6": "T???????C?G?G?C?@??G??_?@??@???_B~o?",
+        "mode": 7,
+        "lambda_mode": 0.879383429672447,
+        "leaf": 10,
+        "support": 0,
+        "mu_b": 5.723437862113877,
+        "degree_signature": {
+          "1": 10,
+          "2": 10,
+          "10": 1
+        },
+        "exact_slack": 0.1913484628930444
+      },
+      "wall_s": 50.45542287826538
+    },
+    "22": {
+      "seen": 5623756,
+      "considered": 227678,
+      "checked_trees": 227678,
+      "checked_leaves": 227678,
+      "fail_half": 0,
+      "fail_exact": 0,
+      "min_half_slack": 0.26870894029015435,
+      "min_half_witness": {
+        "n": 22,
+        "g6": "U???????C?G?G?C?@??G??_?@??@?C?_@wO?@y??",
+        "mode": 7,
+        "lambda_mode": 0.9089204079240417,
+        "leaf": 11,
+        "support": 1,
+        "mu_b": 5.768708940290154,
+        "degree_signature": {
+          "1": 8,
+          "2": 12,
+          "5": 2
+        },
+        "half_slack": 0.26870894029015435
+      },
+      "min_exact_slack": 0.2404446506547231,
+      "min_exact_witness": {
+        "n": 22,
+        "g6": "U?????????O?O?G?A??O?@??A??A??@???O?~}??",
+        "mode": 7,
+        "lambda_mode": 0.7499482936918304,
+        "leaf": 11,
+        "support": 0,
+        "mu_b": 5.811890106274626,
+        "degree_signature": {
+          "1": 11,
+          "2": 10,
+          "11": 1
+        },
+        "exact_slack": 0.2404446506547231
+      },
+      "wall_s": 146.5608308315277
+    },
+    "23": {
+      "seen": 14828074,
+      "considered": 528196,
+      "checked_trees": 528196,
+      "checked_leaves": 528196,
+      "fail_half": 0,
+      "fail_exact": 0,
+      "min_half_slack": 0.22901390582535264,
+      "min_half_witness": {
+        "n": 23,
+        "g6": "V???????????_?O?C??_?A??C??C??A???_?{E??^g??",
+        "mode": 8,
+        "lambda_mode": 0.9832578952782636,
+        "leaf": 12,
+        "support": 0,
+        "mu_b": 6.729013905825353,
+        "degree_signature": {
+          "1": 11,
+          "2": 10,
+          "6": 1,
+          "7": 1
+        },
+        "half_slack": 0.22901390582535264
+      },
+      "min_exact_slack": 0.22479304661143118,
+      "min_exact_witness": {
+        "n": 23,
+        "g6": "V???????????_?O?C??_?A??C??C??A???_?{E??^g??",
+        "mode": 8,
+        "lambda_mode": 0.9832578952782636,
+        "leaf": 12,
+        "support": 0,
+        "mu_b": 6.729013905825353,
+        "degree_signature": {
+          "1": 11,
+          "2": 10,
+          "6": 1,
+          "7": 1
+        },
+        "exact_slack": 0.22479304661143118
+      },
+      "wall_s": 398.78700017929077
+    }
+  }
+}

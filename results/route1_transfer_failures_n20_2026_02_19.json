@@ -1,0 +1,105 @@
+{
+  "params": {
+    "min_n": 20,
+    "max_n": 20,
+    "res": null,
+    "mod": null,
+    "tol": 1e-12
+  },
+  "summary": {
+    "seen": 823065,
+    "considered": 43029,
+    "checked": 43029,
+    "no_deg2_support": 0,
+    "exact_violation_count": 1,
+    "max_exact_excess": 0.003981091519019597,
+    "max_exact_excess_witness": {
+      "n": 20,
+      "g6": "S???????????_?O?C??o?@_?@_??oFig?",
+      "mode": 7,
+      "lambda": 0.993367722918202,
+      "leaf": 4,
+      "support": 15,
+      "u_in_T": 3,
+      "deg_u_in_T": 2,
+      "deg_u_in_B": 1,
+      "num_children_u": 1,
+      "mu_p": 5.454847549564035,
+      "mu_b": 5.960492227034996,
+      "D": 0.5056446774709604,
+      "threshold_1_over_1plam": 0.5016635859519408,
+      "exact_excess": 0.003981091519019597,
+      "p_u": 0.4904112869076267,
+      "sum_p_children": 0.031207847509587286,
+      "sum_delta_children": -0.031062479535069798,
+      "one_minus_sum_delta": 1.0310624795350698,
+      "R_prod_1_minus_pc": 0.9687921524904127,
+      "D_from_decomp": 0.5056446774709621,
+      "exact_excess_from_num": 0.003981091519021234,
+      "num_exact_sign": 0.015572910333596424,
+      "den_exact_sign": 3.9117187482856663,
+      "sum_delta_negative_children": 1,
+      "sum_p_minus_sum_delta": 0.062270327044657084,
+      "children": [
+        {
+          "child": 17,
+          "deg": 8,
+          "n_descendants": 17,
+          "n_grandchildren": 7,
+          "n_leaf_grandchildren": 1,
+          "p_c": 0.031207847509587286,
+          "delta_c": -0.031062479535069798,
+          "mu_Ic": 5.454847549564035,
+          "mu_qc": 5.485910029099105,
+          "mu_dc": 4.490568087443956,
+          "sum_delta_gc": 1.9953419416551497
+        }
+      ]
+    }
+  },
+  "witnesses": [
+    {
+      "n": 20,
+      "g6": "S???????????_?O?C??o?@_?@_??oFig?",
+      "mode": 7,
+      "lambda": 0.993367722918202,
+      "leaf": 4,
+      "support": 15,
+      "u_in_T": 3,
+      "deg_u_in_T": 2,
+      "deg_u_in_B": 1,
+      "num_children_u": 1,
+      "mu_p": 5.454847549564035,
+      "mu_b": 5.960492227034996,
+      "D": 0.5056446774709604,
+      "threshold_1_over_1plam": 0.5016635859519408,
+      "exact_excess": 0.003981091519019597,
+      "p_u": 0.4904112869076267,
+      "sum_p_children": 0.031207847509587286,
+      "sum_delta_children": -0.031062479535069798,
+      "one_minus_sum_delta": 1.0310624795350698,
+      "R_prod_1_minus_pc": 0.9687921524904127,
+      "D_from_decomp": 0.5056446774709621,
+      "exact_excess_from_num": 0.003981091519021234,
+      "num_exact_sign": 0.015572910333596424,
+      "den_exact_sign": 3.9117187482856663,
+      "sum_delta_negative_children": 1,
+      "sum_p_minus_sum_delta": 0.062270327044657084,
+      "children": [
+        {
+          "child": 17,
+          "deg": 8,
+          "n_descendants": 17,
+          "n_grandchildren": 7,
+          "n_leaf_grandchildren": 1,
+          "p_c": 0.031207847509587286,
+          "delta_c": -0.031062479535069798,
+          "mu_Ic": 5.454847549564035,
+          "mu_qc": 5.485910029099105,
+          "mu_dc": 4.490568087443956,
+          "sum_delta_gc": 1.9953419416551497
+        }
+      ]
+    }
+  ]
+}

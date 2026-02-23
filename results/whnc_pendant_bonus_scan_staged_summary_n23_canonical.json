@@ -1,0 +1,77 @@
+{
+  "description": "Route-2 pendant-bonus scan staged summary through n<=23 (canonical degree-2-support leaf, d_leaf<=1)",
+  "sources": [
+    "results/whnc_pendant_bonus_scan_n20_canonical.json",
+    "results/whnc_pendant_bonus_scan_n23_canonical_tail.json"
+  ],
+  "per_source": [
+    {
+      "source": "results/whnc_pendant_bonus_scan_n20_canonical.json",
+      "seen": 1346021,
+      "considered": 77141,
+      "checked_trees": 77141,
+      "checked_leaves": 77141,
+      "fail_half": 0,
+      "fail_exact": 0,
+      "min_half_slack": 0.2053400949297961,
+      "min_exact_slack": 0.1917190358541916
+    },
+    {
+      "source": "results/whnc_pendant_bonus_scan_n23_canonical_tail.json",
+      "seen": 22596335,
+      "considered": 854455,
+      "checked_trees": 854455,
+      "checked_leaves": 854455,
+      "fail_half": 0,
+      "fail_exact": 0,
+      "min_half_slack": 0.22343786211387684,
+      "min_exact_slack": 0.1913484628930444
+    }
+  ],
+  "summary": {
+    "seen": 23942356,
+    "considered": 931596,
+    "checked_trees": 931596,
+    "checked_leaves": 931596,
+    "fail_half": 0,
+    "fail_exact": 0
+  },
+  "global_minima": {
+    "half": {
+      "value": 0.2053400949297961,
+      "witness": {
+        "n": 20,
+        "g6": "S???????C?G?G?C?@??G??_?@??@?F~_?",
+        "mode": 7,
+        "lambda_mode": 0.9469606674612634,
+        "leaf": 10,
+        "support": 0,
+        "mu_b": 5.705340094929796,
+        "degree_signature": {
+          "1": 10,
+          "2": 9,
+          "10": 1
+        },
+        "half_slack": 0.2053400949297961
+      }
+    },
+    "exact": {
+      "value": 0.1913484628930444,
+      "witness": {
+        "n": 21,
+        "g6": "T???????C?G?G?C?@??G??_?@??@???_B~o?",
+        "mode": 7,
+        "lambda_mode": 0.879383429672447,
+        "leaf": 10,
+        "support": 0,
+        "mu_b": 5.723437862113877,
+        "degree_signature": {
+          "1": 10,
+          "2": 10,
+          "10": 1
+        },
+        "exact_slack": 0.1913484628930444
+      }
+    }
+  }
+}

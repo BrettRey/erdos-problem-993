@@ -2,6 +2,78 @@
 
 Date: 2026-02-18
 
+## Update (2026-02-19): Route-2 pendant-bonus bounds through n<=23
+
+We extended the pendant-bonus lane beyond the original `n<=20` diagnostics with a
+dedicated checkpointed scanner:
+
+- script: `conjecture_a_pendant_bonus_scan.py`
+
+Staged artifacts:
+
+- `results/whnc_pendant_bonus_scan_n20_all_deg2.json`
+- `results/whnc_pendant_bonus_scan_n23_all_deg2_tail.json`
+- `results/whnc_pendant_bonus_scan_staged_summary_n23_all_deg2.json`
+- `results/whnc_pendant_bonus_scan_n20_canonical.json`
+- `results/whnc_pendant_bonus_scan_n23_canonical_tail.json`
+- `results/whnc_pendant_bonus_scan_staged_summary_n23_canonical.json`
+
+Two inequalities were checked at `lambda=lambda_m(T)` with `B=T-{l,s}`:
+
+1. Route-2 target (weaker): `mu_B >= m - 3/2`
+2. Pendant-bonus sufficient (stronger): `mu_B >= m - 1 - lambda/(1+lambda)`
+
+### All degree-2-support leaves (`d_leaf<=1`, full n<=23 frontier)
+
+- trees checked: `931,596`
+- degree-2-support leaves checked: `4,543,370`
+- failures (target): `0`
+- failures (stronger): `0`
+- minimum target slack: `0.20033413665157518`
+- minimum stronger slack: `0.1913484628930444`
+
+### Canonical degree-2-support leaf (one per tree)
+
+- trees checked: `931,596`
+- leaves checked: `931,596`
+- failures (target): `0`
+- failures (stronger): `0`
+- minimum target slack: `0.2053400949297961`
+- minimum stronger slack: `0.1913484628930444`
+
+So route 2 now has robust quantitative margin on the full `d_leaf<=1` frontier.
+
+### New decomposition diagnostic: `tau`-deficit vs `lambda_m`-lift
+
+To isolate where route 2 gets its slack, we added:
+
+- script: `conjecture_a_route2_compensation_scan.py`
+- artifact: `results/whnc_route2_compensation_scan_n23_canonical.json`
+
+For canonical degree-2-support leaf per tree, define
+`tau=b_{m-2}/b_{m-1}` from `B=T-{l,s}` and track:
+
+- `deficit_tau = (m-3/2) - mu_B(tau)`
+- `gain = mu_B(lambda_m(T)) - mu_B(tau)`
+- `gap = lambda_m(T) - tau`
+- `avg_slope = gain/gap` (when `deficit_tau > 0`)
+
+Results (`d_leaf<=1`, `n<=23`, canonical):
+
+- checked leaves: `931,595` (one `m=1` tree excluded)
+- route-2 failures: `0`
+- stronger failures: `0`
+- deficit cases (`mu_B(tau) < m-3/2`): `535,095`
+- deficit cases with nonpositive gap: `0`
+- maximum deficit at `tau`: `0.1000959551`
+- minimum gain in deficit cases: `0.2901109960`
+- minimum gap in deficit cases: `0.0989512711`
+- minimum avg slope in deficit cases: `1.3017613174`
+
+Empirically, the route-2 inequality is won by a consistent compensation pattern:
+even when `mu_B(tau)` sits below `m-3/2`, the move from `tau` to `lambda_m(T)`
+over-recovers the deficit.
+
 ## Setup
 
 Let T be a d_leaf ≤ 1 tree on n vertices. By the existence lemma (counting proof), T

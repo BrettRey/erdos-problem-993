@@ -1,0 +1,782 @@
+{
+  "params": {
+    "witness_count": 2
+  },
+  "witnesses": [
+    {
+      "n": 20,
+      "g6": "S???????C?G?G?C?@??G??_?@??@?F~_?",
+      "mode_T": 7,
+      "mode_B": 6,
+      "shift": 0,
+      "leaf": 10,
+      "support": 0,
+      "hub_u_in_T": 19,
+      "hub_u_in_B": 17,
+      "deg_u_in_B": 9,
+      "I_T": [
+        1,
+        20,
+        171,
+        852,
+        2772,
+        6174,
+        9534,
+        10068,
+        6948,
+        2825,
+        513
+      ],
+      "I_B": [
+        1,
+        18,
+        136,
+        588,
+        1624,
+        2982,
+        3640,
+        2844,
+        1288,
+        257
+      ],
+      "P": [
+        1,
+        17,
+        128,
+        560,
+        1568,
+        2912,
+        3584,
+        2816,
+        1280,
+        256
+      ],
+      "Q": [
+        0,
+        1,
+        8,
+        28,
+        56,
+        70,
+        56,
+        28,
+        8,
+        1
+      ],
+      "R": [
+        1,
+        8,
+        28,
+        56,
+        70,
+        56,
+        28,
+        8,
+        1
+      ],
+      "S": [
+        0,
+        9,
+        100,
+        504,
+        1498,
+        2856,
+        3556,
+        2808,
+        1279,
+        256
+      ],
+      "q_drop": true,
+      "delta_q": -14,
+      "delta_b": 658,
+      "delta_p": 672,
+      "p1_over_b1": 0.9846153846153847,
+      "q_index_check": {
+        "q_m2": 70,
+        "R_m3": 70,
+        "q_m1": 56,
+        "R_m2": 56,
+        "ok": true
+      },
+      "windows": {
+        "q_window": {
+          "k0": 4,
+          "k1": 5,
+          "delta_R": -14,
+          "delta_Q": -14,
+          "delta_P": 1344,
+          "delta_S": 1358
+        },
+        "same_window": {
+          "k0": 5,
+          "k1": 6,
+          "delta_R": -28,
+          "delta_P": 672,
+          "delta_S": 700
+        }
+      },
+      "H_levels": [
+        {
+          "t": 0,
+          "coeffs": {
+            "k4": 70,
+            "k5": 56,
+            "k6": 28,
+            "k7": 8
+          },
+          "deltas": {
+            "q_window": -14,
+            "same_window": -28
+          }
+        },
+        {
+          "t": 1,
+          "coeffs": {
+            "k4": 336,
+            "k5": 350,
+            "k6": 224,
+            "k7": 84
+          },
+          "deltas": {
+            "q_window": 14,
+            "same_window": -126
+          }
+        },
+        {
+          "t": 2,
+          "coeffs": {
+            "k4": 588,
+            "k5": 840,
+            "k6": 700,
+            "k7": 336
+          },
+          "deltas": {
+            "q_window": 252,
+            "same_window": -140
+          }
+        },
+        {
+          "t": 3,
+          "coeffs": {
+            "k4": 448,
+            "k5": 980,
+            "k6": 1120,
+            "k7": 700
+          },
+          "deltas": {
+            "q_window": 532,
+            "same_window": 140
+          }
+        },
+        {
+          "t": 4,
+          "coeffs": {
+            "k4": 126,
+            "k5": 560,
+            "k6": 980,
+            "k7": 840
+          },
+          "deltas": {
+            "q_window": 434,
+            "same_window": 420
+          }
+        },
+        {
+          "t": 5,
+          "coeffs": {
+            "k4": 0,
+            "k5": 126,
+            "k6": 448,
+            "k7": 588
+          },
+          "deltas": {
+            "q_window": 126,
+            "same_window": 322
+          }
+        },
+        {
+          "t": 6,
+          "coeffs": {
+            "k4": 0,
+            "k5": 0,
+            "k6": 84,
+            "k7": 224
+          },
+          "deltas": {
+            "q_window": 0,
+            "same_window": 84
+          }
+        },
+        {
+          "t": 7,
+          "coeffs": {
+            "k4": 0,
+            "k5": 0,
+            "k6": 0,
+            "k7": 36
+          },
+          "deltas": {
+            "q_window": 0,
+            "same_window": 0
+          }
+        },
+        {
+          "t": 8,
+          "coeffs": {
+            "k4": 0,
+            "k5": 0,
+            "k6": 0,
+            "k7": 0
+          },
+          "deltas": {
+            "q_window": 0,
+            "same_window": 0
+          }
+        },
+        {
+          "t": 9,
+          "coeffs": {
+            "k4": 0,
+            "k5": 0,
+            "k6": 0,
+            "k7": 0
+          },
+          "deltas": {
+            "q_window": 0,
+            "same_window": 0
+          }
+        }
+      ],
+      "children": [
+        {
+          "child_index_in_B": 0,
+          "subtree_size": 2,
+          "deg_in_B": 2,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 1,
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            2
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        },
+        {
+          "child_index_in_B": 1,
+          "subtree_size": 2,
+          "deg_in_B": 2,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 1,
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            2
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        },
+        {
+          "child_index_in_B": 2,
+          "subtree_size": 2,
+          "deg_in_B": 2,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 1,
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            2
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        },
+        {
+          "child_index_in_B": 3,
+          "subtree_size": 2,
+          "deg_in_B": 2,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 1,
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            2
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        },
+        {
+          "child_index_in_B": 4,
+          "subtree_size": 2,
+          "deg_in_B": 2,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 1,
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            2
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        },
+        {
+          "child_index_in_B": 5,
+          "subtree_size": 2,
+          "deg_in_B": 2,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 1,
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            2
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        },
+        {
+          "child_index_in_B": 6,
+          "subtree_size": 2,
+          "deg_in_B": 2,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 1,
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            2
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        },
+        {
+          "child_index_in_B": 7,
+          "subtree_size": 2,
+          "deg_in_B": 2,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 1,
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            2
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        },
+        {
+          "child_index_in_B": 8,
+          "subtree_size": 1,
+          "deg_in_B": 1,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 0,
+          "F": [
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            1
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        }
+      ]
+    },
+    {
+      "n": 23,
+      "g6": "V???????????_?O?C??_?A??C??C??A???_?{E??^g??",
+      "mode_T": 8,
+      "mode_B": 7,
+      "shift": 0,
+      "leaf": 12,
+      "support": 0,
+      "hub_u_in_T": 21,
+      "hub_u_in_B": 19,
+      "deg_u_in_B": 5,
+      "I_T": [
+        1,
+        23,
+        231,
+        1355,
+        5224,
+        14052,
+        27183,
+        38233,
+        38884,
+        27916,
+        13433,
+        3889,
+        512
+      ],
+      "I_B": [
+        1,
+        21,
+        190,
+        990,
+        3338,
+        7708,
+        12504,
+        14297,
+        11314,
+        5908,
+        1833,
+        256
+      ],
+      "P": [
+        1,
+        20,
+        175,
+        896,
+        3006,
+        6971,
+        11432,
+        13273,
+        10694,
+        5692,
+        1800,
+        256
+      ],
+      "Q": [
+        0,
+        1,
+        15,
+        94,
+        332,
+        737,
+        1072,
+        1024,
+        620,
+        216,
+        33
+      ],
+      "R": [
+        1,
+        15,
+        94,
+        332,
+        737,
+        1072,
+        1024,
+        620,
+        216,
+        33
+      ],
+      "S": [
+        0,
+        5,
+        81,
+        564,
+        2269,
+        5899,
+        10408,
+        12653,
+        10478,
+        5659,
+        1800,
+        256
+      ],
+      "q_drop": true,
+      "delta_q": -48,
+      "delta_b": 1793,
+      "delta_p": 1841,
+      "p1_over_b1": 0.9283765824998251,
+      "q_index_check": {
+        "q_m2": 1072,
+        "R_m3": 1072,
+        "q_m1": 1024,
+        "R_m2": 1024,
+        "ok": true
+      },
+      "windows": {
+        "q_window": {
+          "k0": 5,
+          "k1": 6,
+          "delta_R": -48,
+          "delta_Q": -48,
+          "delta_P": 4461,
+          "delta_S": 4509
+        },
+        "same_window": {
+          "k0": 6,
+          "k1": 7,
+          "delta_R": -404,
+          "delta_P": 1841,
+          "delta_S": 2245
+        }
+      },
+      "H_levels": [
+        {
+          "t": 0,
+          "coeffs": {
+            "k5": 1072,
+            "k6": 1024,
+            "k7": 620,
+            "k8": 216
+          },
+          "deltas": {
+            "q_window": -48,
+            "same_window": -404
+          }
+        },
+        {
+          "t": 1,
+          "coeffs": {
+            "k5": 2873,
+            "k6": 3835,
+            "k7": 3303,
+            "k8": 1761
+          },
+          "deltas": {
+            "q_window": 962,
+            "same_window": -532
+          }
+        },
+        {
+          "t": 2,
+          "coeffs": {
+            "k5": 2308,
+            "k6": 4386,
+            "k7": 5280,
+            "k8": 3977
+          },
+          "deltas": {
+            "q_window": 2078,
+            "same_window": 894
+          }
+        },
+        {
+          "t": 3,
+          "coeffs": {
+            "k5": 658,
+            "k6": 1888,
+            "k7": 3260,
+            "k8": 3450
+          },
+          "deltas": {
+            "q_window": 1230,
+            "same_window": 1372
+          }
+        },
+        {
+          "t": 4,
+          "coeffs": {
+            "k5": 59,
+            "k6": 288,
+            "k7": 760,
+            "k8": 1170
+          },
+          "deltas": {
+            "q_window": 229,
+            "same_window": 472
+          }
+        },
+        {
+          "t": 5,
+          "coeffs": {
+            "k5": 1,
+            "k6": 11,
+            "k7": 50,
+            "k8": 120
+          },
+          "deltas": {
+            "q_window": 10,
+            "same_window": 39
+          }
+        }
+      ],
+      "children": [
+        {
+          "child_index_in_B": 0,
+          "subtree_size": 2,
+          "deg_in_B": 2,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 1,
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            2
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        },
+        {
+          "child_index_in_B": 1,
+          "subtree_size": 2,
+          "deg_in_B": 2,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 1,
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            2
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        },
+        {
+          "child_index_in_B": 2,
+          "subtree_size": 2,
+          "deg_in_B": 2,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 1,
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            2
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        },
+        {
+          "child_index_in_B": 8,
+          "subtree_size": 13,
+          "deg_in_B": 2,
+          "mode_F": 4,
+          "mode_G": 5,
+          "mode_I": 4,
+          "F": [
+            1,
+            12,
+            55,
+            130,
+            170,
+            117,
+            33
+          ],
+          "G": [
+            0,
+            1,
+            11,
+            50,
+            120,
+            160,
+            112,
+            32
+          ],
+          "I": [
+            1,
+            13,
+            66,
+            180,
+            290,
+            277,
+            145,
+            32
+          ],
+          "delta_F_same_window": -33,
+          "delta_I_same_window": -113
+        },
+        {
+          "child_index_in_B": 9,
+          "subtree_size": 1,
+          "deg_in_B": 1,
+          "mode_F": 0,
+          "mode_G": 1,
+          "mode_I": 0,
+          "F": [
+            1
+          ],
+          "G": [
+            0,
+            1
+          ],
+          "I": [
+            1,
+            1
+          ],
+          "delta_F_same_window": 0,
+          "delta_I_same_window": 0
+        }
+      ]
+    }
+  ]
+}

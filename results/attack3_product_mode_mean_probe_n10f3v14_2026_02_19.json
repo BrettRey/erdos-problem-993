@@ -1,0 +1,216 @@
+{
+  "params": {
+    "max_tree_n": 10,
+    "max_factors": 3,
+    "max_total_vertices": 14,
+    "lambda_grid": [
+      0.25,
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5
+    ],
+    "check_ties": true,
+    "tie_lambda_max": 1.0,
+    "tol": 1e-12,
+    "floor_eps": 1e-12
+  },
+  "factor_pool_size": 186,
+  "combo_count": 3192,
+  "lambda_stats": {
+    "0.25": {
+      "lambda": 0.25,
+      "tested": 3192,
+      "fail": 0,
+      "min_margin_mode_minus_floor_mu": 0,
+      "worst_witness": {
+        "factor_ns": [
+          1
+        ],
+        "factor_reps": [
+          "@"
+        ],
+        "total_vertices": 1,
+        "mode_P": 0,
+        "mu_lambda": 0.2,
+        "floor_mu": 0,
+        "margin": 0,
+        "lambda": 0.25,
+        "poly": [
+          1,
+          1
+        ]
+      }
+    },
+    "0.5": {
+      "lambda": 0.5,
+      "tested": 3192,
+      "fail": 0,
+      "min_margin_mode_minus_floor_mu": 0,
+      "worst_witness": {
+        "factor_ns": [
+          1
+        ],
+        "factor_reps": [
+          "@"
+        ],
+        "total_vertices": 1,
+        "mode_P": 0,
+        "mu_lambda": 0.3333333333333333,
+        "floor_mu": 0,
+        "margin": 0,
+        "lambda": 0.5,
+        "poly": [
+          1,
+          1
+        ]
+      }
+    },
+    "0.75": {
+      "lambda": 0.75,
+      "tested": 3192,
+      "fail": 0,
+      "min_margin_mode_minus_floor_mu": 0,
+      "worst_witness": {
+        "factor_ns": [
+          1
+        ],
+        "factor_reps": [
+          "@"
+        ],
+        "total_vertices": 1,
+        "mode_P": 0,
+        "mu_lambda": 0.42857142857142855,
+        "floor_mu": 0,
+        "margin": 0,
+        "lambda": 0.75,
+        "poly": [
+          1,
+          1
+        ]
+      }
+    },
+    "1": {
+      "lambda": 1.0,
+      "tested": 3192,
+      "fail": 0,
+      "min_margin_mode_minus_floor_mu": 0,
+      "worst_witness": {
+        "factor_ns": [
+          1
+        ],
+        "factor_reps": [
+          "@"
+        ],
+        "total_vertices": 1,
+        "mode_P": 0,
+        "mu_lambda": 0.5,
+        "floor_mu": 0,
+        "margin": 0,
+        "lambda": 1.0,
+        "poly": [
+          1,
+          1
+        ]
+      }
+    },
+    "1.25": {
+      "lambda": 1.25,
+      "tested": 3192,
+      "fail": 37,
+      "min_margin_mode_minus_floor_mu": -1,
+      "worst_witness": {
+        "factor_ns": [
+          1,
+          1,
+          10
+        ],
+        "factor_reps": [
+          "@",
+          "@",
+          "I???C@wp_"
+        ],
+        "total_vertices": 12,
+        "mode_P": 4,
+        "mu_lambda": 5.043925646237914,
+        "floor_mu": 5,
+        "margin": -1,
+        "lambda": 1.25,
+        "poly": [
+          1,
+          12,
+          57,
+          144,
+          221,
+          221,
+          148,
+          65,
+          17,
+          2
+        ]
+      }
+    },
+    "1.5": {
+      "lambda": 1.5,
+      "tested": 3192,
+      "fail": 698,
+      "min_margin_mode_minus_floor_mu": -1,
+      "worst_witness": {
+        "factor_ns": [
+          1,
+          1,
+          6
+        ],
+        "factor_reps": [
+          "@",
+          "@",
+          "E?Bw"
+        ],
+        "total_vertices": 8,
+        "mode_P": 3,
+        "mu_lambda": 4.169744721084148,
+        "floor_mu": 4,
+        "margin": -1,
+        "lambda": 1.5,
+        "poly": [
+          1,
+          8,
+          23,
+          36,
+          35,
+          21,
+          7,
+          1
+        ]
+      }
+    }
+  },
+  "tie_stats": {
+    "enabled": true,
+    "tie_lambda_max": 1.0,
+    "tested": 13593,
+    "fail": 0,
+    "min_margin_mode_minus_floor_mu": 0,
+    "worst_witness": {
+      "factor_ns": [
+        1
+      ],
+      "factor_reps": [
+        "@"
+      ],
+      "total_vertices": 1,
+      "mode_P": 0,
+      "k": 1,
+      "lambda_tie": 1.0,
+      "mu_lambda": 0.5,
+      "floor_mu": 0,
+      "margin": 0,
+      "poly": [
+        1,
+        1
+      ]
+    }
+  },
+  "wall_s": 0.06795430183410645
+}

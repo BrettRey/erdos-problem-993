@@ -1,0 +1,241 @@
+{
+  "params": {
+    "min_n": 23,
+    "max_n": 23,
+    "tol": 1e-12,
+    "all_trees": false,
+    "res": 3,
+    "mod": 8
+  },
+  "summary": {
+    "seen": 1983156,
+    "considered": 94634,
+    "checked": 94634,
+    "no_deg2_support": 0,
+    "phiP_fail": 0,
+    "lambda_gap_fail": 0,
+    "modeP_fail": 0,
+    "ulc_fail": 0,
+    "tau_skipped": 0,
+    "modeP_shift_dist": {
+      "1": 59,
+      "0": 94575
+    },
+    "degP_shift_dist": {
+      "6": 5819,
+      "5": 63284,
+      "7": 8,
+      "4": 25523
+    },
+    "min_phiP": 3204.202098784854,
+    "min_phiP_witness": {
+      "n": 23,
+      "g6": "V?????????????_?G?@??C?AG??W??E???o??B?BlS??",
+      "mode": 7,
+      "lambda_mode": 0.7514459483632461,
+      "leaf": 7,
+      "support": 19,
+      "mode_p": 6,
+      "mode_p_shift": 0,
+      "deg_p": 11,
+      "deg_p_shift": 5,
+      "phi_p": 3204.202098784854,
+      "mu_p": 5.597298865445147,
+      "mu_gap": 0.597298865445147,
+      "degree_signature": {
+        "1": 8,
+        "2": 14,
+        "8": 1
+      }
+    },
+    "min_mu_gap": 0.5245183218314029,
+    "min_mu_gap_witness": {
+      "n": 23,
+      "g6": "V?????????O?O?G?A??O?@??A?CA??B???W?WG??{g??",
+      "mode": 7,
+      "lambda_mode": 0.8305994519725236,
+      "leaf": 10,
+      "support": 20,
+      "mode_p": 6,
+      "mode_p_shift": 0,
+      "deg_p": 10,
+      "deg_p_shift": 4,
+      "phi_p": 3978.3545116456685,
+      "mu_p": 5.524518321831403,
+      "mu_gap": 0.5245183218314029,
+      "degree_signature": {
+        "1": 7,
+        "2": 14,
+        "3": 1,
+        "6": 1
+      }
+    },
+    "min_lambda_gap": 0.029771725518253356,
+    "min_lambda_gap_witness": {
+      "n": 23,
+      "g6": "V?????????????_?G?@??c?@G??K??B???W?K@??Yk??",
+      "mode": 7,
+      "lambda_mode": 0.795995213963964,
+      "leaf": 6,
+      "support": 18,
+      "mode_p": 6,
+      "mode_p_shift": 0,
+      "deg_p": 11,
+      "deg_p_shift": 5,
+      "phi_p": 3876.2864384967465,
+      "mu_p": 5.597684837251704,
+      "mu_gap": 0.5976848372517036,
+      "degree_signature": {
+        "1": 7,
+        "2": 14,
+        "3": 1,
+        "6": 1
+      },
+      "tau_p": 0.7662234884457106,
+      "lambda_gap": 0.029771725518253356,
+      "tau_mu_gap": 0.5078489530723749
+    },
+    "min_tau_mu_gap": 0.4192682195640627,
+    "min_tau_mu_gap_witness": {
+      "n": 23,
+      "g6": "V?????????O?O?G?A??O?@_?D??D???oB_??EO??@g??",
+      "mode": 7,
+      "lambda_mode": 0.9056317290880648,
+      "leaf": 10,
+      "support": 19,
+      "mode_p": 6,
+      "mode_p_shift": 0,
+      "deg_p": 10,
+      "deg_p_shift": 4,
+      "phi_p": 6053.177710861445,
+      "mu_p": 5.5595041710754325,
+      "mu_gap": 0.5595041710754325,
+      "degree_signature": {
+        "1": 5,
+        "2": 15,
+        "3": 3
+      },
+      "tau_p": 0.843328335832084,
+      "lambda_gap": 0.06230339325598078,
+      "tau_mu_gap": 0.4192682195640627
+    },
+    "small_deg_shift_cases": []
+  },
+  "per_n": {
+    "23": {
+      "seen": 1983156,
+      "considered": 94634,
+      "checked": 94634,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "1": 59,
+        "0": 94575
+      },
+      "degP_shift_dist": {
+        "6": 5819,
+        "5": 63284,
+        "7": 8,
+        "4": 25523
+      },
+      "min_phiP": 3204.202098784854,
+      "min_phiP_witness": {
+        "n": 23,
+        "g6": "V?????????????_?G?@??C?AG??W??E???o??B?BlS??",
+        "mode": 7,
+        "lambda_mode": 0.7514459483632461,
+        "leaf": 7,
+        "support": 19,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 11,
+        "deg_p_shift": 5,
+        "phi_p": 3204.202098784854,
+        "mu_p": 5.597298865445147,
+        "mu_gap": 0.597298865445147,
+        "degree_signature": {
+          "1": 8,
+          "2": 14,
+          "8": 1
+        }
+      },
+      "min_mu_gap": 0.5245183218314029,
+      "min_mu_gap_witness": {
+        "n": 23,
+        "g6": "V?????????O?O?G?A??O?@??A?CA??B???W?WG??{g??",
+        "mode": 7,
+        "lambda_mode": 0.8305994519725236,
+        "leaf": 10,
+        "support": 20,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 10,
+        "deg_p_shift": 4,
+        "phi_p": 3978.3545116456685,
+        "mu_p": 5.524518321831403,
+        "mu_gap": 0.5245183218314029,
+        "degree_signature": {
+          "1": 7,
+          "2": 14,
+          "3": 1,
+          "6": 1
+        }
+      },
+      "min_lambda_gap": 0.029771725518253356,
+      "min_lambda_gap_witness": {
+        "n": 23,
+        "g6": "V?????????????_?G?@??c?@G??K??B???W?K@??Yk??",
+        "mode": 7,
+        "lambda_mode": 0.795995213963964,
+        "leaf": 6,
+        "support": 18,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 11,
+        "deg_p_shift": 5,
+        "phi_p": 3876.2864384967465,
+        "mu_p": 5.597684837251704,
+        "mu_gap": 0.5976848372517036,
+        "degree_signature": {
+          "1": 7,
+          "2": 14,
+          "3": 1,
+          "6": 1
+        },
+        "tau_p": 0.7662234884457106,
+        "lambda_gap": 0.029771725518253356,
+        "tau_mu_gap": 0.5078489530723749
+      },
+      "min_tau_mu_gap": 0.4192682195640627,
+      "min_tau_mu_gap_witness": {
+        "n": 23,
+        "g6": "V?????????O?O?G?A??O?@_?D??D???oB_??EO??@g??",
+        "mode": 7,
+        "lambda_mode": 0.9056317290880648,
+        "leaf": 10,
+        "support": 19,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 10,
+        "deg_p_shift": 4,
+        "phi_p": 6053.177710861445,
+        "mu_p": 5.5595041710754325,
+        "mu_gap": 0.5595041710754325,
+        "degree_signature": {
+          "1": 5,
+          "2": 15,
+          "3": 3
+        },
+        "tau_p": 0.843328335832084,
+        "lambda_gap": 0.06230339325598078,
+        "tau_mu_gap": 0.4192682195640627
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 66.52480483055115
+    }
+  }
+}

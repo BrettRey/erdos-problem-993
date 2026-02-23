@@ -1,0 +1,25 @@
+{
+  "total": 77141,
+  "p_ge_q": 77141,
+  "ascending": 71768,
+  "descent_count": 5373,
+  "descending_compensated": 5373,
+  "min_gap": 1,
+  "max_descent": 126,
+  "min_E_at_descent": 5,
+  "min_excess_ratio": 5.0,
+  "q_drop_count": 1,
+  "q_drop_p_ge_q": 1,
+  "min_gap_witness": {
+    "n": 4,
+    "m": 1,
+    "p1": 1,
+    "q1": 0,
+    "pd_m1": 1,
+    "pd_m2": 0,
+    "E_m1": 0,
+    "step": 1,
+    "g6": "CU"
+  },
+  "wall_s": 34.433932065963745
+}

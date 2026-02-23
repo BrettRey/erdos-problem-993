@@ -474,3 +474,16 @@ For fast artifact-only precheck (no full rerun), add:
   - Aggregate through `n<=23`: checked `931,596`, failures `0`.
 - Status interpretation:
   - This is not a symbolic proof, but it is the strongest empirical support so far for a local class that survives all known frontier data, including the prior global mu3 failure witness.
+
+### 2026-02-23 01:06:00Z - round25_output_audit - unrestricted_moment_nogo_valid_but_not_canonical_nogo
+- Audited latest round-25 `BLOCKED` argument (moment-indistinguishable pair).
+- Verified algebraically:
+  - Constructed pair `(w,w')` is valid and nonnegative.
+  - `w,w'` have identical mass and factorial moments through order 5.
+  - `R1_tail2` truth differs between `w` and `w'` at fixed `(m,lambda)`.
+  - Therefore: moments up to order 4 (and this specific perturbation even up to order 5) do not determine `R1_tail2` in the unrestricted nonnegative-coefficient universe.
+- Scope correction:
+  - This does **not** yet prove no-go for the canonical DP mu4 class used by our verifier, because that class also uses step-local factor data `F_t` along the product chain and canonical-structure constraints not encoded in the unrestricted pair argument.
+- Decision:
+  - Treat round-25 `BLOCKED` as a valid unrestricted-moment no-go, but not sufficient to overturn the empirical canonical pass through `n<=23`.
+  - Next symbolic task remains: either prove canonical structure excludes such null-direction perturbations, or derive a true canonical counterexample.

@@ -1,0 +1,388 @@
+{
+  "inputs": [
+    "results/route1_transfer_failures_n20_2026_02_19.json",
+    "results/route1_transfer_failures_n23_r0_2026_02_19.json",
+    "results/route1_transfer_failures_n23_r4_2026_02_19.json"
+  ],
+  "count": 4,
+  "summaries": [
+    {
+      "g6": "V?????????????_?G?@??C??G??G??E???o?oB?@|S??",
+      "n": 23,
+      "mode": 8,
+      "lambda": 0.9972305185989683,
+      "D": 0.5058006710219001,
+      "threshold_1_over_1plam": 0.5006933304331276,
+      "exact_excess": 0.005107340588772491,
+      "deg_u_in_T": 2,
+      "deg_u_in_B": 1,
+      "num_children_u": 1,
+      "p_u": 0.49126887657403,
+      "sum_delta_children": -0.029580124328679958,
+      "one_minus_sum_delta": 1.02958012432868,
+      "depth_hist_B": {
+        "0": 1,
+        "1": 1,
+        "2": 7,
+        "3": 6,
+        "4": 4,
+        "5": 2
+      },
+      "selected_child_deg_in_B": 8,
+      "selected_child_branch_count": 7,
+      "selected_child_branches": [
+        {
+          "gc": 11,
+          "size": 1,
+          "height": 0,
+          "shape": "()"
+        },
+        {
+          "gc": 2,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 3,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 4,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 5,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 7,
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)"
+        },
+        {
+          "gc": 9,
+          "size": 7,
+          "height": 3,
+          "shape": "(((), ((),), ((),)),)"
+        }
+      ],
+      "selected_child_branch_multiset": [
+        {
+          "size": 1,
+          "height": 0,
+          "shape": "()",
+          "count": 1
+        },
+        {
+          "size": 2,
+          "height": 1,
+          "shape": "((),)",
+          "count": 4
+        },
+        {
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)",
+          "count": 1
+        },
+        {
+          "size": 7,
+          "height": 3,
+          "shape": "(((), ((),), ((),)),)",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "g6": "V???????????????O?A??G??W??K??B???W??@_Fii??",
+      "n": 23,
+      "mode": 8,
+      "lambda": 0.9932366383979288,
+      "D": 0.5059567659780138,
+      "threshold_1_over_1plam": 0.5016965776847017,
+      "exact_excess": 0.004260188293312095,
+      "deg_u_in_T": 2,
+      "deg_u_in_B": 1,
+      "num_children_u": 1,
+      "p_u": 0.49350657138744103,
+      "sum_delta_children": -0.025228021899630804,
+      "one_minus_sum_delta": 1.0252280218996308,
+      "depth_hist_B": {
+        "0": 1,
+        "1": 1,
+        "2": 8,
+        "3": 7,
+        "4": 4
+      },
+      "selected_child_deg_in_B": 9,
+      "selected_child_branch_count": 8,
+      "selected_child_branches": [
+        {
+          "gc": 12,
+          "size": 1,
+          "height": 0,
+          "shape": "()"
+        },
+        {
+          "gc": 0,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 1,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 2,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 4,
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)"
+        },
+        {
+          "gc": 6,
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)"
+        },
+        {
+          "gc": 8,
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)"
+        },
+        {
+          "gc": 10,
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)"
+        }
+      ],
+      "selected_child_branch_multiset": [
+        {
+          "size": 1,
+          "height": 0,
+          "shape": "()",
+          "count": 1
+        },
+        {
+          "size": 2,
+          "height": 1,
+          "shape": "((),)",
+          "count": 3
+        },
+        {
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "g6": "S???????????_?O?C??o?@_?@_??oFig?",
+      "n": 20,
+      "mode": 7,
+      "lambda": 0.993367722918202,
+      "D": 0.5056446774709604,
+      "threshold_1_over_1plam": 0.5016635859519408,
+      "exact_excess": 0.003981091519019597,
+      "deg_u_in_T": 2,
+      "deg_u_in_B": 1,
+      "num_children_u": 1,
+      "p_u": 0.4904112869076267,
+      "sum_delta_children": -0.031062479535069798,
+      "one_minus_sum_delta": 1.0310624795350698,
+      "depth_hist_B": {
+        "0": 1,
+        "1": 1,
+        "2": 7,
+        "3": 6,
+        "4": 3
+      },
+      "selected_child_deg_in_B": 8,
+      "selected_child_branch_count": 7,
+      "selected_child_branches": [
+        {
+          "gc": 10,
+          "size": 1,
+          "height": 0,
+          "shape": "()"
+        },
+        {
+          "gc": 0,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 1,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 2,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 4,
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)"
+        },
+        {
+          "gc": 6,
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)"
+        },
+        {
+          "gc": 8,
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)"
+        }
+      ],
+      "selected_child_branch_multiset": [
+        {
+          "size": 1,
+          "height": 0,
+          "shape": "()",
+          "count": 1
+        },
+        {
+          "size": 2,
+          "height": 1,
+          "shape": "((),)",
+          "count": 3
+        },
+        {
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "g6": "V?????????????_?G?@??C??G??G??E???o?_B?B|S??",
+      "n": 23,
+      "mode": 8,
+      "lambda": 0.9899992267443359,
+      "D": 0.503416483696693,
+      "threshold_1_over_1plam": 0.5025127580757972,
+      "exact_excess": 0.0009037256208958011,
+      "deg_u_in_T": 2,
+      "deg_u_in_B": 1,
+      "num_children_u": 1,
+      "p_u": 0.49184802611719036,
+      "sum_delta_children": -0.02352039037510778,
+      "one_minus_sum_delta": 1.0235203903751078,
+      "depth_hist_B": {
+        "0": 1,
+        "1": 1,
+        "2": 8,
+        "3": 7,
+        "4": 3,
+        "5": 1
+      },
+      "selected_child_deg_in_B": 9,
+      "selected_child_branch_count": 8,
+      "selected_child_branches": [
+        {
+          "gc": 11,
+          "size": 1,
+          "height": 0,
+          "shape": "()"
+        },
+        {
+          "gc": 1,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 2,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 3,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 4,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 5,
+          "size": 2,
+          "height": 1,
+          "shape": "((),)"
+        },
+        {
+          "gc": 7,
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)"
+        },
+        {
+          "gc": 9,
+          "size": 5,
+          "height": 3,
+          "shape": "(((), ((),)),)"
+        }
+      ],
+      "selected_child_branch_multiset": [
+        {
+          "size": 1,
+          "height": 0,
+          "shape": "()",
+          "count": 1
+        },
+        {
+          "size": 2,
+          "height": 1,
+          "shape": "((),)",
+          "count": 5
+        },
+        {
+          "size": 3,
+          "height": 2,
+          "shape": "(((),),)",
+          "count": 1
+        },
+        {
+          "size": 5,
+          "height": 3,
+          "shape": "(((), ((),)),)",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

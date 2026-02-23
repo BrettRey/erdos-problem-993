@@ -145,6 +145,66 @@ Aggregate through full `d_leaf<=1` frontier (`n<=23`):
 - tie-fugacity ordering failures: `0`,
 - global minimum tie gap `lambda_m(T)-lambda_{m-1}(B) = 0.0922382758`.
 
+## Route-2 pendant bonus bound (2026-02-19)
+
+Target lane:
+
+`mu_B(lambda_m(T)) >= m - 3/2`, where `B = T-{l,s}` and `m = mode(T)`.
+
+New scanner:
+
+- `conjecture_a_pendant_bonus_scan.py`
+
+Staged aggregate artifacts:
+
+- `results/whnc_pendant_bonus_scan_staged_summary_n23_all_deg2.json`
+- `results/whnc_pendant_bonus_scan_staged_summary_n23_canonical.json`
+
+Results through full `d_leaf<=1` frontier (`n<=23`):
+
+- **All degree-2-support leaves** (`4,543,370` checks):
+  - `mu_B >= m-3/2`: `0` failures,
+  - stronger `mu_B >= m-1-lambda/(1+lambda)`: `0` failures,
+  - min slacks: `0.200334` (target), `0.191348` (stronger).
+- **Canonical leaf per tree** (`931,596` checks):
+  - `mu_B >= m-3/2`: `0` failures,
+  - stronger bound: `0` failures,
+  - min slacks: `0.205340` (target), `0.191348` (stronger).
+
+So the pendant-bonus route is quantitatively robust on the entire current frontier.
+
+### Route-2 deficit/lift profile at `tau=b_{m-2}/b_{m-1}` (canonical leaf, `n<=23`)
+
+New scanner:
+
+- `conjecture_a_route2_compensation_scan.py`
+
+Artifact:
+
+- `results/whnc_route2_compensation_scan_n23_canonical.json`
+
+This decomposes route 2 into:
+
+- `deficit_tau = (m-3/2) - mu_B(tau)`,
+- `gain = mu_B(lambda_m) - mu_B(tau)`,
+- `gap = lambda_m - tau`,
+- `avg_slope = gain/gap` (for deficit cases).
+
+Full canonical frontier summary (`d_leaf<=1`, `n<=23`):
+
+- checked leaves: `931,595` (one `m=1` tree skipped because `tau` uses `m-2`)
+- route-2 failures: `0`
+- stronger failures: `0`
+- deficit cases (`mu_B(tau) < m-3/2`): `535,095`
+- deficit cases with nonpositive tie gap: `0`
+- max deficit at `tau`: `0.1000959551`
+- min gain in deficit cases: `0.2901109960`
+- min tie gap in deficit cases: `0.0989512711`
+- min avg slope in deficit cases: `1.3017613174`
+
+So every observed `tau`-deficit is overcompensated by the lift from `tau` to
+`lambda_m(T)` with substantial margin.
+
 ## Structural mode profile for chosen leaf (min support degree)
 
 One-leaf-per-tree scan through full `n<=23` (`931,596` trees):

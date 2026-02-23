@@ -1,0 +1,125 @@
+{
+  "seen": 984,
+  "considered": 165,
+  "checked": 164,
+  "R_neg": 0,
+  "D1_neg": 0,
+  "D2_neg": 2,
+  "D3_neg": 1,
+  "D1_plus_D3_neg": 0,
+  "D2_plus_D3_neg": 0,
+  "cross_minus_abs_mismatch_neg": 0,
+  "R_min": 4,
+  "D1_min": 2,
+  "D2_min": -12,
+  "D3_min": -32,
+  "subset_explicit_checked": 164,
+  "subset_explicit_neg_contrib_trees": 5,
+  "subset_explicit_total_neg_contrib": 15,
+  "subset_explicit_min_contrib": -4,
+  "layer_neg_trees": 5,
+  "layer_min_contrib": -20,
+  "layer_stats": {
+    "0": {
+      "checked": 164,
+      "neg": 0,
+      "min": 2
+    },
+    "1": {
+      "checked": 164,
+      "neg": 0,
+      "min": 2
+    },
+    "2": {
+      "checked": 60,
+      "neg": 0,
+      "min": 0
+    },
+    "3": {
+      "checked": 6,
+      "neg": 4,
+      "min": -4
+    },
+    "4": {
+      "checked": 3,
+      "neg": 1,
+      "min": -20
+    },
+    "5": {
+      "checked": 1,
+      "neg": 0,
+      "min": 0
+    }
+  },
+  "identity_fail_P_expand": 0,
+  "identity_fail_R_linear": 0,
+  "wall_s": 0.04733991622924805,
+  "R_min_witness": {
+    "n": 5,
+    "m": 2,
+    "r": 0,
+    "g6": "DQo",
+    "deg_u_B": 1,
+    "p0": 1,
+    "p1": 2,
+    "p2": 0,
+    "q0": 0,
+    "q1": 1,
+    "qm": 1,
+    "D1": 2,
+    "D2": 1,
+    "D3": 1,
+    "R": 4
+  },
+  "D1_min_witness": {
+    "n": 5,
+    "m": 2,
+    "r": 0,
+    "g6": "DQo",
+    "deg_u_B": 1,
+    "p0": 1,
+    "p1": 2,
+    "p2": 0,
+    "q0": 0,
+    "q1": 1,
+    "qm": 1,
+    "D1": 2,
+    "D2": 1,
+    "D3": 1,
+    "R": 4
+  },
+  "D2_min_witness": {
+    "n": 12,
+    "m": 4,
+    "r": 2,
+    "g6": "K???C@?K?W\\O",
+    "deg_u_B": 1,
+    "p0": 28,
+    "p1": 38,
+    "p2": 22,
+    "q0": 8,
+    "q1": 24,
+    "qm": 33,
+    "D1": 736,
+    "D2": -12,
+    "D3": 368,
+    "R": 1092
+  },
+  "D3_min_witness": {
+    "n": 12,
+    "m": 4,
+    "r": 2,
+    "g6": "K??CA?_C?O^_",
+    "deg_u_B": 5,
+    "p0": 32,
+    "p1": 56,
+    "p2": 48,
+    "q0": 4,
+    "q1": 6,
+    "qm": 4,
+    "D1": 144,
+    "D2": 208,
+    "D3": -32,
+    "R": 320
+  }
+}

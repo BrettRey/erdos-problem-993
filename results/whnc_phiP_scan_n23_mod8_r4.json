@@ -1,0 +1,241 @@
+{
+  "params": {
+    "min_n": 23,
+    "max_n": 23,
+    "tol": 1e-12,
+    "all_trees": false,
+    "res": 4,
+    "mod": 8
+  },
+  "summary": {
+    "seen": 1772329,
+    "considered": 63633,
+    "checked": 63633,
+    "no_deg2_support": 0,
+    "phiP_fail": 0,
+    "lambda_gap_fail": 0,
+    "modeP_fail": 0,
+    "ulc_fail": 0,
+    "tau_skipped": 0,
+    "modeP_shift_dist": {
+      "0": 63481,
+      "1": 152
+    },
+    "degP_shift_dist": {
+      "6": 2886,
+      "7": 11,
+      "4": 16998,
+      "5": 43738
+    },
+    "min_phiP": 2980.945398057202,
+    "min_phiP_witness": {
+      "n": 23,
+      "g6": "V?????????????_?G?@??C??G??G??E?A?o?OB?@|S??",
+      "mode": 7,
+      "lambda_mode": 0.726516579793723,
+      "leaf": 7,
+      "support": 19,
+      "mode_p": 6,
+      "mode_p_shift": 0,
+      "deg_p": 11,
+      "deg_p_shift": 5,
+      "phi_p": 2980.945398057202,
+      "mu_p": 5.623343615004753,
+      "mu_gap": 0.6233436150047531,
+      "degree_signature": {
+        "1": 10,
+        "2": 10,
+        "3": 2,
+        "8": 1
+      }
+    },
+    "min_mu_gap": 0.42505452334720406,
+    "min_mu_gap_witness": {
+      "n": 23,
+      "g6": "V?????????????_?G?@??C??G??G??E???o??B?F|S??",
+      "mode": 8,
+      "lambda_mode": 0.9766366280455824,
+      "leaf": 7,
+      "support": 19,
+      "mode_p": 7,
+      "mode_p_shift": 0,
+      "deg_p": 11,
+      "deg_p_shift": 4,
+      "phi_p": 13511.19270726258,
+      "mu_p": 6.425054523347204,
+      "mu_gap": 0.42505452334720406,
+      "degree_signature": {
+        "1": 10,
+        "2": 12,
+        "10": 1
+      }
+    },
+    "min_lambda_gap": 0.0011162042344659007,
+    "min_lambda_gap_witness": {
+      "n": 23,
+      "g6": "V?????????????_?G?@??C??G??G??E???o?oB?@|S??",
+      "mode": 8,
+      "lambda_mode": 0.9972305185989683,
+      "leaf": 7,
+      "support": 19,
+      "mode_p": 7,
+      "mode_p_shift": 0,
+      "deg_p": 11,
+      "deg_p_shift": 4,
+      "phi_p": 14141.314257558228,
+      "mu_p": 6.4302934756640955,
+      "mu_gap": 0.4302934756640955,
+      "degree_signature": {
+        "1": 10,
+        "2": 11,
+        "4": 1,
+        "8": 1
+      },
+      "tau_p": 0.9961143143645024,
+      "lambda_gap": 0.0011162042344659007,
+      "tau_mu_gap": 0.42753944695150103
+    },
+    "min_tau_mu_gap": 0.40882359790610323,
+    "min_tau_mu_gap_witness": {
+      "n": 23,
+      "g6": "V?????????????_?G?@??C??G??G??E???o??B?F|S??",
+      "mode": 8,
+      "lambda_mode": 0.9766366280455824,
+      "leaf": 7,
+      "support": 19,
+      "mode_p": 7,
+      "mode_p_shift": 0,
+      "deg_p": 11,
+      "deg_p_shift": 4,
+      "phi_p": 13511.19270726258,
+      "mu_p": 6.425054523347204,
+      "mu_gap": 0.42505452334720406,
+      "degree_signature": {
+        "1": 10,
+        "2": 12,
+        "10": 1
+      },
+      "tau_p": 0.9700783924036657,
+      "lambda_gap": 0.00655823564191671,
+      "tau_mu_gap": 0.40882359790610323
+    },
+    "small_deg_shift_cases": []
+  },
+  "per_n": {
+    "23": {
+      "seen": 1772329,
+      "considered": 63633,
+      "checked": 63633,
+      "no_deg2_support": 0,
+      "phiP_fail": 0,
+      "lambda_gap_fail": 0,
+      "modeP_fail": 0,
+      "ulc_fail": 0,
+      "tau_skipped": 0,
+      "modeP_shift_dist": {
+        "0": 63481,
+        "1": 152
+      },
+      "degP_shift_dist": {
+        "6": 2886,
+        "7": 11,
+        "4": 16998,
+        "5": 43738
+      },
+      "min_phiP": 2980.945398057202,
+      "min_phiP_witness": {
+        "n": 23,
+        "g6": "V?????????????_?G?@??C??G??G??E?A?o?OB?@|S??",
+        "mode": 7,
+        "lambda_mode": 0.726516579793723,
+        "leaf": 7,
+        "support": 19,
+        "mode_p": 6,
+        "mode_p_shift": 0,
+        "deg_p": 11,
+        "deg_p_shift": 5,
+        "phi_p": 2980.945398057202,
+        "mu_p": 5.623343615004753,
+        "mu_gap": 0.6233436150047531,
+        "degree_signature": {
+          "1": 10,
+          "2": 10,
+          "3": 2,
+          "8": 1
+        }
+      },
+      "min_mu_gap": 0.42505452334720406,
+      "min_mu_gap_witness": {
+        "n": 23,
+        "g6": "V?????????????_?G?@??C??G??G??E???o??B?F|S??",
+        "mode": 8,
+        "lambda_mode": 0.9766366280455824,
+        "leaf": 7,
+        "support": 19,
+        "mode_p": 7,
+        "mode_p_shift": 0,
+        "deg_p": 11,
+        "deg_p_shift": 4,
+        "phi_p": 13511.19270726258,
+        "mu_p": 6.425054523347204,
+        "mu_gap": 0.42505452334720406,
+        "degree_signature": {
+          "1": 10,
+          "2": 12,
+          "10": 1
+        }
+      },
+      "min_lambda_gap": 0.0011162042344659007,
+      "min_lambda_gap_witness": {
+        "n": 23,
+        "g6": "V?????????????_?G?@??C??G??G??E???o?oB?@|S??",
+        "mode": 8,
+        "lambda_mode": 0.9972305185989683,
+        "leaf": 7,
+        "support": 19,
+        "mode_p": 7,
+        "mode_p_shift": 0,
+        "deg_p": 11,
+        "deg_p_shift": 4,
+        "phi_p": 14141.314257558228,
+        "mu_p": 6.4302934756640955,
+        "mu_gap": 0.4302934756640955,
+        "degree_signature": {
+          "1": 10,
+          "2": 11,
+          "4": 1,
+          "8": 1
+        },
+        "tau_p": 0.9961143143645024,
+        "lambda_gap": 0.0011162042344659007,
+        "tau_mu_gap": 0.42753944695150103
+      },
+      "min_tau_mu_gap": 0.40882359790610323,
+      "min_tau_mu_gap_witness": {
+        "n": 23,
+        "g6": "V?????????????_?G?@??C??G??G??E???o??B?F|S??",
+        "mode": 8,
+        "lambda_mode": 0.9766366280455824,
+        "leaf": 7,
+        "support": 19,
+        "mode_p": 7,
+        "mode_p_shift": 0,
+        "deg_p": 11,
+        "deg_p_shift": 4,
+        "phi_p": 13511.19270726258,
+        "mu_p": 6.425054523347204,
+        "mu_gap": 0.42505452334720406,
+        "degree_signature": {
+          "1": 10,
+          "2": 12,
+          "10": 1
+        },
+        "tau_p": 0.9700783924036657,
+        "lambda_gap": 0.00655823564191671,
+        "tau_mu_gap": 0.40882359790610323
+      },
+      "small_deg_shift_cases": [],
+      "wall_s": 46.375909090042114
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "params": {
+    "max_val": 80
+  },
+  "regimes": {
+    "minimal_constraints": {
+      "max_val": 80,
+      "require_positive_tail": false,
+      "enforce_q_shape": false,
+      "found": true,
+      "witness": {
+        "p_m_minus_2": 4,
+        "p_m_minus_1": 3,
+        "p_m": 2,
+        "p_m_plus_1": 0,
+        "q_m_minus_2": 0,
+        "q_m_minus_1": 0,
+        "q_m": 3,
+        "q_m_plus_1": 0,
+        "g_target": -1,
+        "i1_mode_left": 0,
+        "i2_mode_right": 4,
+        "p_term1": -3,
+        "q_term1": 3,
+        "p_term2": 4,
+        "q_term2": 0
+      }
+    },
+    "with_q_shape": {
+      "max_val": 80,
+      "require_positive_tail": false,
+      "enforce_q_shape": true,
+      "found": true,
+      "witness": {
+        "p_m_minus_2": 4,
+        "p_m_minus_1": 3,
+        "p_m": 2,
+        "p_m_plus_1": 0,
+        "q_m_minus_2": 0,
+        "q_m_minus_1": 0,
+        "q_m": 3,
+        "q_m_plus_1": 0,
+        "g_target": -1,
+        "i1_mode_left": 0,
+        "i2_mode_right": 4,
+        "p_term1": -3,
+        "q_term1": 3,
+        "p_term2": 4,
+        "q_term2": 0
+      }
+    },
+    "with_q_shape_and_positive_tail": {
+      "max_val": 80,
+      "require_positive_tail": true,
+      "enforce_q_shape": true,
+      "found": true,
+      "witness": {
+        "p_m_minus_2": 5,
+        "p_m_minus_1": 4,
+        "p_m": 3,
+        "p_m_plus_1": 1,
+        "q_m_minus_2": 1,
+        "q_m_minus_1": 2,
+        "q_m": 4,
+        "q_m_plus_1": 1,
+        "g_target": -1,
+        "i1_mode_left": 0,
+        "i2_mode_right": 5,
+        "p_term1": -3,
+        "q_term1": 3,
+        "p_term2": 4,
+        "q_term2": 1
+      }
+    }
+  }
+}
