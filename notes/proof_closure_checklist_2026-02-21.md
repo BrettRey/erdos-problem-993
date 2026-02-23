@@ -487,3 +487,29 @@ For fast artifact-only precheck (no full rerun), add:
 - Decision:
   - Treat round-25 `BLOCKED` as a valid unrestricted-moment no-go, but not sufficient to overturn the empirical canonical pass through `n<=23`.
   - Next symbolic task remains: either prove canonical structure excludes such null-direction perturbations, or derive a true canonical counterexample.
+
+### 2026-02-23 02:11:07Z - canonical_collision_audit_mu4_keys - threshold_nonsplitting_observed
+- Ran exact rational collision audit on canonical domain (`d_leaf<=1`, canonical `deg(s)=2`, `n<=20`, 77,141 checked):
+  - Key used: `(deg(P), m, lambda, mu1, mu2, mu3, mu4)` with `lambda=i_{m-1}/i_m`.
+  - Found `5,893` colliding keys (multiple trees sharing identical key).
+  - Found `0` collisions where `Threshold` differs across trees sharing the same key.
+- Interpretation:
+  - This does not prove universality, but it directly weakens the unrestricted-no-go transfer: in observed canonical data, mu4-key collisions do not split threshold.
+  - Next round should target a canonical theorem/counterexample, not unrestricted moment perturbations.
+
+### 2026-02-23 02:22:54Z - round26_output_audit - canonical_obstruction_not_constructive
+- Audited round-26 `BLOCKED` output:
+  - Acceptable as a heuristic obstruction narrative.
+  - Not accepted as a canonical no-go proof: no explicit canonical pair with identical class inputs and different target side was constructed.
+- Additional exact checks run to test the claimed “minimal next class = mu5” direction:
+  - Canonical `n<=20` (`77,141` checked):
+    - keys on `(deg(P),m,lambda,mu1..mu4)` with collisions: `5,893`
+    - threshold splits among colliding keys: `0`
+    - keys with same mu4-key but different `mu5`: `0`
+  - Canonical `n<=21` (`175,722` checked):
+    - keys with same mu4-key but different `mu5`: `0`
+- Interpretation:
+  - In observed canonical data, `mu5` is functionally determined by the mu4-key (at least through `n<=21`), so “mu5 is minimal next class” is currently unsupported.
+  - Next prompt must demand either:
+    1) an explicit canonical counterexample pair (same class inputs, different threshold/verdict), or
+    2) a constructive canonical symbolic step toward closure.
