@@ -106,6 +106,24 @@ Comparison at `n<=23`:
 - K2+Q' collisions: `56789`
 - no observed split in either scan at this bound.
 
+6) Extended bound: K2 + (Q',Q'') through `n<=23`
+
+```bash
+python3 scripts/canonical_k2_split_scan.py \
+  --min-n 4 --max-n 23 \
+  --q-jet-max-order 2 \
+  --out results/k2_plus_qjet12_split_scan_n23_exact.json
+```
+
+Outcome (`results/k2_plus_qjet12_split_scan_n23_exact.json`):
+- `checked_total=931596`
+- `unique_keys=874807`
+- `collisions=56789`
+- `split_found=false`
+
+This is exactly identical to the `n<=23` K2+Q' result; adding `Q''`
+again gave no extra observed discrimination.
+
 ## Interpretation
 
 - Empirical status through `n<=22` remains:
@@ -120,3 +138,4 @@ Comparison at `n<=23`:
   separation through `n<=22`.
 - Extending to `n<=23`, `K2+Q'` remains split-free and continues to reduce
   collision count relative to K2-only.
+- Through `n<=23`, `Q''` remains empirically redundant once `Q'` is included.
