@@ -314,6 +314,32 @@ python3 scripts/star_component_kstar_scan.py \
 Interpretation: in this explicit constructive family, no lifted same-`K*`/different-`N`
 pair has been found at current bounds.
 
+Randomized coverage (same family):
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 7 --multiset-size 6 \
+  --random-samples 500000 --seed 1 \
+  --out results/star_component_kstar_scan_n7_k6_rand500k_s1.json
+```
+- tested `500000`, passed_gate `1826`, unique `1825`, collisions `1`, `split_found=false`
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 7 --multiset-size 6 \
+  --random-samples 300000 --seed 2 \
+  --out results/star_component_kstar_scan_n7_k6_rand300k_s2.json
+```
+- tested `300000`, passed_gate `1098`, unique `1098`, collisions `0`, `split_found=false`
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 7 --multiset-size 6 \
+  --random-samples 300000 --seed 3 \
+  --out results/star_component_kstar_scan_n7_k6_rand300k_s3.json
+```
+- tested `300000`, passed_gate `1115`, unique `1115`, collisions `0`, `split_found=false`
+
 ## Interpretation
 
 - Empirical status through `n<=22` remains:
@@ -342,4 +368,4 @@ pair has been found at current bounds.
   now independently verified; the open gap is liftability to full canonical
   trees with the same derived `(m,lambda_hat)`.
 - Structured constructive liftability scans (star-of-components family) remain
-  split-free at current tested bounds.
+  split-free at current tested bounds (both lexicographic and randomized samples).

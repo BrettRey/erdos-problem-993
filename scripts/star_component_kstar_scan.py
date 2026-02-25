@@ -25,6 +25,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import random
 import sys
 import time
 from dataclasses import dataclass
@@ -228,6 +229,8 @@ def scan(
     root_min_deg: int,
     multiset_size: int,
     max_tested: int,
+    random_samples: int,
+    seed: int,
     progress_every: int,
 ) -> dict[str, Any]:
     started = time.time()
@@ -245,7 +248,19 @@ def scan(
     collisions = 0
     split: dict[str, Any] | None = None
 
-    for idxs in combinations_with_replacement(range(m), multiset_size):
+    if random_samples > 0:
+        rng = random.Random(seed)
+        def iter_multisets():
+            for _ in range(random_samples):
+                draw = [rng.randrange(m) for _ in range(multiset_size)]
+                draw.sort()
+                yield tuple(draw)
+    else:
+        def iter_multisets():
+            for idxs in combinations_with_replacement(range(m), multiset_size):
+                yield idxs
+
+    for idxs in iter_multisets():
         tested += 1
         if max_tested > 0 and tested > max_tested:
             break
@@ -286,6 +301,8 @@ def scan(
         "root_min_deg": root_min_deg,
         "multiset_size": multiset_size,
         "max_tested": max_tested,
+        "random_samples": random_samples,
+        "seed": seed,
         "component_library_size": m,
         "tested_multisets": tested,
         "passed_gate": passed_gate,
@@ -306,6 +323,13 @@ def main() -> None:
     ap.add_argument("--root-min-deg", type=int, default=1)
     ap.add_argument("--multiset-size", type=int, default=4)
     ap.add_argument("--max-tested", type=int, default=0, help="0 = no cap")
+    ap.add_argument(
+        "--random-samples",
+        type=int,
+        default=0,
+        help="If >0, sample this many random multisets (ignores lexicographic full scan).",
+    )
+    ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--progress-every", type=int, default=0)
     ap.add_argument("--out", default="")
     args = ap.parse_args()
@@ -316,6 +340,8 @@ def main() -> None:
         root_min_deg=args.root_min_deg,
         multiset_size=args.multiset_size,
         max_tested=args.max_tested,
+        random_samples=args.random_samples,
+        seed=args.seed,
         progress_every=args.progress_every,
     )
 
@@ -337,4 +363,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
