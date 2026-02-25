@@ -167,6 +167,25 @@ This is exactly identical to the `n<=23` runs for:
 So, at this bound, adding `(rho,sigma)` did not provide extra observed separation
 beyond the existing Q-sensitive extensions.
 
+9) Scale-anchored key test: K2 + (rho,sigma) through `n<=24`
+
+```bash
+python3 scripts/canonical_k2_split_scan.py \
+  --min-n 1 --max-n 24 \
+  --include-rho-sigma \
+  --out results/k2_plus_rhosigma_split_scan_n24_exact.json
+```
+
+Outcome (`results/k2_plus_rhosigma_split_scan_n24_exact.json`):
+- `checked_total=2164137`
+- `unique_keys=2025984`
+- `collisions=138153`
+- `split_found=false`
+
+This is exactly identical to the `n<=24` run for `K2+(Q',Q'')`
+(`results/k2_plus_qjet12_split_scan_n24_exact.json`), i.e. no additional
+observed discrimination at this bound.
+
 ## Interpretation
 
 - Empirical status through `n<=22` remains:
@@ -186,3 +205,5 @@ beyond the existing Q-sensitive extensions.
 - Through `n<=23`, `K2+(rho,sigma)` is also split-free and empirically
   indistinguishable (in key count/collision count) from `K2+Q'` and
   `K2+(Q',Q'')`.
+- Through `n<=24`, `K2+(rho,sigma)` remains split-free and still matches
+  `K2+(Q',Q'')` exactly in aggregate key/collision counts.
