@@ -45,6 +45,27 @@ Outcome:
   - `H?AA@bg`: `P=[1,6,10,5]`, `Q=[0,1,5,8,4]`, `I=[1,9,28,38,22,4]`, `m=3`, `lambda=14/19`
   - `H?ABAag`: `P=[1,6,10,5]`, `Q=[0,1,5,6,2]`, `I=[1,9,28,36,18,2]`, `m=3`, `lambda=7/9`
 
+3) K2+X scan (X = Q'(lambda_hat))
+
+```bash
+python3 - <<'PY'
+# ad-hoc exact scan (canonical gate) for key:
+# (d,m,lambda,mu1,mu2,X), X=Q'(lambda_hat)
+# output: results/k2_plus_X_split_scan_n22_exact.json
+PY
+```
+
+Outcome (`results/k2_plus_X_split_scan_n22_exact.json`):
+- `checked_total=403400`
+- `unique_keys=380446`
+- `collisions=22954`
+- `split_found=false`
+
+Comparison vs K2-only through `n<=22`:
+- K2 collisions: `32992`
+- K2+X collisions: `22954`
+- no observed split in either scan through this bound.
+
 ## Interpretation
 
 - Empirical status through `n<=22` remains:
@@ -52,3 +73,6 @@ Outcome:
 - Canonical bridge-2 obstruction is explicit:
   - preserving `P` does not preserve canonical-derived `lambda`
   - therefore any canonical lift from fixed-`lambda` no-go must include `Q`-sensitive control.
+- Empirically, `X=Q'(lambda_hat)` is a plausible next key component:
+  - it reduces collision count substantially at fixed scan bound,
+  - but does not yet constitute a proof of injectivity (`K2+X -> i1/N` remains open).

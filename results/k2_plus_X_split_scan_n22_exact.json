@@ -1,0 +1,166 @@
+{
+  "scan": "canonical_K2_plus_X_split_search_exact",
+  "X": "Q_prime_at_canonical_lambda",
+  "min_n": 4,
+  "max_n": 22,
+  "checked_total": 403400,
+  "unique_keys": 380446,
+  "collisions": 22954,
+  "split_found": false,
+  "split": null,
+  "per_n": [
+    {
+      "n": 4,
+      "total_trees": 2,
+      "checked": 1,
+      "unique_keys": 1,
+      "collisions": 0,
+      "elapsed_sec": 0.007523059844970703
+    },
+    {
+      "n": 5,
+      "total_trees": 3,
+      "checked": 1,
+      "unique_keys": 2,
+      "collisions": 0,
+      "elapsed_sec": 0.0023040771484375
+    },
+    {
+      "n": 6,
+      "total_trees": 6,
+      "checked": 2,
+      "unique_keys": 4,
+      "collisions": 0,
+      "elapsed_sec": 0.0020742416381835938
+    },
+    {
+      "n": 7,
+      "total_trees": 11,
+      "checked": 3,
+      "unique_keys": 7,
+      "collisions": 0,
+      "elapsed_sec": 0.002173900604248047
+    },
+    {
+      "n": 8,
+      "total_trees": 23,
+      "checked": 6,
+      "unique_keys": 13,
+      "collisions": 0,
+      "elapsed_sec": 0.0023696422576904297
+    },
+    {
+      "n": 9,
+      "total_trees": 47,
+      "checked": 10,
+      "unique_keys": 23,
+      "collisions": 0,
+      "elapsed_sec": 0.002920866012573242
+    },
+    {
+      "n": 10,
+      "total_trees": 106,
+      "checked": 21,
+      "unique_keys": 44,
+      "collisions": 0,
+      "elapsed_sec": 0.004550933837890625
+    },
+    {
+      "n": 11,
+      "total_trees": 235,
+      "checked": 39,
+      "unique_keys": 82,
+      "collisions": 1,
+      "elapsed_sec": 0.00770878791809082
+    },
+    {
+      "n": 12,
+      "total_trees": 551,
+      "checked": 82,
+      "unique_keys": 161,
+      "collisions": 4,
+      "elapsed_sec": 0.016183137893676758
+    },
+    {
+      "n": 13,
+      "total_trees": 1301,
+      "checked": 167,
+      "unique_keys": 323,
+      "collisions": 9,
+      "elapsed_sec": 0.035514116287231445
+    },
+    {
+      "n": 14,
+      "total_trees": 3159,
+      "checked": 360,
+      "unique_keys": 673,
+      "collisions": 19,
+      "elapsed_sec": 0.0815880298614502
+    },
+    {
+      "n": 15,
+      "total_trees": 7741,
+      "checked": 766,
+      "unique_keys": 1410,
+      "collisions": 48,
+      "elapsed_sec": 0.19259381294250488
+    },
+    {
+      "n": 16,
+      "total_trees": 19320,
+      "checked": 1692,
+      "unique_keys": 3042,
+      "collisions": 108,
+      "elapsed_sec": 0.47972774505615234
+    },
+    {
+      "n": 17,
+      "total_trees": 48629,
+      "checked": 3726,
+      "unique_keys": 6605,
+      "collisions": 271,
+      "elapsed_sec": 1.2042970657348633
+    },
+    {
+      "n": 18,
+      "total_trees": 123867,
+      "checked": 8370,
+      "unique_keys": 14606,
+      "collisions": 640,
+      "elapsed_sec": 3.0793118476867676
+    },
+    {
+      "n": 19,
+      "total_trees": 317955,
+      "checked": 18866,
+      "unique_keys": 32491,
+      "collisions": 1621,
+      "elapsed_sec": 8.023745059967041
+    },
+    {
+      "n": 20,
+      "total_trees": 823065,
+      "checked": 43029,
+      "unique_keys": 73334,
+      "collisions": 3807,
+      "elapsed_sec": 22.23815608024597
+    },
+    {
+      "n": 21,
+      "total_trees": 2144505,
+      "checked": 98581,
+      "unique_keys": 166192,
+      "collisions": 9530,
+      "elapsed_sec": 57.35420083999634
+    },
+    {
+      "n": 22,
+      "total_trees": 5623756,
+      "checked": 227678,
+      "unique_keys": 380446,
+      "collisions": 22954,
+      "elapsed_sec": 154.20732617378235
+    }
+  ],
+  "elapsed_sec": 246.94463729858398
+}
