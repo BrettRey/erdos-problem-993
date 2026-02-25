@@ -276,6 +276,44 @@ This confirms the A/C outputs are valid at the **component aggregate** level.
 As noted by 5.2, these do not automatically lift to full canonical same-`K*`
 tree pairs because mode/fugacity locking (`m, lambda_hat`) is still unresolved.
 
+12) Targeted liftability search in a structured family
+
+Added script:
+- `scripts/star_component_kstar_scan.py`
+  - Builds trees of the form `leaf-support-u` plus a multiset of rooted components
+    attached to `u`.
+  - Applies canonical gate via `bridge_decomposition(..., require_dleaf=True)`.
+  - Scans for same
+    `K* = (d,m,lambda_hat,mu1,mu2,rho,sigma)`
+    with different `i1/N`.
+
+Runs:
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 5 --multiset-size 4 \
+  --out results/star_component_kstar_scan_n5_k4.json
+```
+- tested `3876`, passed_gate `330`, unique `330`, collisions `0`, `split_found=false`
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 6 --multiset-size 5 \
+  --out results/star_component_kstar_scan_n6_k5.json
+```
+- tested `658008`, passed_gate `15504`, unique `13559`, collisions `1945`, `split_found=false`
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 7 --multiset-size 5 \
+  --max-tested 1200000 \
+  --out results/star_component_kstar_scan_n7_k5_cap1p2m.json
+```
+- tested `1200001`, passed_gate `35505`, unique `32305`, collisions `3200`, `split_found=false`
+
+Interpretation: in this explicit constructive family, no lifted same-`K*`/different-`N`
+pair has been found at current bounds.
+
 ## Interpretation
 
 - Empirical status through `n<=22` remains:
@@ -303,3 +341,5 @@ tree pairs because mode/fugacity locking (`m, lambda_hat`) is still unresolved.
 - Separately, two explicit large component-level collisions from 5.2 (A/C) are
   now independently verified; the open gap is liftability to full canonical
   trees with the same derived `(m,lambda_hat)`.
+- Structured constructive liftability scans (star-of-components family) remain
+  split-free at current tested bounds.
