@@ -86,6 +86,26 @@ Notably, through `n<=22` this is identical to the `K2+Q'` scan
 (same unique key count and same collision count), i.e. adding `Q''` gives
 no extra observed discrimination at this bound.
 
+5) Extended bound: K2 + Q' through `n<=23`
+
+```bash
+python3 scripts/canonical_k2_split_scan.py \
+  --min-n 4 --max-n 23 \
+  --q-jet-max-order 1 \
+  --out results/k2_plus_qjet1_split_scan_n23_exact.json
+```
+
+Outcome (`results/k2_plus_qjet1_split_scan_n23_exact.json`):
+- `checked_total=931596`
+- `unique_keys=874807`
+- `collisions=56789`
+- `split_found=false`
+
+Comparison at `n<=23`:
+- K2-only collisions: `73516` (from earlier exact artifact)
+- K2+Q' collisions: `56789`
+- no observed split in either scan at this bound.
+
 ## Interpretation
 
 - Empirical status through `n<=22` remains:
@@ -98,3 +118,5 @@ no extra observed discrimination at this bound.
   - but does not yet constitute a proof of injectivity (`K2+X -> i1/N` remains open).
 - Empirically, adding `Q''(lambda_hat)` on top of `Q'(lambda_hat)` did not improve
   separation through `n<=22`.
+- Extending to `n<=23`, `K2+Q'` remains split-free and continues to reduce
+  collision count relative to K2-only.

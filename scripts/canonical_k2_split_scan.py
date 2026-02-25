@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Scan canonical trees for K2-key collisions that split i1/N.
+"""Scan canonical trees for K2(+Q-jet)-key collisions that split i1/N.
 
-K2 key:
+Base K2 key:
   (d, m, lambda, mu1, mu2)
 where
   d     = deg(P)
@@ -14,8 +14,13 @@ Canonical gate:
   - is_dleaf_le_1(...)
   - bridge_decomposition(..., require_dleaf=True) exists
 
+Optional extension:
+  append Q-jets at canonical lambda to the key:
+    Q'(lambda), Q''(lambda), ..., Q^(J)(lambda)
+  via --q-jet-max-order J.
+
 Split condition:
-  same K2 key but different i1 (equiv. different N = [x]P = i1 - 3).
+  same key but different i1 (equiv. different N = [x]P = i1 - 3).
 """
 
 from __future__ import annotations
@@ -62,7 +67,25 @@ def frac_pair(x: Fraction) -> list[int]:
     return [x.numerator, x.denominator]
 
 
-def key_tuple(decomp: Any) -> tuple[int, ...] | None:
+def deriv_eval_at(poly: list[int], order: int, x: Fraction) -> Fraction:
+    """Return D^order poly evaluated at x (exact rational)."""
+    if order < 0:
+        raise ValueError("order must be nonnegative")
+    if order == 0:
+        return poly_eval_frac(poly, x)
+
+    out = Fraction(0, 1)
+    for i, c in enumerate(poly):
+        if i < order or c == 0:
+            continue
+        ff = 1
+        for t in range(order):
+            ff *= (i - t)
+        out += c * ff * (x ** (i - order))
+    return out
+
+
+def key_tuple(decomp: Any, q_jet_max_order: int) -> tuple[int, ...] | None:
     p_poly = decomp.p_poly
     i_poly = decomp.poly_t
     m = decomp.m_t
@@ -79,7 +102,7 @@ def key_tuple(decomp: Any) -> tuple[int, ...] | None:
     mu1 = lam * poly_eval_frac(deriv1(p_poly), lam) / p_lam
     mu2 = lam * lam * poly_eval_frac(deriv2(p_poly), lam) / p_lam
 
-    return (
+    key = [
         len(p_poly) - 1,
         m,
         lam.numerator,
@@ -88,10 +111,15 @@ def key_tuple(decomp: Any) -> tuple[int, ...] | None:
         mu1.denominator,
         mu2.numerator,
         mu2.denominator,
-    )
+    ]
+    if q_jet_max_order > 0:
+        for order in range(1, q_jet_max_order + 1):
+            qd = deriv_eval_at(decomp.q_poly, order, lam)
+            key.extend([qd.numerator, qd.denominator])
+    return tuple(key)
 
 
-def build_record(decomp: Any) -> dict[str, Any]:
+def build_record(decomp: Any, q_jet_max_order: int) -> dict[str, Any]:
     p_poly = decomp.p_poly
     q_poly = decomp.q_poly
     i_poly = decomp.poly_t
@@ -104,7 +132,7 @@ def build_record(decomp: Any) -> dict[str, Any]:
     mu1 = lam * poly_eval_frac(deriv1(p_poly), lam) / p_lam
     mu2 = lam * lam * poly_eval_frac(deriv2(p_poly), lam) / p_lam
 
-    return {
+    rec = {
         "n": decomp.n,
         "g6": decomp.g6,
         "leaf": decomp.leaf,
@@ -121,16 +149,23 @@ def build_record(decomp: Any) -> dict[str, Any]:
         "Q": q_poly,
         "I": i_poly,
     }
+    if q_jet_max_order > 0:
+        qjets: dict[str, list[int]] = {}
+        for order in range(1, q_jet_max_order + 1):
+            qd = deriv_eval_at(q_poly, order, lam)
+            qjets[f"Q_deriv_{order}"] = frac_pair(qd)
+        rec["Q_jets_at_lambda"] = qjets
+    return rec
 
 
-def recompute_record_from_g6(n: int, g6: str) -> dict[str, Any]:
+def recompute_record_from_g6(n: int, g6: str, q_jet_max_order: int) -> dict[str, Any]:
     nn, adj = parse_graph6(g6.encode("ascii"))
     if nn != n:
         raise RuntimeError(f"n mismatch for {g6}: expected {n}, got {nn}")
     decomp = bridge_decomposition(nn, adj, g6, require_dleaf=True)
     if decomp is None:
         raise RuntimeError(f"could not rebuild canonical decomposition for {g6}")
-    return build_record(decomp)
+    return build_record(decomp, q_jet_max_order=q_jet_max_order)
 
 
 def scan(
@@ -138,6 +173,7 @@ def scan(
     max_n: int,
     progress_every: int,
     within_n_only: bool,
+    q_jet_max_order: int,
 ) -> dict[str, Any]:
     started = time.time()
 
@@ -179,7 +215,7 @@ def scan(
                 skipped_decomp += 1
                 continue
 
-            key = key_tuple(decomp)
+            key = key_tuple(decomp, q_jet_max_order=q_jet_max_order)
             if key is None:
                 continue
 
@@ -194,8 +230,10 @@ def scan(
                 prev_n, prev_g6, prev_i1, prev_n_coeff = prev
                 if prev_i1 != i1 or prev_n_coeff != n_coeff:
                     split = {
-                        "A": recompute_record_from_g6(prev_n, prev_g6),
-                        "B": build_record(decomp),
+                        "A": recompute_record_from_g6(
+                            prev_n, prev_g6, q_jet_max_order=q_jet_max_order
+                        ),
+                        "B": build_record(decomp, q_jet_max_order=q_jet_max_order),
                     }
                     break
 
@@ -223,9 +261,17 @@ def scan(
         if split is not None:
             break
 
+    if q_jet_max_order > 0:
+        key_desc = "(d,m,lambda,mu1,mu2," + ",".join(
+            [f"Q^{k}" for k in range(1, q_jet_max_order + 1)]
+        ) + ") at canonical lambda"
+    else:
+        key_desc = "(d,m,lambda,mu1,mu2)"
+
     return {
         "scan": "canonical_K2_split_search_exact",
-        "key": "(d,m,lambda,mu1,mu2)",
+        "key": key_desc,
+        "q_jet_max_order": q_jet_max_order,
         "within_n_only": within_n_only,
         "min_n": min_n,
         "max_n": per_n[-1]["n"] if per_n else min_n,
@@ -243,7 +289,7 @@ def scan(
 
 def main() -> None:
     ap = argparse.ArgumentParser(
-        description="Exact canonical split scan for K2=(d,m,lambda,mu1,mu2)."
+        description="Exact canonical split scan for K2(+optional Q-jets)."
     )
     ap.add_argument("--min-n", type=int, default=4)
     ap.add_argument("--max-n", type=int, default=22)
@@ -258,14 +304,23 @@ def main() -> None:
         default=0,
         help="Emit progress every N raw trees within each n (0 disables).",
     )
+    ap.add_argument(
+        "--q-jet-max-order",
+        type=int,
+        default=0,
+        help="Append Q-derivatives up to this order at canonical lambda to the key.",
+    )
     ap.add_argument("--out", default="")
     args = ap.parse_args()
+    if args.q_jet_max_order < 0:
+        raise ValueError("q-jet-max-order must be nonnegative")
 
     payload = scan(
         min_n=args.min_n,
         max_n=args.max_n,
         progress_every=args.progress_every,
         within_n_only=args.within_n_only,
+        q_jet_max_order=args.q_jet_max_order,
     )
 
     print("---", flush=True)
