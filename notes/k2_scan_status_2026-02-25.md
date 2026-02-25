@@ -66,6 +66,26 @@ Comparison vs K2-only through `n<=22`:
 - K2+X collisions: `22954`
 - no observed split in either scan through this bound.
 
+4) K2 + (Q'(lambda_hat), Q''(lambda_hat)) scan
+
+```bash
+python3 - <<'PY'
+# ad-hoc exact scan for key:
+# (d,m,lambda,mu1,mu2,Q'(lambda_hat),Q''(lambda_hat))
+# output: results/k2_plus_Qjet12_split_scan_n22_exact.json
+PY
+```
+
+Outcome (`results/k2_plus_Qjet12_split_scan_n22_exact.json`):
+- `checked_total=403400`
+- `unique_keys=380446`
+- `collisions=22954`
+- `split_found=false`
+
+Notably, through `n<=22` this is identical to the `K2+Q'` scan
+(same unique key count and same collision count), i.e. adding `Q''` gives
+no extra observed discrimination at this bound.
+
 ## Interpretation
 
 - Empirical status through `n<=22` remains:
@@ -76,3 +96,5 @@ Comparison vs K2-only through `n<=22`:
 - Empirically, `X=Q'(lambda_hat)` is a plausible next key component:
   - it reduces collision count substantially at fixed scan bound,
   - but does not yet constitute a proof of injectivity (`K2+X -> i1/N` remains open).
+- Empirically, adding `Q''(lambda_hat)` on top of `Q'(lambda_hat)` did not improve
+  separation through `n<=22`.
