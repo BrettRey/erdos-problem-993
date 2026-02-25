@@ -1,0 +1,15 @@
+{
+  "scan": "component_aggregate_collision_fixed_lambda",
+  "lambda": [
+    7,
+    9
+  ],
+  "max_comp_n": 9,
+  "multiset_size": 3,
+  "component_library_size": 482,
+  "tested_multisets": 18779684,
+  "unique_keys": 18087293,
+  "collisions": 692391,
+  "split_found": false,
+  "split": null
+}

@@ -186,6 +186,73 @@ This is exactly identical to the `n<=24` run for `K2+(Q',Q'')`
 (`results/k2_plus_qjet12_split_scan_n24_exact.json`), i.e. no additional
 observed discrimination at this bound.
 
+10) Component-level injectivity probe at fixed lambda
+
+Added script:
+- `scripts/component_aggregate_collision_scan.py`
+  - Enumerates rooted component library (from rooted trees up to `--max-comp-n`)
+  - Scans multiset aggregates at a fixed lambda for collisions on:
+    - `d = sum deg(F_j)`
+    - `mu1 = sum a_j`
+    - `mu2 = sum b_j + 2*sum_{i<j} a_i a_j`
+    - `rho = lambda * product r_j`
+    - `sigma = rho * (1 + sum g_j)`
+  - Reports split if same aggregate key but different `N = sum |V(C_j)|`.
+
+Runs:
+
+```bash
+python3 scripts/component_aggregate_collision_scan.py \
+  --lambda 14/19 --max-comp-n 8 --multiset-size 2 \
+  --out results/component_collision_lambda14_19_n8_k2.json
+```
+- tested `19900`, unique `19577`, collisions `323`, `split_found=false`
+
+```bash
+python3 scripts/component_aggregate_collision_scan.py \
+  --lambda 14/19 --max-comp-n 8 --multiset-size 3 \
+  --out results/component_collision_lambda14_19_n8_k3.json
+```
+- tested `1333300`, unique `1264688`, collisions `68612`, `split_found=false`
+
+```bash
+python3 scripts/component_aggregate_collision_scan.py \
+  --lambda 14/19 --max-comp-n 9 --multiset-size 3 \
+  --out results/component_collision_lambda14_19_n9_k3.json
+```
+- tested `18779684`, unique `18087293`, collisions `692391`, `split_found=false`
+
+```bash
+python3 scripts/component_aggregate_collision_scan.py \
+  --lambda 7/9 --max-comp-n 8 --multiset-size 3 \
+  --out results/component_collision_lambda7_9_n8_k3.json
+```
+- tested `1333300`, unique `1264688`, collisions `68612`, `split_found=false`
+
+```bash
+python3 scripts/component_aggregate_collision_scan.py \
+  --lambda 7/9 --max-comp-n 9 --multiset-size 3 \
+  --out results/component_collision_lambda7_9_n9_k3.json
+```
+- tested `18779684`, unique `18087293`, collisions `692391`, `split_found=false`
+
+```bash
+python3 scripts/component_aggregate_collision_scan.py \
+  --lambda 11/12 --max-comp-n 8 --multiset-size 3 \
+  --out results/component_collision_lambda11_12_n8_k3.json
+```
+- tested `1333300`, unique `1264688`, collisions `68612`, `split_found=false`
+
+```bash
+python3 scripts/component_aggregate_collision_scan.py \
+  --lambda 11/12 --max-comp-n 9 --multiset-size 3 \
+  --out results/component_collision_lambda11_12_n9_k3.json
+```
+- tested `18779684`, unique `18087293`, collisions `692391`, `split_found=false`
+
+Interpretation: on this rooted-component superset probe (fixed lambda, multiset size <=3,
+component size <=9), no aggregate-key split in `N` was found.
+
 ## Interpretation
 
 - Empirical status through `n<=22` remains:
@@ -207,3 +274,6 @@ observed discrimination at this bound.
   `K2+(Q',Q'')`.
 - Through `n<=24`, `K2+(rho,sigma)` remains split-free and still matches
   `K2+(Q',Q'')` exactly in aggregate key/collision counts.
+- Fixed-lambda component-level probes (size <=9, multiset size <=3) also found
+  no `N`-split for the anchored aggregate tuple `(d,mu1,mu2,rho,sigma)` at
+  `lambda in {14/19, 7/9, 11/12}`.
