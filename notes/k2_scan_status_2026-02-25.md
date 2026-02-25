@@ -253,6 +253,29 @@ python3 scripts/component_aggregate_collision_scan.py \
 Interpretation: on this rooted-component superset probe (fixed lambda, multiset size <=3,
 component size <=9), no aggregate-key split in `N` was found.
 
+11) Independent verification of 5.2 component-level BLOCKED artifacts (A and C)
+
+Added verifier:
+- `scripts/verify_component_blocked_artifacts.py`
+  - Checks reported case A (`lambda=1`) and case C (`lambda=1/2`) exactly.
+  - Verifies equality of `(d,mu1,mu2,rho,sigma)` and inequality of `N`.
+
+Run:
+
+```bash
+python3 scripts/verify_component_blocked_artifacts.py \
+  --case both \
+  --out results/component_blocked_artifact_verify_A_C.json
+```
+
+Outcome:
+- Case A: equal `(d,mu1,mu2,rho,sigma)` and `N(A)-N(B)=-16`
+- Case C: equal `(d,mu1,mu2,rho,sigma)` and `N(A)-N(B)=-173070`
+
+This confirms the A/C outputs are valid at the **component aggregate** level.
+As noted by 5.2, these do not automatically lift to full canonical same-`K*`
+tree pairs because mode/fugacity locking (`m, lambda_hat`) is still unresolved.
+
 ## Interpretation
 
 - Empirical status through `n<=22` remains:
@@ -277,3 +300,6 @@ component size <=9), no aggregate-key split in `N` was found.
 - Fixed-lambda component-level probes (size <=9, multiset size <=3) also found
   no `N`-split for the anchored aggregate tuple `(d,mu1,mu2,rho,sigma)` at
   `lambda in {14/19, 7/9, 11/12}`.
+- Separately, two explicit large component-level collisions from 5.2 (A/C) are
+  now independently verified; the open gap is liftability to full canonical
+  trees with the same derived `(m,lambda_hat)`.
