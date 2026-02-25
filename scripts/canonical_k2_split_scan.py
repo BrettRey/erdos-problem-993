@@ -14,10 +14,14 @@ Canonical gate:
   - is_dleaf_le_1(...)
   - bridge_decomposition(..., require_dleaf=True) exists
 
-Optional extension:
+Optional extensions:
   append Q-jets at canonical lambda to the key:
     Q'(lambda), Q''(lambda), ..., Q^(J)(lambda)
   via --q-jet-max-order J.
+  and/or append the scale anchors:
+    rho   = Q(lambda)/P(lambda)
+    sigma = lambda*Q'(lambda)/P(lambda)
+  via --include-rho-sigma.
 
 Split condition:
   same key but different i1 (equiv. different N = [x]P = i1 - 3).
@@ -85,7 +89,9 @@ def deriv_eval_at(poly: list[int], order: int, x: Fraction) -> Fraction:
     return out
 
 
-def key_tuple(decomp: Any, q_jet_max_order: int) -> tuple[int, ...] | None:
+def key_tuple(
+    decomp: Any, q_jet_max_order: int, include_rho_sigma: bool
+) -> tuple[int, ...] | None:
     p_poly = decomp.p_poly
     i_poly = decomp.poly_t
     m = decomp.m_t
@@ -102,7 +108,7 @@ def key_tuple(decomp: Any, q_jet_max_order: int) -> tuple[int, ...] | None:
     mu1 = lam * poly_eval_frac(deriv1(p_poly), lam) / p_lam
     mu2 = lam * lam * poly_eval_frac(deriv2(p_poly), lam) / p_lam
 
-    key = [
+    key: list[int] = [
         len(p_poly) - 1,
         m,
         lam.numerator,
@@ -112,6 +118,13 @@ def key_tuple(decomp: Any, q_jet_max_order: int) -> tuple[int, ...] | None:
         mu2.numerator,
         mu2.denominator,
     ]
+    if include_rho_sigma:
+        q_lam = poly_eval_frac(decomp.q_poly, lam)
+        q1_lam = deriv_eval_at(decomp.q_poly, 1, lam)
+        rho = q_lam / p_lam
+        sigma = lam * q1_lam / p_lam
+        key.extend([rho.numerator, rho.denominator, sigma.numerator, sigma.denominator])
+
     if q_jet_max_order > 0:
         for order in range(1, q_jet_max_order + 1):
             qd = deriv_eval_at(decomp.q_poly, order, lam)
@@ -119,7 +132,9 @@ def key_tuple(decomp: Any, q_jet_max_order: int) -> tuple[int, ...] | None:
     return tuple(key)
 
 
-def build_record(decomp: Any, q_jet_max_order: int) -> dict[str, Any]:
+def build_record(
+    decomp: Any, q_jet_max_order: int, include_rho_sigma: bool
+) -> dict[str, Any]:
     p_poly = decomp.p_poly
     q_poly = decomp.q_poly
     i_poly = decomp.poly_t
@@ -149,6 +164,14 @@ def build_record(decomp: Any, q_jet_max_order: int) -> dict[str, Any]:
         "Q": q_poly,
         "I": i_poly,
     }
+    if include_rho_sigma:
+        q_lam = poly_eval_frac(q_poly, lam)
+        q1_lam = deriv_eval_at(q_poly, 1, lam)
+        rho = q_lam / p_lam
+        sigma = lam * q1_lam / p_lam
+        rec["rho"] = frac_pair(rho)
+        rec["sigma"] = frac_pair(sigma)
+
     if q_jet_max_order > 0:
         qjets: dict[str, list[int]] = {}
         for order in range(1, q_jet_max_order + 1):
@@ -158,14 +181,18 @@ def build_record(decomp: Any, q_jet_max_order: int) -> dict[str, Any]:
     return rec
 
 
-def recompute_record_from_g6(n: int, g6: str, q_jet_max_order: int) -> dict[str, Any]:
+def recompute_record_from_g6(
+    n: int, g6: str, q_jet_max_order: int, include_rho_sigma: bool
+) -> dict[str, Any]:
     nn, adj = parse_graph6(g6.encode("ascii"))
     if nn != n:
         raise RuntimeError(f"n mismatch for {g6}: expected {n}, got {nn}")
     decomp = bridge_decomposition(nn, adj, g6, require_dleaf=True)
     if decomp is None:
         raise RuntimeError(f"could not rebuild canonical decomposition for {g6}")
-    return build_record(decomp, q_jet_max_order=q_jet_max_order)
+    return build_record(
+        decomp, q_jet_max_order=q_jet_max_order, include_rho_sigma=include_rho_sigma
+    )
 
 
 def scan(
@@ -174,6 +201,7 @@ def scan(
     progress_every: int,
     within_n_only: bool,
     q_jet_max_order: int,
+    include_rho_sigma: bool,
 ) -> dict[str, Any]:
     started = time.time()
 
@@ -215,7 +243,11 @@ def scan(
                 skipped_decomp += 1
                 continue
 
-            key = key_tuple(decomp, q_jet_max_order=q_jet_max_order)
+            key = key_tuple(
+                decomp,
+                q_jet_max_order=q_jet_max_order,
+                include_rho_sigma=include_rho_sigma,
+            )
             if key is None:
                 continue
 
@@ -231,9 +263,16 @@ def scan(
                 if prev_i1 != i1 or prev_n_coeff != n_coeff:
                     split = {
                         "A": recompute_record_from_g6(
-                            prev_n, prev_g6, q_jet_max_order=q_jet_max_order
+                            prev_n,
+                            prev_g6,
+                            q_jet_max_order=q_jet_max_order,
+                            include_rho_sigma=include_rho_sigma,
                         ),
-                        "B": build_record(decomp, q_jet_max_order=q_jet_max_order),
+                        "B": build_record(
+                            decomp,
+                            q_jet_max_order=q_jet_max_order,
+                            include_rho_sigma=include_rho_sigma,
+                        ),
                     }
                     break
 
@@ -261,17 +300,18 @@ def scan(
         if split is not None:
             break
 
+    key_parts = ["d", "m", "lambda", "mu1", "mu2"]
+    if include_rho_sigma:
+        key_parts.extend(["rho", "sigma"])
     if q_jet_max_order > 0:
-        key_desc = "(d,m,lambda,mu1,mu2," + ",".join(
-            [f"Q^{k}" for k in range(1, q_jet_max_order + 1)]
-        ) + ") at canonical lambda"
-    else:
-        key_desc = "(d,m,lambda,mu1,mu2)"
+        key_parts.extend([f"Q^{k}" for k in range(1, q_jet_max_order + 1)])
+    key_desc = "(" + ",".join(key_parts) + ") at canonical lambda"
 
     return {
         "scan": "canonical_K2_split_search_exact",
         "key": key_desc,
         "q_jet_max_order": q_jet_max_order,
+        "include_rho_sigma": include_rho_sigma,
         "within_n_only": within_n_only,
         "min_n": min_n,
         "max_n": per_n[-1]["n"] if per_n else min_n,
@@ -310,6 +350,11 @@ def main() -> None:
         default=0,
         help="Append Q-derivatives up to this order at canonical lambda to the key.",
     )
+    ap.add_argument(
+        "--include-rho-sigma",
+        action="store_true",
+        help="Append rho=Q(lambda)/P(lambda) and sigma=lambda*Q'(lambda)/P(lambda).",
+    )
     ap.add_argument("--out", default="")
     args = ap.parse_args()
     if args.q_jet_max_order < 0:
@@ -321,6 +366,7 @@ def main() -> None:
         progress_every=args.progress_every,
         within_n_only=args.within_n_only,
         q_jet_max_order=args.q_jet_max_order,
+        include_rho_sigma=args.include_rho_sigma,
     )
 
     print("---", flush=True)

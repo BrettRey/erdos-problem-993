@@ -141,6 +141,32 @@ Outcome (`results/k2_plus_qjet12_split_scan_n24_exact.json`):
 
 No same-key/different-`i1` split was observed at this larger bound.
 
+8) Scale-anchored key test: K2 + (rho,sigma) through `n<=23`
+
+Key extension:
+- `rho = Q(lambda_hat)/P(lambda_hat)`
+- `sigma = lambda_hat*Q'(lambda_hat)/P(lambda_hat)`
+
+```bash
+python3 scripts/canonical_k2_split_scan.py \
+  --min-n 1 --max-n 23 \
+  --include-rho-sigma \
+  --out results/k2_plus_rhosigma_split_scan_n23_exact.json
+```
+
+Outcome (`results/k2_plus_rhosigma_split_scan_n23_exact.json`):
+- `checked_total=931596`
+- `unique_keys=874807`
+- `collisions=56789`
+- `split_found=false`
+
+This is exactly identical to the `n<=23` runs for:
+- `K2 + Q'`
+- `K2 + (Q',Q'')`
+
+So, at this bound, adding `(rho,sigma)` did not provide extra observed separation
+beyond the existing Q-sensitive extensions.
+
 ## Interpretation
 
 - Empirical status through `n<=22` remains:
@@ -157,3 +183,6 @@ No same-key/different-`i1` split was observed at this larger bound.
   collision count relative to K2-only.
 - Through `n<=23`, `Q''` remains empirically redundant once `Q'` is included.
 - Through `n<=24`, `K2+(Q',Q'')` remains split-free on the canonical gated scan.
+- Through `n<=23`, `K2+(rho,sigma)` is also split-free and empirically
+  indistinguishable (in key count/collision count) from `K2+Q'` and
+  `K2+(Q',Q'')`.
