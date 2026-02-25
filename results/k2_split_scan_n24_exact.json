@@ -1,0 +1,183 @@
+{
+  "scan": "canonical_K2_split_search_exact",
+  "min_n": 4,
+  "max_n": 24,
+  "checked_total": 2164137,
+  "unique_keys": 1991686,
+  "collisions": 172451,
+  "skipped_dleaf": 61078116,
+  "skipped_decomp": 0,
+  "elapsed_sec": 1855.2406558990479,
+  "split_found": false,
+  "split": null,
+  "per_n": [
+    {
+      "n": 4,
+      "total_trees": 2,
+      "checked": 1,
+      "unique_keys": 1,
+      "collisions": 0,
+      "elapsed_sec": 0.004268169403076172
+    },
+    {
+      "n": 5,
+      "total_trees": 3,
+      "checked": 1,
+      "unique_keys": 2,
+      "collisions": 0,
+      "elapsed_sec": 0.002218008041381836
+    },
+    {
+      "n": 6,
+      "total_trees": 6,
+      "checked": 2,
+      "unique_keys": 4,
+      "collisions": 0,
+      "elapsed_sec": 0.0022492408752441406
+    },
+    {
+      "n": 7,
+      "total_trees": 11,
+      "checked": 3,
+      "unique_keys": 6,
+      "collisions": 1,
+      "elapsed_sec": 0.002302408218383789
+    },
+    {
+      "n": 8,
+      "total_trees": 23,
+      "checked": 6,
+      "unique_keys": 10,
+      "collisions": 3,
+      "elapsed_sec": 0.0025739669799804688
+    },
+    {
+      "n": 9,
+      "total_trees": 47,
+      "checked": 10,
+      "unique_keys": 18,
+      "collisions": 5,
+      "elapsed_sec": 0.0031321048736572266
+    },
+    {
+      "n": 10,
+      "total_trees": 106,
+      "checked": 21,
+      "unique_keys": 35,
+      "collisions": 9,
+      "elapsed_sec": 0.005017995834350586
+    },
+    {
+      "n": 11,
+      "total_trees": 235,
+      "checked": 39,
+      "unique_keys": 65,
+      "collisions": 18,
+      "elapsed_sec": 0.008401870727539062
+    },
+    {
+      "n": 12,
+      "total_trees": 551,
+      "checked": 82,
+      "unique_keys": 132,
+      "collisions": 33,
+      "elapsed_sec": 0.017667055130004883
+    },
+    {
+      "n": 13,
+      "total_trees": 1301,
+      "checked": 167,
+      "unique_keys": 273,
+      "collisions": 59,
+      "elapsed_sec": 0.03725886344909668
+    },
+    {
+      "n": 14,
+      "total_trees": 3159,
+      "checked": 360,
+      "unique_keys": 559,
+      "collisions": 133,
+      "elapsed_sec": 0.08480095863342285
+    },
+    {
+      "n": 15,
+      "total_trees": 7741,
+      "checked": 766,
+      "unique_keys": 1249,
+      "collisions": 209,
+      "elapsed_sec": 0.1985609531402588
+    },
+    {
+      "n": 16,
+      "total_trees": 19320,
+      "checked": 1692,
+      "unique_keys": 2761,
+      "collisions": 389,
+      "elapsed_sec": 0.4798929691314697
+    },
+    {
+      "n": 17,
+      "total_trees": 48629,
+      "checked": 3726,
+      "unique_keys": 6029,
+      "collisions": 847,
+      "elapsed_sec": 1.2140672206878662
+    },
+    {
+      "n": 18,
+      "total_trees": 123867,
+      "checked": 8370,
+      "unique_keys": 13325,
+      "collisions": 1921,
+      "elapsed_sec": 3.117584228515625
+    },
+    {
+      "n": 19,
+      "total_trees": 317955,
+      "checked": 18866,
+      "unique_keys": 30671,
+      "collisions": 3441,
+      "elapsed_sec": 8.205860137939453
+    },
+    {
+      "n": 20,
+      "total_trees": 823065,
+      "checked": 43029,
+      "unique_keys": 70049,
+      "collisions": 7092,
+      "elapsed_sec": 21.882352113723755
+    },
+    {
+      "n": 21,
+      "total_trees": 2144505,
+      "checked": 98581,
+      "unique_keys": 159001,
+      "collisions": 16721,
+      "elapsed_sec": 56.53265929222107
+    },
+    {
+      "n": 22,
+      "total_trees": 5623756,
+      "checked": 227678,
+      "unique_keys": 370408,
+      "collisions": 32992,
+      "elapsed_sec": 160.62681889533997
+    },
+    {
+      "n": 23,
+      "total_trees": 14828074,
+      "checked": 528196,
+      "unique_keys": 858080,
+      "collisions": 73516,
+      "elapsed_sec": 423.4139018058777
+    },
+    {
+      "n": 24,
+      "total_trees": 39299897,
+      "checked": 1232541,
+      "unique_keys": 1991686,
+      "collisions": 172451,
+      "elapsed_sec": 1179.3986179828644
+    }
+  ]
+}
