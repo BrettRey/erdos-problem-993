@@ -422,3 +422,32 @@ python3 scripts/star_component_kstar_scan.py \
 - elapsed `100.15s`
 
 Interpretation: no lifted same-`K*`/different-`N` split found in this additional randomized coverage.
+
+Additional randomized liftability coverage (`max-comp-n=9`, `k=7`):
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 9 --multiset-size 7 \
+  --random-samples 120000 --seed 22 \
+  --out results/star_component_kstar_scan_n9_k7_rand120k_s22.json
+```
+- tested `120000`, passed_gate `36`, unique `36`, collisions `0`, `split_found=false`
+- elapsed `102.65s`
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 9 --multiset-size 7 \
+  --random-samples 120000 --seed 23 \
+  --out results/star_component_kstar_scan_n9_k7_rand120k_s23.json
+```
+- tested `120000`, passed_gate `20`, unique `20`, collisions `0`, `split_found=false`
+- elapsed `108.09s`
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 9 --multiset-size 7 \
+  --random-samples 120000 --seed 24 \
+  --out results/star_component_kstar_scan_n9_k7_rand120k_s24.json
+```
+- tested `120000`, passed_gate `25`, unique `25`, collisions `0`, `split_found=false`
+- elapsed `106.63s`
