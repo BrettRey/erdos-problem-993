@@ -665,3 +665,24 @@ Outcome (`results/canonical_kstar_split_scan_minu_mge4_n23_exact.json`):
 
 Interpretation:
 - Restricting to the only unresolved mode regime (`m>=4`) leaves the no-split result unchanged.
+
+## Extended min-u canonical K* scan to n<=24 (m>=4)
+
+Command:
+```bash
+python3 scripts/canonical_kstar_split_scan_minu.py \
+  --min-n 3 --max-n 24 --m-min 4 --progress-every 5000000 \
+  --out results/canonical_kstar_split_scan_minu_mge4_n24_exact.json
+```
+
+Outcome (`results/canonical_kstar_split_scan_minu_mge4_n24_exact.json`):
+- checked (`m>=4`): `2,164,055`
+- unique `K*` keys: `2,027,329`
+- key collisions: `136,726`
+- same-`K*`/different-`N` split found: `false` through `n<=24`
+- elapsed: `2286.63s`
+
+Per-layer highlight at `n=24`:
+- checked: `1,232,541`
+- unique keys cumulative: `2,027,329`
+- collisions cumulative: `136,726`

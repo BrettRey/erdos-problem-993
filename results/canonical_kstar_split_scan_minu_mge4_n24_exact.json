@@ -1,0 +1,197 @@
+{
+  "scan": "canonical_kstar_split_scan_minu",
+  "triplet_rule": "min_u_then_support_then_leaf",
+  "key": "(d,m,lambda,mu1,mu2,rho,sigma)",
+  "min_n": 3,
+  "max_n": 24,
+  "within_n_only": false,
+  "m_min": 4,
+  "checked_total": 2164055,
+  "unique_keys": 2027329,
+  "collisions": 136726,
+  "skipped_dleaf": 61078117,
+  "skipped_no_triplet": 0,
+  "skipped_bad": 0,
+  "skipped_m": 82,
+  "split_found": false,
+  "split": null,
+  "per_n": [
+    {
+      "n": 3,
+      "total_trees": 1,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.004002809524536133
+    },
+    {
+      "n": 4,
+      "total_trees": 2,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.0022737979888916016
+    },
+    {
+      "n": 5,
+      "total_trees": 3,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.002178192138671875
+    },
+    {
+      "n": 6,
+      "total_trees": 6,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.002416849136352539
+    },
+    {
+      "n": 7,
+      "total_trees": 11,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.002972126007080078
+    },
+    {
+      "n": 8,
+      "total_trees": 23,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.002835988998413086
+    },
+    {
+      "n": 9,
+      "total_trees": 47,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.0033919811248779297
+    },
+    {
+      "n": 10,
+      "total_trees": 106,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.004968881607055664
+    },
+    {
+      "n": 11,
+      "total_trees": 235,
+      "checked": 1,
+      "unique_keys": 1,
+      "collisions": 0,
+      "elapsed_sec": 0.009203910827636719
+    },
+    {
+      "n": 12,
+      "total_trees": 551,
+      "checked": 82,
+      "unique_keys": 80,
+      "collisions": 3,
+      "elapsed_sec": 0.01858997344970703
+    },
+    {
+      "n": 13,
+      "total_trees": 1301,
+      "checked": 167,
+      "unique_keys": 242,
+      "collisions": 8,
+      "elapsed_sec": 0.03975510597229004
+    },
+    {
+      "n": 14,
+      "total_trees": 3159,
+      "checked": 360,
+      "unique_keys": 592,
+      "collisions": 18,
+      "elapsed_sec": 0.08974003791809082
+    },
+    {
+      "n": 15,
+      "total_trees": 7741,
+      "checked": 766,
+      "unique_keys": 1329,
+      "collisions": 47,
+      "elapsed_sec": 0.20950698852539062
+    },
+    {
+      "n": 16,
+      "total_trees": 19320,
+      "checked": 1692,
+      "unique_keys": 2961,
+      "collisions": 107,
+      "elapsed_sec": 0.5657429695129395
+    },
+    {
+      "n": 17,
+      "total_trees": 48629,
+      "checked": 3726,
+      "unique_keys": 6527,
+      "collisions": 267,
+      "elapsed_sec": 1.3068490028381348
+    },
+    {
+      "n": 18,
+      "total_trees": 123867,
+      "checked": 8370,
+      "unique_keys": 14521,
+      "collisions": 643,
+      "elapsed_sec": 3.453092098236084
+    },
+    {
+      "n": 19,
+      "total_trees": 317955,
+      "checked": 18866,
+      "unique_keys": 32436,
+      "collisions": 1594,
+      "elapsed_sec": 8.697531938552856
+    },
+    {
+      "n": 20,
+      "total_trees": 823065,
+      "checked": 43029,
+      "unique_keys": 73273,
+      "collisions": 3786,
+      "elapsed_sec": 22.7642560005188
+    },
+    {
+      "n": 21,
+      "total_trees": 2144505,
+      "checked": 98581,
+      "unique_keys": 166261,
+      "collisions": 9379,
+      "elapsed_sec": 61.3411431312561
+    },
+    {
+      "n": 22,
+      "total_trees": 5623756,
+      "checked": 227678,
+      "unique_keys": 380601,
+      "collisions": 22717,
+      "elapsed_sec": 163.04464602470398
+    },
+    {
+      "n": 23,
+      "total_trees": 14828074,
+      "checked": 528196,
+      "unique_keys": 875523,
+      "collisions": 55991,
+      "elapsed_sec": 460.50283694267273
+    },
+    {
+      "n": 24,
+      "total_trees": 39299897,
+      "checked": 1232541,
+      "unique_keys": 2027329,
+      "collisions": 136726,
+      "elapsed_sec": 1564.5655419826508
+    }
+  ],
+  "elapsed_sec": 2286.6340296268463
+}
