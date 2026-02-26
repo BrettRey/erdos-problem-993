@@ -596,3 +596,50 @@ Outcome (`results/canonical_kstar_split_scan_minu_n23_exact.json`):
 - elapsed: `708.66s`
 
 This tightens the min-u tie-break frontier from `n<=22` to `n<=23` with no observed split.
+
+## Triplet-invariance scan (tie-break independent subclass)
+
+Added script:
+- `scripts/canonical_kstar_triplet_invariance_scan.py`
+
+Definition used by script:
+- A tree is `triplet-invariant` if all admissible triplets `(leaf,support,u)` yield the same
+  `K*=(d,m,lambda,mu1,mu2,rho,sigma)`.
+
+### m>=3 targeted run through n<=22
+
+```bash
+python3 scripts/canonical_kstar_triplet_invariance_scan.py \
+  --min-n 3 --max-n 22 --m-min 3 --progress-every 2000000 \
+  --out results/canonical_kstar_triplet_invariance_kstar_mge3_n22_exact.json
+```
+
+Outcome:
+- dleaf trees: `403,400`
+- gated trees: `403,400`
+- triplet-invariant trees: `659`
+- checked (triplet-invariant and `m>=3`): `651`
+- unique keys: `651`
+- collisions: `0`
+- split_found: `false`
+
+### m>=3 targeted run through n<=23
+
+```bash
+python3 scripts/canonical_kstar_triplet_invariance_scan.py \
+  --min-n 3 --max-n 23 --m-min 3 --progress-every 2000000 \
+  --out results/canonical_kstar_triplet_invariance_kstar_mge3_n23_exact.json
+```
+
+Outcome:
+- dleaf trees: `931,596`
+- gated trees: `931,596`
+- triplet-invariant trees: `783`
+- checked (triplet-invariant and `m>=3`): `775`
+- unique keys: `775`
+- collisions: `0`
+- split_found: `false`
+
+Interpretation:
+- On the tie-break-independent `triplet-invariant` subclass, there are currently no
+  observed `K*` collisions at all in the `m>=3` regime through `n<=23`.
