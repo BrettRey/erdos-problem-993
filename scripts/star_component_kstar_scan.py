@@ -38,6 +38,7 @@ if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
 from attack4_common import bridge_decomposition
+from conjecture_a_hall_subset_scan import is_dleaf_le_1
 from graph6 import parse_graph6
 from indpoly import independence_poly
 from trees import trees_geng_raw
@@ -84,6 +85,17 @@ def remove_vertex(adj: list[list[int]], root: int) -> list[list[int]]:
     return out
 
 
+def component_is_dleaf_compatible(adj: list[list[int]], root: int) -> bool:
+    """Whether attaching a parent to `root` preserves d_leaf<=1 locally."""
+    n = len(adj)
+    ext = [list(nei) for nei in adj] + [[]]
+    parent = n
+    ext[root].append(parent)
+    ext[parent].append(root)
+    ext = [sorted(nei) for nei in ext]
+    return is_dleaf_le_1(n + 1, ext)
+
+
 def maybe_g6(adj: list[list[int]]) -> str:
     try:
         import networkx as nx  # type: ignore
@@ -114,6 +126,7 @@ def build_rooted_library(
     min_comp_n: int,
     max_comp_n: int,
     root_min_deg: int,
+    require_component_dleaf: bool,
 ) -> list[RootedComponent]:
     seen: dict[tuple[Any, ...], RootedComponent] = {}
     for n in range(min_comp_n, max_comp_n + 1):
@@ -122,6 +135,8 @@ def build_rooted_library(
             f_poly = independence_poly(n, adj)
             for root in range(n):
                 if len(adj[root]) < root_min_deg:
+                    continue
+                if require_component_dleaf and not component_is_dleaf_compatible(adj, root):
                     continue
                 g_adj = remove_vertex(adj, root)
                 g_poly = independence_poly(n - 1, g_adj) if n > 1 else [1]
@@ -227,6 +242,7 @@ def scan(
     min_comp_n: int,
     max_comp_n: int,
     root_min_deg: int,
+    require_component_dleaf: bool,
     multiset_size: int,
     max_tested: int,
     random_samples: int,
@@ -239,6 +255,7 @@ def scan(
         min_comp_n=min_comp_n,
         max_comp_n=max_comp_n,
         root_min_deg=root_min_deg,
+        require_component_dleaf=require_component_dleaf,
     )
     m = len(comps)
 
@@ -299,6 +316,7 @@ def scan(
         "min_comp_n": min_comp_n,
         "max_comp_n": max_comp_n,
         "root_min_deg": root_min_deg,
+        "require_component_dleaf": require_component_dleaf,
         "multiset_size": multiset_size,
         "max_tested": max_tested,
         "random_samples": random_samples,
@@ -321,6 +339,11 @@ def main() -> None:
     ap.add_argument("--min-comp-n", type=int, default=2)
     ap.add_argument("--max-comp-n", type=int, default=6)
     ap.add_argument("--root-min-deg", type=int, default=1)
+    ap.add_argument(
+        "--require-component-dleaf",
+        action="store_true",
+        help="Filter rooted components to those satisfying d_leaf<=1 after root-parent attachment.",
+    )
     ap.add_argument("--multiset-size", type=int, default=4)
     ap.add_argument("--max-tested", type=int, default=0, help="0 = no cap")
     ap.add_argument(
@@ -338,6 +361,7 @@ def main() -> None:
         min_comp_n=args.min_comp_n,
         max_comp_n=args.max_comp_n,
         root_min_deg=args.root_min_deg,
+        require_component_dleaf=args.require_component_dleaf,
         multiset_size=args.multiset_size,
         max_tested=args.max_tested,
         random_samples=args.random_samples,

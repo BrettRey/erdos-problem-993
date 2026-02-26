@@ -1,0 +1,19 @@
+{
+  "scan": "star_component_kstar_split_search",
+  "min_comp_n": 2,
+  "max_comp_n": 7,
+  "root_min_deg": 1,
+  "require_component_dleaf": true,
+  "multiset_size": 7,
+  "max_tested": 350000,
+  "random_samples": 0,
+  "seed": 0,
+  "component_library_size": 22,
+  "tested_multisets": 350001,
+  "passed_gate": 350000,
+  "unique_keys": 333341,
+  "collisions": 16659,
+  "split_found": false,
+  "split": null,
+  "elapsed_sec": 394.54025506973267
+}

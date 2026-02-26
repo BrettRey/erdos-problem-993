@@ -459,3 +459,65 @@ Aggregate randomized `star_component_kstar_scan` coverage so far:
 - unique `K*` keys: `4,451`
 - collisions: `1`
 - observed same-`K*`/different-`N` splits: `0`
+
+## Gate-aware component filter added
+
+Script update (`scripts/star_component_kstar_scan.py`):
+- Added `--require-component-dleaf` option.
+- When enabled, rooted component library keeps only components that satisfy
+  `d_leaf<=1` after attaching a parent to the chosen root.
+
+This improves canonical-gate hit rate in constructive scans.
+
+### A/B benchmark (same seed)
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 9 --multiset-size 7 \
+  --random-samples 50000 --seed 41 \
+  --out results/star_component_kstar_scan_n9_k7_rand50k_s41_baseline.json
+```
+- tested `50000`, passed_gate `6`, unique `6`, collisions `0`, split `false`
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 9 --multiset-size 7 \
+  --require-component-dleaf \
+  --random-samples 50000 --seed 41 \
+  --out results/star_component_kstar_scan_n9_k7_rand50k_s41_compdleaf.json
+```
+- tested `50000`, passed_gate `50000`, unique `50000`, collisions `0`, split `false`
+
+### Additional scans with new option
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 6 --multiset-size 7 \
+  --require-component-dleaf \
+  --out results/star_component_kstar_scan_n6_k7_compdleaf_full.json
+```
+- tested `11440`, passed_gate `11440`, unique `11440`, collisions `0`, split `false`
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 7 --multiset-size 7 \
+  --require-component-dleaf \
+  --max-tested 350000 --progress-every 50000 \
+  --out results/star_component_kstar_scan_n7_k7_compdleaf_cap350k.json
+```
+- tested `350001`, passed_gate `350000`, unique `333341`, collisions `16659`, split `false`
+
+### Control check (root-min-deg=2 only, no component filter)
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 9 --root-min-deg 2 --multiset-size 7 \
+  --random-samples 120000 --seed 31 \
+  --out results/star_component_kstar_scan_n9_k7_deg2_rand120k_s31.json
+```
+- tested `120000`, passed_gate `10`, unique `10`, collisions `0`, split `false`
+
+Interpretation:
+- `root-min-deg=2` alone does not improve hit rate.
+- `--require-component-dleaf` is effective and enables high-collision liftability probes.
+- Even with `16659` same-`K*` collisions in the capped exhaustive regime, no same-`K*`/different-`N` split observed.
