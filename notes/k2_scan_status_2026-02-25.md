@@ -551,3 +551,30 @@ Verified facts (exhaustive through `n<=22`):
 Interpretation:
 - `lambda_hat=1` component-level collisions are non-liftable by definition.
 - Any lifted same-key split witness must lie in `m>=3` regime.
+
+## Canonical K* split scan with explicit min-u tie-break (new)
+
+Added script:
+- `scripts/canonical_kstar_split_scan_minu.py`
+
+Triplet rule implemented explicitly:
+- among admissible `(leaf,support,u)` with `leaf` leaf and `deg(support)=2`, choose minimum by `(u,support,leaf)`.
+
+Sanity against accepted blocked witnesses:
+- reproduces the same canonical triplets/lambdas for
+  - `KpCHA?@?G?_@` vs `KpE?GD??G?_@`
+  - `N??????_A?E?b?OoDS?` vs `N??????_A?E?B_aOKc?`
+
+Exhaustive run:
+```bash
+python3 scripts/canonical_kstar_split_scan_minu.py \
+  --min-n 3 --max-n 22 \
+  --out results/canonical_kstar_split_scan_minu_n22_exact.json
+```
+
+Outcome (`results/canonical_kstar_split_scan_minu_n22_exact.json`):
+- checked gated trees: `403,400`
+- unique `K*` keys: `380,682`
+- key collisions: `22,718`
+- same-`K*`/different-`N` split found: `false` through `n<=22`
+- elapsed: `262.94s`
