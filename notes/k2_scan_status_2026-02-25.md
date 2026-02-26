@@ -451,3 +451,11 @@ python3 scripts/star_component_kstar_scan.py \
 ```
 - tested `120000`, passed_gate `25`, unique `25`, collisions `0`, `split_found=false`
 - elapsed `106.63s`
+
+Aggregate randomized `star_component_kstar_scan` coverage so far:
+- result files: `11`
+- tested multisets: `2,180,000`
+- passed canonical gate: `4,452`
+- unique `K*` keys: `4,451`
+- collisions: `1`
+- observed same-`K*`/different-`N` splits: `0`
