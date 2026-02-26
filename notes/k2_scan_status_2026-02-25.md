@@ -578,3 +578,21 @@ Outcome (`results/canonical_kstar_split_scan_minu_n22_exact.json`):
 - key collisions: `22,718`
 - same-`K*`/different-`N` split found: `false` through `n<=22`
 - elapsed: `262.94s`
+
+## Canonical K* split scan with explicit min-u tie-break extended to n<=23
+
+Command:
+```bash
+python3 scripts/canonical_kstar_split_scan_minu.py \
+  --min-n 3 --max-n 23 --progress-every 2000000 \
+  --out results/canonical_kstar_split_scan_minu_n23_exact.json
+```
+
+Outcome (`results/canonical_kstar_split_scan_minu_n23_exact.json`):
+- checked gated trees: `931,596`
+- unique `K*` keys: `875,604`
+- key collisions: `55,992`
+- same-`K*`/different-`N` split found: `false` through `n<=23`
+- elapsed: `708.66s`
+
+This tightens the min-u tie-break frontier from `n<=22` to `n<=23` with no observed split.
