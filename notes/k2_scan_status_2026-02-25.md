@@ -369,3 +369,16 @@ python3 scripts/star_component_kstar_scan.py \
   trees with the same derived `(m,lambda_hat)`.
 - Structured constructive liftability scans (star-of-components family) remain
   split-free at current tested bounds (both lexicographic and randomized samples).
+
+Additional randomized liftability coverage:
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 8 --multiset-size 7 \
+  --random-samples 150000 --seed 11 \
+  --out results/star_component_kstar_scan_n8_k7_rand150k_s11.json
+```
+- tested `150000`, passed_gate `67`, unique `67`, collisions `0`, `split_found=false`
+- elapsed `126.68s`
+
+Interpretation: still no same-`K*`/different-`N` split in this broader randomized family probe.
