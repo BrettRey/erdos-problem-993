@@ -643,3 +643,25 @@ Outcome:
 Interpretation:
 - On the tie-break-independent `triplet-invariant` subclass, there are currently no
   observed `K*` collisions at all in the `m>=3` regime through `n<=23`.
+
+## m>=4 targeted min-u canonical K* scan (new)
+
+Updated script:
+- `scripts/canonical_kstar_split_scan_minu.py` now supports `--m-min`.
+
+Command:
+```bash
+python3 scripts/canonical_kstar_split_scan_minu.py \
+  --min-n 3 --max-n 23 --m-min 4 --progress-every 2000000 \
+  --out results/canonical_kstar_split_scan_minu_mge4_n23_exact.json
+```
+
+Outcome (`results/canonical_kstar_split_scan_minu_mge4_n23_exact.json`):
+- checked (`m>=4`): `931,514`
+- skipped by mode gate (`m<4`): `82`
+- unique `K*` keys: `875,523`
+- key collisions: `55,991`
+- same-`K*`/different-`N` split found: `false` through `n<=23`
+
+Interpretation:
+- Restricting to the only unresolved mode regime (`m>=4`) leaves the no-split result unchanged.

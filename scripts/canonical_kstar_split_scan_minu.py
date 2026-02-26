@@ -222,7 +222,13 @@ def rebuild_record(n: int, g6: str) -> dict[str, Any]:
     return rec
 
 
-def scan(min_n: int, max_n: int, progress_every: int, within_n_only: bool) -> dict[str, Any]:
+def scan(
+    min_n: int,
+    max_n: int,
+    progress_every: int,
+    within_n_only: bool,
+    m_min: int,
+) -> dict[str, Any]:
     started = time.time()
     seen: dict[tuple[int, ...], tuple[int, str, int, int]] = {}
 
@@ -230,6 +236,7 @@ def scan(min_n: int, max_n: int, progress_every: int, within_n_only: bool) -> di
     skipped_dleaf = 0
     skipped_no_triplet = 0
     skipped_bad = 0
+    skipped_m = 0
     collisions = 0
     split: dict[str, Any] | None = None
     per_n: list[dict[str, Any]] = []
@@ -259,6 +266,9 @@ def scan(min_n: int, max_n: int, progress_every: int, within_n_only: bool) -> di
             rec = build_record_from_triplet(nn, adj, g6, trip)
             if rec is None:
                 skipped_bad += 1
+                continue
+            if rec["m"] < m_min:
+                skipped_m += 1
                 continue
             key = key_from_record(rec)
             prev = seen.get(key)
@@ -299,12 +309,14 @@ def scan(min_n: int, max_n: int, progress_every: int, within_n_only: bool) -> di
         "min_n": min_n,
         "max_n": per_n[-1]["n"] if per_n else min_n,
         "within_n_only": within_n_only,
+        "m_min": m_min,
         "checked_total": checked_total,
         "unique_keys": len(seen),
         "collisions": collisions,
         "skipped_dleaf": skipped_dleaf,
         "skipped_no_triplet": skipped_no_triplet,
         "skipped_bad": skipped_bad,
+        "skipped_m": skipped_m,
         "split_found": split is not None,
         "split": split,
         "per_n": per_n,
@@ -322,6 +334,12 @@ def main() -> None:
         action="store_true",
         help="Reset key table per n (intra-layer collisions only).",
     )
+    ap.add_argument(
+        "--m-min",
+        type=int,
+        default=0,
+        help="Ignore instances with mode index m < this value.",
+    )
     ap.add_argument("--out", default="")
     args = ap.parse_args()
 
@@ -330,6 +348,7 @@ def main() -> None:
         max_n=args.max_n,
         progress_every=args.progress_every,
         within_n_only=args.within_n_only,
+        m_min=args.m_min,
     )
     print(
         f"done checked={payload['checked_total']} unique={payload['unique_keys']} "
@@ -348,4 +367,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
