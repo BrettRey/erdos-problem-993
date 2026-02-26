@@ -748,3 +748,41 @@ Interpretation:
 - `(m,lambda) -> N` is false on the gated class under min-u canonicalization.
 - So any proof route must use additional anchored coordinates (e.g. `d, mu1, mu2, rho, sigma`),
   not mode-ratio data alone.
+
+## One-pass projection battery (single enumeration) through n<=24, m>=4
+
+Added script:
+- `scripts/canonical_projection_battery_minu.py`
+
+Command:
+```bash
+python3 scripts/canonical_projection_battery_minu.py \
+  --min-n 3 --max-n 24 --m-min 4 \
+  --out results/canonical_projection_battery_minu_mge4_n24_exact.json
+```
+
+Full-scan stage:
+- checked: `2,164,055`
+- unique full `K*` keys: `2,027,329`
+- full-key collisions: `136,726`
+
+Projection results:
+- `(m,lambda,d)`: `split_found=true`
+  - confirms expected split on the known `(m,lambda)=(5,7/9)` witness pair with shared `d=7`.
+- `(m,lambda,mu1)`: `split_found=false`
+  - `unique=1,993,533`, `collisions=170,522`
+- `(m,lambda,rho)`: `split_found=false`
+  - `unique=2,027,329`, `collisions=136,726`
+- `(m,lambda,sigma)`: `split_found=false`
+  - `unique=2,027,329`, `collisions=136,726`
+- `(m,lambda,rho,sigma)`: `split_found=false`
+  - `unique=2,027,329`, `collisions=136,726`
+- `(d,m,lambda,mu1,mu2)`: `split_found=false`
+  - `unique=1,993,533`, `collisions=170,522`
+- `(d,m,lambda,rho,sigma)`: `split_found=false`
+  - `unique=2,027,329`, `collisions=136,726`
+
+Notes:
+- Through `n<=24`, any projection including `(m,lambda)` plus either `rho` or `sigma`
+  already matches full-`K*` key cardinality in this regime.
+- The key `(m,lambda,d)` fails quickly, while all tested Q-sensitive augmentations above remain split-free.
