@@ -786,3 +786,26 @@ Notes:
 - Through `n<=24`, any projection including `(m,lambda)` plus either `rho` or `sigma`
   already matches full-`K*` key cardinality in this regime.
 - The key `(m,lambda,d)` fails quickly, while all tested Q-sensitive augmentations above remain split-free.
+
+## Focused extension to n<=25 for `(m,lambda,rho)` and `(m,lambda,sigma)` (m>=4)
+
+Command:
+```bash
+python3 scripts/canonical_projection_battery_minu.py \
+  --min-n 3 --max-n 25 --m-min 4 \
+  --projections 'm,lambda,rho;m,lambda,sigma' \
+  --out results/canonical_projection_battery_minu_mlambda_rho_sigma_mge4_n25_exact.json
+```
+
+Outcome (`results/canonical_projection_battery_minu_mlambda_rho_sigma_mge4_n25_exact.json`):
+- checked: `5,052,197`
+- unique full `K*` keys: `4,716,169`
+- full-key collisions: `336,028`
+
+Projection results:
+- `(m,lambda,rho)`: `split_found=false`, `unique=4,716,169`, `collisions=336,028`
+- `(m,lambda,sigma)`: `split_found=false`, `unique=4,716,169`, `collisions=336,028`
+
+Interpretation:
+- No same-key/different-`N` split was found through `n<=25` for either key.
+- In this range both projections match full-`K*` key cardinality exactly.
