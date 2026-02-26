@@ -719,3 +719,32 @@ Histogram in checked slice (`m>=4`):
 Interpretation:
 - The collision-free result in the triplet-invariant subclass is not just a low-mode artifact;
   it remains collision-free on the substantive `m>=4` slice through `n<=23`.
+
+## Projected key scan: (m, lambda) only (min-u, m>=4)
+
+Added script:
+- `scripts/canonical_mlambda_split_scan_minu.py`
+
+Command:
+```bash
+python3 scripts/canonical_mlambda_split_scan_minu.py \
+  --min-n 3 --max-n 24 --m-min 4 --progress-every 5000000 \
+  --out results/canonical_mlambda_split_scan_minu_mge4_n24_exact.json
+```
+
+Outcome (`results/canonical_mlambda_split_scan_minu_mge4_n24_exact.json`):
+- run terminated early at first split (`max_n reached in run: 17`)
+- checked (`m>=4`): `6,791`
+- skipped by mode gate (`m<4`): `82`
+- unique `(m,lambda)` keys: `1,417`
+- key collisions: `5,375`
+- split_found: `true`
+
+First split witness (same `(m,lambda)`, different `N`):
+- A: `n=16`, `g6=O??????_A?C?E?@_WG@j?`, `N=13`, `(m,lambda)=(5,7/9)`
+- B: `n=17`, `g6=P????A?OD?E?E?B??o?E?OO?`, `N=14`, `(m,lambda)=(5,7/9)`
+
+Interpretation:
+- `(m,lambda) -> N` is false on the gated class under min-u canonicalization.
+- So any proof route must use additional anchored coordinates (e.g. `d, mu1, mu2, rho, sigma`),
+  not mode-ratio data alone.

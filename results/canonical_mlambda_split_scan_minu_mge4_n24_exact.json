@@ -1,0 +1,162 @@
+{
+  "scan": "canonical_mlambda_split_scan_minu",
+  "triplet_rule": "min_u_then_support_then_leaf",
+  "key": "(m,lambda)",
+  "min_n": 3,
+  "max_n": 17,
+  "m_min": 4,
+  "within_n_only": false,
+  "checked_total": 6791,
+  "unique_keys": 1417,
+  "collisions": 5375,
+  "skipped_dleaf": 74259,
+  "skipped_no_triplet": 0,
+  "skipped_bad": 0,
+  "skipped_m": 82,
+  "split_found": true,
+  "split": {
+    "A": {
+      "n": 16,
+      "g6": "O??????_A?C?E?@_WG@j?",
+      "N": 13,
+      "m_lambda": [
+        5,
+        7,
+        9
+      ]
+    },
+    "B": {
+      "n": 17,
+      "g6": "P????A?OD?E?E?B??o?E?OO?",
+      "N": 14,
+      "m_lambda": [
+        5,
+        7,
+        9
+      ]
+    }
+  },
+  "per_n": [
+    {
+      "n": 3,
+      "total_trees": 1,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.010422706604003906
+    },
+    {
+      "n": 4,
+      "total_trees": 2,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.011972904205322266
+    },
+    {
+      "n": 5,
+      "total_trees": 3,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.006338834762573242
+    },
+    {
+      "n": 6,
+      "total_trees": 6,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.0061991214752197266
+    },
+    {
+      "n": 7,
+      "total_trees": 11,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.005409955978393555
+    },
+    {
+      "n": 8,
+      "total_trees": 23,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.008285284042358398
+    },
+    {
+      "n": 9,
+      "total_trees": 47,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.008949041366577148
+    },
+    {
+      "n": 10,
+      "total_trees": 106,
+      "checked": 0,
+      "unique_keys": 0,
+      "collisions": 0,
+      "elapsed_sec": 0.012685060501098633
+    },
+    {
+      "n": 11,
+      "total_trees": 235,
+      "checked": 1,
+      "unique_keys": 1,
+      "collisions": 0,
+      "elapsed_sec": 0.015144824981689453
+    },
+    {
+      "n": 12,
+      "total_trees": 551,
+      "checked": 82,
+      "unique_keys": 26,
+      "collisions": 57,
+      "elapsed_sec": 0.02679920196533203
+    },
+    {
+      "n": 13,
+      "total_trees": 1301,
+      "checked": 167,
+      "unique_keys": 61,
+      "collisions": 189,
+      "elapsed_sec": 0.05576777458190918
+    },
+    {
+      "n": 14,
+      "total_trees": 3159,
+      "checked": 360,
+      "unique_keys": 109,
+      "collisions": 501,
+      "elapsed_sec": 0.12195086479187012
+    },
+    {
+      "n": 15,
+      "total_trees": 7741,
+      "checked": 766,
+      "unique_keys": 360,
+      "collisions": 1016,
+      "elapsed_sec": 0.26070380210876465
+    },
+    {
+      "n": 16,
+      "total_trees": 19320,
+      "checked": 1692,
+      "unique_keys": 765,
+      "collisions": 2303,
+      "elapsed_sec": 0.7556750774383545
+    },
+    {
+      "n": 17,
+      "total_trees": 48627,
+      "checked": 3723,
+      "unique_keys": 1417,
+      "collisions": 5375,
+      "elapsed_sec": 1.7891077995300293
+    }
+  ],
+  "elapsed_sec": 3.096160650253296
+}
