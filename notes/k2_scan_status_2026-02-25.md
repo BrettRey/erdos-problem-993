@@ -521,3 +521,33 @@ Interpretation:
 - `root-min-deg=2` alone does not improve hit rate.
 - `--require-component-dleaf` is effective and enables high-collision liftability probes.
 - Even with `16659` same-`K*` collisions in the capped exhaustive regime, no same-`K*`/different-`N` split observed.
+
+## Structural fact verification (new exact artifact)
+
+Added script:
+- `scripts/verify_canonical_structural_facts.py`
+
+Command:
+```bash
+python3 scripts/verify_canonical_structural_facts.py \
+  --min-n 3 --max-n 22 \
+  --out results/verify_canonical_structural_facts_n22.json
+```
+
+Outcome (`results/verify_canonical_structural_facts_n22.json`):
+- checked trees: `9,114,283`
+- `d_leaf<=1` trees: `403,400`
+- canonical-gated decompositions: `403,400`
+
+Verified facts (exhaustive through `n<=22`):
+1. `lambda_hat = i_{m-1}/i_m` is always strictly `< 1`
+   - `max_lambda = 13513/13514 ≈ 0.9999260027`
+2. Number of admissible degree-2 bridge triplets is never exactly `1`
+   - `one_triplet_count = 0`
+3. In all `m=2` canonical cases, the identity holds:
+   - `i2 = (i1-1)(i1-2)/2`
+   - observed `m2_cases = 10`, `m2_identity_failures = 0`
+
+Interpretation:
+- `lambda_hat=1` component-level collisions are non-liftable by definition.
+- Any lifted same-key split witness must lie in `m>=3` regime.
