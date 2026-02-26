@@ -55,6 +55,8 @@ def scan(
     invariant_total = 0
     collisions = 0
     split: dict[str, Any] | None = None
+    m_hist_invariant: dict[int, int] = {}
+    m_hist_checked: dict[int, int] = {}
 
     per_n: list[dict[str, Any]] = []
 
@@ -111,8 +113,11 @@ def scan(
 
             # Any rec works because the key is invariant across triplets.
             rep = recs[0]
+            m_val = int(rep["m"])
+            m_hist_invariant[m_val] = m_hist_invariant.get(m_val, 0) + 1
             if rep["m"] < m_min:
                 continue
+            m_hist_checked[m_val] = m_hist_checked.get(m_val, 0) + 1
 
             key = key_from_record(rep)
             prev = seen.get(key)
@@ -193,6 +198,8 @@ def scan(
         "collisions": collisions,
         "split_found": split is not None,
         "split": split,
+        "m_hist_invariant": {str(k): v for k, v in sorted(m_hist_invariant.items())},
+        "m_hist_checked": {str(k): v for k, v in sorted(m_hist_checked.items())},
         "per_n": per_n,
         "elapsed_sec": time.time() - started,
     }
@@ -237,4 +244,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

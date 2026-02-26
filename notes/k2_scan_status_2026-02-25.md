@@ -686,3 +686,36 @@ Per-layer highlight at `n=24`:
 - checked: `1,232,541`
 - unique keys cumulative: `2,027,329`
 - collisions cumulative: `136,726`
+
+## Triplet-invariant K* scan with m-histograms (m>=4 gate)
+
+Updated script:
+- `scripts/canonical_kstar_triplet_invariance_scan.py` now records
+  - `m_hist_invariant`
+  - `m_hist_checked`
+
+Command:
+```bash
+python3 scripts/canonical_kstar_triplet_invariance_scan.py \
+  --min-n 3 --max-n 23 --m-min 4 --progress-every 2000000 \
+  --out results/canonical_kstar_triplet_invariance_kstar_mge4_n23_exact.json
+```
+
+Outcome (`results/canonical_kstar_triplet_invariance_kstar_mge4_n23_exact.json`):
+- dleaf trees: `931,596`
+- gated trees: `931,596`
+- triplet-invariant trees: `783`
+- checked (`m>=4`): `756`
+- unique keys: `756`
+- collisions: `0`
+- split_found: `false`
+
+Histogram on triplet-invariant trees (all m):
+- `m_hist_invariant = {1:1, 2:7, 3:19, 4:50, 5:122, 6:271, 7:313}`
+
+Histogram in checked slice (`m>=4`):
+- `m_hist_checked = {4:50, 5:122, 6:271, 7:313}`
+
+Interpretation:
+- The collision-free result in the triplet-invariant subclass is not just a low-mode artifact;
+  it remains collision-free on the substantive `m>=4` slice through `n<=23`.
