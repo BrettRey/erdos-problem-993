@@ -382,3 +382,43 @@ python3 scripts/star_component_kstar_scan.py \
 - elapsed `126.68s`
 
 Interpretation: still no same-`K*`/different-`N` split in this broader randomized family probe.
+
+Additional randomized liftability coverage (new batch):
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 8 --multiset-size 7 \
+  --random-samples 150000 --seed 12 \
+  --out results/star_component_kstar_scan_n8_k7_rand150k_s12.json
+```
+- tested `150000`, passed_gate `68`, unique `68`, collisions `0`, `split_found=false`
+- elapsed `108.16s`
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 8 --multiset-size 7 \
+  --random-samples 150000 --seed 13 \
+  --out results/star_component_kstar_scan_n8_k7_rand150k_s13.json
+```
+- tested `150000`, passed_gate `82`, unique `82`, collisions `0`, `split_found=false`
+- elapsed `99.98s`
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 8 --multiset-size 7 \
+  --random-samples 150000 --seed 14 \
+  --out results/star_component_kstar_scan_n8_k7_rand150k_s14.json
+```
+- tested `150000`, passed_gate `88`, unique `88`, collisions `0`, `split_found=false`
+- elapsed `100.98s`
+
+```bash
+python3 scripts/star_component_kstar_scan.py \
+  --min-comp-n 2 --max-comp-n 9 --multiset-size 7 \
+  --random-samples 120000 --seed 21 \
+  --out results/star_component_kstar_scan_n9_k7_rand120k_s21.json
+```
+- tested `120000`, passed_gate `27`, unique `27`, collisions `0`, `split_found=false`
+- elapsed `100.15s`
+
+Interpretation: no lifted same-`K*`/different-`N` split found in this additional randomized coverage.
