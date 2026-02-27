@@ -110,6 +110,7 @@ def make_payload(
         "min_n": args.min_n,
         "max_n": args.max_n,
         "m_min": args.m_min,
+        "odd_even_only": bool(args.odd_even_only),
         "progress_every": args.progress_every,
         "done": bool(done),
         "checked_total": int(checked_total),
@@ -151,6 +152,11 @@ def main() -> None:
         "--no-early-abort",
         action="store_true",
         help="Continue full scan even after first adjacent split is found.",
+    )
+    ap.add_argument(
+        "--odd-even-only",
+        action="store_true",
+        help="Only treat odd->even adjacent N pairs as split witnesses.",
     )
     ap.add_argument(
         "--checkpoint-path",
@@ -244,15 +250,25 @@ def main() -> None:
                 # adjacent split check
                 if first_adjacent_split is None:
                     neigh = None
-                    if (n_val - 1) in bucket:
-                        neigh = bucket[n_val - 1]
-                    elif (n_val + 1) in bucket:
-                        neigh = bucket[n_val + 1]
+                    if args.odd_even_only:
+                        # Only accept odd->even adjacency:
+                        # either current is odd and seen N+1 even, or
+                        # current is even and seen N-1 odd.
+                        if (n_val % 2 == 1) and ((n_val + 1) in bucket):
+                            neigh = bucket[n_val + 1]
+                        elif (n_val % 2 == 0) and ((n_val - 1) in bucket):
+                            neigh = bucket[n_val - 1]
+                    else:
+                        if (n_val - 1) in bucket:
+                            neigh = bucket[n_val - 1]
+                        elif (n_val + 1) in bucket:
+                            neigh = bucket[n_val + 1]
                     if neigh is not None:
                         b = compact_info({"n": nn, "g6": g6, "N": n_val}, fk)
                         first_adjacent_split = {
                             "projection_key": unpack_projection_key(pkey),
                             "delta_N": abs(int(neigh["N"]) - int(b["N"])),
+                            "odd_even_only": bool(args.odd_even_only),
                             "A": neigh,
                             "B": b,
                         }

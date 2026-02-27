@@ -12,6 +12,11 @@
 2. Summarize all key artifacts in one pass:
    - `python3 scripts/summarize_mlambda_rho_outputs.py results/canonical_projection_battery_minu_mlambda_rho_sigma_mge4_n26_exact.json results/c1c2_coverage_mlambda_rho_mge4_n24_exact.json results/adjacent_rho_split_scan_minu_mge4_n27_exact.json`
 
+## Optional strict odd->even scan mode
+- Script supports `--odd-even-only` to treat only odd->even adjacent pairs as split witnesses.
+- Example:
+  - `python3 scripts/adjacent_rho_split_scan_minu.py --min-n 3 --max-n 27 --m-min 4 --odd-even-only --progress-every 0 --out results/adjacent_rho_split_scan_minu_mge4_n27_odd_even_exact.json`
+
 ## Interpretation matrix
 - If `adjacent_split_found=false`:
   - No adjacent split through `n<=27` for projection `(m,lambda,rho)`.
