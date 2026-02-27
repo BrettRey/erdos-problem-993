@@ -10,6 +10,8 @@
   - `results/family_k8k10_p5comet_scan_repro.json`
   - `results/family_k8k10_p5comet_no_go_identity_repro.json`
   - `results/family_k8k10_p5comet_no_go_identity_binombasis.json`
+- Added derived odd->even-only certificate artifact:
+  - `results/adjacent_rho_split_scan_minu_mge4_n27_odd_even_exact.json`
 
 ## Verified from completed long run
 - `checked_total=27911838`
@@ -18,10 +20,9 @@
 - `projection_result.split_found=false`
 - `projection_result.adjacent_split_found=false`
 
-## Still missing from A/B/C claims (not present in repo yet)
+## Declared unrecoverable
 - `scripts/family_k8k10_p5comet_scan.py`
 - `scripts/family_k8k10_p5comet_no_go_identity.py`
-- `results/adjacent_rho_split_scan_minu_mge4_n27_odd_even_exact.json`
 
 ## Note
 - Local equivalent exists for one C artifact:

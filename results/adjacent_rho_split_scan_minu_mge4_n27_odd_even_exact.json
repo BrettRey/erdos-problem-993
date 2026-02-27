@@ -1,0 +1,35 @@
+{
+  "checked_total": 27911838,
+  "derivation": "Full adjacent scan had adjacent_split_found=false, so odd-even-only adjacent_split_found=false.",
+  "derived_from": "results/adjacent_rho_split_scan_minu_mge4_n27_exact.json",
+  "elapsed_sec_scan": 0.0,
+  "elapsed_sec_total": 0.0,
+  "full_collisions": 2030876,
+  "full_unique_keys": 25880962,
+  "m_min": 4,
+  "max_n": 27,
+  "min_n": 3,
+  "projection_result": {
+    "adjacent_split_found": false,
+    "checked": 27911838,
+    "collisions": 2030876,
+    "derivation_note": "Implied by full adjacent scan with adjacent_split_found=false.",
+    "elapsed_sec": 0.0,
+    "fields": [
+      "m",
+      "lambda",
+      "rho"
+    ],
+    "first_adjacent_split": null,
+    "first_split": null,
+    "name": "m_lambda_rho_odd_even_only",
+    "split_found": false,
+    "unique_keys": 25880962
+  },
+  "scan": "derived_from_full_adjacent_scan",
+  "skipped_bad": 0,
+  "skipped_dleaf": 1170826134,
+  "skipped_m": 82,
+  "skipped_no_triplet": 0,
+  "triplet_rule": "min_u_then_support_then_leaf"
+}
