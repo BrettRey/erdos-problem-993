@@ -1,0 +1,85 @@
+{
+  "scan": "frontier_adjacent_overlap_attachment_search",
+  "pair": {
+    "A": {
+      "g6": "O??????_A?C?E?@_WG@j?",
+      "N0": 13,
+      "m0": 5,
+      "lambda0": [
+        7,
+        9
+      ]
+    },
+    "B": {
+      "g6": "P????A?OD?E?E?B??o?E?OO?",
+      "N0": 14,
+      "m0": 5,
+      "lambda0": [
+        7,
+        9
+      ]
+    }
+  },
+  "params": {
+    "gadget_max_n": 8,
+    "max_gadgets": 4,
+    "max_added_size": 24,
+    "m_min": 4,
+    "even_added_size_only": true
+  },
+  "totals": {
+    "gadgets_count": 57,
+    "patterns_count": 44444,
+    "checked": 88888,
+    "checked_A": 44444,
+    "checked_B": 44444,
+    "common_size_m_lambda_count": 1,
+    "collision_count": 0,
+    "split_found": false
+  },
+  "common_size_m_lambda_keys": [
+    {
+      "deltaN": 0,
+      "m": 5,
+      "lambda": [
+        7,
+        9
+      ]
+    }
+  ],
+  "first_split": null,
+  "closest_overlap_by_rho_gap": {
+    "key": {
+      "deltaN": 0,
+      "m": 5,
+      "lambda": [
+        7,
+        9
+      ]
+    },
+    "rho_gap": [
+      10519070037889952,
+      59484897518860809
+    ],
+    "A": {
+      "rho": [
+        22901648,
+        33160527
+      ],
+      "pattern_index": 0,
+      "added_size": 0,
+      "k": 0,
+      "N": 13
+    },
+    "B": {
+      "rho": [
+        8295005488,
+        16144619103
+      ],
+      "pattern_index": 0,
+      "added_size": 0,
+      "k": 0,
+      "N": 14
+    }
+  }
+}
