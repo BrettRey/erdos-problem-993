@@ -1,0 +1,19 @@
+{
+  "family": "T0+K8/K10+P5/Comet",
+  "T0_g6": "O??????_A?C?E?@_WG@j?",
+  "bounds": {
+    "tmax": 16,
+    "cmax": 8,
+    "dmax": 8,
+    "m_min": 4
+  },
+  "stats": {
+    "checked": 12393,
+    "rejected": 0,
+    "unique_keys": 12393,
+    "collisions": 0,
+    "elapsed_sec": 34.44260859489441
+  },
+  "split_found": false,
+  "witness": null
+}
