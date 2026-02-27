@@ -18,8 +18,19 @@
 - `split_found = false` (both)
 - Runtime differs by machine/load only (`~30.0s` downloaded vs `~21.3s` local).
 
+## Extended local bound
+- Command:
+  - `nice -n 18 python3 scripts/targeted_liftability_scan_t0_xy_scaffold.py --max-t 30 --max-e 30 --max-p3 30 --m-min 4 --out results/targeted_liftability_scan_t0_xy_scaffold_t30_e30_p3_30_mge4_local.json`
+- Totals:
+  - `combos_scanned = 476656`
+  - `combos_passing_m_gate = 476656`
+  - `collision_count = 0`
+  - `split_found = false`
+  - runtime `~221.34s`
+
 ## Interpretation
 - Within this scaffolded family and bounds (`t<=20`, `cE<=20`, `dP3<=20`, `m>=4`):
   - no same-`(m,lambda)` collisions across distinct `b` at fixed `(t,cE,dP3)`,
   - so no lifted same-`(m,lambda,rho)` / different-`N` split was found.
+- The extended run (`t,e,p3 <= 30`) preserves the same negative outcome.
 - This is a bounded negative result (family-specific), not a global proof for the full canonical gated class.
