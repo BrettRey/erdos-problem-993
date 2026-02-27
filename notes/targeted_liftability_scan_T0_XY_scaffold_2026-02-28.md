@@ -33,4 +33,12 @@
   - no same-`(m,lambda)` collisions across distinct `b` at fixed `(t,cE,dP3)`,
   - so no lifted same-`(m,lambda,rho)` / different-`N` split was found.
 - The extended run (`t,e,p3 <= 30`) preserves the same negative outcome.
+- Further extended run (`t,e,p3 <= 40`) also preserves the same negative outcome:
+  - artifact: `results/targeted_liftability_scan_t0_xy_scaffold_t40_e40_p3_40_mge4_local.json`
+  - totals:
+    - `combos_scanned = 1447341`
+    - `combos_passing_m_gate = 1447341`
+    - `collision_count = 0`
+    - `split_found = false`
+    - runtime `~1186.82s`
 - This is a bounded negative result (family-specific), not a global proof for the full canonical gated class.
