@@ -6,6 +6,21 @@
 - Artifact target:
   - `results/adjacent_rho_split_scan_minu_mge4_n27_exact.json`
 
+## Completed run (final)
+- Artifact:
+  - `results/adjacent_rho_split_scan_minu_mge4_n27_exact.json`
+- Totals:
+  - `checked_total=27911838`
+  - `full_unique_keys=25880962`
+  - `full_collisions=2030876`
+  - `projection_result.split_found=false`
+  - `projection_result.adjacent_split_found=false`
+- Runtime:
+  - `elapsed_sec_scan=48112.096760988235`
+  - `elapsed_sec_total=48323.65886616707`
+- Conclusion:
+  - no adjacent `(m,lambda,rho)` split witness through `n<=27` under min-u canonical gating with `m>=4`.
+
 ## Immediate post-finish commands
 1. Validate witness constraints (`|delta_N|=1`, exact key equality):
    - `python3 scripts/report_adjacent_rho_result.py --in results/adjacent_rho_split_scan_minu_mge4_n27_exact.json`
