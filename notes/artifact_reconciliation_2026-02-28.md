@@ -14,6 +14,9 @@
   - `results/adjacent_rho_split_scan_minu_mge4_n27_odd_even_exact.json`
 - Synced downloaded artifact:
   - `results/fast2_k9_g6_s30.json` (from `AB_attachment_search_result.json`)
+- Synced downloaded files:
+  - `scripts/outside_model_scan_m5_lam7_9.py`
+  - `results/outside_model_scan_m5_lam7_9_n16_17.json`
 
 ## Verified from completed long run
 - `checked_total=27911838`
@@ -25,7 +28,8 @@
 ## Declared unrecoverable
 - `scripts/family_k8k10_p5comet_scan.py`
 - `scripts/family_k8k10_p5comet_no_go_identity.py`
-- `scripts/pair_AB_attachment_search_push_fast2.py` (artifact recovered, script file unavailable)
+- original `/mnt/data/pair_AB_attachment_search_push_fast2.py` file from C bundle
+  (artifact recovered; in-repo replacement script now exists as `scripts/pair_AB_attachment_search_push_fast2.py`)
 
 ## Note
 - Local equivalent exists for one C artifact:

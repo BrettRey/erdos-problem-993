@@ -1,0 +1,71 @@
+{
+  "params": {
+    "min_n": 16,
+    "max_n": 17,
+    "m_target": 5,
+    "lambda_target": [
+      7,
+      9
+    ]
+  },
+  "per_n": {
+    "16": {
+      "total_trees": 19320,
+      "gated_ok": 1692,
+      "lock_ok": 1,
+      "matches": [
+        {
+          "n": 16,
+          "N": 13,
+          "g6": "OpC_I?@?I??@?@O???I??",
+          "canonical_triplet": [
+            14,
+            13,
+            0
+          ],
+          "m": 5,
+          "lambda": [
+            7,
+            9
+          ],
+          "rho": [
+            1965526479,
+            16698573056
+          ],
+          "isomorphic_to_A": true,
+          "isomorphic_to_B": false
+        }
+      ]
+    },
+    "17": {
+      "total_trees": 48629,
+      "gated_ok": 3726,
+      "lock_ok": 1,
+      "matches": [
+        {
+          "n": 17,
+          "N": 14,
+          "g6": "PpCGGC@O??_@?@??_?G?@??C",
+          "canonical_triplet": [
+            8,
+            7,
+            6
+          ],
+          "m": 5,
+          "lambda": [
+            7,
+            9
+          ],
+          "rho": [
+            8295005488,
+            16144619103
+          ],
+          "isomorphic_to_A": false,
+          "isomorphic_to_B": true
+        }
+      ]
+    }
+  },
+  "rho_cross_matches": [],
+  "verdict": "outside-model witness not found in tested bounds"
+}
