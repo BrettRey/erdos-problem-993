@@ -1,0 +1,214 @@
+{
+  "scan": "mlambda_overlap_profile_minu",
+  "triplet_rule": "min_u_then_support_then_leaf",
+  "min_n": 3,
+  "max_n": 18,
+  "m_min": 4,
+  "checked_total": 15164,
+  "keys_total": 3442,
+  "keys_with_multiple_N": 3,
+  "adjacent_pairs_total": 3,
+  "adjacent_pairs_even_d_eq_halfN": 2,
+  "adjacent_pairs_even_d_eq_halfN_ratio": 0.6666666666666666,
+  "examples": [
+    {
+      "key": {
+        "m": 5,
+        "lambda": {
+          "num": 7,
+          "den": 9
+        }
+      },
+      "odd": {
+        "n": 16,
+        "g6": "O??????_A?C?E?@_WG@j?",
+        "N": 13,
+        "d": 7,
+        "m": 5,
+        "lambda": {
+          "num": 7,
+          "den": 9
+        }
+      },
+      "even": {
+        "n": 17,
+        "g6": "P????A?OD?E?E?B??o?E?OO?",
+        "N": 14,
+        "d": 7,
+        "m": 5,
+        "lambda": {
+          "num": 7,
+          "den": 9
+        }
+      },
+      "condition_even_d_eq_halfN": true
+    },
+    {
+      "key": {
+        "m": 5,
+        "lambda": {
+          "num": 15,
+          "den": 22
+        }
+      },
+      "odd": {
+        "n": 18,
+        "g6": "Q??????_B?I?I?D?@O?I??gA@??",
+        "N": 15,
+        "d": 8,
+        "m": 5,
+        "lambda": {
+          "num": 15,
+          "den": 22
+        }
+      },
+      "even": {
+        "n": 17,
+        "g6": "P??????_A?C?C?a??oEA?LW?",
+        "N": 14,
+        "d": 8,
+        "m": 5,
+        "lambda": {
+          "num": 15,
+          "den": 22
+        }
+      },
+      "condition_even_d_eq_halfN": false
+    },
+    {
+      "key": {
+        "m": 5,
+        "lambda": {
+          "num": 12,
+          "den": 19
+        }
+      },
+      "odd": {
+        "n": 18,
+        "g6": "Q???????C?G?G?E??o?b?@SB`??",
+        "N": 15,
+        "d": 8,
+        "m": 5,
+        "lambda": {
+          "num": 12,
+          "den": 19
+        }
+      },
+      "even": {
+        "n": 17,
+        "g6": "P????A?O@?A?A?@??O?A?~o?",
+        "N": 14,
+        "d": 7,
+        "m": 5,
+        "lambda": {
+          "num": 12,
+          "den": 19
+        }
+      },
+      "condition_even_d_eq_halfN": true
+    }
+  ],
+  "skipped_dleaf": 189756,
+  "skipped_no_triplet": 0,
+  "skipped_bad": 0,
+  "skipped_m": 82,
+  "per_n": [
+    {
+      "n": 3,
+      "total_trees": 1,
+      "checked": 0,
+      "elapsed_sec": 0.0030028820037841797
+    },
+    {
+      "n": 4,
+      "total_trees": 2,
+      "checked": 0,
+      "elapsed_sec": 0.0020570755004882812
+    },
+    {
+      "n": 5,
+      "total_trees": 3,
+      "checked": 0,
+      "elapsed_sec": 0.0019860267639160156
+    },
+    {
+      "n": 6,
+      "total_trees": 6,
+      "checked": 0,
+      "elapsed_sec": 0.0020418167114257812
+    },
+    {
+      "n": 7,
+      "total_trees": 11,
+      "checked": 0,
+      "elapsed_sec": 0.0048370361328125
+    },
+    {
+      "n": 8,
+      "total_trees": 23,
+      "checked": 0,
+      "elapsed_sec": 0.002694845199584961
+    },
+    {
+      "n": 9,
+      "total_trees": 47,
+      "checked": 0,
+      "elapsed_sec": 0.003319978713989258
+    },
+    {
+      "n": 10,
+      "total_trees": 106,
+      "checked": 0,
+      "elapsed_sec": 0.005075931549072266
+    },
+    {
+      "n": 11,
+      "total_trees": 235,
+      "checked": 1,
+      "elapsed_sec": 0.008701086044311523
+    },
+    {
+      "n": 12,
+      "total_trees": 551,
+      "checked": 82,
+      "elapsed_sec": 0.018600940704345703
+    },
+    {
+      "n": 13,
+      "total_trees": 1301,
+      "checked": 167,
+      "elapsed_sec": 0.039830923080444336
+    },
+    {
+      "n": 14,
+      "total_trees": 3159,
+      "checked": 360,
+      "elapsed_sec": 0.08982515335083008
+    },
+    {
+      "n": 15,
+      "total_trees": 7741,
+      "checked": 766,
+      "elapsed_sec": 0.21935296058654785
+    },
+    {
+      "n": 16,
+      "total_trees": 19320,
+      "checked": 1692,
+      "elapsed_sec": 0.5372600555419922
+    },
+    {
+      "n": 17,
+      "total_trees": 48629,
+      "checked": 3726,
+      "elapsed_sec": 1.3448410034179688
+    },
+    {
+      "n": 18,
+      "total_trees": 123867,
+      "checked": 8370,
+      "elapsed_sec": 3.4393670558929443
+    }
+  ],
+  "elapsed_sec_total": 5.723587989807129
+}
