@@ -16,6 +16,8 @@ import json
 import os
 import sys
 import time
+from fractions import Fraction
+from math import comb
 from typing import Any
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -195,6 +197,7 @@ def run_projection_stage(
     full_seen: dict[tuple[int, ...], dict[str, Any]],
     checked_total: int,
     projections: list[tuple[str, tuple[str, ...]]],
+    analyze_c1c2: bool = False,
 ) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     for name, fields in projections:
@@ -239,6 +242,72 @@ def run_projection_stage(
             "first_split": split,
             "elapsed_sec": time.time() - t0,
         }
+
+        # Optional theorem-coverage analysis for projection (m, lambda, rho):
+        # certify singleton interval via (C1,C2) criterion and compare to observed N.
+        if analyze_c1c2 and fields == ("m", "lambda", "rho"):
+            stats = {
+                "keys_total": unique,
+                "c1_true": 0,
+                "c2_true": 0,
+                "c1c2_true": 0,
+                "c1c2_and_NeqL": 0,
+                "c1c2_and_NneL": 0,
+            }
+
+            for pkey, (n_obs, _fk) in seen.items():
+                # pkey layout for fields ("m","lambda","rho"):
+                # (m, lam_n, lam_d, rho_n, rho_d)
+                m = int(pkey[0])
+                lam = Fraction(int(pkey[1]), int(pkey[2]))
+                rho = Fraction(int(pkey[3]), int(pkey[4]))
+
+                # L1 = ceil(m - 4 + m/lambda)
+                l1_val = Fraction(m - 4, 1) + Fraction(m, 1) / lam
+                l1 = (l1_val.numerator + l1_val.denominator - 1) // l1_val.denominator
+
+                # r_min = least integer r s.t. (1+lambda)^r >= lambda/rho
+                r_min = 0
+                lhs = Fraction(1, 1)
+                base = Fraction(1, 1) + lam
+                target = lam / rho
+                while lhs < target:
+                    lhs *= base
+                    r_min += 1
+                l2 = max(0, 2 * r_min - 1)
+                l = max(l1, l2)
+
+                # E = smallest even integer strictly greater than L
+                e = 2 * ((l + 2) // 2)
+
+                # C1: ((E+5)(E+4))/((E+5-m)(E+4-m)) <= 1+lambda
+                den1 = (e + 5 - m) * (e + 4 - m)
+                if den1 <= 0:
+                    c1 = False
+                else:
+                    r_e = Fraction((e + 5) * (e + 4), den1)
+                    c1 = (r_e <= (Fraction(1, 1) + lam))
+
+                # C2: A*(1+lambda)^(E/2) > binom(E+3,m)
+                # A = (1-lambda)*((1+2lambda)+(1+lambda)rho)
+                a_const = (Fraction(1, 1) - lam) * (
+                    (Fraction(1, 1) + 2 * lam) + (Fraction(1, 1) + lam) * rho
+                )
+                c2 = (a_const * (base ** (e // 2)) > Fraction(comb(e + 3, m), 1))
+
+                if c1:
+                    stats["c1_true"] += 1
+                if c2:
+                    stats["c2_true"] += 1
+                if c1 and c2:
+                    stats["c1c2_true"] += 1
+                    if int(n_obs) == int(l):
+                        stats["c1c2_and_NeqL"] += 1
+                    else:
+                        stats["c1c2_and_NneL"] += 1
+
+            rec["c1c2_analysis"] = stats
+
         out.append(rec)
         print(
             f"projection={name:28s} unique={unique:8d} collisions={collisions:8d} "
@@ -259,6 +328,11 @@ def main() -> None:
         default=";".join(DEFAULT_PROJECTIONS),
         help="Semicolon-separated list of comma-separated field lists.",
     )
+    ap.add_argument(
+        "--analyze-c1c2",
+        action="store_true",
+        help="For projection (m,lambda,rho), report coverage of the (C1,C2) singleton criterion.",
+    )
     ap.add_argument("--out", default="")
     args = ap.parse_args()
 
@@ -276,6 +350,7 @@ def main() -> None:
         full_seen=full_seen,
         checked_total=int(scan_payload["checked_total"]),
         projections=projections,
+        analyze_c1c2=bool(args.analyze_c1c2),
     )
     total_elapsed = time.time() - t0
 
