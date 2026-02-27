@@ -5,6 +5,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+concurrency:
+  group: lean-action-ci-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read # Read access to repository contents
   pages: write # Required only when docgen deploy is enabled
@@ -19,4 +23,5 @@ jobs:
       - uses: leanprover/lean-action@v1
       - name: Build and deploy docs (optional)
         if: ${{ vars.ENABLE_LEAN_DOCGEN_PAGES == 'true' }}
+        continue-on-error: true
         uses: leanprover-community/docgen-action@v1
