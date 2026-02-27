@@ -1,0 +1,2596 @@
+{
+  "all": [
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 1454568624983277927713,
+          "num": 5377348006316093873
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            6,
+            10,
+            5,
+            1
+          ],
+          "G": [
+            1,
+            5,
+            6,
+            1
+          ],
+          "deg_root": 1,
+          "key": "n6_deg1_wl8d09cfc473",
+          "n": 6
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 270
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 78685107914666830962,
+          "num": 442804585225178965
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            5,
+            6,
+            2
+          ],
+          "G": [
+            1,
+            4,
+            3
+          ],
+          "deg_root": 1,
+          "key": "n5_deg1_wlf05f517e52",
+          "n": 5
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 177
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 145377077629061655,
+          "num": 985588398828398
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            6,
+            10,
+            4
+          ],
+          "G": [
+            1,
+            5,
+            6,
+            1
+          ],
+          "deg_root": 1,
+          "key": "n6_deg1_wlabc1007f02",
+          "n": 6
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 147
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 476145607980951894,
+          "num": 3255644568186403
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            3,
+            1
+          ],
+          "G": [
+            1,
+            2
+          ],
+          "deg_root": 1,
+          "key": "n3_deg1_wl3cf875c4ff",
+          "n": 3
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 146
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 608280690579924033,
+          "num": 4463716821746419
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            5,
+            6,
+            1
+          ],
+          "G": [
+            1,
+            4,
+            4
+          ],
+          "deg_root": 2,
+          "key": "n5_deg2_wl8f65dc6089",
+          "n": 5
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 136
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 677372369908865785,
+          "num": 5009629268127936
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            5,
+            6,
+            1
+          ],
+          "G": [
+            1,
+            4,
+            3
+          ],
+          "deg_root": 1,
+          "key": "n5_deg1_wl56604cb5ff",
+          "n": 5
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 135
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 84718799402067811227,
+          "num": 626803450711112783
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            5,
+            6,
+            1
+          ],
+          "G": [
+            1,
+            4,
+            4,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n5_deg2_wlce9addda6b",
+          "n": 5
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 135
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 156769226380749129,
+          "num": 1167925805740117
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            4,
+            3
+          ],
+          "G": [
+            1,
+            3,
+            1
+          ],
+          "deg_root": 1,
+          "key": "n4_deg1_wlb8ce0e4c2a",
+          "n": 4
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 134
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 5459696759266240,
+          "num": 40640258995363
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            4,
+            3
+          ],
+          "G": [
+            1,
+            3,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n4_deg2_wlf299daa64a",
+          "n": 4
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 134
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 64361988435008,
+          "num": 594405753383
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            2
+          ],
+          "G": [
+            1,
+            1
+          ],
+          "deg_root": 1,
+          "key": "n2_deg1_wl501a7b4789",
+          "n": 2
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 108
+    }
+  ],
+  "library": {
+    "rooted_types": 324
+  },
+  "params": {
+    "m_min": 4,
+    "max_comp_n": 10,
+    "max_families": 10,
+    "max_kernel_total": 4,
+    "max_scaffold": 2,
+    "require_adjacent_kernel": true
+  },
+  "results": {
+    "any_mlr_split_in_box": false,
+    "candidates": 10
+  },
+  "runtime_s": 0.31648475499991946,
+  "top": [
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 1454568624983277927713,
+          "num": 5377348006316093873
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            6,
+            10,
+            5,
+            1
+          ],
+          "G": [
+            1,
+            5,
+            6,
+            1
+          ],
+          "deg_root": 1,
+          "key": "n6_deg1_wl8d09cfc473",
+          "n": 6
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 270
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 78685107914666830962,
+          "num": 442804585225178965
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            5,
+            6,
+            2
+          ],
+          "G": [
+            1,
+            4,
+            3
+          ],
+          "deg_root": 1,
+          "key": "n5_deg1_wlf05f517e52",
+          "n": 5
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 177
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 145377077629061655,
+          "num": 985588398828398
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            6,
+            10,
+            4
+          ],
+          "G": [
+            1,
+            5,
+            6,
+            1
+          ],
+          "deg_root": 1,
+          "key": "n6_deg1_wlabc1007f02",
+          "n": 6
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 147
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 476145607980951894,
+          "num": 3255644568186403
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            3,
+            1
+          ],
+          "G": [
+            1,
+            2
+          ],
+          "deg_root": 1,
+          "key": "n3_deg1_wl3cf875c4ff",
+          "n": 3
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 146
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 608280690579924033,
+          "num": 4463716821746419
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            5,
+            6,
+            1
+          ],
+          "G": [
+            1,
+            4,
+            4
+          ],
+          "deg_root": 2,
+          "key": "n5_deg2_wl8f65dc6089",
+          "n": 5
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 136
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 677372369908865785,
+          "num": 5009629268127936
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            5,
+            6,
+            1
+          ],
+          "G": [
+            1,
+            4,
+            3
+          ],
+          "deg_root": 1,
+          "key": "n5_deg1_wl56604cb5ff",
+          "n": 5
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 135
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 84718799402067811227,
+          "num": 626803450711112783
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            5,
+            6,
+            1
+          ],
+          "G": [
+            1,
+            4,
+            4,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n5_deg2_wlce9addda6b",
+          "n": 5
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 135
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 156769226380749129,
+          "num": 1167925805740117
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            4,
+            3
+          ],
+          "G": [
+            1,
+            3,
+            1
+          ],
+          "deg_root": 1,
+          "key": "n4_deg1_wlb8ce0e4c2a",
+          "n": 4
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 134
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 5459696759266240,
+          "num": 40640258995363
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            4,
+            3
+          ],
+          "G": [
+            1,
+            3,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n4_deg2_wlf299daa64a",
+          "n": 4
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 134
+    },
+    {
+      "diagnostics": {
+        "min_lambda_gap": {
+          "den": 64361988435008,
+          "num": 594405753383
+        },
+        "sign_changes": 0,
+        "sign_mixed": false
+      },
+      "hits": {
+        "ml_collision": null,
+        "ml_collision_kernel_line": null,
+        "mlr_collision": null,
+        "mlr_collision_kernel_line": null
+      },
+      "kernel": {
+        "K1": {
+          "F": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "G": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ],
+          "deg_root": 2,
+          "key": "n8_deg2_wled6a1e55d8",
+          "n": 8
+        },
+        "K2": {
+          "F": [
+            1,
+            9,
+            28,
+            36,
+            18,
+            3
+          ],
+          "G": [
+            1,
+            8,
+            22,
+            24,
+            9,
+            1
+          ],
+          "deg_root": 2,
+          "key": "n9_deg2_wl0fa86e6104",
+          "n": 9
+        },
+        "delta_n": 1,
+        "ratio_repr": {
+          "den": [
+            1,
+            8,
+            21,
+            21,
+            6
+          ],
+          "num": [
+            1,
+            7,
+            16,
+            13,
+            2
+          ]
+        },
+        "ratio_sig": [
+          [
+            41,
+            53
+          ],
+          [
+            197,
+            267
+          ],
+          [
+            547,
+            757
+          ],
+          [
+            1169,
+            1637
+          ]
+        ]
+      },
+      "scaffold": {
+        "S1": {
+          "F": [
+            1,
+            1
+          ],
+          "G": [
+            1
+          ],
+          "deg_root": 0,
+          "key": "n1_deg0_wle01e650c42",
+          "n": 1
+        },
+        "S2": {
+          "F": [
+            1,
+            2
+          ],
+          "G": [
+            1,
+            1
+          ],
+          "deg_root": 1,
+          "key": "n2_deg1_wl501a7b4789",
+          "n": 2
+        }
+      },
+      "scan": {
+        "m_min": 4,
+        "max_kernel_total": 4,
+        "max_scaffold": 2
+      },
+      "score": 108
+    }
+  ]
+}
