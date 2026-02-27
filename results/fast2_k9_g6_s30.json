@@ -1,0 +1,209 @@
+{
+  "bounded_no_go_certificate": {
+    "base_pair": {
+      "A": {
+        "I": [
+          1,
+          16,
+          105,
+          371,
+          777,
+          999,
+          789,
+          371,
+          95,
+          10
+        ],
+        "N": 13,
+        "P": [
+          1,
+          13,
+          66,
+          169,
+          235,
+          177,
+          67,
+          10
+        ],
+        "Q": [
+          0,
+          1,
+          12,
+          58,
+          146,
+          206,
+          162,
+          65,
+          10
+        ],
+        "canonical_triplet": [
+          4,
+          12,
+          3
+        ],
+        "g6": "O??????_A?C?E?@_WG@j?",
+        "lambda": [
+          7,
+          9
+        ],
+        "m": 5
+      },
+      "B": {
+        "I": [
+          1,
+          17,
+          120,
+          455,
+          1001,
+          1287,
+          924,
+          330,
+          45,
+          1
+        ],
+        "N": 14,
+        "P": [
+          1,
+          14,
+          78,
+          220,
+          330,
+          252,
+          84,
+          8
+        ],
+        "Q": [
+          0,
+          1,
+          13,
+          66,
+          165,
+          210,
+          126,
+          28,
+          1
+        ],
+        "canonical_triplet": [
+          8,
+          0,
+          10
+        ],
+        "g6": "P????A?OD?E?E?B??o?E?OO?",
+        "lambda": [
+          7,
+          9
+        ],
+        "m": 5
+      },
+      "base_deltaN": 1
+    },
+    "bounds": {
+      "adjacent_target": {
+        "deltaN": 1,
+        "odd_even": true
+      },
+      "gadget_max_n": 9,
+      "lambda_target": [
+        7,
+        9
+      ],
+      "m_target": 5,
+      "max_added_size": 30,
+      "max_gadgets": 6
+    },
+    "gadget_universe": {
+      "generation_rule": {
+        "filter": "internal d_leaf<=1",
+        "n_range": [
+          2,
+          9
+        ],
+        "rooting": "all roots, then deduplicate by (F,G,n)",
+        "trees": "all nonisomorphic trees"
+      },
+      "size_hist": {
+        "2": 1,
+        "4": 2,
+        "5": 3,
+        "6": 7,
+        "7": 14,
+        "8": 30,
+        "9": 67
+      },
+      "universe_size": 124
+    },
+    "search_space": {
+      "good_patterns_A_count": 1,
+      "good_patterns_B_count": 1,
+      "patterns_enumerated_total": 3759303,
+      "patterns_passing_ratio_check_A": 1,
+      "patterns_passing_ratio_check_B": 1,
+      "pruning_rules": [
+        "multisets only (nondecreasing gadget id)",
+        "total added size <= max_added_size",
+        "#gadgets <= max_gadgets",
+        "gadgets restricted to internal d_leaf<=1 rooted tree types (n>=2)",
+        "ratio gate (side-specific): require 9*i4 == 7*i5 (lambda=7/9) using linear forms on truncated gadget products",
+        "full check: require leftmost mode m == m_target and lambda == 7/9"
+      ]
+    },
+    "shared_key_set": [
+      [
+        1,
+        5,
+        [
+          7,
+          9
+        ]
+      ]
+    ],
+    "timing": {
+      "bottleneck": "enumeration",
+      "build_gadgets_s": 0.0071201889995791134,
+      "enumeration_s": 8.745306669000001,
+      "fullcheck_s_A": 0.00013409399980446324,
+      "fullcheck_s_B": 6.556699963766732e-05
+    }
+  },
+  "command": "python3 /mnt/data/pair_AB_attachment_search_push_fast2.py --gadget-max-n 9 --max-gadgets 6 --max-added-size 30 --m-target 5 --lambda-target 7/9 --out /mnt/data/fast2_k9_g6_s30.json",
+  "first_witness": null,
+  "frontier": {
+    "all_keys_count": 1,
+    "shared_key_set": [
+      [
+        1,
+        5,
+        [
+          7,
+          9
+        ]
+      ]
+    ],
+    "top_nearest_misses": [
+      {
+        "deltaN": 1,
+        "lambda": [
+          7,
+          9
+        ],
+        "m": 5,
+        "rhoA": [
+          22901648,
+          33160527
+        ],
+        "rhoB": [
+          8295005488,
+          16144619103
+        ],
+        "rho_gap": [
+          10519070037889952,
+          59484897518860809
+        ],
+        "wA": 0,
+        "wB": 0
+      }
+    ]
+  },
+  "script_path": "/mnt/data/pair_AB_attachment_search_push_fast2.py",
+  "witness_found": false
+}
