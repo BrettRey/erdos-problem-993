@@ -1,0 +1,155 @@
+{
+  "scan": "root_admissible_product_adjacent_counterexample",
+  "lambda": [
+    7,
+    9
+  ],
+  "claim_refuted": "size-product rigidity (*) in notes/adjacent_separation_blocker_2026-02-27.md",
+  "root_admissible_condition": "at most one singleton component",
+  "A": {
+    "components": [
+      {
+        "g6": "@",
+        "root": 0,
+        "n": 1,
+        "F": [
+          1,
+          1
+        ],
+        "G": [
+          1
+        ],
+        "ratio": [
+          9,
+          16
+        ]
+      },
+      {
+        "g6": "A_",
+        "root": 0,
+        "n": 2,
+        "F": [
+          1,
+          2
+        ],
+        "G": [
+          1,
+          1
+        ],
+        "ratio": [
+          16,
+          23
+        ]
+      },
+      {
+        "g6": "G?`@f?",
+        "root": 2,
+        "n": 8,
+        "F": [
+          1,
+          8,
+          21,
+          21,
+          6
+        ],
+        "G": [
+          1,
+          7,
+          16,
+          13,
+          2
+        ],
+        "ratio": [
+          6553,
+          9129
+        ]
+      }
+    ],
+    "N": 11,
+    "r_product": [
+      19659,
+      69989
+    ],
+    "rho": [
+      45871,
+      209967
+    ]
+  },
+  "B": {
+    "components": [
+      {
+        "g6": "@",
+        "root": 0,
+        "n": 1,
+        "F": [
+          1,
+          1
+        ],
+        "G": [
+          1
+        ],
+        "ratio": [
+          9,
+          16
+        ]
+      },
+      {
+        "g6": "A_",
+        "root": 0,
+        "n": 2,
+        "F": [
+          1,
+          2
+        ],
+        "G": [
+          1,
+          1
+        ],
+        "ratio": [
+          16,
+          23
+        ]
+      },
+      {
+        "g6": "H?AE@`g",
+        "root": 1,
+        "n": 9,
+        "F": [
+          1,
+          9,
+          28,
+          36,
+          18,
+          3
+        ],
+        "G": [
+          1,
+          8,
+          22,
+          24,
+          9,
+          1
+        ],
+        "ratio": [
+          6553,
+          9129
+        ]
+      }
+    ],
+    "N": 12,
+    "r_product": [
+      19659,
+      69989
+    ],
+    "rho": [
+      45871,
+      209967
+    ]
+  },
+  "checks": {
+    "same_r_product": true,
+    "same_rho": true,
+    "delta_N": 1,
+    "delta_N_equals_1": true
+  }
+}
