@@ -1,0 +1,252 @@
+{
+  "scan": "canonical_projection_battery_minu",
+  "triplet_rule": "min_u_then_support_then_leaf",
+  "min_n": 3,
+  "max_n": 26,
+  "m_min": 4,
+  "projection_specs": [
+    [
+      "m",
+      "lambda",
+      "rho"
+    ],
+    [
+      "m",
+      "lambda",
+      "sigma"
+    ]
+  ],
+  "checked_total": 11850490,
+  "full_unique_keys": 11026431,
+  "full_collisions": 824059,
+  "skipped_dleaf": 435822022,
+  "skipped_no_triplet": 0,
+  "skipped_bad": 0,
+  "skipped_m": 82,
+  "per_n": [
+    {
+      "n": 3,
+      "total_trees": 1,
+      "checked": 0,
+      "unique_full_keys": 0,
+      "full_collisions": 0,
+      "elapsed_sec": 0.02307915687561035
+    },
+    {
+      "n": 4,
+      "total_trees": 2,
+      "checked": 0,
+      "unique_full_keys": 0,
+      "full_collisions": 0,
+      "elapsed_sec": 0.014474153518676758
+    },
+    {
+      "n": 5,
+      "total_trees": 3,
+      "checked": 0,
+      "unique_full_keys": 0,
+      "full_collisions": 0,
+      "elapsed_sec": 0.011487960815429688
+    },
+    {
+      "n": 6,
+      "total_trees": 6,
+      "checked": 0,
+      "unique_full_keys": 0,
+      "full_collisions": 0,
+      "elapsed_sec": 0.0072231292724609375
+    },
+    {
+      "n": 7,
+      "total_trees": 11,
+      "checked": 0,
+      "unique_full_keys": 0,
+      "full_collisions": 0,
+      "elapsed_sec": 0.009112119674682617
+    },
+    {
+      "n": 8,
+      "total_trees": 23,
+      "checked": 0,
+      "unique_full_keys": 0,
+      "full_collisions": 0,
+      "elapsed_sec": 0.004318952560424805
+    },
+    {
+      "n": 9,
+      "total_trees": 47,
+      "checked": 0,
+      "unique_full_keys": 0,
+      "full_collisions": 0,
+      "elapsed_sec": 0.008125066757202148
+    },
+    {
+      "n": 10,
+      "total_trees": 106,
+      "checked": 0,
+      "unique_full_keys": 0,
+      "full_collisions": 0,
+      "elapsed_sec": 0.016292810440063477
+    },
+    {
+      "n": 11,
+      "total_trees": 235,
+      "checked": 1,
+      "unique_full_keys": 1,
+      "full_collisions": 0,
+      "elapsed_sec": 0.01966691017150879
+    },
+    {
+      "n": 12,
+      "total_trees": 551,
+      "checked": 82,
+      "unique_full_keys": 80,
+      "full_collisions": 3,
+      "elapsed_sec": 0.03440380096435547
+    },
+    {
+      "n": 13,
+      "total_trees": 1301,
+      "checked": 167,
+      "unique_full_keys": 242,
+      "full_collisions": 8,
+      "elapsed_sec": 0.041162967681884766
+    },
+    {
+      "n": 14,
+      "total_trees": 3159,
+      "checked": 360,
+      "unique_full_keys": 592,
+      "full_collisions": 18,
+      "elapsed_sec": 0.09136486053466797
+    },
+    {
+      "n": 15,
+      "total_trees": 7741,
+      "checked": 766,
+      "unique_full_keys": 1329,
+      "full_collisions": 47,
+      "elapsed_sec": 0.21057581901550293
+    },
+    {
+      "n": 16,
+      "total_trees": 19320,
+      "checked": 1692,
+      "unique_full_keys": 2961,
+      "full_collisions": 107,
+      "elapsed_sec": 0.511275053024292
+    },
+    {
+      "n": 17,
+      "total_trees": 48629,
+      "checked": 3726,
+      "unique_full_keys": 6527,
+      "full_collisions": 267,
+      "elapsed_sec": 1.291532039642334
+    },
+    {
+      "n": 18,
+      "total_trees": 123867,
+      "checked": 8370,
+      "unique_full_keys": 14521,
+      "full_collisions": 643,
+      "elapsed_sec": 3.3928120136260986
+    },
+    {
+      "n": 19,
+      "total_trees": 317955,
+      "checked": 18866,
+      "unique_full_keys": 32436,
+      "full_collisions": 1594,
+      "elapsed_sec": 8.658161163330078
+    },
+    {
+      "n": 20,
+      "total_trees": 823065,
+      "checked": 43029,
+      "unique_full_keys": 73273,
+      "full_collisions": 3786,
+      "elapsed_sec": 22.709506034851074
+    },
+    {
+      "n": 21,
+      "total_trees": 2144505,
+      "checked": 98581,
+      "unique_full_keys": 166261,
+      "full_collisions": 9379,
+      "elapsed_sec": 59.815253019332886
+    },
+    {
+      "n": 22,
+      "total_trees": 5623756,
+      "checked": 227678,
+      "unique_full_keys": 380601,
+      "full_collisions": 22717,
+      "elapsed_sec": 160.94717621803284
+    },
+    {
+      "n": 23,
+      "total_trees": 14828074,
+      "checked": 528196,
+      "unique_full_keys": 875523,
+      "full_collisions": 55991,
+      "elapsed_sec": 436.41030621528625
+    },
+    {
+      "n": 24,
+      "total_trees": 39299897,
+      "checked": 1232541,
+      "unique_full_keys": 2027329,
+      "full_collisions": 136726,
+      "elapsed_sec": 1238.1665740013123
+    },
+    {
+      "n": 25,
+      "total_trees": 104636890,
+      "checked": 2888142,
+      "unique_full_keys": 4716169,
+      "full_collisions": 336028,
+      "elapsed_sec": 3534.300826072693
+    },
+    {
+      "n": 26,
+      "total_trees": 279793450,
+      "checked": 6798293,
+      "unique_full_keys": 11026431,
+      "full_collisions": 824059,
+      "elapsed_sec": 10624.715589284897
+    }
+  ],
+  "elapsed_sec_scan": 16091.411410331726,
+  "projection_results": [
+    {
+      "name": "m_lambda_rho",
+      "fields": [
+        "m",
+        "lambda",
+        "rho"
+      ],
+      "checked": 11850490,
+      "unique_keys": 11026431,
+      "collisions": 824059,
+      "split_found": false,
+      "first_split": null,
+      "elapsed_sec": 16.458161115646362
+    },
+    {
+      "name": "m_lambda_sigma",
+      "fields": [
+        "m",
+        "lambda",
+        "sigma"
+      ],
+      "checked": 11850490,
+      "unique_keys": 11026431,
+      "collisions": 824059,
+      "split_found": false,
+      "first_split": null,
+      "elapsed_sec": 27.25276279449463
+    }
+  ],
+  "elapsed_sec_total": 16139.649329900742
+}
