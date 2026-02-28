@@ -118,10 +118,30 @@ If so, the condition "all such 3x3 minors are nonneg" is a total positivity cond
 
 **Can you find the explicit 3x3 minor formulation of Condition C?** Even if it requires additional positivity conditions on the entries, this would connect the problem to a well-developed theory.
 
+## CRITICAL: Weak vs Strong Condition C
+
+There are two versions. You MUST work with the STRONG version:
+
+- **Weak (WRONG):** d_k + (b_k/b_{k-1}) * d_{k-1} + c_k >= 0  (bare c_k)
+- **Strong (CORRECT):** b_{k-1}*d_k + b_k*d_{k-1} + a_{k-1}*c_k >= 0  (integer form with a_{k-1})
+
+The weak version FAILS at n=17. The strong version uses a_{k-1} >= b_{k-1} (from A >= B) to amplify the curvature bonus. This amplification is ESSENTIAL.
+
+## CRITICAL: J <= E is NOT product-closed
+
+In the tree DP, I_c = E_c + x*J_c where J_c <= E_c coefficientwise (VERIFIED at every single subtree, 61.8M checks). But under the product operation:
+
+J' = J_1*E_2 + E_1*J_2 + x*J_1*J_2
+
+This EXCEEDS E_1*E_2 even for leaf factors (J=E=1 gives J'=[2,1] > E'=[1]).
+
+So J <= E is a FACTOR-LEVEL HYPOTHESIS, not a product-closed invariant. The product closure claim for Condition C uses J_c <= E_c on the inputs but does NOT require J' <= E' on the output.
+
 ## Constraints
 
 - Do NOT assume global log-concavity of I(T). Fails at n=26.
-- Do NOT assume A ≽ B. It's false in general.
-- Products preserve: nonnegativity, coefficientwise dominance, log-concavity.
-- Products do NOT preserve: ratio dominance (in general), interlacing.
+- Do NOT assume A ≽ B (ratio dominance). It's false in general.
+- Products preserve: nonnegativity, coefficientwise dominance (I >= E), log-concavity.
+- Products do NOT preserve: ratio dominance, interlacing, J <= E.
 - The mode m depends on I(T) = (1+x)A + xB, not on A or B alone.
+- Strong Condition C is NOT product-closed for generic (I,E) pairs. It IS product-closed when J <= E holds on the factors (0 fails, 701K tree pairs + 125K synthetic pairs).

@@ -52,11 +52,15 @@ At a subtree of depth 1 (star): A and B are both products of (1+x) factors. Ever
 ### Product closure (THE KEY STEP)
 
 **Claim:** If (I_1, E_1) and (I_2, E_2) each satisfy:
-- I_i ≥ E_i coefficientwise
+- I_i = E_i + x·J_i with J_i ≤ E_i coefficientwise (tree DP structure)
 - E_i is log-concave
 - Condition C holds for (I_i, E_i)
 
 Then (I_1·I_2, E_1·E_2) also satisfies Condition C.
+
+**IMPORTANT:** The J ≤ E constraint is NOT itself product-closed (J' = J_1E_2 + E_1J_2 + xJ_1J_2 > E_1E_2 even for leaf factors). But Condition C still holds at the product level. The J ≤ E constraint is needed as a HYPOTHESIS on the factors, not as an INVARIANT to maintain. In the tree DP, J_c ≤ E_c always holds at each individual subtree (verified 61.8M checks, n≤18).
+
+Strong Condition C fails for generic (I, E) pairs without J ≤ E (166 failures / 125K). With J ≤ E on factors: 0 failures (125K synthetic + 701K tree pairs).
 
 This is the hard algebraic step. The Cauchy product of the d_k and c_k sequences involves cross terms. One approach (from the GPT 5.2 prompt): rewrite Condition C as nonnegativity of a 3×3 minor of a block Toeplitz matrix, then use the fact that TP is preserved under Cauchy products.
 
@@ -73,8 +77,8 @@ After Condition C is established for (A, B), P2 follows because E = (1+x)^ℓ ·
 1. T has a support vertex r (standard fact).
 2. At r, P3 holds (leaf-swap injection, proved).
 3. For P2: let the non-leaf children be c_1, ..., c_s. Each gives a factor pair (I_{c_i}, E_{c_i}).
-4. By induction (applied to the subtrees rooted at c_i), each factor pair satisfies Condition C, I_{c_i} ≥ E_{c_i}, and E_{c_i} is LC.
-5. By product closure, (A, B) = (∏I_{c_i}, ∏E_{c_i}) satisfies Condition C.
+4. By induction (applied to the subtrees rooted at c_i), each factor pair satisfies Condition C, I_{c_i} ≥ E_{c_i}, E_{c_i} is LC, and J_{c_i} ≤ E_{c_i} (from tree DP).
+5. By product closure (using J_c ≤ E_c on factors), (A, B) = (∏I_{c_i}, ∏E_{c_i}) satisfies Condition C.
 6. The algebraic identity gives Δ_k ≥ 0 for k ≥ 1. The k=0 case is trivial.
 7. P2 holds at r. Combined with P3, the IS polynomial is unimodal. □
 
@@ -89,3 +93,4 @@ The WEAKER version of Condition C (replacing a_{k-1} with b_{k-1}) FAILS at n=17
 1. Can product closure be proved via total positivity of a block Toeplitz matrix?
 2. Is there a simpler direct proof that avoids products (e.g., using the tree structure directly)?
 3. Does the GMTW framework (Cor. 2.21: convolution with LC preserves ratio dominance) help?
+4. J ≤ E is NOT product-closed. How does it enter the product closure proof of Condition C? The factors satisfy J_c ≤ E_c, which constrains the d_k and c_k cross-terms. Possibly: J ≤ E implies d_k ≥ -(k-th coeff of x·J·E_tail) or similar bound on the negative excursion of d_k.
