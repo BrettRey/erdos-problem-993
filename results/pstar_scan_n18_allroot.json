@@ -1,0 +1,155 @@
+{
+  "max_n": 18,
+  "all_rootings": true,
+  "total_trees": 205002,
+  "total_pass": 205002,
+  "total_fail": 0,
+  "by_n": {
+    "3": {
+      "trees": 1,
+      "pass": 1,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "4": {
+      "trees": 2,
+      "pass": 2,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "5": {
+      "trees": 3,
+      "pass": 3,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "6": {
+      "trees": 6,
+      "pass": 6,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "7": {
+      "trees": 11,
+      "pass": 11,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "8": {
+      "trees": 23,
+      "pass": 23,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "9": {
+      "trees": 47,
+      "pass": 47,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "10": {
+      "trees": 106,
+      "pass": 106,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "11": {
+      "trees": 235,
+      "pass": 235,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "12": {
+      "trees": 551,
+      "pass": 551,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "13": {
+      "trees": 1301,
+      "pass": 1301,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "14": {
+      "trees": 3159,
+      "pass": 3159,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "15": {
+      "trees": 7741,
+      "pass": 7741,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "16": {
+      "trees": 19320,
+      "pass": 19320,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "17": {
+      "trees": 48629,
+      "pass": 48629,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    },
+    "18": {
+      "trees": 123867,
+      "pass": 123867,
+      "fail": 0,
+      "p2_fail": 0,
+      "p3_fail": 0,
+      "worst_p2": 0.0,
+      "worst_p3": 0.0
+    }
+  },
+  "fail_count": 0,
+  "first_failures": []
+}

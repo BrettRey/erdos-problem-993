@@ -1,0 +1,50 @@
+{
+  "max_n": 18,
+  "total_trees": 205002,
+  "elapsed": 22.152477979660034,
+  "sv1": {
+    "support_checked": 1103584,
+    "d_negative_count": 171015,
+    "max_sign_changes": 3,
+    "trees_with_sv1_violation": 411
+  },
+  "canonical": {
+    "pstar_failures": 0,
+    "ell_distribution": {
+      "1": 15246,
+      "2": 77008,
+      "3": 63075,
+      "4": 29802,
+      "5": 12105,
+      "6": 4723,
+      "7": 1838,
+      "8": 719,
+      "9": 286,
+      "10": 115,
+      "11": 48,
+      "12": 20,
+      "13": 9,
+      "14": 4,
+      "15": 2,
+      "16": 1,
+      "17": 1
+    }
+  },
+  "delta_profile": {
+    "global_min": 0.0,
+    "min_info": {
+      "g6": "D?{",
+      "n": 5,
+      "m": 2,
+      "root": 4,
+      "k": 1,
+      "ell": 4,
+      "dk": 0,
+      "dkm1": 0,
+      "ck": 0,
+      "bk": 0,
+      "bkm1": 1,
+      "akm1": 1
+    }
+  }
+}
