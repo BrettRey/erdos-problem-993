@@ -23,6 +23,10 @@ appears to hold with strong margin, where
 - `C01 = sum_i Lambda_old(i) P(k-i)Q(k-i-1)`
 - `C11 = sum_i Lambda_old(i) P(k-i-1)Q(k-i-1)`.
 
+Calibrated scalar form also holds empirically through `n<=18`:
+
+`sum_err <= D + lambda* (C10 + C01 + C11)` with `lambda* ≈ 0.0520138`.
+
 ---
 
 ## Step-2 normal form

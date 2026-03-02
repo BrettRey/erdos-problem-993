@@ -1,0 +1,23 @@
+{
+  "scope": "support-step prefix X<0 cases, n<=18, boundary-correct indexing",
+  "negative_cases": 135976,
+  "reserve": "R_shift = C10 + C01 + C11",
+  "condition": "sum_err <= D + lambda * R_shift",
+  "lambda_star": 0.05201381704686925,
+  "zero_reserve_failures": 0,
+  "tight_witness": {
+    "n": 18,
+    "g6": "Q???????????????O?E??NwA_^?",
+    "root": 0,
+    "step": 2,
+    "k": 5,
+    "X": -135037,
+    "D": 1442539,
+    "sum_err": 1546363,
+    "C10": 789600,
+    "C01": 772310,
+    "C11": 434175,
+    "R_shift": 1996085,
+    "need": 103824
+  }
+}

@@ -38,6 +38,14 @@ Additional empirical seed (full negatives, coarse grid search):
 
 Treat this as a strong candidate reserve to validate/refine.
 
+Additional calibrated scalar result:
+
+- minimal global scalar for this reserve through `n<=18`:
+  `sum_err <= D + lambda*(C10+C01+C11)` with
+  `lambda* = 0.05201381704686925`.
+
+So Round 19 should prioritize proving a small-constant shifted-channel odd reserve.
+
 ---
 
 ## Task 1: Reproduce the Round 19 obligation diagnostics
@@ -82,6 +90,7 @@ on coarse then refined grids for `(alpha,beta,gamma)` minimizing worst-case rati
 `(Err_even+Err_odd)/(D_k + R_odd)`.
 
 Start by confirming the seed point `(alpha,beta,gamma)=(1,1,1)` and then refine around it.
+Also test the scalarized form directly to recover/beat `lambda*` above.
 
 ### Family B: odd-diagonal local channels
 

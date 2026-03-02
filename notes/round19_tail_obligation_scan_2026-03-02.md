@@ -97,6 +97,25 @@ So the simple reserve
 empirically dominates the full tail error budget on all tested negatives with strong margin.
 This is a high-priority candidate for proof-level interpretation.
 
+## Minimal scalar for shifted reserve
+
+Using the same full `n<=18` negative corpus, solve for minimal scalar `lambda*` such that
+
+`sum_err <= D + lambda * (C10 + C01 + C11)`
+
+for every case.
+
+Result:
+
+- `lambda* = 0.05201381704686925`
+- no zero-reserve pathologies (`R_shift=0` never needed where `sum_err>D`)
+- tight witness:
+  - `n=18`, graph6 `Q???????????????O?E??NwA_^?`, `root=0`, `step=2`, `k=5`
+  - `D=1,442,539`, `sum_err=1,546,363`, `need=103,824`
+  - `R_shift=1,996,085` so `need / R_shift = lambda*`.
+
+This is substantially stronger/more interpretable than unconstrained coefficient fitting.
+
 ## Takeaway for Round 19 prompts
 
 Most useful next target:

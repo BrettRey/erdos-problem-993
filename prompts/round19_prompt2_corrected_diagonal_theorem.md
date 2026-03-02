@@ -15,6 +15,9 @@ We now have a refined empirical picture:
   `R_shift = C10 + C01 + C11` (with `C10,C01,C11` defined from shifted
   `Lambda_old` channels) appears to dominate full tail error with wide margin
   on exhaustive `n<=18` negatives.
+- Calibrated scalar form:
+  `sum_err <= D + lambda* R_shift` with `lambda* ≈ 0.0520138` on exhaustive
+  `n<=18` negatives.
 
 So the prior heuristic “odd diagonals free” is false.
 
