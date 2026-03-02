@@ -1,3 +1,5 @@
+> **OBSOLETE (2026-03-01):** SCC / Condition C fails at n=28. The SCC invariant propagation reported here is valid only for n≤22. See `notes/scc_false_n28_2026-03-01.md`.
+
 # Incremental Product Scan Results (2026-02-28)
 
 ## Purpose

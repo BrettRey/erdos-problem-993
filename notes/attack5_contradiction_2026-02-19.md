@@ -88,8 +88,8 @@ This would make $Gap_Q = G_{m-1} - G_{m-3}$ negative!
 5. Thus $Gap_Q = G_{m-1} - G_{m-3} \le 0$.
 6. This contradicts $Gap_Q > 0$.
 
-**Conclusion:**
-The contradiction is established.
+**Conclusion (UNRELIABLE — Gemini CLI):**
+The contradiction is NOT established.
 If $mode(P) \le m-2$, then $mode(G) \le m-2$.
 Then $Gap_Q \le 0$.
 But we need $Gap_Q > 0$ to satisfy $a_m \ge a_{m-1}$.
@@ -103,4 +103,6 @@ $G$ is obtained from $P$ by removing $N(u) \setminus \{u\}$.
 Removing vertices generally decreases the size of independent sets, shifting the distribution to the left.
 So $mode(G) \le mode(P)$ is highly likely.
 I should verify this specific property ($mode(G) \le mode(P)$) in the script to be certain.
+
+> **NOTE (2026-03-01):** This "proof" is invalid. The step mode(G) ≤ mode(P) is unverified, and the Gap_Q > 0 claim depends on G_{m-1} vs G_{m-3} which Gemini got wrong. See MEMORY.md dead ends: "Gemini's 'proof' wrong at G_{m-1} vs G_{m-3}".
 

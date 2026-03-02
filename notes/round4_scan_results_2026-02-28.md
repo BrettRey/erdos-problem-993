@@ -1,3 +1,5 @@
+> **PARTIALLY OBSOLETE (2026-03-01):** The "Condition C" (SCC) product closure path discussed here fails at n=28. See `notes/scc_false_n28_2026-03-01.md`. Scan data remains valid; proof strategy is dead.
+
 # Round 4 Scan Results (2026-02-28)
 
 ## Setup

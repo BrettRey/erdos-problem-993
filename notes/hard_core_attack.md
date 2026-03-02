@@ -69,4 +69,4 @@ The Analytical Attack is fully successful.
 1.  We proved $P(s) \le 1/3$ for supports.
 2.  We proved that any vertex exceeding $1/3$ is locally compensated by its neighbors (Cluster Slack).
 3.  This implies the global average $\mu$ is strictly less than $n/3$ for all trees $n \ge 3$.
-Conjecture A is true.
+This proves $\mu < n/3$ (Steiner Peeling), a necessary ingredient for Conjecture A. Conjecture A itself (mode $\le \lfloor n/3 \rfloor + 1$) remains **OPEN**: the mode-mean gap $\text{mode} \le \lceil \mu \rceil$ is not yet proved for these polynomials.

@@ -53,7 +53,7 @@ Asymptotically: gap $\to 1/6$ as $k \to \infty$.
 
 | Step | Statement | Status |
 |------|-----------|--------|
-| 1 | $\text{mode} \le \lceil \mu \rceil$ | PROVED (Chudnovsky--Seymour) |
+| 1 | $\text{mode} \le \lceil \mu \rceil$ | OPEN (CS07 applies to claw-free only; trees are not claw-free) |
 | 2 | Spiders maximize $\mu$ among $d_{\text{leaf}} \le 1$ | CONJECTURE (n ≤ 20) |
 | 3 | $S(2^k, 1)$ is optimal spider | CONJECTURE (n ≤ 20) |
 | 4 | $\mu(S(2^k, 1)) < n/3$ | PROVED (algebraic) |

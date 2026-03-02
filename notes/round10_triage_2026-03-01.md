@@ -190,4 +190,4 @@ property" that projects from the product mechanism.
 2. **Test** aggregated condition (Agg) and STP2
 3. **Prove** D_k ≥ 0 or X_k ≥ 0 algebraically (either suffices for W≥0)
 4. **s=2 binomial case**: f^(0) = (1+x)^ℓ · g gives A = (1+x)^ℓ · C — exploit binomial smoothing
-5. SCC search background job: 0 fails through n=24 (39.3M trees), running n=25
+5. ~~SCC search background job: 0 fails through n=24~~ **UPDATE:** SCC fails at n=28. Dead end.

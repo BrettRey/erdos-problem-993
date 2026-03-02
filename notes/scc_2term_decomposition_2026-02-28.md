@@ -1,3 +1,5 @@
+> **OBSOLETE (2026-03-01):** SCC / Condition C fails at n=28. This proof direction is dead. See `notes/scc_false_n28_2026-03-01.md`.
+
 # SCC 2-Term Decomposition Results (2026-02-28)
 
 ## Three decompositions of SCC

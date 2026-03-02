@@ -77,7 +77,7 @@ GPT 5.2 Pro's conceptual insight: g_k = c_k(E) + d_k(I,E) is the LR minor of (I+
 **Tree interpretation:** I+xE = IS poly of tree with one extra leaf at root.
 So g_k ≥ 0 means: "leaf-augmented tree ratio-dominates root-deleted forest."
 
-**Verified:** 0 failures through n = 22 (ALL rootings, not just support).
+**Verified:** 0 failures through n = 22 (ALL rootings, not just support). **UPDATE:** FAILS at n=28. Valid range is n≤22 only.
 
 ## Binomial Smoothing Lemma (PROVED)
 
@@ -120,13 +120,13 @@ PROVED: Karlin main term (Δ_k(A,J) ≥ 0 by TP2)
 PROVED: s=1 case (SCC + transitivity, 63% of support vertices)
 
 VERIFIED (0 fails):
-  - Leaf-augmentation: I+xE ≽ E at ALL rootings (n ≤ 22)
+  - Leaf-augmentation: I+xE ≽ E at ALL rootings (n ≤ 22; FAILS at n=28)
   - IF/W form: 3-term and 2-term integer forms (n ≤ 20)
   - E ≽ J at ALL support vertices (907M+ checks, n ≤ 22)
-  - SCC at ALL support vertices (930M+ checks, n ≤ 22)
+  - SCC at ALL support vertices (930M+ checks, n ≤ 22; FAILS at n=28)
 
-OPEN: SCC product closure for s ≥ 2 non-leaf factors
-  Equivalently: (1+x)·∏I_t ≽ ∏E_t (the single remaining gap)
+DEAD: SCC product closure — SCC itself fails at n=28
+CURRENT: W-form ratio proof via chain STP2 (see round14/15 triage)
   All decompositions agree: tree-realizability is essential, ratio → 1 but margins → ∞
 ```
 

@@ -57,7 +57,7 @@ For trees with $\text{mode} > \lfloor n/3 \rfloor + 1$:
 
 *Status:* Verified exhaustively through $n = 22$ (227,678 such trees, **zero** with mode above threshold). Also verified for large constructed examples (caterpillars, lobsters, etc.) up to $n = 1000$ with mode/threshold ratios always $< 0.95$.
 
-**Mean Bound Approach (promising):** Tree IS polynomials are real-rooted (Chudnovsky--Seymour 2007), so $\text{mode} \le \lceil \mu \rceil$ where $\mu = I'(1)/I(1)$ is the mean IS size. We verified $\mu < n/3$ for all $d_{\text{leaf}} \le 1$ trees through $n = 20$ (43,029 trees, max $\mu/(n/3) = 0.973$). Since $\mu < n/3$ implies $\text{mode} \le \lceil \mu \rceil \le \lfloor n/3 \rfloor + 1$, this reduces Conjecture A to: **$\mu(I(T)) < n/3$ for all $d_{\text{leaf}} \le 1$ trees.**
+**Mean Bound Approach (promising):** If mode ≤ ⌈μ⌉ holds (OPEN; Chudnovsky-Seymour 2007 proves real-rootedness for claw-free graphs only, NOT trees in general), then since $\mu = I'(1)/I(1)$ is the mean IS size, We verified $\mu < n/3$ for all $d_{\text{leaf}} \le 1$ trees through $n = 20$ (43,029 trees, max $\mu/(n/3) = 0.973$). Since $\mu < n/3$ implies $\text{mode} \le \lceil \mu \rceil \le \lfloor n/3 \rfloor + 1$, this reduces Conjecture A to: **$\mu(I(T)) < n/3$ for all $d_{\text{leaf}} \le 1$ trees.**
 
 **Extremal family:** Spiders $S(2^k)$ (hub + $k$ arms of length 2). Algebraically:
 $$I(S(2^k); x) = (1+2x)^k + x(1+x)^k, \quad n = 2k+1$$

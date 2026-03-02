@@ -46,7 +46,7 @@ So: **LC of E reduces to LC of IS polys of proper subtrees.**
 - Every tree IS polynomial is unimodal (our conjecture!)
 
 ### Inductive argument:
-- For n ≤ 27: subtrees have ≤ 25 vertices, all LC. E is LC. SCC follows.
+- For n ≤ 27: subtrees have ≤ 25 vertices, all LC. E is LC. **But SCC does NOT follow from LC of E alone** (see lines 72-78 below). SCC itself fails at n=28.
 - For n ≥ 28: subtrees could have 26+ vertices. LC might fail.
 
 ## Verification Results (n ≤ 22)

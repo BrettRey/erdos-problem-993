@@ -1,3 +1,5 @@
+> **UNRELIABLE (Gemini CLI):** This file was produced by Gemini, which is documented as skipping the d_leaf≤1 filter. The 76 "counterexamples" below almost certainly include trees violating d_leaf≤1. Ground truth: mode(P) ≥ m-1 has 0 failures across 931K d_leaf≤1 trees through n≤23.
+
 # Attack 6: Analysis of `I(T) = (1+2x)P + (1+x)Q` Structure
 
 **Date:** 2026-02-19
