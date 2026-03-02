@@ -9,14 +9,15 @@ All completed successfully with exact integer arithmetic.
 
 ## Scan 1: CB Pairwise Decomposition (test_cb_pairwise.py)
 
-**Scope**: n=3..15, 13,186 trees, 59,061 support-vertex rootings, 24,652 steps (t >= 2).
+**Scope**: n=3..15, 13,186 trees, 59,061 support-vertex rootings, 24,652 steps (t >= 2),
+with boundary-inclusive CB indices (includes index -1).
 
 | Metric | Checks | Failures | Rate | First failure |
 |--------|--------|----------|------|---------------|
 | X_k >= 0 | 253,819 | 2,015 | 0.79% | n=13, k=1, val=-3 |
-| S(i,j,k) >= 0 | 5,296,224 | 162,797 | 3.07% | n=7, i=0, j=2, k=2 |
-| F(i,j) >= 0 | 490,979 | 233,205 | 47.5% | n=6, i=0, j=2 |
-| STP2(P,Q) >= 0 | 2,655,270 | 0 | 0% | (none) |
+| S(i,j,k) >= 0 | 6,996,985 | 295,355 | 4.22% | n=7, i=-1, j=1, k=1 |
+| F(i,j) >= 0 | 652,441 | 370,015 | 56.7% | n=6, i=-1, j=1 |
+| STP2(P,Q) >= 0 | 4,102,212 | 0 | 0% | (none) |
 
 ### Key findings
 
@@ -30,7 +31,7 @@ All completed successfully with exact integer arithmetic.
 3. **S(i,j,k) >= 0 is FALSE** at 3% of cases. Pairwise (above + below diagonal)
    symmetric sums don't individually dominate.
 
-4. **STP2(P,Q) = STP2(I_c, E_c) is TRUE universally**. Zero failures across 2.65M checks.
+4. **STP2(P,Q) = STP2(I_c, E_c) is TRUE universally**. Zero failures across 4.10M checks.
    Whenever Δ_{i,j}(A,B) < 0 (i > j), the complementary factor minor Δ_{k-i,k-j}(P,Q) >= 0.
 
 ### Implications for R17 GPT prompts
