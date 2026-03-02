@@ -1,0 +1,1126 @@
+{
+  "meta": {
+    "script": "round10_wform_verification.py",
+    "geng": "/opt/homebrew/bin/geng",
+    "workers": 2,
+    "timestamp": "2026-03-01 10:40:16",
+    "elapsed_seconds": 0.1511518955230713
+  },
+  "scan": {
+    "task1": {
+      "range": [
+        8,
+        8
+      ],
+      "by_n": {
+        "8": {
+          "trees": 23,
+          "support_vertices": 60,
+          "incremental_steps": 72,
+          "w_checks": 449,
+          "w_fail_count": 0,
+          "min_w_margin": 0,
+          "failures": []
+        }
+      },
+      "total": {
+        "trees": 23,
+        "support_vertices": 60,
+        "incremental_steps": 72,
+        "w_checks": 449,
+        "w_fail_count": 0,
+        "min_w_margin": 0,
+        "failures": []
+      }
+    },
+    "task2": {
+      "profile_max_n": 8,
+      "by_s": {
+        "2": {
+          "roots_total": 15,
+          "roots_with_neg_term2": 5,
+          "best_ratio_record": {
+            "n": 8,
+            "root": 7,
+            "s": 2,
+            "k": 3,
+            "step": 2,
+            "ratio": 4.4,
+            "abs_margin": 34,
+            "term1": 44,
+            "term2": -10,
+            "degree_sequence": [
+              3,
+              3,
+              3,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "g6": "G?B@_["
+          },
+          "best_abs_margin_record": {
+            "n": 6,
+            "root": 5,
+            "s": 2,
+            "k": 2,
+            "step": 1,
+            "ratio": Infinity,
+            "abs_margin": 0,
+            "term1": 0,
+            "term2": 0,
+            "degree_sequence": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "g6": "ECR_"
+          }
+        },
+        "3": {
+          "roots_total": 1,
+          "roots_with_neg_term2": 0,
+          "best_ratio_record": null,
+          "best_abs_margin_record": {
+            "n": 8,
+            "root": 7,
+            "s": 3,
+            "k": 2,
+            "step": 1,
+            "ratio": Infinity,
+            "abs_margin": 0,
+            "term1": 0,
+            "term2": 0,
+            "degree_sequence": [
+              4,
+              2,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            "g6": "G?`@F_"
+          }
+        }
+      },
+      "by_s_n": {
+        "2|6": {
+          "best_ratio_record": null,
+          "best_abs_margin_record": {
+            "n": 6,
+            "root": 5,
+            "s": 2,
+            "k": 2,
+            "step": 1,
+            "ratio": Infinity,
+            "abs_margin": 0,
+            "term1": 0,
+            "term2": 0,
+            "degree_sequence": [
+              3,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "g6": "ECR_"
+          }
+        },
+        "2|7": {
+          "best_ratio_record": {
+            "n": 7,
+            "root": 6,
+            "s": 2,
+            "k": 2,
+            "step": 2,
+            "ratio": 12.0,
+            "abs_margin": 33,
+            "term1": 36,
+            "term2": -3,
+            "degree_sequence": [
+              3,
+              3,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            "g6": "F?`cg"
+          },
+          "best_abs_margin_record": {
+            "n": 7,
+            "root": 6,
+            "s": 2,
+            "k": 2,
+            "step": 1,
+            "ratio": Infinity,
+            "abs_margin": 0,
+            "term1": 0,
+            "term2": 0,
+            "degree_sequence": [
+              4,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            "g6": "F?`F_"
+          }
+        },
+        "2|8": {
+          "best_ratio_record": {
+            "n": 8,
+            "root": 7,
+            "s": 2,
+            "k": 3,
+            "step": 2,
+            "ratio": 4.4,
+            "abs_margin": 34,
+            "term1": 44,
+            "term2": -10,
+            "degree_sequence": [
+              3,
+              3,
+              3,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "g6": "G?B@_["
+          },
+          "best_abs_margin_record": {
+            "n": 8,
+            "root": 7,
+            "s": 2,
+            "k": 2,
+            "step": 1,
+            "ratio": Infinity,
+            "abs_margin": 0,
+            "term1": 0,
+            "term2": 0,
+            "degree_sequence": [
+              5,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "g6": "G?AAFo"
+          }
+        },
+        "3|8": {
+          "best_ratio_record": null,
+          "best_abs_margin_record": {
+            "n": 8,
+            "root": 7,
+            "s": 3,
+            "k": 2,
+            "step": 1,
+            "ratio": Infinity,
+            "abs_margin": 0,
+            "term1": 0,
+            "term2": 0,
+            "degree_sequence": [
+              4,
+              2,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1
+            ],
+            "g6": "G?`@F_"
+          }
+        }
+      }
+    }
+  },
+  "task3": {
+    "T_3_4": {
+      "tree": "T_{3,4}",
+      "n": 28,
+      "support_roots": 12,
+      "total_factors": 12,
+      "fail_counts": {
+        "E_lc": 0,
+        "SCC": 0,
+        "E_ge_J": 12,
+        "leaf_aug": 0
+      },
+      "roots": [
+        {
+          "root": 4,
+          "label": "x_0_0",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 1,
+              "label": "w_0",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -2036,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 5,
+          "label": "x_0_1",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 1,
+              "label": "w_0",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -2036,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 6,
+          "label": "x_0_2",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 1,
+              "label": "w_0",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -2036,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 7,
+          "label": "x_0_3",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 1,
+              "label": "w_0",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -2036,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 8,
+          "label": "x_1_0",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 2,
+              "label": "w_1",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -2036,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 9,
+          "label": "x_1_1",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 2,
+              "label": "w_1",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -2036,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 10,
+          "label": "x_1_2",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 2,
+              "label": "w_1",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -2036,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 11,
+          "label": "x_1_3",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 2,
+              "label": "w_1",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -2036,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 12,
+          "label": "x_2_0",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 3,
+              "label": "w_2",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -2036,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 13,
+          "label": "x_2_1",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 3,
+              "label": "w_2",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -2036,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 14,
+          "label": "x_2_2",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 3,
+              "label": "w_2",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -2036,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 15,
+          "label": "x_2_3",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 3,
+              "label": "w_2",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -2036,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        }
+      ]
+    },
+    "T_3_3": {
+      "tree": "T_{3,3}",
+      "n": 22,
+      "support_roots": 9,
+      "total_factors": 9,
+      "fail_counts": {
+        "E_lc": 0,
+        "SCC": 0,
+        "E_ge_J": 9,
+        "leaf_aug": 0
+      },
+      "roots": [
+        {
+          "root": 4,
+          "label": "x_0_0",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 1,
+              "label": "w_0",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -252,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 5,
+          "label": "x_0_1",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 1,
+              "label": "w_0",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -252,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 6,
+          "label": "x_0_2",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 1,
+              "label": "w_0",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -252,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 7,
+          "label": "x_1_0",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 2,
+              "label": "w_1",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -252,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 8,
+          "label": "x_1_1",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 2,
+              "label": "w_1",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -252,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 9,
+          "label": "x_1_2",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 2,
+              "label": "w_1",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -252,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 10,
+          "label": "x_2_0",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 3,
+              "label": "w_2",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -252,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 11,
+          "label": "x_2_1",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 3,
+              "label": "w_2",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -252,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        },
+        {
+          "root": 12,
+          "label": "x_2_2",
+          "degree": 2,
+          "nonleaf_children": 1,
+          "factors": [
+            {
+              "child": 3,
+              "label": "w_2",
+              "E_lc": true,
+              "E_lc_min_gap": 1,
+              "SCC": true,
+              "SCC_min_margin": 0,
+              "E_ge_J": false,
+              "E_ge_J_min_margin": -252,
+              "leaf_aug": true,
+              "leaf_aug_min_margin": 0
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "task4": {
+    "T_3_4_all_rootings_E_ge_J": {
+      "tree": "T_{3,4}",
+      "n": 28,
+      "all_rootings": 28,
+      "fail_count": 15,
+      "fail_roots": [
+        {
+          "root": 1,
+          "label": "w_0",
+          "kind": "w",
+          "degree": 5,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -4064
+        },
+        {
+          "root": 2,
+          "label": "w_1",
+          "kind": "w",
+          "degree": 5,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -4064
+        },
+        {
+          "root": 3,
+          "label": "w_2",
+          "kind": "w",
+          "degree": 5,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -4064
+        },
+        {
+          "root": 16,
+          "label": "y_0_0",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 17,
+          "label": "y_0_1",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 18,
+          "label": "y_0_2",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 19,
+          "label": "y_0_3",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 20,
+          "label": "y_1_0",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 21,
+          "label": "y_1_1",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 22,
+          "label": "y_1_2",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 23,
+          "label": "y_1_3",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 24,
+          "label": "y_2_0",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 25,
+          "label": "y_2_1",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 26,
+          "label": "y_2_2",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 27,
+          "label": "y_2_3",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        }
+      ],
+      "by_kind": {
+        "v": {
+          "total": 1,
+          "fail": 0,
+          "min_margin": 0
+        },
+        "w": {
+          "total": 3,
+          "fail": 3,
+          "min_margin": -4064
+        },
+        "x": {
+          "total": 12,
+          "fail": 0,
+          "min_margin": 0
+        },
+        "y": {
+          "total": 12,
+          "fail": 12,
+          "min_margin": -1972
+        }
+      },
+      "records": [
+        {
+          "root": 0,
+          "label": "v",
+          "kind": "v",
+          "degree": 3,
+          "is_support": false,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 1,
+          "label": "w_0",
+          "kind": "w",
+          "degree": 5,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -4064
+        },
+        {
+          "root": 2,
+          "label": "w_1",
+          "kind": "w",
+          "degree": 5,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -4064
+        },
+        {
+          "root": 3,
+          "label": "w_2",
+          "kind": "w",
+          "degree": 5,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -4064
+        },
+        {
+          "root": 4,
+          "label": "x_0_0",
+          "kind": "x",
+          "degree": 2,
+          "is_support": true,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 5,
+          "label": "x_0_1",
+          "kind": "x",
+          "degree": 2,
+          "is_support": true,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 6,
+          "label": "x_0_2",
+          "kind": "x",
+          "degree": 2,
+          "is_support": true,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 7,
+          "label": "x_0_3",
+          "kind": "x",
+          "degree": 2,
+          "is_support": true,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 8,
+          "label": "x_1_0",
+          "kind": "x",
+          "degree": 2,
+          "is_support": true,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 9,
+          "label": "x_1_1",
+          "kind": "x",
+          "degree": 2,
+          "is_support": true,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 10,
+          "label": "x_1_2",
+          "kind": "x",
+          "degree": 2,
+          "is_support": true,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 11,
+          "label": "x_1_3",
+          "kind": "x",
+          "degree": 2,
+          "is_support": true,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 12,
+          "label": "x_2_0",
+          "kind": "x",
+          "degree": 2,
+          "is_support": true,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 13,
+          "label": "x_2_1",
+          "kind": "x",
+          "degree": 2,
+          "is_support": true,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 14,
+          "label": "x_2_2",
+          "kind": "x",
+          "degree": 2,
+          "is_support": true,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 15,
+          "label": "x_2_3",
+          "kind": "x",
+          "degree": 2,
+          "is_support": true,
+          "E_ge_J": true,
+          "min_margin": 0
+        },
+        {
+          "root": 16,
+          "label": "y_0_0",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 17,
+          "label": "y_0_1",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 18,
+          "label": "y_0_2",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 19,
+          "label": "y_0_3",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 20,
+          "label": "y_1_0",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 21,
+          "label": "y_1_1",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 22,
+          "label": "y_1_2",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 23,
+          "label": "y_1_3",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 24,
+          "label": "y_2_0",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 25,
+          "label": "y_2_1",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 26,
+          "label": "y_2_2",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        },
+        {
+          "root": 27,
+          "label": "y_2_3",
+          "kind": "y",
+          "degree": 1,
+          "is_support": false,
+          "E_ge_J": false,
+          "min_margin": -1972
+        }
+      ]
+    }
+  }
+}
