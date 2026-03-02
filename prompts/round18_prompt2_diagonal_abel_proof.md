@@ -12,10 +12,17 @@ Please do **not** attempt to prove any of the following (they are false):
 - Pairwise symmetric nonnegativity `S_{i,j}(k) >= 0`.
 - Symmetrized bracket nonnegativity `F(i,j) >= 0`.
 - Deriving `STP2(I,E)` from only abstract `STP2(E,J) + LC + J<=E`.
+- Adjacent-minor positivity `w_m(I,E) >= 0` as a universal tree invariant.
 
 The target is only:
 
 `D_k + X_k = Lambda_k^{new} >= 0`.
+
+Empirical clue from local exhaustive scans (`n<=18`, boundary-correct, prefix regime):
+
+- in all `X_k<0` cases checked, every diagonal-Abel difference sequence
+  `D_i^{(s)} = W_i^{(s)}-W_{i+1}^{(s)}`
+  had at most one sign change (0 violations over 1,311,324 diagonals).
 
 ---
 
@@ -73,9 +80,14 @@ Goal: derive a usable lower bound of the form
 
 where `Err` is explicit and summable, and then show `sum_s Err_k^{(s)} <= D_k` (or another nonnegative reserve term from IH).
 
-You may introduce one additional tree-specific hypothesis **only if clearly stated** and only if it is computationally testable (e.g. adjacent-minor positivity for `(I,E)`).
+You may introduce one additional tree-specific hypothesis **only if clearly stated** and only if it is computationally testable.
+
+Do not use `w_m(I,E) >= 0` as that hypothesis; it is already falsified on trees.
 
 Do not assert unproved inequalities. If a step blocks, isolate the exact inequality and provide a minimal checkable conjecture.
+
+Preferably try to leverage the empirical one-sign-change property above; if you can formalize
+that as a lemma from tree structure, show exactly how it implies a lower bound on `S_k^{(s)}`.
 
 ---
 
@@ -90,4 +102,3 @@ Deliver one of:
      `STP2 + LC + H => D_k + X_k >= 0`.
 
 The output must clearly separate theorem, lemma, conjecture, and heuristic.
-

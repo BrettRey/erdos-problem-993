@@ -14,6 +14,10 @@
 
 Therefore we need a tree-specific derivation.
 
+Also, candidate adjacent-minor condition
+`w_m(I,E) = I(m)E(m-1)-I(m-1)E(m) >= 0`
+is **not** universally true on trees (counterexample already found at `n=7`).
+
 ---
 
 ## Your job
@@ -59,7 +63,8 @@ Avoid abstract cone arguments known to fail on synthetic data.
 
 Given synthetic counterexamples, identify one candidate property `H` that is plausible for tree-realizable triples and strong enough to close `STP2(I,E)`.
 
-Candidates may include adjacent-minor / ratio-monotonic properties for `(I,E)` or a stronger chain condition coupling `(E,J,I)`.
+Candidates should avoid adjacent-minor positivity `w_m(I,E) >= 0` (already false).
+Focus instead on stronger multi-index or diagonal-aggregation constraints that are specific to tree DP structure.
 
 For each candidate:
 
@@ -77,4 +82,3 @@ Provide one of:
 2. A reduced lemma checklist where each lemma is explicitly testable by computation.
 
 No claims of implication from generic LC+STP2 unless fully proved.
-

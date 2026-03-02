@@ -1,0 +1,61 @@
+{
+  "diag_abel_sign_changes_on_xneg": {
+    "diag_gt1_changes": 0,
+    "diag_gt1_rate": 0.0,
+    "diag_total": 21492,
+    "max_changes_seen": 1,
+    "xneg_cases_with_any_diag_gt1": 0
+  },
+  "max_n": 15,
+  "neg_gap_budget": {
+    "checks": 109040,
+    "neg_gap_le_D_count": 109040,
+    "neg_gap_le_D_rate": 1.0,
+    "neg_gap_over_D_max": {
+      "D": 195804,
+      "X": 17640,
+      "g6": "N???????????_?o?V~_",
+      "k": 5,
+      "n": 15,
+      "neg_gap": 191520,
+      "ratio": "760/777",
+      "ratio_float": 0.9781209781209781,
+      "root": 0,
+      "step": 2
+    },
+    "neg_gap_positive": 77621
+  },
+  "totals": {
+    "prefix_checks": 109040,
+    "steps_t_ge_2": 24652,
+    "support_rootings": 59061,
+    "trees": 13186,
+    "x_neg_count": 2388,
+    "x_neg_rate": 0.0219002201027146
+  },
+  "witnesses": {
+    "min_X": {
+      "D": 20475,
+      "X": -1170,
+      "g6": "N???????????_?o?V~_",
+      "k": 3,
+      "n": 15,
+      "root": 0,
+      "step": 2
+    }
+  },
+  "xneg_D_over_absX": {
+    "count": 2388,
+    "median": "113/5",
+    "min": "113/14",
+    "min_float": 8.071428571428571
+  },
+  "xneg_by_mode_distance": {
+    "3": 291,
+    "4": 2054,
+    "5": 43
+  },
+  "xneg_by_step": {
+    "2": 2388
+  }
+}

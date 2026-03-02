@@ -1,0 +1,65 @@
+{
+  "diag_abel_sign_changes_on_xneg": {
+    "diag_gt1_changes": 0,
+    "diag_gt1_rate": 0.0,
+    "diag_total": 1311324,
+    "max_changes_seen": 1,
+    "xneg_cases_with_any_diag_gt1": 0
+  },
+  "max_n": 18,
+  "neg_gap_budget": {
+    "checks": 2657523,
+    "neg_gap_le_D_count": 2656819,
+    "neg_gap_le_D_rate": 0.999735091662424,
+    "neg_gap_over_D_max": {
+      "D": 279000,
+      "X": 1679055,
+      "g6": "Q?????????????????C??}??F~g",
+      "k": 7,
+      "n": 18,
+      "neg_gap": 360255,
+      "ratio": "24017/18600",
+      "ratio_float": 1.291236559139785,
+      "root": 16,
+      "step": 2
+    },
+    "neg_gap_positive": 2050168
+  },
+  "totals": {
+    "prefix_checks": 2657523,
+    "steps_t_ge_2": 510433,
+    "support_rootings": 1103584,
+    "trees": 205002,
+    "x_neg_count": 135976,
+    "x_neg_rate": 0.051166443338401965
+  },
+  "witnesses": {
+    "min_X": {
+      "D": 7913763,
+      "X": -613470,
+      "g6": "Q?????????????????C??o?A~~_",
+      "k": 6,
+      "n": 18,
+      "root": 0,
+      "step": 2
+    }
+  },
+  "xneg_D_over_absX": {
+    "count": 135976,
+    "median": "163/8",
+    "min": "85/22",
+    "min_float": 3.8636363636363638
+  },
+  "xneg_by_mode_distance": {
+    "1": 22,
+    "2": 71,
+    "3": 5313,
+    "4": 55896,
+    "5": 72895,
+    "6": 1773,
+    "7": 6
+  },
+  "xneg_by_step": {
+    "2": 135976
+  }
+}

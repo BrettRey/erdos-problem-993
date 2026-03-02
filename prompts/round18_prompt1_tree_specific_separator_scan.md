@@ -12,6 +12,8 @@ Round 17 established (with boundary-correct CB indexing) that:
 - Pairwise symmetric control (`S_{i,j}(k) >= 0`, `F(i,j) >= 0`) is false.
 - `STP2(I,E)` holds at all rootings up to `n <= 18`.
 - The real proof target is holistic: `D_k + X_k >= 0`.
+- Candidate adjacent-minor condition `w_m(I,E) >= 0` is also false on trees
+  (already fails at `n=7`, graph6 `F??Fw`, root `r=6`, `m=2`, `w=-15`).
 
 A key ambiguity remains: which **tree-specific** constraints are doing the work (beyond abstract LC + STP2 axioms, which are insufficient).
 
@@ -42,21 +44,35 @@ If any mismatch with the posted Round 17 summary appears, report exact source (i
 
 ---
 
-## Task 2: Test a candidate missing invariant on tree-realizable pairs
+## Task 2: Falsification gate and alternative candidate sweep
 
-Define adjacent minor / P2 quantity for a pair `(P,Q)`:
+### 2A. Reconfirm dead candidate quickly
+
+Reconfirm that adjacent-minor positivity is **not** universal on trees:
 
 `w_m(P,Q) := P(m)Q(m-1) - P(m-1)Q(m)`.
 
-For rooted trees up to `n <= 22` (or max feasible exhaustive):
+Verify the witness:
 
-1. Scan all rootings and all valid `m` for `(I_v, E_v)`.
-2. Report failures of `w_m(I_v,E_v) >= 0`.
-3. If no failures, report global minimum margin and extremal witness.
+- `n=7`, graph6 `F??Fw`, root `r=6`, pair `(I_r,E_r)`, `m=2`, `w=-15`.
 
-Do the same for child factors `(I_c, E_c)` encountered in support-step updates.
+Then stop pursuing `w>=0` as a proof invariant.
 
-Goal: determine whether `w >= 0` is genuinely tree-universal (empirically), and whether it separates tree-realizable data from known synthetic counterexamples.
+### 2B. Scan alternative candidate invariant families
+
+For support-step prefix instances `(A,B,P,Q,k)`, scan candidates of the form:
+
+1. **Negative-mass budget**:
+   - `NegGap_k := sum_g max(0, -gap_sum_k(g))`
+   - test bounds `NegGap_k <= c * D_k` (empirical best constant, global and by regime).
+2. **Diagonal-Abel sign-change structure**:
+   - for each diagonal `s`, study `D_i^{(s)} = W_i^{(s)}-W_{i+1}^{(s)}` sign-change count.
+   - test whether `D_i^{(s)}` has at most one sign change in tree data.
+3. **Midpoint alignment statistic**:
+   - compare where `u_i^{(s)}` mass sits vs where `D_i^{(s)}` is negative.
+   - test if a robust ordering/majorization pattern holds only in tree data.
+
+Goal: identify one empirical invariant family that survives exhaustive checks and is plausibly provable.
 
 ---
 
@@ -106,5 +122,4 @@ Provide:
 1. A compact summary table of all scans.
 2. Top-10 extremal witnesses (graph6, root/support, step, `k`, all relevant values).
 3. A machine-readable JSON file with all aggregate statistics and extremals.
-4. A short conclusion: which candidate invariant(s) look truly tree-specific and promising for proof.
-
+4. A short conclusion: which candidate invariant family is most promising and which are ruled out.
