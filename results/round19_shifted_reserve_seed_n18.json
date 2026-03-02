@@ -1,0 +1,30 @@
+{
+  "scan_scope": "support-step prefix X<0 cases, n<=18, boundary-correct indexing",
+  "negative_cases": 135976,
+  "objective": "minimize max(sum_err / (D + alpha*C10 + beta*C01 + gamma*C11))",
+  "grid": {
+    "alpha": [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+    "beta": [0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+    "gamma": [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+  },
+  "best_coarse": {
+    "alpha": 1.0,
+    "beta": 1.0,
+    "gamma": 1.0,
+    "worst_ratio": 0.5695659172613619,
+    "baseline_worst_ratio": 1.0719730974344541
+  },
+  "worst_witness_under_best": {
+    "n": 18,
+    "g6": "Q???????????????O?A??g?B^~?",
+    "root": 0,
+    "k": 3,
+    "X": -18689,
+    "D": 93643,
+    "sum_err": 84920,
+    "C10": 24684,
+    "C01": 24217,
+    "C11": 6552,
+    "ratio": 0.5695659172613619
+  }
+}

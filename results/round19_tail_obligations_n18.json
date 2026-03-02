@@ -1,0 +1,95 @@
+{
+  "diag_sign_changes_on_xneg": {
+    "diag_changes_gt1": 0,
+    "diag_total": 1311324,
+    "first_fail": null,
+    "max_changes": 1,
+    "xneg_with_any_diag_gt1": 0
+  },
+  "even_channel_bound": {
+    "even_diag_bound_fail": 0,
+    "even_diag_total": 723650,
+    "first_fail": null,
+    "max_ratio_witness": {
+      "extra": {
+        "err_s": 678348,
+        "m_i": 0,
+        "rhs": 905520,
+        "s": 0,
+        "t": 0
+      },
+      "g6": "Q???????????????O?E??n??B~G",
+      "k": 6,
+      "n": 18,
+      "root": 0,
+      "step": 2,
+      "value": 0.7491253644314869
+    },
+    "rate": 0.0
+  },
+  "global_sumerr_vs_D": {
+    "fail_count": 85,
+    "first_fail": [
+      17,
+      "P?????????????_?W?Dw?G~_",
+      0,
+      2,
+      4,
+      217793,
+      216402,
+      -12476
+    ],
+    "max_ratio_witness": {
+      "extra": {
+        "D": 1442539,
+        "X": -135037,
+        "sum_err": 1546363
+      },
+      "g6": "Q???????????????O?E??NwA_^?",
+      "k": 5,
+      "n": 18,
+      "root": 0,
+      "step": 2,
+      "value": 1.0719730974344541
+    }
+  },
+  "max_n": 18,
+  "odd_err": {
+    "first_fail": [
+      14,
+      "M?????????O?o?n}?",
+      0,
+      2,
+      2,
+      1,
+      252,
+      1
+    ],
+    "max_err_witness": {
+      "extra": {
+        "err_s": 1574573,
+        "m_i": 0,
+        "s": 1
+      },
+      "g6": "Q?????????????????C??o?A~~_",
+      "k": 7,
+      "n": 18,
+      "root": 0,
+      "step": 2,
+      "value": 1574573.0
+    },
+    "odd_diag_err_positive": 38651,
+    "odd_diag_total": 587674,
+    "rate": 0.06576945721607558
+  },
+  "totals": {
+    "prefix_checks": 2657523,
+    "steps_t_ge_2": 510433,
+    "support_rootings": 1103584,
+    "trees": 205002,
+    "xneg_cases": 135976
+  },
+  "xneg_by_step": {
+    "2": 135976
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "diag_sign_changes_on_xneg": {
+    "diag_changes_gt1": 0,
+    "diag_total": 21492,
+    "first_fail": null,
+    "max_changes": 1,
+    "xneg_with_any_diag_gt1": 0
+  },
+  "even_channel_bound": {
+    "even_diag_bound_fail": 0,
+    "even_diag_total": 11940,
+    "first_fail": null,
+    "max_ratio_witness": {
+      "extra": {
+        "err_s": 9450,
+        "m_i": 0,
+        "rhs": 14400,
+        "s": 0,
+        "t": 0
+      },
+      "g6": "N???????????_?o?V~_",
+      "k": 3,
+      "n": 15,
+      "root": 0,
+      "step": 2,
+      "value": 0.65625
+    },
+    "rate": 0.0
+  },
+  "global_sumerr_vs_D": {
+    "fail_count": 0,
+    "first_fail": null,
+    "max_ratio_witness": {
+      "extra": {
+        "D": 18484,
+        "X": -40,
+        "sum_err": 16016
+      },
+      "g6": "N?????????O?O?g?Z~?",
+      "k": 3,
+      "n": 15,
+      "root": 0,
+      "step": 2,
+      "value": 0.8664791170742263
+    }
+  },
+  "max_n": 15,
+  "odd_err": {
+    "first_fail": [
+      14,
+      "M?????????O?o?n}?",
+      0,
+      2,
+      2,
+      1,
+      252,
+      1
+    ],
+    "max_err_witness": {
+      "extra": {
+        "err_s": 6006,
+        "m_i": 1,
+        "s": 1
+      },
+      "g6": "N?????????O?O?g?Z~?",
+      "k": 3,
+      "n": 15,
+      "root": 0,
+      "step": 2,
+      "value": 6006.0
+    },
+    "odd_diag_err_positive": 17,
+    "odd_diag_total": 9552,
+    "rate": 0.0017797319932998325
+  },
+  "totals": {
+    "prefix_checks": 109040,
+    "steps_t_ge_2": 24652,
+    "support_rootings": 59061,
+    "trees": 13186,
+    "xneg_cases": 2388
+  },
+  "xneg_by_step": {
+    "2": 2388
+  }
+}
