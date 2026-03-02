@@ -1,0 +1,136 @@
+{
+  "k1_lambda_check": {
+    "checked": 1407504,
+    "fails": 0,
+    "first_fail": null
+  },
+  "max_n": 19,
+  "scope": "support-root, boundary-correct, prefix k<mode(I_new), step>=2 updates",
+  "xneg_by_step": {
+    "2": 428422,
+    "3": 12
+  },
+  "xneg_by_step_k_top30": [
+    {
+      "count": 288089,
+      "k": 1,
+      "step": 2
+    },
+    {
+      "count": 127979,
+      "k": 2,
+      "step": 2
+    },
+    {
+      "count": 9652,
+      "k": 3,
+      "step": 2
+    },
+    {
+      "count": 1749,
+      "k": 4,
+      "step": 2
+    },
+    {
+      "count": 619,
+      "k": 5,
+      "step": 2
+    },
+    {
+      "count": 294,
+      "k": 6,
+      "step": 2
+    },
+    {
+      "count": 40,
+      "k": 7,
+      "step": 2
+    },
+    {
+      "count": 12,
+      "k": 1,
+      "step": 3
+    }
+  ],
+  "xneg_by_step_pair_top30": [
+    {
+      "a": 2,
+      "b": 15,
+      "count": 190928,
+      "step": 2
+    },
+    {
+      "a": 2,
+      "b": 14,
+      "count": 102331,
+      "step": 2
+    },
+    {
+      "a": 3,
+      "b": 14,
+      "count": 68013,
+      "step": 2
+    },
+    {
+      "a": 2,
+      "b": 13,
+      "count": 28474,
+      "step": 2
+    },
+    {
+      "a": 3,
+      "b": 13,
+      "count": 25436,
+      "step": 2
+    },
+    {
+      "a": 2,
+      "b": 12,
+      "count": 8098,
+      "step": 2
+    },
+    {
+      "a": 3,
+      "b": 12,
+      "count": 2704,
+      "step": 2
+    },
+    {
+      "a": 2,
+      "b": 11,
+      "count": 1936,
+      "step": 2
+    },
+    {
+      "a": 2,
+      "b": 10,
+      "count": 459,
+      "step": 2
+    },
+    {
+      "a": 4,
+      "b": 13,
+      "count": 27,
+      "step": 2
+    },
+    {
+      "a": 2,
+      "b": 2,
+      "count": 12,
+      "step": 3
+    },
+    {
+      "a": 3,
+      "b": 11,
+      "count": 11,
+      "step": 2
+    },
+    {
+      "a": 2,
+      "b": 9,
+      "count": 5,
+      "step": 2
+    }
+  ],
+  "xneg_total": 428434
+}

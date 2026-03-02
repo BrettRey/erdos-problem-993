@@ -67,3 +67,28 @@ The second option preserves the original `lambda0` narrative but adds an explici
 - `results/round23_extra_channel_fit_n19_full.json`
 - `results/round23_extra_channel_miniset_n19_full.json`
 
+
+## Additional profile (step/k structure, n<=19)
+
+From `results/round23_step_k_profile_n19.json`:
+
+- Total `X<0` cases: `428,434`
+- By step:
+  - step 2: `428,422`
+  - step 3: `12`
+- Top `(step,k)` buckets:
+  - `(2,1)`: `288,089`
+  - `(2,2)`: `127,979`
+  - `(2,3)`: `9,652`
+  - `(3,1)`: `12`
+
+So the non-step2 phenomenon remains tiny and confined to `k=1` in this regime.
+
+### k=1 closure check
+
+Same run also checked `Lambda_1(E_new,J_new) >= 0` on all support-root updates where `k=1` is in prefix range:
+
+- checks: `1,407,504`
+- failures: `0`
+
+This supports the Round 23 “k=1 micro-lemma + k>=2 reserve/bridge” split.
