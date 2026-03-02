@@ -1,0 +1,133 @@
+{
+  "global_lambda_star": 0.05201381704686925,
+  "global_witness": {
+    "C01": 772310,
+    "C10": 789600,
+    "C11": 434175,
+    "D": 1442539,
+    "X": -135037,
+    "g6": "Q???????????????O?E??NwA_^?",
+    "k": 5,
+    "mode": 7,
+    "n": 18,
+    "need": 103824,
+    "reserve": 1996085,
+    "root": 0,
+    "step": 2,
+    "sum_err": 1546363
+  },
+  "max_n": 18,
+  "pair_rows": [
+    {
+      "a": 2,
+      "b": 14,
+      "count": 68908,
+      "lambda_star": 0.05201381704686925,
+      "witness": {
+        "C01": 772310,
+        "C10": 789600,
+        "C11": 434175,
+        "D": 1442539,
+        "X": -135037,
+        "g6": "Q???????????????O?E??NwA_^?",
+        "k": 5,
+        "mode": 7,
+        "n": 18,
+        "need": 103824,
+        "reserve": 1996085,
+        "root": 0,
+        "step": 2,
+        "sum_err": 1546363
+      }
+    },
+    {
+      "a": 2,
+      "b": 13,
+      "count": 28443,
+      "lambda_star": 0.023760967407659456,
+      "witness": {
+        "C01": 341254,
+        "C10": 350274,
+        "C11": 213654,
+        "D": 576022,
+        "X": -17858,
+        "g6": "P?????????????_?W?D{?G^_",
+        "k": 5,
+        "mode": 7,
+        "n": 17,
+        "need": 21508,
+        "reserve": 905182,
+        "root": 0,
+        "step": 2,
+        "sum_err": 597530
+      }
+    },
+    {
+      "a": 3,
+      "b": 13,
+      "count": 25412,
+      "lambda_star": 0.04386927442810327,
+      "witness": {
+        "C01": 627286,
+        "C10": 643914,
+        "C11": 356454,
+        "D": 1176190,
+        "X": -23332,
+        "g6": "Q???????????????O?F??fo?O~?",
+        "k": 5,
+        "mode": 7,
+        "n": 18,
+        "need": 71404,
+        "reserve": 1627654,
+        "root": 0,
+        "step": 2,
+        "sum_err": 1247594
+      }
+    },
+    {
+      "a": 2,
+      "b": 12,
+      "count": 8098,
+      "lambda_star": 0.0,
+      "witness": null
+    },
+    {
+      "a": 3,
+      "b": 12,
+      "count": 2704,
+      "lambda_star": 0.0,
+      "witness": null
+    },
+    {
+      "a": 2,
+      "b": 11,
+      "count": 1936,
+      "lambda_star": 0.0,
+      "witness": null
+    },
+    {
+      "a": 2,
+      "b": 10,
+      "count": 459,
+      "lambda_star": 0.0,
+      "witness": null
+    },
+    {
+      "a": 3,
+      "b": 11,
+      "count": 11,
+      "lambda_star": 0.0,
+      "witness": null
+    },
+    {
+      "a": 2,
+      "b": 9,
+      "count": 5,
+      "lambda_star": 0.0,
+      "witness": null
+    }
+  ],
+  "scope": "support-step prefix X<0, n<=max_n",
+  "total_xneg": 135976,
+  "total_xneg_step2": 135976
+}
