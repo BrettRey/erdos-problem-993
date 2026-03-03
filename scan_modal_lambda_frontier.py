@@ -360,6 +360,22 @@ def collect_results(min_n: int, max_n: int, workers: int, dict_name: str) -> dic
     }
 
 
+@app.function(image=image, timeout=900)
+def launch_partitions(min_n: int, max_n: int, workers: int, dict_name: str) -> dict[str, Any]:
+    """Server-side launcher: spawn scan shards from inside Modal."""
+    total = (max_n - min_n + 1) * workers
+    for n in range(min_n, max_n + 1):
+        for res in range(workers):
+            scan_partition.spawn(n, res, workers, dict_name)
+    return {
+        "min_n": min_n,
+        "max_n": max_n,
+        "workers": workers,
+        "total_tasks": total,
+        "dict_name": dict_name,
+    }
+
+
 @app.local_entrypoint()
 def main(
     min_n: int = 19,
@@ -517,13 +533,11 @@ def main(
 def dispatch(min_n: int = 19, max_n: int = 22, workers: int = 512):
     """Fire-and-forget launch: spawn one lambda scan task per (n,res)."""
     dict_name = _dict_name(min_n, max_n)
-    total = (max_n - min_n + 1) * workers
+    print(f"Dispatching lambda-frontier tasks via server launcher, dict={dict_name}")
+    info = launch_partitions.remote(min_n, max_n, workers, dict_name)
+    total = info["total_tasks"]
     print(
         f"Dispatching lambda-frontier tasks for n={min_n}..{max_n}, "
         f"workers={workers}, total_tasks={total}, dict={dict_name}"
     )
-    for n in range(min_n, max_n + 1):
-        for res in range(workers):
-            scan_partition.spawn(n, res, workers, dict_name)
     print("Dispatch submitted.")
-

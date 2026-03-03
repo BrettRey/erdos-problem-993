@@ -96,6 +96,24 @@ Launched from repo root with profile `brettrey`.
   - both apps are `stopped` with no active tasks
   - no named dict rows materialized yet for `n=23`
 
+## Launcher reliability patch + n=23 active run
+
+To avoid local-dispatch fragility, both scanners were patched with a server-side
+`launch_partitions` function:
+
+- `scan_modal_alpha_bookkeeping.py::launch_partitions`
+- `scan_modal_lambda_frontier.py::launch_partitions`
+
+Then full `main` scans were started directly for `n=23, workers=256`:
+
+- alpha app: `ap-TKd3pIfia7KZyf66oZBeyJ`
+- lambda app: `ap-KoS2UgijCoIjt72pItuYyc`
+
+In-progress snapshot (while running):
+
+- alpha dict `erdos-993-alpha-n23-n23`: `45/256` shard keys present
+- lambda dict `erdos-993-lambda-frontier-n23-n23`: `46/256` shard keys present
+
 ## Monitoring
 
 - list apps: `modal app list`
