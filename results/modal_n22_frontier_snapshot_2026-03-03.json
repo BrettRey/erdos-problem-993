@@ -1,0 +1,50 @@
+{
+  "date": "2026-03-03",
+  "n": 22,
+  "alpha_dict": "erdos-993-alpha-n22-n22",
+  "lambda_dict": "erdos-993-lambda-frontier-n22-n22",
+  "counts": {
+    "alpha_mod_256": 256,
+    "alpha_mod_1024": 1,
+    "lambda_mod_256": 256,
+    "lambda_mod_1024": 28
+  },
+  "alpha_min_mod_256": {
+    "value": 0.1875868239504603,
+    "key": "22/0/256",
+    "witness": {
+      "n": 22,
+      "g6": "U????????????????????????????C??B???n~~_",
+      "root": 0,
+      "step": 2,
+      "k": 9,
+      "a": 2,
+      "b": 18,
+      "X": -444843828,
+      "R": 5744287692,
+      "sum_all": 1522396512,
+      "alpha_all": 0.1875868239504603
+    }
+  },
+  "lambda_max_mod_256": {
+    "value": 0.1968360500404575,
+    "key": "22/0/256",
+    "witness": {
+      "n": 22,
+      "g6": "U?????????????????????????C??F_?ANo?AB~?",
+      "root": 0,
+      "step": 2,
+      "k": 5,
+      "a": 4,
+      "b": 16,
+      "X": -1035339,
+      "R": 18210465,
+      "sum_all": 23143747,
+      "D": 19559271,
+      "need": 3584476,
+      "lambda_needed": 0.1968360500404575
+    }
+  },
+  "derived_gap_alpha_minus_lambda_mod_256": -0.0092492260899972,
+  "status": "snapshot_from_modal_dict_items"
+}

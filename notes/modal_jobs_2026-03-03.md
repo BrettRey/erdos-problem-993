@@ -58,6 +58,20 @@ Launched from repo root with profile `brettrey`.
   - witness pair `(a,b)=(4,16)`, `step=2`, `k=5`
   - witness values: `need=3584476`, `R_shift=18210465`, `sum_all=23143747`, `D=19559271`
 
+## Consolidated n=22 snapshot (later run, mod=256 complete)
+
+- alpha dict key coverage:
+  - `22/*/256`: 256 keys (complete)
+  - `22/*/1024`: 1 key (partial legacy dispatch)
+- lambda dict key coverage:
+  - `22/*/256`: 256 keys (complete)
+  - `22/*/1024`: 28 keys (partial legacy dispatch)
+- `min_alpha_all` over `22/*/256`: `0.1875868239504603` (key `22/0/256`)
+- `max_lambda_needed` over `22/*/256`: `0.1968360500404575` (key `22/0/256`)
+- derived snapshot gap: `alpha_min - lambda_max = -0.0092492260899972`
+- artifact saved:
+  - `results/modal_n22_frontier_snapshot_2026-03-03.json`
+
 ## Monitoring
 
 - list apps: `modal app list`
