@@ -1,0 +1,609 @@
+{
+  "min_n": 22,
+  "max_n": 22,
+  "workers": 256,
+  "xneg_total": 11889449,
+  "xneg_step2_total": 11652945,
+  "lambda_max": 0.1968360500404575,
+  "impossible_lambda": false,
+  "lambda_wit": {
+    "n": 22,
+    "g6": "U?????????????????????????C??F_?ANo?AB~?",
+    "root": 0,
+    "step": 2,
+    "k": 5,
+    "a": 4,
+    "b": 16,
+    "X": -1035339,
+    "R": 18210465,
+    "sum_all": 23143747,
+    "D": 19559271,
+    "need": 3584476,
+    "lambda_needed": 0.1968360500404575
+  },
+  "by_n": {
+    "22": {
+      "xneg_total": 11889449,
+      "xneg_step2": 11652945,
+      "lambda_max": 0.1968360500404575,
+      "impossible_lambda": false,
+      "lambda_wit": {
+        "n": 22,
+        "g6": "U?????????????????????????C??F_?ANo?AB~?",
+        "root": 0,
+        "step": 2,
+        "k": 5,
+        "a": 4,
+        "b": 16,
+        "X": -1035339,
+        "R": 18210465,
+        "sum_all": 23143747,
+        "D": 19559271,
+        "need": 3584476,
+        "lambda_needed": 0.1968360500404575
+      }
+    }
+  },
+  "by_pair": {
+    "10,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,15": {
+      "count": 78,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,16": {
+      "count": 236342,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,17": {
+      "count": 1283491,
+      "lambda_max": 0.14348716738091205,
+      "impossible": false,
+      "wit": {
+        "n": 22,
+        "g6": "U?????????????????????????C??F???^o@CB~?",
+        "root": 19,
+        "step": 2,
+        "k": 4,
+        "a": 2,
+        "b": 17,
+        "X": -76935,
+        "R": 2101052,
+        "sum_all": 3233499,
+        "D": 2932025,
+        "need": 301474,
+        "lambda_needed": 0.14348716738091205
+      }
+    },
+    "2,18": {
+      "count": 5954266,
+      "lambda_max": 0.14163557670660795,
+      "impossible": false,
+      "wit": {
+        "n": 22,
+        "g6": "U?????????????????????????C??E??A~_?GF~?",
+        "root": 0,
+        "step": 2,
+        "k": 5,
+        "a": 2,
+        "b": 18,
+        "X": -8747771,
+        "R": 28015207,
+        "sum_all": 34351377,
+        "D": 30383427,
+        "need": 3967950,
+        "lambda_needed": 0.14163557670660795
+      }
+    },
+    "2,2": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,3": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,4": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,5": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,9": {
+      "count": 15,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,15": {
+      "count": 62,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,16": {
+      "count": 473008,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,17": {
+      "count": 2752579,
+      "lambda_max": 0.19362211006620758,
+      "impossible": false,
+      "wit": {
+        "n": 22,
+        "g6": "U?????????????????????????C??F??A^o?CB~?",
+        "root": 0,
+        "step": 2,
+        "k": 5,
+        "a": 3,
+        "b": 17,
+        "X": -4471367,
+        "R": 22329015,
+        "sum_all": 28549710,
+        "D": 24226319,
+        "need": 4323391,
+        "lambda_needed": 0.19362211006620758
+      }
+    },
+    "3,3": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,4": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,5": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,15": {
+      "count": 48,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,16": {
+      "count": 952995,
+      "lambda_max": 0.1968360500404575,
+      "impossible": false,
+      "wit": {
+        "n": 22,
+        "g6": "U?????????????????????????C??F_?ANo?AB~?",
+        "root": 0,
+        "step": 2,
+        "k": 5,
+        "a": 4,
+        "b": 16,
+        "X": -1035339,
+        "R": 18210465,
+        "sum_all": 23143747,
+        "D": 19559271,
+        "need": 3584476,
+        "lambda_needed": 0.1968360500404575
+      }
+    },
+    "4,4": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,5": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,15": {
+      "count": 61,
+      "lambda_max": 0.07900599828193426,
+      "impossible": false,
+      "wit": {
+        "n": 22,
+        "g6": "U????????????????????_?@??@??F??A^_?CF{?",
+        "root": 0,
+        "step": 2,
+        "k": 6,
+        "a": 5,
+        "b": 15,
+        "X": -74928,
+        "R": 80277487,
+        "sum_all": 67860229,
+        "D": 61517826,
+        "need": 6342403,
+        "lambda_needed": 0.07900599828193426
+      }
+    },
+    "5,5": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "9,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "9,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "9,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    }
+  },
+  "wall_time_s": 3900.0,
+  "platform": "Modal",
+  "dict_name": "erdos-993-lambda-frontier-n22-n22",
+  "date": "2026-03-03"
+}

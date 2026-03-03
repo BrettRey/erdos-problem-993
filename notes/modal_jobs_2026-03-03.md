@@ -72,6 +72,18 @@ Launched from repo root with profile `brettrey`.
 - artifact saved:
   - `results/modal_n22_frontier_snapshot_2026-03-03.json`
 
+## Completed full mod=256 output artifacts
+
+- `results/alpha_bookkeeping_modal_n22_n22_w256.json`
+  - `xneg_total = 11889449`
+  - `min_alpha_all = 0.1875868239504603`
+  - `min_alpha_odd = -2.3333333333333335`
+- `results/lambda_frontier_modal_n22_n22_w256.json`
+  - `xneg_total = 11889449`
+  - `xneg_step2_total = 11652945`
+  - `lambda_max = 0.1968360500404575`
+  - `impossible_lambda = false`
+
 ## Monitoring
 
 - list apps: `modal app list`
