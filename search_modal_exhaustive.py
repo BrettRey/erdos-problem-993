@@ -70,6 +70,14 @@ def check_partition(n: int, res: int, mod: int, dict_name: str) -> dict[str, Any
     return result
 
 
+@app.function(image=image, timeout=3600, cpu=1)
+def launch_partitions(n: int, workers: int, dict_name: str) -> dict[str, Any]:
+    """Launch one detached worker task per partition from a server-side function."""
+    for res in range(workers):
+        check_partition.spawn(n, res, workers, dict_name)
+    return {"launched": workers, "n": n, "dict_name": dict_name}
+
+
 @app.function(image=image, timeout=300)
 def collect_results(n: int, workers: int, dict_name: str) -> dict[str, Any]:
     """Collect completed results from the persistent dict."""
