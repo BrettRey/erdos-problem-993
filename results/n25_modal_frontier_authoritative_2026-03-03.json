@@ -1,0 +1,53 @@
+{
+  "date_utc": "2026-03-03T22:32:16Z",
+  "n": 25,
+  "workers": 256,
+  "authoritative_complete": true,
+  "dicts": {
+    "alpha": {
+      "name": "erdos-993-alpha-n25-n25",
+      "row_count": 256,
+      "impossible_any": false
+    },
+    "lambda": {
+      "name": "erdos-993-lambda-frontier-n25-n25",
+      "row_count": 256,
+      "impossible_any": false
+    }
+  },
+  "frontier": {
+    "alpha_front": 0.15739052900321043,
+    "alpha_witness_res": 0,
+    "alpha_witness": {
+      "n": 25,
+      "g6": "X???????????????????????????????????_??E???Fo??_^~x",
+      "root": 0,
+      "step": 2,
+      "k": 10,
+      "a": 2,
+      "b": 21,
+      "X": -9092017987,
+      "R": 91049895313,
+      "sum_all": 23422409176,
+      "alpha_all": 0.15739052900321043
+    },
+    "lambda_front": 0.34114585595914226,
+    "lambda_witness_res": 0,
+    "lambda_witness": {
+      "n": 25,
+      "g6": "X???????????????????????????????????_??Fo??O~_?@?~w",
+      "root": 0,
+      "step": 2,
+      "k": 5,
+      "a": 5,
+      "b": 18,
+      "X": -1724553,
+      "R": 74122580,
+      "sum_all": 124026562,
+      "D": 98739951,
+      "need": 25286611,
+      "lambda_needed": 0.34114585595914226
+    },
+    "gap_alpha_minus_lambda": -0.18375532695593183
+  }
+}

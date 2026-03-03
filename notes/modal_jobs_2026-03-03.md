@@ -355,3 +355,27 @@ Current blocker:
 
 - lambda authoritative completion is still pending final materialization of residues 102 and 140.
 - n=25 remains non-authoritative until lambda reaches `256/256`.
+
+## Completion update: n=25 now fully materialized (authoritative-ready)
+
+Fresh dict key check for exact `25/*/256` rows now reports:
+
+- alpha dict `erdos-993-alpha-n25-n25`: `256/256`
+- lambda dict `erdos-993-lambda-frontier-n25-n25`: `256/256`
+
+This clears the prior blocker (`res=102,140` in lambda).
+
+Snapshot artifact written:
+
+- `results/n25_modal_frontier_authoritative_2026-03-03.json`
+
+Snapshot headline values:
+
+- `alpha_front(25) = 0.15739052900321043`, witness class `(a,b)=(2,21)`
+- `lambda_front(25) = 0.34114585595914226`, witness class `(a,b)=(5,18)`
+- `gap(25) = alpha_front - lambda_front = -0.18375532695593183`
+
+Status change:
+
+- n=25 is no longer blocked by missing shard materialization.
+- The pipeline can now treat n=25 frontier data as complete for deterministic downstream analysis.
