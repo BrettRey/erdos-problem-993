@@ -32,3 +32,24 @@ Full X<0 corpus size: `428,434`.
 - Ring candidate (`C20+C02+C21+C12+C22`) fails in `4` cases, max ratio `1.2355506702667347`.
 
 Implication: Round 24 prompts should target repaired bounds and explicit upgraded constants/channels, not repeat the failed local lemma.
+
+## Additional defect-fit result (full n<=19 X<0 corpus)
+
+Artifact:
+- `results/round24_defect_extra_fit_n19_full.json`
+
+Tested repaired form:
+
+`Defect <= delta*R_shift + c*Extra` with `delta = lambda19-lambda0`.
+
+Key result:
+- `max Defect/(delta*R_shift) = 1.0225408414008559` (same single witness as above).
+- Residual over `delta*R_shift` is small and can be absorbed by tiny second-shift coefficients.
+
+Needed `c` by Extra family:
+- `Extra = C20+C02`: `c = 0.002362430346951976`
+- `Extra = C20+C02+C21`: `c = 0.0018627908898243633`
+- `Extra = C20+C02+C21+C12`: `c = 0.0015447425039931744`
+- `Extra = C20+C02+C21+C12+C22`: `c = 0.0014486030980773658`
+
+Interpretation: the Round 23 defect-bound idea was very close; pure `delta*R_shift` misses by ~2.25% at one witness, and a very small second-shift correction closes it on this corpus.
