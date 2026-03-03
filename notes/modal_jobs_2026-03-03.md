@@ -36,11 +36,21 @@ Launched from repo root with profile `brettrey`.
 - command: `modal run --detach analyze_modal_lc_nm_n28.py::main --n 28 --workers 1024 --top-k 200 --lc-top-k 200`
 - app id: `ap-HBh4OE85E9jViar6JA8Sye`
 
+7. alpha-bookkeeping drift extension (`n=22` only)
+- script: `scan_modal_alpha_bookkeeping.py`
+- command: `modal run scan_modal_alpha_bookkeeping.py::dispatch --min-n 22 --max-n 22 --workers 1024`
+- app id: `ap-vR5lPbMsEPxaAYZdiQ76Bm`
+- dict: `erdos-993-alpha-n22-n22`
+- immediate snapshot after dispatch: `1 / 1024` partition rows present in dict (key `22/0/1024`)
+
 ## Monitoring
 
 - list apps: `modal app list`
 - stream logs: `modal app logs <APP_ID>`
 - stop app: `modal app stop <APP_ID>`
+- inspect dict rows: `modal dict items <DICT_NAME>`
+- count completed partitions (example):
+  `modal dict items erdos-993-alpha-n22-n22 | rg -o "22/[0-9]+/1024" | wc -l`
 
 ## Notes
 
