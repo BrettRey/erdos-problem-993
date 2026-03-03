@@ -192,3 +192,21 @@ Current status:
 - n=24 data is partial and not suitable for frontier claims.
 - most n=24 attempt apps have been stopped/are stopping to avoid churn.
 - rerun should use a more stable launch context before treating n=24 as authoritative.
+
+### n=24 partial frontier read (non-authoritative)
+
+Using full dict dumps (`modal dict items --json`) after stopping stalled apps:
+
+- alpha dict rows present: `127/256`
+- lambda dict rows present: `119/256`
+
+Provisional extrema over currently materialized rows only:
+
+- provisional `min_alpha_all = 0.16161242603550297`
+  - shard key `24/0/256`
+  - witness class `(a,b)=(2,20)`, step 2, `k=10`
+- provisional `max_lambda_needed = 0.280781720999777`
+  - shard key `24/0/256`
+  - witness class `(a,b)=(4,18)`, step 2, `k=5`
+
+These are incomplete-frontier diagnostics only and must not be used as final n=24 claims until `256/256` rows are present in both dicts.
