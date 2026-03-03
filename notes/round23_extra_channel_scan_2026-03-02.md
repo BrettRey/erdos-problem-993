@@ -92,3 +92,32 @@ Same run also checked `Lambda_1(E_new,J_new) >= 0` on all support-root updates w
 - failures: `0`
 
 This supports the Round 23 “k=1 micro-lemma + k>=2 reserve/bridge” split.
+
+## Pair-class constants at n<=19 (full X<0 corpus)
+
+Using
+
+`lambda_need = (sum_err - D)_+ / R_shift`
+
+and
+
+`c_need = (sum_err - D - lambda0*R_shift)_+ / (C20+C02+C21+C12)`,
+
+the global maxima are:
+
+- `max lambda_need = 0.08144365672607116` at class `(3,14)`
+- `max c_need = 0.06853082706728619` at class `(3,14)`
+
+Top classes by `lambda_need`:
+
+- `(3,14)`: `0.08144365672607116`
+- `(2,15)`: `0.07972646169405961`
+- `(2,14)`: `0.05201381704686925`
+- `(3,13)`: `0.04386927442810327`
+- `(2,13)`: `0.023760967407659456`
+
+`c_need` is positive only for the two new n=19 hard classes `(3,14)` and `(2,15)`; it is `0` on all legacy classes through this scan.
+
+Artifact:
+
+- `results/round23_pair_constants_n19_full.json`
