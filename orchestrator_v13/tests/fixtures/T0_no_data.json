@@ -1,0 +1,45 @@
+{
+  "name": "T0_no_data",
+  "config": {
+    "N_target": 24,
+    "N_authoritative": 24,
+    "epsilon_buffer": 0.0,
+    "eps": 1e-12,
+    "alpha_19": 0.2437206585182262,
+    "alpha_star": 0.21034113597068071,
+    "Delta_alpha": 0.033379522547545476,
+    "rho_max": 1.0,
+    "lambda_max": 0.05,
+    "K_G": 1,
+    "K_A": 1,
+    "K_L": 1,
+    "kappa_P": 1.0,
+    "kappa_A": 1.0,
+    "kappa_B": 1.0,
+    "kappa_C": 1.0,
+    "kappa_M": 1.0,
+    "K0": 1000.0
+  },
+  "raw_log": [
+    {
+      "witness_id": "w_out",
+      "n": 30,
+      "a": 3,
+      "b": 13,
+      "k": 0,
+      "m": 1,
+      "D": 1.0,
+      "sum_err": 1.1,
+      "C10": 1.0,
+      "C01": 0.0,
+      "C11": 0.0,
+      "sum_all": 0.0,
+      "Lambda": 1.4,
+      "Gamma_L": 0.0
+    }
+  ],
+  "expected": {
+    "selected_partition_id": "PI0",
+    "closure_status": "NO_DATA"
+  }
+}

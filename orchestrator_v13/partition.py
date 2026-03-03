@@ -118,6 +118,19 @@ def _id(w: Witness) -> str:
     return w.raw.witness_id
 
 
+def _env_deficit(alpha_s: float, lambda_s: float, local_s: float) -> float:
+    # Pathological infinities should remain visible to partition selection.
+    if math.isnan(alpha_s) or math.isnan(lambda_s) or math.isnan(local_s):
+        raise ValueError("NaN in ENV frontier statistics")
+    if math.isinf(lambda_s) or math.isinf(local_s):
+        return math.inf
+    if alpha_s == math.inf:
+        return 0.0
+    if alpha_s == -math.inf:
+        return math.inf
+    return pos_part(max(lambda_s, local_s) - alpha_s)
+
+
 def compute_bucket_stats(bucket: Bucket, config: Config) -> BucketStats:
     xs = list(bucket.records)
     if not xs:
@@ -143,7 +156,7 @@ def compute_bucket_stats(bucket: Bucket, config: Config) -> BucketStats:
     local_s = w_l.raw.Gamma_L
 
     if bucket.module == ModuleTag.ENV:
-        deficit = pos_part(max(lambda_s, local_s) - alpha_s)
+        deficit = _env_deficit(alpha_s, lambda_s, local_s)
     else:
         deficit = 0.0
 
