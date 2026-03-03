@@ -165,3 +165,30 @@ In-progress snapshot (while running):
   - alpha witness class: `(2,19)`
   - lambda witness class: `(2,18)`
 - This means the Round 31 two-bucket split (`a<=3` vs `a>=4`) is no longer sufficient by itself; the break is now internal to the small-first bucket.
+
+## n=24 launch attempt (diagnostic)
+
+Attempted to advance alpha/lambda frontier to `n=24` using the same scripts and workers=`256`.
+
+Launches executed:
+
+- detached main (alpha): `ap-dLkFkOpDXAmcyXziqml0Ur`
+- detached main (lambda): `ap-tFjNqn32pRcrwf1uN9nJZQ`
+- server-launch attempts via `launch_partitions` / `dispatch`:
+  - alpha apps: `ap-6uhg4eD4FqA8W6NlO6mw3E`, `ap-IIU9IvwK73Pa4PCW6zL4VP`, `ap-8n0c3fPCedzUty12SUlXEx`
+  - lambda apps: `ap-igHQc7QELf2DGX2wJ79ruW`, `ap-3AAiONRn3BwcZsSloZZ1Xg`, `ap-3UBDhYNRdU3C9vyRpWEuNu`, `ap-Mbriv0j2yFmk7d8iOIQgNw`
+
+Observed behavior:
+
+- shard materialization for both dicts stalled at:
+  - `erdos-993-alpha-n24-n24`: `20/256`
+  - `erdos-993-lambda-frontier-n24-n24`: `20/256`
+- log samples from active apps showed repeated heartbeat failures and worker drops, e.g.:
+  - `Modal Worker Heartbeat attempt failed ... ConnectionError('Deadline exceeded')`
+  - `Runner failed with exception: Worker disappeared, in-progress inputs will be re-scheduled.`
+
+Current status:
+
+- n=24 data is partial and not suitable for frontier claims.
+- most n=24 attempt apps have been stopped/are stopping to avoid churn.
+- rerun should use a more stable launch context before treating n=24 as authoritative.
