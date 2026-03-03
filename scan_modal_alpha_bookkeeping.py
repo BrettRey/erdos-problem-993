@@ -425,6 +425,43 @@ def launch_missing_partitions(min_n: int, max_n: int, workers: int, dict_name: s
     }
 
 
+@app.function(image=image, timeout=900)
+def launch_missing_partitions_limited(
+    min_n: int,
+    max_n: int,
+    workers: int,
+    dict_name: str,
+    limit: int = 64,
+) -> dict[str, Any]:
+    """Server-side launcher: spawn only up to `limit` missing scan shards."""
+    results_dict = modal.Dict.from_name(dict_name, create_if_missing=True)
+    missing: list[tuple[int, int]] = []
+    total = (max_n - min_n + 1) * workers
+    for n in range(min_n, max_n + 1):
+        for res in range(workers):
+            key = f"{n}/{res}/{workers}"
+            try:
+                _ = results_dict[key]
+            except KeyError:
+                missing.append((n, res))
+
+    launch_cap = max(0, limit)
+    to_launch = missing[:launch_cap]
+    for n, res in to_launch:
+        scan_partition.spawn(n, res, workers, dict_name)
+
+    return {
+        "min_n": min_n,
+        "max_n": max_n,
+        "workers": workers,
+        "total_tasks": total,
+        "missing_tasks": len(missing),
+        "launched_tasks": len(to_launch),
+        "limit": launch_cap,
+        "dict_name": dict_name,
+    }
+
+
 @app.local_entrypoint()
 def main(
     min_n: int = 3,
@@ -587,3 +624,23 @@ def dispatch_missing(min_n: int = 3, max_n: int = 21, workers: int = 512):
     info = launch_missing_partitions.remote(min_n, max_n, workers, dict_name)
     print(json.dumps(info, indent=2))
     print("Missing-shard dispatch submitted.")
+
+
+@app.local_entrypoint()
+def dispatch_missing_limited(
+    min_n: int = 3,
+    max_n: int = 21,
+    workers: int = 512,
+    limit: int = 64,
+):
+    """Fire-and-forget launch: spawn up to `limit` missing alpha scan shards."""
+    dict_name = _dict_name(min_n, max_n)
+    print(
+        f"Dispatching limited missing alpha tasks via server launcher, "
+        f"dict={dict_name}, limit={limit}"
+    )
+    info = launch_missing_partitions_limited.remote(
+        min_n, max_n, workers, dict_name, limit
+    )
+    print(json.dumps(info, indent=2))
+    print("Limited missing-shard dispatch submitted.")

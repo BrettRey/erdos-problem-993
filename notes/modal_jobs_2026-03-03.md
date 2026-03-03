@@ -291,3 +291,36 @@ Status at this checkpoint:
 
 - n=25 remains partial and non-authoritative.
 - keep treating n=24 as the latest locked complete frontier until n=25 reaches `256/256` on both dicts.
+
+### Limited backfill launcher added (to reduce churn)
+
+To avoid re-spawning all missing shards in one burst, both scanners now include:
+
+- `launch_missing_partitions_limited(...)` (server function)
+- `dispatch_missing_limited(...)` (local entrypoint)
+
+Behavior:
+
+- scans the target dict for missing `n/res/workers` keys
+- launches only up to `limit` missing shards per call
+- returns both `missing_tasks` and `launched_tasks`
+
+Initial n=25 limited backfill runs:
+
+- alpha:
+  - `modal run scan_modal_alpha_bookkeeping.py::dispatch_missing_limited --min-n 25 --max-n 25 --workers 256 --limit 32`
+  - launcher report: `missing_tasks=195`, `launched_tasks=32`
+- lambda:
+  - `modal run scan_modal_lambda_frontier.py::dispatch_missing_limited --min-n 25 --max-n 25 --workers 256 --limit 32`
+  - launcher report: `missing_tasks=151`, `launched_tasks=32`
+  - follow-up run with `--limit 16` reported same `missing_tasks=151`, indicating no completed lambda shard writes yet.
+
+Latest exact key coverage (`25/*/256`):
+
+- alpha: `79/256` (improving)
+- lambda: `105/256` (flat at latest check)
+
+Conclusion at latest checkpoint:
+
+- limited batching helps alpha progress,
+- lambda remains heartbeat-constrained and needs further stabilization before n=25 can be treated as complete.
