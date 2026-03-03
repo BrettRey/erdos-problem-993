@@ -360,6 +360,17 @@ def collect_results(min_n: int, max_n: int, workers: int, dict_name: str) -> dic
     }
 
 
+@app.function(image=image, timeout=300)
+def put_partition_result(
+    dict_name: str, n: int, res: int, mod: int, result: dict[str, Any]
+) -> dict[str, Any]:
+    """Write one partition result directly into the modal.Dict."""
+    results_dict = modal.Dict.from_name(dict_name, create_if_missing=True)
+    key = f"{n}/{res}/{mod}"
+    results_dict[key] = result
+    return {"dict_name": dict_name, "key": key}
+
+
 @app.function(image=image, timeout=900)
 def launch_partitions(min_n: int, max_n: int, workers: int, dict_name: str) -> dict[str, Any]:
     """Server-side launcher: spawn scan shards from inside Modal."""
@@ -633,3 +644,21 @@ def dispatch_missing_limited(
     )
     print(json.dumps(info, indent=2))
     print("Limited missing-shard dispatch submitted.")
+
+
+@app.local_entrypoint()
+def put_result_from_file(path: str, dict_name: str = ""):
+    """Load one partition JSON row from disk and write it into the modal.Dict.
+
+    Expected JSON keys at minimum: n, res, mod.
+    If dict_name is omitted, it is derived as _dict_name(n, n).
+    """
+    with open(path, "r", encoding="utf-8") as f:
+        row = json.load(f)
+    n = int(row["n"])
+    res = int(row["res"])
+    mod = int(row["mod"])
+    if dict_name == "":
+        dict_name = _dict_name(n, n)
+    info = put_partition_result.remote(dict_name, n, res, mod, row)
+    print(json.dumps(info, indent=2))

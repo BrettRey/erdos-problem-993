@@ -324,3 +324,34 @@ Conclusion at latest checkpoint:
 
 - limited batching helps alpha progress,
 - lambda remains heartbeat-constrained and needs further stabilization before n=25 can be treated as complete.
+
+## Late-day n=25 status (authoritative push)
+
+Updated exact key coverage for `25/*/256`:
+
+- alpha dict `erdos-993-alpha-n25-n25`: `256/256` (complete)
+- lambda dict `erdos-993-lambda-frontier-n25-n25`: `254/256`
+
+Remaining lambda residues:
+
+- missing keys: `25/102/256`, `25/140/256`
+
+Recovery actions in progress:
+
+1. Added direct shard injection path to lambda scanner:
+   - server function: `put_partition_result(dict_name, n, res, mod, result)`
+   - local entrypoint: `put_result_from_file(path, dict_name="")`
+2. Added local shard fallback script:
+   - `scripts/compute_lambda_shard_local.py`
+   - computes one shard row matching dict payload schema.
+3. Re-dispatched exact missing lambda shards via limited launcher:
+   - `modal run --detach scan_modal_lambda_frontier.py::dispatch_missing_limited --min-n 25 --max-n 25 --workers 256 --limit 2`
+   - launcher report: `missing_tasks=2`, `launched_tasks=2`.
+4. Running local fallback computations in parallel for redundancy:
+   - `python3 scripts/compute_lambda_shard_local.py --n 25 --res 102 --mod 256 --out /tmp/lambda_n25_res102.json`
+   - `python3 scripts/compute_lambda_shard_local.py --n 25 --res 140 --mod 256 --out /tmp/lambda_n25_res140.json`
+
+Current blocker:
+
+- lambda authoritative completion is still pending final materialization of residues 102 and 140.
+- n=25 remains non-authoritative until lambda reaches `256/256`.
