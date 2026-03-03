@@ -34,3 +34,25 @@ Implication:
 - Any proof route that requires global side condition
   `(1-lambda0)R_shift >= c*Extra` is invalid as a theorem skeleton.
 - Split-reserve route must instead prove an **extended bookkeeping inequality** that extracts positive `Extra` directly in the lower bound for `Lambda_k`, or avoid this condition entirely.
+
+## Bookkeeping validity check (xneg corpus)
+
+Artifact:
+- `results/round25_bookkeeping_validity_n19_xneg.json`
+
+Tested on full `n<=19` X<0 corpus (`428,434` cases):
+
+Candidate inequality (as previously assumed in some prompts):
+`Lambda_k >= D + R_shift - sum_err`.
+
+Results:
+- Using `sum_err = sum_s err_s` (all diagonals): **9,223 failures**.
+- Using `sum_err = sum_{s odd} err_s` (odd-only): **428,434 failures**.
+
+Worst all-diagonal slack witness:
+- `n=19`, `(a,b)=(2,15)`, `step=2`, `k=7`,
+- slack = `Lambda_k - (D+R_shift-sum_err)` = `-56,361,669`.
+
+Conclusion:
+- This bookkeeping inequality cannot be treated as an accepted base identity.
+- Future theorem variants must avoid relying on it directly.
