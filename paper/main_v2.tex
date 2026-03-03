@@ -67,6 +67,10 @@ Independently, I prove a chain of structural lemmas~-- a Hub Exclusion Lemma and
 This Conjecture~A is verified for 931\,596 such trees through $n = 23$.
 A proved singleton compensation lemma gives a direct path via a weighted Hall condition on the heavy vertices.
 On the computational side, I verify the original conjecture exhaustively for all 1\,198\,738\,056 trees on $n \le 27$ vertices, confirming the bound implicit in the log-concavity check of \textcite{kadrawi2023} and supplementing it with near-miss metrics through $n = 26$.
+For the regime-adaptive hard-step diagnostics used in the reduction framework, I also complete the $n=25$ Modal frontier scans (all $256+256$ residue shards for the alpha and lambda dictionaries), obtaining
+$\alpha_{\mathrm{front}}(25)=0.15739052900321043$ at class $(2,21)$ and
+$\lambda_{\mathrm{front}}(25)=0.34114585595914226$ at class $(5,18)$, with gap
+$\alpha_{\mathrm{front}}-\lambda_{\mathrm{front}}=-0.18375532695593183$.
 An evolutionary search identifies multi-arm stars as the family closest to the unimodality boundary, surpassing brooms.
 The near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \in [4, 8)$, so the margin shrinks but doesn't vanish.
 \end{abstract}
@@ -99,6 +103,7 @@ My contributions:
   \item A reduction framework~-- via Hub Exclusion and Transfer Lemmas~-- reducing the mode bound for all trees to a single conjecture about $\dleaf \le 1$ trees (Section~\ref{sec:reduction}).
   \item A proof that $\mu(T) < n/3$ for every $\dleaf \le 1$ tree~$T$, via a decimation identity and Steiner peeling on the heavy-vertex compensation function (Section~\ref{sec:reduction}).
   \item Exhaustive verification for all trees on $n \le 27$ vertices, with near-miss metrics through $n = 26$ (Section~\ref{sec:exhaustive}).
+  \item Authoritative completion of the $n=25$ regime-adaptive frontier diagnostics used by the hard-step reduction, including explicit witness classes and gap values (Section~\ref{sec:discussion}).
   \item Identification of multi-arm stars as the extremal family and an asymptotic analysis of the near-miss ratio (Section~\ref{sec:extremal}).
 \end{enumerate}
 
@@ -867,6 +872,11 @@ The conjecture remains unproved, but the computational evidence increasingly con
 Any counterexample must be homeomorphically irreducible (if ECMS and the combined tail condition hold), must have high leaf-degree vertices (by the PNP reduction), and cannot arise from pendant-leaf attachment to a fixed core (by the asymptotic theorem).
 The margin of unimodality can be made arbitrarily small~-- multi-arm stars approach the boundary at rate $1/s$~-- but the boundary itself appears inviolable.
 
+Finally, the regime-adaptive hard-step frontier diagnostics now have a complete authoritative snapshot at $n=25$ (Modal dictionaries fully materialized at $256/256$ shards each).
+The alpha frontier occurs at class $(2,21)$ with value $0.15739052900321043$, while the lambda frontier occurs at class $(5,18)$ with value $0.34114585595914226$, giving a gap of $-0.18375532695593183$.
+Compared with the locked $n=24$ baseline ($\alpha_{\mathrm{front}}(24)=0.16161242603550297$, $\lambda_{\mathrm{front}}(24)=0.280781720999777$), this is a wider obstruction and a shifted lambda witness line.
+This does not alter any proved theorem above, but it materially updates the empirical stress profile that future closure attempts must absorb.
+
 All code, data, and reproduction scripts are available at
 \href{https://github.com/BrettRey/erdos-problem-993}{github.com/BrettRey/\allowbreak erdos-problem-993}.
 
@@ -912,6 +922,10 @@ python3 search.py --max-n 26 --workers 8
 # App ID: ap-T9RkZ9fGOtXyvZgPEuYBkZ
 modal run search_modal.py
 
+# Regime-adaptive frontier diagnostics at n = 25 (Modal, 256 residues)
+modal run scan_modal_alpha_bookkeeping.py::dispatch_missing --min-n 25 --max-n 25 --workers 256
+modal run scan_modal_lambda_frontier.py::dispatch_missing --min-n 25 --max-n 25 --workers 256
+
 # Targeted family search (n up to 500)
 python3 targeted.py --max-n 500 --random-count 5000
 
@@ -956,9 +970,16 @@ Table~\ref{tab:certificates} summarizes all verified properties.
     Tie-fugacity: $\mu(\lambda_m) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ \\
     Tie-fugacity: $\mu(\lambda_m) \ge m-1$ (all trees) & \liningnums{9\,114\,283} trees & $\le 22$ \\
     Bridge mode bound: $\mathrm{mode}(P) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ \\
+    Regime frontier shards (alpha + lambda, Modal) & \liningnums{512} shards & $n = 25$ \\
     \bottomrule
   \end{tabular}
 \end{table}
+
+For the $n=25$ frontier snapshot (all shards complete), the aggregated values are
+$\alpha_{\mathrm{front}}(25)=0.15739052900321043$ (witness class $(2,21)$),
+$\lambda_{\mathrm{front}}(25)=0.34114585595914226$ (witness class $(5,18)$),
+and gap $-0.18375532695593183$; see
+\texttt{results/n25\_modal\_frontier\_authoritative\_2026-03-03.json}.
 
 
 \section{Verification checklist}\label{app:verify}
