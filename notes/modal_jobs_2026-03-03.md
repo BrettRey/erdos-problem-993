@@ -47,6 +47,17 @@ Launched from repo root with profile `brettrey`.
   - witness `(a,b)=(2,18)`, `step=2`, `k=9`
   - `min_alpha_odd = -2.3333333333333335`
 
+8. lambda-frontier drift scan (`n=22` only)
+- script: `scan_modal_lambda_frontier.py`
+- command: `modal run scan_modal_lambda_frontier.py::dispatch --min-n 22 --max-n 22 --workers 1024`
+- app id: `ap-sGXfBUv6k5ng3r7pBqelx9`
+- dict: `erdos-993-lambda-frontier-n22-n22`
+- immediate snapshot after dispatch: `20 / 1024` partition rows present in dict
+- first shard witness snapshot (`22/0/1024`):
+  - shard `lambda_max = 0.1968360500404575`
+  - witness pair `(a,b)=(4,16)`, `step=2`, `k=5`
+  - witness values: `need=3584476`, `R_shift=18210465`, `sum_all=23143747`, `D=19559271`
+
 ## Monitoring
 
 - list apps: `modal app list`
