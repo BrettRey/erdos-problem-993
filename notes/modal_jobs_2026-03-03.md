@@ -242,3 +242,19 @@ Artifacts written:
 Launcher note:
 
 - Added `launch_missing_partitions` + `dispatch_missing` to both scanner scripts to recover incomplete dicts by spawning only absent shard keys.
+
+## n=25 launch (in progress)
+
+Started full frontier scans at `workers=256` using missing-shard capable dispatch:
+
+- alpha dispatch app: `ap-wJsDYjc7gGLb4nFtjnT7kf`
+  - command: `modal run --detach scan_modal_alpha_bookkeeping.py::dispatch_missing --min-n 25 --max-n 25 --workers 256`
+- lambda dispatch app: `ap-S908csHXcJMrnlGjUNUI3L`
+  - command: `modal run --detach scan_modal_lambda_frontier.py::dispatch_missing --min-n 25 --max-n 25 --workers 256`
+
+Initial dict materialization snapshot right after launch:
+
+- `erdos-993-alpha-n25-n25`: `1/256`
+- `erdos-993-lambda-frontier-n25-n25`: `1/256`
+
+Use `dispatch_missing` repeatedly as needed to backfill any stalled residues until both dicts reach `256/256`.
