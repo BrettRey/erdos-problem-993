@@ -84,6 +84,18 @@ Launched from repo root with profile `brettrey`.
   - `lambda_max = 0.1968360500404575`
   - `impossible_lambda = false`
 
+## n=23 dispatch attempts (status)
+
+- attempted alpha dispatch:
+  - `modal run scan_modal_alpha_bookkeeping.py::dispatch --min-n 23 --max-n 23 --workers 256`
+  - app id: `ap-jBufELMOxb9pxBXZdfJnri`
+- attempted lambda dispatch:
+  - `modal run scan_modal_lambda_frontier.py::dispatch --min-n 23 --max-n 23 --workers 256`
+  - app id: `ap-z3cAxKbsHJeX2qPyoMQ1qO`
+- current status at logging time:
+  - both apps are `stopped` with no active tasks
+  - no named dict rows materialized yet for `n=23`
+
 ## Monitoring
 
 - list apps: `modal app list`
