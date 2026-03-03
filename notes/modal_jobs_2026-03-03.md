@@ -127,3 +127,41 @@ In-progress snapshot (while running):
 
 - All three scripts are single-local-entrypoint (`main`) Modal launchers.
 - Detached local-entrypoint runs keep worker tasks active in the app; use app IDs above for monitoring.
+
+## Consolidated n=23 snapshot (mod=256 complete)
+
+- alpha dict key coverage:
+  - `23/*/256`: 256 keys (complete)
+- lambda dict key coverage:
+  - `23/*/256`: 256 keys (complete)
+- `min_alpha_all` over `23/*/256`: `0.18243252946998884`
+  - witness: `(a,b)=(2,19)`, `step=2`, `k=9`, `root=0`
+- `max_lambda_needed` over `23/*/256`: `0.24039868912946966`
+  - witness: `(a,b)=(2,18)`, `step=2`, `k=5`, `root=20`
+- derived snapshot gap: `alpha_min - lambda_max = -0.05796615965948082`
+- drift vs n=22:
+  - `delta_alpha = -0.005154294480471472`
+  - `delta_lambda = +0.043562639089012145`
+  - `delta_gap = -0.04871693356948362`
+- artifact saved:
+  - `results/modal_n23_frontier_snapshot_2026-03-03.json`
+
+## Completed full mod=256 output artifacts (n=23)
+
+- `results/alpha_bookkeeping_modal_n23_n23_w256.json`
+  - `xneg_total = 36238085`
+  - `min_alpha_all = 0.18243252946998884`
+  - `min_alpha_odd = -2.5789473684210527`
+  - `impossible_all = false`
+- `results/lambda_frontier_modal_n23_n23_w256.json`
+  - `xneg_total = 36238085`
+  - `xneg_step2_total = 35474970`
+  - `lambda_max = 0.24039868912946966`
+  - `impossible_lambda = false`
+
+## n=23 geometry note for prompt design
+
+- At n=23, both global frontiers sit in the small-first line (`a=2`):
+  - alpha witness class: `(2,19)`
+  - lambda witness class: `(2,18)`
+- This means the Round 31 two-bucket split (`a<=3` vs `a>=4`) is no longer sufficient by itself; the break is now internal to the small-first bucket.

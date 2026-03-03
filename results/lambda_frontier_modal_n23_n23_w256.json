@@ -1,0 +1,663 @@
+{
+  "min_n": 23,
+  "max_n": 23,
+  "workers": 256,
+  "xneg_total": 36238085,
+  "xneg_step2_total": 35474970,
+  "lambda_max": 0.24039868912946966,
+  "impossible_lambda": false,
+  "lambda_wit": {
+    "n": 23,
+    "g6": "V????????????????????????????C??B_??F{?G_^{?",
+    "root": 20,
+    "step": 2,
+    "k": 5,
+    "a": 2,
+    "b": 18,
+    "X": -294299,
+    "R": 30597072,
+    "sum_all": 41279083,
+    "D": 33923587,
+    "need": 7355496,
+    "lambda_needed": 0.24039868912946966
+  },
+  "by_n": {
+    "23": {
+      "xneg_total": 36238085,
+      "xneg_step2": 35474970,
+      "lambda_max": 0.24039868912946966,
+      "impossible_lambda": false,
+      "lambda_wit": {
+        "n": 23,
+        "g6": "V????????????????????????????C??B_??F{?G_^{?",
+        "root": 20,
+        "step": 2,
+        "k": 5,
+        "a": 2,
+        "b": 18,
+        "X": -294299,
+        "R": 30597072,
+        "sum_all": 41279083,
+        "D": 33923587,
+        "need": 7355496,
+        "lambda_needed": 0.24039868912946966
+      }
+    }
+  },
+  "by_pair": {
+    "10,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "10,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,15": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,16": {
+      "count": 147880,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,17": {
+      "count": 637864,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,18": {
+      "count": 3500222,
+      "lambda_max": 0.24039868912946966,
+      "impossible": false,
+      "wit": {
+        "n": 23,
+        "g6": "V????????????????????????????C??B_??F{?G_^{?",
+        "root": 20,
+        "step": 2,
+        "k": 5,
+        "a": 2,
+        "b": 18,
+        "X": -294299,
+        "R": 30597072,
+        "sum_all": 41279083,
+        "D": 33923587,
+        "need": 7355496,
+        "lambda_needed": 0.24039868912946966
+      }
+    },
+    "2,19": {
+      "count": 18389447,
+      "lambda_max": 0.1555358330444254,
+      "impossible": false,
+      "wit": {
+        "n": 23,
+        "g6": "V????????????????????????????C??B???n{?@?^{?",
+        "root": 0,
+        "step": 2,
+        "k": 5,
+        "a": 2,
+        "b": 19,
+        "X": -18678842,
+        "R": 49064070,
+        "sum_all": 65246303,
+        "D": 57615082,
+        "need": 7631221,
+        "lambda_needed": 0.1555358330444254
+      }
+    },
+    "2,2": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,3": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,4": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,5": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,9": {
+      "count": 3595,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,15": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,16": {
+      "count": 135354,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,17": {
+      "count": 1286504,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,18": {
+      "count": 8489091,
+      "lambda_max": 0.22676327639750557,
+      "impossible": false,
+      "wit": {
+        "n": 23,
+        "g6": "V????????????????????????????C??B_??f{??_^{?",
+        "root": 0,
+        "step": 2,
+        "k": 5,
+        "a": 3,
+        "b": 18,
+        "X": -10033137,
+        "R": 39031955,
+        "sum_all": 54800381,
+        "D": 45949367,
+        "need": 8851014,
+        "lambda_needed": 0.22676327639750557
+      }
+    },
+    "3,3": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,4": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,5": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,15": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,16": {
+      "count": 107476,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,17": {
+      "count": 2685740,
+      "lambda_max": 0.24010697818098098,
+      "impossible": false,
+      "wit": {
+        "n": 23,
+        "g6": "V????????????????????????????C??Bo??b}??ON{?",
+        "root": 0,
+        "step": 2,
+        "k": 5,
+        "a": 4,
+        "b": 17,
+        "X": -3411300,
+        "R": 31850607,
+        "sum_all": 44714797,
+        "D": 37067244,
+        "need": 7647553,
+        "lambda_needed": 0.24010697818098098
+      }
+    },
+    "4,4": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,5": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,15": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,16": {
+      "count": 91797,
+      "lambda_max": 0.1585785645315295,
+      "impossible": false,
+      "wit": {
+        "n": 23,
+        "g6": "V?????????????????????????C??B??BO??b{??O^w?",
+        "root": 0,
+        "step": 2,
+        "k": 6,
+        "a": 5,
+        "b": 16,
+        "X": -2653886,
+        "R": 159887385,
+        "sum_all": 159962174,
+        "D": 134607462,
+        "need": 25354712,
+        "lambda_needed": 0.1585785645315295
+      }
+    },
+    "5,5": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,15": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "9,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "9,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "9,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "9,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    }
+  },
+  "wall_time_s": 689.5,
+  "platform": "Modal",
+  "dict_name": "erdos-993-lambda-frontier-n23-n23",
+  "date": "2026-03-03"
+}
