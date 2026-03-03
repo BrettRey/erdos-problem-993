@@ -17,7 +17,7 @@ from typing import Any
 
 import modal
 
-app = modal.App("erdos-993-lc-nm-analysis")
+app = modal.App("erdos-993-lc-nm-analysis-n28")
 
 image = (
     modal.Image.debian_slim(python_version="3.12")

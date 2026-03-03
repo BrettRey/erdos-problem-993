@@ -523,3 +523,17 @@ def main(
     }, indent=2))
     print(f"Saved: {out_json}")
 
+
+@app.local_entrypoint()
+def dispatch(min_n: int = 3, max_n: int = 21, workers: int = 512):
+    """Fire-and-forget launch: spawn one alpha scan task per (n,res)."""
+    dict_name = _dict_name(min_n, max_n)
+    total = (max_n - min_n + 1) * workers
+    print(
+        f"Dispatching alpha tasks for n={min_n}..{max_n}, workers={workers}, "
+        f"total_tasks={total}, dict={dict_name}"
+    )
+    for n in range(min_n, max_n + 1):
+        for res in range(workers):
+            scan_partition.spawn(n, res, workers, dict_name)
+    print("Dispatch submitted.")

@@ -19,6 +19,23 @@ Launched from repo root with profile `brettrey`.
 - command: `modal run --detach scan_modal_alpha_bookkeeping.py --min-n 3 --max-n 21 --workers 512`
 - app id: `ap-2EaZ4rTTZlEpjJoOJyXa3j`
 
+## Additional launches (same session)
+
+4. alpha-bookkeeping diagnostics (`n=3..22`)
+- script: `scan_modal_alpha_bookkeeping.py`
+- command: `modal run scan_modal_alpha_bookkeeping.py::dispatch --min-n 3 --max-n 22 --workers 512`
+- app id: `ap-UTckD3DCnlRW8b4enlD9JP`
+
+5. n=29 exhaustive unimodality (dedicated app-name wrapper)
+- script: `search_modal_exhaustive_n29.py`
+- command: `modal run --detach search_modal_exhaustive_n29.py::main --n 29 --workers 1024`
+- app id: `ap-McOXFdv4JRAHV0awz0nR6I`
+
+6. n=28 LC + near-miss (dedicated app-name wrapper)
+- script: `analyze_modal_lc_nm_n28.py`
+- command: `modal run --detach analyze_modal_lc_nm_n28.py::main --n 28 --workers 1024 --top-k 200 --lc-top-k 200`
+- app id: `ap-HBh4OE85E9jViar6JA8Sye`
+
 ## Monitoring
 
 - list apps: `modal app list`
