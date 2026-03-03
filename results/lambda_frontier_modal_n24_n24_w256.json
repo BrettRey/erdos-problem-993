@@ -1,0 +1,737 @@
+{
+  "min_n": 24,
+  "max_n": 24,
+  "workers": 256,
+  "xneg_total": 128420144,
+  "xneg_step2_total": 124565142,
+  "lambda_max": 0.280781720999777,
+  "impossible_lambda": false,
+  "lambda_wit": {
+    "n": 24,
+    "g6": "W???????????????????????????????A???{??C^o?@?~w",
+    "root": 0,
+    "step": 2,
+    "k": 5,
+    "a": 4,
+    "b": 18,
+    "X": -8641771,
+    "R": 54028688,
+    "sum_all": 83104879,
+    "D": 67934611,
+    "need": 15170268,
+    "lambda_needed": 0.280781720999777
+  },
+  "by_n": {
+    "24": {
+      "xneg_total": 128420144,
+      "xneg_step2": 124565142,
+      "lambda_max": 0.280781720999777,
+      "impossible_lambda": false,
+      "lambda_wit": {
+        "n": 24,
+        "g6": "W???????????????????????????????A???{??C^o?@?~w",
+        "root": 0,
+        "step": 2,
+        "k": 5,
+        "a": 4,
+        "b": 18,
+        "X": -8641771,
+        "R": 54028688,
+        "sum_all": 83104879,
+        "D": 67934611,
+        "need": 15170268,
+        "lambda_needed": 0.280781720999777
+      }
+    }
+  },
+  "by_pair": {
+    "10,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "10,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "10,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "11,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,10": {
+      "count": 140689,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,15": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,16": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,17": {
+      "count": 635791,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,18": {
+      "count": 1771766,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,19": {
+      "count": 9932410,
+      "lambda_max": 0.27262000271462233,
+      "impossible": false,
+      "wit": {
+        "n": 24,
+        "g6": "W???????????????????????????????A???w???~o?a?~w",
+        "root": 21,
+        "step": 2,
+        "k": 5,
+        "a": 2,
+        "b": 19,
+        "X": -4362799,
+        "R": 53112361,
+        "sum_all": 78129659,
+        "D": 63650167,
+        "need": 14479492,
+        "lambda_needed": 0.27262000271462233
+      }
+    },
+    "2,2": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,20": {
+      "count": 58318365,
+      "lambda_max": 0.16664754529994527,
+      "impossible": false,
+      "wit": {
+        "n": 24,
+        "g6": "W???????????????????????????????A???o??D~_?C@~w",
+        "root": 0,
+        "step": 2,
+        "k": 5,
+        "a": 2,
+        "b": 20,
+        "X": -37759722,
+        "R": 83362242,
+        "sum_all": 119561627,
+        "D": 105669514,
+        "need": 13892113,
+        "lambda_needed": 0.16664754529994527
+      }
+    },
+    "2,3": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,4": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,5": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "2,9": {
+      "count": 9210,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,15": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,16": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,17": {
+      "count": 1271585,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,18": {
+      "count": 4033267,
+      "lambda_max": 0.08390208566892729,
+      "impossible": false,
+      "wit": {
+        "n": 24,
+        "g6": "W???????????????????????????????B???K??G^o@@?~w",
+        "root": 20,
+        "step": 2,
+        "k": 4,
+        "a": 3,
+        "b": 18,
+        "X": -89565,
+        "R": 4171851,
+        "sum_all": 7189200,
+        "D": 6839173,
+        "need": 350027,
+        "lambda_needed": 0.08390208566892729
+      }
+    },
+    "3,19": {
+      "count": 29460622,
+      "lambda_max": 0.25735888059528556,
+      "impossible": false,
+      "wit": {
+        "n": 24,
+        "g6": "W???????????????????????????????A???w??C~o?A?~w",
+        "root": 0,
+        "step": 2,
+        "k": 5,
+        "a": 3,
+        "b": 19,
+        "X": -20927810,
+        "R": 66195326,
+        "sum_all": 100857925,
+        "D": 83821970,
+        "need": 17035955,
+        "lambda_needed": 0.25735888059528556
+      }
+    },
+    "3,3": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,4": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,5": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "3,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,15": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,16": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,17": {
+      "count": 2543222,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,18": {
+      "count": 10723289,
+      "lambda_max": 0.280781720999777,
+      "impossible": false,
+      "wit": {
+        "n": 24,
+        "g6": "W???????????????????????????????A???{??C^o?@?~w",
+        "root": 0,
+        "step": 2,
+        "k": 5,
+        "a": 4,
+        "b": 18,
+        "X": -8641771,
+        "R": 54028688,
+        "sum_all": 83104879,
+        "D": 67934611,
+        "need": 15170268,
+        "lambda_needed": 0.280781720999777
+      }
+    },
+    "4,4": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,5": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "4,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,15": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,16": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,17": {
+      "count": 5724926,
+      "lambda_max": 0.23742178942695286,
+      "impossible": false,
+      "wit": {
+        "n": 24,
+        "g6": "W????????????????????????????C??@???{??C^o?@?~o",
+        "root": 0,
+        "step": 2,
+        "k": 6,
+        "a": 5,
+        "b": 17,
+        "X": -9801428,
+        "R": 312741763,
+        "sum_all": 366278257,
+        "D": 292026548,
+        "need": 74251709,
+        "lambda_needed": 0.23742178942695286
+      }
+    },
+    "5,5": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "5,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,15": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,16": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,6": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "6,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,15": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,7": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "7,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,14": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,8": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "8,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "9,10": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "9,11": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "9,12": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "9,13": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    },
+    "9,9": {
+      "count": 0,
+      "lambda_max": 0.0,
+      "impossible": false,
+      "wit": null
+    }
+  },
+  "wall_time_s": null,
+  "platform": "Modal",
+  "dict_name": "erdos-993-lambda-frontier-n24-n24",
+  "date": "2026-03-03"
+}

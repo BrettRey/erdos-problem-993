@@ -376,6 +376,31 @@ def launch_partitions(min_n: int, max_n: int, workers: int, dict_name: str) -> d
     }
 
 
+@app.function(image=image, timeout=900)
+def launch_missing_partitions(min_n: int, max_n: int, workers: int, dict_name: str) -> dict[str, Any]:
+    """Server-side launcher: spawn only missing scan shards from a dict."""
+    results_dict = modal.Dict.from_name(dict_name, create_if_missing=True)
+    missing: list[tuple[int, int]] = []
+    total = (max_n - min_n + 1) * workers
+    for n in range(min_n, max_n + 1):
+        for res in range(workers):
+            key = f"{n}/{res}/{workers}"
+            try:
+                _ = results_dict[key]
+            except KeyError:
+                missing.append((n, res))
+    for n, res in missing:
+        scan_partition.spawn(n, res, workers, dict_name)
+    return {
+        "min_n": min_n,
+        "max_n": max_n,
+        "workers": workers,
+        "total_tasks": total,
+        "missing_tasks": len(missing),
+        "dict_name": dict_name,
+    }
+
+
 @app.local_entrypoint()
 def main(
     min_n: int = 19,
@@ -541,3 +566,13 @@ def dispatch(min_n: int = 19, max_n: int = 22, workers: int = 512):
         f"workers={workers}, total_tasks={total}, dict={dict_name}"
     )
     print("Dispatch submitted.")
+
+
+@app.local_entrypoint()
+def dispatch_missing(min_n: int = 19, max_n: int = 22, workers: int = 512):
+    """Fire-and-forget launch: spawn only missing lambda scan shards."""
+    dict_name = _dict_name(min_n, max_n)
+    print(f"Dispatching missing lambda-frontier tasks via server launcher, dict={dict_name}")
+    info = launch_missing_partitions.remote(min_n, max_n, workers, dict_name)
+    print(json.dumps(info, indent=2))
+    print("Missing-shard dispatch submitted.")

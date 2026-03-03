@@ -210,3 +210,35 @@ Provisional extrema over currently materialized rows only:
   - witness class `(a,b)=(4,18)`, step 2, `k=5`
 
 These are incomplete-frontier diagnostics only and must not be used as final n=24 claims until `256/256` rows are present in both dicts.
+
+## n=24 completion (after missing-shard relaunch)
+
+Final dict coverage:
+
+- alpha dict `erdos-993-alpha-n24-n24`: `256/256`
+- lambda dict `erdos-993-lambda-frontier-n24-n24`: `256/256`
+
+Final frontiers from complete mod=256 rows:
+
+- `alpha_front(24) = 0.16161242603550297`
+  - witness class `(a,b)=(2,20)`, step 2, `k=10`
+- `lambda_front(24) = 0.280781720999777`
+  - witness class `(a,b)=(4,18)`, step 2, `k=5`
+- derived gap:
+  - `alpha_front(24) - lambda_front(24) = -0.11916929496427403`
+
+Drift vs n=23:
+
+- `delta_alpha = -0.02082010343448587`
+- `delta_lambda = +0.040383031870307355`
+- `delta_gap = -0.061203135304793214`
+
+Artifacts written:
+
+- `results/alpha_bookkeeping_modal_n24_n24_w256.json`
+- `results/lambda_frontier_modal_n24_n24_w256.json`
+- `results/modal_n24_frontier_snapshot_2026-03-03.json`
+
+Launcher note:
+
+- Added `launch_missing_partitions` + `dispatch_missing` to both scanner scripts to recover incomplete dicts by spawning only absent shard keys.
