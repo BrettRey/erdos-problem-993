@@ -42,6 +42,10 @@ Launched from repo root with profile `brettrey`.
 - app id: `ap-vR5lPbMsEPxaAYZdiQ76Bm`
 - dict: `erdos-993-alpha-n22-n22`
 - immediate snapshot after dispatch: `1 / 1024` partition rows present in dict (key `22/0/1024`)
+- first shard witness snapshot (`22/0/1024`):
+  - `min_alpha_all = 0.1875868239504603`
+  - witness `(a,b)=(2,18)`, `step=2`, `k=9`
+  - `min_alpha_odd = -2.3333333333333335`
 
 ## Monitoring
 
