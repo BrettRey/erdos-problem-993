@@ -258,3 +258,36 @@ Initial dict materialization snapshot right after launch:
 - `erdos-993-lambda-frontier-n25-n25`: `1/256`
 
 Use `dispatch_missing` repeatedly as needed to backfill any stalled residues until both dicts reach `256/256`.
+
+## n=25 recovery attempts and current status (later update)
+
+Recovery actions executed:
+
+- stopped original stalled launch apps:
+  - alpha: `ap-wJsDYjc7gGLb4nFtjnT7kf`
+  - lambda: `ap-S908csHXcJMrnlGjUNUI3L`
+- relaunched missing shards via:
+  - `modal run scan_modal_alpha_bookkeeping.py::dispatch_missing --min-n 25 --max-n 25 --workers 256`
+  - `modal run scan_modal_lambda_frontier.py::dispatch_missing --min-n 25 --max-n 25 --workers 256`
+- confirmed launcher responses:
+  - alpha `missing_tasks: 195`
+  - lambda `missing_tasks: 151`
+
+Exact dict key coverage after relaunch (counting `25/*/256` keys via `--json` + `jq`):
+
+- alpha dict `erdos-993-alpha-n25-n25`: `61/256`
+- lambda dict `erdos-993-lambda-frontier-n25-n25`: `105/256`
+
+Active apps during this phase:
+
+- alpha detached app: `ap-mCocLo8zaRzHh7kAaZji1x`
+- lambda detached apps: `ap-2nH0f9mViyRAvpY06ePK8e`, `ap-0LcXu4BgySqqfoaYqXuIKM`
+
+Observed issue remains worker-heartbeat instability on active jobs (sample log lines):
+
+- `Modal Client → Modal Worker Heartbeat attempt failed ... ConnectionError('Deadline exceeded')`
+
+Status at this checkpoint:
+
+- n=25 remains partial and non-authoritative.
+- keep treating n=24 as the latest locked complete frontier until n=25 reaches `256/256` on both dicts.
