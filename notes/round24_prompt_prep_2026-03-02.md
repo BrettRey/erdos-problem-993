@@ -53,3 +53,28 @@ Needed `c` by Extra family:
 - `Extra = C20+C02+C21+C12+C22`: `c = 0.0014486030980773658`
 
 Interpretation: the Round 23 defect-bound idea was very close; pure `delta*R_shift` misses by ~2.25% at one witness, and a very small second-shift correction closes it on this corpus.
+
+## Lambda-c tradeoff artifact
+
+Artifact:
+- `results/round24_lambda_c_tradeoff_n19.json`
+
+Model scanned on full X<0 corpus (`428,434` rows):
+
+`sum_err <= D + lambda*R_shift + c*Extra`.
+
+Two extras tested:
+- `axis = C20+C02`
+- `axis_plus = C20+C02+C21+C12`
+
+Selected points from the tradeoff curve:
+
+- For `axis`:
+  - `c=0` -> `lambda_needed=0.08144365672607116`
+  - `c=0.06853082706728619` -> `lambda_needed=0.062200116150653635`
+
+- For `axis_plus`:
+  - `c=0` -> `lambda_needed=0.08144365672607116`
+  - `c=0.06853082706728619` -> `lambda_needed=0.05201381704686925` (exactly back to `lambda0` on this corpus)
+
+This quantifies the reserve tradeoff explicitly and supports the split-reserve theorem variant.
