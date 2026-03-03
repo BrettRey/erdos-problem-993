@@ -1,0 +1,34 @@
+{
+  "c": 0.06853082706728619,
+  "count_all_prefix": 7622710,
+  "count_xneg": 428434,
+  "lambda0": 0.05201381704686925,
+  "max_n": 19,
+  "max_ratio_cExtra_over_1mL0_R_all": Infinity,
+  "max_ratio_cExtra_over_1mL0_R_xneg": 0.05959015655528745,
+  "threshold": 13.832989087120772,
+  "witness_all": {
+    "Extra": 16,
+    "R": 0,
+    "a": 2,
+    "b": 3,
+    "g6": "K??????_B?Z{",
+    "k": 4,
+    "n": 12,
+    "ratio": Infinity,
+    "root": 11,
+    "step": 2
+  },
+  "witness_xneg": {
+    "Extra": 18873699,
+    "R": 22896361,
+    "a": 3,
+    "b": 14,
+    "g6": "R?????????????????C??w??^?C@~G",
+    "k": 7,
+    "n": 19,
+    "ratio": 0.05959015655528745,
+    "root": 0,
+    "step": 2
+  }
+}
