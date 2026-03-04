@@ -67,7 +67,7 @@ Independently, I prove a chain of structural lemmas~-- a Hub Exclusion Lemma and
 This Conjecture~A is verified for 931\,596 such trees through $n = 23$.
 A proved singleton compensation lemma gives a direct path via a weighted Hall condition on the heavy vertices.
 On the computational side, I verify the original conjecture exhaustively for all 1\,198\,738\,056 trees on $n \le 27$ vertices, confirming the bound implicit in the log-concavity check of \textcite{kadrawi2023} and supplementing it with near-miss metrics through $n = 26$.
-For the regime-adaptive hard-step diagnostics used in the reduction framework, I also complete the $n=25$ Modal frontier scans (all $256+256$ residue shards for alpha and lambda dictionaries); the aggregated values and witness classes are reported in Appendix~\ref{app:certificates}.
+For the regime-adaptive hard-step diagnostics used in the reduction framework, I also complete the $n=25$ frontier scans; aggregated values and witness classes are reported in Appendix~\ref{app:certificates}.
 An evolutionary search identifies multi-arm stars as the family closest to the unimodality boundary, surpassing brooms.
 The near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \in [4, 8)$, so the margin shrinks but doesn't vanish.
 \end{abstract}
@@ -776,7 +776,7 @@ For each generated tree, the pipeline computes the full coefficient vector $(i_0
   \end{tabular}
 \end{table}
 
-The case $n = 26$ is the first at which log-concavity fails: \textcite{kadrawi2023} found exactly two failures through exhaustive enumeration, implicitly confirming unimodality at every~$n$ up to~26.
+The case $n = 26$ is the first at which log-concavity fails: \textcite{kadrawi2023} found exactly two failures through exhaustive enumeration.
 My independent re-analysis reproduces these two failures (both at $k = 13$, worst ratio $i_{12}\, i_{14} / i_{13}^2 = 1.145$) and adds the near-miss metric: $\nm = 0.845$~-- far below the violation threshold.
 Even where log-concavity breaks, unimodality holds with a comfortable margin.
 Extending to $n = 27$ (751~million trees, run on Modal cloud compute with 1024 parallel workers) finds no unimodality violations, bringing the total to nearly 1.2~billion trees checked.
@@ -826,7 +826,7 @@ The champion at $n \ge 200$ is $M(s;\, 5, 5, 4, 2)$, achieving $\nm = 0.9918$ at
 \end{table}
 
 The asymptotic mechanism behind these near-misses applies to any fixed core with pendant leaves.
-This complements earlier eventual-unimodality results for fixed cores with sufficiently many pendant attachments at one vertex \citep{galvinhilyard2018}, by adding an explicit asymptotic near-miss rate.
+Earlier work proves eventual unimodality under sufficiently many pendant attachments at a vertex \citep{galvinhilyard2018}; the theorem below strengthens this by quantifying the approach to the boundary via $\nm(s)=1-C/s+O(1/s^2)$ with explicit first-order constant~$C$.
 
 \begin{theorem}[Leaf-attachment asymptotics]\label{thm:leaf-attach}
 Let $H$ be a fixed tree with distinguished vertex~$v$, and let $H_s$ be obtained by attaching $s$~new leaves to~$v$.
