@@ -59,7 +59,7 @@
 
 \begin{abstract}
 \textcite{alavi1987} conjectured that the independence polynomial of every tree is unimodal.
-I prove that for any tree~$T$ and edge~$e$, the subdivided tree~$T_e$ and the contracted tree~$T/e$ satisfy $I(T_e;\, x) = I(T;\, x) + x \cdot I(T/e;\, x)$.
+I use the subdivision-contraction recurrence $I(T_e;\, x) = I(T;\, x) + x \cdot I(T/e;\, x)$ (known in the general graph setting) and give a tree-DP derivation tailored to mode analysis.
 This identity reduces subdivision to a conjectured mode stability property: that edge contraction shifts the mode by at most~1.
 I verify this Edge Contraction Mode Stability conjecture for all 24.7~million edges in trees on at most 20~vertices, finding zero violations.
 Together with a verified tail condition, ECMS implies that subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible.
@@ -92,12 +92,12 @@ On the algebraic side, \textcite{bendjeddou2024} proved that a subclass of trees
 
 On the positive side, unimodality has been proved for paths and centipedes \citep{alavi1987}, regular caterpillars, and Fibonacci trees.
 \textcite{levit2006} showed that $i_k(T)$ is strictly decreasing for $k \ge \lceil (2\alpha - 1)/3 \rceil$, so any violation has to occur in roughly the first two-thirds of the sequence.
-\textcite{heilman2025} proved that for a uniformly random labelled tree, roughly 85\% of the sequence behaves as expected almost surely.
-\textcite{li2025spiders} proved that all spiders are strongly log-concave, implying unimodality for brooms as a special case.
+\textcite{basitgalvin2020} proved that for a uniformly random labelled tree, asymptotically almost surely the initial $\approx 49.5\%$ of the sequence is increasing and the terminal $\approx 38.8\%$ is decreasing; \textcite{heilman2025} proved a complementary $46.8\%$ increasing-prefix result and formulated the \enquote{four-fifths true} perspective.
+\textcite{li2025spiders} proved that all spiders have log-concave independence polynomials, implying unimodality for brooms as a special case.
 
 My contributions:
 \begin{enumerate}
-  \item A subdivision-contraction identity: $I(T_e) = I(T) + x \cdot I(T/e)$ for any tree edge~$e$ (Section~\ref{sec:identity}).
+  \item A tree-specialized derivation and mode-analysis use of the subdivision-contraction recurrence $I(T_e) = I(T) + x \cdot I(T/e)$ (Section~\ref{sec:identity}).
   \item A conjectured Edge Contraction Mode Stability (ECMS) property, verified for 24.7~million edges (Section~\ref{sec:identity}).
   \item A conditional subdivision lemma: ECMS and a verified tail condition together imply subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible (Section~\ref{sec:identity}).
   \item A reduction framework~-- via Hub Exclusion and Transfer Lemmas~-- reducing the mode bound for all trees to a single conjecture about $\dleaf \le 1$ trees (Section~\ref{sec:reduction}).
@@ -124,6 +124,9 @@ My contributions:
     \bottomrule
   \end{tabular}
 \end{table}
+
+The central proved theorem in this manuscript is the mean bound $\mu(T) < n/3$ for $\dleaf \le 1$ trees (Corollary~\ref{cor:mu-bound}).
+The subdivision thread gives a separate conditional route (ECMS + combined tail) to structural constraints on minimal counterexamples.
 
 
 \section{Definitions and method}\label{sec:method}
@@ -164,6 +167,7 @@ Log-concavity is checked in exact integer arithmetic, avoiding floating-point er
 
 For an edge $e = uv$ in tree~$T$, removing~$e$ splits $T$ into two subtrees: $T_u$ containing~$u$ and $T_v$ containing~$v$.
 Root $T_u$ at~$u$ and $T_v$ at~$v$, and write $I_u = P_u + R_u$ and $I_v = P_v + R_v$ as above.
+For general graphs this recurrence appears in the edge-subdivision literature (e.g., Theorem~20 of \textcite{trinks2014}); I include the tree decomposition here because it is the algebraic starting point for the mode and mean analyses that follow.
 
 \begin{theorem}[Subdivision-contraction identity]\label{thm:identity}
   For any tree~$T$ and edge $e = uv$,
@@ -213,7 +217,7 @@ I verified \eqref{eq:subdiv}--\eqref{eq:contract} computationally for all 66\,69
 
 \begin{remark}
   The identity can also be derived from the standard vertex-deletion formula $I(G) = I(G - v) + x \cdot I(G - N[v])$ applied to the subdivision vertex~$w$: deleting~$w$ gives the graph $T_u \sqcup T_v$ (with IS polynomial $I_u I_v$), and deleting $N[w] = \{w, u, v\}$ gives $(T_u - u) \sqcup (T_v - v)$ (contributing $R_u R_v$).
-  I haven't found this particular corollary~-- connecting subdivision, original, and contraction~-- stated in the literature, including the work of \textcite{levit2006} and the edge elimination polynomial framework.
+  The same recurrence is known in broader graph settings; see \textcite[Theorem~20]{trinks2014}.
 \end{remark}
 
 The identity naturally leads to the following question: if $I(T)$ and $I(T/e)$ are both unimodal, when is their combination $I(T) + x \cdot I(T/e)$ unimodal?
@@ -294,6 +298,19 @@ Using $\sum_w q_w/(1+q_w) \le -\log A$ (from $\log(1+x) \ge x/(1+x)$ and $A = \p
 I verified the combined tail condition for 9\,071\,864 edges in trees on $n \le 19$, finding zero violations.
 The gap case arises in 8\,405 of these edges (0.09\%); in every instance the sign pattern at the two ambiguous positions is $({+},\, {-})$, confirming that the sum peaks and then descends.
 
+\begin{lemma}[Adjacent-mode sum lemma]\label{lem:adjacent-mode-sum}
+  Let $(a_k)$ and $(b_k)$ be finite unimodal sequences of nonnegative reals with modes $p$ and $q$.
+  If $|p-q| \le 1$, then $(a_k+b_k)$ is unimodal.
+\end{lemma}
+
+\begin{proof}
+  Let $m_-=\min(p,q)$ and $m_+=\max(p,q)$.
+  For $k<m_-$, both sequences are non-decreasing, so $a_k+b_k$ is non-decreasing.
+  For $k\ge m_+$, both are non-increasing, so $a_k+b_k$ is non-increasing.
+  If $p=q$, this already gives unimodality with peak at~$p$.
+  If $|p-q|=1$, there is only one transition index between $m_-$ and $m_+$, so no strict valley can occur.
+\end{proof}
+
 \begin{theorem}[Conditional subdivision lemma]\label{thm:conditional}
   Assume ECMS (Conjecture~\ref{conj:ecms}) and the combined tail condition (Definition~\ref{def:combined_tail}).
   If $I(T)$ and $I(T/e)$ are both unimodal, then $I(T_e)$ is unimodal.
@@ -308,7 +325,7 @@ The polynomial $A(x)$ has mode $M' + 1$.
 Both $I(T)$ and $A(x)$ are unimodal with nonnegative coefficients.
 By ECMS, $M' \in \{M{-}1, M, M{+}1\}$, so $A(x)$ has mode in $\{M, M{+}1, M{+}2\}$.
 
-If the modes of $I(T)$ and $A(x)$ differ by at most~1, then their sum is unimodal: both summands are nondecreasing up to the earlier mode and nonincreasing from the later mode, leaving at most one position of ambiguity~-- insufficient for a valley.
+If the modes of $I(T)$ and $A(x)$ differ by at most~1, then their sum is unimodal by Lemma~\ref{lem:adjacent-mode-sum}.
 
 In the gap case ($M' = M + 1$, mode of~$A(x)$ at $M + 2$), there are two positions~-- $k = M$ and $k = M{+}1$~-- where $I(T)$ is descending and $A(x)$ is ascending.
 The combined tail condition ensures the sum is non-increasing from $M + 1$, preventing any valley.
@@ -808,6 +825,7 @@ The champion at $n \ge 200$ is $M(s;\, 5, 5, 4, 2)$, achieving $\nm = 0.9918$ at
 \end{table}
 
 The asymptotic mechanism behind these near-misses applies to any fixed core with pendant leaves.
+This complements earlier eventual-unimodality results for fixed cores with sufficiently many pendant attachments at one vertex \citep{galvinhilyard2018}, by adding an explicit asymptotic near-miss rate.
 
 \begin{theorem}[Leaf-attachment asymptotics]\label{thm:leaf-attach}
 Let $H$ be a fixed tree with distinguished vertex~$v$, and let $H_s$ be obtained by attaching $s$~new leaves to~$v$.
@@ -833,7 +851,9 @@ The first descent occurs at $y_0 \approx \mu_A - 1/2$.
 The near-miss ratio is maximized at the first integer past the descent, giving $C = (4m + 2) - 4\mu_A$ with $m - (\mu_A + 1/2) \in [0, 1)$, so $C \in [4, 8)$.
 \end{proof}
 
-Table~\ref{tab:Cpred} compares the predicted~$C(p)$ against the empirical value at $s = 5{,}000$ for brooms $\broom(p, s)$, using $\mu_A = G_{p-1}/F_{p-1}$ where $F_n, G_n$ satisfy the Fibonacci-type recurrences $F_n = F_{n-1} + F_{n-2}$ and $G_n = G_{n-1} + G_{n-2} + F_{n-2}$.
+Table~\ref{tab:Cpred} compares the predicted~$C(p)$ against the empirical value at $s = 5{,}000$ for brooms $\broom(p, s)$, using $\mu_A = G_{p-1}/F_{p-1}$ where $F_n, G_n$ satisfy the Fibonacci-type recurrences
+$F_n = F_{n-1} + F_{n-2}$ with $F_0=1, F_1=1$, and
+$G_n = G_{n-1} + G_{n-2} + F_{n-2}$ with $G_0=0, G_1=0$.
 Agreement is within 0.5\% in all cases.
 
 \begin{table}[ht]
@@ -897,10 +917,7 @@ The conjecture remains unproved, but the computational evidence increasingly con
 Any counterexample must be homeomorphically irreducible (if ECMS and the combined tail condition hold), must have high leaf-degree vertices (by the PNP reduction), and cannot arise from pendant-leaf attachment to a fixed core (by the asymptotic theorem).
 The margin of unimodality can be made arbitrarily small~-- multi-arm stars approach the boundary at rate $1/s$~-- but the boundary itself appears inviolable.
 
-Finally, the regime-adaptive hard-step frontier diagnostics now have a complete authoritative snapshot at $n=25$ (Modal dictionaries fully materialized at $256/256$ shards each).
-The alpha frontier occurs at class $(2,21)$ with value $0.15739052900321043$, while the lambda frontier occurs at class $(5,18)$ with value $0.34114585595914226$, giving a gap of $-0.18375532695593183$.
-Compared with the locked $n=24$ baseline ($\alpha_{\mathrm{front}}(24)=0.16161242603550297$, $\lambda_{\mathrm{front}}(24)=0.280781720999777$), this is a wider obstruction and a shifted lambda witness line.
-This does not alter any proved theorem above, but it materially updates the empirical stress profile that future closure attempts must absorb.
+For empirical stress diagnostics (including the complete $n=25$ frontier snapshot and witness classes), see Appendix~\ref{app:certificates}.
 
 All code, data, and reproduction scripts are available at
 \href{https://github.com/BrettRey/erdos-problem-993}{github.com/BrettRey/\allowbreak erdos-problem-993}.
