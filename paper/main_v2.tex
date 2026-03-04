@@ -67,10 +67,7 @@ Independently, I prove a chain of structural lemmas~-- a Hub Exclusion Lemma and
 This Conjecture~A is verified for 931\,596 such trees through $n = 23$.
 A proved singleton compensation lemma gives a direct path via a weighted Hall condition on the heavy vertices.
 On the computational side, I verify the original conjecture exhaustively for all 1\,198\,738\,056 trees on $n \le 27$ vertices, confirming the bound implicit in the log-concavity check of \textcite{kadrawi2023} and supplementing it with near-miss metrics through $n = 26$.
-For the regime-adaptive hard-step diagnostics used in the reduction framework, I also complete the $n=25$ Modal frontier scans (all $256+256$ residue shards for the alpha and lambda dictionaries), obtaining
-$\alpha_{\mathrm{front}}(25)=0.15739052900321043$ at class $(2,21)$ and
-$\lambda_{\mathrm{front}}(25)=0.34114585595914226$ at class $(5,18)$, with gap
-$\alpha_{\mathrm{front}}-\lambda_{\mathrm{front}}=-0.18375532695593183$.
+For the regime-adaptive hard-step diagnostics used in the reduction framework, I also complete the $n=25$ Modal frontier scans (all $256+256$ residue shards for alpha and lambda dictionaries); the aggregated values and witness classes are reported in Appendix~\ref{app:certificates}.
 An evolutionary search identifies multi-arm stars as the family closest to the unimodality boundary, surpassing brooms.
 The near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \in [4, 8)$, so the margin shrinks but doesn't vanish.
 \end{abstract}
@@ -127,6 +124,7 @@ My contributions:
 
 The central proved theorem in this manuscript is the mean bound $\mu(T) < n/3$ for $\dleaf \le 1$ trees (Corollary~\ref{cor:mu-bound}).
 The subdivision thread gives a separate conditional route (ECMS + combined tail) to structural constraints on minimal counterexamples.
+Accordingly, the main text is organised around this theorem-first backbone: Section~\ref{sec:reduction} carries the primary proved result, while the subdivision route and computational frontier evidence are presented as supporting structural and falsification layers.
 
 
 \section{Definitions and method}\label{sec:method}
@@ -267,12 +265,9 @@ An immediate consequence is that $\mathrm{mode}(I(T_e)) - \mathrm{mode}(I(T)) \i
     \;+\; \sum_{w \ne u,v} \bigl[P_T(w) - P_{T/e}(w)\bigr].
   \]
   The local term is in $(0, 1/2)$ since $A, B \in (0, 1]$ on any tree.
-  I verified $|\mu(T) - \mu(T/e)| < 0.537$ for all 3\,348\,674 edges in trees on $3 \le n \le 18$ (exhaustive maximum $\approx 0.533$); in parameterised family scans, the largest observed value is $|\delta\mu| \approx 0.537$ at the tripod star $T(5,5,5)$ (centre-to-bridge edge).
-  For all parametric families tested (stars, double stars, extended stars, tripods), the maximum converges to~$1/2$ from above as the parameters grow.
-  A strictly log-concave sequence of positive reals ($a_k^2 > a_{k-1} a_{k+1}$ at every interior index) has a unique mode, but mode $\in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ does not follow from strict log-concavity alone (counterexample: $1, 2, 3, 4$).
-  By \textcite{darroch1964}, this mode-localisation does hold for Poisson-Binomial distributions (coefficients of products $\prod(1 + p_i x)$); I verified it for all tree IS polynomials through $n = 22$ (zero violations among 9\,114\,283 trees).
-  In 864\,230 edges where $\mu(T)$ and $\mu(T/e)$ straddle an integer, I found zero instances where the modes round in opposite directions.
-  Proving $|\mu(T) - \mu(T/e)| < 1$ would therefore establish ECMS for any tree whose IS polynomial satisfies the mode-localisation property.
+  Exhaustive checks over 3\,348\,674 edges ($n \le 18$) give $|\mu(T)-\mu(T/e)| < 0.537$ (worst exhaustive value $\approx 0.533$), and an illustrative near-extremal family witness is the tripod star $T(5,5,5)$ (centre-to-bridge edge, $|\delta\mu| \approx 0.537$).
+  By \textcite{darroch1964}, mode localisation $\mathrm{mode}\in\{\lfloor\mu\rfloor,\lceil\mu\rceil\}$ holds for Poisson-binomial sequences; I verify the same localisation for all tree IS polynomials through $n=22$.
+  Therefore, a proof of $|\mu(T)-\mu(T/e)|<1$ together with this localisation would imply ECMS.
 \end{remark}
 
 \begin{proposition}[Distance-1 perturbation formula]\label{prop:s1-formula}
@@ -694,6 +689,11 @@ Since the identity decomposes $n/3 - \mu$ as a sum of non-negative terms over al
 where $N_C(S) = N(S) \cap (C \setminus S)$.
 Vertices in $C \setminus (H_{\mathrm{core}} \cup N_C(H_{\mathrm{core}}))$ have $P \le 1/3$ and contribute non-negatively to the identity, so $n/3 - \mu(T) \ge F_{\mathrm{gap}}(H_{\mathrm{core}})$.
 
+\paragraph{Steiner-peeling intuition.}
+Think of each heavy vertex $h$ as carrying a deficit demand $P(h)-1/3$ and each neighbouring core vertex as carrying a non-negative supply term from the decimation identity (full weight in $C\setminus A$, half weight in~$A$).
+The Steiner tree on $S \subseteq H_{\mathrm{core}}$ isolates a leaf-heavy vertex whose demand can be paid by private neighbours using only local edge inequalities.
+Peeling that Steiner leaf removes one heavy vertex while preserving positivity of the remaining budget, so induction closes once every heavy vertex has been peeled.
+
 \begin{theorem}[Gap-formula compensation by Steiner peeling]\label{thm:steiner-peeling}
 For any $\dleaf \le 1$ tree~$T$ and every non-empty $S \subseteq H_{\mathrm{core}}$, $F_{\mathrm{gap}}(S) > 0$.
 \end{theorem}
@@ -747,6 +747,7 @@ If $H_{\mathrm{core}} \ne \emptyset$, Theorem~\ref{thm:steiner-peeling} gives $F
 Table~\ref{tab:exhaustive} shows the verification results.
 Every tree count matches OEIS A000055 \citep{oeis-a000055}; counts are checked automatically during the search.
 No unimodality violation was found at any~$n$.
+For each generated tree, the pipeline computes the full coefficient vector $(i_0,\dots,i_{\alpha})$ in exact integer arithmetic and evaluates unimodality, log-concavity, and near-miss statistics from that full vector (not from truncated ratios).
 
 \begin{table}[ht]
   \centering
@@ -905,8 +906,8 @@ For all parameterised families tested (paths, stars, caterpillars, tripods, broo
 Second, prove Conjecture~A.
 The proved mean bound $\mu < n/3$ reduces this to the mode-mean inequality $\mathrm{mode} \le \lceil\mu\rceil$; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the mean bound is tight.
 The compensation condition~\eqref{eq:whnc} provides a more direct path: Propositions~\ref{prop:singleton} and~\ref{prop:mixed-single} together cover all $S \subseteq H$ with at most one non-leaf heavy vertex, and in all 931\,596 trees tested through $n = 23$, the tightest subset is always a singleton.
-An alternative algebraic approach decomposes the IS polynomial at any degree-2 vertex in a $\dleaf \le 1$ tree, expressing $I(T)$ as a linear combination of subtree polynomials whose log-concavity is inherited from the product structure; the mode bound then reduces to local coefficient inequalities on these factors, which hold computationally for all 931\,596 trees through $n = 23$ but remain open.
-A third approach exploits the product structure of the DP more directly. At a support vertex~$r$, the exclude-root polynomial $E = \prod (E_c + x J_c)$ is built by iterated convolution with factors from child subtrees, while $J = \prod E_c$. Individual factors can fail ratio dominance ($E_c + x J_c \not\succeq E_c$ for roughly $30\%$ of subtrees at $n = 28$), yet the accumulated product satisfies $E \succeq J$ at every support vertex of every tree through $n = 22$ (907\,million checks, 0~failures), though the full ratio dominance fails in the tail ($k > \mathrm{mode}$) at $n = 32$. At each incremental step, the ratio-dominance minor $d_k(E_{\mathrm{new}}, J_{\mathrm{new}})$ splits into a \emph{Karlin term} $d_k(E_{\mathrm{acc}} \cdot g,\, J_{\mathrm{acc}} \cdot g)$, which is non-negative by the TP2 convolution theorem (since $E_{\mathrm{acc}} \succeq J_{\mathrm{acc}}$ inductively and $g = E_t$ is log-concave), and a correction term involving $h = xJ_t$. Empirically the Karlin term dominates the correction at every support vertex through $n = 20$; the case $s = 1$ (one non-leaf child, handling $63\%$ of support vertices) is proved. The discovery that aggregate ratio dominance persists despite factor-level failures was guided by an analogy with homeostatic property cluster theory \citep{boyd1999}: the DP product mechanism maintains an invariant that no individual component satisfies.
+Two additional exploratory routes are being tracked but are not used in the theorem dependencies above: a degree-2 decomposition route and a DP ratio-dominance route.
+Both have strong computational support (through $n=23$ and $n=22$ respectively) but remain conjectural and are retained as auxiliary programmes rather than part of the primary proof backbone.
 On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
 
 \subsection{Empirical frontier and artifact pipeline}
