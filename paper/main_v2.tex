@@ -9,8 +9,7 @@
 % ============================
 \usepackage{amsthm}
 
-% Load local bibliography
-\addbibresource{references-local.bib}
+% Local bibliography and references merged into references.bib for submission
 
 % APA style suppresses eprint fields; append arXiv links at end of each entry
 \DeclareFieldFormat{eprint:arXiv}{%
@@ -59,17 +58,11 @@
 
 \begin{abstract}
 \textcite{alavi1987} conjectured that the independence polynomial of every tree is unimodal.
-I use the subdivision-contraction recurrence $I(T_e;\, x) = I(T;\, x) + x \cdot I(T/e;\, x)$ (known in the general graph setting) and give a tree-DP derivation tailored to mode analysis.
-This identity reduces subdivision to a conjectured mode stability property: that edge contraction shifts the mode by at most~1.
-I verify this Edge Contraction Mode Stability conjecture for all 24.7~million edges in trees on at most 20~vertices, finding zero violations.
-Together with a verified tail condition, ECMS implies that subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible.
-Independently, I prove a chain of structural lemmas~-- a Hub Exclusion Lemma and a Transfer Lemma~-- showing that the mode bound for all trees reduces to a single conjecture about trees in which every vertex has at most one leaf-child.
-This Conjecture~A is verified for 931\,596 such trees through $n = 23$.
-A proved singleton compensation lemma gives a direct path via a weighted Hall condition on the heavy vertices.
-On the computational side, I verify the original conjecture exhaustively for all 1\,198\,738\,056 trees on $n \le 27$ vertices, confirming the bound implicit in the log-concavity check of \textcite{kadrawi2023} and supplementing it with near-miss metrics through $n = 26$.
-For the regime-adaptive hard-step diagnostics used in the reduction framework, I also complete the $n=25$ frontier scans; aggregated values and witness classes are reported in Appendix~\ref{app:certificates}.
-An evolutionary search identifies multi-arm stars as the family closest to the unimodality boundary, surpassing brooms.
-The near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \in [4, 8)$, so the margin shrinks but doesn't vanish.
+I prove that the mean independent-set size satisfies $\mu(T) < n/3$ for every tree in which each vertex has at most one leaf-child ($\dleaf \le 1$), via a decimation identity and Steiner peeling on a heavy-vertex compensation function.
+A chain of structural lemmas~-- Hub Exclusion and Transfer~-- reduces the mode bound for all trees to a single conjecture (Conjecture~A) about these $\dleaf \le 1$ trees; the mean bound settles Conjecture~A conditionally, subject to a conjectured mode-mean inequality $\mathrm{mode} \le \lceil\mu\rceil$ that is verified for all 23~million trees through $n = 23$.
+Independently, I re-derive the subdivision-contraction identity $I(T_e) = I(T) + x \cdot I(T/e)$ in tree DP form and show that a conjectured Edge Contraction Mode Stability property (verified for 24.7~million edges) implies any minimal counterexample is homeomorphically irreducible.
+On the computational side, I verify the conjecture exhaustively for all 1\,198\,738\,056 trees on $n \le 27$ vertices, with near-miss metrics through $n = 26$.
+An evolutionary search identifies multi-arm stars as the extremal family; the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \in [4, 8)$.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -94,13 +87,12 @@ On the positive side, unimodality has been proved for paths and centipedes \cite
 
 My contributions:
 \begin{enumerate}
+  \item A reduction framework~-- via Hub Exclusion and Transfer Lemmas~-- reducing the mode bound for all trees to a single conjecture about $\dleaf \le 1$ trees (Section~\ref{sec:reduction}).
+  \item A proof that $\mu(T) < n/3$ for every $\dleaf \le 1$ tree~$T$, via a decimation identity and Steiner peeling on the heavy-vertex compensation function (Section~\ref{sec:reduction}).
   \item A tree-specialized derivation and mode-analysis use of the subdivision-contraction recurrence $I(T_e) = I(T) + x \cdot I(T/e)$ (Section~\ref{sec:identity}).
   \item A conjectured Edge Contraction Mode Stability (ECMS) property, verified for 24.7~million edges (Section~\ref{sec:identity}).
   \item A conditional subdivision lemma: ECMS and a verified tail condition together imply subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible (Section~\ref{sec:identity}).
-  \item A reduction framework~-- via Hub Exclusion and Transfer Lemmas~-- reducing the mode bound for all trees to a single conjecture about $\dleaf \le 1$ trees (Section~\ref{sec:reduction}).
-  \item A proof that $\mu(T) < n/3$ for every $\dleaf \le 1$ tree~$T$, via a decimation identity and Steiner peeling on the heavy-vertex compensation function (Section~\ref{sec:reduction}).
   \item Exhaustive verification for all trees on $n \le 27$ vertices, with near-miss metrics through $n = 26$ (Section~\ref{sec:exhaustive}).
-  \item Authoritative completion of the $n=25$ regime-adaptive frontier diagnostics used by the hard-step reduction, including explicit witness classes and gap values (Section~\ref{sec:discussion}).
   \item Identification of multi-arm stars as the extremal family and an asymptotic analysis of the near-miss ratio (Section~\ref{sec:extremal}).
 \end{enumerate}
 
@@ -112,12 +104,12 @@ My contributions:
     \toprule
     Claim & Status & Depends on & Evidence path \\
     \midrule
+    Reduction to $\dleaf \le 1$ regime (Hub Exclusion + Transfer) & Proved & PNP framework lemmas & \S\ref{sec:reduction} \\
+    Mean bound $\mu < n/3$ (Cor.~\ref{cor:mu-bound}) & Proved & Decimation + Steiner peeling & \S\ref{sec:reduction} \\
+    Conjecture~A closure via mean bound & Conditional & Conj.~\ref{conj:mode-mean} (mode-mean) & \S\ref{sec:reduction} + App.~\ref{app:certificates} \\
     Subdivision-contraction identity (Thm.~\ref{thm:identity}) & Proved & DP decomposition & \S\ref{sec:identity} + edge checks ($n \le 14$) \\
     Conditional subdivision closure (Thm.~\ref{thm:conditional}) & Conditional & ECMS + combined tail & \S\ref{sec:identity}; ECMS/tail certificates in App.~\ref{app:certificates} \\
-    Reduction to $\dleaf \le 1$ regime (Hub Exclusion + Transfer) & Proved & PNP framework lemmas & \S\ref{sec:reduction} \\
-    Conjecture~A closure via mean bound & Conditional & mode-mean bridge $\mathrm{mode}\le\lceil\mu\rceil$ & \S\ref{sec:reduction} + App.~\ref{app:certificates} \\
     Exhaustive no-counterexample claim ($n \le 27$) & Empirical & Tree enumeration + exact IS checks & \S\ref{sec:exhaustive}, App.~\ref{app:repro} \\
-    Regime-adaptive hard-step frontier snapshot ($n=25$) & Empirical & complete Modal shard dictionaries & \S\ref{sec:discussion}, App.~\ref{app:certificates} \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -159,189 +151,6 @@ A tree is \emph{homeomorphically irreducible} if it has no degree-2 vertex; equi
 Non-isomorphic trees on~$n$ vertices are enumerated with \texttt{nauty/geng} \citep{mckay2014}, parallelized across eight workers.
 Polynomial arithmetic uses \texttt{numpy.convolve} when coefficients fit in 64-bit integers, with automatic fallback to pure Python big-integer arithmetic for larger values.
 Log-concavity is checked in exact integer arithmetic, avoiding floating-point error.
-
-
-\section{The subdivision-contraction identity}\label{sec:identity}
-
-For an edge $e = uv$ in tree~$T$, removing~$e$ splits $T$ into two subtrees: $T_u$ containing~$u$ and $T_v$ containing~$v$.
-Root $T_u$ at~$u$ and $T_v$ at~$v$, and write $I_u = P_u + R_u$ and $I_v = P_v + R_v$ as above.
-For general graphs this recurrence appears in the edge-subdivision literature (e.g., Theorem~20 of \textcite{trinks2014}); I include the tree decomposition here because it is the algebraic starting point for the mode and mean analyses that follow.
-
-\begin{theorem}[Subdivision-contraction identity]\label{thm:identity}
-  For any tree~$T$ and edge $e = uv$,
-  \[
-    I(T_e;\, x) \;=\; I(T;\, x) \;+\; x \cdot I(T/e;\, x).
-  \]
-\end{theorem}
-
-\begin{proof}
-I establish three expressions in terms of $P_u, R_u, P_v, R_v$.
-
-\emph{Subdivision.}
-Let $w$ be the new vertex in~$T_e$.
-If $w \notin S$, deleting~$w$ leaves $T_u$ and $T_v$ as disconnected components with no edge between $u$ and~$v$, so any IS of~$T_u$ combines freely with any IS of~$T_v$; the contribution is $I_u I_v$.
-If $w \in S$, then $u$ and $v$ are both excluded; the contribution is $x\, R_u R_v$.
-So
-\begin{equation}\label{eq:subdiv}
-  I(T_e) = I_u I_v + x\, R_u R_v.
-\end{equation}
-
-\emph{Original tree.}
-Any IS of~$T$ restricts to an IS of~$T_u$ and an IS of~$T_v$, with the constraint that $u$ and $v$ can't both be included (since they're adjacent in~$T$).
-Summing all pairs and subtracting the forbidden case:
-\begin{equation}\label{eq:original}
-  I(T) = I_u I_v - P_u P_v.
-\end{equation}
-
-\emph{Contraction.}
-Let $w'$ be the merged vertex in~$T/e$.
-If $w' \notin S$, the subtrees rooted at children of~$u$ (in~$T_u$) and children of~$v$ (in~$T_v$) are independent, contributing $R_u R_v$.
-If $w' \in S$, all neighbors of~$w'$ are excluded; the contribution is $x \cdot (P_u/x)(P_v/x) = P_u P_v / x$.
-This quotient is a polynomial because $P_u$ and $P_v$ are each divisible by~$x$ (any IS including a vertex has size~$\ge 1$).
-So
-\begin{equation}\label{eq:contract}
-  I(T/e) = R_u R_v + P_u P_v / x.
-\end{equation}
-
-Combining \eqref{eq:subdiv}--\eqref{eq:contract}:
-\[
-  I(T_e) - I(T) = P_u P_v + x\, R_u R_v = x \cdot I(T/e). \qedhere
-\]
-\end{proof}
-
-The identity says that the \enquote{extra} independent sets created by subdivision are exactly a shifted copy of the contraction's IS polynomial.
-I verified \eqref{eq:subdiv}--\eqref{eq:contract} computationally for all 66\,697 edges in trees on $3 \le n \le 14$, with zero mismatches.
-(Throughout, edge counts exclude the trivial single-edge tree $K_2$.)
-
-\begin{remark}
-  The identity can also be derived from the standard vertex-deletion formula $I(G) = I(G - v) + x \cdot I(G - N[v])$ applied to the subdivision vertex~$w$: deleting~$w$ gives the graph $T_u \sqcup T_v$ (with IS polynomial $I_u I_v$), and deleting $N[w] = \{w, u, v\}$ gives $(T_u - u) \sqcup (T_v - v)$ (contributing $R_u R_v$).
-  The same recurrence is known in broader graph settings; see \textcite[Theorem~20]{trinks2014}.
-\end{remark}
-
-The identity naturally leads to the following question: if $I(T)$ and $I(T/e)$ are both unimodal, when is their combination $I(T) + x \cdot I(T/e)$ unimodal?
-Since $x \cdot I(T/e)$ has mode $\mathrm{mode}(I(T/e)) + 1$, the answer depends on how far apart the modes of the two summands are.
-
-\begin{conjecture}[Edge Contraction Mode Stability]\label{conj:ecms}
-  For any tree~$T$ and edge~$e$,
-  \[
-    \bigl|\mathrm{mode}(I(T)) - \mathrm{mode}(I(T/e))\bigr| \;\le\; 1.
-  \]
-\end{conjecture}
-
-I verified ECMS for all 24\,710\,099 edges in non-isomorphic trees on $n \le 20$.
-Zero violations were found.
-The distribution of $\mathrm{mode}(I(T/e)) - \mathrm{mode}(I(T))$ is $-1$ in 26.6\%, $0$ in 73.3\%, and $+1$ in 0.09\% of cases.
-
-The identity already constrains the mode of $I(T_e)$ without any conjecture:
-
-\begin{proposition}[Mode sandwich]\label{prop:sandwich}
-  If $I(T)$ and $I(T/e)$ are both unimodal with modes $m$ and $m'$ respectively,
-  then the sum $I(T_e) = I(T) + x \cdot I(T/e)$ attains its maximum at some
-  $k \in [\min(m,\, m'{+}1),\, \max(m,\, m'{+}1)]$.
-\end{proposition}
-
-\begin{proof}
-  Write $A(x) = x \cdot I(T/e;\, x)$, which is unimodal with mode $m'{+}1$.
-  For $k < \min(m,\, m'{+}1)$, both $I(T)$ and~$A$ are non-decreasing, so their sum is non-decreasing.
-  For $k \ge \max(m,\, m'{+}1)$, both are non-increasing, so their sum is non-increasing.
-\end{proof}
-
-I verified the mode sandwich for all 3\,348\,674 edges in trees on $n \le 18$, with zero failures.
-An immediate consequence is that $\mathrm{mode}(I(T_e)) - \mathrm{mode}(I(T)) \in \{0, 1\}$ whenever ECMS holds: if $m' \ge m - 1$, then $m' + 1 \ge m$, so the sandwich interval contains~$m$ (and~$m{+}1$), and subdivision cannot decrease the mode.
-
-\begin{remark}[Mean shift approach]\label{rem:mean-shift}
-  Let $\mu(G) = I'(G;\,1)/I(G;\,1)$ denote the mean of the normalised coefficient sequence.
-  Differentiating Theorem~\ref{thm:identity} at $x = 1$ gives
-  \[
-    \mu(T_e) \;=\; \frac{a \cdot \mu(T) \;+\; b\bigl(1 + \mu(T/e)\bigr)}{a + b},
-    \qquad a = I(T;\,1),\quad b = I(T/e;\,1),
-  \]
-  so $\mu(T_e)$ is a weighted average of $\mu(T)$ and $1 + \mu(T/e)$.
-  In particular, $\mu(T) - \mu(T/e) < 1$ if and only if $\mu(T_e) < 1 + \mu(T/e)$.
-  In the hard-core model at $\lambda = 1$, writing $A = R_{u \to v}$ and $B = R_{v \to u}$ for the cavity messages along~$e = uv$, the mean shift decomposes as
-  \[
-    \mu(T) - \mu(T/e)
-    \;=\; \underbrace{\frac{A + B - AB}{(1+A+B)(1+AB)}}_{\textstyle\text{local} \;\in\; (0,\, 1/2)}
-    \;+\; \sum_{w \ne u,v} \bigl[P_T(w) - P_{T/e}(w)\bigr].
-  \]
-  The local term is in $(0, 1/2)$ since $A, B \in (0, 1]$ on any tree.
-  Exhaustive checks over 3\,348\,674 edges ($n \le 18$) give $|\mu(T)-\mu(T/e)| < 0.537$ (worst exhaustive value $\approx 0.533$), and an illustrative near-extremal family witness is the tripod star $T(5,5,5)$ (centre-to-bridge edge, $|\delta\mu| \approx 0.537$).
-  By \textcite{darroch1964}, mode localisation $\mathrm{mode}\in\{\lfloor\mu\rfloor,\lceil\mu\rceil\}$ holds for Poisson-binomial sequences; I verify the same localisation for all tree IS polynomials through $n=22$.
-  Therefore, a proof of $|\mu(T)-\mu(T/e)|<1$ together with this localisation would imply ECMS.
-\end{remark}
-
-\begin{proposition}[Distance-1 perturbation formula]\label{prop:s1-formula}
-  In the setting of Remark~\textup{\ref{rem:mean-shift}}, define the edge factors
-  \[
-    F_u = \frac{A(B^2 + B - 1)}{(1+A+B)(1+AB)}, \qquad
-    F_v = \frac{B(A^2 + A - 1)}{(1+A+B)(1+AB)}.
-  \]
-  For each $w \in N(u) \setminus \{v\}$ with cavity message $q_w = R_{w \to u}$,
-  \[
-    P_T(w) - P_{T/e}(w) \;=\; F_u \cdot \frac{q_w}{1 + q_w},
-  \]
-  and symmetrically for $w \in N(v) \setminus \{u\}$ with $F_v$ and $R_{w \to v}$.
-\end{proposition}
-
-I verified this formula exactly (max error ${<}\, 2 \times 10^{-16}$) for all edges in trees on $n \le 18$.
-Using $\sum_w q_w/(1+q_w) \le -\log A$ (from $\log(1+x) \ge x/(1+x)$ and $A = \prod_w (1+q_w)^{-1}$), the total distance-1 contribution satisfies $|S_1| \le |F_u|(-\log A) + |F_v|(-\log B)$; numerical optimisation over $[0,1]^2$ gives $\max |S_1| < 0.355$, well below the $1/2$ threshold.
-
-\begin{definition}\label{def:combined_tail}
-  For an edge $e$ in tree~$T$ with $\mathrm{mode}(I(T/e)) = \mathrm{mode}(I(T)) + 1$ (the \emph{gap case}), the \emph{combined tail condition} requires that $I(T_e)$ is non-increasing for all $k \ge \mathrm{mode}(I(T)) + 1$.
-\end{definition}
-
-I verified the combined tail condition for 9\,071\,864 edges in trees on $n \le 19$, finding zero violations.
-The gap case arises in 8\,405 of these edges (0.09\%); in every instance the sign pattern at the two ambiguous positions is $({+},\, {-})$, confirming that the sum peaks and then descends.
-
-\begin{lemma}[Adjacent-mode sum lemma]\label{lem:adjacent-mode-sum}
-  Let $(a_k)$ and $(b_k)$ be finite unimodal sequences of nonnegative reals with modes $p$ and $q$.
-  If $|p-q| \le 1$, then $(a_k+b_k)$ is unimodal.
-\end{lemma}
-
-\begin{proof}
-  Let $m_-=\min(p,q)$ and $m_+=\max(p,q)$.
-  For $k<m_-$, both sequences are non-decreasing, so $a_k+b_k$ is non-decreasing.
-  For $k\ge m_+$, both are non-increasing, so $a_k+b_k$ is non-increasing.
-  If $p=q$, this already gives unimodality with peak at~$p$.
-  If $|p-q|=1$, there is only one transition index between $m_-$ and $m_+$, so no strict valley can occur.
-\end{proof}
-
-\begin{theorem}[Conditional subdivision lemma]\label{thm:conditional}
-  Assume ECMS (Conjecture~\ref{conj:ecms}) and the combined tail condition (Definition~\ref{def:combined_tail}).
-  If $I(T)$ and $I(T/e)$ are both unimodal, then $I(T_e)$ is unimodal.
-\end{theorem}
-
-\begin{proof}
-Let $M = \mathrm{mode}(I(T))$.
-Define $A(x) = x \cdot I(T/e)$.
-Then $I(T_e) = I(T) + A(x)$.
-Let $M' = \mathrm{mode}(I(T/e))$.
-The polynomial $A(x)$ has mode $M' + 1$.
-Both $I(T)$ and $A(x)$ are unimodal with nonnegative coefficients.
-By ECMS, $M' \in \{M{-}1, M, M{+}1\}$, so $A(x)$ has mode in $\{M, M{+}1, M{+}2\}$.
-
-If the modes of $I(T)$ and $A(x)$ differ by at most~1, then their sum is unimodal by Lemma~\ref{lem:adjacent-mode-sum}.
-
-In the gap case ($M' = M + 1$, mode of~$A(x)$ at $M + 2$), there are two positions~-- $k = M$ and $k = M{+}1$~-- where $I(T)$ is descending and $A(x)$ is ascending.
-The combined tail condition ensures the sum is non-increasing from $M + 1$, preventing any valley.
-\end{proof}
-
-\begin{corollary}\label{cor:homirred}
-  Assuming ECMS and the combined tail condition, any minimal counterexample to Conjecture~\ref{conj:main} is homeomorphically irreducible~-- it has no degree-2 vertices.
-\end{corollary}
-
-\begin{proof}
-If $T$ has a degree-2 vertex~$w$ with neighbors $u$ and~$v$, then $T = T'_e$ where $T'$ is obtained by deleting~$w$ and adding edge~$uv$, and $e = uv$.
-Both $T'$ and $T'/e$ have fewer vertices than~$T$ (by one and two respectively), so both are unimodal by minimality.
-Theorem~\ref{thm:conditional} then gives $I(T) = I(T'_e)$ unimodal, contradicting the assumption that $T$ is a counterexample.
-\end{proof}
-
-\begin{remark}\label{rem:additional}
-  Several additional properties hold computationally.
-  Through $n = 19$ (9~million edges), the polynomial $A(x)$ is always log-concave (hence unimodal).
-  Through $n = 18$ (3.3~million edges), the tightest ratio $A[k{+}1]/A[k] \ge 1.125$, attained at $k = M - 1$.
-  Through $n = 20$ (24.7~million edges), the product $x\, R_u R_v$ never descends before $\mathrm{mode}(I(T))$, and vertex removal shifts the mode by at most~1 ($|\mathrm{mode}(I(T)) - \mathrm{mode}(I(T{-}v))| \le 1$ for all 26~million vertex-tree pairs).
-\end{remark}
 
 
 \section{Reduction to \texorpdfstring{$\dleaf \le 1$}{d\_leaf ≤ 1} trees}\label{sec:reduction}
@@ -423,26 +232,24 @@ The expected IS size is $\mu = \sum_v P(v)$.
 Since $I(T;\, 1)$ counts all IS and $I'(T;\, 1) = \sum_k k\, i_k$, we have $\mu = I'(T;\, 1) / I(T;\, 1)$.
 
 All $\dleaf \le 1$ trees tested through $n = 23$ (931\,596 trees) have strictly log-concave independence sequences (strict inequality $i_k^2 > i_{k-1}\, i_{k+1}$ at every interior index).
-Strict log-concavity implies a unique mode, and the mode-mean bound $\mathrm{mode} \le \lceil\mu\rceil$ holds computationally for all 9\,114\,283 trees through $n = 22$ (zero violations).
+Strict log-concavity implies a unique mode, and the mode-mean bound $\mathrm{mode} \le \lceil\mu\rceil$ holds computationally for all 23\,942\,357 trees through $n = 23$ (zero violations).
 Since $\lceil \mu \rceil \le \lfloor n/3 \rfloor + 1$ whenever $\mu < n/3$, Conjecture~A would follow from a proof of $\mathrm{mode} \le \lceil\mu\rceil$ for $\dleaf \le 1$ trees together with $\mu < n/3$.
 The latter is proved in Corollary~\ref{cor:mu-bound} below via the Steiner peeling method.
 
-\begin{remark}
-The mode-mean bound $\mathrm{mode}(I(T)) \le \lceil \mu(T) \rceil$ holds for all 931\,596 $\dleaf \le 1$ trees through $n = 23$ (zero violations), and for all 9\,114\,283 trees (of any type) through $n = 22$.
-It also holds for the two log-concavity-failing trees at $n = 26$ (where $\mu \approx 7.83$ and $\mathrm{mode} = 8$), checked individually.
-The bound appears to hold universally regardless of log-concavity.
-If this mode-mean bound could be proved directly for $\dleaf \le 1$ trees, Conjecture~A would follow from Corollary~\ref{cor:mu-bound} without requiring log-concavity.
+\begin{conjecture}[Mode-mean bound for trees]\label{conj:mode-mean}
+  For every tree~$T$, $\mathrm{mode}(I(T)) \le \lceil \mu(T) \rceil$.
+\end{conjecture}
 
-The stronger localisation $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ (\textcite{darroch1964} proved this for Poisson-Binomial distributions) also holds for all 175\,722 $\dleaf \le 1$ trees through $n = 21$: 69.65\,\% have $\mathrm{mode} = \lfloor\mu\rfloor$ and 30.35\,\% have $\mathrm{mode} = \lceil\mu\rceil$.
-This mode-localisation does not follow from log-concavity alone (the sequence $1, 2, 3, 4$ is strictly log-concave with unique mode~3 and mean~2), but it appears to hold for all tree IS polynomials.
-\end{remark}
+Conjecture~\ref{conj:mode-mean} holds for all 23\,942\,357 trees through $n = 23$ (zero violations). This verification requires exact multiprecision arithmetic for the mean, so it is computationally heavier than the modular unimodality check and stops at $n=23$. It also holds, checked individually, for the two log-concavity-failing trees at $n = 26$ (where $\mu \approx 7.83$ and $\mathrm{mode} = 8$).
+The stronger localisation $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ (\textcite{darroch1964} proved this for Poisson-Binomial distributions) also holds for all 175\,722 $\dleaf \le 1$ trees through $n = 21$.
+If Conjecture~\ref{conj:mode-mean} holds for $\dleaf \le 1$ trees, then Conjecture~A follows from Corollary~\ref{cor:mu-bound} without requiring log-concavity.
 
 \begin{remark}[Tie-fugacity condition]
 A sharpened proof target avoids log-concavity entirely.
 For a tree~$T$ with IS polynomial $I(x) = \sum_k i_k x^k$ and mode $m$ at fugacity~$1$, define the \emph{tie fugacity} $\lambda_m = i_{m-1}/i_m$.
 At fugacity~$\lambda_m$, IS of sizes $m-1$ and~$m$ have equal probability weight $i_{m-1}\lambda_m^{m-1} = i_m\lambda_m^m$, and every other size has strictly smaller weight (verified for all 11\,172\,104 adjacent pairs across 931\,596 trees).
 Since $m$ is the mode at fugacity~1, we have $i_m \ge i_{m-1}$, so $\lambda_m \le 1$.
-The expected IS size $\mu(\lambda) = \sum_v P(v;\lambda)$ is strictly increasing in~$\lambda$, so $\mu(\lambda_m) \le \mu(1) = \mu(T)$.
+The expected IS size $\mu(\lambda) = \sum_v P(v;\lambda)$ is strictly increasing in~$\lambda$ (differentiating gives $\mu'(\lambda) = \operatorname{Var}(|S|)/\lambda > 0$ for $\lambda > 0$), so $\mu(\lambda_m) \le \mu(1) = \mu(T)$.
 
 If one could prove the single-tie condition $\mu(\lambda_m) \ge m - 1$, then
 \[
@@ -452,105 +259,6 @@ If one could prove the single-tie condition $\mu(\lambda_m) \ge m - 1$, then
 This condition holds for all 931\,596 $\dleaf \le 1$ trees through $n = 23$, with minimum margin $\mu(\lambda_m) - (m-1) \ge 0.362$.
 The condition also holds for all 9\,114\,283 trees of any type through $n = 22$; the global minimum margin is still $0.362$, attained by the same tree $S(2^{10})$.
 \end{remark}
-
-The minimum margin is attained by $S(2^{10})$, the equal-arm spider with hub connected to ten arms of length~2 (21~vertices, $\dleaf = 1$ everywhere).
-This tree is the global minimiser across all tree types through $n = 22$, not only among $\dleaf \le 1$ trees.
-More generally, the margin for the $S(2^k)$ family can be bounded analytically.
-
-\begin{proposition}[Equal-arm spider tie-fugacity margin]\label{prop:spider-tie-margin}
-  For the equal-arm spider $S(2^k)$ on $n = 2k+1$ vertices, with hub $h$ connected to $k$ arms of length~$2$:
-  \begin{enumerate}
-    \item $I(S(2^k);\, x) = x(1+x)^k + (1+2x)^k$, with $i_j = \tbinom{k}{j-1} + 2^j\tbinom{k}{j}$.
-    \item The mode is $m = \lfloor(2k+1)/3\rfloor$ for all $k \ge 3$.
-    \item The hub-off mean at the tie fugacity $\lambda_m$ exceeds $m-1$: $kq_m > m-1$ where $q_m = 2\lambda_m/(1+2\lambda_m)$.
-    \item The tie-fugacity margin satisfies $\mu(\lambda_m) - (m-1) > 0$ for all $k \ge 1$, and
-          $\mu(\lambda_m) - (m-1) \to 1/3$ as $k \to \infty$.
-  \end{enumerate}
-\end{proposition}
-
-\begin{proof}
-\textit{Part~1.}
-At fugacity~$\lambda$, the IS distribution is a mixture of two components depending on whether the hub is included:
-\begin{itemize}
-  \item \emph{Hub-on} (weight $\lambda(1+\lambda)^k$): hub included, each arm contributes its leaf or nothing, IS size $= 1 + \operatorname{Bin}(k,\, \lambda/(1+\lambda))$.
-  \item \emph{Hub-off} (weight $(1+2\lambda)^k$): hub excluded, each arm independently includes its elbow, its leaf, or nothing, IS size $= \operatorname{Bin}(k,\, 2\lambda/(1+2\lambda))$.
-\end{itemize}
-Summing over IS by size gives $I(x) = x(1+x)^k + (1+2x)^k$, and expanding the coefficients gives $i_j = \tbinom{k}{j-1} + 2^j\tbinom{k}{j}$.
-
-\textit{Part~2.}
-The dominant term $2^j\tbinom{k}{j}$ has the ratio $2^{j+1}\tbinom{k}{j+1}/[2^j\tbinom{k}{j}] = 2(k-j)/(j+1)$, which exceeds~1 iff $j < (2k-1)/3$.
-The full ratio $i_{j+1}/i_j$ exceeds~1 below the mode and is at most~1 at the mode; the sub-dominant term $\tbinom{k}{j-1}$ shifts the crossover by less than one unit, placing the mode at $m = \lfloor(2k+1)/3\rfloor$ (verified for all $k \le 600$; for large~$k$ the sub-dominant contribution is $O(1/2^m)$ relative to the dominant term).
-
-\textit{Part~3.}
-The condition $kq_m > m-1$ is equivalent to $\lambda_m > \tau$, where $\tau = (m-1)/[2(k-m+1)]$.
-Write $\lambda_m = i_{m-1}/i_m = (U + V)/(U' + V')$ where $U = 2^{m-1}\tbinom{k}{m-1}$, $V = \tbinom{k}{m-2}$, $U' = 2^m\tbinom{k}{m}$, $V' = \tbinom{k}{m-1}$.
-Since the mediant of two fractions each exceeding~$\tau$ also exceeds~$\tau$, it suffices to check $U/U' > \tau$ and $V/V' > \tau$.
-Now $U/U' = m/[2(k{-}m{+}1)]$ and $V/V' = (m{-}1)/(k{-}m{+}2)$.
-In each residue class $k \equiv 0, 1, 2 \pmod{3}$, both ratios strictly exceed~$\tau$ for $k \ge 4$ (the differences $U/U' - \tau$ and $V/V' - \tau$ are positive rational functions of~$k$); the cases $k = 1, 2, 3$ are verified directly.
-
-\textit{Part~4.}
-Writing $p_0 = \lambda_m(1+\lambda_m)^k/Z$ and $p_1 = 1-p_0$ for the hub-on and hub-off weights:
-\[
-  \mu(\lambda_m) - (m-1)
-  = \underbrace{(kq_m - (m-1))}_{\text{hub-off surplus}}
-  - p_0\underbrace{(kq_m - 1 - kp_m)}_{\text{hub gap}},
-\]
-where $p_m = \lambda_m/(1+\lambda_m)$.
-For the hub-off surplus: expanding $kq_m$ at $\lambda_m \ge (2j+1)/(2j+2)$ gives $kq_m \ge (3j+1)(2j+1)/(3j+2) = (m-1) + (j+1)/(3j+2)$.
-The bound $(j+1)/(3j+2) \ge 1/3$ holds since $(j+1)/(3j+2) - 1/3 = 1/(3(3j+2)) > 0$.
-For the hub gap: $kq_m - 1 - kp_m = k\lambda_m/[(1+\lambda_m)(1+2\lambda_m)] - 1$; since $\lambda/[(1+\lambda)(1+2\lambda)] < 1/3$ for all $\lambda > 0$ (as $3\lambda < 1 + 3\lambda + 2\lambda^2$), the hub gap satisfies $kq_m - 1 - kp_m < k/3$.
-For the hub-on weight: $(1+2\lambda_m)/(1+\lambda_m) > 1$ for all $\lambda_m > 0$, so $p_0 \to 0$ geometrically.
-When hub gap $\le 0$ (which holds for $k \le 5$, verified directly), the correction $p_0 \cdot \text{hub gap} \le 0$ and margin $\ge 1/3 > 0$.
-For $6 \le k \le 11$ ($n = 2k+1 \le 23$, within the exhaustive scan): margin $> 0$ holds by direct computation.
-For $k \ge 12$: the mediant bound from Part~3 gives $\lambda_m > \tau \ge 2/3$ in all three residue classes, so $(1+\lambda_m)/(1+2\lambda_m) \le 5/7$ and $p_0 \le (5/7)^k$; then $p_0 \cdot \text{hub gap} \le k(5/7)^k/3$, which is at most $4(5/7)^{12} \approx 0.071 < 1/3$ at $k = 12$ and decreasing for all larger~$k$, giving margin $> 0$.
-As $k \to \infty$ along $k = 3j+1$, the hub-off surplus $(j+1)/(3j+2) \to 1/3$ and $p_0 \cdot \text{hub gap} \to 0$ exponentially, so the margin converges to $1/3$ from above.
-\end{proof}
-
-\begin{remark}
-The proof above establishes margin $> 0$ but does not show margin $> 1/3$ directly.
-Numerically, margin $> 1/3$ for all $k \le 600$, with margin $= 1/3 + c/k + O(1/k^2)$ and $c \approx 1/3$; a closed-form proof of the sharper bound would follow from the exact asymptotics of~$\lambda_m$.
-Since $S(2^k)$ is the extremal $\dleaf \le 1$ tree for the mean bound (verified through $n \le 20$), and $S(2^{10})$ is also the global minimiser for the tie-fugacity margin across all 9\,114\,283 trees through $n = 22$, establishing analytically that $S(2^k)$ minimises the margin for all tree types would reduce the full tie-fugacity condition $\mu(\lambda_m) \ge m-1$ to the spider case, which Proposition~\ref{prop:spider-tie-margin} already proves.
-\end{remark}
-
-The equal-arm result extends to the full mixed-spider family $S(2^k, 1^j)$~-- a hub with $k$ arms of length~2 and $j$ pendant leaves~-- whose IS polynomial is $I(x) = (1+2x)^k(1+x)^j + x(1+x)^k$.
-Write $\mathrm{margin}(k,j) = \mu(\lambda_m) - (m-1)$ for the tie-fugacity margin of $S(2^k, 1^j)$.
-
-\begin{proposition}[Mixed-spider tie-fugacity]\label{prop:mixed-spider-tiefug}
-  For all $k \ge 3$ and $j \ge 0$, $\mathrm{margin}(k,j) > 0$.
-\end{proposition}
-
-\begin{proof}
-The hub-off generating polynomial $A_j(x) = (1+2x)^k(1+x)^j$ is a product of linear factors with negative real roots, generating a Poisson-Binomial distribution with mean $\mu_j = (4k+3j)/6$.
-
-\textit{Parity monotonicity.}
-For $k \ge 6$: $\mathrm{margin}(k,\, j+2) \ge \mathrm{margin}(k,\, j)$.
-By \textcite{darroch1964}, $\mathrm{mode}(A_j) \in \{\lfloor\mu_j\rfloor, \lceil\mu_j\rceil\}$.
-Since $\mu_{j+2} = \mu_j + 1$ and $4k + 3(j+2) \equiv 4k + 3j \pmod{6}$, the same rounding rule applies, giving $m(k,\, j+2) = m(k,\, j) + 1$.
-Decompose the margin shift as
-\[
-  \Delta_{\mathrm{total}}
-  = \underbrace{\mu_{j+2}(\lambda_j) - \mu_j(\lambda_j)}_{\Delta_{\mathrm{fixed}}}
-  + \underbrace{\mu_{j+2}(\lambda_{j+2}) - \mu_{j+2}(\lambda_j)}_{\Delta_\lambda}.
-\]
-For $\Delta_{\mathrm{fixed}} \ge 0$: write $F = T_1 + T_2$ where $T_1 = \Delta(m) - \Delta(m{-}1)$ is the difference of successive log-concavity defects of~$A_j$ and $T_2$ is a hub-on correction involving binomial coefficients $\tbinom{k}{m{-}1}$ and $\tbinom{k}{m{-}2}$.
-When $m > k+2$, these binomial coefficients vanish and $F = T_1$; for $m \le k+2$ and $k \le 200$, exact integer computation over all 14\,430 active $(k,j)$ pairs confirms $F > 0$ with minimum ratio $T_1/|T_2| = 2.24$ at $(k,j) = (6,1)$; for $k > 200$, the ratio $T_1/|T_2|$ exceeds $10^{36}$ (growing exponentially in~$k$).
-Together: $F > 0$ for all $k \ge 6$ and $m \le k+2$, and $F = T_1 > 0$ for $m > k+2$ (verified for $k \le 3000$, $j \le 120$; for $k > 3000$ the hub-on weight is negligible and $A_j$ is dominated by the $(1+x)^j$ factor whose LC defects are increasing at the mode).
-For $\Delta_\lambda \ge 0$: the fugacity comparison $\lambda_{j+2} \ge \lambda_j$ follows from the same $F > 0$ bound.
-This reduces the problem to $j \in \{0, 1\}$ for $k \ge 6$.
-
-\textit{Minimiser identification.}
-For $k \equiv 1 \pmod{3}$, both parities share the same mode.
-An explicit rational lower bound on the hub-off surplus difference gives $\mathrm{margin}(k,\,0) < \mathrm{margin}(k,\,1)$ for $k \ge 19$; the five remaining cases ($k = 4, 7, 10, 13, 16$) hold by exact computation.
-For $k \equiv 0, 2 \pmod{3}$, the hub-off surplus gap $A_{\mathrm{gap}}$ exceeds $1/(4k)$ for $k \ge 14$ while the hub-on error is bounded by $k^2(29/42)^k/6 < 1/(4k)$; remaining cases checked exactly.
-Together: $\min_{j \ge 0} \mathrm{margin}(k,\,j) = \mathrm{margin}(k,\,0)$ when $k \equiv 1 \pmod{3}$, and $\mathrm{margin}(k,\,1)$ otherwise.
-
-\textit{Base positivity.}
-$\mathrm{margin}(k,\,0) > 0$ for all $k \ge 3$: Proposition~\ref{prop:spider-tie-margin}.
-$\mathrm{margin}(k,\,1) > 0$ for all $k \ge 3$: the same hub-off/hub-on decomposition as in Proposition~\ref{prop:spider-tie-margin} applies to $S(2^k, 1)$, with hub-off mean $kq_m + \lambda_m/(1 + \lambda_m)$ and the same geometric decay of the hub-on weight; verified exactly for $k \le 200$ and asymptotically for $k > 200$.
-
-\textit{Small $k$.}
-For $k \in \{3, 4, 5\}$, direct computation confirms $\mathrm{margin}(k,\, j) > 0$ for all $j \le 400$; for larger~$j$, the hub-on weight decays geometrically in~$j$ while the hub-off surplus exceeds~$1/3$.
-\end{proof}
 
 I verified $\mu < n/3$ for all 931\,596 such trees through $n = 23$; the worst ratio is $\mu / (n/3) = 0.973$.
 The extremal family consists of \emph{spiders}~-- trees with exactly one vertex of degree $\ge 3$ (the hub) and paths radiating from it.
@@ -742,6 +450,291 @@ If $H_{\mathrm{core}} \ne \emptyset$, Theorem~\ref{thm:steiner-peeling} gives $F
 \end{proof}
 
 
+
+\subsection{Spider extremality and tie-fugacity}\label{subsec:spider}
+
+The minimum margin is attained by $S(2^{10})$, the equal-arm spider with hub connected to ten arms of length~2 (21~vertices, $\dleaf = 1$ everywhere).
+This tree is the global minimiser across all tree types through $n = 22$, not only among $\dleaf \le 1$ trees.
+More generally, the margin for the $S(2^k)$ family can be bounded analytically.
+
+\begin{proposition}[Equal-arm spider tie-fugacity margin]\label{prop:spider-tie-margin}
+  For the equal-arm spider $S(2^k)$ on $n = 2k+1$ vertices, with hub $h$ connected to $k$ arms of length~$2$:
+  \begin{enumerate}
+    \item $I(S(2^k);\, x) = x(1+x)^k + (1+2x)^k$, with $i_j = \tbinom{k}{j-1} + 2^j\tbinom{k}{j}$.
+    \item The mode is $m = \lfloor(2k+1)/3\rfloor$ for all $k \ge 3$.
+    \item The hub-off mean at the tie fugacity $\lambda_m$ exceeds $m-1$: $kq_m > m-1$ where $q_m = 2\lambda_m/(1+2\lambda_m)$.
+    \item The tie-fugacity margin satisfies $\mu(\lambda_m) - (m-1) > 0$ for all $k \ge 1$, and
+          $\mu(\lambda_m) - (m-1) \to 1/3$ as $k \to \infty$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\textit{Part~1.}
+At fugacity~$\lambda$, the IS distribution is a mixture of two components depending on whether the hub is included:
+\begin{itemize}
+  \item \emph{Hub-on} (weight $\lambda(1+\lambda)^k$): hub included, each arm contributes its leaf or nothing, IS size $= 1 + \operatorname{Bin}(k,\, \lambda/(1+\lambda))$.
+  \item \emph{Hub-off} (weight $(1+2\lambda)^k$): hub excluded, each arm independently includes its elbow, its leaf, or nothing, IS size $= \operatorname{Bin}(k,\, 2\lambda/(1+2\lambda))$.
+\end{itemize}
+Summing over IS by size gives $I(x) = x(1+x)^k + (1+2x)^k$, and expanding the coefficients gives $i_j = \tbinom{k}{j-1} + 2^j\tbinom{k}{j}$.
+
+\textit{Part~2.}
+The dominant term $2^j\tbinom{k}{j}$ has the ratio $2^{j+1}\tbinom{k}{j+1}/[2^j\tbinom{k}{j}] = 2(k-j)/(j+1)$, which exceeds~1 iff $j < (2k-1)/3$.
+The full ratio $i_{j+1}/i_j$ exceeds~1 below the mode and is at most~1 at the mode; the sub-dominant term $\tbinom{k}{j-1}$ shifts the crossover by less than one unit, placing the mode at $m = \lfloor(2k+1)/3\rfloor$ (verified for all $k \le 600$; for large~$k$ the sub-dominant contribution is $O(1/2^m)$ relative to the dominant term).
+
+\textit{Part~3.}
+The condition $kq_m > m-1$ is equivalent to $\lambda_m > \tau$, where $\tau = (m-1)/[2(k-m+1)]$.
+Write $\lambda_m = i_{m-1}/i_m = (U + V)/(U' + V')$ where $U = 2^{m-1}\tbinom{k}{m-1}$, $V = \tbinom{k}{m-2}$, $U' = 2^m\tbinom{k}{m}$, $V' = \tbinom{k}{m-1}$.
+Since the mediant of two fractions each exceeding~$\tau$ also exceeds~$\tau$, it suffices to check $U/U' > \tau$ and $V/V' > \tau$.
+Now $U/U' = m/[2(k{-}m{+}1)]$ and $V/V' = (m{-}1)/(k{-}m{+}2)$.
+In each residue class $k \equiv 0, 1, 2 \pmod{3}$, both ratios strictly exceed~$\tau$ for $k \ge 4$ (the differences $U/U' - \tau$ and $V/V' - \tau$ are positive rational functions of~$k$); the cases $k = 1, 2, 3$ are verified directly.
+
+\textit{Part~4.}
+Writing $p_0 = \lambda_m(1+\lambda_m)^k/Z$ and $p_1 = 1-p_0$ for the hub-on and hub-off weights:
+\[
+  \mu(\lambda_m) - (m-1)
+  = \underbrace{(kq_m - (m-1))}_{\text{hub-off surplus}}
+  - p_0\underbrace{(kq_m - 1 - kp_m)}_{\text{hub gap}},
+\]
+where $p_m = \lambda_m/(1+\lambda_m)$.
+For the hub-off surplus: expanding $kq_m$ at $\lambda_m \ge (2j+1)/(2j+2)$ gives $kq_m \ge (3j+1)(2j+1)/(3j+2) = (m-1) + (j+1)/(3j+2)$.
+The bound $(j+1)/(3j+2) \ge 1/3$ holds since $(j+1)/(3j+2) - 1/3 = 1/(3(3j+2)) > 0$.
+For the hub gap: $kq_m - 1 - kp_m = k\lambda_m/[(1+\lambda_m)(1+2\lambda_m)] - 1$; since $\lambda/[(1+\lambda)(1+2\lambda)] < 1/3$ for all $\lambda > 0$ (as $3\lambda < 1 + 3\lambda + 2\lambda^2$), the hub gap satisfies $kq_m - 1 - kp_m < k/3$.
+For the hub-on weight: $(1+2\lambda_m)/(1+\lambda_m) > 1$ for all $\lambda_m > 0$, so $p_0 \to 0$ geometrically.
+When hub gap $\le 0$ (which holds for $k \le 5$, verified directly), the correction $p_0 \cdot \text{hub gap} \le 0$ and margin $\ge 1/3 > 0$.
+For $6 \le k \le 11$ ($n = 2k+1 \le 23$, within the exhaustive scan): margin $> 0$ holds by direct computation.
+For $k \ge 12$: the mediant bound from Part~3 gives $\lambda_m > \tau \ge 2/3$ in all three residue classes, so $(1+\lambda_m)/(1+2\lambda_m) \le 5/7$ and $p_0 \le (5/7)^k$; then $p_0 \cdot \text{hub gap} \le k(5/7)^k/3$, which is at most $4(5/7)^{12} \approx 0.071 < 1/3$ at $k = 12$ and decreasing for all larger~$k$, giving margin $> 0$.
+As $k \to \infty$ along $k = 3j+1$, the hub-off surplus $(j+1)/(3j+2) \to 1/3$ and $p_0 \cdot \text{hub gap} \to 0$ exponentially, so the margin converges to $1/3$ from above.
+\end{proof}
+
+\begin{remark}
+The proof above establishes margin $> 0$ but does not show margin $> 1/3$ directly.
+Numerically, margin $> 1/3$ for all $k \le 600$, with margin $= 1/3 + c/k + O(1/k^2)$ and $c \approx 1/3$; a closed-form proof of the sharper bound would follow from the exact asymptotics of~$\lambda_m$.
+Since $S(2^k)$ is the extremal $\dleaf \le 1$ tree for the mean bound (verified through $n \le 20$), and $S(2^{10})$ is also the global minimiser for the tie-fugacity margin across all 9\,114\,283 trees through $n = 22$, establishing analytically that $S(2^k)$ minimises the margin for all tree types would reduce the full tie-fugacity condition $\mu(\lambda_m) \ge m-1$ to the spider case, which Proposition~\ref{prop:spider-tie-margin} already proves.
+\end{remark}
+
+The equal-arm result extends to the full mixed-spider family $S(2^k, 1^j)$~-- a hub with $k$ arms of length~2 and $j$ pendant leaves~-- whose IS polynomial is $I(x) = (1+2x)^k(1+x)^j + x(1+x)^k$.
+Write $\mathrm{margin}(k,j) = \mu(\lambda_m) - (m-1)$ for the tie-fugacity margin of $S(2^k, 1^j)$.
+
+\begin{proposition}[Mixed-spider tie-fugacity]\label{prop:mixed-spider-tiefug}
+  For all $k \ge 3$ and $j \ge 0$, $\mathrm{margin}(k,j) > 0$.
+\end{proposition}
+
+\begin{proof}
+The hub-off generating polynomial $A_j(x) = (1+2x)^k(1+x)^j$ is a product of linear factors with negative real roots, generating a Poisson-Binomial distribution with mean $\mu_j = (4k+3j)/6$.
+
+\textit{Parity monotonicity.}
+For $k \ge 6$: $\mathrm{margin}(k,\, j+2) \ge \mathrm{margin}(k,\, j)$.
+By \textcite{darroch1964}, $\mathrm{mode}(A_j) \in \{\lfloor\mu_j\rfloor, \lceil\mu_j\rceil\}$.
+Since $\mu_{j+2} = \mu_j + 1$ and $4k + 3(j+2) \equiv 4k + 3j \pmod{6}$, the same rounding rule applies, giving $m(k,\, j+2) = m(k,\, j) + 1$.
+Decompose the margin shift as
+\[
+  \Delta_{\mathrm{total}}
+  = \underbrace{\mu_{j+2}(\lambda_j) - \mu_j(\lambda_j)}_{\Delta_{\mathrm{fixed}}}
+  + \underbrace{\mu_{j+2}(\lambda_{j+2}) - \mu_{j+2}(\lambda_j)}_{\Delta_\lambda}.
+\]
+For $\Delta_{\mathrm{fixed}} \ge 0$: write $F = T_1 + T_2$ where $T_1 = \Delta(m) - \Delta(m{-}1)$ is the difference of successive log-concavity defects of~$A_j$ and $T_2$ is a hub-on correction involving binomial coefficients $\tbinom{k}{m{-}1}$ and $\tbinom{k}{m{-}2}$.
+When $m > k+2$, these binomial coefficients vanish and $F = T_1$; for $m \le k+2$ and $k \le 200$, exact integer computation over all 14\,430 active $(k,j)$ pairs confirms $F > 0$ with minimum ratio $T_1/|T_2| = 2.24$ at $(k,j) = (6,1)$; for $k > 200$, the ratio $T_1/|T_2|$ exceeds $10^{36}$ (growing exponentially in~$k$).
+Together: $F > 0$ for all $k \ge 6$ and $m \le k+2$, and $F = T_1 > 0$ for $m > k+2$ (verified for $k \le 3000$, $j \le 120$; for $k > 3000$ the hub-on weight is negligible and $A_j$ is dominated by the $(1+x)^j$ factor whose LC defects are increasing at the mode).
+For $\Delta_\lambda \ge 0$: the fugacity comparison $\lambda_{j+2} \ge \lambda_j$ follows from the same $F > 0$ bound.
+This reduces the problem to $j \in \{0, 1\}$ for $k \ge 6$.
+
+\textit{Minimiser identification.}
+For $k \equiv 1 \pmod{3}$, both parities share the same mode.
+An explicit rational lower bound on the hub-off surplus difference gives $\mathrm{margin}(k,\,0) < \mathrm{margin}(k,\,1)$ for $k \ge 19$; the five remaining cases ($k = 4, 7, 10, 13, 16$) hold by exact computation.
+For $k \equiv 0, 2 \pmod{3}$, the hub-off surplus gap $A_{\mathrm{gap}}$ exceeds $1/(4k)$ for $k \ge 14$ while the hub-on error is bounded by $k^2(29/42)^k/6 < 1/(4k)$; remaining cases checked exactly.
+Together: $\min_{j \ge 0} \mathrm{margin}(k,\,j) = \mathrm{margin}(k,\,0)$ when $k \equiv 1 \pmod{3}$, and $\mathrm{margin}(k,\,1)$ otherwise.
+
+\textit{Base positivity.}
+$\mathrm{margin}(k,\,0) > 0$ for all $k \ge 3$: Proposition~\ref{prop:spider-tie-margin}.
+$\mathrm{margin}(k,\,1) > 0$ for all $k \ge 3$: the same hub-off/hub-on decomposition as in Proposition~\ref{prop:spider-tie-margin} applies to $S(2^k, 1)$, with hub-off mean $kq_m + \lambda_m/(1 + \lambda_m)$ and the same geometric decay of the hub-on weight; verified exactly for $k \le 200$ and asymptotically for $k > 200$.
+
+\textit{Small $k$.}
+For $k \in \{3, 4, 5\}$, direct computation confirms $\mathrm{margin}(k,\, j) > 0$ for all $j \le 400$; for larger~$j$, the hub-on weight decays geometrically in~$j$ while the hub-off surplus exceeds~$1/3$.
+\end{proof}
+
+\section{The subdivision-contraction identity}\label{sec:identity}
+
+For an edge $e = uv$ in tree~$T$, removing~$e$ splits $T$ into two subtrees: $T_u$ containing~$u$ and $T_v$ containing~$v$.
+Root $T_u$ at~$u$ and $T_v$ at~$v$, and write $I_u = P_u + R_u$ and $I_v = P_v + R_v$ as above.
+For general graphs this recurrence appears in the edge-subdivision literature (e.g., Theorem~20 of \textcite{trinks2014}); I re-derive it in tree DP form here because this decomposition is the algebraic starting point for the mode and mean analyses that follow.
+
+\begin{theorem}[Subdivision-contraction identity]\label{thm:identity}
+  For any tree~$T$ and edge $e = uv$,
+  \[
+    I(T_e;\, x) \;=\; I(T;\, x) \;+\; x \cdot I(T/e;\, x).
+  \]
+\end{theorem}
+
+\begin{proof}
+I establish three expressions in terms of $P_u, R_u, P_v, R_v$.
+
+\emph{Subdivision.}
+Let $w$ be the new vertex in~$T_e$.
+If $w \notin S$, deleting~$w$ leaves $T_u$ and $T_v$ as disconnected components with no edge between $u$ and~$v$, so any IS of~$T_u$ combines freely with any IS of~$T_v$; the contribution is $I_u I_v$.
+If $w \in S$, then $u$ and $v$ are both excluded; the contribution is $x\, R_u R_v$.
+So
+\begin{equation}\label{eq:subdiv}
+  I(T_e) = I_u I_v + x\, R_u R_v.
+\end{equation}
+
+\emph{Original tree.}
+Any IS of~$T$ restricts to an IS of~$T_u$ and an IS of~$T_v$, with the constraint that $u$ and $v$ can't both be included (since they're adjacent in~$T$).
+Summing all pairs and subtracting the forbidden case:
+\begin{equation}\label{eq:original}
+  I(T) = I_u I_v - P_u P_v.
+\end{equation}
+
+\emph{Contraction.}
+Let $w'$ be the merged vertex in~$T/e$.
+If $w' \notin S$, the subtrees rooted at children of~$u$ (in~$T_u$) and children of~$v$ (in~$T_v$) are independent, contributing $R_u R_v$.
+If $w' \in S$, all neighbors of~$w'$ are excluded; the contribution is $x \cdot (P_u/x)(P_v/x) = P_u P_v / x$.
+This quotient is a polynomial because $P_u$ and $P_v$ are each divisible by~$x$ (any IS including a vertex has size~$\ge 1$).
+So
+\begin{equation}\label{eq:contract}
+  I(T/e) = R_u R_v + P_u P_v / x.
+\end{equation}
+
+Combining \eqref{eq:subdiv}--\eqref{eq:contract}:
+\[
+  I(T_e) - I(T) = P_u P_v + x\, R_u R_v = x \cdot I(T/e). \qedhere
+\]
+\end{proof}
+
+The identity says that the \enquote{extra} independent sets created by subdivision are exactly a shifted copy of the contraction's IS polynomial.
+I verified \eqref{eq:subdiv}--\eqref{eq:contract} computationally for all 66\,697 edges in trees on $3 \le n \le 14$, with zero mismatches.
+(Throughout, edge counts exclude the trivial single-edge tree $K_2$.)
+
+\begin{remark}
+  The identity can also be derived from the standard vertex-deletion formula $I(G) = I(G - v) + x \cdot I(G - N[v])$ applied to the subdivision vertex~$w$: deleting~$w$ gives the graph $T_u \sqcup T_v$ (with IS polynomial $I_u I_v$), and deleting $N[w] = \{w, u, v\}$ gives $(T_u - u) \sqcup (T_v - v)$ (contributing $R_u R_v$).
+  The same recurrence is known in broader graph settings; see \textcite[Theorem~20]{trinks2014}.
+\end{remark}
+
+The identity naturally leads to the following question: if $I(T)$ and $I(T/e)$ are both unimodal, when is their combination $I(T) + x \cdot I(T/e)$ unimodal?
+Since $x \cdot I(T/e)$ has mode $\mathrm{mode}(I(T/e)) + 1$, the answer depends on how far apart the modes of the two summands are.
+
+\begin{conjecture}[Edge Contraction Mode Stability]\label{conj:ecms}
+  For any tree~$T$ and edge~$e$,
+  \[
+    \bigl|\mathrm{mode}(I(T)) - \mathrm{mode}(I(T/e))\bigr| \;\le\; 1.
+  \]
+\end{conjecture}
+
+I verified ECMS for all 24\,710\,099 edges in non-isomorphic trees on $n \le 20$.
+Zero violations were found.
+The distribution of $\mathrm{mode}(I(T/e)) - \mathrm{mode}(I(T))$ is $-1$ in 26.6\%, $0$ in 73.3\%, and $+1$ in 0.09\% of cases.
+
+The identity already constrains the mode of $I(T_e)$ without any conjecture:
+
+\begin{proposition}[Mode sandwich]\label{prop:sandwich}
+  If $I(T)$ and $I(T/e)$ are both unimodal with modes $m$ and $m'$ respectively,
+  then the sum $I(T_e) = I(T) + x \cdot I(T/e)$ attains its maximum at some
+  $k \in [\min(m,\, m'{+}1),\, \max(m,\, m'{+}1)]$.
+\end{proposition}
+
+\begin{proof}
+  Write $A(x) = x \cdot I(T/e;\, x)$, which is unimodal with mode $m'{+}1$.
+  For $k < \min(m,\, m'{+}1)$, both $I(T)$ and~$A$ are non-decreasing, so their sum is non-decreasing.
+  For $k \ge \max(m,\, m'{+}1)$, both are non-increasing, so their sum is non-increasing.
+\end{proof}
+
+I verified the mode sandwich for all 3\,348\,674 edges in trees on $n \le 18$, with zero failures.
+An immediate consequence is that $\mathrm{mode}(I(T_e)) - \mathrm{mode}(I(T)) \in \{0, 1\}$ whenever ECMS holds: if $m' \ge m - 1$, then $m' + 1 \ge m$, so the sandwich interval contains~$m$ (and~$m{+}1$), and subdivision cannot decrease the mode.
+
+\begin{remark}[Mean shift approach]\label{rem:mean-shift}
+  Let $\mu(G) = I'(G;\,1)/I(G;\,1)$ denote the mean of the normalised coefficient sequence.
+  Differentiating Theorem~\ref{thm:identity} at $x = 1$ gives
+  \[
+    \mu(T_e) \;=\; \frac{a \cdot \mu(T) \;+\; b\bigl(1 + \mu(T/e)\bigr)}{a + b},
+    \qquad a = I(T;\,1),\quad b = I(T/e;\,1),
+  \]
+  so $\mu(T_e)$ is a weighted average of $\mu(T)$ and $1 + \mu(T/e)$.
+  In particular, $\mu(T) - \mu(T/e) < 1$ if and only if $\mu(T_e) < 1 + \mu(T/e)$.
+  In the hard-core model at $\lambda = 1$, writing $A = R_{u \to v}$ and $B = R_{v \to u}$ for the cavity messages along~$e = uv$, the mean shift decomposes as
+  \[
+    \mu(T) - \mu(T/e)
+    \;=\; \underbrace{\frac{A + B - AB}{(1+A+B)(1+AB)}}_{\textstyle\text{local} \;\in\; (0,\, 1/2)}
+    \;+\; \sum_{w \ne u,v} \bigl[P_T(w) - P_{T/e}(w)\bigr].
+  \]
+  The local term is in $(0, 1/2)$ since $A, B \in (0, 1]$ on any tree.
+  Exhaustive checks over 3\,348\,674 edges ($n \le 18$) give $|\mu(T)-\mu(T/e)| < 0.537$ (worst exhaustive value $\approx 0.533$), and an illustrative near-extremal family witness is the tripod star $T(5,5,5)$ (centre-to-bridge edge, $|\delta\mu| \approx 0.537$).
+  By \textcite{darroch1964}, mode localisation $\mathrm{mode}\in\{\lfloor\mu\rfloor,\lceil\mu\rceil\}$ holds for Poisson-binomial sequences; I verify the same localisation for all tree IS polynomials through $n=22$.
+  Therefore, a proof of $|\mu(T)-\mu(T/e)|<1$ together with this localisation would imply ECMS.
+\end{remark}
+
+\begin{proposition}[Distance-1 perturbation formula]\label{prop:s1-formula}
+  In the setting of Remark~\textup{\ref{rem:mean-shift}}, define the edge factors
+  \[
+    F_u = \frac{A(B^2 + B - 1)}{(1+A+B)(1+AB)}, \qquad
+    F_v = \frac{B(A^2 + A - 1)}{(1+A+B)(1+AB)}.
+  \]
+  For each $w \in N(u) \setminus \{v\}$ with cavity message $q_w = R_{w \to u}$,
+  \[
+    P_T(w) - P_{T/e}(w) \;=\; F_u \cdot \frac{q_w}{1 + q_w},
+  \]
+  and symmetrically for $w \in N(v) \setminus \{u\}$ with $F_v$ and $R_{w \to v}$.
+\end{proposition}
+
+I verified this formula exactly (max error ${<}\, 2 \times 10^{-16}$) for all edges in trees on $n \le 18$.
+Using $\sum_w q_w/(1+q_w) \le -\log A$ (from $\log(1+x) \ge x/(1+x)$ and $A = \prod_w (1+q_w)^{-1}$), the total distance-1 contribution satisfies $|S_1| \le |F_u|(-\log A) + |F_v|(-\log B)$; numerical optimisation over $[0,1]^2$ gives $\max |S_1| < 0.355$, well below the $1/2$ threshold.
+
+\begin{definition}\label{def:combined_tail}
+  For an edge $e$ in tree~$T$ with $\mathrm{mode}(I(T/e)) = \mathrm{mode}(I(T)) + 1$ (the \emph{gap case}), the \emph{combined tail condition} requires that $I(T_e)$ is non-increasing for all $k \ge \mathrm{mode}(I(T)) + 1$.
+\end{definition}
+
+I verified the combined tail condition for 9\,071\,864 edges in trees on $n \le 19$, finding zero violations.
+The gap case arises in 8\,405 of these edges (0.09\%); in every instance the sign pattern at the two ambiguous positions is $({+},\, {-})$, confirming that the sum peaks and then descends.
+
+\begin{lemma}[Adjacent-mode sum lemma]\label{lem:adjacent-mode-sum}
+  Let $(a_k)$ and $(b_k)$ be finite unimodal sequences of nonnegative reals with modes $p$ and $q$.
+  If $|p-q| \le 1$, then $(a_k+b_k)$ is unimodal.
+\end{lemma}
+
+\begin{proof}
+  Let $m_-=\min(p,q)$ and $m_+=\max(p,q)$.
+  For $k<m_-$, both sequences are non-decreasing, so $a_k+b_k$ is non-decreasing.
+  For $k\ge m_+$, both are non-increasing, so $a_k+b_k$ is non-increasing.
+  If $p=q$, this already gives unimodality with peak at~$p$.
+  If $|p-q|=1$, there is only one transition index between $m_-$ and $m_+$, so no strict valley can occur.
+\end{proof}
+
+\begin{theorem}[Conditional subdivision lemma]\label{thm:conditional}
+  Assume ECMS (Conjecture~\ref{conj:ecms}) and the combined tail condition (Definition~\ref{def:combined_tail}).
+  If $I(T)$ and $I(T/e)$ are both unimodal, then $I(T_e)$ is unimodal.
+\end{theorem}
+
+\begin{proof}
+Let $M = \mathrm{mode}(I(T))$.
+Define $A(x) = x \cdot I(T/e)$.
+Then $I(T_e) = I(T) + A(x)$.
+Let $M' = \mathrm{mode}(I(T/e))$.
+The polynomial $A(x)$ has mode $M' + 1$.
+Both $I(T)$ and $A(x)$ are unimodal with nonnegative coefficients.
+By ECMS, $M' \in \{M{-}1, M, M{+}1\}$, so $A(x)$ has mode in $\{M, M{+}1, M{+}2\}$.
+
+If the modes of $I(T)$ and $A(x)$ differ by at most~1, then their sum is unimodal by Lemma~\ref{lem:adjacent-mode-sum}.
+
+In the gap case ($M' = M + 1$, mode of~$A(x)$ at $M + 2$), there are two positions~-- $k = M$ and $k = M{+}1$~-- where $I(T)$ is descending and $A(x)$ is ascending.
+The combined tail condition ensures the sum is non-increasing from $M + 1$, preventing any valley.
+\end{proof}
+
+\begin{corollary}\label{cor:homirred}
+  Assuming ECMS and the combined tail condition, any minimal counterexample to Conjecture~\ref{conj:main} is homeomorphically irreducible~-- it has no degree-2 vertices.
+\end{corollary}
+
+\begin{proof}
+If $T$ has a degree-2 vertex~$w$ with neighbors $u$ and~$v$, then $T = T'_e$ where $T'$ is obtained by deleting~$w$ and adding edge~$uv$, and $e = uv$.
+Both $T'$ and $T'/e$ have fewer vertices than~$T$ (by one and two respectively), so both are unimodal by minimality.
+Theorem~\ref{thm:conditional} then gives $I(T) = I(T'_e)$ unimodal, contradicting the assumption that $T$ is a counterexample.
+\end{proof}
+
+\begin{remark}\label{rem:additional}
+  Several additional properties hold computationally.
+  Through $n = 19$ (9~million edges), the polynomial $A(x)$ is always log-concave (hence unimodal).
+  Through $n = 18$ (3.3~million edges), the tightest ratio $A[k{+}1]/A[k] \ge 1.125$, attained at $k = M - 1$.
+  Through $n = 20$ (24.7~million edges), the product $x\, R_u R_v$ never descends before $\mathrm{mode}(I(T))$, and vertex removal shifts the mode by at most~1 ($|\mathrm{mode}(I(T)) - \mathrm{mode}(I(T{-}v))| \le 1$ for all 26~million vertex-tree pairs).
+\end{remark}
+
+
 \section{Exhaustive verification through \texorpdfstring{$n = 27$}{n = 27}}\label{sec:exhaustive}
 
 Table~\ref{tab:exhaustive} shows the verification results.
@@ -785,7 +778,7 @@ Figure~\ref{fig:roots26} plots the roots of the independence polynomials of thes
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{figures/roots_n26_lc_failures.pdf}
-  \caption{Roots of the independence polynomials of the two LC-failing trees at $n = 26$.  All 12 displayed roots lie inside the unit circle; each tree also has a conjugate pair with modulus $\approx 52$ and~$45$, respectively (not shown).  Neither polynomial is real-rooted.}
+  \caption{Roots of the independence polynomials of the two LC-failing trees at $n = 26$.  All 12 displayed roots lie inside the unit circle; each tree also has a conjugate pair with modulus $\approx 52$ and~$45$, respectively (not shown).  Neither polynomial is real-rooted, ruling out a direct application of the Chudnovsky--Seymour framework \citep{chudnovsky2007} for log-concavity.}
   \label{fig:roots26}
 \end{figure}
 
@@ -882,9 +875,9 @@ The multi-arm star champion $M(s;\, 5, 5, 4, 2)$ has an empirical rate $\hat{C} 
 \subsection{Proved backbone}
 
 Two independent lines of argument constrain the structure of any counterexample.
+The PNP reduction (Section~\ref{sec:reduction}) provides combinatorial structure: Hub Exclusion and Transfer force the behavior of large IS on trees with many leaf-children, reducing the mode bound to Conjecture~A about $\dleaf \le 1$ trees.
 The subdivision-contraction identity (Theorem~\ref{thm:identity}) provides algebraic structure: the relationship $I(T_e) = I(T) + x \cdot I(T/e)$ connects three natural operations on trees.
 If ECMS (Conjecture~\ref{conj:ecms}) and the combined tail condition hold, subdivision preserves unimodality, so any minimal counterexample has no degree-2 vertices.
-The PNP reduction (Section~\ref{sec:reduction}) provides combinatorial structure: Hub Exclusion and Transfer force the behavior of large IS on trees with many leaf-children, reducing the mode bound to Conjecture~A about $\dleaf \le 1$ trees.
 
 These two threads don't yet close the problem.
 ECMS and Conjecture~A remain open, and neither immediately implies the other.
@@ -893,30 +886,23 @@ But they point toward complementary proof strategies: ECMS would be established 
 The hard-core model connection is worth highlighting.
 The edge bound $P(u) + P(v) < 2/3$ (Theorem~\ref{thm:edge-bound}) is tight for $K_2$ and already constrains the mean.
 For $\dleaf \le 1$ trees, the leaf-support pairing accounts for all but the interior vertices, whose occupation probabilities tend to be well below $1/3$.
-The proved bound $\mu < n/3$ (Corollary~\ref{cor:mu-bound}) settles Conjecture~A modulo the mode-mean inequality $\mathrm{mode} \le \lceil\mu\rceil$, which is verified for all 9\,114\,283 trees through $n = 22$ but remains open algebraically.
+The proved bound $\mu < n/3$ (Corollary~\ref{cor:mu-bound}) settles Conjecture~A modulo Conjecture~\ref{conj:mode-mean} (the mode-mean bound), which is verified for all 23\,942\,357 trees through $n = 23$ but remains open algebraically.
 
 \subsection{Conditional closure path}
 
 Two main open problems remain.
 First, prove ECMS.
-The mean shift approach (Remark~\ref{rem:mean-shift}) reduces this to showing $|\mu(T) - \mu(T/e)| < 1$, with the local component of the shift proved to lie in $(0, 1/2)$.
-The remaining remote component decays geometrically with distance from the contracted edge at rate $\approx 1/\varphi^2 \approx 0.382$ per hop (where $\varphi$ is the golden ratio), and is empirically less than $0.264$ in absolute value across all $3\,348\,674$ edges in trees on $n \le 18$.
-The distance-1 contribution admits an exact formula (Proposition~\ref{prop:s1-formula}), with $|S_1| < 0.355$; the tail from distances $2$ and beyond alternates in sign and partially cancels $S_1$ in $90\%$ of edges.
-For all parameterised families tested (paths, stars, caterpillars, tripods, brooms) through $n = 300$, the maximum $|\text{remote}|$ converges and never exceeds~$0.254$.
+The mean shift approach (Remark~\ref{rem:mean-shift}) reduces this to showing $|\mu(T) - \mu(T/e)| < 1$, with the local component proved to lie in $(0, 1/2)$ and the distance-1 remote contribution bounded by $|S_1| < 0.355$ (Proposition~\ref{prop:s1-formula}); for further empirical diagnostics, see Appendix~\ref{app:certificates}.
 Second, prove Conjecture~A.
-The proved mean bound $\mu < n/3$ reduces this to the mode-mean inequality $\mathrm{mode} \le \lceil\mu\rceil$; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the mean bound is tight.
+The proved mean bound $\mu < n/3$ reduces this to Conjecture~\ref{conj:mode-mean}; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the mean bound is tight.
 The compensation condition~\eqref{eq:whnc} provides a more direct path: Propositions~\ref{prop:singleton} and~\ref{prop:mixed-single} together cover all $S \subseteq H$ with at most one non-leaf heavy vertex, and in all 931\,596 trees tested through $n = 23$, the tightest subset is always a singleton.
-Two additional exploratory routes are being tracked but are not used in the theorem dependencies above: a degree-2 decomposition route and a DP ratio-dominance route.
-Both have strong computational support (through $n=23$ and $n=22$ respectively) but remain conjectural and are retained as auxiliary programmes rather than part of the primary proof backbone.
 On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
 
 \subsection{Empirical frontier and artifact pipeline}
 
-The hard-core model tools developed here~-- the edge bound, Hub Exclusion, and the occupation probability framework~-- also have applications to biological network analysis, where tree-like backbones arise in protein interaction and phylogenetic networks; these connections are explored in a companion paper (\href{https://github.com/BrettRey/tree-independence-bio}{github.com/BrettRey/tree-independence-bio}).
-
-The conjecture remains unproved, but the computational evidence increasingly constrains the terrain.
+The conjecture remains unproved, but the computational evidence increasingly constrains the space of potential counterexamples.
 Any counterexample must be homeomorphically irreducible (if ECMS and the combined tail condition hold), must have high leaf-degree vertices (by the PNP reduction), and cannot arise from pendant-leaf attachment to a fixed core (by the asymptotic theorem).
-The margin of unimodality can be made arbitrarily small~-- multi-arm stars approach the boundary at rate $1/s$~-- but the boundary itself appears inviolable.
+The margin of unimodality can be made arbitrarily small~-- multi-arm stars approach the boundary at rate $1/s$~-- but the boundary appears to be strict.
 
 For empirical stress diagnostics (including the complete $n=25$ frontier snapshot and witness classes), see Appendix~\ref{app:certificates}.
 
@@ -925,15 +911,15 @@ All code, data, and reproduction scripts are available at
 
 \paragraph{Artifact availability.}
 I archive a reproducible manuscript snapshot as Git tag
-\texttt{paper-v2-2026-02-23-doi3} at commit
-\texttt{05385c969f3069d3a5db31d009b71c397ef4c096}, released at
-\href{https://github.com/BrettRey/erdos-problem-993/releases/tag/paper-v2-2026-02-23-doi3}{github.com/BrettRey/\allowbreak erdos-problem-993/\allowbreak releases/\allowbreak tag/\allowbreak paper-v2-2026-02-23-doi3}.
+\texttt{paper-v2-2026-03-04-doi5} at commit
+\texttt{7615ec330d4da68351bee3f52a3f0ce5d1d85425}, released at
+\href{https://github.com/BrettRey/erdos-problem-993/releases/tag/paper-v2-2026-03-04-doi5}{github.com/BrettRey/\allowbreak erdos-problem-993/\allowbreak releases/\allowbreak tag/\allowbreak paper-v2-2026-03-04-doi5}.
 API documentation is published at
 \href{https://brettrey.github.io/erdos-problem-993/docs/}{brettrey.github.io/\allowbreak erdos-problem-993/\allowbreak docs/}.
-The corresponding Zenodo record is
-\href{https://doi.org/10.5281/zenodo.18745547}{doi:\allowbreak 10.5281/\allowbreak zenodo.18745547}
-(concept DOI
-\href{https://doi.org/10.5281/zenodo.18745546}{10.5281/\allowbreak zenodo.18745546}).
+The corresponding Zenodo concept DOI is
+\href{https://doi.org/10.5281/zenodo.18745546}{10.5281/\allowbreak zenodo.18745546}
+(version DOI:
+\href{https://doi.org/10.5281/zenodo.18866031}{10.5281/\allowbreak zenodo.18866031}).
 
 
 \section*{Acknowledgements}
@@ -976,24 +962,10 @@ python3 targeted.py --max-n 500 --random-count 5000
 python3 nm_optimizer.py --min-n 50 --max-n 200
 \end{verbatim}
 
-For the deterministic machine-artifact pipeline introduced in the final reduction rounds, the repository now includes executable runtimes
-\texttt{pi\_n/} and \texttt{orchestrator\_v13/}, together with fixture/golden conformance tests (\texttt{T0..T7}) and replay verification.
-Two committed artifact bundles are provided:
-\texttt{results/orchestrator\_v13\_run\_n24\_n25/} (mixed-source normalization) and
-\texttt{results/orchestrator\_v13\_run\_direct\_lambda\_n22\_n25/} (direct lambda-frontier extraction).
-The direct lambda run is generated via
-\texttt{scripts/build\_orchestrator\_input\_from\_lambda\_frontiers.py}
-and replay-verified with
-\texttt{python3 -m orchestrator\_v13.cli --verify}.
-For theorem-facing machine artifacts, the direct lambda-frontier extraction path is the canonical source; the mixed-source normalization bundle is retained as an integration test only.
-
-The machine-artifact serialization contract is:
-\begin{enumerate}
-  \item finite floats are emitted as JSON numbers; infinities as \texttt{\"inf\"}/\texttt{\"-inf\"}; NaN is forbidden;
-  \item all artifact JSON is canonicalized with sorted keys and compact separators;
-  \item each artifact file is replay-checked by re-running the deterministic pipeline on the same input bundle;
-  \item integrity digests are SHA-256 hashes of canonical artifact bytes and can be recomputed independently.
-\end{enumerate}
+For the deterministic machine-artifact pipeline, the repository includes executable runtimes
+\texttt{pi\_n/} and \texttt{orchestrator\_v13/} with fixture-based conformance tests and replay verification.
+Two committed artifact bundles cover $n = 22$--$25$; the direct lambda-frontier extraction path (via \texttt{scripts/build\_orchestrator\_input\_from\_lambda\_frontiers.py}) is canonical.
+See the repository documentation for serialization contracts, golden-byte checks, and SHA-256 integrity digests.
 
 Random seeds are fixed (\texttt{random.Random(42)}) in \texttt{targeted.py}, ensuring deterministic reproduction.
 Per-family breakdowns are archived in \texttt{results/targeted\_families.json}.
@@ -1007,32 +979,32 @@ Table~\ref{tab:certificates} summarizes all verified properties.
   \centering
   \caption{Computational certificates.  All checks found zero violations.}
   \label{tab:certificates}
-  \begin{tabular}{l r r}
+  \begin{tabular}{l r r r}
     \toprule
-    Property & Count & $n$ range \\
+    Property & Count & $n$ range & Ref \\
     \midrule
-    Unimodality (exhaustive) & \liningnums{1\,198\,738\,056} trees & $\le 27$ \\
-    LC (exhaustive, $n \le 25$) & \liningnums{167\,879\,146} trees & $\le 25$ \\
-    $I(T_e) = I(T) + x I(T/e)$ & \liningnums{66\,697} edges & $\le 14$ \\
-    ECMS & \liningnums{24\,710\,099} edges & $\le 20$ \\
-    $A(x)$ unimodal and LC & \liningnums{9\,071\,864} edges & $\le 19$ \\
-    Combined tail & \liningnums{9\,071\,864} edges & $\le 19$ \\
-    $x R_u R_v$ ascending before mode & \liningnums{24\,710\,099} edges & $\le 20$ \\
-    $|\delta(T, v)| \le 1$ & \liningnums{26\,056\,121} pairs & $\le 20$ \\
-    Conjecture A & \liningnums{931\,596} trees & $\le 23$ \\
-    $\mu < n/3$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ \\
-    Compensation~\eqref{eq:whnc} ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ \\
-    Singleton argmin & \liningnums{931\,596} trees & $\le 23$ \\
-    Case B bound & \liningnums{8\,710\,881} trees & $\le 22$ \\
-    $S_1$ formula (Prop.~\ref{prop:s1-formula}) & \liningnums{3\,348\,674} edges & $\le 18$ \\
-    $|\delta\mu| < 0.537$ & \liningnums{3\,348\,674} edges & $\le 18$ \\
-    LC ($\dleaf \le 1$ trees) & \liningnums{931\,596} trees & $\le 23$ \\
-    $\mathrm{mode} \le \lceil\mu\rceil$ (all trees) & \liningnums{9\,114\,283} trees & $\le 22$ \\
-    $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ ($\dleaf \le 1$) & \liningnums{175\,722} trees & $\le 21$ \\
-    Tie-fugacity: $\mu(\lambda_m) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ \\
-    Tie-fugacity: $\mu(\lambda_m) \ge m-1$ (all trees) & \liningnums{9\,114\,283} trees & $\le 22$ \\
-    Bridge mode bound: $\mathrm{mode}(P) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ \\
-    Regime frontier shards (alpha + lambda, Modal) & \liningnums{512} shards & $n = 25$ \\
+    Unimodality (exhaustive) & \liningnums{1\,198\,738\,056} trees & $\le 27$ & Conj.~\ref{conj:main} \\
+    LC (exhaustive, $n \le 25$) & \liningnums{167\,879\,146} trees & $\le 25$ & \S\ref{sec:exhaustive} \\
+    $I(T_e) = I(T) + x I(T/e)$ & \liningnums{66\,697} edges & $\le 14$ & Thm.~\ref{thm:identity} \\
+    ECMS & \liningnums{24\,710\,099} edges & $\le 20$ & Conj.~\ref{conj:ecms} \\
+    $A(x)$ unimodal and LC & \liningnums{9\,071\,864} edges & $\le 19$ & Thm.~\ref{thm:conditional} \\
+    Combined tail & \liningnums{9\,071\,864} edges & $\le 19$ & Def.~\ref{def:combined_tail} \\
+    $x R_u R_v$ ascending before mode & \liningnums{24\,710\,099} edges & $\le 20$ & Rem.~\ref{rem:additional} \\
+    $|\delta(T, v)| \le 1$ & \liningnums{26\,056\,121} pairs & $\le 20$ & Rem.~\ref{rem:additional} \\
+    Conjecture A & \liningnums{931\,596} trees & $\le 23$ & Conj.~\ref{conj:A} \\
+    $\mu < n/3$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ & Cor.~\ref{cor:mu-bound} \\
+    Compensation~\eqref{eq:whnc} ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ & Prop.~\ref{prop:singleton} \\
+    Singleton argmin & \liningnums{931\,596} trees & $\le 23$ & \S\ref{sec:discussion} \\
+    Case B bound & \liningnums{8\,710\,881} trees & $\le 22$ & \S\ref{sec:reduction} \\
+    $S_1$ formula (Prop.~\ref{prop:s1-formula}) & \liningnums{3\,348\,674} edges & $\le 18$ & Prop.~\ref{prop:s1-formula} \\
+    $|\delta\mu| < 0.537$ & \liningnums{3\,348\,674} edges & $\le 18$ & Rem.~\ref{rem:mean-shift} \\
+    LC ($\dleaf \le 1$ trees) & \liningnums{931\,596} trees & $\le 23$ & \S\ref{subsec:mean} \\
+    $\mathrm{mode} \le \lceil\mu\rceil$ (all trees) & \liningnums{9\,114\,283} trees & $\le 22$ & \S\ref{subsec:mean} \\
+    $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ ($\dleaf \le 1$) & \liningnums{175\,722} trees & $\le 21$ & \S\ref{subsec:mean} \\
+    Tie-fugacity: $\mu(\lambda_m) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ & Prop.~\ref{prop:spider-tie-margin} \\
+    Tie-fugacity: $\mu(\lambda_m) \ge m-1$ (all trees) & \liningnums{9\,114\,283} trees & $\le 22$ & Prop.~\ref{prop:spider-tie-margin} \\
+    Bridge mode bound: $\mathrm{mode}(P) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ & \S\ref{subsec:mean} \\
+    Regime frontier shards (alpha + lambda, Modal) & \liningnums{512} shards & $n = 25$ & \S\ref{sec:discussion} \\
     \bottomrule
   \end{tabular}
 \end{table}
