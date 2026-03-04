@@ -9,6 +9,35 @@
 
 The current manuscript is `paper/main_v2.tex` (11 pages, XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. Detailed notes are in `notes/subdivision_new_findings.md`, `notes/one_private_status.md`, and `notes/conjecture_A_analysis.md`.
 
+## Current state (2026-03-04)
+
+### Session notes (2026-03-04)
+- Implemented and pushed deterministic runtime packages:
+  - `pi_n/` (exact-rational `Pi(n)` with transcript certificates + replay verifiers)
+  - `orchestrator_v13/` (authoritative gating, partition selection, queueing, obligations, replay checker)
+- Added fixture-based conformance harness for orchestrator v13:
+  - `orchestrator_v13/tests/fixtures/T0..T7`
+  - byte-stable golden artifacts under `orchestrator_v13/tests/goldens/`
+  - replay and golden tests passing (`test_fixtures.py`, `test_golden_bytes.py`)
+- Added direct data extractor for orchestrator input from Modal lambda-frontier outputs:
+  - `scripts/build_orchestrator_input_from_lambda_frontiers.py`
+  - uses script-native semantics (`X = Lambda-D`, `R = R_shift`, `sum_all = Σ err_s`)
+- Produced and committed reproducible machine artifacts:
+  - mixed-source normalization run:
+    - `results/orchestrator_v13_input_from_modal_n24_n25.json`
+    - `results/orchestrator_v13_run_n24_n25/*.json`
+    - `results/pi_n_cert_from_modal_n24_n25.json`
+  - direct lambda-source run:
+    - `results/orchestrator_v13_input_direct_lambda_n22_n25.json`
+    - `results/orchestrator_v13_run_direct_lambda_n22_n25/*.json`
+    - `results/pi_n_cert_from_direct_lambda_n22_n25.json`
+  - provenance notes:
+    - `notes/orchestrator_v13_n24_n25_run_2026-03-03.md`
+    - `notes/orchestrator_v13_direct_lambda_run_2026-03-03.md`
+- Direct lambda-source artifact status:
+  - orchestrator v13 selected `PI0`, `Phi=0`, global closure `CLOSED`
+  - `Pi(n)` certificate status `PASS` with replay verification successful
+
 ## Current state (2026-02-16)
 
 ### Session notes (2026-02-16, night)

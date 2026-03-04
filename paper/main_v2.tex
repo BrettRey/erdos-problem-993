@@ -933,6 +933,16 @@ python3 targeted.py --max-n 500 --random-count 5000
 python3 nm_optimizer.py --min-n 50 --max-n 200
 \end{verbatim}
 
+For the deterministic machine-artifact pipeline introduced in the final reduction rounds, the repository now includes executable runtimes
+\texttt{pi\_n/} and \texttt{orchestrator\_v13/}, together with fixture/golden conformance tests (\texttt{T0..T7}) and replay verification.
+Two committed artifact bundles are provided:
+\texttt{results/orchestrator\_v13\_run\_n24\_n25/} (mixed-source normalization) and
+\texttt{results/orchestrator\_v13\_run\_direct\_lambda\_n22\_n25/} (direct lambda-frontier extraction).
+The direct lambda run is generated via
+\texttt{scripts/build\_orchestrator\_input\_from\_lambda\_frontiers.py}
+and replay-verified with
+\texttt{python3 -m orchestrator\_v13.cli --verify}.
+
 Random seeds are fixed (\texttt{random.Random(42)}) in \texttt{targeted.py}, ensuring deterministic reproduction.
 Per-family breakdowns are archived in \texttt{results/targeted\_families.json}.
 
