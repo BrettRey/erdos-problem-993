@@ -1,0 +1,6 @@
+Alavi, Malde, Schwenk, and Erdős (1987) conjectured that the independence polynomial of every tree is unimodal.
+I prove that the mean independent-set size satisfies $\mu(T) < n/3$ for every tree in which each vertex has at most one leaf-child ($d_{\mathrm{leaf}} \le 1$), via a decimation identity and Steiner peeling on a heavy-vertex compensation function.
+A chain of structural lemmas -- Hub Exclusion and Transfer -- reduces the mode bound for all trees to a single conjecture (Conjecture A) about these $d_{\mathrm{leaf}} \le 1$ trees; the mean bound settles Conjecture A conditionally, subject to a conjectured mode-mean inequality $\mathrm{mode} \le \lceil\mu\rceil$ that is verified for all 23 million trees through $n = 23$.
+Independently, I re-derive the subdivision-contraction identity $I(T_e) = I(T) + x \cdot I(T/e)$ in tree DP form and show that a conjectured Edge Contraction Mode Stability property (verified for 24.7 million edges) implies any minimal counterexample is homeomorphically irreducible.
+On the computational side, I verify the conjecture exhaustively for all 1,198,738,056 trees on $n \le 27$ vertices, with near-miss metrics through $n = 26$.
+An evolutionary search identifies multi-arm stars as the extremal family; the near-miss ratio satisfies $\mathrm{nm}(s) = 1 - C/s + O(1/s^2)$ with $C \in [4, 8)$.

@@ -1,0 +1,35 @@
+{
+  "count_extra_pos": 4807022,
+  "count_extra_pos_xneg": 140333,
+  "count_prefix": 7622710,
+  "count_slack_zero_extra_pos": 997,
+  "count_slack_zero_extra_pos_xneg": 0,
+  "count_xneg": 428434,
+  "min_ratio_all": -5.666666666666667,
+  "min_ratio_xneg": -1.2393103264773966,
+  "witness_all": {
+    "Extra": 3,
+    "a": 2,
+    "b": 2,
+    "g6": "G?`@F_",
+    "k": 2,
+    "n": 8,
+    "ratio": -5.666666666666667,
+    "root": 7,
+    "slack": -17,
+    "step": 3,
+    "xneg": false
+  },
+  "witness_xneg": {
+    "Extra": 2931474,
+    "a": 2,
+    "b": 15,
+    "g6": "R????????????????????_?B??D~~_",
+    "k": 5,
+    "n": 19,
+    "ratio": -1.2393103264773966,
+    "root": 0,
+    "slack": -3633006,
+    "step": 2
+  }
+}

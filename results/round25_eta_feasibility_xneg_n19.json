@@ -1,0 +1,19 @@
+{
+  "min_slack_over_extra_xneg": -21.127962085308056,
+  "witness_min": {
+    "Extra": 211,
+    "a": 2,
+    "b": 15,
+    "g6": "R????????????????????_?B??D~~_",
+    "k": 2,
+    "n": 19,
+    "ratio": -21.127962085308056,
+    "root": 0,
+    "slack": -4458,
+    "step": 2
+  },
+  "xneg_extra_pos": 140333,
+  "xneg_slack_neg_extra_pos": 140333,
+  "xneg_slack_zero_extra_pos": 0,
+  "xneg_total": 428434
+}
