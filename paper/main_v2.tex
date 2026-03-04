@@ -107,6 +107,24 @@ My contributions:
   \item Identification of multi-arm stars as the extremal family and an asymptotic analysis of the near-miss ratio (Section~\ref{sec:extremal}).
 \end{enumerate}
 
+\begin{table}[ht]
+  \centering
+  \caption{Dependency map for the main claims.}
+  \label{tab:dependency-map}
+  \begin{tabular}{p{0.28\linewidth} p{0.14\linewidth} p{0.23\linewidth} p{0.27\linewidth}}
+    \toprule
+    Claim & Status & Depends on & Evidence path \\
+    \midrule
+    Subdivision-contraction identity (Thm.~\ref{thm:identity}) & Proved & DP decomposition & \S\ref{sec:identity} + edge checks ($n \le 14$) \\
+    Conditional subdivision closure (Thm.~\ref{thm:conditional}) & Conditional & ECMS + combined tail & \S\ref{sec:identity}; ECMS/tail certificates in App.~\ref{app:certificates} \\
+    Reduction to $\dleaf \le 1$ regime (Hub Exclusion + Transfer) & Proved & PNP framework lemmas & \S\ref{sec:reduction} \\
+    Conjecture~A closure via mean bound & Conditional & mode-mean bridge $\mathrm{mode}\le\lceil\mu\rceil$ & \S\ref{sec:reduction} + App.~\ref{app:certificates} \\
+    Exhaustive no-counterexample claim ($n \le 27$) & Empirical & Tree enumeration + exact IS checks & \S\ref{sec:exhaustive}, App.~\ref{app:repro} \\
+    Regime-adaptive hard-step frontier snapshot ($n=25$) & Empirical & complete Modal shard dictionaries & \S\ref{sec:discussion}, App.~\ref{app:certificates} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
 
 \section{Definitions and method}\label{sec:method}
 
@@ -839,6 +857,8 @@ The multi-arm star champion $M(s;\, 5, 5, 4, 2)$ has an empirical rate $\hat{C} 
 
 \section{Discussion}\label{sec:discussion}
 
+\subsection{Proved backbone}
+
 Two independent lines of argument constrain the structure of any counterexample.
 The subdivision-contraction identity (Theorem~\ref{thm:identity}) provides algebraic structure: the relationship $I(T_e) = I(T) + x \cdot I(T/e)$ connects three natural operations on trees.
 If ECMS (Conjecture~\ref{conj:ecms}) and the combined tail condition hold, subdivision preserves unimodality, so any minimal counterexample has no degree-2 vertices.
@@ -853,6 +873,8 @@ The edge bound $P(u) + P(v) < 2/3$ (Theorem~\ref{thm:edge-bound}) is tight for $
 For $\dleaf \le 1$ trees, the leaf-support pairing accounts for all but the interior vertices, whose occupation probabilities tend to be well below $1/3$.
 The proved bound $\mu < n/3$ (Corollary~\ref{cor:mu-bound}) settles Conjecture~A modulo the mode-mean inequality $\mathrm{mode} \le \lceil\mu\rceil$, which is verified for all 9\,114\,283 trees through $n = 22$ but remains open algebraically.
 
+\subsection{Conditional closure path}
+
 Two main open problems remain.
 First, prove ECMS.
 The mean shift approach (Remark~\ref{rem:mean-shift}) reduces this to showing $|\mu(T) - \mu(T/e)| < 1$, with the local component of the shift proved to lie in $(0, 1/2)$.
@@ -865,6 +887,8 @@ The compensation condition~\eqref{eq:whnc} provides a more direct path: Proposit
 An alternative algebraic approach decomposes the IS polynomial at any degree-2 vertex in a $\dleaf \le 1$ tree, expressing $I(T)$ as a linear combination of subtree polynomials whose log-concavity is inherited from the product structure; the mode bound then reduces to local coefficient inequalities on these factors, which hold computationally for all 931\,596 trees through $n = 23$ but remain open.
 A third approach exploits the product structure of the DP more directly. At a support vertex~$r$, the exclude-root polynomial $E = \prod (E_c + x J_c)$ is built by iterated convolution with factors from child subtrees, while $J = \prod E_c$. Individual factors can fail ratio dominance ($E_c + x J_c \not\succeq E_c$ for roughly $30\%$ of subtrees at $n = 28$), yet the accumulated product satisfies $E \succeq J$ at every support vertex of every tree through $n = 22$ (907\,million checks, 0~failures), though the full ratio dominance fails in the tail ($k > \mathrm{mode}$) at $n = 32$. At each incremental step, the ratio-dominance minor $d_k(E_{\mathrm{new}}, J_{\mathrm{new}})$ splits into a \emph{Karlin term} $d_k(E_{\mathrm{acc}} \cdot g,\, J_{\mathrm{acc}} \cdot g)$, which is non-negative by the TP2 convolution theorem (since $E_{\mathrm{acc}} \succeq J_{\mathrm{acc}}$ inductively and $g = E_t$ is log-concave), and a correction term involving $h = xJ_t$. Empirically the Karlin term dominates the correction at every support vertex through $n = 20$; the case $s = 1$ (one non-leaf child, handling $63\%$ of support vertices) is proved. The discovery that aggregate ratio dominance persists despite factor-level failures was guided by an analogy with homeostatic property cluster theory \citep{boyd1999}: the DP product mechanism maintains an invariant that no individual component satisfies.
 On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
+
+\subsection{Empirical frontier and artifact pipeline}
 
 The hard-core model tools developed here~-- the edge bound, Hub Exclusion, and the occupation probability framework~-- also have applications to biological network analysis, where tree-like backbones arise in protein interaction and phylogenetic networks; these connections are explored in a companion paper (\href{https://github.com/BrettRey/tree-independence-bio}{github.com/BrettRey/tree-independence-bio}).
 
@@ -942,6 +966,15 @@ The direct lambda run is generated via
 \texttt{scripts/build\_orchestrator\_input\_from\_lambda\_frontiers.py}
 and replay-verified with
 \texttt{python3 -m orchestrator\_v13.cli --verify}.
+For theorem-facing machine artifacts, the direct lambda-frontier extraction path is the canonical source; the mixed-source normalization bundle is retained as an integration test only.
+
+The machine-artifact serialization contract is:
+\begin{enumerate}
+  \item finite floats are emitted as JSON numbers; infinities as \texttt{\"inf\"}/\texttt{\"-inf\"}; NaN is forbidden;
+  \item all artifact JSON is canonicalized with sorted keys and compact separators;
+  \item each artifact file is replay-checked by re-running the deterministic pipeline on the same input bundle;
+  \item integrity digests are SHA-256 hashes of canonical artifact bytes and can be recomputed independently.
+\end{enumerate}
 
 Random seeds are fixed (\texttt{random.Random(42)}) in \texttt{targeted.py}, ensuring deterministic reproduction.
 Per-family breakdowns are archived in \texttt{results/targeted\_families.json}.
@@ -990,6 +1023,26 @@ $\alpha_{\mathrm{front}}(25)=0.15739052900321043$ (witness class $(2,21)$),
 $\lambda_{\mathrm{front}}(25)=0.34114585595914226$ (witness class $(5,18)$),
 and gap $-0.18375532695593183$; see
 \texttt{results/n25\_modal\_frontier\_authoritative\_2026-03-03.json}.
+
+\section{Falsification ledger}\label{app:falsification}
+
+\begin{table}[ht]
+  \centering
+  \caption{Severe tests for the main hypotheses.}
+  \label{tab:falsification}
+  \begin{tabular}{p{0.28\linewidth} p{0.25\linewidth} p{0.14\linewidth} p{0.23\linewidth}}
+    \toprule
+    Hypothesis & Severe test & Outcome & Primary artifact \\
+    \midrule
+    Identity $I(T_e)=I(T)+xI(T/e)$ & Exhaustive edge checks on trees $n \le 14$ & No violations & App.~\ref{app:certificates}, identity row \\
+    ECMS $|\Delta \mathrm{mode}| \le 1$ & Exhaustive edge scan on trees $n \le 20$ & No violations & App.~\ref{app:certificates}, ECMS row \\
+    Combined tail in gap case & Exhaustive edge scan on trees $n \le 19$ & No violations & App.~\ref{app:certificates}, combined-tail row \\
+    Conjecture A on $\dleaf \le 1$ trees & Exhaustive scan through $n=23$ & No violations & App.~\ref{app:certificates}, Conjecture~A row \\
+    Regime hard-step frontier completeness at $n=25$ & Full shard completion ($256+256$) + replayed aggregation & Complete; obstruction gap widened & \texttt{results/n25\_modal\_frontier\_authoritative\_2026-03-03.json} \\
+    Machine-artifact determinism & Fixture matrix T0--T7 + golden-byte replay checks & Passing & \texttt{orchestrator\_v13/tests/} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 
 \section{Verification checklist}\label{app:verify}
