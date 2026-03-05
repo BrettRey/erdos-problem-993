@@ -39,7 +39,7 @@ def _dict_name(n: int) -> str:
     return f"erdos-993-n{n}-lc-nm-results"
 
 
-@app.function(image=image, timeout=7200, cpu=1)
+@app.function(image=image, timeout=43200, cpu=1)
 def analyze_partition(
     n: int,
     res: int,

@@ -9,9 +9,37 @@
 
 The current manuscript is `paper/main_v2.tex` (11 pages, XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. Detailed notes are in `notes/subdivision_new_findings.md`, `notes/one_private_status.md`, and `notes/conjecture_A_analysis.md`.
 
+## Current state (2026-03-05)
+
+### Session notes (2026-03-05)
+- Cleaned up stale docs after the committed `n=27` LC + near-miss artifact:
+  - `README.md`, `STATUS.md`, `paper/main_v2.tex`
+  - `results/analysis_n27_modal_lc_nm.json` now reflected in top-level summaries
+- Added a dict-backed collector for Modal shard jobs:
+  - `scripts/collect_modal_results.py`
+  - supports `status` snapshots and `collect` merges for both unimodality and LC/NM runs
+- Hardened Modal wrappers for `n>=28`:
+  - raised worker timeout from `2h` to `12h`
+  - fixed stale wrapper defaults in `search_modal_exhaustive_n29.py` and `analyze_modal_lc_nm_n28.py`
+  - added `launch_partitions` to those wrappers for parity with the base scripts
+- Started new large-`n` runs:
+  - `n=28` exhaustive unimodality
+  - `n=28` exhaustive LC + near-miss
+  - `n=29` exhaustive unimodality
+- Live snapshot at logging time:
+  - `n=28` unimodality: `396/1024` partitions, `614,576,414` trees, `0` counterexamples so far
+  - `n=28` LC/NM: `75/1024` partitions, `97,539,110` trees, `0` non-unimodal, `2` LC failures so far, best `nm=0.8565665724120973`
+  - `n=29` unimodality: `36/1024` partitions, `111,044,351` trees, `0` counterexamples so far
+- Session log:
+  - `notes/modal_jobs_2026-03-05.md`
+
 ## Current state (2026-03-04)
 
 ### Session notes (2026-03-04)
+- Folded in the committed `n=27` LC + near-miss Modal artifact:
+  - `results/analysis_n27_modal_lc_nm.json`
+  - 751,065,460 trees, 0 unimodality failures, 0 log-concavity failures
+  - best near-miss ratio `0.8571425274916726` at `k=13`
 - Implemented and pushed deterministic runtime packages:
   - `pi_n/` (exact-rational `Pi(n)` with transcript certificates + replay verifiers)
   - `orchestrator_v13/` (authoritative gating, partition selection, queueing, obligations, replay checker)
@@ -133,7 +161,9 @@ n=26 details:
 
 n=27 details:
 - Computed on Modal cloud (app ID: ap-T9RkZ9fGOtXyvZgPEuYBkZ)
-- LC failures and near-miss ratio not yet computed (search only checked unimodality)
+- LC + near-miss follow-up completed (`results/analysis_n27_modal_lc_nm.json`)
+- 0 log-concavity failures
+- Best near-miss ratio `nm = 0.8571425274916726` (first tail rise candidate at `k = 13`)
 
 ### Computational certificates
 
@@ -146,8 +176,8 @@ n=27 details:
 | Combined tail | 9,071,864 edges | <= 19 | 0 |
 | xR_uR_v ascending before mode | 24,710,099 edges | <= 20 | 0 |
 | |delta(T,v)| <= 1 | 26,056,121 pairs | <= 20 | 0 |
-| Conjecture A | 528,196 trees | <= 23 | 0 |
-| mu < n/3 (d_leaf <= 1) | 528,196 trees | <= 23 | 0 |
+| Conjecture A | 931,596 trees | <= 23 | 0 |
+| mu < n/3 (d_leaf <= 1) | 931,596 trees | <= 23 | 0 |
 | Case B bound | 8,710,881 trees | <= 22 | 0 |
 
 ### Targeted search on structured families (n up to 500)
@@ -175,6 +205,7 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 - `search_modal.py` -- Modal cloud search script (n=27)
 - `results/analysis_n26.json` -- n=26 exhaustive LC and near-miss summary
 - `results/analysis_n27_modal.json` -- n=27 exhaustive unimodality check (Modal)
+- `results/analysis_n27_modal_lc_nm.json` -- n=27 exhaustive LC and near-miss summary (Modal)
 - `results/targeted_n500.json` -- targeted search summary + top near-misses
 - `results/targeted_families.json` -- per-family summary for the targeted search
 - `notes/subdivision_new_findings.md` -- definitive subdivision analysis
@@ -185,7 +216,7 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 
 1. Prove ECMS (edge contraction shifts mode by at most 1)
 2. Prove Conjecture A (d_leaf <= 1 => mode <= floor(n/3)+1), perhaps via mu < n/3
-3. Compute LC failures and near-miss ratios for n=27 (unimodality confirmed, but LC/nm not yet run)
+3. Extend exhaustive verification to n=28 (and compute LC / near-miss metrics there)
 4. Submit paper to Experimental Mathematics
 
 ## Dead ends (do NOT revisit)

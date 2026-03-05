@@ -22,9 +22,10 @@ The manuscript (`paper/main_v2.tex`) reports:
 - **Leaf-attachment asymptotics:** nm(s) = 1 - C/s + O(1/s^2) with C in [4, 8)
 
 **Computational verification:**
-- Exhaustive: all 447,672,596 trees on n <= 26 are unimodal (0 violations)
+- Exhaustive: all 1,198,738,056 trees on n <= 27 are unimodal (0 violations)
+- n = 27: 751,065,460 trees, 0 unimodality failures, 0 log-concavity failures, best near-miss ratio 0.8571425
 - ECMS verified for 24.7M edges (n <= 20), 0 violations
-- Conjecture A verified for 528K trees (n <= 23), 0 violations
+- Conjecture A verified for 931,596 trees (n <= 23), 0 violations
 - Multi-arm stars identified as the extremal family (surpassing brooms)
 
 ## Setup
@@ -41,8 +42,12 @@ Optional: install [nauty](https://pallini.di.uniroma1.it/) for fast tree enumera
 # Unit tests (37 tests)
 python3 -m unittest test_all.py -v
 
-# Exhaustive search, n <= 26 (8 workers, requires geng)
+# Exhaustive search, n <= 26 locally (8 workers, requires geng)
 python3 search.py --max-n 26 --workers 8
+
+# Modal cloud runs for larger n
+modal run --detach search_modal_exhaustive.py --n 28 --workers 1024
+modal run --detach analyze_modal_lc_nm_n28.py::main --n 28 --workers 1024 --top-k 200 --lc-top-k 200
 
 # Targeted family search (n up to 500)
 python3 targeted.py --max-n 500 --random-count 5000

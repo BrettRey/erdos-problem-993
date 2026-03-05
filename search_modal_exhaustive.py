@@ -38,7 +38,7 @@ def _dict_name(n: int) -> str:
     return f"erdos-993-n{n}-unimodality-results"
 
 
-@app.function(image=image, timeout=7200, cpu=1)
+@app.function(image=image, timeout=43200, cpu=1)
 def check_partition(n: int, res: int, mod: int, dict_name: str) -> dict[str, Any]:
     """Check one geng partition and write result to a persistent Modal Dict."""
     import sys

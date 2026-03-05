@@ -39,7 +39,7 @@ def _dict_name(n: int) -> str:
     return f"erdos-993-n{n}-lc-nm-results"
 
 
-@app.function(image=image, timeout=7200, cpu=1)
+@app.function(image=image, timeout=43200, cpu=1)
 def analyze_partition(
     n: int,
     res: int,
@@ -138,6 +138,30 @@ def analyze_partition(
     return result
 
 
+@app.function(image=image, timeout=3600, cpu=1)
+def launch_partitions(
+    n: int,
+    workers: int,
+    top_k: int,
+    lc_top_k: int,
+    dict_name: str,
+    collect_all_lc: bool,
+) -> dict[str, Any]:
+    """Launch one detached analysis task per partition from a server-side function."""
+    for res in range(workers):
+        analyze_partition.spawn(
+            n, res, workers, top_k, lc_top_k, dict_name, collect_all_lc
+        )
+    return {
+        "launched": workers,
+        "n": n,
+        "dict_name": dict_name,
+        "top_k": top_k,
+        "lc_top_k": lc_top_k,
+        "collect_all_lc": collect_all_lc,
+    }
+
+
 @app.function(image=image, timeout=300)
 def collect_results(n: int, workers: int, dict_name: str) -> dict[str, Any]:
     results_dict = modal.Dict.from_name(dict_name, create_if_missing=True)
@@ -160,7 +184,7 @@ def collect_results(n: int, workers: int, dict_name: str) -> dict[str, Any]:
 
 @app.local_entrypoint()
 def main(
-    n: int = 27,
+    n: int = 28,
     workers: int = 1024,
     top_k: int = 200,
     lc_top_k: int = 200,
@@ -276,7 +300,7 @@ def main(
 
 @app.local_entrypoint()
 def dispatch(
-    n: int = 27,
+    n: int = 28,
     workers: int = 1024,
     top_k: int = 200,
     lc_top_k: int = 200,

@@ -61,7 +61,7 @@
 I prove that the mean independent-set size satisfies $\mu(T) < n/3$ for every tree in which each vertex has at most one leaf-child ($\dleaf \le 1$), via a decimation identity and Steiner peeling on a heavy-vertex compensation function.
 A chain of structural lemmas~-- Hub Exclusion and Transfer~-- reduces the mode bound for all trees to a single conjecture (Conjecture~A) about these $\dleaf \le 1$ trees; the mean bound settles Conjecture~A conditionally, subject to a conjectured mode-mean inequality $\mathrm{mode} \le \lceil\mu\rceil$ that is verified for all 23~million trees through $n = 23$.
 Independently, I re-derive the subdivision-contraction identity $I(T_e) = I(T) + x \cdot I(T/e)$ in tree DP form and show that a conjectured Edge Contraction Mode Stability property (verified for 24.7~million edges) implies any minimal counterexample is homeomorphically irreducible.
-On the computational side, I verify the conjecture exhaustively for all 1\,198\,738\,056 trees on $n \le 27$ vertices, with near-miss metrics through $n = 26$.
+On the computational side, I verify the conjecture exhaustively for all 1\,198\,738\,056 trees on $n \le 27$ vertices, with log-concavity and near-miss metrics through $n = 27$.
 An evolutionary search identifies multi-arm stars as the extremal family; the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \in [4, 8)$.
 \end{abstract}
 
@@ -92,7 +92,7 @@ My contributions:
   \item A tree-specialized derivation and mode-analysis use of the subdivision-contraction recurrence $I(T_e) = I(T) + x \cdot I(T/e)$ (Section~\ref{sec:identity}).
   \item A conjectured Edge Contraction Mode Stability (ECMS) property, verified for 24.7~million edges (Section~\ref{sec:identity}).
   \item A conditional subdivision lemma: ECMS and a verified tail condition together imply subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible (Section~\ref{sec:identity}).
-  \item Exhaustive verification for all trees on $n \le 27$ vertices, with near-miss metrics through $n = 26$ (Section~\ref{sec:exhaustive}).
+  \item Exhaustive verification for all trees on $n \le 27$ vertices, with log-concavity and near-miss metrics through $n = 27$ (Section~\ref{sec:exhaustive}).
   \item Identification of multi-arm stars as the extremal family and an asymptotic analysis of the near-miss ratio (Section~\ref{sec:extremal}).
 \end{enumerate}
 
@@ -772,7 +772,7 @@ For each generated tree, the pipeline computes the full coefficient vector $(i_0
 The case $n = 26$ is the first at which log-concavity fails: \textcite{kadrawi2023} found exactly two failures through exhaustive enumeration.
 My independent re-analysis reproduces these two failures (both at $k = 13$, worst ratio $i_{12}\, i_{14} / i_{13}^2 = 1.145$) and adds the near-miss metric: $\nm = 0.845$~-- far below the violation threshold.
 Even where log-concavity breaks, unimodality holds with a comfortable margin.
-Extending to $n = 27$ (751~million trees, run on Modal cloud compute with 1024 parallel workers) finds no unimodality violations, bringing the total to nearly 1.2~billion trees checked.
+Extending to $n = 27$ (751~million trees, run on Modal cloud compute with 1024 parallel workers) finds no unimodality violations and no log-concavity failures; the top near-miss ratio is $\nm = 0.8571425$ at position $k = 13$, bringing the total to nearly 1.2~billion trees checked.
 Figure~\ref{fig:roots26} plots the roots of the independence polynomials of these two trees in the complex plane; neither polynomial is real-rooted.
 
 \begin{figure}[ht]
@@ -950,6 +950,7 @@ python3 search.py --max-n 26 --workers 8
 # n = 27 (Modal cloud compute, 1024 workers)
 # App ID: ap-T9RkZ9fGOtXyvZgPEuYBkZ
 modal run search_modal.py
+modal run analyze_modal_lc_nm.py --n 27 --workers 1024 --top-k 200 --lc-top-k 200
 
 # Regime-adaptive frontier diagnostics at n = 25 (Modal, 256 residues)
 modal run scan_modal_alpha_bookkeeping.py::dispatch_missing --min-n 25 --max-n 25 --workers 256

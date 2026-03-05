@@ -38,7 +38,7 @@ def _dict_name(n: int) -> str:
     return f"erdos-993-n{n}-unimodality-results"
 
 
-@app.function(image=image, timeout=7200, cpu=1)
+@app.function(image=image, timeout=43200, cpu=1)
 def check_partition(n: int, res: int, mod: int, dict_name: str) -> dict[str, Any]:
     """Check one geng partition and write result to a persistent Modal Dict."""
     import sys
@@ -70,6 +70,14 @@ def check_partition(n: int, res: int, mod: int, dict_name: str) -> dict[str, Any
     return result
 
 
+@app.function(image=image, timeout=3600, cpu=1)
+def launch_partitions(n: int, workers: int, dict_name: str) -> dict[str, Any]:
+    """Launch one detached worker task per partition from a server-side function."""
+    for res in range(workers):
+        check_partition.spawn(n, res, workers, dict_name)
+    return {"launched": workers, "n": n, "dict_name": dict_name}
+
+
 @app.function(image=image, timeout=300)
 def collect_results(n: int, workers: int, dict_name: str) -> dict[str, Any]:
     """Collect completed results from the persistent dict."""
@@ -95,7 +103,7 @@ def collect_results(n: int, workers: int, dict_name: str) -> dict[str, Any]:
 
 
 @app.local_entrypoint()
-def main(n: int = 28, workers: int = 1024, expected: int = 0, out_json: str = ""):
+def main(n: int = 29, workers: int = 1024, expected: int = 0, out_json: str = ""):
     """Launch exhaustive run and wait for completion."""
     if out_json == "":
         out_json = f"results/analysis_n{n}_modal_unimodality.json"
@@ -150,7 +158,7 @@ def main(n: int = 28, workers: int = 1024, expected: int = 0, out_json: str = ""
 
 
 @app.local_entrypoint()
-def dispatch(n: int = 28, workers: int = 1024):
+def dispatch(n: int = 29, workers: int = 1024):
     """Fire-and-forget launch: spawn one task per partition and exit."""
     dict_name = _dict_name(n)
     print(
