@@ -22,7 +22,8 @@ The manuscript (`paper/main_v2.tex`) reports:
 - **Leaf-attachment asymptotics:** nm(s) = 1 - C/s + O(1/s^2) with C in [4, 8)
 
 **Computational verification:**
-- Exhaustive: all 1,198,738,056 trees on n <= 27 are unimodal (0 violations)
+- Exhaustive: all 3,222,181,088 trees on n <= 28 are unimodal (0 violations)
+- n = 28: 2,023,443,032 trees, 0 unimodality failures, 19 log-concavity failures (all at k = 14), best near-miss ratio 0.8565666
 - n = 27: 751,065,460 trees, 0 unimodality failures, 0 log-concavity failures, best near-miss ratio 0.8571425
 - ECMS verified for 24.7M edges (n <= 20), 0 violations
 - Conjecture A verified for 931,596 trees (n <= 23), 0 violations
@@ -46,8 +47,10 @@ python3 -m unittest test_all.py -v
 python3 search.py --max-n 26 --workers 8
 
 # Modal cloud runs for larger n
-modal run --detach search_modal_exhaustive.py --n 28 --workers 1024
-modal run --detach analyze_modal_lc_nm_n28.py::main --n 28 --workers 1024 --top-k 200 --lc-top-k 200
+modal run search_modal_exhaustive.py::dispatch --n 28 --workers 1024
+modal run analyze_modal_lc_nm_n28.py::dispatch --n 28 --workers 1024 --top-k 200 --lc-top-k 200
+python3 scripts/collect_modal_results.py collect --kind unimodality --n 28 --workers 1024 --expected 2023443032 --out results/analysis_n28_modal_unimodality.json
+python3 scripts/collect_modal_results.py collect --kind lc_nm --n 28 --workers 1024 --top-k 200 --lc-top-k 200 --out results/analysis_n28_modal_lc_nm.json
 
 # Targeted family search (n up to 500)
 python3 targeted.py --max-n 500 --random-count 5000

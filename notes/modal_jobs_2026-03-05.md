@@ -160,3 +160,19 @@ Reason:
   - `n=30` LC/NM: `52.9h`
 
 So `n=30` is not the next sensible burn under the current setup.
+
+## Completion addendum (2026-03-06)
+
+- Repaired missing-shard fanout by adding `dispatch_missing` entrypoints to the
+  four Modal wrappers touched in this session.
+- Final `n=28` unimodality artifact collected:
+  - `results/analysis_n28_modal_unimodality.json`
+  - `2,023,443,032` trees, `0` counterexamples
+- Final `n=28` LC + near-miss artifact collected:
+  - `results/analysis_n28_modal_lc_nm.json`
+  - `2,023,443,032` trees
+  - `0` non-unimodal trees
+  - `19` LC failures, all at `k = 14`
+  - worst LC ratio `1.5027777777777778`
+  - best near-miss ratio `0.8565665724120973`
+- Exhaustive unimodality frontier is now `3,222,181,088` trees through `n=28`.

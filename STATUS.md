@@ -9,6 +9,32 @@
 
 The current manuscript is `paper/main_v2.tex` (11 pages, XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. Detailed notes are in `notes/subdivision_new_findings.md`, `notes/one_private_status.md`, and `notes/conjecture_A_analysis.md`.
 
+## Current state (2026-03-06)
+
+### Session notes (2026-03-06)
+- Repaired Modal shard fanout by adding `dispatch_missing` entrypoints to:
+  - `search_modal_exhaustive.py`
+  - `search_modal_exhaustive_n29.py`
+  - `analyze_modal_lc_nm.py`
+  - `analyze_modal_lc_nm_n28.py`
+- Collected final `n=28` Modal artifacts:
+  - `results/analysis_n28_modal_unimodality.json`
+  - `results/analysis_n28_modal_lc_nm.json`
+- Final `n=28` exhaustive unimodality result:
+  - `2,023,443,032` trees
+  - `0` unimodality failures
+  - tree count matches OEIS A000055
+- Final `n=28` exhaustive LC + near-miss result:
+  - `2,023,443,032` trees
+  - `0` non-unimodal trees
+  - `19` log-concavity failures, all at `k = 14`
+  - worst LC ratio `1.5027777777777778`
+  - best near-miss ratio `0.8565665724120973` at `k = 13`
+- Exhaustive unimodality frontier is now:
+  - `3,222,181,088` trees through `n = 28`
+  - `0` unimodality failures
+- `n=29` exhaustive unimodality remains in progress; an additional missing-shard backfill was launched after the repair.
+
 ## Current state (2026-03-05)
 
 ### Session notes (2026-03-05)
@@ -134,12 +160,12 @@ All major claims of originality vetted against published literature:
 - Leaf-attachment asymptotics: **Novel**
 - n=26 exhaustive verification: Kadrawi & Levit (2023) checked LC at n=26 (implicitly confirming unimodality); our contribution is explicit unimodality check + near-miss metrics. Paper now acknowledges this.
 
-### Exhaustive verification through n = 27
+### Exhaustive verification through n = 28
 
-No unimodality violations among all 1,198,738,056 non-isomorphic trees on n <= 27 vertices. Tree counts match OEIS A000055.
+No unimodality violations among all 3,222,181,088 non-isomorphic trees on n <= 28 vertices. Tree counts match OEIS A000055.
 
-| n | Trees | Time |
-|---|------:|------:|
+| n | Trees | Time / notes |
+|---|------:|-------------:|
 | 1--15 | 13,188 | <1s |
 | 16 | 19,320 | 1s |
 | 17 | 48,629 | 3s |
@@ -153,7 +179,8 @@ No unimodality violations among all 1,198,738,056 non-isomorphic trees on n <= 2
 | 25 | 104,636,890 | 38m 33s |
 | 26 | 279,793,450 | 4h 51m |
 | 27 | 751,065,460 | 78m (Modal, 1024 workers) |
-| **Total** | **1,198,738,056** | |
+| 28 | 2,023,443,032 | Modal dict-backed (1024 workers) |
+| **Total** | **3,222,181,088** | |
 
 n=26 details:
 - Exactly 2 log-concavity failures (both at k = 13), matching Kadrawi & Levit (2023).
@@ -165,11 +192,20 @@ n=27 details:
 - 0 log-concavity failures
 - Best near-miss ratio `nm = 0.8571425274916726` (first tail rise candidate at `k = 13`)
 
+n=28 details:
+- Unimodality artifact collected (`results/analysis_n28_modal_unimodality.json`)
+- LC + near-miss artifact collected (`results/analysis_n28_modal_lc_nm.json`)
+- 0 unimodality failures
+- 19 log-concavity failures, all at `k = 14`
+- Worst LC ratio `1.5027777777777778`
+- Best near-miss ratio `nm = 0.8565665724120973` (first tail rise candidate at `k = 13`)
+
 ### Computational certificates
 
 | Check | Count | n range | Failures |
 |-------|-------|---------|----------|
-| Unimodality (exhaustive) | 1,198,738,056 trees | <= 27 | 0 |
+| Unimodality (exhaustive) | 3,222,181,088 trees | <= 28 | 0 |
+| LC + near-miss (exhaustive) | 3,222,181,088 trees | <= 28 | 21 LC failures |
 | I(T_e) = I(T) + x I(T/e) | 66,697 edges | <= 14 | 0 |
 | ECMS | 24,710,099 edges | <= 20 | 0 |
 | A(x) unimodal and LC | 9,071,864 edges | <= 19 | 0 |
@@ -206,6 +242,8 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 - `results/analysis_n26.json` -- n=26 exhaustive LC and near-miss summary
 - `results/analysis_n27_modal.json` -- n=27 exhaustive unimodality check (Modal)
 - `results/analysis_n27_modal_lc_nm.json` -- n=27 exhaustive LC and near-miss summary (Modal)
+- `results/analysis_n28_modal_unimodality.json` -- n=28 exhaustive unimodality check (Modal)
+- `results/analysis_n28_modal_lc_nm.json` -- n=28 exhaustive LC and near-miss summary (Modal)
 - `results/targeted_n500.json` -- targeted search summary + top near-misses
 - `results/targeted_families.json` -- per-family summary for the targeted search
 - `notes/subdivision_new_findings.md` -- definitive subdivision analysis
@@ -216,7 +254,7 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 
 1. Prove ECMS (edge contraction shifts mode by at most 1)
 2. Prove Conjecture A (d_leaf <= 1 => mode <= floor(n/3)+1), perhaps via mu < n/3
-3. Extend exhaustive verification to n=28 (and compute LC / near-miss metrics there)
+3. Finish `n=29` exhaustive unimodality and decide whether `n=29` LC / near-miss is worth the spend after reviewing the `n=28` LC failures
 4. Submit paper to Experimental Mathematics
 
 ## Dead ends (do NOT revisit)

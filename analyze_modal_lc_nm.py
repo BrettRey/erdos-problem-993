@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import heapq
 import json
+import subprocess
 import time
 from typing import Any
 
@@ -37,6 +38,16 @@ image = (
 
 def _dict_name(n: int) -> str:
     return f"erdos-993-n{n}-lc-nm-results"
+
+
+def _missing_residues(dict_name: str, workers: int) -> list[int]:
+    raw = subprocess.check_output(
+        ["modal", "dict", "items", dict_name, str(max(workers, 2000)), "--json"],
+        text=True,
+    )
+    rows = json.loads(raw)
+    seen = {int(row["Key"].split("/")[0]) for row in rows}
+    return [res for res in range(workers) if res not in seen]
 
 
 @app.function(image=image, timeout=43200, cpu=1)
@@ -318,3 +329,30 @@ def dispatch(
             n, res, workers, top_k, lc_top_k, dict_name, collect_all_lc
         )
     print("Dispatch submitted.")
+
+
+@app.local_entrypoint()
+def dispatch_missing(
+    n: int = 27,
+    workers: int = 1024,
+    top_k: int = 200,
+    lc_top_k: int = 200,
+    collect_all_lc: bool = False,
+):
+    """Spawn only partitions that have not yet written a dict row."""
+    dict_name = _dict_name(n)
+    missing = _missing_residues(dict_name, workers)
+    print(
+        f"Dispatching missing LC/NM tasks for n={n}, workers={workers}, "
+        f"top_k={top_k}, lc_top_k={lc_top_k}, collect_all_lc={collect_all_lc}, "
+        f"dict={dict_name}"
+    )
+    print(f"Missing partitions: {len(missing)}")
+    if not missing:
+        print("Nothing to dispatch.")
+        return
+    for res in missing:
+        analyze_partition.spawn(
+            n, res, workers, top_k, lc_top_k, dict_name, collect_all_lc
+        )
+    print("Missing-partition dispatch submitted.")

@@ -11,6 +11,7 @@ Examples:
 from __future__ import annotations
 
 import json
+import subprocess
 import time
 from typing import Any
 
@@ -36,6 +37,16 @@ image = (
 
 def _dict_name(n: int) -> str:
     return f"erdos-993-n{n}-unimodality-results"
+
+
+def _missing_residues(dict_name: str, workers: int) -> list[int]:
+    raw = subprocess.check_output(
+        ["modal", "dict", "items", dict_name, str(max(workers, 2000)), "--json"],
+        text=True,
+    )
+    rows = json.loads(raw)
+    seen = {int(row["Key"].split("/")[0]) for row in rows}
+    return [res for res in range(workers) if res not in seen]
 
 
 @app.function(image=image, timeout=43200, cpu=1)
@@ -168,3 +179,21 @@ def dispatch(n: int = 28, workers: int = 1024):
     for res in range(workers):
         check_partition.spawn(n, res, workers, dict_name)
     print("Dispatch submitted.")
+
+
+@app.local_entrypoint()
+def dispatch_missing(n: int = 28, workers: int = 1024):
+    """Spawn only partitions that have not yet written a dict row."""
+    dict_name = _dict_name(n)
+    missing = _missing_residues(dict_name, workers)
+    print(
+        f"Dispatching missing unimodality tasks for n={n}, workers={workers}, "
+        f"dict={dict_name}"
+    )
+    print(f"Missing partitions: {len(missing)}")
+    if not missing:
+        print("Nothing to dispatch.")
+        return
+    for res in missing:
+        check_partition.spawn(n, res, workers, dict_name)
+    print("Missing-partition dispatch submitted.")
