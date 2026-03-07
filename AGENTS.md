@@ -13,9 +13,10 @@
 - `test_forced_bound.py`: Case B bound verification (8.7M trees n<=22).
 - `test_spider_extremality.py`: spider maximizes mu among d_leaf<=1 (n<=20).
 - `investigate_dleaf1_mean.py`: mean mu vs n/3 for d_leaf<=1 trees.
-- `paper/main_v2.tex`: current manuscript (11pp, XeLaTeX + biber).
+- `paper/main_v2.tex`: current manuscript (XeLaTeX + biber).
 - `paper/main.tex`: previous manuscript version.
-- `notes/`: detailed analysis notes (subdivision_new_findings.md, one_private_status.md, conjecture_A_analysis.md are definitive).
+- `notes/`: detailed analysis notes (`one_private_status.md` and `conjecture_A_analysis.md` are the main proof-status references).
+- `subdivision_correct.py`, `verify_subdivision_formula.py`: definitive subdivision identity analysis and verification.
 - `README.md`, `STATUS.md`, `CLAUDE.md`: project overview, current status, and agent constraints.
 
 ## Build, Test, and Development Commands
@@ -46,6 +47,6 @@
 ## Agent-Specific Instructions
 - Read `CLAUDE.md` before making claims about results; do not state verification without running computations.
 - The current paper is `paper/main_v2.tex`, not `paper/main.tex`.
-- See `notes/subdivision_new_findings.md` for the definitive subdivision analysis.
+- See `subdivision_correct.py` and `verify_subdivision_formula.py` for the definitive subdivision analysis.
 - See `notes/one_private_status.md` for the definitive PNP framework.
-- See MEMORY.md for dead ends (do NOT revisit).
+- See `notes/scc_false_n28_2026-03-01.md` and other obsolete notes for dead ends (do NOT revisit).

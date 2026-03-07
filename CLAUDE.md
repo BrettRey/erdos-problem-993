@@ -8,7 +8,7 @@ This is a computational mathematics project. The goal is to search for a counter
 
 ## Source of truth for results
 
-The manuscript in `paper/main.tex` contains the most up-to-date results narrative.
+The manuscript in `paper/main_v2.tex` contains the most up-to-date results narrative.
 When citing numeric results, cross-check `results/*.json` (notably `results/analysis_n26.json` and `results/targeted_n500.json`) or rerun computations.
 Do not claim verification without running the computations.
 

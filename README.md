@@ -66,7 +66,7 @@ python3 nm_optimizer.py --min-n 50 --max-n 200
 
 | File | Description |
 |------|-------------|
-| `paper/main_v2.tex` | Current manuscript (11pp, XeLaTeX + biber) |
+| `paper/main_v2.tex` | Current manuscript (XeLaTeX + biber) |
 | `paper/main.tex` | Previous version |
 | `indpoly.py` | Core DP + analysis functions |
 | `search.py` | Exhaustive parallel search |

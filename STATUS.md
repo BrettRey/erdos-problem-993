@@ -7,7 +7,7 @@
 
 ## Source of truth
 
-The current manuscript is `paper/main_v2.tex` (11 pages, XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. Detailed notes are in `notes/subdivision_new_findings.md`, `notes/one_private_status.md`, and `notes/conjecture_A_analysis.md`.
+The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
 ## Current state (2026-03-06)
 
@@ -109,7 +109,7 @@ The current manuscript is `paper/main_v2.tex` (11 pages, XeLaTeX + biber). Numer
 - Created `search_modal.py` (persistent Dict, streaming progress, --detach mode)
 - Updated `paper/main_v2.tex`: Modal app ID in reproducibility appendix, companion biology paper mention in Discussion
 - Killed orphaned multiprocessing workers from earlier local search attempt
-- **Lessons learned (recorded in MEMORY.md)**: never kill running processes without asking; Modal --detach; Python multiprocessing orphans; check logs don't speculate
+- **Lessons learned**: never kill running processes without asking; Modal --detach can leave stale local clients; Python multiprocessing can orphan workers; check logs before speculating
 
 ### Session notes (2026-02-16, afternoon)
 - Reviewed Gemini 3's unsolicited patent application ("Hub Exclusion Scheduling")
@@ -245,7 +245,7 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 
 ## Artifacts
 
-- `paper/main_v2.tex` -- current manuscript (12pp, compiles cleanly)
+- `paper/main_v2.tex` -- current manuscript (compiles cleanly)
 - `paper/figures/roots_n26_lc_failures.pdf` -- root plot (Figure 1)
 - `plot_roots_n26.py` -- generates the root plot
 - `email_galvin.md` -- draft email to David Galvin for feedback
@@ -259,7 +259,8 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 - `results/analysis_n29_modal_unimodality.json` -- n=29 exhaustive unimodality check (Modal)
 - `results/targeted_n500.json` -- targeted search summary + top near-misses
 - `results/targeted_families.json` -- per-family summary for the targeted search
-- `notes/subdivision_new_findings.md` -- definitive subdivision analysis
+- `subdivision_correct.py` -- definitive subdivision identity analysis
+- `verify_subdivision_formula.py` -- subdivision-contraction identity verifier
 - `notes/one_private_status.md` -- definitive PNP framework
 - `notes/conjecture_A_analysis.md` -- Conjecture A reduction details
 
@@ -272,7 +273,7 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 
 ## Dead ends (do NOT revisit)
 
-See MEMORY.md for a comprehensive list. Key ones:
+See `notes/scc_false_n28_2026-03-01.md` and the other obsolete notes in `notes/` for dead ends not to revisit. Key ones:
 - Core avg < 1/3: FAILS at n=7+
 - Matching cover / SDR / Hall's condition: all FAIL
 - Product mode domination: FALSE
