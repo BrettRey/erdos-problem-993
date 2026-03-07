@@ -1,0 +1,14 @@
+{
+  "n": 29,
+  "workers": 1024,
+  "total_trees": 5469566585,
+  "expected": 5469566585,
+  "match": true,
+  "counterexamples": 0,
+  "counterexample_examples": [],
+  "platform": "Modal",
+  "dict_name": "erdos-993-n29-unimodality-results",
+  "date": "2026-03-06",
+  "complete": true,
+  "completed_partitions": 1024
+}

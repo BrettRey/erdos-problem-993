@@ -31,9 +31,14 @@ The current manuscript is `paper/main_v2.tex` (11 pages, XeLaTeX + biber). Numer
   - worst LC ratio `1.5027777777777778`
   - best near-miss ratio `0.8565665724120973` at `k = 13`
 - Exhaustive unimodality frontier is now:
-  - `3,222,181,088` trees through `n = 28`
+  - `8,691,747,673` trees through `n = 29`
   - `0` unimodality failures
-- `n=29` exhaustive unimodality remains in progress; an additional missing-shard backfill was launched after the repair.
+- Collected final `n=29` exhaustive unimodality artifact:
+  - `results/analysis_n29_modal_unimodality.json`
+  - `5,469,566,585` trees
+  - `0` counterexamples
+  - tree count matches OEIS A000055
+- The last `n=29` shard showed pathological binary-residue skew; completion was diagnosed and independently verified via an odd-mod rescue split before the main dict closed.
 
 ## Current state (2026-03-05)
 
@@ -160,9 +165,9 @@ All major claims of originality vetted against published literature:
 - Leaf-attachment asymptotics: **Novel**
 - n=26 exhaustive verification: Kadrawi & Levit (2023) checked LC at n=26 (implicitly confirming unimodality); our contribution is explicit unimodality check + near-miss metrics. Paper now acknowledges this.
 
-### Exhaustive verification through n = 28
+### Exhaustive verification through n = 29
 
-No unimodality violations among all 3,222,181,088 non-isomorphic trees on n <= 28 vertices. Tree counts match OEIS A000055.
+No unimodality violations among all 8,691,747,673 non-isomorphic trees on n <= 29 vertices. Tree counts match OEIS A000055.
 
 | n | Trees | Time / notes |
 |---|------:|-------------:|
@@ -180,7 +185,8 @@ No unimodality violations among all 3,222,181,088 non-isomorphic trees on n <= 2
 | 26 | 279,793,450 | 4h 51m |
 | 27 | 751,065,460 | 78m (Modal, 1024 workers) |
 | 28 | 2,023,443,032 | Modal dict-backed (1024 workers) |
-| **Total** | **3,222,181,088** | |
+| 29 | 5,469,566,585 | Modal dict-backed + odd-mod tail rescue |
+| **Total** | **8,691,747,673** | |
 
 n=26 details:
 - Exactly 2 log-concavity failures (both at k = 13), matching Kadrawi & Levit (2023).
@@ -200,11 +206,17 @@ n=28 details:
 - Worst LC ratio `1.5027777777777778`
 - Best near-miss ratio `nm = 0.8565665724120973` (first tail rise candidate at `k = 13`)
 
+n=29 details:
+- Unimodality artifact collected (`results/analysis_n29_modal_unimodality.json`)
+- 0 unimodality failures
+- Tree count matches OEIS exactly: `5,469,566,585`
+- LC + near-miss metrics have not yet been run at `n = 29`
+
 ### Computational certificates
 
 | Check | Count | n range | Failures |
 |-------|-------|---------|----------|
-| Unimodality (exhaustive) | 3,222,181,088 trees | <= 28 | 0 |
+| Unimodality (exhaustive) | 8,691,747,673 trees | <= 29 | 0 |
 | LC + near-miss (exhaustive) | 3,222,181,088 trees | <= 28 | 21 LC failures |
 | I(T_e) = I(T) + x I(T/e) | 66,697 edges | <= 14 | 0 |
 | ECMS | 24,710,099 edges | <= 20 | 0 |
@@ -244,6 +256,7 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 - `results/analysis_n27_modal_lc_nm.json` -- n=27 exhaustive LC and near-miss summary (Modal)
 - `results/analysis_n28_modal_unimodality.json` -- n=28 exhaustive unimodality check (Modal)
 - `results/analysis_n28_modal_lc_nm.json` -- n=28 exhaustive LC and near-miss summary (Modal)
+- `results/analysis_n29_modal_unimodality.json` -- n=29 exhaustive unimodality check (Modal)
 - `results/targeted_n500.json` -- targeted search summary + top near-misses
 - `results/targeted_families.json` -- per-family summary for the targeted search
 - `notes/subdivision_new_findings.md` -- definitive subdivision analysis
@@ -254,7 +267,7 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 
 1. Prove ECMS (edge contraction shifts mode by at most 1)
 2. Prove Conjecture A (d_leaf <= 1 => mode <= floor(n/3)+1), perhaps via mu < n/3
-3. Finish `n=29` exhaustive unimodality and decide whether `n=29` LC / near-miss is worth the spend after reviewing the `n=28` LC failures
+3. Decide whether `n=29` LC / near-miss is worth the spend after reviewing the `n=28` LC failures
 4. Submit paper to Experimental Mathematics
 
 ## Dead ends (do NOT revisit)
