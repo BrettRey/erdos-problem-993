@@ -9,6 +9,28 @@
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## Current state (2026-03-11)
+
+### Session notes (2026-03-11)
+- Added prospect-aware archive scoring to:
+  - `nm_optimizer.py`
+  - `scripts/lc_breaker_optimizer.py`
+- Added the March 2026 Ramsey/AlphaEvolve paper to:
+  - `paper/references.bib`
+  - `paper/main_v2.tex`
+- Rebuilt `paper/main_v2.tex` successfully with XeLaTeX + biber after the new citation.
+- Evaluated the remaining obvious compute gap:
+  - `n=29` LC + near-miss
+  - estimated Modal cost is on the order of `$1k` before credits at the established `1024`-worker setting
+- Dispatched then stopped a trial Modal app for `n=29` LC/NM:
+  - app id: `ap-D5xjmI0DeGpzgxaxo1wQUG`
+  - final state: `stopped`
+  - no result artifact collected; `results/analysis_n29_modal_lc_nm.json` still does not exist
+- Project disposition:
+  - exhaustive unimodality result through `n=29` stands as the final computational frontier
+  - no further large-compute work is planned under current budget
+  - treat the project as shelved unless a cheap paper-only cleanup task arises
+
 ## Current state (2026-03-06)
 
 ### Session notes (2026-03-06)
