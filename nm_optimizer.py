@@ -71,6 +71,105 @@ def _tree_signature(adj: list[list[int]]) -> str:
     return f"n{n}_l{leaves}_d{max_deg}_b{branch_verts}"
 
 
+def _adj_fingerprint(adj: list[list[int]]) -> str:
+    """Canonical edge-list fingerprint for exact dedup."""
+    edges = []
+    for u, neighbors in enumerate(adj):
+        for v in neighbors:
+            if u < v:
+                edges.append(f"{u}-{v}")
+    return ";".join(edges)
+
+
+def _selection_score(nm: float, prospect_nm: float, prospect_bonus: float) -> float:
+    """Score a tree by its current nm plus observed mutation upside."""
+    return nm + prospect_bonus * max(0.0, prospect_nm - nm)
+
+
+def _population_sort_key(candidate: dict) -> tuple:
+    return (-candidate["score"], -candidate["nm"], candidate["generation"], candidate["label"])
+
+
+def _archive_sort_key(candidate: dict) -> tuple:
+    return (-candidate["nm"], -candidate["score"], candidate["generation"], candidate["label"])
+
+
+def _dedupe_candidates(candidates: list[dict], *, archive_mode: bool) -> list[dict]:
+    """Keep the strongest representative for each exact tree."""
+    best_by_fp: dict[str, dict] = {}
+    for candidate in candidates:
+        fingerprint = candidate["fingerprint"]
+        incumbent = best_by_fp.get(fingerprint)
+        if incumbent is None:
+            best_by_fp[fingerprint] = candidate
+            continue
+
+        better = (
+            _archive_sort_key(candidate) < _archive_sort_key(incumbent)
+            if archive_mode
+            else _population_sort_key(candidate) < _population_sort_key(incumbent)
+        )
+        if better:
+            best_by_fp[fingerprint] = candidate
+    return list(best_by_fp.values())
+
+
+def _update_archive(archive: list[dict], candidates: list[dict], archive_size: int) -> list[dict]:
+    """Retain the best distinct exact trees by raw nm."""
+    merged = _dedupe_candidates(archive + [deepcopy(c) for c in candidates], archive_mode=True)
+    merged.sort(key=_archive_sort_key)
+    return merged[:archive_size]
+
+
+def _random_tree(n: int, rng: random.Random) -> list[list[int]]:
+    """Generate a random labeled tree via Prüfer code."""
+    prufer = [rng.randrange(n) for _ in range(n - 2)]
+    adj: list[list[int]] = [[] for _ in range(n)]
+    degree = [1] * n
+    for v in prufer:
+        degree[v] += 1
+    for v in prufer:
+        for u in range(n):
+            if degree[u] == 1:
+                adj[u].append(v)
+                adj[v].append(u)
+                degree[u] -= 1
+                degree[v] -= 1
+                break
+    last = [u for u in range(n) if degree[u] == 1]
+    if len(last) == 2:
+        adj[last[0]].append(last[1])
+        adj[last[1]].append(last[0])
+    return adj
+
+
+def _make_individual(
+    n: int,
+    adj: list[list[int]],
+    label: str,
+    ev: dict,
+    generation: int,
+    prospect_bonus: float,
+    prospect_nm: float | None = None,
+) -> dict:
+    """Package a tree with scoring metadata."""
+    if prospect_nm is None:
+        prospect_nm = ev["nm"]
+    return {
+        "n": n,
+        "adj": adj,
+        "label": label,
+        "nm": ev["nm"],
+        "unimodal": ev["unimodal"],
+        "alpha": ev["alpha"],
+        "generation": generation,
+        "score": _selection_score(ev["nm"], prospect_nm, prospect_bonus),
+        "prospect_nm": prospect_nm,
+        "prospect_gain": max(0.0, prospect_nm - ev["nm"]),
+        "fingerprint": _adj_fingerprint(adj),
+    }
+
+
 # ── Mutations ───────────────────────────────────────────────────────
 
 
@@ -318,24 +417,7 @@ def generate_seeds(n: int, count: int, rng: random.Random) -> list[tuple[int, li
 
     # Random trees via Prüfer codes
     while len(seeds) < count:
-        prufer = [rng.randrange(n) for _ in range(n - 2)]
-        adj_r: list[list[int]] = [[] for _ in range(n)]
-        degree = [1] * n
-        for v in prufer:
-            degree[v] += 1
-        for v in prufer:
-            for u in range(n):
-                if degree[u] == 1:
-                    adj_r[u].append(v)
-                    adj_r[v].append(u)
-                    degree[u] -= 1
-                    degree[v] -= 1
-                    break
-        last = [u for u in range(n) if degree[u] == 1]
-        if len(last) == 2:
-            adj_r[last[0]].append(last[1])
-            adj_r[last[1]].append(last[0])
-        seeds.append((n, adj_r, f"random_prufer_{len(seeds)}"))
+        seeds.append((n, _random_tree(n, rng), f"random_prufer_{len(seeds)}"))
 
     return seeds[:count]
 
@@ -366,12 +448,15 @@ def run_optimizer(
     generations: int = 500,
     elite_frac: float = 0.2,
     mutations_per_ind: int = 3,
+    archive_size: int = 12,
+    prospect_bonus: float = 0.5,
     seed: int = 42,
     verbose: bool = True,
 ) -> dict:
     """Run the evolutionary nm optimizer at fixed vertex count n."""
     rng = random.Random(seed)
     elite_count = max(2, int(pop_size * elite_frac))
+    archive_size = max(2, archive_size)
 
     # Generate seeds
     seeds = generate_seeds(n, pop_size, rng)
@@ -382,19 +467,14 @@ def run_optimizer(
         if n_t != n:
             continue
         ev = evaluate(n_t, adj)
-        population.append({
-            "n": n_t,
-            "adj": adj,
-            "label": label,
-            "nm": ev["nm"],
-            "unimodal": ev["unimodal"],
-            "alpha": ev["alpha"],
-            "generation": 0,
-        })
+        population.append(_make_individual(n_t, adj, label, ev, 0, prospect_bonus))
         if not ev["unimodal"]:
             return _counterexample_result(n_t, adj, label, ev, 0)
 
-    population.sort(key=lambda x: -x["nm"])
+    population = _dedupe_candidates(population, archive_mode=False)
+    population.sort(key=_population_sort_key)
+    population = population[:pop_size]
+    archive = _update_archive([], population, archive_size)
 
     best_ever = population[0]["nm"]
     best_ever_label = population[0]["label"]
@@ -405,13 +485,17 @@ def run_optimizer(
     history = [{
         "generation": 0,
         "best_nm": population[0]["nm"],
+        "best_score": population[0]["score"],
         "mean_nm": sum(p["nm"] for p in population) / len(population),
         "best_label": population[0]["label"],
+        "archive_best_nm": archive[0]["nm"],
+        "archive_size": len(archive),
         "signature": _tree_signature(population[0]["adj"]),
     }]
 
     if verbose:
         print(f"Gen   0: best_nm={population[0]['nm']:.10f}  "
+              f"best_score={population[0]['score']:.10f}  "
               f"mean={history[0]['mean_nm']:.6f}  "
               f"best={population[0]['label']}  "
               f"sig={_tree_signature(population[0]['adj'])}")
@@ -422,7 +506,9 @@ def run_optimizer(
 
         # Generate offspring via mutation
         offspring = []
+        refreshed_elite = []
         for parent in elite:
+            best_child_nm = parent["nm"]
             for _ in range(mutations_per_ind):
                 child_n, child_adj = parent["n"], deepcopy(parent["adj"])
                 # Apply 1-3 mutations
@@ -435,61 +521,72 @@ def run_optimizer(
 
                 ev = evaluate(child_n, child_adj)
                 child_label = f"mut_g{gen}_{len(offspring)}"
-                offspring.append({
-                    "n": child_n,
-                    "adj": child_adj,
-                    "label": child_label,
-                    "nm": ev["nm"],
-                    "unimodal": ev["unimodal"],
-                    "alpha": ev["alpha"],
-                    "generation": gen,
-                })
+                best_child_nm = max(best_child_nm, ev["nm"])
+                offspring.append(
+                    _make_individual(
+                        child_n,
+                        child_adj,
+                        child_label,
+                        ev,
+                        gen,
+                        prospect_bonus,
+                    )
+                )
 
                 if not ev["unimodal"]:
                     return _counterexample_result(
                         child_n, child_adj, child_label, ev, gen
                     )
 
+            refreshed_elite.append(
+                _make_individual(
+                    parent["n"],
+                    deepcopy(parent["adj"]),
+                    parent["label"],
+                    {
+                        "nm": parent["nm"],
+                        "unimodal": parent["unimodal"],
+                        "alpha": parent["alpha"],
+                    },
+                    parent["generation"],
+                    prospect_bonus,
+                    prospect_nm=best_child_nm,
+                )
+            )
+
         # Also inject a few fresh random individuals to avoid premature convergence
         for _ in range(max(2, pop_size // 10)):
-            prufer = [rng.randrange(n) for _ in range(n - 2)]
-            adj_r: list[list[int]] = [[] for _ in range(n)]
-            degree = [1] * n
-            for v in prufer:
-                degree[v] += 1
-            for v in prufer:
-                for u in range(n):
-                    if degree[u] == 1:
-                        adj_r[u].append(v)
-                        adj_r[v].append(u)
-                        degree[u] -= 1
-                        degree[v] -= 1
-                        break
-            last = [u for u in range(n) if degree[u] == 1]
-            if len(last) == 2:
-                adj_r[last[0]].append(last[1])
-                adj_r[last[1]].append(last[0])
+            adj_r = _random_tree(n, rng)
             ev = evaluate(n, adj_r)
-            offspring.append({
-                "n": n,
-                "adj": adj_r,
-                "label": f"inject_g{gen}",
-                "nm": ev["nm"],
-                "unimodal": ev["unimodal"],
-                "alpha": ev["alpha"],
-                "generation": gen,
-            })
+            inject_label = f"inject_g{gen}_{len(offspring)}"
+            offspring.append(
+                _make_individual(
+                    n,
+                    adj_r,
+                    inject_label,
+                    ev,
+                    gen,
+                    prospect_bonus,
+                )
+            )
+            if not ev["unimodal"]:
+                return _counterexample_result(n, adj_r, inject_label, ev, gen)
 
         # Merge and select
-        combined = elite + offspring
-        combined.sort(key=lambda x: -x["nm"])
+        archive = _update_archive(archive, refreshed_elite + offspring, archive_size)
+        combined = _dedupe_candidates(
+            refreshed_elite + offspring + archive,
+            archive_mode=False,
+        )
+        combined.sort(key=_population_sort_key)
         population = combined[:pop_size]
 
-        if population[0]["nm"] > best_ever:
-            best_ever = population[0]["nm"]
-            best_ever_label = population[0]["label"]
+        best_candidate = max(archive + population, key=lambda x: x["nm"])
+        if best_candidate["nm"] > best_ever:
+            best_ever = best_candidate["nm"]
+            best_ever_label = best_candidate["label"]
             best_ever_gen = gen
-            best_ever_adj = deepcopy(population[0]["adj"])
+            best_ever_adj = deepcopy(best_candidate["adj"])
             stagnation = 0
         else:
             stagnation += 1
@@ -500,13 +597,18 @@ def run_optimizer(
             history.append({
                 "generation": gen,
                 "best_nm": population[0]["nm"],
+                "best_score": population[0]["score"],
                 "mean_nm": mean_nm,
                 "best_label": population[0]["label"],
+                "archive_best_nm": archive[0]["nm"],
+                "archive_size": len(archive),
                 "signature": sig,
             })
             if verbose:
                 print(f"Gen {gen:>3}: best_nm={population[0]['nm']:.10f}  "
+                      f"best_score={population[0]['score']:.10f}  "
                       f"mean={mean_nm:.6f}  sig={sig}  "
+                      f"archive_best={archive[0]['nm']:.10f}  "
                       f"stag={stagnation}")
 
     # Analyze best-ever tree
@@ -524,6 +626,8 @@ def run_optimizer(
         "best_nm": best_ever,
         "best_label": best_ever_label,
         "best_generation": best_ever_gen,
+        "prospect_bonus": prospect_bonus,
+        "archive_size": archive_size,
         "best_structure": {
             "leaves": best_leaves,
             "max_degree": best_max_deg,
@@ -577,6 +681,14 @@ def main():
         "--seed", type=int, default=42,
         help="Random seed (default: 42)",
     )
+    parser.add_argument(
+        "--archive-size", type=int, default=12,
+        help="Distinct-tree archive size (default: 12)",
+    )
+    parser.add_argument(
+        "--prospect-bonus", type=float, default=0.5,
+        help="Weight on best-child nm uplift when scoring parents (default: 0.5)",
+    )
     args = parser.parse_args()
 
     print("Adversarial nm optimizer for Erdős Problem #993")
@@ -594,6 +706,8 @@ def main():
             n=n,
             pop_size=args.pop_size,
             generations=args.generations,
+            archive_size=args.archive_size,
+            prospect_bonus=args.prospect_bonus,
             seed=args.seed,
         )
         elapsed = time.time() - t0
@@ -645,6 +759,8 @@ def main():
                 "step_n": args.step_n,
                 "pop_size": args.pop_size,
                 "generations": args.generations,
+                "archive_size": args.archive_size,
+                "prospect_bonus": args.prospect_bonus,
                 "seed": args.seed,
             },
             "counterexample_found": counterexample,

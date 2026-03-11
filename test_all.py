@@ -1,6 +1,11 @@
 """Tests for the Erdős Problem #993 search code."""
 
+import contextlib
+import importlib.util
+import io
+import os
 import shutil
+import tempfile
 import unittest
 
 from graph6 import parse_graph6
@@ -12,7 +17,21 @@ from indpoly import (
     log_concavity_ratio,
     near_miss_ratio,
 )
+from nm_optimizer import _selection_score, _update_archive, run_optimizer
 from trees import trees
+
+_LC_BREAKER_SPEC = importlib.util.spec_from_file_location(
+    "lc_breaker_optimizer",
+    os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "scripts",
+        "lc_breaker_optimizer.py",
+    ),
+)
+if _LC_BREAKER_SPEC is None or _LC_BREAKER_SPEC.loader is None:
+    raise RuntimeError("Unable to load scripts/lc_breaker_optimizer.py")
+lc_breaker_optimizer = importlib.util.module_from_spec(_LC_BREAKER_SPEC)
+_LC_BREAKER_SPEC.loader.exec_module(lc_breaker_optimizer)
 
 
 class TestGraph6(unittest.TestCase):
@@ -256,6 +275,139 @@ class TestPolyConsistency(unittest.TestCase):
             poly_hunt = independence_poly_tree(n, edges, root=0)
             poly_ind = independence_poly(n, adj)
             self.assertEqual(poly_hunt, poly_ind)
+
+
+class TestNmOptimizer(unittest.TestCase):
+    """Focused checks for evolutionary nm search helpers."""
+
+    def test_selection_score_rewards_observed_upside(self):
+        self.assertAlmostEqual(_selection_score(0.82, 0.90, 0.5), 0.86)
+        self.assertAlmostEqual(_selection_score(0.82, 0.80, 0.5), 0.82)
+
+    def test_archive_keeps_best_distinct_tree(self):
+        base = {
+            "fingerprint": "a",
+            "label": "seed_a",
+            "nm": 0.80,
+            "score": 0.81,
+            "generation": 0,
+        }
+        improved_same = {
+            "fingerprint": "a",
+            "label": "seed_a_better",
+            "nm": 0.83,
+            "score": 0.85,
+            "generation": 1,
+        }
+        distinct = {
+            "fingerprint": "b",
+            "label": "seed_b",
+            "nm": 0.81,
+            "score": 0.82,
+            "generation": 1,
+        }
+
+        archive = _update_archive([base], [improved_same, distinct], archive_size=2)
+        self.assertEqual(len(archive), 2)
+        self.assertEqual(archive[0]["label"], "seed_a_better")
+        self.assertEqual({item["fingerprint"] for item in archive}, {"a", "b"})
+
+    def test_run_optimizer_records_score_and_archive(self):
+        result = run_optimizer(
+            n=12,
+            pop_size=8,
+            generations=2,
+            elite_frac=0.25,
+            mutations_per_ind=1,
+            archive_size=4,
+            prospect_bonus=0.5,
+            seed=7,
+            verbose=False,
+        )
+        self.assertFalse(result["counterexample_found"])
+        self.assertEqual(result["archive_size"], 4)
+        self.assertEqual(result["prospect_bonus"], 0.5)
+        self.assertIn("best_score", result["history"][0])
+        self.assertIn("archive_best_nm", result["history"][0])
+        self.assertGreaterEqual(result["history"][0]["best_score"], result["history"][0]["best_nm"])
+
+
+class TestLcBreakerOptimizer(unittest.TestCase):
+    """Focused checks for the LC-breaker archive/prospect logic."""
+
+    def test_selection_score_rewards_observed_lc_upside(self):
+        score = lc_breaker_optimizer._selection_score(1.20, 1.32, 0.5)
+        self.assertAlmostEqual(score, 1.26)
+        self.assertAlmostEqual(
+            lc_breaker_optimizer._selection_score(1.20, 1.10, 0.5),
+            1.20,
+        )
+
+    def test_archive_keeps_best_distinct_lc_tree(self):
+        base = {
+            "fingerprint": "a",
+            "origin": "seed_a",
+            "lc_ratio": 1.4,
+            "score": 1.45,
+            "nm_ratio": 0.82,
+            "generation": 0,
+        }
+        improved_same = {
+            "fingerprint": "a",
+            "origin": "seed_a_better",
+            "lc_ratio": 1.5,
+            "score": 1.55,
+            "nm_ratio": 0.83,
+            "generation": 1,
+        }
+        distinct = {
+            "fingerprint": "b",
+            "origin": "seed_b",
+            "lc_ratio": 1.45,
+            "score": 1.46,
+            "nm_ratio": 0.80,
+            "generation": 1,
+        }
+
+        archive = lc_breaker_optimizer._update_archive(
+            [base],
+            [improved_same, distinct],
+            archive_size=2,
+        )
+        self.assertEqual(len(archive), 2)
+        self.assertEqual(archive[0]["origin"], "seed_a_better")
+        self.assertEqual({item["fingerprint"] for item in archive}, {"a", "b"})
+
+    def test_run_records_score_and_archive(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            analysis_path = os.path.join(tmpdir, "analysis.json")
+            out_path = os.path.join(tmpdir, "out.json")
+            with open(analysis_path, "w", encoding="utf-8") as f:
+                f.write('{"lc_failures": [{"graph6": "Cs"}]}')
+
+            with contextlib.redirect_stdout(io.StringIO()):
+                result = lc_breaker_optimizer.run(
+                    n=4,
+                    analysis_path=analysis_path,
+                    out_path=out_path,
+                    pop_size=8,
+                    generations=2,
+                    elite_frac=0.25,
+                    archive_size=4,
+                    prospect_bonus=0.5,
+                    seed=7,
+                    verbose_every=1,
+                )
+
+            self.assertEqual(result["archive_size"], 4)
+            self.assertEqual(result["prospect_bonus"], 0.5)
+            self.assertIn("best_score", result["history"][0])
+            self.assertIn("archive_best_lc_ratio", result["history"][0])
+            self.assertGreaterEqual(
+                result["history"][0]["best_score"],
+                result["history"][0]["best_lc_ratio"],
+            )
+            self.assertTrue(os.path.exists(out_path))
 
 
 if __name__ == "__main__":
