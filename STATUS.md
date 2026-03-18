@@ -9,6 +9,62 @@
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## Current state (2026-03-18)
+
+### Session notes (2026-03-18, shutdown prep)
+- **Manuscript state:** `paper/main_v2.tex` is the live draft and incorporates the final minor-revision polish pass from the review-board synthesis. The paper build is clean.
+- **Paper snapshot release:** published GitHub release `paper-v2-2026-03-18-doi` from commit `487096954fef98f7ff93a352d241f3f8d62ef0e5`.
+- **Zenodo paper record:** the GitHub -> Zenodo ingest failed again, so the paper-only DOI refresh was completed manually on Zenodo instead:
+  - concept DOI `10.5281/zenodo.18745546`
+  - version DOI `10.5281/zenodo.19100781`
+  - record `https://zenodo.org/records/19100781`
+- **Zenodo workflow note:** if another paper-only DOI refresh is needed, use Zenodo's direct `New version` flow rather than retrying the GitHub release bridge.
+- **Outreach:** emailed Ohr Kadrawi (`orka@ariel.ac.il`) with the current paper on `2026-03-18`.
+- **Submission posture:** do not wait on outreach replies before submitting. Best-fit next venues are `European Journal of Combinatorics` and `Discrete Mathematics`.
+- **Formalization state:** `Formal/P3.lean`, `Formal/JleE.lean`, and `Formal/Algebra.lean` are fully proved; `Formal/STP2Closure.lean` still isolates the two genuine open closure theorems.
+- **Shutdown posture:** no local background jobs intentionally left running; the repo is now at a documented stopping point.
+
+### Session notes (2026-03-17/18, evening–morning)
+- **Aristotle formalization tool** (aristotle.harmonic.fun): first access. Lean 4 proof assistant that fills `sorry`s.
+- **Four Aristotle runs:**
+  1. P3 (leaf-swap injection): 8 sorries → 0. Built and verified.
+  2. J ≤ E (subgraph monotonicity): 4 sorries → 0. Built and verified.
+  3. Algebra (star+star w_2 + binomial LC): 8 sorries → 0. Built and verified.
+  4. STP2 closure (THE OPEN PROBLEM): ~3 hours. Proved base cases (leaf×leaf, degree-0). Main theorem still `sorry`. Identified false lemmas in our formalization.
+- **Consolidation:** Ported JleE.lean, Algebra.lean, STP2Closure.lean into `Formal/` (the canonical Lean project, pinned Mathlib v4.28.0). The `lean/` directory is a scratch copy.
+- **Key finding:** `isLC` definition using ℕ subtraction at k=0 makes `lc_conv` FALSE. Must guard with k ≥ 1.
+- **Formal/ directory now contains:**
+  - `Basic.lean` (610 lines, algebraic infrastructure, 0 sorries)
+  - `P3.lean` (201 lines, leaf-swap injection, 1 sorry: `tree_has_pendant`)
+  - `JleE.lean` (58 lines, J ≤ E, 0 sorries)
+  - `Algebra.lean` (88 lines, star+star w_2 + binomial LC, 0 sorries)
+  - `STP2Closure.lean` (245 lines, open problem, 2 sorries: the main theorem + multi-child corollary)
+- Project disposition unchanged: shelved pending proof breakthrough or paper submission.
+
+## Current state (2026-03-14)
+
+### Update (2026-03-14)
+- **AI-contributions wiki entry accepted.** GitHub issue #257 on `teorth/erdosproblems` closed as completed. Entry added to Section 2(e) ("AI tools used to perform numerical exploration") with two thumbs up. Conservative placement was the right call.
+
+## Current state (2026-03-12)
+
+### Session notes (2026-03-12)
+- Prepared copy-ready outreach texts under:
+  - `outreach/forum_comment_993.txt`
+  - `outreach/erdosproblems_wiki_993.txt`
+  - `outreach/arxiv_endorsement_request.txt`
+- Confirmed that public comments for problem `#993` are posted on the forum thread:
+  - `https://www.erdosproblems.com/forum/thread/993`
+  - posting requires forum login; the main problem page itself does not expose the comment box directly
+- Checked the existing thread state:
+  - Jake Mallen had already posted a January 7, 2026 note claiming `n <= 29` verification
+  - accordingly, the new forum message was framed as a follow-up centered on the public repo, exact `n=28` LC / near-miss figures, and the current structural manuscript status
+- Posted the forum follow-up on the `#993` thread.
+- Opened a GitHub issue on `teorth/erdosproblems` proposing a conservative AI-contributions wiki addition for `#993` in section `2(e)`; no `data/problems.yaml` PR was opened.
+- Prepared private arXiv endorsement-request text using code `GTGLTK`; David Galvin had already been contacted previously and had not replied by this session.
+- Immediate next step is passive:
+  - wait for responses on the forum issue / GitHub issue / private endorsement outreach rather than opening more public threads
+
 ## Current state (2026-03-11)
 
 ### Session notes (2026-03-11)
@@ -281,17 +337,18 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 - `results/analysis_n29_modal_unimodality.json` -- n=29 exhaustive unimodality check (Modal)
 - `results/targeted_n500.json` -- targeted search summary + top near-misses
 - `results/targeted_families.json` -- per-family summary for the targeted search
+- `notes/shutdown_2026-03-18.md` -- end-of-session handoff note with current DOI, release tag, and submission posture
 - `subdivision_correct.py` -- definitive subdivision identity analysis
 - `verify_subdivision_formula.py` -- subdivision-contraction identity verifier
 - `notes/one_private_status.md` -- definitive PNP framework
 - `notes/conjecture_A_analysis.md` -- Conjecture A reduction details
 
-## Open directions
+## Immediate next actions
 
-1. Prove ECMS (edge contraction shifts mode by at most 1)
-2. Prove Conjecture A (d_leaf <= 1 => mode <= floor(n/3)+1), perhaps via mu < n/3
-3. Decide whether `n=29` LC / near-miss is worth the spend after reviewing the `n=28` LC failures
-4. Submit paper to Experimental Mathematics
+1. Submit the manuscript to `European Journal of Combinatorics` or `Discrete Mathematics`.
+2. Treat any Kadrawi or other reader feedback as parallel input; do not block submission waiting on it.
+3. If another paper-only DOI snapshot is needed, use Zenodo's direct `New version` flow instead of GitHub-release retries.
+4. Leave the project shelved unless there is a genuinely new idea on ECMS or Conjecture A.
 
 ## Dead ends (do NOT revisit)
 
