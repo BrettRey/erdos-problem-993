@@ -48,7 +48,7 @@
 % ============================
 % Metadata
 % ============================
-\title{A subdivision-contraction identity and structural reductions\\
+\title{Mean bounds, structural reductions, and exhaustive verification\\
   for tree independence polynomial unimodality}
 \author{Brett Reynolds\,\orcidlink{0000-0003-2407-9448}}
 \date{}
@@ -59,8 +59,9 @@
 \begin{abstract}
 \textcite{alavi1987} conjectured that the independence polynomial of every tree is unimodal.
 I prove that the mean independent-set size satisfies $\mu(T) < n/3$ for every tree in which each vertex has at most one leaf-child ($\dleaf \le 1$), via a decimation identity and Steiner peeling on a heavy-vertex compensation function.
-A chain of structural lemmas~-- Hub Exclusion and Transfer~-- reduces the mode bound for all trees to a single conjecture (Conjecture~A) about these $\dleaf \le 1$ trees; the mean bound settles Conjecture~A conditionally, subject to a conjectured mode-mean inequality $\mathrm{mode} \le \lceil\mu\rceil$ that is verified for all 23~million trees through $n = 23$.
-Independently, I re-derive the subdivision-contraction identity $I(T_e) = I(T) + x \cdot I(T/e)$ in tree DP form and show that a conjectured Edge Contraction Mode Stability property (verified for 24.7~million edges) implies any minimal counterexample is homeomorphically irreducible.
+A chain of structural lemmas~-- Hub Exclusion and Transfer~-- reduces the mode bound for all trees to a single conjecture (Conjecture~A) about these $\dleaf \le 1$ trees; conditional on the mode-mean inequality $\mathrm{mode} \le \lceil\mu\rceil$, the mean bound settles Conjecture~A in that regime.
+Separately, I re-derive the subdivision-contraction identity $I(T_e) = I(T) + x \cdot I(T/e)$ in tree DP form and show that, conditional on a conjectured Edge Contraction Mode Stability property together with a verified tail condition, any minimal counterexample is homeomorphically irreducible.
+Neither conditional route by itself closes the full conjecture.
 On the computational side, I verify the conjecture exhaustively for all 8\,691\,747\,673 trees on $n \le 29$ vertices, with log-concavity and near-miss metrics through $n = 28$.
 An evolutionary search identifies multi-arm stars as the extremal family; the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \in [4, 8)$.
 \end{abstract}
@@ -462,7 +463,7 @@ More generally, the margin for the $S(2^k)$ family can be bounded analytically.
   For the equal-arm spider $S(2^k)$ on $n = 2k+1$ vertices, with hub $h$ connected to $k$ arms of length~$2$:
   \begin{enumerate}
     \item $I(S(2^k);\, x) = x(1+x)^k + (1+2x)^k$, with $i_j = \tbinom{k}{j-1} + 2^j\tbinom{k}{j}$.
-    \item The mode is $m = \lfloor(2k+1)/3\rfloor$ for all $k \ge 3$.
+    \item The leftmost mode is $m = \lfloor(2k+1)/3\rfloor$ for all $k \ge 3$.
     \item The hub-off mean at the tie fugacity $\lambda_m$ exceeds $m-1$: $kq_m > m-1$ where $q_m = 2\lambda_m/(1+2\lambda_m)$.
     \item The tie-fugacity margin satisfies $\mu(\lambda_m) - (m-1) > 0$ for all $k \ge 1$, and
           $\mu(\lambda_m) - (m-1) \to 1/3$ as $k \to \infty$.
@@ -479,8 +480,35 @@ At fugacity~$\lambda$, the IS distribution is a mixture of two components depend
 Summing over IS by size gives $I(x) = x(1+x)^k + (1+2x)^k$, and expanding the coefficients gives $i_j = \tbinom{k}{j-1} + 2^j\tbinom{k}{j}$.
 
 \textit{Part~2.}
-The dominant term $2^j\tbinom{k}{j}$ has the ratio $2^{j+1}\tbinom{k}{j+1}/[2^j\tbinom{k}{j}] = 2(k-j)/(j+1)$, which exceeds~1 iff $j < (2k-1)/3$.
-The full ratio $i_{j+1}/i_j$ exceeds~1 below the mode and is at most~1 at the mode; the sub-dominant term $\tbinom{k}{j-1}$ shifts the crossover by less than one unit, placing the mode at $m = \lfloor(2k+1)/3\rfloor$ (verified for all $k \le 600$; for large~$k$ the sub-dominant contribution is $O(1/2^m)$ relative to the dominant term).
+By \textcite{li2025spiders}, spiders have log-concave independence polynomials, so the coefficient sequence $(i_j)$ is unimodal.
+It therefore suffices to check that $i_m \ge i_{m-1}$ and $i_m \ge i_{m+1}$ for $m = \lfloor(2k+1)/3\rfloor$.
+Write $k = 3r, 3r+1$, or $3r+2$.
+If $k = 3r$, then $m = 2r$ and
+\[
+  i_m - i_{m-1}
+  = \tbinom{3r}{2r}\frac{4^r(r+2) - 2r(r-3)}{(r+1)(r+2)} > 0,
+  \qquad
+  i_m - i_{m+1}
+  = \tbinom{3r}{2r}\frac{4^r(r+1) + (2r+1)(r-1)}{(r+1)(2r+1)} > 0.
+\]
+If $k = 3r+1$, then $m = 2r+1$ and
+\[
+  i_m - i_{m-1}
+  = \tbinom{3r+1}{2r+1}\frac{4^r(r+2) - (2r+1)(r-2)}{(r+1)(r+2)} > 0,
+  \qquad
+  i_m - i_{m+1}
+  = \tbinom{3r+1}{2r+1}\frac{2\cdot 4^r + r}{r+1} > 0.
+\]
+If $k = 3r+2$, then $m = 2r+1$ and
+\[
+  i_m - i_{m-1}
+  = \tbinom{3r+2}{2r+1}\frac{3\cdot 4^r(r+3) - (2r+1)(r-3)}{(r+2)(r+3)} > 0,
+  \qquad
+  i_m - i_{m+1}
+  = \tbinom{3r+2}{2r+1}\frac{r-1}{r+2} \ge 0.
+\]
+The last inequality is strict unless $r = 1$ (that is, $k = 5$), where $i_3 = i_4$ and the leftmost mode is still $m = 3$.
+Hence the leftmost mode is $m = \lfloor(2k+1)/3\rfloor$ for all $k \ge 3$.
 
 \textit{Part~3.}
 The condition $kq_m > m-1$ is equivalent to $\lambda_m > \tau$, where $\tau = (m-1)/[2(k-m+1)]$.
@@ -513,19 +541,21 @@ Numerically, margin $> 1/3$ for all $k \le 600$, with margin $= 1/3 + c/k + O(1/
 Since $S(2^k)$ is the extremal $\dleaf \le 1$ tree for the mean bound (verified through $n \le 20$), and $S(2^{10})$ is also the global minimiser for the tie-fugacity margin across all 9\,114\,283 trees through $n = 22$, establishing analytically that $S(2^k)$ minimises the margin for all tree types would reduce the full tie-fugacity condition $\mu(\lambda_m) \ge m-1$ to the spider case, which Proposition~\ref{prop:spider-tie-margin} already proves.
 \end{remark}
 
+Since spiders are already known to be log-concave by \textcite{li2025spiders}, the tie-fugacity analysis below is included as an extremal calibration of the mode-mean program rather than as a new proof of spider unimodality.
 The equal-arm result extends to the full mixed-spider family $S(2^k, 1^j)$~-- a hub with $k$ arms of length~2 and $j$ pendant leaves~-- whose IS polynomial is $I(x) = (1+2x)^k(1+x)^j + x(1+x)^k$.
 Write $\mathrm{margin}(k,j) = \mu(\lambda_m) - (m-1)$ for the tie-fugacity margin of $S(2^k, 1^j)$.
 
-\begin{proposition}[Mixed-spider tie-fugacity]\label{prop:mixed-spider-tiefug}
+\begin{proposition}[Mixed-spider tie-fugacity; computer-assisted]\label{prop:mixed-spider-tiefug}
   For all $k \ge 3$ and $j \ge 0$, $\mathrm{margin}(k,j) > 0$.
 \end{proposition}
 
 \begin{proof}
+This proof is computer-assisted: the finite ranges cited below are checked by exact integer arithmetic, while the large-parameter tail is handled by the explicit inequalities recorded in the proof.
 The hub-off generating polynomial $A_j(x) = (1+2x)^k(1+x)^j$ is a product of linear factors with negative real roots, generating a Poisson-Binomial distribution with mean $\mu_j = (4k+3j)/6$.
 
 \textit{Parity monotonicity.}
 For $k \ge 6$: $\mathrm{margin}(k,\, j+2) \ge \mathrm{margin}(k,\, j)$.
-By \textcite{darroch1964}, $\mathrm{mode}(A_j) \in \{\lfloor\mu_j\rfloor, \lceil\mu_j\rceil\}$.
+By \textcite{darroch1964}, any Poisson-Binomial distribution has mode in $\{\lfloor\mu_j\rfloor, \lceil\mu_j\rceil\}$; here $A_j(x) = (1+2x)^k(1+x)^j$ is exactly the generating polynomial of such a distribution.
 Since $\mu_{j+2} = \mu_j + 1$ and $4k + 3(j+2) \equiv 4k + 3j \pmod{6}$, the same rounding rule applies, giving $m(k,\, j+2) = m(k,\, j) + 1$.
 Decompose the margin shift as
 \[
@@ -535,7 +565,7 @@ Decompose the margin shift as
 \]
 For $\Delta_{\mathrm{fixed}} \ge 0$: write $F = T_1 + T_2$ where $T_1 = \Delta(m) - \Delta(m{-}1)$ is the difference of successive log-concavity defects of~$A_j$ and $T_2$ is a hub-on correction involving binomial coefficients $\tbinom{k}{m{-}1}$ and $\tbinom{k}{m{-}2}$.
 When $m > k+2$, these binomial coefficients vanish and $F = T_1$; for $m \le k+2$ and $k \le 200$, exact integer computation over all 14\,430 active $(k,j)$ pairs confirms $F > 0$ with minimum ratio $T_1/|T_2| = 2.24$ at $(k,j) = (6,1)$; for $k > 200$, the ratio $T_1/|T_2|$ exceeds $10^{36}$ (growing exponentially in~$k$).
-Together: $F > 0$ for all $k \ge 6$ and $m \le k+2$, and $F = T_1 > 0$ for $m > k+2$ (verified for $k \le 3000$, $j \le 120$; for $k > 3000$ the hub-on weight is negligible and $A_j$ is dominated by the $(1+x)^j$ factor whose LC defects are increasing at the mode).
+Together: $F > 0$ for all $k \ge 6$ and $m \le k+2$, and $F = T_1 > 0$ for $m > k+2$ (verified for $k \le 3000$, $j \le 120$; for $k > 3000$, the same hub-on estimate as in Proposition~\ref{prop:spider-tie-margin} gives a correction of order $O(k(5/7)^k)$, so the sign is governed by the positive hub-off term~$T_1$).
 For $\Delta_\lambda \ge 0$: the fugacity comparison $\lambda_{j+2} \ge \lambda_j$ follows from the same $F > 0$ bound.
 This reduces the problem to $j \in \{0, 1\}$ for $k \ge 6$.
 
@@ -551,6 +581,7 @@ $\mathrm{margin}(k,\,1) > 0$ for all $k \ge 3$: the same hub-off/hub-on decompos
 
 \textit{Small $k$.}
 For $k \in \{3, 4, 5\}$, direct computation confirms $\mathrm{margin}(k,\, j) > 0$ for all $j \le 400$; for larger~$j$, the hub-on weight decays geometrically in~$j$ while the hub-off surplus exceeds~$1/3$.
+The exact scan artifacts cited in this proof are archived as \texttt{results/whnc\_mixed\_spider\_mode\_formula\_k6\_3000\_j120.json}, \texttt{results/subclaimA\_lane2\_envelope\_k3000\_j120\_v2.json}, and \texttt{results/subclaimA\_lane2\_lambda\_monotone\_k3000\_j120.json}.
 \end{proof}
 
 \section{The subdivision-contraction identity}\label{sec:identity}
@@ -741,7 +772,7 @@ Theorem~\ref{thm:conditional} then gives $I(T) = I(T'_e)$ unimodal, contradictin
 Table~\ref{tab:exhaustive} shows the verification results.
 Every tree count matches OEIS A000055 \citep{oeis-a000055}; counts are checked automatically during the search.
 No unimodality violation was found at any~$n$.
-The table records per-$n$ wall times through $n = 27$; the dict-backed Modal extensions to $n = 28$ and $n = 29$ are summarized in the paragraph below.
+The table records per-$n$ wall times through $n = 27$; the $n = 28$ and $n = 29$ extensions were resumed Modal backfills whose workers wrote residue-class summaries into a shared cloud dictionary, so for those levels I report worker count, artifacts, and completeness checks rather than a single comparable wall time.
 For each generated tree, the pipeline computes the full coefficient vector $(i_0,\dots,i_{\alpha})$ in exact integer arithmetic and evaluates unimodality, log-concavity, and near-miss statistics from that full vector (not from truncated ratios).
 
 \begin{table}[ht]
@@ -775,9 +806,10 @@ The case $n = 26$ is the first at which log-concavity fails: \textcite{kadrawi20
 My independent re-analysis reproduces these two failures (both at $k = 13$, worst ratio $i_{12}\, i_{14} / i_{13}^2 = 1.145$) and adds the near-miss metric: $\nm = 0.845$~-- far below the violation threshold.
 Even where log-concavity breaks, unimodality holds with a comfortable margin.
 Extending to $n = 27$ (751~million trees, run on Modal cloud compute with 1024 parallel workers) finds no unimodality violations and no log-concavity failures; the top near-miss ratio is $\nm = 0.8571425$ at position $k = 13$.
-A subsequent dict-backed Modal run extends the exhaustive frontier to $n = 28$ (2\,023\,443\,032 trees; artifacts \texttt{results/analysis\_n28\_modal\_unimodality.json} and \texttt{results/analysis\_n28\_modal\_lc\_nm.json}), again with no unimodality violations.
+A subsequent resumed Modal backfill extends the exhaustive frontier to $n = 28$ (2\,023\,443\,032 trees; artifacts \texttt{results/analysis\_n28\_modal\_unimodality.json} and \texttt{results/analysis\_n28\_modal\_lc\_nm.json}), again with no unimodality violations.
 The companion $n = 28$ LC / near-miss audit finds 19 log-concavity failures, all at $k = 14$, with worst ratio $i_{13}\, i_{15} / i_{14}^2 = 1.5027778$; the top near-miss ratio is $\nm = 0.8565666$ at position $k = 13$.
-A further dict-backed Modal run extends the exhaustive frontier to $n = 29$ (5\,469\,566\,585 trees; artifact \texttt{results/analysis\_n29\_modal\_unimodality.json}), again with no unimodality violations.
+A further resumed Modal backfill extends the exhaustive frontier to $n = 29$ (5\,469\,566\,585 trees; artifact \texttt{results/analysis\_n29\_modal\_unimodality.json}), again with no unimodality violations.
+Completeness was checked by requiring every expected shard key and matching the merged totals to the full OEIS tree count; the shard-level repair details are recorded in Appendix~\ref{app:repro}.
 Log-concavity and near-miss metrics currently stop at $n = 28$.
 This raises the exhaustive unimodality frontier to 8.69~billion trees through $n = 29$.
 Figure~\ref{fig:roots26} plots the roots of the independence polynomials of these two trees in the complex plane; neither polynomial is real-rooted.
@@ -905,7 +937,7 @@ The proved mean bound $\mu < n/3$ reduces this to Conjecture~\ref{conj:mode-mean
 The compensation condition~\eqref{eq:whnc} provides a more direct path: Propositions~\ref{prop:singleton} and~\ref{prop:mixed-single} together cover all $S \subseteq H$ with at most one non-leaf heavy vertex, and in all 931\,596 trees tested through $n = 23$, the tightest subset is always a singleton.
 On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
 
-An auxiliary Lean~4.28 formalization also sharpened the status of one possible algebraic closure route. The naive abstract claim that the STP2 ratio-positivity condition is preserved under convolution is false under its original hypothesis list: an internal-zeros counterexample satisfies nonnegativity, log-concavity, and pairwise STP2, yet its convolution fails STP2. On the positive side, the formalization proves the identity case and the single-leaf case. So the remaining obstacle is not the leaf step itself, but identifying the additional tree-specific support regularity needed for a valid general closure theorem.
+A separate Lean artifact records a counterexample to the naive abstract convolution-closure hypotheses and proves the leaf special case; the general closure step remains open.
 
 \subsection{Empirical frontier and artifact pipeline}
 
@@ -929,15 +961,16 @@ The corresponding Zenodo concept DOI is
 \href{https://doi.org/10.5281/zenodo.18745546}{10.5281/\allowbreak zenodo.18745546}
 (version DOI:
 \href{https://doi.org/10.5281/zenodo.18866031}{10.5281/\allowbreak zenodo.18866031}).
-The repository also includes a Lean~4.28 formalization of the local algebraic lemmas in \texttt{Formal/}. Bounded proof-completion runs using Aristotle \parencite{achim2025aristotle} were used for auxiliary formalization tasks; the current formalization leaves the general STP2 closure step open but records the proved leaf special case and the internal-zeros obstruction.
+The repository also includes a Lean~4.28 formalization of the local algebraic lemmas in \texttt{Formal/}. Bounded proof-completion runs using Aristotle \parencite{achim2025aristotle} were used for auxiliary formalization tasks; the current formalization leaves the general convolution-closure step open but records the proved leaf special case and an explicit obstruction to the naive abstract hypothesis set.
 
 
 \section*{Acknowledgements}
 
-Claude Opus~4.6 (Anthropic) assisted with computational exploration, code development, and manuscript drafting.
-ChatGPT~5.2~Pro and Codex~5.3 (OpenAI) contributed to proof-strategy exploration.
-Gemini~3~Pro (Google) contributed to computational exploration.
-I take responsibility for all claims and any errors.
+Claude Opus~4.6 (Anthropic) assisted with computational exploration, Python code development, and prose drafting.
+ChatGPT~5.2~Pro and Codex~5.3 (OpenAI) assisted with proof-strategy exploration, Lean formalization support, and editorial revision suggestions.
+Gemini~3~Pro (Google) assisted with computational exploration.
+Aristotle (Harmonic) was used only for bounded Lean proof-completion tasks in the \texttt{Formal/} artifact and did not supply the paper's main mathematical claims.
+I manually reviewed all machine-generated code, proofs, and prose, and I take responsibility for all claims and any errors.
 
 \appendix
 
@@ -945,14 +978,14 @@ I take responsibility for all claims and any errors.
 
 Computations through $n = 26$ were run on an Apple M4 (arm64) with 32\,GB RAM, running macOS.
 The $n = 27$ search used Modal cloud compute with 1024 parallel workers (78~minutes wall time).
-The $n = 28$ and $n = 29$ extensions used dict-backed Modal runs with 1024 workers, merged locally via \texttt{scripts/collect\_modal\_results.py}; missing residues were repaired with a \texttt{dispatch\_missing} backfill, and the final $n = 29$ tail shard was independently checked via an odd-modulus rescue split before the main dict closed.
+The $n = 28$ and $n = 29$ extensions used resumed Modal backfills with 1024 workers writing exact shard totals into a shared dictionary. In rough 1024-worker equivalents, the corresponding jobs were about 3.5\,h for the $n = 28$ unimodality scan, 7.2\,h for the companion $n = 28$ LC / near-miss audit, and 9.5\,h for the $n = 29$ unimodality scan; these are extrapolated worker-hour equivalents rather than measured wall times because the runs were resumed in stages. The local collector required all expected shard keys, relaunched only missing shard keys via \texttt{dispatch\_missing}, and checked the merged totals against the full tree count; for $n = 29$, the final repaired tail shard was independently recomputed under an odd-modulus split before the main dict closed.
 Software versions: Python~3.14.2, NumPy~2.4.2, NetworkX~3.6.1, nauty/geng~2.9301 (32-bit).
 
 \begin{verbatim}
 pip install networkx numpy
 brew install nauty
 
-# Unit tests (37 tests)
+# Unit tests (43 tests)
 python3 -m unittest test_all.py -v
 
 # Exhaustive search, n <= 26 (8 workers, requires geng)
@@ -963,7 +996,7 @@ python3 search.py --max-n 26 --workers 8
 modal run search_modal.py
 modal run analyze_modal_lc_nm.py --n 27 --workers 1024 --top-k 200 --lc-top-k 200
 
-# n = 28 (Modal dict-backed, 1024 workers)
+# n = 28 (Modal backfill via shared dict, 1024 workers)
 modal run search_modal_exhaustive.py::dispatch --n 28 --workers 1024
 modal run analyze_modal_lc_nm_n28.py::dispatch \
   --n 28 --workers 1024 --top-k 200 --lc-top-k 200
@@ -974,7 +1007,7 @@ python3 scripts/collect_modal_results.py collect \
   --kind lc_nm --n 28 --workers 1024 --top-k 200 --lc-top-k 200 \
   --out results/analysis_n28_modal_lc_nm.json
 
-# n = 29 (Modal dict-backed, 1024 workers)
+# n = 29 (Modal backfill via shared dict, 1024 workers)
 modal run search_modal_exhaustive_n29.py::dispatch --n 29 --workers 1024
 python3 scripts/collect_modal_results.py collect \
   --kind unimodality --n 29 --workers 1024 --expected 5469566585 \
@@ -992,7 +1025,7 @@ python3 nm_optimizer.py --min-n 50 --max-n 200
 \end{verbatim}
 
 For the deterministic machine-artifact pipeline, the repository includes executable runtimes
-\texttt{pi\_n/} and \texttt{orchestrator\_v13/} with fixture-based conformance tests and replay verification.
+\texttt{pi\_n/} (exact-rational frontier certificates with replay verifiers) and \texttt{orchestrator\_v13/} (deterministic partition planning and obligation replay for those certificates), both with fixture-based conformance tests.
 Two committed artifact bundles cover $n = 22$--$25$; the direct lambda-frontier extraction path (via \texttt{scripts/build\_orchestrator\_input\_from\_lambda\_frontiers.py}) is canonical.
 See the repository documentation for serialization contracts, golden-byte checks, and SHA-256 integrity digests.
 
@@ -1028,7 +1061,7 @@ Table~\ref{tab:certificates} summarizes all verified properties.
     $S_1$ formula (Prop.~\ref{prop:s1-formula}) & \liningnums{3\,348\,674} edges & $\le 18$ & Prop.~\ref{prop:s1-formula} \\
     $|\delta\mu| < 0.537$ & \liningnums{3\,348\,674} edges & $\le 18$ & Rem.~\ref{rem:mean-shift} \\
     LC ($\dleaf \le 1$ trees) & \liningnums{931\,596} trees & $\le 23$ & \S\ref{subsec:mean} \\
-    $\mathrm{mode} \le \lceil\mu\rceil$ (all trees) & \liningnums{9\,114\,283} trees & $\le 22$ & \S\ref{subsec:mean} \\
+    $\mathrm{mode} \le \lceil\mu\rceil$ (all trees) & \liningnums{23\,942\,357} trees & $\le 23$ & \S\ref{subsec:mean} \\
     $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ ($\dleaf \le 1$) & \liningnums{175\,722} trees & $\le 21$ & \S\ref{subsec:mean} \\
     Tie-fugacity: $\mu(\lambda_m) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ & Prop.~\ref{prop:spider-tie-margin} \\
     Tie-fugacity: $\mu(\lambda_m) \ge m-1$ (all trees) & \liningnums{9\,114\,283} trees & $\le 22$ & Prop.~\ref{prop:spider-tie-margin} \\
