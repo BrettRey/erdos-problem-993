@@ -31,3 +31,5 @@ results/multi_arm_*.json
 results/nm_optimizer_*.json
 __pycache__/
 /.lake
+outreach/
+notes/outreach_*.md

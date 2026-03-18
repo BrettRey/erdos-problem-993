@@ -110,7 +110,7 @@ My contributions:
     Conjecture~A closure via mean bound & Conditional & Conj.~\ref{conj:mode-mean} (mode-mean) & \S\ref{sec:reduction} + App.~\ref{app:certificates} \\
     Subdivision-contraction identity (Thm.~\ref{thm:identity}) & Proved & DP decomposition & \S\ref{sec:identity} + edge checks ($n \le 14$) \\
     Conditional subdivision closure (Thm.~\ref{thm:conditional}) & Conditional & ECMS + combined tail & \S\ref{sec:identity}; ECMS/tail certificates in App.~\ref{app:certificates} \\
-    Exhaustive no-counterexample claim ($n \le 27$) & Empirical & Tree enumeration + exact IS checks & \S\ref{sec:exhaustive}, App.~\ref{app:repro} \\
+    Exhaustive no-counterexample claim ($n \le 29$) & Empirical & Tree enumeration + exact IS checks & \S\ref{sec:exhaustive}, App.~\ref{app:repro} \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -905,6 +905,8 @@ The proved mean bound $\mu < n/3$ reduces this to Conjecture~\ref{conj:mode-mean
 The compensation condition~\eqref{eq:whnc} provides a more direct path: Propositions~\ref{prop:singleton} and~\ref{prop:mixed-single} together cover all $S \subseteq H$ with at most one non-leaf heavy vertex, and in all 931\,596 trees tested through $n = 23$, the tightest subset is always a singleton.
 On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
 
+An auxiliary Lean~4.28 formalization also sharpened the status of one possible algebraic closure route. The naive abstract claim that the STP2 ratio-positivity condition is preserved under convolution is false under its original hypothesis list: an internal-zeros counterexample satisfies nonnegativity, log-concavity, and pairwise STP2, yet its convolution fails STP2. On the positive side, the formalization proves the identity case and the single-leaf case. So the remaining obstacle is not the leaf step itself, but identifying the additional tree-specific support regularity needed for a valid general closure theorem.
+
 \subsection{Empirical frontier and artifact pipeline}
 
 The conjecture remains unproved, but the computational evidence increasingly constrains the space of potential counterexamples.
@@ -927,6 +929,7 @@ The corresponding Zenodo concept DOI is
 \href{https://doi.org/10.5281/zenodo.18745546}{10.5281/\allowbreak zenodo.18745546}
 (version DOI:
 \href{https://doi.org/10.5281/zenodo.18866031}{10.5281/\allowbreak zenodo.18866031}).
+The repository also includes a Lean~4.28 formalization of the local algebraic lemmas in \texttt{Formal/}. Bounded proof-completion runs using Aristotle \parencite{achim2025aristotle} were used for auxiliary formalization tasks; the current formalization leaves the general STP2 closure step open but records the proved leaf special case and the internal-zeros obstruction.
 
 
 \section*{Acknowledgements}
