@@ -185,7 +185,11 @@ variable (G : SimpleGraph V) [DecidableRel G.Adj]
     infrastructure (finite connected acyclic ⟹ has leaf). -/
 theorem tree_has_pendant (hT : G.IsTree) (hcard : 1 < Fintype.card V) :
     ∃ ℓ r : V, IsPendant G ℓ r := by
-  sorry
+  obtain ⟨ℓ, hℓ⟩ : ∃ ℓ : V, G.degree ℓ = 1 := by
+    apply_rules [SimpleGraph.IsTree.exists_vert_degree_one_of_nontrivial]
+    exact Fintype.one_lt_card_iff_nontrivial.mp hcard
+  obtain ⟨r, hℓr, hr_unique⟩ := SimpleGraph.degree_eq_one_iff_existsUnique_adj.mp hℓ
+  exact ⟨ℓ, r, hℓr, hr_unique⟩
 
 /-- P3 holds at some rooting of every nontrivial tree. -/
 theorem tree_p3 (hT : G.IsTree) (hcard : 1 < Fintype.card V) (k : ℕ) :
