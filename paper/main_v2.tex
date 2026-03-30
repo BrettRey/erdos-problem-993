@@ -50,7 +50,9 @@
 % ============================
 \title{Mean bounds, structural reductions, and exhaustive verification\\
   for tree independence polynomial unimodality}
-\author{Brett Reynolds\,\orcidlink{0000-0003-2407-9448}}
+\author{Brett Reynolds\,\orcidlink{0000-0003-2407-9448}\\
+  \small Humber College, Toronto, Canada\\
+  \small \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}
 \date{}
 
 \begin{document}
@@ -58,13 +60,15 @@
 
 \begin{abstract}
 \textcite{alavi1987} conjectured that the independence polynomial of every tree is unimodal.
-I prove that the mean independent-set size satisfies $\mu(T) < n/3$ for every tree in which each vertex has at most one leaf-child ($\dleaf \le 1$), via a decimation identity and Steiner peeling on a heavy-vertex compensation function.
-A chain of structural lemmas~-- Hub Exclusion and Transfer~-- reduces the mode bound for all trees to a single conjecture (Conjecture~A) about these $\dleaf \le 1$ trees; conditional on the mode-mean inequality $\mathrm{mode} \le \lceil\mu\rceil$, the mean bound settles Conjecture~A in that regime.
-Separately, I re-derive the subdivision-contraction identity $I(T_e) = I(T) + x \cdot I(T/e)$ in tree DP form and show that, conditional on a conjectured Edge Contraction Mode Stability property together with a verified tail condition, any minimal counterexample is homeomorphically irreducible.
-Neither conditional route by itself closes the full conjecture.
-On the computational side, I verify the conjecture exhaustively for all 8\,691\,747\,673 trees on $n \le 29$ vertices, with log-concavity and near-miss metrics through $n = 28$.
-An evolutionary search identifies multi-arm stars as the extremal family; the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \in [4, 8)$.
+I prove $\mu(T) < n/3$ for every tree with $\dleaf \le 1$ via Steiner peeling on a compensation function.
+Hub Exclusion and Transfer reduce the mode bound for all trees to a single conjecture about $\dleaf \le 1$ trees; conditional on $\mathrm{mode} \le \lceil\mu\rceil$, the mean bound settles this conjecture.
+A subdivision-contraction identity shows that, conditional on a conjectured Edge Contraction Mode Stability property and a verified tail condition, any minimal counterexample is homeomorphically irreducible.
+Neither conditional route closes the full conjecture.
+Computationally, I verify unimodality for all 8\,691\,747\,673 trees on $n \le 29$ vertices.
+Multi-arm stars are the extremal family, with near-miss ratio $\nm(s) = 1 - C/s + O(1/s^2)$, $C \in [4, 8)$.
 \end{abstract}
+
+\noindent\textbf{Keywords:} independence polynomial, unimodality, trees, Erd\H{o}s Problem 993, exhaustive verification
 
 \section{Introduction}\label{sec:intro}
 
@@ -118,7 +122,7 @@ My contributions:
 
 The central proved theorem in this manuscript is the mean bound $\mu(T) < n/3$ for $\dleaf \le 1$ trees (Corollary~\ref{cor:mu-bound}).
 The subdivision thread gives a separate conditional route (ECMS + combined tail) to structural constraints on minimal counterexamples.
-Accordingly, the main text is organised around this theorem-first backbone: Section~\ref{sec:reduction} carries the primary proved result, while the subdivision route and computational frontier evidence are presented as supporting structural and falsification layers.
+Accordingly, the main text is organized around this theorem-first backbone: Section~\ref{sec:reduction} carries the primary proved result, while the subdivision route and computational frontier evidence are presented as supporting structural and falsification layers.
 
 
 \section{Definitions and method}\label{sec:method}
@@ -314,7 +318,7 @@ Since $H$ is independent and every $v \notin H$ has $P(v) \le 1/3$,
   = \sum_{h \in H}\! P(h) + \sum_{u \in N(H)}\! P(u) + \sum_{w \notin H \cup N(H)}\! P(w)
   \;\le\; \frac{n}{3} + \sum_{h \in H}\!\bigl(P(h) - \tfrac{1}{3}\bigr) - \sum_{u \in N(H)}\!\bigl(\tfrac{1}{3} - P(u)\bigr),
 \]
-so $\mu \le n/3$ whenever the heavy surplus is absorbed by the neighbourhood deficit:
+so $\mu \le n/3$ whenever the heavy surplus is absorbed by the neighborhood deficit:
 \begin{equation}\label{eq:whnc}
   \sum_{h \in H}\!\bigl(P(h) - \tfrac{1}{3}\bigr)
   \;\le\;
@@ -400,8 +404,8 @@ where $N_C(S) = N(S) \cap (C \setminus S)$.
 Vertices in $C \setminus (H_{\mathrm{core}} \cup N_C(H_{\mathrm{core}}))$ have $P \le 1/3$ and contribute non-negatively to the identity, so $n/3 - \mu(T) \ge F_{\mathrm{gap}}(H_{\mathrm{core}})$.
 
 \paragraph{Steiner-peeling intuition.}
-Think of each heavy vertex $h$ as carrying a deficit demand $P(h)-1/3$ and each neighbouring core vertex as carrying a non-negative supply term from the decimation identity (full weight in $C\setminus A$, half weight in~$A$).
-The Steiner tree on $S \subseteq H_{\mathrm{core}}$ isolates a leaf-heavy vertex whose demand can be paid by private neighbours using only local edge inequalities.
+Think of each heavy vertex $h$ as carrying a deficit demand $P(h)-1/3$ and each neighboring core vertex as carrying a non-negative supply term from the decimation identity (full weight in $C\setminus A$, half weight in~$A$).
+The Steiner tree on $S \subseteq H_{\mathrm{core}}$ isolates a leaf-heavy vertex whose demand can be paid by private neighbors using only local edge inequalities.
 Peeling that Steiner leaf removes one heavy vertex while preserving positivity of the remaining budget, so induction closes once every heavy vertex has been peeled.
 
 \begin{theorem}[Gap-formula compensation by Steiner peeling]\label{thm:steiner-peeling}
@@ -413,7 +417,7 @@ Induction on $|S|$.
 Write $s(u) = 1/3 - P(u)$ for $u \in C \setminus A$ and $s(u) = \tfrac{1}{2}(1/3 - P(u))$ for $u \in A$.
 
 \textit{Base case} $S = \{h\}$.
-All $m = \deg_T(h) \ge 2$ neighbours $u_1, \ldots, u_m$ of $h$ are in $C$ (since $h \in H_{\mathrm{core}} \subset C \setminus A$) and are private.
+All $m = \deg_T(h) \ge 2$ neighbors $u_1, \ldots, u_m$ of $h$ are in $C$ (since $h \in H_{\mathrm{core}} \subset C \setminus A$) and are private.
 $F_{\mathrm{gap}}(\{h\}) = \sum_i s(u_i) - (P(h) - 1/3)$.
 
 If any $u_i \in C \setminus A$: the edge bound gives $s(u_i) - (P(h) - 1/3) = 2/3 - P(h) - P(u_i) > 0$, so $F_{\mathrm{gap}}(\{h\}) > 0$.
@@ -426,13 +430,13 @@ If all $u_i \in A$, we show $2P(h) + \sum P(u_i) < (m+2)/3$, which is equivalent
 
 \textit{Inductive step} $|S| \ge 2$.
 Let $h$ be a leaf of the Steiner tree of $S$ in $T$ (minimal subtree spanning $S$).
-Then $h$ has $k = \deg_T(h) - 1 \ge 1$ private $C$-neighbours $u_1, \ldots, u_k$ and one non-private neighbour $v_0$.
+Then $h$ has $k = \deg_T(h) - 1 \ge 1$ private $C$-neighbors $u_1, \ldots, u_k$ and one non-private neighbor $v_0$.
 The removal marginal is $M_{\mathrm{gap}}(h, S) = \sum_i s(u_i) - (P(h) - 1/3)$.
 
 If any $u_i \in C \setminus A$: the edge bound gives $M_{\mathrm{gap}} \ge 2/3 - P(h) - P(u_i) > 0$.
 
 If all $u_i \in A$, the same counting argument as the base case shows $M_{\mathrm{gap}} > 0$ for $k \ge 2$.
-For $k = 1$ (so $\deg_T(h) = 2$, with sole private $A$-neighbour $u_1$ and non-private $v_0$), the belief-propagation fixed-point equations give
+For $k = 1$ (so $\deg_T(h) = 2$, with sole private $A$-neighbor $u_1$ and non-private $v_0$), the belief-propagation fixed-point equations give
 \[
   P(h) = \frac{1}{D}, \qquad P(u_1) = \frac{(1 + \alpha)a}{D}, \qquad D = 2 + a + \alpha + a\alpha,
 \]
@@ -456,7 +460,7 @@ If $H_{\mathrm{core}} \ne \emptyset$, Theorem~\ref{thm:steiner-peeling} gives $F
 \subsection{Spider extremality and tie-fugacity}\label{subsec:spider}
 
 The minimum margin is attained by $S(2^{10})$, the equal-arm spider with hub connected to ten arms of length~2 (21~vertices, $\dleaf = 1$ everywhere).
-This tree is the global minimiser across all tree types through $n = 22$, not only among $\dleaf \le 1$ trees.
+This tree is the global minimizer across all tree types through $n = 22$, not only among $\dleaf \le 1$ trees.
 More generally, the margin for the $S(2^k)$ family can be bounded analytically.
 
 \begin{proposition}[Equal-arm spider tie-fugacity margin]\label{prop:spider-tie-margin}
@@ -538,7 +542,7 @@ As $k \to \infty$ along $k = 3j+1$, the hub-off surplus $(j+1)/(3j+2) \to 1/3$ a
 \begin{remark}
 The proof above establishes margin $> 0$ but does not show margin $> 1/3$ directly.
 Numerically, margin $> 1/3$ for all $k \le 600$, with margin $= 1/3 + c/k + O(1/k^2)$ and $c \approx 1/3$; a closed-form proof of the sharper bound would follow from the exact asymptotics of~$\lambda_m$.
-Since $S(2^k)$ is the extremal $\dleaf \le 1$ tree for the mean bound (verified through $n \le 20$), and $S(2^{10})$ is also the global minimiser for the tie-fugacity margin across all 9\,114\,283 trees through $n = 22$, establishing analytically that $S(2^k)$ minimises the margin for all tree types would reduce the full tie-fugacity condition $\mu(\lambda_m) \ge m-1$ to the spider case, which Proposition~\ref{prop:spider-tie-margin} already proves.
+Since $S(2^k)$ is the extremal $\dleaf \le 1$ tree for the mean bound (verified through $n \le 20$), and $S(2^{10})$ is also the global minimizer for the tie-fugacity margin across all 9\,114\,283 trees through $n = 22$, establishing analytically that $S(2^k)$ minimizes the margin for all tree types would reduce the full tie-fugacity condition $\mu(\lambda_m) \ge m-1$ to the spider case, which Proposition~\ref{prop:spider-tie-margin} already proves.
 \end{remark}
 
 Since spiders are already known to be log-concave by \textcite{li2025spiders}, the tie-fugacity analysis below is included as an extremal calibration of the mode-mean program rather than as a new proof of spider unimodality.
@@ -1112,7 +1116,7 @@ and gap $-0.18375532695593183$; see
 
   \item The overflow guard for polynomial multiplication triggers automatic fallback to pure Python big-integer arithmetic when coefficient products approach $2^{62}$.
 
-  \item 37 unit tests cover: polynomial correctness on small graphs, unimodality and LC checks, near-miss ratio computation, graph6 parsing, and tree generation.
+  \item 43 unit tests cover: polynomial correctness on small graphs, unimodality and LC checks, near-miss ratio computation, graph6 parsing, and tree generation.
 \end{enumerate}
 
 \newpage
