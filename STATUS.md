@@ -9,6 +9,21 @@
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## Current state (2026-04-25)
+
+### Session notes (2026-04-25, E-JC submission)
+- **Submitted to the Electronic Journal of Combinatorics.** Submission number `60492-1`; initial file uploaded was the single PDF `paper/main_v2.pdf`.
+- **Submission build:** final PDF built from `paper/main_v2.tex` after reviewer-driven revisions; no overfull boxes, no unresolved references/citations. ORCID icon removed from the title block to avoid logo-like material in the E-JC submission PDF.
+- **Submission metadata:** OJS abstract saved in `paper/abstract_submission.txt` and `paper/abstract_submission.md`; comments for editor noted public GitHub/Zenodo artifacts, AI disclosure, manual checking, and that the paper is not under consideration elsewhere.
+
+## Current state (2026-04-23)
+
+### Session notes (2026-04-23, midday)
+- **Desk-rejected from Experimental Mathematics.** Editor-in-Chief Alexander Kasprzyk emailed a standard "not suitable" notice on 2026-04-23, no reviews, no specific reason. Roughly four-week turnaround from the 2026-03-29 submission (ID 264515082).
+- **Tracking surfaces updated:** `PORTFOLIO.md` row flipped to "Next venue TBD"; `personal/CV/main.tex` and `personal/personal-website/publications.html` both drop the "Under review at Experimental Mathematics" framing and present the paper as a Zenodo preprint again; `cv.pdf` rebuilt and synced into the website copy.
+- **Repo manuscript unchanged** — the paper itself hasn't been touched this session; `paper/main_v2.tex` is still the live draft matching Zenodo version DOI `10.5281/zenodo.19100781`.
+- **Next action:** Brett's call on the next venue. Candidates from the 2026-03-18 notes: European Journal of Combinatorics, Discrete Mathematics. Worth a short look at scope fit and typical desk-rejection rates before resubmitting.
+
 ## Current state (2026-03-18)
 
 ### Session notes (2026-03-18, shutdown prep)
