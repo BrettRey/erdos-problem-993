@@ -8,7 +8,7 @@ Supports the two dict schemas used in this repo:
 Examples:
   python3 scripts/collect_modal_results.py status --kind unimodality --n 28 --workers 1024
   python3 scripts/collect_modal_results.py collect --kind unimodality --n 28 --workers 1024 \
-    --expected 2023443032 --out results/analysis_n28_modal_unimodality.json
+    --out results/analysis_n28_modal_unimodality.json
   python3 scripts/collect_modal_results.py collect --kind lc_nm --n 28 --workers 1024 \
     --top-k 200 --lc-top-k 200 --out results/analysis_n28_modal_lc_nm.json
 """
@@ -23,6 +23,12 @@ import sys
 import time
 from pathlib import Path
 from typing import Any
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from search import A000055_COUNTS
 
 
 def dict_name(kind: str, n: int) -> str:
@@ -81,6 +87,17 @@ def collect_unimodality(rows: dict[str, Any], n: int, workers: int, expected: in
         "complete": status["complete"],
         "completed_partitions": status["completed"],
     }
+
+
+def resolve_expected(n: int, cli_expected: int | None) -> int | None:
+    """Return the OEIS A000055 expected count, checking any CLI override."""
+    oeis_expected = A000055_COUNTS.get(n)
+    if cli_expected is not None and oeis_expected is not None and cli_expected != oeis_expected:
+        raise ValueError(
+            f"--expected={cli_expected} disagrees with OEIS A000055 count "
+            f"for n={n}: {oeis_expected}"
+        )
+    return oeis_expected if oeis_expected is not None else cli_expected
 
 
 def collect_lc_nm(
@@ -204,15 +221,16 @@ def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
 
+    expected = resolve_expected(args.n, args.expected) if args.kind == "unimodality" else args.expected
     name = args.dict_name or dict_name(args.kind, args.n)
     rows = load_modal_dict(name, max(args.workers, 2000))
 
     if args.kind == "unimodality":
-        status = summarize_unimodality(rows, args.n, args.workers, args.expected)
+        status = summarize_unimodality(rows, args.n, args.workers, expected)
         if args.command == "status":
             print(format_status(status, args.kind))
             return 0
-        summary = collect_unimodality(rows, args.n, args.workers, args.expected)
+        summary = collect_unimodality(rows, args.n, args.workers, expected)
     else:
         summary = collect_lc_nm(rows, args.n, args.workers, args.top_k, args.lc_top_k)
         if args.command == "status":

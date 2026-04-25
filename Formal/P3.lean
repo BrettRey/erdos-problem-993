@@ -12,7 +12,7 @@ This file provides:
    then (1+x)A - xB ≥ 0 coefficientwise.
 2. **Combinatorial P3**: the leaf-swap injection φ(S) = (S \ {r}) ∪ {ℓ}
    is a size-preserving injection from {IS ∋ r} to {IS ∌ r}.
-3. **Tree corollary**: every nontrivial tree has a pendant pair (sorry for now).
+3. **Tree corollary**: every nontrivial tree has a pendant pair.
 -/
 
 namespace Formal.P3

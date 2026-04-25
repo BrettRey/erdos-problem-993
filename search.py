@@ -19,7 +19,7 @@ from graph6 import parse_graph6
 from indpoly import independence_poly, is_unimodal
 from trees import trees, trees_geng
 
-# OEIS A000055: number of unlabeled trees on n vertices (n=1..26).
+# OEIS A000055: number of unlabeled trees on n vertices.
 A000055_COUNTS: dict[int, int] = {
     1: 1,
     2: 1,
@@ -48,6 +48,8 @@ A000055_COUNTS: dict[int, int] = {
     25: 104636890,
     26: 279793450,
     27: 751065460,
+    28: 2023443032,
+    29: 5469566585,
 }
 
 

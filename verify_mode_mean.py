@@ -7,28 +7,20 @@ For each tree, computes the full IS polynomial and checks:
 """
 
 import argparse
-import math
 import shutil
 import time
+from fractions import Fraction
 from multiprocessing import Pool
 
-from graph6 import parse_graph6
 from indpoly import independence_poly
+from search import A000055_COUNTS
 from trees import trees, trees_geng
 
-# OEIS A000055 counts for verification
-A000055 = {
-    1: 1, 2: 1, 3: 1, 4: 2, 5: 3, 6: 6, 7: 11, 8: 23, 9: 47, 10: 106,
-    11: 235, 12: 551, 13: 1301, 14: 3159, 15: 7741, 16: 19320, 17: 48629,
-    18: 123867, 19: 317955, 20: 823065, 21: 2144505, 22: 5623756,
-    23: 14828074, 24: 39299897, 25: 104636890, 26: 279793450, 27: 751065460,
-}
 
-
-def check_mode_mean(poly: list[int]) -> tuple[bool, int, float]:
+def check_mode_mean(poly: list[int]) -> tuple[bool, int, int, int]:
     """Check mode ≤ ceil(μ) for a polynomial coefficient list.
 
-    Returns (passes, mode, mu).
+    Returns (passes, mode, weighted, total), so μ=weighted/total exactly.
     """
     # mode = argmax
     mode = max(range(len(poly)), key=lambda k: poly[k])
@@ -36,11 +28,11 @@ def check_mode_mean(poly: list[int]) -> tuple[bool, int, float]:
     # μ = I'(1)/I(1) = sum(k * i_k) / sum(i_k)
     total = sum(poly)
     if total == 0:
-        return True, mode, 0.0
+        return True, mode, 0, 1
     weighted = sum(k * c for k, c in enumerate(poly))
-    mu = weighted / total
+    ceil_mu = (weighted + total - 1) // total
 
-    return mode <= math.ceil(mu), mode, mu
+    return mode <= ceil_mu, mode, weighted, total
 
 
 def worker_partition(args):
@@ -51,14 +43,15 @@ def worker_partition(args):
     worst_margin = float('inf')  # smallest ceil(mu) - mode
     for tree_n, adj in trees_geng(n, res=res, mod=mod):
         poly = independence_poly(tree_n, adj)
-        passes, mode, mu = check_mode_mean(poly)
-        margin = math.ceil(mu) - mode
+        passes, mode, weighted, total = check_mode_mean(poly)
+        ceil_mu = (weighted + total - 1) // total
+        margin = ceil_mu - mode
         if margin < worst_margin:
             worst_margin = margin
         if not passes:
             violations.append({
                 'n': tree_n, 'adj': adj, 'poly': poly,
-                'mode': mode, 'mu': mu
+                'mode': mode, 'mu': [weighted, total]
             })
         count += 1
     return count, violations, worst_margin
@@ -89,13 +82,15 @@ def main():
             worst = float('inf')
             for tree_n, adj in trees(n, backend="auto"):
                 poly = independence_poly(tree_n, adj)
-                passes, mode, mu = check_mode_mean(poly)
-                margin = math.ceil(mu) - mode
+                passes, mode, weighted, total = check_mode_mean(poly)
+                ceil_mu = (weighted + total - 1) // total
+                margin = ceil_mu - mode
                 if margin < worst:
                     worst = margin
                 if not passes:
                     violations.append({
-                        'n': tree_n, 'mode': mode, 'mu': mu
+                        'n': tree_n, 'mode': mode,
+                        'mu': [weighted, total],
                     })
                 count += 1
         else:
@@ -114,7 +109,7 @@ def main():
         grand_total += count
         grand_violations += len(violations)
 
-        expected = A000055.get(n)
+        expected = A000055_COUNTS.get(n)
         if expected is not None and count != expected:
             print(f"  WARNING: count mismatch at n={n}: {count} vs {expected}")
 
@@ -124,8 +119,10 @@ def main():
 
         if violations:
             for v in violations[:5]:
-                print(f"  VIOLATION: mode={v['mode']}, μ={v['mu']:.6f}, "
-                      f"⌈μ⌉={math.ceil(v['mu'])}")
+                mu = Fraction(v["mu"][0], v["mu"][1])
+                ceil_mu = (mu.numerator + mu.denominator - 1) // mu.denominator
+                print(f"  VIOLATION: mode={v['mode']}, μ={mu} "
+                      f"(≈{float(mu):.6f}), ⌈μ⌉={ceil_mu}")
 
     grand_elapsed = time.time() - grand_start
     print(f"\nDone. {grand_total:,} trees checked in {grand_elapsed:.1f}s.")
