@@ -1,4 +1,4 @@
-# Experimental Mathematics — Submission Info
+# Electronic Journal of Combinatorics -- Submission Info
 
 ## Title
 
@@ -11,17 +11,13 @@ ORCID: 0000-0003-2407-9448
 Humber College, Toronto, Canada
 brett.reynolds@humber.ca
 
-## CRediT Roles
-
-Brett Reynolds: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing – original draft, Writing – review & editing, Visualization.
-
 ## Abstract
 
-Alavi et al. (1987) conjectured that the independence polynomial of every tree is unimodal. I prove μ(T) < n/3 for every tree with d_leaf ≤ 1 via Steiner peeling on a compensation function. Hub Exclusion and Transfer reduce the mode bound for all trees to a single conjecture about d_leaf ≤ 1 trees; conditional on mode ≤ ⌈μ⌉, the mean bound settles this conjecture. A subdivision-contraction identity shows that, conditional on a conjectured Edge Contraction Mode Stability property and a verified tail condition, any minimal counterexample is homeomorphically irreducible. Neither conditional route closes the full conjecture. Computationally, I verify unimodality for all 8,691,747,673 trees on n ≤ 29 vertices. Multi-arm stars are the extremal family, with near-miss ratio nm(s) = 1 − C/s + O(1/s²), C ∈ [4, 8).
+Alavi, Malde, Schwenk, and Erdős (1987) conjectured that the independence polynomial of every tree is unimodal. I prove $\mu(T) < n/3$ for every $d_{\mathrm{leaf}} \le 1$ tree on $n \ge 3$ vertices via Steiner peeling on a compensation function. Hub Exclusion and Transfer give a conditional reduction for 1-Private maximal independent sets: Conjecture A on the $d_{\mathrm{leaf}} \le 1$ regime plus a Case B hub bound would prove that every such set has size at least the mode. Conditional on $\mathrm{mode} \le \lceil\mu\rceil$, the mean bound settles the Conjecture A part. A subdivision-contraction identity shows that, conditional on a conjectured Edge Contraction Mode Stability property and a tail condition verified through $n \le 19$, any minimal counterexample is homeomorphically irreducible. Neither conditional route closes the full conjecture. Computationally, I verify unimodality for all 8,691,747,673 trees on $n \le 29$ vertices. Multi-arm stars are the empirically extremal family in the tested regimes, with near-miss ratio $\mathrm{nm}(s) = 1 - C/s + O(1/s^2)$, $C \in [4, 8]$.
 
 ## Keywords
 
-independence polynomial, unimodality, trees, Erdős Problem 993, exhaustive verification, log-concavity
+independence polynomial, unimodality, trees, Erdős Problem 993, exhaustive verification, graph polynomials
 
 ## MSC Codes
 
@@ -41,17 +37,19 @@ Claude Opus 4.6 (Anthropic) assisted with computational exploration, Python code
 
 ## Submission URL
 
-https://mc.manuscriptcentral.com/uexm (ScholarOne for Experimental Mathematics)
+https://www.combinatorics.org/ojs/index.php/eljc/about/submissions
+
+Use the E-JC OJS login/register flow from that page.
 
 ## Files to Upload
 
-- **Manuscript PDF** (upload as "Manuscript - with author details")
-- **LaTeX source ZIP** (main_v2.tex, preamble.tex, references.bib, figures/, all .sty files) — upload as "LaTeX Source Files"
+- Manuscript PDF: `paper/main_v2.pdf`
+
+E-JC asks for the article itself as a PDF for the initial submission, and explicitly says not to upload source files at this stage.
 
 ## Notes
 
-- Single blind review (no anonymization needed)
-- No submission fees, no page charges
-- Preprint on GitHub is fine (journal accepts preprints)
-- American spelling throughout (verified)
-- Listed on Tao's AI-contributions wiki, Section 2e — mention in cover letter if there's a field for it
+- E-JC checklist requires that the paper isn't under consideration elsewhere.
+- The OJS form asks for an HTML abstract in addition to the manuscript abstract. Use `paper/abstract_submission.txt`; it avoids local macros such as `\dleaf` and `\nm`.
+- E-JC has an AI policy. The manuscript's AI disclosure is in the reproducibility section.
+- If accepted, prepare the final source with the E-JC style file and consolidate the LaTeX source and bibliography into one file, as requested by the journal.
