@@ -986,7 +986,7 @@ The champion at $n \ge 200$ is $M(s;\, 5, 5, 4, 2)$, achieving $\nm = 0.9918$ at
   \end{tabular}
 \end{table}
 
-The asymptotic mechanism behind these near-misses applies to any fixed core with pendant leaves.
+The near-miss mechanism extends to any fixed core with pendant leaves.
 Earlier work proves eventual unimodality under sufficiently many pendant attachments at a vertex \citep{galvinhilyard2018}; the theorem below strengthens this by quantifying the approach to the boundary via $\nm(s)=1-C/s+O(1/s^2)$ with explicit first-order constant~$C$.
 I use independence-polynomial language, but this pendant-attachment enumeration also sits in the Fibonacci-number and Merrifield--Simmons-index tradition initiated by \textcite{prodinger_tichy1982} and surveyed by \textcite{gutman_wagner2010}.
 
@@ -1062,14 +1062,14 @@ The multi-arm star champion $M(s;\, 5, 5, 4, 2)$ has an empirical rate $\hat{C} 
 
 \subsection{Proved backbone}
 
-Two independent lines of argument conditionally constrain the structure of any hypothetical counterexample.
+Two independent arguments give conditional information about any hypothetical counterexample.
 The PNP reduction (Section~\ref{sec:reduction}) provides combinatorial structure: Hub Exclusion and Transfer force the behavior of 1-Private maximal IS on trees with many leaf-neighbors, reducing that bound to Conjecture~A and the Case~B hub bound.
 The subdivision-contraction identity (Theorem~\ref{thm:identity}) provides algebraic structure: the relationship $I(T_e) = I(T) + x \cdot I(T/e)$ connects three natural operations on trees.
 If ECMS (Conjecture~\ref{conj:ecms}) and the combined tail condition hold, subdivision preserves unimodality, so any minimal counterexample has no degree-2 vertices.
 
 These two threads don't yet close the problem.
 ECMS and Conjecture~A remain open, and neither immediately implies the other.
-But they point toward complementary proof strategies: ECMS would be established by understanding how edge contraction affects the mode (a local operation), while Conjecture~A requires bounding the mean IS size (a global property related to the hard-core model).
+But they point toward complementary strategies: ECMS asks how edge contraction affects the mode (a local operation), while Conjecture~A requires bounding the mean IS size (a global property related to the hard-core model).
 
 The hard-core model connection is useful here.
 The edge bound $P(u) + P(v) < 2/3$ (Theorem~\ref{thm:edge-bound}) is tight for $K_2$ and already constrains the mean.
