@@ -1,0 +1,151 @@
+{
+  "params": {
+    "r_values": [
+      100,
+      120,
+      160,
+      200
+    ],
+    "a_max": 349
+  },
+  "total_checked": 1396,
+  "skipped": 0,
+  "total_failures": 0,
+  "total_stronger_failures": 0,
+  "global_min_route2": {
+    "r": 100,
+    "a": 349,
+    "n": 799,
+    "m": 261,
+    "route2_num_sign": 1,
+    "stronger_num_sign": 1,
+    "route2_slack_float": 0.17438116131632425,
+    "stronger_slack_float": 0.1740405018449355,
+    "lambda_float": 0.9986382898534547
+  },
+  "global_min_stronger": {
+    "r": 100,
+    "a": 349,
+    "n": 799,
+    "m": 261,
+    "route2_num_sign": 1,
+    "stronger_num_sign": 1,
+    "route2_slack_float": 0.17438116131632425,
+    "stronger_slack_float": 0.1740405018449355,
+    "lambda_float": 0.9986382898534547
+  },
+  "lanes": [
+    {
+      "r": 100,
+      "checked": 349,
+      "failures": [],
+      "stronger_failures": [],
+      "min_route2": {
+        "r": 100,
+        "a": 349,
+        "n": 799,
+        "m": 261,
+        "route2_num_sign": 1,
+        "stronger_num_sign": 1,
+        "route2_slack_float": 0.17438116131632425,
+        "stronger_slack_float": 0.1740405018449355,
+        "lambda_float": 0.9986382898534547
+      },
+      "min_stronger": {
+        "r": 100,
+        "a": 349,
+        "n": 799,
+        "m": 261,
+        "route2_num_sign": 1,
+        "stronger_num_sign": 1,
+        "route2_slack_float": 0.17438116131632425,
+        "stronger_slack_float": 0.1740405018449355,
+        "lambda_float": 0.9986382898534547
+      }
+    },
+    {
+      "r": 120,
+      "checked": 349,
+      "failures": [],
+      "stronger_failures": [],
+      "min_route2": {
+        "r": 120,
+        "a": 347,
+        "n": 815,
+        "m": 265,
+        "route2_num_sign": 1,
+        "stronger_num_sign": 1,
+        "route2_slack_float": 0.1765579807821177,
+        "stronger_slack_float": 0.17567476487651518,
+        "lambda_float": 0.996473365930504
+      },
+      "min_stronger": {
+        "r": 120,
+        "a": 347,
+        "n": 815,
+        "m": 265,
+        "route2_num_sign": 1,
+        "stronger_num_sign": 1,
+        "route2_slack_float": 0.1765579807821177,
+        "stronger_slack_float": 0.17567476487651518,
+        "lambda_float": 0.996473365930504
+      }
+    },
+    {
+      "r": 160,
+      "checked": 349,
+      "failures": [],
+      "stronger_failures": [],
+      "min_route2": {
+        "r": 160,
+        "a": 348,
+        "n": 857,
+        "m": 277,
+        "route2_num_sign": 1,
+        "stronger_num_sign": 1,
+        "route2_slack_float": 0.17742956114223615,
+        "stronger_slack_float": 0.1773432397211264,
+        "lambda_float": 0.9996547739002265
+      },
+      "min_stronger": {
+        "r": 160,
+        "a": 348,
+        "n": 857,
+        "m": 277,
+        "route2_num_sign": 1,
+        "stronger_num_sign": 1,
+        "route2_slack_float": 0.17742956114223615,
+        "stronger_slack_float": 0.1773432397211264,
+        "lambda_float": 0.9996547739002265
+      }
+    },
+    {
+      "r": 200,
+      "checked": 349,
+      "failures": [],
+      "stronger_failures": [],
+      "min_route2": {
+        "r": 200,
+        "a": 348,
+        "n": 897,
+        "m": 288,
+        "route2_num_sign": 1,
+        "stronger_num_sign": 1,
+        "route2_slack_float": 0.1797596179381888,
+        "stronger_slack_float": 0.17953619474718513,
+        "lambda_float": 0.9991067063813143
+      },
+      "min_stronger": {
+        "r": 200,
+        "a": 348,
+        "n": 897,
+        "m": 288,
+        "route2_num_sign": 1,
+        "stronger_num_sign": 1,
+        "route2_slack_float": 0.1797596179381888,
+        "stronger_slack_float": 0.17953619474718513,
+        "lambda_float": 0.9991067063813143
+      }
+    }
+  ]
+}

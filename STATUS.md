@@ -12,7 +12,7 @@ The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapsho
 ## Current state (2026-04-25)
 
 ### Session notes (2026-04-25, E-JC submission)
-- **Submitted to the Electronic Journal of Combinatorics.** Submission number `60492-1`; initial file uploaded was the single PDF `paper/main_v2.pdf`.
+- **Submitted to the Electronic Journal of Combinatorics.** Submission number `60492-1`; initial file uploaded was the single PDF `paper/main_v2.pdf`. Acknowledgement received same day; OJS submission ID `15526`. Author dashboard: https://www.combinatorics.org/ojs/index.php/eljc/authorDashboard/submission/15526. E-JC requests no status enquiries before six months elapse.
 - **Submission build:** final PDF built from `paper/main_v2.tex` after reviewer-driven revisions; no overfull boxes, no unresolved references/citations. ORCID icon removed from the title block to avoid logo-like material in the E-JC submission PDF.
 - **Submission metadata:** OJS abstract saved in `paper/abstract_submission.txt` and `paper/abstract_submission.md`; comments for editor noted public GitHub/Zenodo artifacts, AI disclosure, manual checking, and that the paper is not under consideration elsewhere.
 

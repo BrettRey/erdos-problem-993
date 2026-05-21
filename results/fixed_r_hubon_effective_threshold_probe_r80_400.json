@@ -1,0 +1,2352 @@
+{
+  "params": {
+    "r_values": [
+      80,
+      120,
+      160,
+      200,
+      240,
+      280,
+      320,
+      400
+    ],
+    "start": 20,
+    "stop": 400,
+    "step": 10
+  },
+  "records": [
+    {
+      "r": 80,
+      "first_ok": {
+        "r": 80,
+        "threshold": 150,
+        "ok": true,
+        "max_mode_bound_float": 4.728339151610069e-25,
+        "min_mode_target_float": 0.0010363612324741326,
+        "max_perturb_bound_float": 0.0012137674084414017,
+        "min_reserve_target_float": 0.009134131772576454,
+        "residues": [
+          {
+            "residue": 0,
+            "shift": 66,
+            "a0": 150,
+            "m0": 122,
+            "witness_s": 22,
+            "n0": 100,
+            "mode_eta": "38120966898030381/245223162886446364",
+            "reserve_eta": "1420525829713610507039934054835065334886289728159039/691235047130672872981555820523941153121181123494213",
+            "mode_bound_float": 4.728339151610069e-25,
+            "mode_target_float": 0.0010363612324741326,
+            "perturb_bound_float": 0.0012137674084414017,
+            "reserve_target_float": 0.01370036464065525,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          },
+          {
+            "residue": 1,
+            "shift": 67,
+            "a0": 151,
+            "m0": 123,
+            "witness_s": 22,
+            "n0": 101,
+            "mode_eta": "111019169531432577/122611581443223182",
+            "reserve_eta": "1190114147336719549379415447993751617179229353660968/691235047130672872981555820523941153121181123494213",
+            "mode_bound_float": 3.162663935845145e-25,
+            "mode_target_float": 0.005996385330272317,
+            "perturb_bound_float": 0.0009142834935324907,
+            "reserve_target_float": 0.011402128230231486,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          },
+          {
+            "residue": 2,
+            "shift": 68,
+            "a0": 152,
+            "m0": 124,
+            "witness_s": 22,
+            "n0": 102,
+            "mode_eta": "36449101316701098/61305790721611591",
+            "reserve_eta": "319900821653276197239632280384145966490722993054299/230411682376890957660518606841313717707060374498071",
+            "mode_bound_float": 2.122313956948716e-25,
+            "mode_target_float": 0.003911485625847895,
+            "perturb_bound_float": 0.0006886810730504475,
+            "reserve_target_float": 0.009134131772576454,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          }
+        ]
+      },
+      "attempts": [
+        {
+          "threshold": 20,
+          "ok": false,
+          "max_mode_bound_float": 0.0139578949676467,
+          "min_mode_target_float": 0.0074025802319580905,
+          "max_perturb_bound_float": 9213897887321.744,
+          "min_reserve_target_float": 0.06941940147158106
+        },
+        {
+          "threshold": 30,
+          "ok": false,
+          "max_mode_bound_float": 0.00028810530276439464,
+          "min_mode_target_float": 0.0051818061623706635,
+          "max_perturb_bound_float": 570753671625.0392,
+          "min_reserve_target_float": 0.04338712591973816
+        },
+        {
+          "threshold": 40,
+          "ok": false,
+          "max_mode_bound_float": 5.754819455740541e-06,
+          "min_mode_target_float": 0.0037012901159790453,
+          "max_perturb_bound_float": 35063067580.8238,
+          "min_reserve_target_float": 0.033863122669063925
+        },
+        {
+          "threshold": 50,
+          "ok": false,
+          "max_mode_bound_float": 1.1251566110239879e-07,
+          "min_mode_target_float": 0.003048121271982743,
+          "max_perturb_bound_float": 2139068286.2997973,
+          "min_reserve_target_float": 0.02776776058863242
+        },
+        {
+          "threshold": 60,
+          "ok": false,
+          "max_mode_bound_float": 2.1145524854977358e-09,
+          "min_mode_target_float": 0.0025909030811853318,
+          "max_perturb_bound_float": 129724488.28235239,
+          "min_reserve_target_float": 0.022393355313413243
+        },
+        {
+          "threshold": 70,
+          "ok": false,
+          "max_mode_bound_float": 3.957952374822706e-11,
+          "min_mode_target_float": 0.0021590859009877764,
+          "max_perturb_bound_float": 7827044.870427388,
+          "min_reserve_target_float": 0.019554760977910157
+        },
+        {
+          "threshold": 80,
+          "ok": false,
+          "max_mode_bound_float": 7.379262056942357e-13,
+          "min_mode_target_float": 0.0019191874675446902,
+          "max_perturb_bound_float": 470152.9668719816,
+          "min_reserve_target_float": 0.017354850367895264
+        },
+        {
+          "threshold": 90,
+          "ok": false,
+          "max_mode_bound_float": 1.3484123594554367e-14,
+          "min_mode_target_float": 0.001727268720790221,
+          "max_perturb_bound_float": 28130.71389162478,
+          "min_reserve_target_float": 0.015091174232952403
+        },
+        {
+          "threshold": 100,
+          "ok": false,
+          "max_mode_bound_float": 2.464022117031864e-16,
+          "min_mode_target_float": 0.0015240606359913716,
+          "max_perturb_bound_float": 1677.324039378315,
+          "min_reserve_target_float": 0.013746416132986347
+        },
+        {
+          "threshold": 110,
+          "ok": false,
+          "max_mode_bound_float": 4.500611537600201e-18,
+          "min_mode_target_float": 0.0014004881519920711,
+          "max_perturb_bound_float": 99.70356818430935,
+          "min_reserve_target_float": 0.012621709358469282
+        },
+        {
+          "threshold": 120,
+          "ok": false,
+          "max_mode_bound_float": 8.113392576333244e-20,
+          "min_mode_target_float": 0.0012954515405926659,
+          "max_perturb_bound_float": 5.910166687930535,
+          "min_reserve_target_float": 0.011380229749439516
+        },
+        {
+          "threshold": 130,
+          "ok": false,
+          "max_mode_bound_float": 1.4641570075295487e-21,
+          "min_mode_target_float": 0.0011776832187206053,
+          "max_perturb_bound_float": 0.34946337165202196,
+          "min_reserve_target_float": 0.010598381904058176
+        },
+        {
+          "threshold": 140,
+          "ok": false,
+          "max_mode_bound_float": 2.643863546403462e-23,
+          "min_mode_target_float": 0.0011025119494405666,
+          "max_perturb_bound_float": 0.02061663027804081,
+          "min_reserve_target_float": 0.009917057353083007
+        },
+        {
+          "threshold": 150,
+          "ok": true,
+          "max_mode_bound_float": 4.728339151610069e-25,
+          "min_mode_target_float": 0.0010363612324741326,
+          "max_perturb_bound_float": 0.0012137674084414017,
+          "min_reserve_target_float": 0.009134131772576454
+        }
+      ]
+    },
+    {
+      "r": 120,
+      "first_ok": {
+        "r": 120,
+        "threshold": 200,
+        "ok": true,
+        "max_mode_bound_float": 1.0460987268576685e-33,
+        "min_mode_target_float": 0.00014958200183695107,
+        "max_perturb_bound_float": 0.004013003817604202,
+        "min_reserve_target_float": 0.00990386217016206,
+        "residues": [
+          {
+            "residue": 0,
+            "shift": 99,
+            "a0": 201,
+            "m0": 167,
+            "witness_s": 33,
+            "n0": 134,
+            "mode_eta": "421776624473152693534965/14028366653498915298923761",
+            "reserve_eta": "21926461891098410754346737394987365827072052004091324764893185165081898775145/8282140233295090783217512762095068000190338910053493274653605041404323280243",
+            "mode_bound_float": 6.973991512384457e-34,
+            "mode_target_float": 0.00014958200183695107,
+            "perturb_bound_float": 0.0030191583409006606,
+            "reserve_target_float": 0.013171338809448152,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          },
+          {
+            "residue": 1,
+            "shift": 100,
+            "a0": 202,
+            "m0": 168,
+            "witness_s": 33,
+            "n0": 135,
+            "mode_eta": "43772206458389356670911143/56113466613995661195695044",
+            "reserve_eta": "19165748480000047159940899807622343160341939034073493673341983484613791015064/8282140233295090783217512762095068000190338910053493274653605041404323280243",
+            "mode_bound_float": 4.660835911742087e-34,
+            "mode_target_float": 0.003861712784006075,
+            "perturb_bound_float": 0.002271422863948628,
+            "reserve_target_float": 0.011455969145374976,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          },
+          {
+            "residue": 2,
+            "shift": 101,
+            "a0": 200,
+            "m0": 167,
+            "witness_s": 33,
+            "n0": 134,
+            "mode_eta": "40397993462604135122631423/56113466613995661195695044",
+            "reserve_eta": "5468345022967227855178354073419106831203942021351887527263593934715227751661/2760713411098363594405837587365022666730112970017831091551201680468107760081",
+            "mode_bound_float": 1.0460987268576685e-33,
+            "mode_target_float": 0.003599670088153864,
+            "perturb_bound_float": 0.004013003817604202,
+            "reserve_target_float": 0.00990386217016206,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          }
+        ]
+      },
+      "attempts": [
+        {
+          "threshold": 20,
+          "ok": false,
+          "max_mode_bound_float": 0.01701801074392459,
+          "min_mode_target_float": 0.0014317134461536746,
+          "max_perturb_bound_float": 5.412778055559543e+19,
+          "min_reserve_target_float": 0.09903862170162059
+        },
+        {
+          "threshold": 30,
+          "ok": false,
+          "max_mode_bound_float": 0.000351269238605881,
+          "min_mode_target_float": 0.0010021994123075723,
+          "max_perturb_bound_float": 3.265848821259248e+18,
+          "min_reserve_target_float": 0.06189913856351287
+        },
+        {
+          "threshold": 40,
+          "ok": false,
+          "max_mode_bound_float": 7.016500665332826e-06,
+          "min_mode_target_float": 0.0007158567230768373,
+          "max_perturb_bound_float": 1.961721873438897e+17,
+          "min_reserve_target_float": 0.048311522781278336
+        },
+        {
+          "threshold": 50,
+          "ok": false,
+          "max_mode_bound_float": 1.3718348890994948e-07,
+          "min_mode_target_float": 0.0005895290660632778,
+          "max_perturb_bound_float": 1.1737591942428282e+16,
+          "min_reserve_target_float": 0.03961544868064824
+        },
+        {
+          "threshold": 60,
+          "ok": false,
+          "max_mode_bound_float": 2.578144985343736e-09,
+          "min_mode_target_float": 0.0005010997061537861,
+          "max_perturb_bound_float": 699866530415706.4,
+          "min_reserve_target_float": 0.03194794248439374
+        },
+        {
+          "threshold": 70,
+          "ok": false,
+          "max_mode_bound_float": 4.825690134135674e-11,
+          "min_mode_target_float": 0.0004175830884614884,
+          "max_perturb_bound_float": 41601496608300.945,
+          "min_reserve_target_float": 0.02789820329623115
+        },
+        {
+          "threshold": 80,
+          "ok": false,
+          "max_mode_bound_float": 8.997084535910713e-13,
+          "min_mode_target_float": 0.00037118496752132303,
+          "max_perturb_bound_float": 2466027885460.6655,
+          "min_reserve_target_float": 0.024759655425405147
+        },
+        {
+          "threshold": 90,
+          "ok": false,
+          "max_mode_bound_float": 1.6440370180205076e-14,
+          "min_mode_target_float": 0.0003340664707691907,
+          "max_perturb_bound_float": 145814232481.95187,
+          "min_reserve_target_float": 0.021530135152526216
+        },
+        {
+          "threshold": 100,
+          "ok": false,
+          "max_mode_bound_float": 3.00423201049391e-16,
+          "min_mode_target_float": 0.0002947645330316389,
+          "max_perturb_bound_float": 8602326779.328714,
+          "min_reserve_target_float": 0.01961160825774665
+        },
+        {
+          "threshold": 110,
+          "ok": false,
+          "max_mode_bound_float": 5.4873213818161074e-18,
+          "min_mode_target_float": 0.0002708647060290736,
+          "max_perturb_bound_float": 506446676.3335734,
+          "min_reserve_target_float": 0.01800702212756738
+        },
+        {
+          "threshold": 120,
+          "ok": false,
+          "max_mode_bound_float": 9.892165140500149e-20,
+          "min_mode_target_float": 0.00025054985307689306,
+          "max_perturb_bound_float": 29759783.329329625,
+          "min_reserve_target_float": 0.01623583962321649
+        },
+        {
+          "threshold": 130,
+          "ok": false,
+          "max_mode_bound_float": 1.7851574139715242e-21,
+          "min_mode_target_float": 0.00022777259370626641,
+          "max_perturb_bound_float": 1745706.246111378,
+          "min_reserve_target_float": 0.015120400259789403
+        },
+        {
+          "threshold": 140,
+          "ok": false,
+          "max_mode_bound_float": 3.2235017058414326e-23,
+          "min_mode_target_float": 0.0002132339175122494,
+          "max_perturb_bound_float": 102239.12854356384,
+          "min_reserve_target_float": 0.01414837452880294
+        },
+        {
+          "threshold": 150,
+          "ok": false,
+          "max_mode_bound_float": 5.764975783922677e-25,
+          "min_mode_target_float": 0.00020043988246151444,
+          "max_perturb_bound_float": 5978.88484870325,
+          "min_reserve_target_float": 0.013031397592318498
+        },
+        {
+          "threshold": 160,
+          "ok": false,
+          "max_mode_bound_float": 1.032393081508656e-26,
+          "min_mode_target_float": 0.00018559248376066152,
+          "max_perturb_bound_float": 349.16209468383045,
+          "min_reserve_target_float": 0.012302934372872124
+        },
+        {
+          "threshold": 170,
+          "ok": false,
+          "max_mode_bound_float": 1.8506360996391494e-28,
+          "min_mode_target_float": 0.00017582445829957406,
+          "max_perturb_bound_float": 20.364778496217035,
+          "min_reserve_target_float": 0.011651602553131834
+        },
+        {
+          "threshold": 180,
+          "ok": false,
+          "max_mode_bound_float": 3.2923773065341476e-30,
+          "min_mode_target_float": 0.00016703323538459536,
+          "max_perturb_bound_float": 1.1863575035191762,
+          "min_reserve_target_float": 0.01088336502215611
+        },
+        {
+          "threshold": 190,
+          "ok": false,
+          "max_mode_bound_float": 5.865425568776111e-32,
+          "min_mode_target_float": 0.00015659365817305817,
+          "max_perturb_bound_float": 0.06903489274929107,
+          "min_reserve_target_float": 0.010370536303834617
+        },
+        {
+          "threshold": 200,
+          "ok": true,
+          "max_mode_bound_float": 1.0460987268576685e-33,
+          "min_mode_target_float": 0.00014958200183695107,
+          "max_perturb_bound_float": 0.004013003817604202,
+          "min_reserve_target_float": 0.00990386217016206
+        }
+      ]
+    },
+    {
+      "r": 160,
+      "first_ok": {
+        "r": 160,
+        "threshold": 260,
+        "ok": true,
+        "max_mode_bound_float": 3.7346630662296017e-44,
+        "min_mode_target_float": 0.0003652192342247723,
+        "max_perturb_bound_float": 0.0007048447635732025,
+        "min_reserve_target_float": 0.008581699254022487,
+        "residues": [
+          {
+            "residue": 0,
+            "shift": 135,
+            "a0": 261,
+            "m0": 219,
+            "witness_s": 45,
+            "n0": 174,
+            "mode_eta": "611979483658674368162538481386963/6420113618912215450495961552584112",
+            "reserve_eta": "111133044481617907607284817649876513762707403484866686757596644604870601838269168593420270181214753639/49616875713043888376256704781614458976107802555873756884427614099206849444554937246485954201560967424",
+            "mode_bound_float": 2.494038691488946e-44,
+            "mode_target_float": 0.0003652192342247723,
+            "perturb_bound_float": 0.0005298922240434254,
+            "reserve_target_float": 0.008581699254022487,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          },
+          {
+            "residue": 1,
+            "shift": 133,
+            "a0": 262,
+            "m0": 219,
+            "witness_s": 44,
+            "n0": 175,
+            "mode_eta": "4203105730525487219709432683051121/6420113618912215450495961552584112",
+            "reserve_eta": "144210961623647166524789287504286153080112605188782524680548387337675168134639126757744239648922065255/49616875713043888376256704781614458976107802555873756884427614099206849444554937246485954201560967424",
+            "mode_bound_float": 1.663017904809619e-44,
+            "mode_target_float": 0.0024987701521653988,
+            "perturb_bound_float": 0.00039836315655521177,
+            "reserve_target_float": 0.011093473938803573,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          },
+          {
+            "residue": 2,
+            "shift": 134,
+            "a0": 260,
+            "m0": 218,
+            "witness_s": 44,
+            "n0": 174,
+            "mode_eta": "5427064697842835956034509645825047/6420113618912215450495961552584112",
+            "reserve_eta": "42557334350877512355345684192360444473803334778941535239690838657090961662151382558527418305022803149/16538958571014629458752234927204819658702600851957918961475871366402283148184979082161984733853655808",
+            "mode_bound_float": 3.7346630662296017e-44,
+            "mode_target_float": 0.0032512393082025598,
+            "perturb_bound_float": 0.0007048447635732025,
+            "reserve_target_float": 0.009896757071666163,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          }
+        ]
+      },
+      "attempts": [
+        {
+          "threshold": 20,
+          "ok": false,
+          "max_mode_bound_float": 0.019610367622086657,
+          "min_mode_target_float": 0.004539153339650741,
+          "max_perturb_bound_float": 2.92020592859127e+26,
+          "min_reserve_target_float": 0.10665826215713663
+        },
+        {
+          "threshold": 30,
+          "ok": false,
+          "max_mode_bound_float": 0.0004054712631402208,
+          "min_mode_target_float": 0.003177407337755519,
+          "max_perturb_bound_float": 1.735830072652145e+25,
+          "min_reserve_target_float": 0.07466078350999564
+        },
+        {
+          "threshold": 40,
+          "ok": false,
+          "max_mode_bound_float": 8.08532557290305e-06,
+          "min_mode_target_float": 0.0022695766698253707,
+          "max_perturb_bound_float": 1.0289546560993848e+24,
+          "min_reserve_target_float": 0.05332913107856831
+        },
+        {
+          "threshold": 50,
+          "ok": false,
+          "max_mode_bound_float": 1.5808067638956934e-07,
+          "min_mode_target_float": 0.0018690631398561876,
+          "max_perturb_bound_float": 6.084125581971474e+22,
+          "min_reserve_target_float": 0.04391810794705626
+        },
+        {
+          "threshold": 60,
+          "ok": false,
+          "max_mode_bound_float": 2.9759614246746882e-09,
+          "min_mode_target_float": 0.0015887036688777595,
+          "max_perturb_bound_float": 3.589336619048499e+21,
+          "min_reserve_target_float": 0.03733039175499782
+        },
+        {
+          "threshold": 70,
+          "ok": false,
+          "max_mode_bound_float": 5.560788448465477e-11,
+          "min_mode_target_float": 0.0013239197240647994,
+          "max_perturb_bound_float": 2.1131580415285638e+20,
+          "min_reserve_target_float": 0.031108659795831516
+        },
+        {
+          "threshold": 80,
+          "ok": false,
+          "max_mode_bound_float": 1.0367612168724684e-12,
+          "min_mode_target_float": 0.0011768175325020441,
+          "max_perturb_bound_float": 1.2417324151832265e+19,
+          "min_reserve_target_float": 0.027652142040739125
+        },
+        {
+          "threshold": 90,
+          "ok": false,
+          "max_mode_bound_float": 1.8977174573888138e-14,
+          "min_mode_target_float": 0.0010591357792518396,
+          "max_perturb_bound_float": 7.28399131538017e+17,
+          "min_reserve_target_float": 0.024886927836665212
+        },
+        {
+          "threshold": 100,
+          "ok": false,
+          "max_mode_bound_float": 3.461867255481569e-16,
+          "min_mode_target_float": 0.0009345315699280938,
+          "max_perturb_bound_float": 4.265946381656255e+16,
+          "min_reserve_target_float": 0.02195905397352813
+        },
+        {
+          "threshold": 110,
+          "ok": false,
+          "max_mode_bound_float": 6.32320611246332e-18,
+          "min_mode_target_float": 0.000858758739933924,
+          "max_perturb_bound_float": 2494700664021912.5,
+          "min_reserve_target_float": 0.02017859013783666
+        },
+        {
+          "threshold": 120,
+          "ok": false,
+          "max_mode_bound_float": 1.141855948055425e-19,
+          "min_mode_target_float": 0.0007943518344388798,
+          "max_perturb_bound_float": 145688524114652.47,
+          "min_reserve_target_float": 0.01866519587749891
+        },
+        {
+          "threshold": 130,
+          "ok": false,
+          "max_mode_bound_float": 2.0570907891671653e-21,
+          "min_mode_target_float": 0.0007221380313080724,
+          "max_perturb_bound_float": 8497241161650.838,
+          "min_reserve_target_float": 0.016968359888635372
+        },
+        {
+          "threshold": 140,
+          "ok": false,
+          "max_mode_bound_float": 3.7145383460602927e-23,
+          "min_mode_target_float": 0.0006760441144160679,
+          "max_perturb_bound_float": 495009843255.0631,
+          "min_reserve_target_float": 0.015885273087233115
+        },
+        {
+          "threshold": 150,
+          "ok": false,
+          "max_mode_bound_float": 6.65453093005559e-25,
+          "min_mode_target_float": 0.0006354814675511038,
+          "max_perturb_bound_float": 28804935559.12701,
+          "min_reserve_target_float": 0.014932156701999127
+        },
+        {
+          "threshold": 160,
+          "ok": false,
+          "max_mode_bound_float": 1.1896577199019149e-26,
+          "min_mode_target_float": 0.0005884087662510221,
+          "max_perturb_bound_float": 1674433199.8083208,
+          "min_reserve_target_float": 0.013826071020369562
+        },
+        {
+          "threshold": 170,
+          "ok": false,
+          "max_mode_bound_float": 2.1325438557255813e-28,
+          "min_mode_target_float": 0.0005574398838167577,
+          "max_perturb_bound_float": 97239881.70954259,
+          "min_reserve_target_float": 0.01309838307192906
+        },
+        {
+          "threshold": 180,
+          "ok": false,
+          "max_mode_bound_float": 3.8004021943760625e-30,
+          "min_mode_target_float": 0.0005295678896259198,
+          "max_perturb_bound_float": 5641856.46381582,
+          "min_reserve_target_float": 0.012443463918332606
+        },
+        {
+          "threshold": 190,
+          "ok": false,
+          "max_mode_bound_float": 6.758906983576173e-32,
+          "min_mode_target_float": 0.0004964698965242998,
+          "max_perturb_bound_float": 327057.26010982046,
+          "min_reserve_target_float": 0.01166574742343682
+        },
+        {
+          "threshold": 200,
+          "ok": false,
+          "max_mode_bound_float": 1.2054511488658748e-33,
+          "min_mode_target_float": 0.00047423990115754013,
+          "max_perturb_bound_float": 18943.965080263748,
+          "min_reserve_target_float": 0.011143400523879946
+        },
+        {
+          "threshold": 210,
+          "ok": false,
+          "max_mode_bound_float": 2.1402507329368047e-35,
+          "min_mode_target_float": 0.0004539153339650741,
+          "max_perturb_bound_float": 1096.4346244310348,
+          "min_reserve_target_float": 0.010665826215713662
+        },
+        {
+          "threshold": 220,
+          "ok": false,
+          "max_mode_bound_float": 3.79212443540263e-37,
+          "min_mode_target_float": 0.000429379369966962,
+          "max_perturb_bound_float": 63.412846468463336,
+          "min_reserve_target_float": 0.01008929506891833
+        },
+        {
+          "threshold": 230,
+          "ok": false,
+          "max_mode_bound_float": 6.738107923315793e-39,
+          "min_mode_target_float": 0.00041265030360461283,
+          "max_perturb_bound_float": 3.664973953486377,
+          "min_reserve_target_float": 0.009696205650648784
+        },
+        {
+          "threshold": 240,
+          "ok": false,
+          "max_mode_bound_float": 1.1930192716544752e-40,
+          "min_mode_target_float": 0.0003971759172194399,
+          "max_perturb_bound_float": 0.21167955347639922,
+          "min_reserve_target_float": 0.009332597938749455
+        },
+        {
+          "threshold": 250,
+          "ok": false,
+          "max_mode_bound_float": 2.1078249819036385e-42,
+          "min_mode_target_float": 0.00037826277830422844,
+          "max_perturb_bound_float": 0.012218430139597506,
+          "min_reserve_target_float": 0.00888818851309472
+        },
+        {
+          "threshold": 260,
+          "ok": true,
+          "max_mode_bound_float": 3.7346630662296017e-44,
+          "min_mode_target_float": 0.0003652192342247723,
+          "max_perturb_bound_float": 0.0007048447635732025,
+          "min_reserve_target_float": 0.008581699254022487
+        }
+      ]
+    },
+    {
+      "r": 200,
+      "first_ok": {
+        "r": 200,
+        "threshold": 310,
+        "ok": true,
+        "max_mode_bound_float": 7.127942634707869e-53,
+        "min_mode_target_float": 0.0007074052007517895,
+        "max_perturb_bound_float": 0.002033884666106941,
+        "min_reserve_target_float": 0.009077589454809807,
+        "residues": [
+          {
+            "residue": 0,
+            "shift": 168,
+            "a0": 312,
+            "m0": 264,
+            "witness_s": 56,
+            "n0": 208,
+            "mode_eta": "162121708074447512814567533534715029922213/734544867157818093234908902110449296423351",
+            "reserve_eta": "3367451667408072596173350428874816947022723469216149159398407647877965643577687163906712355052574264362692352330407236293446879/1188984627730308978134068065804622247825926764315601433716811497613449186127258136543387936314828207785263105821450199330937653",
+            "mode_bound_float": 3.1727281638066134e-53,
+            "mode_target_float": 0.0007074052007517895,
+            "perturb_bound_float": 0.0011485466349780372,
+            "reserve_target_float": 0.009077589454809807,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          },
+          {
+            "residue": 1,
+            "shift": 166,
+            "a0": 310,
+            "m0": 262,
+            "witness_s": 55,
+            "n0": 207,
+            "mode_eta": "1555147769175664228446456572192487769581201/2938179468631272372939635608441797185693404",
+            "reserve_eta": "4160108085894945248262729139411231778906674645426550115209615312953598434329192588268970979262459736219534422878040702514071981/1188984627730308978134068065804622247825926764315601433716811497613449186127258136543387936314828207785263105821450199330937653",
+            "mode_bound_float": 7.127942634707869e-53,
+            "mode_target_float": 0.0017073857334369087,
+            "perturb_bound_float": 0.002033884666106941,
+            "reserve_target_float": 0.011286692182475248,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          },
+          {
+            "residue": 2,
+            "shift": 167,
+            "a0": 311,
+            "m0": 263,
+            "witness_s": 56,
+            "n0": 207,
+            "mode_eta": "2852121433771244330962996840470208008958905/2938179468631272372939635608441797185693404",
+            "reserve_eta": "1254593292217169640739346594714341454321566352440449879101337160138594012984479958695947222385839000097037795868074656467919810/396328209243436326044689355268207415941975588105200477905603832537816395375752712181129312104942735928421035273816733110312551",
+            "mode_bound_float": 4.7590922457099205e-53,
+            "mode_target_float": 0.003121255378246168,
+            "perturb_bound_float": 0.0015284045064421275,
+            "reserve_target_float": 0.01017858920654017,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          }
+        ]
+      },
+      "attempts": [
+        {
+          "threshold": 20,
+          "ok": false,
+          "max_mode_bound_float": 0.021864267419030203,
+          "min_mode_target_float": 0.010510020125455157,
+          "max_perturb_bound_float": 1.4976572845152797e+33,
+          "min_reserve_target_float": 0.13486704332860286
+        },
+        {
+          "threshold": 30,
+          "ok": false,
+          "max_mode_bound_float": 0.000451300958997217,
+          "min_mode_target_float": 0.00735701408781861,
+          "max_perturb_bound_float": 8.817190668135916e+31,
+          "min_reserve_target_float": 0.094406930330022
+        },
+        {
+          "threshold": 40,
+          "ok": false,
+          "max_mode_bound_float": 9.030041094042599e-06,
+          "min_mode_target_float": 0.005255010062727578,
+          "max_perturb_bound_float": 5.181151266639621e+30,
+          "min_reserve_target_float": 0.06743352166430143
+        },
+        {
+          "threshold": 50,
+          "ok": false,
+          "max_mode_bound_float": 1.7624953539728417e-07,
+          "min_mode_target_float": 0.004327655345775653,
+          "max_perturb_bound_float": 3.0392587298532623e+29,
+          "min_reserve_target_float": 0.0555334884294247
+        },
+        {
+          "threshold": 60,
+          "ok": false,
+          "max_mode_bound_float": 3.312329052601574e-09,
+          "min_mode_target_float": 0.003678507043909305,
+          "max_perturb_bound_float": 1.7799739483706426e+28,
+          "min_reserve_target_float": 0.047203465165011
+        },
+        {
+          "threshold": 70,
+          "ok": false,
+          "max_mode_bound_float": 6.210528908471791e-11,
+          "min_mode_target_float": 0.0030654225365910875,
+          "max_perturb_bound_float": 1.0409184255189631e+27,
+          "min_reserve_target_float": 0.0393362209708425
+        },
+        {
+          "threshold": 80,
+          "ok": false,
+          "max_mode_bound_float": 1.1559204259816322e-12,
+          "min_mode_target_float": 0.002724820032525411,
+          "max_perturb_bound_float": 6.078880377300189e+25,
+          "min_reserve_target_float": 0.03496552975186
+        },
+        {
+          "threshold": 90,
+          "ok": false,
+          "max_mode_bound_float": 2.1122130870447305e-14,
+          "min_mode_target_float": 0.00245233802927287,
+          "max_perturb_bound_float": 3.545489452422267e+24,
+          "min_reserve_target_float": 0.031468976776674
+        },
+        {
+          "threshold": 100,
+          "ok": false,
+          "max_mode_bound_float": 3.866362992714317e-16,
+          "min_mode_target_float": 0.0021638276728878263,
+          "max_perturb_bound_float": 2.065437645840636e+23,
+          "min_reserve_target_float": 0.02776674421471235
+        },
+        {
+          "threshold": 110,
+          "ok": false,
+          "max_mode_bound_float": 7.049958065693494e-18,
+          "min_mode_target_float": 0.0019883821858969215,
+          "max_perturb_bound_float": 1.2018912169223006e+22,
+          "min_reserve_target_float": 0.02551538657568162
+        },
+        {
+          "threshold": 120,
+          "ok": false,
+          "max_mode_bound_float": 1.270917895396894e-19,
+          "min_mode_target_float": 0.0018392535219546526,
+          "max_perturb_bound_float": 6.98660322305445e+20,
+          "min_reserve_target_float": 0.0236017325825055
+        },
+        {
+          "threshold": 130,
+          "ok": false,
+          "max_mode_bound_float": 2.2974479126245518e-21,
+          "min_mode_target_float": 0.0016720486563224113,
+          "max_perturb_bound_float": 4.057351891010609e+19,
+          "min_reserve_target_float": 0.021456120529550454
+        },
+        {
+          "threshold": 140,
+          "ok": false,
+          "max_mode_bound_float": 4.14146543816105e-23,
+          "min_mode_target_float": 0.001565322146344385,
+          "max_perturb_bound_float": 2.354074952564155e+18,
+          "min_reserve_target_float": 0.020086580921281277
+        },
+        {
+          "threshold": 150,
+          "ok": false,
+          "max_mode_bound_float": 7.406680727882212e-25,
+          "min_mode_target_float": 0.001471402817563722,
+          "max_perturb_bound_float": 1.3646524136455275e+17,
+          "min_reserve_target_float": 0.0188813860660044
+        },
+        {
+          "threshold": 160,
+          "ok": false,
+          "max_mode_bound_float": 1.3286611654281402e-26,
+          "min_mode_target_float": 0.0013624100162627055,
+          "max_perturb_bound_float": 7904404159112034.0,
+          "min_reserve_target_float": 0.01748276487593
+        },
+        {
+          "threshold": 170,
+          "ok": false,
+          "max_mode_bound_float": 2.3776458474893466e-28,
+          "min_mode_target_float": 0.0012907042259330895,
+          "max_perturb_bound_float": 457489357102766.06,
+          "min_reserve_target_float": 0.01656261935614421
+        },
+        {
+          "threshold": 180,
+          "ok": false,
+          "max_mode_bound_float": 4.2299548964680074e-30,
+          "min_mode_target_float": 0.001226169014636435,
+          "max_perturb_bound_float": 26459126441732.016,
+          "min_reserve_target_float": 0.015734488388337
+        },
+        {
+          "threshold": 190,
+          "ok": false,
+          "max_mode_bound_float": 7.548639478050143e-32,
+          "min_mode_target_float": 0.0011495334512216578,
+          "max_perturb_bound_float": 1529217100973.0168,
+          "min_reserve_target_float": 0.014751082864065937
+        },
+        {
+          "threshold": 200,
+          "ok": false,
+          "max_mode_bound_float": 1.3439985821426538e-33,
+          "min_mode_target_float": 0.0010980618041520314,
+          "max_perturb_bound_float": 88323681753.45755,
+          "min_reserve_target_float": 0.014090586616421194
+        },
+        {
+          "threshold": 210,
+          "ok": false,
+          "max_mode_bound_float": 2.382159467451207e-35,
+          "min_mode_target_float": 0.0010510020125455157,
+          "max_perturb_bound_float": 5098162375.408566,
+          "min_reserve_target_float": 0.013486704332860285
+        },
+        {
+          "threshold": 220,
+          "ok": false,
+          "max_mode_bound_float": 4.235208486862924e-37,
+          "min_mode_target_float": 0.0009941910929484607,
+          "max_perturb_bound_float": 294097769.7705296,
+          "min_reserve_target_float": 0.01275769328784081
+        },
+        {
+          "threshold": 230,
+          "ok": false,
+          "max_mode_bound_float": 7.512546239456301e-39,
+          "min_mode_target_float": 0.0009554563750413779,
+          "max_perturb_bound_float": 16956004.776471913,
+          "min_reserve_target_float": 0.012260640302600259
+        },
+        {
+          "threshold": 240,
+          "ok": false,
+          "max_mode_bound_float": 1.3278641184828722e-40,
+          "min_mode_target_float": 0.0009196267609773263,
+          "max_perturb_bound_float": 977058.0900773151,
+          "min_reserve_target_float": 0.01180086629125275
+        },
+        {
+          "threshold": 250,
+          "ok": false,
+          "max_mode_bound_float": 2.3541100520959422e-42,
+          "min_mode_target_float": 0.0008758350104545964,
+          "max_perturb_bound_float": 56272.06547138674,
+          "min_reserve_target_float": 0.01123892027738357
+        },
+        {
+          "threshold": 260,
+          "ok": false,
+          "max_mode_bound_float": 4.1639031747702985e-44,
+          "min_mode_target_float": 0.0008456338031975414,
+          "max_perturb_bound_float": 3239.297293025464,
+          "min_reserve_target_float": 0.010851371302301379
+        },
+        {
+          "threshold": 270,
+          "ok": false,
+          "max_mode_bound_float": 7.344013773844077e-46,
+          "min_mode_target_float": 0.0008174460097576233,
+          "max_perturb_bound_float": 186.3817856669519,
+          "min_reserve_target_float": 0.010489658925557999
+        },
+        {
+          "threshold": 280,
+          "ok": false,
+          "max_mode_bound_float": 1.2991037349894092e-47,
+          "min_mode_target_float": 0.0007826610731721925,
+          "max_perturb_bound_float": 10.719128608068436,
+          "min_reserve_target_float": 0.010043290460640638
+        },
+        {
+          "threshold": 290,
+          "ok": false,
+          "max_mode_bound_float": 2.2926568569968068e-49,
+          "min_mode_target_float": 0.0007584550605998567,
+          "max_perturb_bound_float": 0.6162074691795075,
+          "min_reserve_target_float": 0.009732673229899175
+        },
+        {
+          "threshold": 300,
+          "ok": false,
+          "max_mode_bound_float": 4.0367099235326994e-51,
+          "min_mode_target_float": 0.000735701408781861,
+          "max_perturb_bound_float": 0.03540898814257869,
+          "min_reserve_target_float": 0.0094406930330022
+        },
+        {
+          "threshold": 310,
+          "ok": true,
+          "max_mode_bound_float": 7.127942634707869e-53,
+          "min_mode_target_float": 0.0007074052007517895,
+          "max_perturb_bound_float": 0.002033884666106941,
+          "min_reserve_target_float": 0.009077589454809807
+        }
+      ]
+    },
+    {
+      "r": 240,
+      "first_ok": {
+        "r": 240,
+        "threshold": 360,
+        "ok": true,
+        "max_mode_bound_float": 1.3134744056108489e-61,
+        "min_mode_target_float": 0.0009613850698234751,
+        "max_perturb_bound_float": 0.005686163655689235,
+        "min_reserve_target_float": 0.009512756429170696,
+        "residues": [
+          {
+            "residue": 0,
+            "shift": 201,
+            "a0": 360,
+            "m0": 307,
+            "witness_s": 67,
+            "n0": 240,
+            "mode_eta": "232693259828033343835385439095122776480986589554043/672332228237812035341649183246594053929798341598084",
+            "reserve_eta": "48786756681381801032080588950687507224568462080237611457304053498376924275532281231556832583269602257302995069867643130067012272376592849399463468283005/14246004254227305638842200592039302545801526577109176129079818569121026734595920618435235108761763062766363903813994719794971290478828841025153522893283",
+            "mode_bound_float": 1.3134744056108489e-61,
+            "mode_target_float": 0.0009613850698234751,
+            "perturb_bound_float": 0.005686163655689235,
+            "reserve_target_float": 0.009512756429170696,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          },
+          {
+            "residue": 1,
+            "shift": 199,
+            "a0": 361,
+            "m0": 307,
+            "witness_s": 66,
+            "n0": 241,
+            "mode_eta": "67888977837581420667712862084955690991590541661130/168083057059453008835412295811648513482449585399521",
+            "reserve_eta": "58284092850866671457975389345380375588436146464977062210023932544457608765262894977180322655777444299147237672410306276596993132695812076749565816878527/14246004254227305638842200592039302545801526577109176129079818569121026734595920618435235108761763062766363903813994719794971290478828841025153522893283",
+            "mode_bound_float": 8.803773430560856e-62,
+            "mode_target_float": 0.0011188403735832382,
+            "perturb_bound_float": 0.004271730446336538,
+            "reserve_target_float": 0.011333127371656834,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          },
+          {
+            "residue": 2,
+            "shift": 200,
+            "a0": 362,
+            "m0": 308,
+            "witness_s": 67,
+            "n0": 241,
+            "mode_eta": "368471215503196185170811163265034158464167672876303/336166114118906017670824591623297026964899170799042",
+            "reserve_eta": "17845141588708078748342663049344647135500768090869112277887997673805755506799196034789525873174507759408372123712991567777334234178734154358171547526922/4748668084742435212947400197346434181933842192369725376359939523040342244865306872811745036253921020922121301271331573264990430159609613675051174297761",
+            "mode_bound_float": 5.861897911268264e-62,
+            "mode_target_float": 0.003027896754520583,
+            "perturb_bound_float": 0.003209128613179612,
+            "reserve_target_float": 0.010381010076891668,
+            "tail_small_ok": true,
+            "mode_threshold_ok": true,
+            "mode_decreasing_ok": true,
+            "perturb_threshold_ok": true,
+            "lambda_decreasing_ok": true,
+            "mixture_decreasing_ok": true,
+            "ok": true
+          }
+        ]
+      },
+      "attempts": [
+        {
+          "threshold": 20,
+          "ok": false,
+          "max_mode_bound_float": 0.02388274789715599,
+          "min_mode_target_float": 0.01648088691125957,
+          "max_perturb_bound_float": 7.426973931275898e+39,
+          "min_reserve_target_float": 0.16307582450006908
+        },
+        {
+          "threshold": 30,
+          "ok": false,
+          "max_mode_bound_float": 0.0004929644713407618,
+          "min_mode_target_float": 0.0115366208378817,
+          "max_perturb_bound_float": 4.3432512133061274e+38,
+          "min_reserve_target_float": 0.11415307715004835
+        },
+        {
+          "threshold": 40,
+          "ok": false,
+          "max_mode_bound_float": 9.886292910774266e-06,
+          "min_mode_target_float": 0.008240443455629786,
+          "max_perturb_bound_float": 2.536423981647625e+37,
+          "min_reserve_target_float": 0.08153791225003454
+        },
+        {
+          "threshold": 50,
+          "ok": false,
+          "max_mode_bound_float": 1.9252066123287998e-07,
+          "min_mode_target_float": 0.006786247551695118,
+          "max_perturb_bound_float": 1.4793619738568605e+36,
+          "min_reserve_target_float": 0.06714886891179316
+        },
+        {
+          "threshold": 60,
+          "ok": false,
+          "max_mode_bound_float": 3.6181189243439e-09,
+          "min_mode_target_float": 0.00576831041894085,
+          "max_perturb_bound_float": 8.618076442285118e+34,
+          "min_reserve_target_float": 0.05707653857502418
+        },
+        {
+          "threshold": 70,
+          "ok": false,
+          "max_mode_bound_float": 6.799427298342e-11,
+          "min_mode_target_float": 0.004806925349117376,
+          "max_perturb_bound_float": 5.0149131364998224e+33,
+          "min_reserve_target_float": 0.04756378214585348
+        },
+        {
+          "threshold": 80,
+          "ok": false,
+          "max_mode_bound_float": 1.2626334829249442e-12,
+          "min_mode_target_float": 0.004272822532548778,
+          "max_perturb_bound_float": 2.9151730031381718e+32,
+          "min_reserve_target_float": 0.042278917462980875
+        },
+        {
+          "threshold": 90,
+          "ok": false,
+          "max_mode_bound_float": 2.3072098276229567e-14,
+          "min_mode_target_float": 0.0038455402792939002,
+          "max_perturb_bound_float": 1.692937514739065e+31,
+          "min_reserve_target_float": 0.038051025716682785
+        },
+        {
+          "threshold": 100,
+          "ok": false,
+          "max_mode_bound_float": 4.2329815166144804e-16,
+          "min_mode_target_float": 0.003393123775847559,
+          "max_perturb_bound_float": 9.822420896085448e+29,
+          "min_reserve_target_float": 0.03357443445589658
+        },
+        {
+          "threshold": 110,
+          "ok": false,
+          "max_mode_bound_float": 7.700800943457699e-18,
+          "min_mode_target_float": 0.003118005631859919,
+          "max_perturb_bound_float": 5.694037213677025e+28,
+          "min_reserve_target_float": 0.03085218301352658
+        },
+        {
+          "threshold": 120,
+          "ok": false,
+          "max_mode_bound_float": 1.3882473678184827e-19,
+          "min_mode_target_float": 0.002884155209470425,
+          "max_perturb_bound_float": 3.2981271262836257e+27,
+          "min_reserve_target_float": 0.02853826928751209
+        },
+        {
+          "threshold": 130,
+          "ok": false,
+          "max_mode_bound_float": 2.515297856887703e-21,
+          "min_mode_target_float": 0.0026219592813367504,
+          "max_perturb_bound_float": 1.9088827295189716e+26,
+          "min_reserve_target_float": 0.025943881170465536
+        },
+        {
+          "threshold": 140,
+          "ok": false,
+          "max_mode_bound_float": 4.5238000930365586e-23,
+          "min_mode_target_float": 0.0024546001782727025,
+          "max_perturb_bound_float": 1.104011901449229e+25,
+          "min_reserve_target_float": 0.02428788875532944
+        },
+        {
+          "threshold": 150,
+          "ok": false,
+          "max_mode_bound_float": 8.090455773732976e-25,
+          "min_mode_target_float": 0.0023073241675763403,
+          "max_perturb_bound_float": 6.380686388463335e+23,
+          "min_reserve_target_float": 0.022830615430009672
+        },
+        {
+          "threshold": 160,
+          "ok": false,
+          "max_mode_bound_float": 1.4546482484181845e-26,
+          "min_mode_target_float": 0.002136411266274389,
+          "max_perturb_bound_float": 3.685321813264225e+22,
+          "min_reserve_target_float": 0.021139458731490438
+        },
+        {
+          "threshold": 170,
+          "ok": false,
+          "max_mode_bound_float": 2.5971469922145036e-28,
+          "min_mode_target_float": 0.0020239685680494214,
+          "max_perturb_bound_float": 2.1272175974390526e+21,
+          "min_reserve_target_float": 0.02002685564035936
+        },
+        {
+          "threshold": 180,
+          "ok": false,
+          "max_mode_bound_float": 4.620458782019732e-30,
+          "min_mode_target_float": 0.0019227701396469501,
+          "max_perturb_bound_float": 1.2271283359689253e+20,
+          "min_reserve_target_float": 0.019025512858341392
+        },
+        {
+          "threshold": 190,
+          "ok": false,
+          "max_mode_bound_float": 8.264420967815123e-32,
+          "min_mode_target_float": 0.0018025970059190157,
+          "max_perturb_bound_float": 7.074924077890146e+18,
+          "min_reserve_target_float": 0.017836418304695057
+        },
+        {
+          "threshold": 200,
+          "ok": false,
+          "max_mode_bound_float": 1.4680747676691118e-33,
+          "min_mode_target_float": 0.0017218837071465226,
+          "max_perturb_bound_float": 4.0767927929445203e+17,
+          "min_reserve_target_float": 0.01703777270896244
+        },
+        {
+          "threshold": 210,
+          "ok": false,
+          "max_mode_bound_float": 2.6020773036485317e-35,
+          "min_mode_target_float": 0.0016480886911259573,
+          "max_perturb_bound_float": 2.3479622479733864e+16,
+          "min_reserve_target_float": 0.016307582450006908
+        },
+        {
+          "threshold": 220,
+          "ok": false,
+          "max_mode_bound_float": 4.63680189306638e-37,
+          "min_mode_target_float": 0.0015590028159299595,
+          "max_perturb_bound_float": 1351602734016143.5,
+          "min_reserve_target_float": 0.01542609150676329
+        },
+        {
+          "threshold": 230,
+          "ok": false,
+          "max_mode_bound_float": 8.206094650420279e-39,
+          "min_mode_target_float": 0.001498262446478143,
+          "max_perturb_bound_float": 77768141757368.11,
+          "min_reserve_target_float": 0.014825074954551735
+        },
+        {
+          "threshold": 240,
+          "ok": false,
+          "max_mode_bound_float": 1.4504507914956866e-40,
+          "min_mode_target_float": 0.0014420776047352126,
+          "max_perturb_bound_float": 4472576062755.987,
+          "min_reserve_target_float": 0.014269134643756044
+        },
+        {
+          "threshold": 250,
+          "ok": false,
+          "max_mode_bound_float": 2.5773328467544576e-42,
+          "min_mode_target_float": 0.0013734072426049644,
+          "max_perturb_bound_float": 257113696188.81216,
+          "min_reserve_target_float": 0.013589652041672423
+        },
+        {
+          "threshold": 260,
+          "ok": false,
+          "max_mode_bound_float": 4.548309252047076e-44,
+          "min_mode_target_float": 0.0013260483721703104,
+          "max_perturb_bound_float": 14774465216.668936,
+          "min_reserve_target_float": 0.01312104335058027
+        },
+        {
+          "threshold": 270,
+          "ok": false,
+          "max_mode_bound_float": 8.02200348872878e-46,
+          "min_mode_target_float": 0.0012818467597646335,
+          "max_perturb_bound_float": 848642105.5895479,
+          "min_reserve_target_float": 0.012683675238894262
+        },
+        {
+          "threshold": 280,
+          "ok": false,
+          "max_mode_bound_float": 1.4222881060928179e-47,
+          "min_mode_target_float": 0.0012273000891363513,
+          "max_perturb_bound_float": 48727078.90592416,
+          "min_reserve_target_float": 0.01214394437766472
+        },
+        {
+          "threshold": 290,
+          "ok": false,
+          "max_mode_bound_float": 2.504311929641109e-49,
+          "min_mode_target_float": 0.0011893423544207938,
+          "max_perturb_bound_float": 2796762.172309133,
+          "min_reserve_target_float": 0.01176835846907715
+        },
+        {
+          "threshold": 300,
+          "ok": false,
+          "max_mode_bound_float": 4.409373686756503e-51,
+          "min_mode_target_float": 0.0011536620837881702,
+          "max_perturb_bound_float": 160467.12108260873,
+          "min_reserve_target_float": 0.011415307715004836
+        },
+        {
+          "threshold": 310,
+          "ok": false,
+          "max_mode_bound_float": 7.803832563332254e-53,
+          "min_mode_target_float": 0.0011092904651809328,
+          "max_perturb_bound_float": 9203.809575758738,
+          "min_reserve_target_float": 0.01097625741827388
+        },
+        {
+          "threshold": 320,
+          "ok": false,
+          "max_mode_bound_float": 1.3715637283948096e-54,
+          "min_mode_target_float": 0.00107818886335343,
+          "max_perturb_bound_float": 527.7224816718145,
+          "min_reserve_target_float": 0.010668511883182089
+        },
+        {
+          "threshold": 330,
+          "ok": false,
+          "max_mode_bound_float": 2.4115545638019376e-56,
+          "min_mode_target_float": 0.0010487837125347,
+          "max_perturb_bound_float": 30.248584657969165,
+          "min_reserve_target_float": 0.010377552468186214
+        },
+        {
+          "threshold": 340,
+          "ok": false,
+          "max_mode_bound_float": 4.261797320798711e-58,
+          "min_mode_target_float": 0.0010119842840247107,
+          "max_perturb_bound_float": 1.733288399833017,
+          "min_reserve_target_float": 0.01001342782017968
+        },
+        {
+          "threshold": 350,
+          "ok": false,
+          "max_mode_bound_float": 7.479034471088581e-60,
+          "min_mode_target_float": 0.000986035969049718,
+          "max_perturb_bound_float": 0.09929045079630243,
+          "min_reserve_target_float": 0.009756673260687894
+        },
+        {
+          "threshold": 360,
+          "ok": true,
+          "max_mode_bound_float": 1.3134744056108489e-61,
+          "min_mode_target_float": 0.0009613850698234751,
+          "max_perturb_bound_float": 0.005686163655689235,
+          "min_reserve_target_float": 0.009512756429170696
+        }
+      ]
+    },
+    {
+      "r": 280,
+      "first_ok": null,
+      "attempts": [
+        {
+          "threshold": 20,
+          "ok": false,
+          "max_mode_bound_float": 0.025746755365877064,
+          "min_mode_target_float": 0.012659689652802557,
+          "max_perturb_bound_float": 3.5959081947904185e+46,
+          "min_reserve_target_float": 0.1912846056715353
+        },
+        {
+          "threshold": 30,
+          "ok": false,
+          "max_mode_bound_float": 0.0005314395019507336,
+          "min_mode_target_float": 0.008984295882634072,
+          "max_perturb_bound_float": 2.0924816998861828e+45,
+          "min_reserve_target_float": 0.13389922397007473
+        },
+        {
+          "threshold": 40,
+          "ok": false,
+          "max_mode_bound_float": 1.0675390733523746e-05,
+          "min_mode_target_float": 0.0069628293090414056,
+          "max_perturb_bound_float": 1.2163612798538623e+44,
+          "min_reserve_target_float": 0.09564230283576765
+        },
+        {
+          "threshold": 50,
+          "ok": false,
+          "max_mode_bound_float": 2.0754656830046418e-07,
+          "min_mode_target_float": 0.005356022545416466,
+          "max_perturb_bound_float": 7.063812816336731e+42,
+          "min_reserve_target_float": 0.0787642493941616
+        },
+        {
+          "threshold": 60,
+          "ok": false,
+          "max_mode_bound_float": 3.900506894385706e-09,
+          "min_mode_target_float": 0.004565789710846824,
+          "max_perturb_bound_float": 4.0984231260252e+41,
+          "min_reserve_target_float": 0.06694961198503736
+        },
+        {
+          "threshold": 70,
+          "ok": false,
+          "max_mode_bound_float": 7.342139650230515e-11,
+          "min_mode_target_float": 0.003978759605166518,
+          "max_perturb_bound_float": 2.3758474661050603e+40,
+          "min_reserve_target_float": 0.05579134332086447
+        },
+        {
+          "threshold": 80,
+          "ok": false,
+          "max_mode_bound_float": 1.3611798584326665e-12,
+          "min_mode_target_float": 0.0033965021019714174,
+          "max_perturb_bound_float": 1.3761495897939838e+39,
+          "min_reserve_target_float": 0.04959230517410174
+        },
+        {
+          "threshold": 90,
+          "ok": false,
+          "max_mode_bound_float": 2.487283593385396e-14,
+          "min_mode_target_float": 0.0030605843116665522,
+          "max_perturb_bound_float": 7.964848183861211e+37,
+          "min_reserve_target_float": 0.04463307465669157
+        },
+        {
+          "threshold": 100,
+          "ok": false,
+          "max_mode_bound_float": 4.570846935800983e-16,
+          "min_mode_target_float": 0.0027851317236165622,
+          "max_perturb_bound_float": 4.606509898297899e+36,
+          "min_reserve_target_float": 0.0393821246970808
+        },
+        {
+          "threshold": 110,
+          "ok": false,
+          "max_mode_bound_float": 8.301835235472681e-18,
+          "min_mode_target_float": 0.0024867247532290734,
+          "max_perturb_bound_float": 2.6623530930968618e+35,
+          "min_reserve_target_float": 0.03618897945137155
+        },
+        {
+          "threshold": 120,
+          "ok": false,
+          "max_mode_bound_float": 1.4965976913737623e-19,
+          "min_mode_target_float": 0.00230176175505501,
+          "max_perturb_bound_float": 1.5377072827684118e+34,
+          "min_reserve_target_float": 0.03347480599251868
+        },
+        {
+          "threshold": 130,
+          "ok": false,
+          "max_mode_bound_float": 2.7160622971435078e-21,
+          "min_mode_target_float": 0.0021424090181665864,
+          "max_perturb_bound_float": 8.875854422921825e+32,
+          "min_reserve_target_float": 0.030431641811380618
+        },
+        {
+          "threshold": 140,
+          "ok": false,
+          "max_mode_bound_float": 4.876874923317097e-23,
+          "min_mode_target_float": 0.001961360368744058,
+          "max_perturb_bound_float": 5.120215478385984e+31,
+          "min_reserve_target_float": 0.0284891965893776
+        },
+        {
+          "threshold": 150,
+          "ok": false,
+          "max_mode_bound_float": 8.721901956246658e-25,
+          "min_mode_target_float": 0.0018444580951103061,
+          "max_perturb_bound_float": 2.952025041734196e+30,
+          "min_reserve_target_float": 0.02677984479401494
+        },
+        {
+          "threshold": 160,
+          "ok": false,
+          "max_mode_bound_float": 1.570754434635081e-26,
+          "min_mode_target_float": 0.0017407073272603514,
+          "max_perturb_bound_float": 1.7010492667113796e+29,
+          "min_reserve_target_float": 0.02479615258705087
+        },
+        {
+          "threshold": 170,
+          "ok": false,
+          "max_mode_bound_float": 2.7998498558757994e-28,
+          "min_mode_target_float": 0.0016192626300096293,
+          "max_perturb_bound_float": 9.796915524118189e+27,
+          "min_reserve_target_float": 0.02349109192457451
+        },
+        {
+          "threshold": 180,
+          "ok": false,
+          "max_mode_bound_float": 4.981077657020638e-30,
+          "min_mode_target_float": 0.001538746808627935,
+          "max_perturb_bound_float": 5.639587186187771e+26,
+          "min_reserve_target_float": 0.022316537328345785
+        },
+        {
+          "threshold": 190,
+          "ok": false,
+          "max_mode_bound_float": 8.924065250140695e-32,
+          "min_mode_target_float": 0.0014658588019034538,
+          "max_perturb_bound_float": 3.244889971813633e+25,
+          "min_reserve_target_float": 0.020921753745324175
+        },
+        {
+          "threshold": 200,
+          "ok": false,
+          "max_mode_bound_float": 1.5826554827258597e-33,
+          "min_mode_target_float": 0.0013787780809982981,
+          "max_perturb_bound_float": 1.8661905616171643e+24,
+          "min_reserve_target_float": 0.019984958801503687
+        },
+        {
+          "threshold": 210,
+          "ok": false,
+          "max_mode_bound_float": 2.8051649696523266e-35,
+          "min_mode_target_float": 0.001319967641524437,
+          "max_perturb_bound_float": 1.0728116109318862e+23,
+          "min_reserve_target_float": 0.01912846056715353
+        },
+        {
+          "threshold": 220,
+          "ok": false,
+          "max_mode_bound_float": 5.006899189531452e-37,
+          "min_mode_target_float": 0.0012659689652802556,
+          "max_perturb_bound_float": 6.16467269721488e+21,
+          "min_reserve_target_float": 0.018094489725685774
+        },
+        {
+          "threshold": 230,
+          "ok": false,
+          "max_mode_bound_float": 8.846566248717263e-39,
+          "min_mode_target_float": 0.0012004878119036906,
+          "max_perturb_bound_float": 3.5409747434596853e+20,
+          "min_reserve_target_float": 0.01738950960650321
+        },
+        {
+          "threshold": 240,
+          "ok": false,
+          "max_mode_bound_float": 1.5636559854709707e-40,
+          "min_mode_target_float": 0.0011556563168533453,
+          "max_perturb_bound_float": 2.033146300330938e+19,
+          "min_reserve_target_float": 0.01673740299625934
+        },
+        {
+          "threshold": 250,
+          "ok": false,
+          "max_mode_bound_float": 2.7830487562697654e-42,
+          "min_mode_target_float": 0.001114052689446625,
+          "max_perturb_bound_float": 1.166954143611615e+18,
+          "min_reserve_target_float": 0.015940383805961276
+        },
+        {
+          "threshold": 260,
+          "ok": false,
+          "max_mode_bound_float": 4.903296980108238e-44,
+          "min_mode_target_float": 0.001063027375426169,
+          "max_perturb_bound_float": 6.695520045101601e+16,
+          "min_reserve_target_float": 0.015390715398859162
+        },
+        {
+          "threshold": 270,
+          "ok": false,
+          "max_mode_bound_float": 8.64810708792465e-46,
+          "min_mode_target_float": 0.001027723883253344,
+          "max_perturb_bound_float": 3840306418538313.0,
+          "min_reserve_target_float": 0.014877691552230524
+        },
+        {
+          "threshold": 280,
+          "ok": false,
+          "max_mode_bound_float": 1.535340235142538e-47,
+          "min_mode_target_float": 0.0009946899012916294,
+          "max_perturb_bound_float": 220193172934498.47,
+          "min_reserve_target_float": 0.0142445982946888
+        },
+        {
+          "threshold": 290,
+          "ok": false,
+          "max_mode_bound_float": 2.6997691760584773e-49,
+          "min_mode_target_float": 0.0009538122341152611,
+          "max_perturb_bound_float": 12621277402311.127,
+          "min_reserve_target_float": 0.013804043708255125
+        },
+        {
+          "threshold": 300,
+          "ok": false,
+          "max_mode_bound_float": 4.753517732487315e-51,
+          "min_mode_target_float": 0.0009252929314340738,
+          "max_perturb_bound_float": 723217762413.126,
+          "min_reserve_target_float": 0.01338992239700747
+        },
+        {
+          "threshold": 310,
+          "ok": false,
+          "max_mode_bound_float": 8.419799357361596e-53,
+          "min_mode_target_float": 0.0008984295882634072,
+          "max_perturb_bound_float": 41429122620.80009,
+          "min_reserve_target_float": 0.012874925381737953
+        },
+        {
+          "threshold": 320,
+          "ok": false,
+          "max_mode_bound_float": 1.4786119225374648e-54,
+          "min_mode_target_float": 0.0008649477402535908,
+          "max_perturb_bound_float": 2372562209.6003103,
+          "min_reserve_target_float": 0.012513946165427543
+        },
+        {
+          "threshold": 330,
+          "ok": false,
+          "max_mode_bound_float": 2.599772257072087e-56,
+          "min_mode_target_float": 0.0008414295237512273,
+          "max_perturb_bound_float": 135834105.50429046,
+          "min_reserve_target_float": 0.012172656724552247
+        },
+        {
+          "threshold": 340,
+          "ok": false,
+          "max_mode_bound_float": 4.596238878847807e-58,
+          "min_mode_target_float": 0.0008191563892989889,
+          "max_perturb_bound_float": 7774694.191779723,
+          "min_reserve_target_float": 0.011745545962287255
+        },
+        {
+          "threshold": 350,
+          "ok": false,
+          "max_mode_bound_float": 8.062760270689371e-60,
+          "min_mode_target_float": 0.0007912306033001598,
+          "max_perturb_bound_float": 444881.97437125264,
+          "min_reserve_target_float": 0.011444378117100402
+        },
+        {
+          "threshold": 360,
+          "ok": false,
+          "max_mode_bound_float": 1.4159888278446549e-61,
+          "min_mode_target_float": 0.0007715046325807652,
+          "max_perturb_bound_float": 25450.532172936913,
+          "min_reserve_target_float": 0.011158268664172893
+        },
+        {
+          "threshold": 370,
+          "ok": false,
+          "max_mode_bound_float": 2.499434745844931e-63,
+          "min_mode_target_float": 0.000752738303680152,
+          "max_perturb_bound_float": 1455.6028072265365,
+          "min_reserve_target_float": 0.010798324513715703
+        },
+        {
+          "threshold": 380,
+          "ok": false,
+          "max_mode_bound_float": 4.380528290342722e-65,
+          "min_mode_target_float": 0.0007290920742451734,
+          "max_perturb_bound_float": 83.23118871276128,
+          "min_reserve_target_float": 0.010543245981895646
+        },
+        {
+          "threshold": 390,
+          "ok": false,
+          "max_mode_bound_float": 7.685569289778853e-67,
+          "min_mode_target_float": 0.0007123099037382513,
+          "max_perturb_bound_float": 4.7580565391033245,
+          "min_reserve_target_float": 0.010299940305390363
+        },
+        {
+          "threshold": 400,
+          "ok": false,
+          "max_mode_bound_float": 1.354803568050061e-68,
+          "min_mode_target_float": 0.0006962829309041406,
+          "max_perturb_bound_float": 0.2719420344690185,
+          "min_reserve_target_float": 0.009992479400751843
+        }
+      ]
+    },
+    {
+      "r": 320,
+      "first_ok": null,
+      "attempts": [
+        {
+          "threshold": 20,
+          "ok": false,
+          "max_mode_bound_float": 0.02748766611140914,
+          "min_mode_target_float": 0.006960225902716523,
+          "max_perturb_bound_float": 1.7100745628434988e+53,
+          "min_reserve_target_float": 0.21949338684300154
+        },
+        {
+          "threshold": 30,
+          "ok": false,
+          "max_mode_bound_float": 0.0005673736896337543,
+          "min_mode_target_float": 0.004939515156766564,
+          "max_perturb_bound_float": 9.913267107983482e+51,
+          "min_reserve_target_float": 0.15364537079010107
+        },
+        {
+          "threshold": 40,
+          "ok": false,
+          "max_mode_bound_float": 1.1411276030286674e-05,
+          "min_mode_target_float": 0.0038281242464940878,
+          "max_perturb_bound_float": 5.742009391930553e+50,
+          "min_reserve_target_float": 0.10974669342150077
+        },
+        {
+          "threshold": 50,
+          "ok": false,
+          "max_mode_bound_float": 2.215801832479792e-07,
+          "min_mode_target_float": 0.002944710958841606,
+          "max_perturb_bound_float": 3.323347506420338e+49,
+          "min_reserve_target_float": 0.09037962987653005
+        },
+        {
+          "threshold": 60,
+          "ok": false,
+          "max_mode_bound_float": 4.164246315876368e-09,
+          "min_mode_target_float": 0.002510245407537107,
+          "max_perturb_bound_float": 1.9220747000336912e+48,
+          "min_reserve_target_float": 0.07682268539505054
+        },
+        {
+          "threshold": 70,
+          "ok": false,
+          "max_mode_bound_float": 7.848254391156848e-11,
+          "min_mode_target_float": 0.002187499569425193,
+          "max_perturb_bound_float": 1.110871708902381e+47,
+          "min_reserve_target_float": 0.06401890449587544
+        },
+        {
+          "threshold": 80,
+          "ok": false,
+          "max_mode_bound_float": 1.4532183544867316e-12,
+          "min_mode_target_float": 0.0018673776812166282,
+          "max_perturb_bound_float": 6.416111827652437e+45,
+          "min_reserve_target_float": 0.05690569288522262
+        },
+        {
+          "threshold": 90,
+          "ok": false,
+          "max_mode_bound_float": 2.655465512752569e-14,
+          "min_mode_target_float": 0.0016826919764809177,
+          "max_perturb_bound_float": 3.703466529787302e+44,
+          "min_reserve_target_float": 0.05121512359670036
+        },
+        {
+          "threshold": 100,
+          "ok": false,
+          "max_mode_bound_float": 4.885928522767828e-16,
+          "min_mode_target_float": 0.001531249698597635,
+          "max_perturb_bound_float": 2.1364192950856363e+43,
+          "min_reserve_target_float": 0.04518981493826502
+        },
+        {
+          "threshold": 110,
+          "ok": false,
+          "max_mode_bound_float": 8.863177974147468e-18,
+          "min_mode_target_float": 0.0013671872308907455,
+          "max_perturb_bound_float": 1.23173786051773e+42,
+          "min_reserve_target_float": 0.04152577588921651
+        },
+        {
+          "threshold": 120,
+          "ok": false,
+          "max_mode_bound_float": 1.5977926950014486e-19,
+          "min_mode_target_float": 0.0012654956186757315,
+          "max_perturb_bound_float": 7.097659250151397e+40,
+          "min_reserve_target_float": 0.03841134269752527
+        },
+        {
+          "threshold": 130,
+          "ok": false,
+          "max_mode_bound_float": 2.90328826005684e-21,
+          "min_mode_target_float": 0.0011778843835366423,
+          "max_perturb_bound_float": 4.087780962813669e+39,
+          "min_reserve_target_float": 0.034919402452295696
+        },
+        {
+          "threshold": 140,
+          "ok": false,
+          "max_mode_bound_float": 5.206633133156266e-23,
+          "min_mode_target_float": 0.0010783448581673486,
+          "max_perturb_bound_float": 2.353128092313656e+38,
+          "min_reserve_target_float": 0.03269050442342576
+        },
+        {
+          "threshold": 150,
+          "ok": false,
+          "max_mode_bound_float": 9.311648222187061e-25,
+          "min_mode_target_float": 0.001014072648077904,
+          "max_perturb_bound_float": 1.353936289493388e+37,
+          "min_reserve_target_float": 0.030729074158020214
+        },
+        {
+          "threshold": 160,
+          "ok": false,
+          "max_mode_bound_float": 1.6790310422203452e-26,
+          "min_mode_target_float": 0.0009570310616235219,
+          "max_perturb_bound_float": 7.786714330628909e+35,
+          "min_reserve_target_float": 0.02845284644261131
+        },
+        {
+          "threshold": 170,
+          "ok": false,
+          "max_mode_bound_float": 2.9891664758033984e-28,
+          "min_mode_target_float": 0.0008902614526730436,
+          "max_perturb_bound_float": 4.476326114129229e+34,
+          "min_reserve_target_float": 0.026955328208789663
+        },
+        {
+          "threshold": 180,
+          "ok": false,
+          "max_mode_bound_float": 5.317881712297044e-30,
+          "min_mode_target_float": 0.0008459943086174779,
+          "max_perturb_bound_float": 2.5722209844123766e+33,
+          "min_reserve_target_float": 0.02560756179835018
+        },
+        {
+          "threshold": 190,
+          "ok": false,
+          "max_mode_bound_float": 9.539226659109923e-32,
+          "min_mode_target_float": 0.0008059208939987552,
+          "max_perturb_bound_float": 1.4774782032655502e+32,
+          "min_reserve_target_float": 0.024007089185953293
+        },
+        {
+          "threshold": 200,
+          "ok": false,
+          "max_mode_bound_float": 1.6896694305883675e-33,
+          "min_mode_target_float": 0.000758044405246354,
+          "max_perturb_bound_float": 8.48334021115888e+30,
+          "min_reserve_target_float": 0.022932144894044937
+        },
+        {
+          "threshold": 210,
+          "ok": false,
+          "max_mode_bound_float": 2.9948409800567364e-35,
+          "min_mode_target_float": 0.000725710757629211,
+          "max_perturb_bound_float": 4.869137557620672e+29,
+          "min_reserve_target_float": 0.021949338684300154
+        },
+        {
+          "threshold": 220,
+          "ok": false,
+          "max_mode_bound_float": 5.351543898365047e-37,
+          "min_mode_target_float": 0.0006960225902716523,
+          "max_perturb_bound_float": 2.793718013503763e+28,
+          "min_reserve_target_float": 0.020762887944608253
+        },
+        {
+          "threshold": 230,
+          "ok": false,
+          "max_mode_bound_float": 9.444741903264585e-39,
+          "min_mode_target_float": 0.0006600214218093254,
+          "max_perturb_bound_float": 1.6023748934473998e+27,
+          "min_reserve_target_float": 0.019953944258454686
+        },
+        {
+          "threshold": 240,
+          "ok": false,
+          "max_mode_bound_float": 1.6693852499448062e-40,
+          "min_mode_target_float": 0.0006353733189201805,
+          "max_perturb_bound_float": 9.187600508009873e+25,
+          "min_reserve_target_float": 0.019205671348762634
+        },
+        {
+          "threshold": 250,
+          "ok": false,
+          "max_mode_bound_float": 2.972209991190797e-42,
+          "min_mode_target_float": 0.000612499879439054,
+          "max_perturb_bound_float": 5.26625113430297e+24,
+          "min_reserve_target_float": 0.01829111557025013
+        },
+        {
+          "threshold": 260,
+          "ok": false,
+          "max_mode_bound_float": 5.234841762349758e-44,
+          "min_mode_target_float": 0.0005844464498464256,
+          "max_perturb_bound_float": 3.0176393721912534e+23,
+          "min_reserve_target_float": 0.017660387447138055
+        },
+        {
+          "threshold": 270,
+          "ok": false,
+          "max_mode_bound_float": 9.232863588071217e-46,
+          "min_mode_target_float": 0.0005650367891504188,
+          "max_perturb_bound_float": 1.7286377364228936e+22,
+          "min_reserve_target_float": 0.017071707865566787
+        },
+        {
+          "threshold": 280,
+          "ok": false,
+          "max_mode_bound_float": 1.639154881897983e-47,
+          "min_mode_target_float": 0.0005468748923562983,
+          "max_perturb_bound_float": 9.899559314989845e+20,
+          "min_reserve_target_float": 0.01634525221171288
+        },
+        {
+          "threshold": 290,
+          "ok": false,
+          "max_mode_bound_float": 2.8823186702477767e-49,
+          "min_mode_target_float": 0.0005244005817115189,
+          "max_perturb_bound_float": 5.66770295420344e+19,
+          "min_reserve_target_float": 0.0158397289474331
+        },
+        {
+          "threshold": 300,
+          "ok": false,
+          "max_mode_bound_float": 5.0749349356247686e-51,
+          "min_mode_target_float": 0.000508720830098882,
+          "max_perturb_bound_float": 3.2440054046210386e+18,
+          "min_reserve_target_float": 0.015364537079010107
+        },
+        {
+          "threshold": 310,
+          "ok": false,
+          "max_mode_bound_float": 8.989118441189987e-53,
+          "min_mode_target_float": 0.0004939515156766565,
+          "max_perturb_bound_float": 1.8562781939445718e+17,
+          "min_reserve_target_float": 0.014773593345202026
+        },
+        {
+          "threshold": 320,
+          "ok": false,
+          "max_mode_bound_float": 1.5785907877512497e-54,
+          "min_mode_target_float": 0.00047554338465765066,
+          "max_perturb_bound_float": 1.061928120681356e+16,
+          "min_reserve_target_float": 0.014359380447672997
+        },
+        {
+          "threshold": 330,
+          "ok": false,
+          "max_mode_bound_float": 2.7755602891544276e-56,
+          "min_mode_target_float": 0.0004626132019932432,
+          "max_perturb_bound_float": 607352939825858.2,
+          "min_reserve_target_float": 0.01396776098091828
+        },
+        {
+          "threshold": 340,
+          "ok": false,
+          "max_mode_bound_float": 4.907021404238298e-58,
+          "min_mode_target_float": 0.00045036755841106914,
+          "max_perturb_bound_float": 34728366075505.316,
+          "min_reserve_target_float": 0.013477664104394832
+        },
+        {
+          "threshold": 350,
+          "ok": false,
+          "max_mode_bound_float": 8.60793754815305e-60,
+          "min_mode_target_float": 0.00043501411891978266,
+          "max_perturb_bound_float": 1985307813735.4185,
+          "min_reserve_target_float": 0.013132082973512912
+        },
+        {
+          "threshold": 360,
+          "ok": false,
+          "max_mode_bound_float": 1.5117333257791485e-61,
+          "min_mode_target_float": 0.00042416889157829226,
+          "max_perturb_bound_float": 113468312424.92825,
+          "min_reserve_target_float": 0.01280378089917509
+        },
+        {
+          "threshold": 370,
+          "ok": false,
+          "max_mode_bound_float": 2.668438286095466e-63,
+          "min_mode_target_float": 0.0004138512698912527,
+          "max_perturb_bound_float": 6483767120.223769,
+          "min_reserve_target_float": 0.012390755708879118
+        },
+        {
+          "threshold": 380,
+          "ok": false,
+          "max_mode_bound_float": 4.676725176645219e-65,
+          "min_mode_target_float": 0.0004008507064391715,
+          "max_perturb_bound_float": 370415363.14240795,
+          "min_reserve_target_float": 0.012098060692133943
+        },
+        {
+          "threshold": 390,
+          "ok": false,
+          "max_mode_bound_float": 8.205242156203027e-67,
+          "min_mode_target_float": 0.00039162396383571227,
+          "max_perturb_bound_float": 21157382.300947998,
+          "min_reserve_target_float": 0.011818874676161622
+        },
+        {
+          "threshold": 400,
+          "ok": false,
+          "max_mode_bound_float": 1.4464109203624793e-68,
+          "min_mode_target_float": 0.00038281242464940874,
+          "max_perturb_bound_float": 1208227.4968749683,
+          "min_reserve_target_float": 0.011466072447022468
+        }
+      ]
+    },
+    {
+      "r": 400,
+      "first_ok": null,
+      "attempts": [
+        {
+          "threshold": 20,
+          "ok": false,
+          "max_mode_bound_float": 0.030682526189722,
+          "min_mode_target_float": 0.004438701597455544,
+          "max_perturb_bound_float": 3.719486601872251e+66,
+          "min_reserve_target_float": 0.24821802725324002
+        },
+        {
+          "threshold": 30,
+          "ok": false,
+          "max_mode_bound_float": 0.0006333188864048827,
+          "min_mode_target_float": 0.0031500462949684504,
+          "max_perturb_bound_float": 2.144444435487485e+65,
+          "min_reserve_target_float": 0.1761547290184284
+        },
+        {
+          "threshold": 40,
+          "ok": false,
+          "max_mode_bound_float": 1.26503601780327e-05,
+          "min_mode_target_float": 0.002441285878600549,
+          "max_perturb_bound_float": 1.2356960333731945e+64,
+          "min_reserve_target_float": 0.136519914989282
+        },
+        {
+          "threshold": 50,
+          "ok": false,
+          "max_mode_bound_float": 2.473341952013762e-07,
+          "min_mode_target_float": 0.0018779122143081147,
+          "max_perturb_bound_float": 7.1167895541612e+62,
+          "min_reserve_target_float": 0.10501531922252462
+        },
+        {
+          "threshold": 60,
+          "ok": false,
+          "max_mode_bound_float": 4.648251915221623e-09,
+          "min_mode_target_float": 0.0016008431990823272,
+          "max_perturb_bound_float": 4.0967746509231096e+61,
+          "min_reserve_target_float": 0.08952125573067672
+        },
+        {
+          "threshold": 70,
+          "ok": false,
+          "max_mode_bound_float": 8.700450725532635e-11,
+          "min_mode_target_float": 0.0013950205020574567,
+          "max_perturb_bound_float": 2.3571907912193916e+60,
+          "min_reserve_target_float": 0.07801137999387543
+        },
+        {
+          "threshold": 80,
+          "ok": false,
+          "max_mode_bound_float": 1.6221242662146864e-12,
+          "min_mode_target_float": 0.0011908711602929508,
+          "max_perturb_bound_float": 1.3556598974743832e+59,
+          "min_reserve_target_float": 0.06659508048257659
+        },
+        {
+          "threshold": 90,
+          "ok": false,
+          "max_mode_bound_float": 2.964107240342109e-14,
+          "min_mode_target_float": 0.0010730926938903513,
+          "max_perturb_bound_float": 7.793243136032975e+57,
+          "min_reserve_target_float": 0.06000875384144264
+        },
+        {
+          "threshold": 100,
+          "ok": false,
+          "max_mode_bound_float": 5.416463106587696e-16,
+          "min_mode_target_float": 0.0009765143514402196,
+          "max_perturb_bound_float": 4.478213387504997e+56,
+          "min_reserve_target_float": 0.054607965995712805
+        },
+        {
+          "threshold": 110,
+          "ok": false,
+          "max_mode_bound_float": 9.893335040295487e-18,
+          "min_mode_target_float": 0.0008718878137859103,
+          "max_perturb_bound_float": 2.5722761417880846e+55,
+          "min_reserve_target_float": 0.04875711249617214
+        },
+        {
+          "threshold": 120,
+          "ok": false,
+          "max_mode_bound_float": 1.7835023174186555e-19,
+          "min_mode_target_float": 0.0008070366540828261,
+          "max_perturb_bound_float": 1.4769418309931885e+54,
+          "min_reserve_target_float": 0.045130550409680004
+        },
+        {
+          "threshold": 130,
+          "ok": false,
+          "max_mode_bound_float": 3.2185394598197466e-21,
+          "min_mode_target_float": 0.0007511648857232459,
+          "max_perturb_bound_float": 8.477124293860636e+52,
+          "min_reserve_target_float": 0.042006127689009846
+        },
+        {
+          "threshold": 140,
+          "ok": false,
+          "max_mode_bound_float": 5.811794163275066e-23,
+          "min_mode_target_float": 0.0006876861629860701,
+          "max_perturb_bound_float": 4.863837704770348e+51,
+          "min_reserve_target_float": 0.03845631408148789
+        },
+        {
+          "threshold": 150,
+          "ok": false,
+          "max_mode_bound_float": 1.0393930473716974e-24,
+          "min_mode_target_float": 0.0006466982459869004,
+          "max_perturb_bound_float": 2.7897201457896296e+50,
+          "min_reserve_target_float": 0.03616421589120053
+        },
+        {
+          "threshold": 160,
+          "ok": false,
+          "max_mode_bound_float": 1.8613472654426183e-26,
+          "min_mode_target_float": 0.0006103214696501373,
+          "max_perturb_bound_float": 1.5995529094642262e+49,
+          "min_reserve_target_float": 0.0341299787473205
+        },
+        {
+          "threshold": 170,
+          "ok": false,
+          "max_mode_bound_float": 3.336593885692213e-28,
+          "min_mode_target_float": 0.0005677409020001276,
+          "max_perturb_bound_float": 9.168495426525944e+47,
+          "min_reserve_target_float": 0.03174881743936791
+        },
+        {
+          "threshold": 180,
+          "ok": false,
+          "max_mode_bound_float": 5.935973037873644e-30,
+          "min_mode_target_float": 0.0005395106914034362,
+          "max_perturb_bound_float": 5.253682757858472e+46,
+          "min_reserve_target_float": 0.03017014695895735
+        },
+        {
+          "threshold": 190,
+          "ok": false,
+          "max_mode_bound_float": 1.0575035845014128e-31,
+          "min_mode_target_float": 0.0005139549218106419,
+          "max_perturb_bound_float": 3.009542609405239e+45,
+          "min_reserve_target_float": 0.028741034734585686
+        },
+        {
+          "threshold": 200,
+          "ok": false,
+          "max_mode_bound_float": 1.8860577811836105e-33,
+          "min_mode_target_float": 0.00048342294625753447,
+          "max_perturb_bound_float": 1.7235042915612883e+44,
+          "min_reserve_target_float": 0.02703364653253109
+        },
+        {
+          "threshold": 210,
+          "ok": false,
+          "max_mode_bound_float": 3.3429279311022916e-35,
+          "min_mode_target_float": 0.0004628030101612415,
+          "max_perturb_bound_float": 9.867419401258711e+42,
+          "min_reserve_target_float": 0.025880552604603223
+        },
+        {
+          "threshold": 220,
+          "ok": false,
+          "max_mode_bound_float": 5.9331859323678195e-37,
+          "min_mode_target_float": 0.00044387015974555437,
+          "max_perturb_bound_float": 5.647783965743235e+41,
+          "min_reserve_target_float": 0.024821802725324003
+        },
+        {
+          "threshold": 230,
+          "ok": false,
+          "max_mode_bound_float": 1.0542493481532783e-38,
+          "min_mode_target_float": 0.000420911358379405,
+          "max_perturb_bound_float": 3.231763487442056e+40,
+          "min_reserve_target_float": 0.023537916377462414
+        },
+        {
+          "threshold": 240,
+          "ok": false,
+          "max_mode_bound_float": 1.863415993361006e-40,
+          "min_mode_target_float": 0.0004051926769461492,
+          "max_perturb_bound_float": 1.848807219683605e+39,
+          "min_reserve_target_float": 0.022658907052162988
+        },
+        {
+          "threshold": 250,
+          "ok": false,
+          "max_mode_bound_float": 3.297918552927518e-42,
+          "min_mode_target_float": 0.00039060574057608785,
+          "max_perturb_bound_float": 1.057395955693918e+38,
+          "min_reserve_target_float": 0.02184318639828512
+        },
+        {
+          "threshold": 260,
+          "ok": false,
+          "max_mode_bound_float": 5.843281449263534e-44,
+          "min_mode_target_float": 0.00037271540131306093,
+          "max_perturb_bound_float": 6.046177013093261e+36,
+          "min_reserve_target_float": 0.02084273511286748
+        },
+        {
+          "threshold": 270,
+          "ok": false,
+          "max_mode_bound_float": 1.0305988791443567e-45,
+          "min_mode_target_float": 0.00036033739905543156,
+          "max_perturb_bound_float": 3.456402884380983e+35,
+          "min_reserve_target_float": 0.020150540957827603
+        },
+        {
+          "threshold": 280,
+          "ok": false,
+          "max_mode_bound_float": 1.8199396863305173e-47,
+          "min_mode_target_float": 0.00034875512551436417,
+          "max_perturb_bound_float": 1.9754730205460819e+34,
+          "min_reserve_target_float": 0.019502844998468858
+        },
+        {
+          "threshold": 290,
+          "ok": false,
+          "max_mode_bound_float": 3.217327281572849e-49,
+          "min_mode_target_float": 0.0003344227230959656,
+          "max_perturb_bound_float": 1.128817970742277e+33,
+          "min_reserve_target_float": 0.018701358217709865
+        },
+        {
+          "threshold": 300,
+          "ok": false,
+          "max_mode_bound_float": 5.664788834466078e-51,
+          "min_mode_target_float": 0.00032442337257150154,
+          "max_perturb_bound_float": 6.448897852144725e+31,
+          "min_reserve_target_float": 0.01814218139392452
+        },
+        {
+          "threshold": 310,
+          "ok": false,
+          "max_mode_bound_float": 9.985673455782896e-53,
+          "min_mode_target_float": 0.000315004629496845,
+          "max_perturb_bound_float": 3.68348105543162e+30,
+          "min_reserve_target_float": 0.01761547290184284
+        },
+        {
+          "threshold": 320,
+          "ok": false,
+          "max_mode_bound_float": 1.7620685943914283e-54,
+          "min_mode_target_float": 0.0003032653265342297,
+          "max_perturb_bound_float": 2.1035131057735342e+29,
+          "min_reserve_target_float": 0.016958995650842485
+        },
+        {
+          "threshold": 330,
+          "ok": false,
+          "max_mode_bound_float": 3.098160495619006e-56,
+          "min_mode_target_float": 0.00029501944152272495,
+          "max_perturb_bound_float": 1.2010144144887345e+28,
+          "min_reserve_target_float": 0.016497874923176073
+        },
+        {
+          "threshold": 340,
+          "ok": false,
+          "max_mode_bound_float": 5.453335400888516e-58,
+          "min_mode_target_float": 0.00028721010336477045,
+          "max_perturb_bound_float": 6.855982704586854e+26,
+          "min_reserve_target_float": 0.016061166469327294
+        },
+        {
+          "threshold": 350,
+          "ok": false,
+          "max_mode_bound_float": 9.608428310727823e-60,
+          "min_mode_target_float": 0.0002774188498409715,
+          "max_perturb_bound_float": 3.913018407594344e+25,
+          "min_reserve_target_float": 0.015513626703327501
+        },
+        {
+          "threshold": 360,
+          "ok": false,
+          "max_mode_bound_float": 1.687440365875298e-61,
+          "min_mode_target_float": 0.00027050259042665363,
+          "max_perturb_bound_float": 2.232938972498947e+24,
+          "min_reserve_target_float": 0.015126860386624046
+        },
+        {
+          "threshold": 370,
+          "ok": false,
+          "max_mode_bound_float": 2.9665773895577153e-63,
+          "min_mode_target_float": 0.0002639227976865458,
+          "max_perturb_bound_float": 1.2739917643203177e+23,
+          "min_reserve_target_float": 0.014758909728571027
+        },
+        {
+          "threshold": 380,
+          "ok": false,
+          "max_mode_bound_float": 5.2202956094184406e-65,
+          "min_mode_target_float": 0.00025563202917283233,
+          "max_perturb_bound_float": 7.267468063460181e+21,
+          "min_reserve_target_float": 0.01429527905646932
+        },
+        {
+          "threshold": 390,
+          "ok": false,
+          "max_mode_bound_float": 9.158928092706092e-67,
+          "min_mode_target_float": 0.0002497479159693656,
+          "max_perturb_bound_float": 4.145035500729581e+20,
+          "min_reserve_target_float": 0.013966231712458517
+        },
+        {
+          "threshold": 400,
+          "ok": false,
+          "max_mode_bound_float": 1.6085012624893614e-68,
+          "min_mode_target_float": 0.0002441285878600549,
+          "max_perturb_bound_float": 2.363762203965788e+19,
+          "min_reserve_target_float": 0.013651991498928201
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+{
+  "params": {
+    "r_values": [
+      240,
+      280,
+      320,
+      400
+    ],
+    "start": 350,
+    "stop": 700,
+    "step": 50,
+    "margin_denom": 1000,
+    "reserve_denom": 1000
+  },
+  "records": [
+    {
+      "r": 240,
+      "first_ok": {
+        "r": 240,
+        "threshold": 400,
+        "margin_denom": 1000,
+        "reserve_denom": 1000,
+        "shifts": {
+          "0": 201,
+          "1": 199,
+          "2": 200
+        },
+        "ok": true,
+        "max_mode_bound_float": 1.2567188216962655e-68,
+        "max_perturb_bound_float": 6.099561498287657e-08,
+        "min_reserve_float": 2.4875621890547264e-06,
+        "residues": [
+          {
+            "residue": 0,
+            "shift": 201,
+            "a0": 402,
+            "m0": 335,
+            "witness_s": 67,
+            "n0": 268,
+            "mode_bound_float": 5.578452624985917e-69,
+            "mode_target_float": 2.4875621890547264e-06,
+            "perturb_bound_float": 3.441725228233016e-08,
+            "reserve_float": 2.4875621890547264e-06,
+            "ok": true
+          },
+          {
+            "residue": 1,
+            "shift": 199,
+            "a0": 400,
+            "m0": 333,
+            "witness_s": 67,
+            "n0": 266,
+            "mode_bound_float": 1.2567188216962655e-68,
+            "mode_target_float": 2.5e-06,
+            "perturb_bound_float": 6.099561498287657e-08,
+            "reserve_float": 2.5e-06,
+            "ok": true
+          },
+          {
+            "residue": 2,
+            "shift": 200,
+            "a0": 401,
+            "m0": 334,
+            "witness_s": 67,
+            "n0": 267,
+            "mode_bound_float": 8.367678937478875e-69,
+            "mode_target_float": 2.4937655860349126e-06,
+            "perturb_bound_float": 4.5818190473465485e-08,
+            "reserve_float": 2.4937655860349126e-06,
+            "ok": true
+          }
+        ]
+      },
+      "attempts": [
+        {
+          "threshold": 350,
+          "ok": false,
+          "max_mode_bound_float": 7.479034471088581e-60,
+          "max_perturb_bound_float": 0.09929045079630243,
+          "min_reserve_float": 2.8409090909090907e-06,
+          "shifts": {
+            "0": 201,
+            "1": 199,
+            "2": 200
+          }
+        },
+        {
+          "threshold": 400,
+          "ok": true,
+          "max_mode_bound_float": 1.2567188216962655e-68,
+          "max_perturb_bound_float": 6.099561498287657e-08,
+          "min_reserve_float": 2.4875621890547264e-06,
+          "shifts": {
+            "0": 201,
+            "1": 199,
+            "2": 200
+          }
+        }
+      ]
+    },
+    {
+      "r": 280,
+      "first_ok": {
+        "r": 280,
+        "threshold": 450,
+        "margin_denom": 1000,
+        "reserve_denom": 1000,
+        "shifts": {
+          "0": 234,
+          "1": 232,
+          "2": 233
+        },
+        "ok": true,
+        "max_mode_bound_float": 2.2450765148313214e-77,
+        "max_perturb_bound_float": 1.653306827811799e-07,
+        "min_reserve_float": 2.2123893805309734e-06,
+        "residues": [
+          {
+            "residue": 0,
+            "shift": 234,
+            "a0": 450,
+            "m0": 378,
+            "witness_s": 78,
+            "n0": 300,
+            "mode_bound_float": 2.2450765148313214e-77,
+            "mode_target_float": 2.222222222222222e-06,
+            "perturb_bound_float": 1.653306827811799e-07,
+            "reserve_float": 2.222222222222222e-06,
+            "ok": true
+          },
+          {
+            "residue": 1,
+            "shift": 232,
+            "a0": 451,
+            "m0": 378,
+            "witness_s": 78,
+            "n0": 300,
+            "mode_bound_float": 1.503355005496805e-77,
+            "mode_target_float": 2.2172949002217296e-06,
+            "perturb_bound_float": 1.2416787237641352e-07,
+            "reserve_float": 2.2172949002217296e-06,
+            "ok": true
+          },
+          {
+            "residue": 2,
+            "shift": 233,
+            "a0": 452,
+            "m0": 379,
+            "witness_s": 78,
+            "n0": 301,
+            "mode_bound_float": 1.0011280014480936e-77,
+            "mode_target_float": 2.2123893805309734e-06,
+            "perturb_bound_float": 9.32532995002066e-08,
+            "reserve_float": 2.2123893805309734e-06,
+            "ok": true
+          }
+        ]
+      },
+      "attempts": [
+        {
+          "threshold": 350,
+          "ok": false,
+          "max_mode_bound_float": 8.062760270689371e-60,
+          "max_perturb_bound_float": 444881.97437125264,
+          "min_reserve_float": 2.8409090909090907e-06,
+          "shifts": {
+            "0": 234,
+            "1": 232,
+            "2": 233
+          }
+        },
+        {
+          "threshold": 400,
+          "ok": false,
+          "max_mode_bound_float": 1.354803568050061e-68,
+          "max_perturb_bound_float": 0.2719420344690185,
+          "min_reserve_float": 2.4875621890547264e-06,
+          "shifts": {
+            "0": 234,
+            "1": 232,
+            "2": 233
+          }
+        },
+        {
+          "threshold": 450,
+          "ok": true,
+          "max_mode_bound_float": 2.2450765148313214e-77,
+          "max_perturb_bound_float": 1.653306827811799e-07,
+          "min_reserve_float": 2.2123893805309734e-06,
+          "shifts": {
+            "0": 234,
+            "1": 232,
+            "2": 233
+          }
+        }
+      ]
+    },
+    {
+      "r": 320,
+      "first_ok": {
+        "r": 320,
+        "threshold": 500,
+        "margin_denom": 1000,
+        "reserve_denom": 1000,
+        "shifts": {
+          "0": 267,
+          "1": 265,
+          "2": 266
+        },
+        "ok": true,
+        "max_mode_bound_float": 3.96613512273538e-86,
+        "max_perturb_bound_float": 4.4132284612508976e-07,
+        "min_reserve_float": 1.99203187250996e-06,
+        "residues": [
+          {
+            "residue": 0,
+            "shift": 267,
+            "a0": 501,
+            "m0": 423,
+            "witness_s": 89,
+            "n0": 334,
+            "mode_bound_float": 2.644090081823587e-86,
+            "mode_target_float": 1.9960079840319363e-06,
+            "perturb_bound_float": 3.3139578353844393e-07,
+            "reserve_float": 1.9960079840319363e-06,
+            "ok": true
+          },
+          {
+            "residue": 1,
+            "shift": 265,
+            "a0": 502,
+            "m0": 423,
+            "witness_s": 89,
+            "n0": 334,
+            "mode_bound_float": 1.769749536838098e-86,
+            "mode_target_float": 1.99203187250996e-06,
+            "perturb_bound_float": 2.488495743623029e-07,
+            "reserve_float": 1.99203187250996e-06,
+            "ok": true
+          },
+          {
+            "residue": 2,
+            "shift": 266,
+            "a0": 500,
+            "m0": 422,
+            "witness_s": 89,
+            "n0": 333,
+            "mode_bound_float": 3.96613512273538e-86,
+            "mode_target_float": 2e-06,
+            "perturb_bound_float": 4.4132284612508976e-07,
+            "reserve_float": 2e-06,
+            "ok": true
+          }
+        ]
+      },
+      "attempts": [
+        {
+          "threshold": 350,
+          "ok": false,
+          "max_mode_bound_float": 8.60793754815305e-60,
+          "max_perturb_bound_float": 1985307813735.4185,
+          "min_reserve_float": 2.8409090909090907e-06,
+          "shifts": {
+            "0": 267,
+            "1": 265,
+            "2": 266
+          }
+        },
+        {
+          "threshold": 400,
+          "ok": false,
+          "max_mode_bound_float": 1.4464109203624793e-68,
+          "max_perturb_bound_float": 1208227.4968749683,
+          "min_reserve_float": 2.4875621890547264e-06,
+          "shifts": {
+            "0": 267,
+            "1": 265,
+            "2": 266
+          }
+        },
+        {
+          "threshold": 450,
+          "ok": false,
+          "max_mode_bound_float": 2.39688118977656e-77,
+          "max_perturb_bound_float": 0.7317624388548883,
+          "min_reserve_float": 2.2123893805309734e-06,
+          "shifts": {
+            "0": 267,
+            "1": 265,
+            "2": 266
+          }
+        },
+        {
+          "threshold": 500,
+          "ok": true,
+          "max_mode_bound_float": 3.96613512273538e-86,
+          "max_perturb_bound_float": 4.4132284612508976e-07,
+          "min_reserve_float": 1.99203187250996e-06,
+          "shifts": {
+            "0": 267,
+            "1": 265,
+            "2": 266
+          }
+        }
+      ]
+    },
+    {
+      "r": 400,
+      "first_ok": {
+        "r": 400,
+        "threshold": 650,
+        "margin_denom": 1000,
+        "reserve_denom": 1000,
+        "shifts": {
+          "0": 333,
+          "1": 334,
+          "2": 332
+        },
+        "ok": true,
+        "max_mode_bound_float": 1.9464590421405925e-112,
+        "max_perturb_bound_float": 1.8072529573878274e-12,
+        "min_reserve_float": 1.5337423312883435e-06,
+        "residues": [
+          {
+            "residue": 0,
+            "shift": 333,
+            "a0": 651,
+            "m0": 545,
+            "witness_s": 111,
+            "n0": 434,
+            "mode_bound_float": 1.2976393614270617e-112,
+            "mode_target_float": 1.5360983102918588e-06,
+            "perturb_bound_float": 1.3567306130104332e-12,
+            "reserve_float": 1.5360983102918588e-06,
+            "ok": true
+          },
+          {
+            "residue": 1,
+            "shift": 334,
+            "a0": 652,
+            "m0": 546,
+            "witness_s": 111,
+            "n0": 435,
+            "mode_bound_float": 8.657563224244966e-113,
+            "mode_target_float": 1.5337423312883435e-06,
+            "perturb_bound_float": 1.018516130984997e-12,
+            "reserve_float": 1.5337423312883435e-06,
+            "ok": true
+          },
+          {
+            "residue": 2,
+            "shift": 332,
+            "a0": 650,
+            "m0": 544,
+            "witness_s": 111,
+            "n0": 433,
+            "mode_bound_float": 1.9464590421405925e-112,
+            "mode_target_float": 1.5384615384615385e-06,
+            "perturb_bound_float": 1.8072529573878274e-12,
+            "reserve_float": 1.5384615384615385e-06,
+            "ok": true
+          }
+        ]
+      },
+      "attempts": [
+        {
+          "threshold": 350,
+          "ok": false,
+          "max_mode_bound_float": 9.608428310727823e-60,
+          "max_perturb_bound_float": 3.913018407594344e+25,
+          "min_reserve_float": 2.8409090909090907e-06,
+          "shifts": {
+            "0": 333,
+            "1": 334,
+            "2": 332
+          }
+        },
+        {
+          "threshold": 400,
+          "ok": false,
+          "max_mode_bound_float": 1.6085012624893614e-68,
+          "max_perturb_bound_float": 2.363762203965788e+19,
+          "min_reserve_float": 2.4875621890547264e-06,
+          "shifts": {
+            "0": 333,
+            "1": 334,
+            "2": 332
+          }
+        },
+        {
+          "threshold": 450,
+          "ok": false,
+          "max_mode_bound_float": 2.6754679564608996e-77,
+          "max_perturb_bound_float": 14223153346711.248,
+          "min_reserve_float": 2.2123893805309734e-06,
+          "shifts": {
+            "0": 333,
+            "1": 334,
+            "2": 332
+          }
+        },
+        {
+          "threshold": 500,
+          "ok": false,
+          "max_mode_bound_float": 4.427114484077461e-86,
+          "max_perturb_bound_float": 8528696.219566436,
+          "min_reserve_float": 1.99203187250996e-06,
+          "shifts": {
+            "0": 333,
+            "1": 334,
+            "2": 332
+          }
+        },
+        {
+          "threshold": 550,
+          "ok": false,
+          "max_mode_bound_float": 7.274407697968226e-95,
+          "max_perturb_bound_float": 5.098317890795193,
+          "min_reserve_float": 1.8115942028985506e-06,
+          "shifts": {
+            "0": 333,
+            "1": 334,
+            "2": 332
+          }
+        },
+        {
+          "threshold": 600,
+          "ok": false,
+          "max_mode_bound_float": 1.1915434736397476e-103,
+          "max_perturb_bound_float": 3.0392503504276046e-06,
+          "min_reserve_float": 1.6611295681063123e-06,
+          "shifts": {
+            "0": 333,
+            "1": 334,
+            "2": 332
+          }
+        },
+        {
+          "threshold": 650,
+          "ok": true,
+          "max_mode_bound_float": 1.9464590421405925e-112,
+          "max_perturb_bound_float": 1.8072529573878274e-12,
+          "min_reserve_float": 1.5337423312883435e-06,
+          "shifts": {
+            "0": 333,
+            "1": 334,
+            "2": 332
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "params": {
+    "r_values": [
+      40
+    ],
+    "min_t": 0,
+    "method": "shift"
+  },
+  "records": [
+    {
+      "r": 40,
+      "min_t": 0,
+      "threshold_a": 26,
+      "residues": [
+        {
+          "residue": 0,
+          "shift": 33,
+          "mode": "2*t + 11",
+          "left_margin_constant": "1055130951/267914296",
+          "right_margin_constant": "150483381/267914296",
+          "reserve_constant": "42191538737434931719098379/14422778319452763249754752",
+          "left_eta": "1055130951/535828592",
+          "right_eta": "150483381/535828592",
+          "reserve_eta": "42191538737434931719098379/28845556638905526499509504",
+          "threshold_t": 8,
+          "threshold_a": 24,
+          "checks": {
+            "left_margin_ge_eta_over_a": {
+              "threshold_t": 8,
+              "method": "shift",
+              "num_degree": 16,
+              "den_degree": 17,
+              "num_lc": "96489699302391635968",
+              "den_lc": "147001487362407661568",
+              "num_threshold_t": 8,
+              "den_threshold_t": 1
+            },
+            "right_margin_ge_eta_over_a": {
+              "threshold_t": 4,
+              "method": "shift",
+              "num_degree": 15,
+              "den_degree": 16,
+              "num_lc": "13761416219414110208",
+              "den_lc": "147001487362407661568",
+              "num_threshold_t": 4,
+              "den_threshold_t": 1
+            },
+            "lambda0_ge_3_over_4": {
+              "threshold_t": 0,
+              "method": "shift",
+              "num_degree": 16,
+              "den_degree": 16,
+              "num_lc": "274344239104",
+              "den_lc": "1097376956416",
+              "num_threshold_t": 0,
+              "den_threshold_t": 0
+            },
+            "lambda0_le_2": {
+              "threshold_t": 0,
+              "method": "shift",
+              "num_degree": 16,
+              "den_degree": 16,
+              "num_lc": "548688478208",
+              "den_lc": "548688478208",
+              "num_threshold_t": 0,
+              "den_threshold_t": 0
+            },
+            "reserve_ge_eta_over_a": {
+              "threshold_t": 7,
+              "method": "shift",
+              "num_degree": 336,
+              "den_degree": 337,
+              "num_lc": "341433724552025076189144668950057847805668585482435394876796427928263184485545508859531640902594032449012358721022484809791880067043086452026822552016216171942431943933024104767188250042462150956848717575048241113542457269753041251063461730924711805998944730805172449665940610613248",
+              "den_lc": "700295329446664990997722661378751474956164808996488967059130725643458692738852605451606173208375702697870232426603688455111974192500442136791225998522663323357460589437253533603699513591143592910998811175564027795766953710989161192213746912216837659756078088698221521704345082527744",
+              "num_threshold_t": 7,
+              "den_threshold_t": 1
+            }
+          }
+        },
+        {
+          "residue": 1,
+          "shift": 34,
+          "mode": "2*t + 12",
+          "left_margin_constant": "653259507/267914296",
+          "right_margin_constant": "552354825/267914296",
+          "reserve_constant": "32576353191133089552595211/14422778319452763249754752",
+          "left_eta": "653259507/535828592",
+          "right_eta": "552354825/535828592",
+          "reserve_eta": "32576353191133089552595211/28845556638905526499509504",
+          "threshold_t": 7,
+          "threshold_a": 22,
+          "checks": {
+            "left_margin_ge_eta_over_a": {
+              "threshold_t": 7,
+              "method": "shift",
+              "num_degree": 15,
+              "den_degree": 16,
+              "num_lc": "179217982385369161728",
+              "den_lc": "441004462087222984704",
+              "num_threshold_t": 7,
+              "den_threshold_t": 0
+            },
+            "right_margin_ge_eta_over_a": {
+              "threshold_t": 5,
+              "method": "shift",
+              "num_degree": 15,
+              "den_degree": 16,
+              "num_lc": "303070728360096153600",
+              "den_lc": "882008924174445969408",
+              "num_threshold_t": 5,
+              "den_threshold_t": 0
+            },
+            "lambda0_ge_3_over_4": {
+              "threshold_t": 0,
+              "method": "shift",
+              "num_degree": 15,
+              "den_degree": 15,
+              "num_lc": "274344239104",
+              "den_lc": "1097376956416",
+              "num_threshold_t": 0,
+              "den_threshold_t": 0
+            },
+            "lambda0_le_2": {
+              "threshold_t": 0,
+              "method": "shift",
+              "num_degree": 15,
+              "den_degree": 15,
+              "num_lc": "274344239104",
+              "den_lc": "274344239104",
+              "num_threshold_t": 0,
+              "den_threshold_t": 0
+            },
+            "reserve_ge_eta_over_a": {
+              "threshold_t": 7,
+              "method": "shift",
+              "num_degree": 315,
+              "den_degree": 316,
+              "num_lc": "125705305286066304032250476369421702241624856543298805386863132355526286635454865258756139273906844952013280447991618836350703049282886501495052812874226158148682218443550714349799407153183394840062440607275970365000574414824814800016477832058035987972387975509872994173321216",
+              "den_lc": "333926834796268935679303484620452630498964695451969607858243334600190492982317259527018629650295115803656688893606037356906878563165875500102627753506976758650522513121248976518487698360034748511790662372381223581202961783880787464243768173321169690969504398678885231830761472",
+              "num_threshold_t": 7,
+              "den_threshold_t": 0
+            }
+          }
+        },
+        {
+          "residue": 2,
+          "shift": 35,
+          "mode": "2*t + 13",
+          "left_margin_constant": "251388063/267914296",
+          "right_margin_constant": "954226269/267914296",
+          "reserve_constant": "7653722548277082462030681/4807592773150921083251584",
+          "left_eta": "251388063/535828592",
+          "right_eta": "954226269/535828592",
+          "reserve_eta": "7653722548277082462030681/9615185546301842166503168",
+          "threshold_t": 8,
+          "threshold_a": 26,
+          "checks": {
+            "left_margin_ge_eta_over_a": {
+              "threshold_t": 8,
+              "method": "shift",
+              "num_degree": 15,
+              "den_degree": 16,
+              "num_lc": "68966866863563415552",
+              "den_lc": "441004462087222984704",
+              "num_threshold_t": 8,
+              "den_threshold_t": 0
+            },
+            "right_margin_ge_eta_over_a": {
+              "threshold_t": 6,
+              "method": "shift",
+              "num_degree": 14,
+              "den_degree": 15,
+              "num_lc": "261786479701853822976",
+              "den_lc": "441004462087222984704",
+              "num_threshold_t": 6,
+              "den_threshold_t": 0
+            },
+            "lambda0_ge_3_over_4": {
+              "threshold_t": 0,
+              "method": "shift",
+              "num_degree": 15,
+              "den_degree": 15,
+              "num_lc": "274344239104",
+              "den_lc": "1097376956416",
+              "num_threshold_t": 0,
+              "den_threshold_t": 0
+            },
+            "lambda0_le_2": {
+              "threshold_t": 0,
+              "method": "shift",
+              "num_degree": 15,
+              "den_degree": 15,
+              "num_lc": "548688478208",
+              "den_lc": "548688478208",
+              "num_threshold_t": 0,
+              "den_threshold_t": 0
+            },
+            "reserve_ge_eta_over_a": {
+              "threshold_t": 6,
+              "method": "shift",
+              "num_degree": 315,
+              "den_degree": 316,
+              "num_lc": "61937513410181322359513211029371025197729172272182985917515051854350047218229791438243423026170180986865583838370184680663073045125440510913294480411134033361739493204544810211010934192587858251468179104603930164086970666881446254634950435329212256832531348142596629762399086313472",
+              "den_lc": "233431776482221663665907553792917158318721602998829655686376908547819564246284201817202057736125234232623410808867896151703991397500147378930408666174221107785820196479084511201233171197047864303666270391854675931922317903663053730737915637405612553252026029566073840568115027509248",
+              "num_threshold_t": 6,
+              "den_threshold_t": 0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "params": {
+    "r_values": [
+      280
+    ],
+    "a_max": 449
+  },
+  "total_checked": 449,
+  "skipped": 0,
+  "total_failures": 0,
+  "total_stronger_failures": 0,
+  "global_min_route2": {
+    "r": 280,
+    "a": 447,
+    "n": 1175,
+    "m": 376,
+    "route2_num_sign": 1,
+    "stronger_num_sign": 1,
+    "route2_slack_float": 0.1808975747567671,
+    "stronger_slack_float": 0.18050468624189542,
+    "lambda_float": 0.9984296798762403
+  },
+  "global_min_stronger": {
+    "r": 280,
+    "a": 447,
+    "n": 1175,
+    "m": 376,
+    "route2_num_sign": 1,
+    "stronger_num_sign": 1,
+    "route2_slack_float": 0.1808975747567671,
+    "stronger_slack_float": 0.18050468624189542,
+    "lambda_float": 0.9984296798762403
+  },
+  "lanes": [
+    {
+      "r": 280,
+      "checked": 449,
+      "failures": [],
+      "stronger_failures": [],
+      "min_route2": {
+        "r": 280,
+        "a": 447,
+        "n": 1175,
+        "m": 376,
+        "route2_num_sign": 1,
+        "stronger_num_sign": 1,
+        "route2_slack_float": 0.1808975747567671,
+        "stronger_slack_float": 0.18050468624189542,
+        "lambda_float": 0.9984296798762403
+      },
+      "min_stronger": {
+        "r": 280,
+        "a": 447,
+        "n": 1175,
+        "m": 376,
+        "route2_num_sign": 1,
+        "stronger_num_sign": 1,
+        "route2_slack_float": 0.1808975747567671,
+        "stronger_slack_float": 0.18050468624189542,
+        "lambda_float": 0.9984296798762403
+      }
+    }
+  ]
+}
