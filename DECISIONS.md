@@ -6,6 +6,12 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
 
 ---
 
+## 2026-05-21
+
+- **Ship fixed-`r` Route-2 work as a proof workspace, not a submission target** The session produced a substantial fixed-`r`/Route-2 attack package, including scripts, notes, and certificate snapshots, and pushed it as commit `6d2c29c`. The mathematical posture remains conservative: `notes/fixed_r_proof_note_clean_2026-05-21.md` states a fixed-`r` computable-threshold criterion for structured lanes `S(2^a,r)`, not an unconditional theorem for all fixed `r` or for all `d_leaf<=1` trees.
+- **Do not submit the fixed-`r` material now** The current manuscript remains under review at E-JC. The new fixed-`r` material should be kept as a private technical reserve unless the fragile proof points are audited, `r=2,3` are handled, and the certificate machinery is made manuscript-grade or extended to a broader tree class.
+- **Exclude large/noisy artifacts from the shipped commit** The shipped commit intentionally left untracked `erdos_993_gpt_attack_2026-04-24.zip`, `gpt_attack/main_v2.pdf`, and the 43 MB `results/route2_spider_lane_j0_1_a200_r80_float.json`; these are not needed for the replayable fixed-`r` certificate snapshot.
+
 ## 2026-04-25
 
 - **Submit to E-JC after review-board cleanup** Round-3 review shifted the manuscript to submission-ready. Chose the Electronic Journal of Combinatorics as next venue after the Experimental Mathematics desk rejection. Submitted single-PDF initial submission `60492-1`; no source files uploaded at this stage per E-JC guidelines. Final PDF removes the ORCID icon to avoid logo-like title-block material and builds without overfull boxes.

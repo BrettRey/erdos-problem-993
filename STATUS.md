@@ -9,6 +9,16 @@
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## Current state (2026-05-21)
+
+### Session notes (2026-05-21, fixed-`r` Route-2 workspace)
+- **Fixed-`r` proof workspace shipped.** Commit `6d2c29c` (`Add fixed-r route2 proof workspace`) pushed to `origin/master`, adding `gpt_attack/` scripts, fixed-`r`/Route-2 notes, and replayable JSON certificate snapshots.
+- **Mathematical posture:** the clean working note is `notes/fixed_r_proof_note_clean_2026-05-21.md`. It states a fixed-`r` computable-threshold criterion for structured spider lanes `S(2^a,r)`, not a manuscript-ready unconditional theorem for all fixed `r` and not a proof for all `d_leaf<=1` trees.
+- **Submission posture:** do not submit the fixed-`r` material now. The E-JC submission remains the public manuscript track; the fixed-`r` work is a private technical reserve unless the fragile proof points are audited and the certificate machinery is made manuscript-grade.
+- **Verification before shipping:** `python3 test_all.py` passed; `paper/main_v2.tex` rebuilt with `xelatex + biber + xelatex + xelatex` with only existing underfull-box warnings; `python3 -m py_compile gpt_attack/*.py` passed.
+- **Untracked artifacts intentionally left out:** `erdos_993_gpt_attack_2026-04-24.zip`, `gpt_attack/main_v2.pdf`, and `results/route2_spider_lane_j0_1_a200_r80_float.json`.
+- **Next action:** park the project unless E-JC reviews arrive or a proof-audit session specifically targets the global `F` margin lemma, the shifted-positive termination criterion, and the `r=2,3` boundary cases.
+
 ## Current state (2026-04-25)
 
 ### Session notes (2026-04-25, E-JC submission)
