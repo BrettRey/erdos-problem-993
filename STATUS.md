@@ -9,6 +9,23 @@
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## Current state (2026-05-27)
+
+### Session notes (2026-05-27, AxiomProver scan)
+- **Scanned recent AxiomProver/Axiom Math paper pattern.** Recorded the scan in `notes/axiomprover_scan_2026-05-27.md`. The takeaway is workflow-level: the transferable pattern is narrow theorem/certificate targets with Lean verification, not broad informal proof discovery.
+- **Best next proof-search target:** fixed-`r` Route-2 certificate machinery, especially the adjacent-to-global `F` mode margin, fugacity perturbation, and mean perturbation bridge lemmas.
+- **New proof-agent packet:** added `gpt_attack/axiom_fixed_r_certificate/` with a README, natural-language target, task prompt, and Lean-facing arithmetic bridge lemmas. `problem.lean` checks with no `sorry`s; the next target is the finite-support Gibbs mean-shift lemma and full certificate criterion.
+- **Parking decision:** mothball the main project again. Reopen only for E-JC reviews, an AxiomProver/Lean-agent run against `gpt_attack/axiom_fixed_r_certificate/`, or a tightly bounded proof session aimed at the finite-support Gibbs mean-shift lemma.
+- **Lean check note:** a `lake build` attempt reached the expected `Formal/STP2Closure.lean` `sorry` warnings and then hung during `Formal/P3.lean` replay; the build was terminated. Do not treat it as a successful verification run.
+
+## Current state (2026-05-24)
+
+### Session notes (2026-05-24, afternoon, AlphaProof Nexus scan)
+- **Reviewed `/Users/brettreynolds/Downloads/2605.22763v1.md`.** The DeepMind AlphaProof Nexus paper reports 9 solved Erdős problems, but not #993; no new independence-polynomial or tree-unimodality theorem was found to import.
+- **Project impact:** no manuscript edit is indicated. The useful lesson is methodological: formal proof search should be aimed at narrow, frozen Lean/certificate subgoals, especially the existing `Formal/STP2Closure.lean` sorries or fixed-`r` Route-2 certificate inequalities.
+- **Graph-theory side result:** the paper's unrelated spanning-tree/leaves/local-independence result was checked as nearby context but does not bear directly on the mode-mean or Conjecture A bottlenecks.
+- **Working tree:** unchanged apart from shutdown tracking files. Pre-existing untracked artifacts remain: `erdos_993_gpt_attack_2026-04-24.zip`, `gpt_attack/main_v2.pdf`, and `results/route2_spider_lane_j0_1_a200_r80_float.json`.
+
 ## Current state (2026-05-21)
 
 ### Session notes (2026-05-21, fixed-`r` Route-2 workspace)

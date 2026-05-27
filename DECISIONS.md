@@ -6,6 +6,17 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
 
 ---
 
+## 2026-05-27
+
+- **Aim AxiomProver-style runs at fixed-`r` certificates first** Recent AxiomProver papers suggest the highest-yield pattern is narrow, formalizable algebraic subgoals with exact certificate replay. For this project, the best match is the fixed-`r` Route-2 certificate bridge rather than a direct attack on Erdős #993, ECMS, or generic log-concavity. Added `gpt_attack/axiom_fixed_r_certificate/` as the handoff packet.
+- **Mothball main project again after packet creation** The manuscript is already under E-JC review and no immediate high-return proof/computation path is open. Keep the project parked unless E-JC reviews arrive, AxiomProver or another strong Lean agent is available for `gpt_attack/axiom_fixed_r_certificate/`, or a deliberately bounded session targets only the finite-support Gibbs mean-shift lemma.
+
+---
+
+## 2026-05-24
+
+- **Treat DeepMind AlphaProof Nexus paper as methodology, not #993 input** Reviewed `/Users/brettreynolds/Downloads/2605.22763v1.md`. The solved Erdős list does not include #993, and the highlighted graph-theory result is not about independence-polynomial modes. The durable takeaway is workflow-level: if #993 proof-search resumes, aim agents at narrow Lean/certificate subgoals with frozen statements, not at broad informal proof discovery or manuscript revision.
+
 ## 2026-05-21
 
 - **Ship fixed-`r` Route-2 work as a proof workspace, not a submission target** The session produced a substantial fixed-`r`/Route-2 attack package, including scripts, notes, and certificate snapshots, and pushed it as commit `6d2c29c`. The mathematical posture remains conservative: `notes/fixed_r_proof_note_clean_2026-05-21.md` states a fixed-`r` computable-threshold criterion for structured lanes `S(2^a,r)`, not an unconditional theorem for all fixed `r` or for all `d_leaf<=1` trees.

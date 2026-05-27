@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+
+\title{Fixed-\(r\) Route-2 Certificate Target}
+\date{2026-05-27}
+
+\begin{document}
+\maketitle
+
+\section{Purpose}
+
+This target isolates a certificate-shaped proof obligation from the
+Erdos Problem 993 project.  It does not ask for a proof of tree independence
+polynomial unimodality.  It asks for formal bridge lemmas that justify the
+fixed-\(r\) Route-2 spider-lane certificate.
+
+\section{Notation}
+
+Let \(P_j(x)\) be the independence polynomial of the path on \(j\) vertices.
+For fixed \(r \ge 2\), define the spider
+\[
+  T_{a,r}=S(2^a,r).
+\]
+Its independence polynomial has the standard spider decomposition
+\[
+  I(T_{a,r};x)=F_{a,r}(x)+G_{a,r}(x),
+  \qquad
+  F_{a,r}(x)=P_r(x)(1+2x)^a,\quad
+  G_{a,r}(x)=xP_{r-1}(x)(1+x)^a.
+\]
+Removing one length-\(2\) arm gives
+\[
+  B_{a,r}=S(2^{a-1},r)
+\]
+with hub-off part
+\[
+  F^-_{a,r}(x)=P_r(x)(1+2x)^{a-1}.
+\]
+
+For \(H(x)=\sum_k h_kx^k\), write
+\[
+  \mu_H(\lambda)=\frac{\lambda H'(\lambda)}{H(\lambda)}.
+\]
+Let \(m=m(a,r)\) be the certified mode of \(I(T_{a,r};x)\), and let
+\[
+  \lambda=\frac{[x^{m-1}]I(T_{a,r};x)}{[x^m]I(T_{a,r};x)}.
+\]
+The Route-2 target is
+\[
+  \mu_{B_{a,r}}(\lambda)\ge m-\frac32.
+\]
+
+\section{Certificate Bridge}
+
+For each residue class \(q\in\{0,1,2\}\), suppose the certificate supplies
+an integer shift \(D_q\), a threshold \(A\), and positive constants
+\(\eta_{\mathrm{mode}}\) and \(\eta_{\mathrm{reserve}}\), with
+\[
+  a\equiv q\pmod 3,\qquad m=\frac{2a+D_q}{3}.
+\]
+
+\begin{lemma}[Adjacent-to-global hub-off margin]
+Let \(F(x)=\sum_k F_kx^k\) have nonnegative unimodal coefficients and mode
+at \(m\).  If
+\[
+  F_m-F_{m-1}\ge \eta F_m,\qquad
+  F_m-F_{m+1}\ge \eta F_m,
+\]
+then for every \(k\ne m\),
+\[
+  F_m-F_k\ge \eta F_m.
+\]
+\end{lemma}
+
+\begin{lemma}[Fugacity perturbation]
+Let
+\[
+  \lambda_0=\frac{F_{m-1}}{F_m},\qquad
+  \lambda=\frac{F_{m-1}+G_{m-1}}{F_m+G_m}.
+\]
+Assume \(3/4\le\lambda_0\le 2\), \(0\le T\le 1/2\), and
+\[
+  0\le G_{m-1}\le TF_m,\qquad 0\le G_m\le TF_m.
+\]
+Then
+\[
+  |\lambda-\lambda_0|\le 4T,\qquad \lambda\ge 1/2.
+\]
+\end{lemma}
+
+\begin{lemma}[Mean perturbation]
+Let \(H(x)=\sum_{k=0}^N h_kx^k\) have nonnegative coefficients and
+\(H(\lambda)>0\) on the interval between \(\lambda_0\) and \(\lambda\).
+If \(\lambda_0,\lambda\ge 1/2\), then
+\[
+  |\mu_H(\lambda)-\mu_H(\lambda_0)|
+  \le \frac{N^2}{2}|\lambda-\lambda_0|.
+\]
+\end{lemma}
+
+\begin{theorem}[Fixed-\(r\) certificate criterion]
+Assume:
+\begin{enumerate}
+  \item exact finite verification of the Route-2 inequality for \(1\le a<A\);
+  \item the adjacent \(F\)-mode margins above for all \(a\ge A\);
+  \item hub-on domination strong enough that \(G\) cannot move the certified
+        mode \(m\);
+  \item hub-off reserve
+        \[
+          \mu_{F^-_{a,r}}(\lambda_0)
+          \ge m-\frac43+\frac{\eta_{\mathrm{reserve}}}{a};
+        \]
+  \item hub-on perturbation bounded by
+        \[
+          |\mu_{B_{a,r}}(\lambda)-\mu_{F^-_{a,r}}(\lambda_0)|
+          \le \frac{\eta_{\mathrm{reserve}}}{a}.
+        \]
+\end{enumerate}
+Then for every \(a\ge1\),
+\[
+  \mu_{B_{a,r}}(\lambda)\ge m-\frac32.
+\]
+\end{theorem}
+
+\section{Expected Output}
+
+The first-pass Lean file in this packet formalizes the adjacent-margin and
+fugacity-perturbation arithmetic.  The next proof-agent task is to formalize the
+finite-support Gibbs mean-shift argument and then state the full certificate
+criterion in Lean.
+
+\end{document}

@@ -37,6 +37,11 @@ For the next focused proof attempt, start with `SG3_ROUTE2_PACKET.md`. It
 targets the degree-2-support leaf bridge and Route-2 compensation inequality,
 which are the sharpest currently packaged SG3 proof obligations.
 
+For an AxiomProver-style formalization run, start with
+`axiom_fixed_r_certificate/`.  That packet isolates the fixed-`r` Route-2
+certificate bridge into small Lean-facing lemmas rather than asking for a broad
+proof of the conjecture.
+
 ## What success looks like
 
 Any of:
