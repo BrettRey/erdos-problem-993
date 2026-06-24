@@ -9,6 +9,27 @@
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## Current state (2026-06-12)
+
+### Session notes (2026-06-12, afternoon, fixed-`r` Lean certificate bridge)
+- **Fable packet replayed with local verification.** Processed `/Users/brettreynolds/Downloads/files(4).zip` through `files(7).zip`; retained useful patches only after `lake env lean gpt_attack/axiom_fixed_r_certificate/problem.lean` passed locally.
+- **Gibbs bridge closed.** `gibbsProb` and `gibbsMean` are marked `noncomputable`; the concrete derivative identity `deriv_gibbsMean_eq_variance_div`, positivity lemma `gibbsZ_pos`, and `mean_shift_bound_for_independence_polynomial` all check.
+- **Abstract Route-2 bridge packaged.** Added checked composition and certificate wrappers through `fixed_r_certificate_composition`, `Route2Certificate`, `fixed_r_certificate_composition_split`, `Route2SplitCertificate`, `Route2SplitCertificateFor`, `route2_family_from_finite_and_tail`, `Route2FamilyCertificate`, and `route2_of_family_certificate`.
+- **Tex-gap audit outcome.** The small Lean gaps identified in `fixed_r_certificate_target.tex` are closed at the abstract level: the `B` versus `F^-` split, hub-on mode preservation, static comparison, widened budget, and finite-prefix/tail threshold split are all represented in Lean.
+- **Literature update.** Downloaded and read Li 2026 plus Li--Yang--Zhang--Zhang 2025 under `notes/literature/`. Useful takeaway: partial 2-Schur positivity plus tail monotonicity may be a research lead, but global 2-Schur positivity is not a new invariant between log-concavity and unimodality.
+- **Remaining work.** The abstract bridge is now closed. Remaining Lean work is the larger spider-polynomial model (`P_r`, coefficient extraction, `I(T_{a,r}) = F + G`) or adapting certificate scripts to emit `Route2FamilyCertificate` / `Route2SplitCertificateFor` instances. Broad #993 proof search remains parked.
+- **Verification:** `lake env lean gpt_attack/axiom_fixed_r_certificate/problem.lean` passed; `git diff --check` passed; no `sorry`, `admit`, `axiom`, or `unsafe` occurs in the checked Lean file.
+
+## Current state (2026-06-05)
+
+### Session notes (2026-06-05, morning, LEAP/fixed-`r` formalization)
+- **Reviewed arXiv:2606.03303v2 (LEAP).** The useful impact is workflow-level: bounded Lean-agent decomposition with verified parent sketches, not a new mathematical ingredient for Erdős #993.
+- **Reopen decision:** do not reopen broad #993 proof search. Reopen only the fixed-`r` certificate bridge lane if work remains narrowly aimed at formalization or refutation of exact bridge lemmas.
+- **Roughdraft checkpoint:** created and reviewed `notes/leap_reopen_assessment_2026-06-05.md`; Roughdraft returned no CriticMarkup comments.
+- **Lean-facing progress:** updated `gpt_attack/axiom_fixed_r_certificate/problem.lean` to replace the opaque mean-shift Lipschitz certificate with proved finite-support variance lemmas, a derivative-to-Lipschitz bridge, and `mean_shift_bound_from_finite_gibbs_distribution`.
+- **Remaining explicit subgoal:** prove the concrete Gibbs derivative identity `deriv mu t = finiteVariance N (p t) / t` for the polynomial-weight distribution.
+- **Verification:** `lake env lean gpt_attack/axiom_fixed_r_certificate/problem.lean` passed; `git diff --check` passed. No broad `lake build` was run.
+
 ## Current state (2026-05-27)
 
 ### Session notes (2026-05-27, AxiomProver scan)

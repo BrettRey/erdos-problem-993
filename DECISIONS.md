@@ -6,6 +6,15 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
 
 ---
 
+## 2026-06-12
+
+- **Close the abstract fixed-`r` Lean bridge lane** Fable packets were useful only after local Lean replay. The checked interface now runs from one-instance bridge lemmas through `Route2FamilyCertificate`; do not keep asking Fable to re-audit the same gap. The next Lean work is either script emission into these records or the larger spider-polynomial modeling block.
+- **Treat Li's symmetric-function method as a research lead, not a current bridge dependency** Li's 2026 KL-family result is relevant background, but 2-Schur positivity is essentially a log-concavity certificate. The reusable possibility is partial 2-Schur positivity plus tail monotonicity, not an immediately available projectible invariant for this Lean packet.
+
+## 2026-06-05
+
+- **Reopen only the fixed-`r` formalization lane after LEAP** The LEAP paper increases confidence in bounded Lean-agent workflows, not in broad #993 proof search. Added a checked mean-shift bridge in `gpt_attack/axiom_fixed_r_certificate/problem.lean`: finite-support variance lemmas plus a derivative-identity theorem replacing the opaque Lipschitz certificate with explicit smaller obligations.
+
 ## 2026-05-27
 
 - **Aim AxiomProver-style runs at fixed-`r` certificates first** Recent AxiomProver papers suggest the highest-yield pattern is narrow, formalizable algebraic subgoals with exact certificate replay. For this project, the best match is the fixed-`r` Route-2 certificate bridge rather than a direct attack on Erdős #993, ECMS, or generic log-concavity. Added `gpt_attack/axiom_fixed_r_certificate/` as the handoff packet.

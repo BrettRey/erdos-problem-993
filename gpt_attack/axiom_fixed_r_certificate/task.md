@@ -11,14 +11,34 @@ already check in Lean.  Extend them toward the full certificate criterion, or
 return a minimal counterexample showing that a stated hypothesis is
 insufficient.
 
-Preferred order:
+Current checked status:
 
-1. Replace the packaged Lipschitz assumption in
-   `mean_shift_bound_from_lipschitz_certificate` with a finite-support Gibbs
-   distribution proof.
-2. State the full fixed-`r` certificate criterion in Lean.
-3. Connect the exact certificate hypotheses from
-   `fixed_r_certificate_target.tex` to the Route-2 conclusion.
+- The adjacent-to-global margin lemma checks in Lean.
+- The fugacity perturbation lemma checks in Lean.
+- The finite-support Gibbs derivative identity checks in Lean.
+- The concrete independence-polynomial mean-shift theorem checks in Lean,
+  including positivity of the partition function from nonnegative coefficients
+  and a positive constant term.
+- The abstract composition theorem `fixed_r_certificate_composition` checks in
+  Lean, with record wrapper `Route2Certificate`.
+- The split `B` versus `F^-` composition theorem
+  `fixed_r_certificate_composition_split` checks in Lean, with record wrapper
+  `Route2SplitCertificate`.  This also consumes the hub-on mode-preservation
+  hypothesis via `sum_mode_of_adjacent_margins_and_perturbation`.
+- The family-level threshold split `route2_family_from_finite_and_tail`
+  checks in Lean: exact finite checks handle `1 <= a < A`, and a function
+  `a ↦ Route2SplitCertificateFor` handles `a >= A`.
+- The bundled family record `Route2FamilyCertificate` checks in Lean, with
+  unpacking theorem `route2_of_family_certificate`.
+
+Preferred next order:
+
+1. Formalize the spider-polynomial model: path polynomial recurrence,
+   coefficient extraction for `P_r(x)(1+2x)^a` and
+   `xP_{r-1}(x)(1+x)^a`, and the identity
+   `I(T_{a,r}) = F + G`.
+2. Connect the concrete script output to `Route2FamilyCertificate` instances
+   once the script-side data format is frozen.
 
 After those are settled, propose a Lean statement for the full fixed-`r`
 certificate criterion in `fixed_r_certificate_target.tex`.
