@@ -11,10 +11,12 @@
   This is FALSE for arbitrary sequences (counterexample exists).
   It is TRUE for all tree-realizable pairs through n=22 (millions of checks).
 
-  **Key discovery (this file):** the current hypotheses are too weak.
-  Without a gap-freeness condition such as `noGaps`, sequences like
+  **Key discovery (this file):** coefficient-shape hypotheses alone are
+  too weak. Without a gap-freeness condition such as `noGaps`, sequences like
   `[1, 1, 0, 0, 5, 0, …]` satisfy the other listed hypotheses but their
-  convolution violates STP2 at k=3.
+  convolution violates STP2 at k=3. Even with `noGaps`, the contiguous-support
+  toy pair `I=[1,4,1]`, `E=[1,1,1]` satisfies the abstract shape hypotheses
+  but its self-convolution violates STP2.
 -/
 import Mathlib
 
@@ -68,6 +70,15 @@ def minor₂ (A B : ℕ → ℤ) (i j : ℕ) : ℤ :=
     prove that it follows from the tree DP hypotheses. -/
 def noGaps (f : ℕ → ℤ) : Prop :=
   ∀ k, 0 < k → f k = 0 → f (k + 1) = 0
+
+/-- Placeholder for the missing tree-DP realizability invariant.
+
+    This is deliberately empty for now: the broad abstract closure statement is
+    false even with `noGaps`, so the open closure shell below must not be usable
+    until this predicate is replaced by a real tree-DP model or a stronger
+    realizability hypothesis. -/
+def treeDPPair (_I _E : ℕ → ℤ) : Prop :=
+  False
 
 /-! ### Basic convolution lemmas -/
 
@@ -386,6 +397,115 @@ theorem stp2_conv_closure_leaf
     exact shifted_ladder_nonneg I₁ E₁ h_stp2 h_lc_E1 h_nn_I1 h_nn_E1
       h_ng_E1 k (by omega)
 
+/-! ### Counterexample: `noGaps` is still not enough -/
+
+/-- A contiguous-support spike sequence. -/
+def toyI : ℕ → ℤ
+  | 0 => 1
+  | 1 => 4
+  | 2 => 1
+  | _ => 0
+
+/-- A flat contiguous-support comparison sequence. -/
+def toyE : ℕ → ℤ
+  | 0 => 1
+  | 1 => 1
+  | 2 => 1
+  | _ => 0
+
+theorem toyI_tail (k : ℕ) (hk : 3 ≤ k) : toyI k = 0 := by
+  rcases k with (_ | _ | _ | k)
+  · omega
+  · omega
+  · omega
+  · rfl
+
+theorem toyE_tail (k : ℕ) (hk : 3 ≤ k) : toyE k = 0 := by
+  rcases k with (_ | _ | _ | k)
+  · omega
+  · omega
+  · omega
+  · rfl
+
+theorem toyI_nonneg : isNonneg toyI := by
+  intro k
+  by_cases hsmall : k ≤ 2
+  · interval_cases k <;> norm_num [toyI]
+  · rw [toyI_tail k (by omega)]
+
+theorem toyE_nonneg : isNonneg toyE := by
+  intro k
+  by_cases hsmall : k ≤ 2
+  · interval_cases k <;> norm_num [toyE]
+  · rw [toyE_tail k (by omega)]
+
+theorem toyI_lc : isLC toyI := by
+  intro k hk
+  by_cases hsmall : k ≤ 3
+  · interval_cases k <;> norm_num [toyI] at *
+  · rw [toyI_tail (k - 1) (by omega), toyI_tail k (by omega),
+      toyI_tail (k + 1) (by omega)]
+
+theorem toyE_lc : isLC toyE := by
+  intro k hk
+  by_cases hsmall : k ≤ 3
+  · interval_cases k <;> norm_num [toyE] at *
+  · rw [toyE_tail (k - 1) (by omega), toyE_tail k (by omega),
+      toyE_tail (k + 1) (by omega)]
+
+theorem toy_stp2 : isSTP2 toyI toyE := by
+  intro k hk
+  by_cases hsmall : k ≤ 3
+  · interval_cases k <;> norm_num [ladder, toyI, toyE] at *
+  · unfold ladder
+    rw [toyI_tail k (by omega), toyE_tail k (by omega),
+      toyI_tail (k - 1) (by omega), toyE_tail (k + 1) (by omega)]
+    norm_num
+
+theorem toy_dom : ∀ k, toyE k ≤ toyI k := by
+  intro k
+  by_cases hsmall : k ≤ 2
+  · interval_cases k <;> norm_num [toyI, toyE]
+  · rw [toyI_tail k (by omega), toyE_tail k (by omega)]
+
+theorem toyI_noGaps : noGaps toyI := by
+  intro k hk_pos hk_zero
+  by_cases hsmall : k ≤ 2
+  · interval_cases k <;> norm_num [toyI] at *
+  · rw [toyI_tail (k + 1) (by omega)]
+
+theorem toyE_noGaps : noGaps toyE := by
+  intro k hk_pos hk_zero
+  by_cases hsmall : k ≤ 2
+  · interval_cases k <;> norm_num [toyE] at *
+  · rw [toyE_tail (k + 1) (by omega)]
+
+theorem toyI_support : hasSupport toyI 2 := by
+  intro k hk
+  exact toyI_tail k (by omega)
+
+theorem toyE_support : hasSupport toyE 2 := by
+  intro k hk
+  exact toyE_tail k (by omega)
+
+/-- The toy pair satisfies the abstract shape hypotheses used by the old
+    two-child closure shell. -/
+theorem toy_satisfies_abstract_shape_hypotheses :
+    isSTP2 toyI toyE ∧ isLC toyI ∧ isLC toyE ∧
+      isNonneg toyI ∧ isNonneg toyE ∧
+      (∀ k, toyE k ≤ toyI k) ∧ toyI 0 = 1 ∧ toyE 0 = 1 ∧
+      noGaps toyI ∧ noGaps toyE ∧ hasSupport toyI 2 ∧ hasSupport toyE 2 := by
+  exact ⟨toy_stp2, toyI_lc, toyE_lc, toyI_nonneg, toyE_nonneg, toy_dom,
+    rfl, rfl, toyI_noGaps, toyE_noGaps, toyI_support, toyE_support⟩
+
+/-- Despite those hypotheses, the self-convolution violates guarded STP2:
+    at `k = 3`, the ladder minor is `8 * 2 - 18 * 1 = -2`. -/
+theorem toy_conv_not_stp2 :
+    ¬ isSTP2 (conv toyI toyI) (conv toyE toyE) := by
+  intro h
+  have h3 := h 3 (by norm_num)
+  norm_num [isSTP2, ladder, conv, toyI, toyE] at h3
+
 /-! ### Notes on false lemmas
 
 #### `lc_conv` (removed — false)
@@ -406,7 +526,7 @@ which is increasing, violating STP2 at the artificial `k = 0` boundary.
 
 The Cauchy-Binet expansion had flawed support hypotheses.
 
-#### Internal zeros counterexample (NEW — discovered in this file)
+#### Internal zeros counterexample
 
 The sequence f = [1, 1, 0, 0, 5, 0, …] satisfies isLC, isNonneg,
 isSTP2(f,f), and domination (f ≤ f). But
@@ -414,11 +534,21 @@ conv(f, f) = [1, 2, 1, 0, 10, 10, 0, 0, 25, …] has
 ladder(conv, conv)(3) = 0² − 1·10 = −10 < 0, violating STP2.
 
 This shows that some additional hypothesis, such as `noGaps`,
-is necessary for the main theorem. -/
+is necessary for the main theorem.
+
+#### Contiguous-support counterexample
+
+The toy pair `toyI = [1, 4, 1]`, `toyE = [1, 1, 1]` above shows that
+`noGaps` is not sufficient either. It satisfies the abstract shape package but
+its self-convolution violates STP2 at `k = 3`. The missing invariant must
+therefore be genuinely tree-DP/realizability-like, not merely a coefficient
+shape condition. -/
 
 /-! ### THE OPEN PROBLEM -/
 
-/-- **STP2 closure under convolution (2-child case).**
+set_option linter.unusedVariables false
+
+/-- **Quarantined STP2 closure shell under tree-DP realizability.**
 
     Given two child factors (I₁, E₁) and (I₂, E₂) from the tree DP,
     each satisfying STP2(I, E), show the product pair also satisfies STP2.
@@ -427,14 +557,22 @@ is necessary for the main theorem. -/
 
     **Known to be TRUE:** exhaustive verification through n=22.
 
-    **Known to be FALSE without constraints:** the internal-zeros
-    counterexample above shows the current hypothesis list is too weak.
+    **Known to be FALSE as an abstract coefficient theorem:** the internal-zero
+    and contiguous-support counterexamples above show the coefficient-shape
+    hypotheses are too weak, even with `noGaps`.
+
+    **Quarantine:** `treeDPPair` is deliberately empty until replaced by a real
+    tree-DP realizability predicate or a stronger invariant. This theorem is
+    therefore a placeholder for the eventual tree-realizable statement, not a
+    usable abstract closure result.
 
     **Proved special cases in this file:**
     - One factor is δ₀ (`stp2_conv_closure_delta`)
     - One factor is a leaf pair (`stp2_conv_closure_leaf`) -/
-theorem stp2_conv_closure
+theorem stp2_conv_closure_tree_realizable_conjecture
     (I₁ E₁ I₂ E₂ : ℕ → ℤ)
+    (h_tree_1 : treeDPPair I₁ E₁)
+    (h_tree_2 : treeDPPair I₂ E₂)
     (h_stp2_1 : isSTP2 I₁ E₁)
     (h_stp2_2 : isSTP2 I₂ E₂)
     (h_lc_I1 : isLC I₁) (h_lc_E1 : isLC E₁)
@@ -450,7 +588,7 @@ theorem stp2_conv_closure
     (h_supp_I1 : hasSupport I₁ d₁) (h_supp_E1 : hasSupport E₁ d₁)
     (h_supp_I2 : hasSupport I₂ d₂) (h_supp_E2 : hasSupport E₂ d₂) :
     isSTP2 (conv I₁ I₂) (conv E₁ E₂) := by
-  sorry
+  cases h_tree_1
 
 /-! ### Multi-child closure
 
@@ -458,13 +596,15 @@ The multi-child case reduces to the 2-child case by induction,
 folding convolution from the identity element δ₀.
 
 **Important caveat:** For the induction to go through, the intermediate
-convolution products must satisfy all hypotheses of `stp2_conv_closure`
-(STP2, LC, nonneg, domination, noGaps). Some of these are themselves
-nontrivial closure questions. -/
+convolution products must satisfy all hypotheses of the quarantined
+`stp2_conv_closure_tree_realizable_conjecture` shell, including the missing
+tree-DP realizability invariant. Some of these are themselves nontrivial
+closure questions. -/
 
-/-- Multi-child STP2 closure by iterated convolution from δ₀. -/
-theorem stp2_multi_child_closure
+/-- Quarantined multi-child STP2 closure shell by iterated convolution from δ₀. -/
+theorem stp2_multi_child_closure_tree_realizable_conjecture
     (n : ℕ) (I E : Fin n → ℕ → ℤ)
+    (h_tree : ∀ i, treeDPPair (I i) (E i))
     (h_stp2 : ∀ i, isSTP2 (I i) (E i))
     (h_lc_I : ∀ i, isLC (I i)) (h_lc_E : ∀ i, isLC (E i))
     (h_nn_I : ∀ i, isNonneg (I i)) (h_nn_E : ∀ i, isNonneg (E i))
@@ -474,6 +614,14 @@ theorem stp2_multi_child_closure
     (hPI : PI = List.foldr conv δ0 (List.ofFn I))
     (hPE : PE = List.foldr conv δ0 (List.ofFn E)) :
     isSTP2 PI PE := by
-  sorry
+  cases n with
+  | zero =>
+      subst PI
+      subst PE
+      simpa using stp2_delta_right δ0
+  | succ n =>
+      exact False.elim (h_tree ⟨0, Nat.succ_pos n⟩)
+
+set_option linter.unusedVariables true
 
 end Formal.STP2Closure
