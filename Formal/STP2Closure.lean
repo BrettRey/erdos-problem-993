@@ -34,15 +34,17 @@ def ladder (f g : ℕ → ℤ) (k : ℕ) : ℤ :=
   f k * g k - f (k - 1) * g (k + 1)
 
 /-- STP2(f,g): the ratio f(k)/g(k) is nonincreasing.
-    Equivalently, all ladder minors Λ(f,g)(k) ≥ 0. -/
+    Equivalently, all non-boundary ladder minors Λ(f,g)(k) ≥ 0.
+    The guard excludes the artificial `k = 0` condition caused by
+    truncated subtraction on `ℕ`. -/
 def isSTP2 (f g : ℕ → ℤ) : Prop :=
-  ∀ k, 0 ≤ ladder f g k
+  ∀ k, 1 ≤ k → 0 ≤ ladder f g k
 
 /-- Log-concavity: f(k)² ≥ f(k-1)·f(k+1) for all k.
-    Note: at k = 0, `k - 1 = 0` in ℕ, so the condition becomes
-    f(0)·f(1) ≤ f(0)², i.e. f(0)·(f(0) - f(1)) ≥ 0. -/
+    The guard excludes the artificial `k = 0` condition caused by
+    truncated subtraction on `ℕ`. -/
 def isLC (f : ℕ → ℤ) : Prop :=
-  ∀ k, f (k - 1) * f (k + 1) ≤ f k * f k
+  ∀ k, 1 ≤ k → f (k - 1) * f (k + 1) ≤ f k * f k
 
 /-- Nonneg coefficients. -/
 def isNonneg (f : ℕ → ℤ) : Prop :=
@@ -70,9 +72,9 @@ def noGaps (f : ℕ → ℤ) : Prop :=
 /-! ### Basic convolution lemmas -/
 
 theorem stp2_iff_ladder (f g : ℕ → ℤ) :
-    isSTP2 f g ↔ ∀ k, f (k - 1) * g (k + 1) ≤ f k * g k := by
+    isSTP2 f g ↔ ∀ k, 1 ≤ k → f (k - 1) * g (k + 1) ≤ f k * g k := by
   simp only [isSTP2, ladder]
-  constructor <;> intro h k <;> linarith [h k]
+  constructor <;> intro h k hk <;> linarith [h k hk]
 
 theorem conv_comm (f g : ℕ → ℤ) (k : ℕ) :
     conv f g k = conv g f k := by
@@ -128,8 +130,8 @@ theorem delta_nonneg : isNonneg δ0 :=
     cases k <;> norm_num [δ0]
 
 theorem delta_lc : isLC δ0 := by
-  intro k
-  rcases k with (_ | _ | k) <;> norm_num [δ0]
+  intro k hk
+  rcases k with (_ | _ | k) <;> norm_num [δ0] at *
 
 theorem delta_noGaps : noGaps δ0 := by
   intro k hk_pos hk_zero
@@ -139,16 +141,11 @@ theorem delta_support : hasSupport δ0 0 :=
   fun k hk => by
     cases k <;> trivial
 
-/-- STP2(f, δ₀) holds for any nonneg f. -/
-theorem stp2_delta_right (f : ℕ → ℤ)
-    (hf : isNonneg f) :
+/-- STP2(f, δ₀) holds for any sequence under the guarded definition. -/
+theorem stp2_delta_right (f : ℕ → ℤ) :
     isSTP2 f δ0 := by
-  intro k
-  by_cases hk : k = 0
-  · simp +decide [hk, ladder, δ0]
-    exact hf 0
-  · unfold ladder δ0
-    cases k <;> aesop
+  intro k hk
+  rcases k with (_ | k) <;> simp_all [ladder, δ0]
 
 /-! ### Leaf factors -/
 
@@ -168,16 +165,20 @@ theorem leafE_eq_delta : leafE = δ0 :=
     rcases n with (_ | _ | n) <;> rfl
 
 theorem leaf_stp2 : isSTP2 leafI leafE := by
-  intro k
-  rcases k with (_ | _ | k) <;> norm_num [ladder, leafI, leafE]
+  intro k hk
+  rcases k with (_ | _ | k) <;> norm_num [ladder, leafI, leafE] at *
+
+theorem leafI_self_stp2 : isSTP2 leafI leafI := by
+  intro k hk
+  rcases k with (_ | _ | _ | k) <;> norm_num [ladder, leafI] at *
 
 theorem leaf_lc_I : isLC leafI := by
-  intro k
-  rcases k with (_ | _ | k) <;> simp +arith +decide [*, leafI]
+  intro k hk
+  rcases k with (_ | _ | k) <;> simp +arith +decide [*, leafI] at *
 
 theorem leaf_lc_E : isLC leafE := by
-  intro k
-  rcases k with (_ | _ | k) <;> simp +decide [*]
+  intro k hk
+  rcases k with (_ | _ | k) <;> simp +decide [*] at *
   rfl
 
 theorem leaf_nonneg_I : isNonneg leafI :=
@@ -260,10 +261,10 @@ theorem shifted_ladder_nonneg
   · rcases k with (_ | _ | k) <;> simp_all +decide [noGaps]
   · have h_stp2_km1 : I (k - 1) * E (k - 1) ≥ I (k - 2) * E k := by
       rcases k with (_ | _ | k) <;> simp_all +decide [isSTP2]
-      have := h_stp2 (k + 1)
-      simp [isSTP2, ladder] at this
+      have := h_stp2 (k + 1) (by omega)
+      simp [ladder] at this
       linarith
-    have h_lc_k : E k * E k ≥ E (k - 1) * E (k + 1) := h_lc_E k
+    have h_lc_k : E k * E k ≥ E (k - 1) * E (k + 1) := h_lc_E k (by omega)
     cases lt_or_gt_of_ne hk1 <;>
       nlinarith [h_nn_I (k - 1), h_nn_I (k - 2),
                  h_nn_E k, h_nn_E (k + 1), h_nn_E (k - 1)]
@@ -282,9 +283,9 @@ theorem stp2_conv_closure_delta
     isSTP2 (conv I₁ δ0) (conv E₁ δ0) := by
   have h (k : ℕ) : conv I₁ δ0 k = I₁ k ∧ conv E₁ δ0 k = E₁ k :=
     ⟨conv_delta_right _ _, conv_delta_right _ _⟩
-  intro k
+  intro k hk
   simpa only [funext fun i => (h i).1, funext fun i => (h i).2]
-    using h_stp2 k
+    using h_stp2 k hk
 
 /-! ### Special case: one factor is a leaf pair -/
 
@@ -310,6 +311,42 @@ theorem conv_leafE (f : ℕ → ℤ) (k : ℕ) :
     conv f leafE k = f k := by
   convert conv_delta_right f k
 
+/-- Regression for the old unguarded `k = 0` STP2 trap:
+    `leafI * leafI = [1, 2, 1]` fails the artificial boundary minor but
+    satisfies the guarded STP2 condition. -/
+theorem leafI_self_conv_stp2 : isSTP2 (conv leafI leafI) (conv leafI leafI) := by
+  have hconv0 : conv leafI leafI 0 = 1 := by
+    simp [conv_leafI_zero, leafI]
+  have hconv1 : conv leafI leafI 1 = 2 := by
+    rw [show 1 = 0 + 1 by omega, conv_leafI_succ]
+    norm_num [leafI]
+  have hconv2 : conv leafI leafI 2 = 1 := by
+    rw [show 2 = 1 + 1 by omega, conv_leafI_succ]
+    norm_num [leafI]
+  have hconv_tail : ∀ k, 3 ≤ k -> conv leafI leafI k = 0 := by
+    intro k hk
+    rcases k with (_ | _ | _ | k)
+    · omega
+    · omega
+    · omega
+    · change conv leafI leafI (k + 3) = 0
+      rw [show k + 3 = (k + 2) + 1 by omega, conv_leafI_succ]
+      simp [leafI]
+  intro k hk
+  unfold ladder
+  by_cases hk1 : k = 1
+  · subst k
+    norm_num [hconv0, hconv1, hconv2]
+  by_cases hk2 : k = 2
+  · subst k
+    norm_num [hconv1, hconv2, hconv_tail 3 (by omega)]
+  by_cases hk3 : k = 3
+  · subst k
+    norm_num [hconv2, hconv_tail 3 (by omega), hconv_tail 4 (by omega)]
+  rw [hconv_tail k (by omega), hconv_tail (k - 1) (by omega),
+    hconv_tail (k + 1) (by omega)]
+  norm_num
+
 /-- **STP2 closure when one factor is a leaf (I₂ = leafI, E₂ = leafE).**
 
     This is the base induction step: attaching a single leaf to a tree
@@ -328,17 +365,14 @@ theorem stp2_conv_closure_leaf
     (h_nn_E1 : isNonneg E₁)
     (h_ng_E1 : noGaps E₁) :
     isSTP2 (conv I₁ leafI) (conv E₁ leafE) := by
-  intro k
-  by_cases hk : k = 0 ∨ k = 1
-  · obtain rfl | rfl := hk
-    · convert h_stp2 0 using 1
-      unfold ladder
-      norm_num [Finset.sum_range_succ', conv_leafI_zero, conv_leafE]
-    · simp [ladder, conv_leafI_zero, conv_leafI_succ, conv_leafE]
-      have := h_stp2 1
-      unfold ladder at this
-      nlinarith [h_nn_I1 0, h_nn_I1 1, h_nn_E1 0, h_nn_E1 1,
-                 h_lc_E1 1]
+  intro k hk
+  by_cases hk1 : k = 1
+  · subst k
+    simp [ladder, conv_leafI_zero, conv_leafI_succ, conv_leafE]
+    have := h_stp2 1 (by omega)
+    unfold ladder at this
+    nlinarith [h_nn_I1 0, h_nn_I1 1, h_nn_E1 0, h_nn_E1 1,
+               h_lc_E1 1 (by omega)]
   · have h_decomp :
         ladder (conv I₁ leafI) (conv E₁ leafE) k =
         ladder I₁ E₁ k +
@@ -348,7 +382,7 @@ theorem stp2_conv_closure_leaf
       ring!
       rw [show conv E₁ leafE = E₁ from funext fun n => conv_leafE E₁ n]
     rw [h_decomp]
-    apply add_nonneg (h_stp2 k)
+    apply add_nonneg (h_stp2 k hk)
     exact shifted_ladder_nonneg I₁ E₁ h_stp2 h_lc_E1 h_nn_I1 h_nn_E1
       h_ng_E1 k (by omega)
 
@@ -357,15 +391,16 @@ theorem stp2_conv_closure_leaf
 #### `lc_conv` (removed — false)
 
 The statement `isLC f → isLC g → isNonneg f → isNonneg g → isLC (conv f g)`
-is **FALSE** under the current definition of `isLC` which uses ℕ subtraction.
+was **FALSE** under the old unguarded definition of `isLC` which used
+truncated ℕ subtraction at `k = 0`.
 
 Counterexample: f = g = [3, 2, 0, 0, …] satisfies `isLC` but
 conv(f,g)(0) = 9, conv(f,g)(1) = 12, violating `isLC` at k=0.
 
-#### `stp2_closure_deg0` (removed — false)
+#### `stp2_closure_deg0` (removed under the old unguarded definition)
 
 For constant sequences, `conv (fun _ => a) (fun _ => b) k = (k+1)*a*b`,
-which is increasing, violating STP2. This is an artifact of ℕ subtraction.
+which is increasing, violating STP2 at the artificial `k = 0` boundary.
 
 #### `cb_expansion_form1` (removed — incorrectly stated)
 
