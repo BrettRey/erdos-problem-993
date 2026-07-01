@@ -6,6 +6,12 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
 
 ---
 
+## 2026-07-01
+
+- **Guard Lean LC/STP2 at `k >= 1`** The old Nat-subtraction boundary created artificial `k = 0` obligations. `Formal/STP2Closure.lean` now treats LC/STP2 as guarded non-boundary conditions and records a regression for `leafI * leafI = [1,2,1]`.
+- **Quarantine abstract STP2 closure behind tree-DP realizability** The contiguous-support toy pair `I=[1,4,1]`, `E=[1,1,1]` satisfies the abstract shape package, including `noGaps`, but its self-convolution violates guarded STP2. The broad closure shells are now deliberately vacuous via `treeDPPair`; the next mathematical target is a genuine tree-DP realizability invariant.
+- **Expose three public work tracks** Public coordination is now through issues for tree-DP realizability, exact fixed-r certificate emission, and forest/product valley search. The README states that the repo does not contain a proof of Erdos #993 and lists these as July 2026 targets.
+
 ## 2026-06-12
 
 - **Close the abstract fixed-`r` Lean bridge lane** Fable packets were useful only after local Lean replay. The checked interface now runs from one-instance bridge lemmas through `Route2FamilyCertificate`; do not keep asking Fable to re-audit the same gap. The next Lean work is either script emission into these records or the larger spider-polynomial modeling block.
