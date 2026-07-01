@@ -9,6 +9,16 @@
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## Current state (2026-07-01)
+
+### Session notes (2026-07-01, STP2 formal hygiene and public targets)
+- **Lean LC/STP2 boundary fixed.** `Formal/STP2Closure.lean` now guards both `isLC` and `isSTP2` by `1 <= k`, removing the artificial `k = 0` condition caused by truncated subtraction on `Nat`.
+- **Boundary regression added.** The file records `leafI_self_conv_stp2`, checking that `leafI * leafI = [1, 2, 1]` satisfies guarded STP2 rather than failing at the old artificial boundary.
+- **Abstract STP2 closure quarantined.** The contiguous-support toy pair `toyI = [1,4,1]`, `toyE = [1,1,1]` is formalized: it satisfies the abstract shape hypotheses, including `noGaps`, but its self-convolution violates guarded STP2 at `k = 3`.
+- **Missing invariant clarified.** The old broad closure shells are renamed as `stp2_conv_closure_tree_realizable_conjecture` and `stp2_multi_child_closure_tree_realizable_conjecture`, guarded by the deliberately empty placeholder `treeDPPair`. The next STP2 target is a genuine tree-DP realizability invariant, not another coefficient-shape hypothesis.
+- **Public coordination updated.** `README.md` now lists the July 2026 public targets: tree-DP realizability, fixed-r certificate emission, forest/product valley search, and the remaining `n = 29` LC/near-miss audit.
+- **Verification:** `lake env lean Formal/STP2Closure.lean`, `lake env lean gpt_attack/axiom_fixed_r_certificate/problem.lean`, `lake build`, and `git diff --check` passed. `Formal/STP2Closure.lean` now contains no `sorry`, `admit`, `axiom`, or `unsafe`.
+
 ## Current state (2026-06-12)
 
 ### Session notes (2026-06-12, afternoon, fixed-`r` Lean certificate bridge)

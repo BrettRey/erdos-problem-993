@@ -10,6 +10,30 @@ This is known to be false for general graphs. The tree case remains open.
 
 - [erdosproblems.com #993](https://erdosproblems.com/993)
 
+## Current public targets, July 2026
+
+This repository does not contain a proof of Erdos Problem #993.
+
+The current active targets are:
+
+1. STP2/tree-DP route. `Formal/STP2Closure.lean` now guards the LC/STP2
+   inequalities at `k >= 1` and records two abstract counterexamples showing
+   that coefficient-shape hypotheses are too weak, even with contiguous
+   support. The remaining target is to identify a genuine tree-DP realizability
+   invariant.
+
+2. Fixed-r certificate route. The abstract Route-2 Lean bridge is packaged; the
+   next step is to emit a concrete `Route2SplitCertificateFor` or
+   `Route2FamilyCertificate` instance from exact rational data.
+
+3. Forest/product search route. Products of known non-log-concave tree
+   polynomials should be searched using a direct valley/non-unimodality score
+   rather than log-concavity defect.
+
+4. Computation frontier. Exhaustive tree unimodality is verified through
+   `n <= 29`; the analogous `n = 29` log-concavity / near-miss audit has not
+   been completed.
+
 ## Results
 
 The manuscript (`paper/main_v2.tex`) reports:
