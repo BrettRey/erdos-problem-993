@@ -202,6 +202,47 @@ It scanned 7,645 binomial-grid rows and 2,440 deterministic random Poisson-binom
 
 Interpretation: the candidate lemma still looks plausible, and the extremal behavior may already be visible in ordinary binomial laws. The probe also warns against trying to prove a sharp constant from the tree data. A conservative constant such as `c = 1/4` or `c = 1/2`, with an explicit lower-variance exception range, would be enough for the hub lane.
 
+## Grouped Poisson-Binomial Optimizer
+
+The random probe above is not adversarial enough, so I added a grouped-parameter optimizer:
+
+```bash
+python3 scripts/optimize_pb_variance_reserve.py \
+  --n-values 20,50,100,200,300 \
+  --variance-cutoffs 1,2,5,10,20,50 \
+  --max-groups 6 \
+  --population-size 80 \
+  --generations 250 \
+  --seed 993 \
+  --out results/pb_variance_reserve_optimizer_2026-07-03.json
+```
+
+This minimizes `V * reserve` over distributions of the form
+
+```text
+sum_g Bin(n_g, p_g),
+```
+
+where the block counts and probabilities are mutated. It ran 22 feasible `(n, cutoff)` searches.
+
+The optimizer found that heterogeneous laws can beat the binomial-grid minima at low variance, so the proof should **not** assume binomial extremality. The best rows were:
+
+| Cutoff | `n` | `V` | Pressure | `V * reserve` | Shape |
+|---:|---:|---:|---:|---:|---|
+| 1 | 300 | `1.0000000003` | `0.4986003882` | `0.5013996120` | deterministic shift plus a Poisson-like low-mean part |
+| 2 | 200 | `2.0408538384` | `0.6596609204` | `0.6945823169` | near-1 shift plus low-probability block |
+| 5 | 100 | `5.2710119653` | `0.8396126960` | `0.8454033986` | mixed low-probability blocks plus shift |
+| 10 | 300 | `10.3850228604` | `0.9115640134` | `0.9184097430` | low-probability component |
+| 20 | 200 | `20.4104135308` | `0.9530262090` | `0.9587544993` | mostly low-probability blocks |
+| 50 | 300 | `50.1191820237` | `0.9803945004` | `0.9826116016` | broad mixed component |
+
+Interpretation:
+
+1. The `c=1/4` variance reserve still survives targeted heterogeneous pressure: the best observed value is about `0.5014`, roughly twice the working constant.
+2. Binomial laws are not exact minimizers at low variance.
+3. The apparent extremal shape is a deterministic shift plus a low-mean Poisson-binomial component. That suggests a proof by stripping variables with `p_i` near `1` or by using shift-invariance: deterministic shifts do not affect coefficient ratios or variance.
+4. The full proof should aim at a universal low constant, not at a sharp extremal characterization.
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is
