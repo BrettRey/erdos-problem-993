@@ -205,9 +205,45 @@ The same analysis gives a concrete target for localization. Among the analyzed r
 
 was at most about `2.89`. This is only empirical, but it makes the first lemma target sharper: prove a shift-invariant bound of this form, with boundary terms handled explicitly.
 
+## Conditional-Index Stress Probe
+
+The analyzer above only looks at the best rows from existing certificates. I added a broader generated-corpus probe:
+
+```bash
+python3 scripts/probe_signed_conditional_index.py \
+  --out results/signed_pb_conditional_index_probe_2026-07-03.json
+```
+
+This regenerated the signed random/grid/finite-Skellam corpus, analyzed all `11,820` rows, and tested the tentative bound
+
+```text
+(E[X | X-Y=D] + 1)/V <= 3.
+```
+
+That bound is false for this corpus: there were `2` X-side failures, with maximum observed ratio about `3.6131`. The worst row had
+
+```text
+V = 1.1108317260,
+D = 3,
+V * reserve = 0.8568451527,
+(E[X | X-Y=D] + 1)/V = 3.6130670245.
+```
+
+The failures do not threaten the reserve conjecture; their reserve is large. They only show that the localization lemma should be stated with a looser constant.
+
+A rerun with candidate bound `4` is recorded in:
+
+```bash
+python3 scripts/probe_signed_conditional_index.py \
+  --candidate-bound 4 \
+  --out results/signed_pb_conditional_index_probe_bound4_2026-07-03.json
+```
+
+It processed the same `11,820` rows and found zero X-side or Y-side failures. Thus `4V` is the current empirical localization target, not `3V`.
+
 ## Immediate Lemma Targets
 
-1. **Conditional-index localization.** At the first signed descent `D`, bound the relevant conditional index, for example `E_{\pi_D}[D+Y]`, by `O(Var X + Var Y)`.
+1. **Conditional-index localization.** At the first signed descent `D`, bound the relevant conditional index, for example `E_{\pi_D}[D+Y]`, by `O(Var X + Var Y)`. The current empirical target is a constant around `4`, not `3`.
 2. **Conditional Newton drop.** Turn
 
 ```text

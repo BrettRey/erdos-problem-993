@@ -428,6 +428,23 @@ python3 scripts/analyze_signed_conditionals.py \
 
 It processed `69` best/probe rows and verified the boundary-corrected identities to maximum error `7.77e-16`. The worst-reserve rows have `E[X | X-Y=D]` near `1`, which explains the observed `V * reserve` boundary near `1/2`.
 
+I also added a broader conditional-index probe:
+
+```bash
+python3 scripts/probe_signed_conditional_index.py \
+  --out results/signed_pb_conditional_index_probe_2026-07-03.json
+```
+
+It processed `11,820` generated rows. A tentative `3V` bound on `E[X | X-Y=D] + 1` failed in `2` rows, with maximum ratio about `3.6131`; those rows had large reserve, not near-counterexample behavior. The same corpus with candidate bound `4V` had zero failures:
+
+```bash
+python3 scripts/probe_signed_conditional_index.py \
+  --candidate-bound 4 \
+  --out results/signed_pb_conditional_index_probe_bound4_2026-07-03.json
+```
+
+So the next localization lemma should target an `O(V)` bound with a loose constant, empirically `4`, rather than a sharp-looking `3`.
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is

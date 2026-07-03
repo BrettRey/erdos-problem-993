@@ -27,6 +27,13 @@ def as_blocks(raw: list[list[float]]) -> list[Block]:
     return [(int(count), float(p)) for count, p in raw]
 
 
+def trim_zero_tail(pmf: np.ndarray) -> np.ndarray:
+    active = np.flatnonzero(pmf > 0.0)
+    if len(active) == 0:
+        return pmf
+    return pmf[: int(active[-1]) + 1]
+
+
 def ratio(seq: np.ndarray, index: int) -> float:
     if index < 0:
         return 0.0
@@ -126,8 +133,8 @@ def upper_y_boundary_term(x_pmf: np.ndarray, y_pmf: np.ndarray, z: int) -> float
 def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
     x_blocks = as_blocks(row["x_blocks"])
     y_blocks = as_blocks(row["y_blocks"])
-    x_pmf = grouped_pmf(x_blocks)
-    y_pmf = grouped_pmf(y_blocks)
+    x_pmf = trim_zero_tail(grouped_pmf(x_blocks))
+    y_pmf = trim_zero_tail(grouped_pmf(y_blocks))
     signed = np.convolve(x_pmf, y_pmf[::-1])
     support_start = -(len(y_pmf) - 1)
     descent_index = first_descent(signed)
