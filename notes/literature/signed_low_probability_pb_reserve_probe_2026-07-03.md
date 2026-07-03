@@ -110,6 +110,44 @@ The optimizer improves the broad probe's minimum from about `0.5615` to about `0
 
 This strengthens the empirical message but not the theorem. The working constant `c = 1/4` still has a large buffer in the adversarial signed search, while a sharp constant above `1/2` remains implausible.
 
+## Balanced Side-Variance Runs
+
+The optimizer now also records `x_variance` and `y_variance` and can enforce
+
+```text
+min(Var X, Var Y) >= rho * (Var X + Var Y).
+```
+
+I ran three constrained optimizations:
+
+```bash
+python3 scripts/optimize_signed_pb_reserve.py \
+  --min-side-variance-fraction 0.05 \
+  --out results/signed_pb_reserve_optimizer_balanced_f05_2026-07-03.json
+
+python3 scripts/optimize_signed_pb_reserve.py \
+  --min-side-variance-fraction 0.10 \
+  --out results/signed_pb_reserve_optimizer_balanced_f10_2026-07-03.json
+
+python3 scripts/optimize_signed_pb_reserve.py \
+  --min-side-variance-fraction 0.25 \
+  --out results/signed_pb_reserve_optimizer_balanced_f25_2026-07-03.json
+```
+
+Best observed `V * reserve` values by variance cutoff:
+
+| Side variance floor | `V >= 1` | `V >= 2` | `V >= 5` | `V >= 10` | `V >= 20` | `V >= 50` |
+|---:|---:|---:|---:|---:|---:|---:|
+| none | `0.5014196117` | `0.6731501905` | `0.8418530436` | `0.9188097196` | `0.9593135594` | `0.9856585309` |
+| `0.05 V` | `0.5121224485` | `0.6832518560` | `0.8730412077` | `0.9292849474` | `0.9626594641` | `0.9842424147` |
+| `0.10 V` | `0.5264484058` | `0.7077536943` | `0.8816073736` | `0.9314281715` | `0.9626594641` | `0.9847391662` |
+| `0.25 V` | `0.5774912085` | `0.8103035475` | `0.8865137720` | `0.9335001870` | `0.9626594641` | `0.9894354882` |
+
+Interpretation: the optimizer tries to sit exactly on the side-variance constraint at low variance. As the required two-sided variance share increases, the worst observed reserve moves away from the `1/2` sparse boundary. This suggests a proof split:
+
+1. If one side has very small variance, reduce to the one-sided low-probability lemma plus a perturbation by a low-variance reflected law.
+2. If both sides carry a fixed variance fraction, prove a stronger genuinely two-sided reserve, likely by a local-ratio or smoothing argument.
+
 ## Interpretation
 
 This is evidence, not a theorem. Its useful information is negative: the obvious signed-law stress families did not create a new cancellation mechanism. The hardest rows still look close to the one-sided sparse boundary or to a deterministic shift plus a low-variance low-probability component.
@@ -133,4 +171,7 @@ scripts/probe_signed_pb_reserve.py
 scripts/optimize_signed_pb_reserve.py
 results/signed_pb_reserve_probe_2026-07-03.json
 results/signed_pb_reserve_optimizer_2026-07-03.json
+results/signed_pb_reserve_optimizer_balanced_f05_2026-07-03.json
+results/signed_pb_reserve_optimizer_balanced_f10_2026-07-03.json
+results/signed_pb_reserve_optimizer_balanced_f25_2026-07-03.json
 ```

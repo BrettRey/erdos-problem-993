@@ -388,6 +388,23 @@ V * reserve = 0.5014196117.
 
 The best rows again lie near the sparse one-sided boundary, with one signed side nearly deterministic. Thus the optimizer lowers the empirical minimum from `0.5615` to `0.5014` but still leaves the working `c = 1/4` target with a factor-two buffer.
 
+The side-balanced runs sharpen the picture. Requiring
+
+```text
+min(Var X, Var Y) >= rho * Var(X-Y)
+```
+
+raises the best observed `V * reserve` at the `V >= 1` cutoff:
+
+| `rho` | best `V * reserve` |
+|---:|---:|
+| `0` | `0.5014196117` |
+| `0.05` | `0.5121224485` |
+| `0.10` | `0.5264484058` |
+| `0.25` | `0.5774912085` |
+
+This points to a two-regime proof: treat the nearly one-sided case by perturbing the one-sided low-probability theorem, and treat the genuinely two-sided case by a stronger smoothing/local-ratio inequality.
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is
@@ -407,9 +424,10 @@ This is the real broom case. It should be attacked after the product-term lemma,
 ## Immediate Proof Tasks
 
 1. Prove the two-sided signed reserve lemma for shifted laws `h + X - Y`, where `X` and `Y` are low-probability PB sums, using first descent in signed support coordinates.
-2. Connect that signed lemma back to arbitrary PB laws by splitting variables with `p_i > 1/2` into deterministic shifts minus low-probability failures.
-3. Certify the fixed-arm hub-bouquet corollary: for fixed path-product `Q`, the term `xR` is absent near first descent for all large `s`.
-4. Extend to broom handles `l = l(s)` using the perturbation estimate between `(1+x)^s I(P_l)` and `(1+x)^s I(P_l) + xI(P_{l-1})`.
+2. Split that proof into a near-one-sided perturbation lemma and a genuinely two-sided smoothing lemma.
+3. Connect the signed lemma back to arbitrary PB laws by splitting variables with `p_i > 1/2` into deterministic shifts minus low-probability failures.
+4. Certify the fixed-arm hub-bouquet corollary: for fixed path-product `Q`, the term `xR` is absent near first descent for all large `s`.
+5. Extend to broom handles `l = l(s)` using the perturbation estimate between `(1+x)^s I(P_l)` and `(1+x)^s I(P_l) + xI(P_{l-1})`.
 
 ## Why This Is Promising
 

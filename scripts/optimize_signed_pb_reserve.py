@@ -47,10 +47,64 @@ def evaluate(state: State) -> dict[str, Any] | None:
     )
 
 
-def score(ev: dict[str, Any], variance_cutoff: float) -> float:
+def side_variance_requirement(
+    ev: dict[str, Any],
+    *,
+    min_side_variance: float,
+    min_side_variance_fraction: float,
+) -> float:
+    return max(min_side_variance, min_side_variance_fraction * ev["variance"])
+
+
+def side_variance_shortfall(
+    ev: dict[str, Any],
+    *,
+    min_side_variance: float,
+    min_side_variance_fraction: float,
+) -> float:
+    required = side_variance_requirement(
+        ev,
+        min_side_variance=min_side_variance,
+        min_side_variance_fraction=min_side_variance_fraction,
+    )
+    return max(0.0, required - ev["x_variance"]) + max(0.0, required - ev["y_variance"])
+
+
+def is_feasible(
+    ev: dict[str, Any],
+    *,
+    variance_cutoff: float,
+    min_side_variance: float,
+    min_side_variance_fraction: float,
+) -> bool:
+    return (
+        ev["variance"] >= variance_cutoff
+        and side_variance_shortfall(
+            ev,
+            min_side_variance=min_side_variance,
+            min_side_variance_fraction=min_side_variance_fraction,
+        )
+        <= 0.0
+    )
+
+
+def score(
+    ev: dict[str, Any],
+    *,
+    variance_cutoff: float,
+    min_side_variance: float,
+    min_side_variance_fraction: float,
+) -> float:
     penalty = 0.0
     if ev["variance"] < variance_cutoff:
-        penalty = 100.0 + 10.0 * (variance_cutoff - ev["variance"])
+        penalty += 100.0 + 10.0 * (variance_cutoff - ev["variance"])
+    shortfall = side_variance_shortfall(
+        ev,
+        min_side_variance=min_side_variance,
+        min_side_variance_fraction=min_side_variance_fraction,
+    )
+    if shortfall > 0.0:
+        penalty += 100.0 + 20.0 * shortfall
     return ev["variance_times_reserve"] + penalty
 
 
@@ -191,6 +245,8 @@ def run_one(
     population_size: int,
     generations: int,
     seed: int,
+    min_side_variance: float,
+    min_side_variance_fraction: float,
 ) -> dict[str, Any]:
     rng = random.Random(seed)
     population: list[dict[str, Any]] = []
@@ -198,7 +254,12 @@ def run_one(
         ev = evaluate(state)
         if ev is None:
             continue
-        ev["score"] = score(ev, variance_cutoff)
+        ev["score"] = score(
+            ev,
+            variance_cutoff=variance_cutoff,
+            min_side_variance=min_side_variance,
+            min_side_variance_fraction=min_side_variance_fraction,
+        )
         population.append(ev)
     population.sort(key=lambda ev: ev["score"])
     population = population[:population_size]
@@ -207,7 +268,16 @@ def run_one(
     scale = 1.0
     for generation in range(generations + 1):
         best_feasible = min(
-            (ev for ev in population if ev["variance"] >= variance_cutoff),
+            (
+                ev
+                for ev in population
+                if is_feasible(
+                    ev,
+                    variance_cutoff=variance_cutoff,
+                    min_side_variance=min_side_variance,
+                    min_side_variance_fraction=min_side_variance_fraction,
+                )
+            ),
             key=lambda ev: ev["variance_times_reserve"],
             default=None,
         )
@@ -230,7 +300,12 @@ def run_one(
                 ev = evaluate(mutate(parent_state, max_groups, rng, scale))
                 if ev is None:
                     continue
-                ev["score"] = score(ev, variance_cutoff)
+                ev["score"] = score(
+                    ev,
+                    variance_cutoff=variance_cutoff,
+                    min_side_variance=min_side_variance,
+                    min_side_variance_fraction=min_side_variance_fraction,
+                )
                 children.append(ev)
 
         immigrant_count = max(1, population_size // 10)
@@ -238,7 +313,12 @@ def run_one(
         for state in rng.sample(immigrant_seeds, min(immigrant_count, len(immigrant_seeds))):
             ev = evaluate(state)
             if ev is not None:
-                ev["score"] = score(ev, variance_cutoff)
+                ev["score"] = score(
+                    ev,
+                    variance_cutoff=variance_cutoff,
+                    min_side_variance=min_side_variance,
+                    min_side_variance_fraction=min_side_variance_fraction,
+                )
                 children.append(ev)
 
         population.extend(children)
@@ -254,12 +334,23 @@ def run_one(
         population = sorted(best_by_key.values(), key=lambda ev: ev["score"])[:population_size]
         scale = max(0.05, scale * 0.995)
 
-    feasible = [ev for ev in population if ev["variance"] >= variance_cutoff]
+    feasible = [
+        ev
+        for ev in population
+        if is_feasible(
+            ev,
+            variance_cutoff=variance_cutoff,
+            min_side_variance=min_side_variance,
+            min_side_variance_fraction=min_side_variance_fraction,
+        )
+    ]
     best = min(feasible, key=lambda ev: ev["variance_times_reserve"], default=None)
     return {
         "x_n": x_n,
         "y_n": y_n,
         "variance_cutoff": variance_cutoff,
+        "min_side_variance": min_side_variance,
+        "min_side_variance_fraction": min_side_variance_fraction,
         "max_groups": max_groups,
         "seed": seed,
         "best": compact(best) if best else None,
@@ -304,6 +395,8 @@ def main() -> int:
     parser.add_argument("--generations", type=int, default=180)
     parser.add_argument("--seed", type=int, default=993)
     parser.add_argument("--top", type=int, default=20)
+    parser.add_argument("--min-side-variance", type=float, default=0.0)
+    parser.add_argument("--min-side-variance-fraction", type=float, default=0.0)
     parser.add_argument(
         "--out",
         type=Path,
@@ -312,6 +405,10 @@ def main() -> int:
     args = parser.parse_args()
     if args.max_groups < 1:
         parser.error("--max-groups must be positive")
+    if args.min_side_variance < 0.0:
+        parser.error("--min-side-variance must be nonnegative")
+    if not 0.0 <= args.min_side_variance_fraction <= 0.5:
+        parser.error("--min-side-variance-fraction must be in [0, 0.5]")
 
     n_pairs = parse_pairs(args.n_pairs)
     cutoffs = parse_floats(args.variance_cutoffs)
@@ -330,6 +427,8 @@ def main() -> int:
                     population_size=args.population_size,
                     generations=args.generations,
                     seed=args.seed + run_index,
+                    min_side_variance=args.min_side_variance,
+                    min_side_variance_fraction=args.min_side_variance_fraction,
                 )
             )
             run_index += 1
@@ -344,6 +443,8 @@ def main() -> int:
             "population_size": args.population_size,
             "generations": args.generations,
             "seed": args.seed,
+            "min_side_variance": args.min_side_variance,
+            "min_side_variance_fraction": args.min_side_variance_fraction,
         },
         "processed": len(results),
         "best_by_variance_cutoff": best_by_cutoff(best_rows, cutoffs),
