@@ -243,6 +243,54 @@ Interpretation:
 3. The apparent extremal shape is a deterministic shift plus a low-mean Poisson-binomial component. That suggests a proof by stripping variables with `p_i` near `1` or by using shift-invariance: deterministic shifts do not affect coefficient ratios or variance.
 4. The full proof should aim at a universal low constant, not at a sharp extremal characterization.
 
+## Two-Sided Sparse Poisson Boundary
+
+The near-`1` variables in the grouped optimizer are not exact deterministic shifts. Factoring such a block gives
+
+```text
+Bernoulli(1 - eta/M) = 1 - Bernoulli(eta/M),
+```
+
+so the local limit of a near-deterministic shift plus many small probabilities is the two-sided sparse law
+
+```text
+Pois(lambda) - Pois(eta).
+```
+
+I added the limiting probe:
+
+```bash
+python3 scripts/probe_skellam_reserve.py \
+  --variance-values 1,2,5,10,20,50,100 \
+  --grid-size 801 \
+  --boundary-exponents 8 \
+  --out results/skellam_reserve_probe_2026-07-03.json
+```
+
+The best fixed-variance rows were:
+
+| `V` | `lambda` | `eta` | Pressure | `V * reserve` |
+|---:|---:|---:|---:|---:|
+| 1 | `0.99999999` | `1e-8` | `0.4999999942` | `0.5000000058` |
+| 2 | `1.99999998` | `2e-8` | `0.6666666578` | `0.6666666844` |
+| 5 | `4.99999995` | `5e-8` | `0.8333333200` | `0.8333333998` |
+| 10 | `9.9999999` | `1e-7` | `0.9090908931` | `0.9090910689` |
+| 20 | `19.9999998` | `2e-7` | `0.9523809346` | `0.9523813078` |
+| 50 | `49.9999995` | `5e-7` | `0.9803921378` | `0.9803931092` |
+| 100 | `99.999999` | `1e-6` | `0.9900989904` | `0.9901009611` |
+
+This explains the grouped optimizer's best rows and calibrates the proof target:
+
+1. Any universal theorem with constant `c > 1/2` is impossible.
+2. The possible sharp constant, if the full lemma is true, is `c = 1/2` with a non-attained boundary or plateau convention.
+3. The proof needed for the hub lane should use a deliberately nonsharp constant such as `c = 1/4`.
+
+Details are in:
+
+```text
+notes/literature/skellam_sparse_limit_reserve_2026-07-03.md
+```
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is

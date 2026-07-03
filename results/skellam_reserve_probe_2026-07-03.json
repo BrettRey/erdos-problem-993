@@ -1,0 +1,397 @@
+{
+  "best_by_variance": [
+    {
+      "best": {
+        "eta": 1e-08,
+        "first_descent": 1,
+        "lambda": 0.99999999,
+        "mean": 0.9999999799999999,
+        "post_descent_pressure": 0.4999999941666666,
+        "post_descent_reserve": 0.5000000058333334,
+        "variance": 1.0,
+        "variance_times_reserve": 0.5000000058333334
+      },
+      "variance": 1.0
+    },
+    {
+      "best": {
+        "eta": 2e-08,
+        "first_descent": 2,
+        "lambda": 1.99999998,
+        "mean": 1.9999999599999998,
+        "post_descent_pressure": 0.6666666577777778,
+        "post_descent_reserve": 0.3333333422222222,
+        "variance": 2.0,
+        "variance_times_reserve": 0.6666666844444444
+      },
+      "variance": 2.0
+    },
+    {
+      "best": {
+        "eta": 5e-08,
+        "first_descent": 5,
+        "lambda": 4.99999995,
+        "mean": 4.999999900000001,
+        "post_descent_pressure": 0.8333333200396826,
+        "post_descent_reserve": 0.16666667996031737,
+        "variance": 5.0,
+        "variance_times_reserve": 0.8333333998015868
+      },
+      "variance": 5.0
+    },
+    {
+      "best": {
+        "eta": 1e-07,
+        "first_descent": 10,
+        "lambda": 9.9999999,
+        "mean": 9.999999800000001,
+        "post_descent_pressure": 0.909090893112948,
+        "post_descent_reserve": 0.090909106887052,
+        "variance": 10.0,
+        "variance_times_reserve": 0.90909106887052
+      },
+      "variance": 10.0
+    },
+    {
+      "best": {
+        "eta": 2e-07,
+        "first_descent": 20,
+        "lambda": 19.9999998,
+        "mean": 19.999999600000002,
+        "post_descent_pressure": 0.9523809346114206,
+        "post_descent_reserve": 0.04761906538857941,
+        "variance": 20.0,
+        "variance_times_reserve": 0.9523813077715881
+      },
+      "variance": 20.0
+    },
+    {
+      "best": {
+        "eta": 5e-07,
+        "first_descent": 50,
+        "lambda": 49.9999995,
+        "mean": 49.999999,
+        "post_descent_pressure": 0.9803921378168163,
+        "post_descent_reserve": 0.019607862183183666,
+        "variance": 50.0,
+        "variance_times_reserve": 0.9803931091591833
+      },
+      "variance": 50.0
+    },
+    {
+      "best": {
+        "eta": 1e-06,
+        "first_descent": 100,
+        "lambda": 99.999999,
+        "mean": 99.999998,
+        "post_descent_pressure": 0.9900989903892549,
+        "post_descent_reserve": 0.009901009610745137,
+        "variance": 100.0,
+        "variance_times_reserve": 0.9901009610745137
+      },
+      "variance": 100.0
+    }
+  ],
+  "near_sharp_v1_boundary": [
+    {
+      "eta": 0.1,
+      "first_descent": 1,
+      "lambda": 0.9,
+      "mean": 0.8,
+      "post_descent_pressure": 0.443398316724103,
+      "post_descent_reserve": 0.556601683275897,
+      "variance": 1.0,
+      "variance_times_reserve": 0.556601683275897
+    },
+    {
+      "eta": 0.01,
+      "first_descent": 1,
+      "lambda": 0.99,
+      "mean": 0.98,
+      "post_descent_pressure": 0.49418526613387603,
+      "post_descent_reserve": 0.505814733866124,
+      "variance": 1.0,
+      "variance_times_reserve": 0.505814733866124
+    },
+    {
+      "eta": 0.001,
+      "first_descent": 1,
+      "lambda": 0.999,
+      "mean": 0.998,
+      "post_descent_pressure": 0.4994168540153639,
+      "post_descent_reserve": 0.5005831459846362,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5005831459846362
+    },
+    {
+      "eta": 0.0001,
+      "first_descent": 1,
+      "lambda": 0.9999,
+      "mean": 0.9998,
+      "post_descent_pressure": 0.4999416685415154,
+      "post_descent_reserve": 0.5000583314584846,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5000583314584846
+    },
+    {
+      "eta": 1e-05,
+      "first_descent": 1,
+      "lambda": 0.99999,
+      "mean": 0.9999800000000001,
+      "post_descent_pressure": 0.49999416668541663,
+      "post_descent_reserve": 0.5000058333145834,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5000058333145834
+    },
+    {
+      "eta": 1e-06,
+      "first_descent": 1,
+      "lambda": 0.999999,
+      "mean": 0.9999979999999999,
+      "post_descent_pressure": 0.4999994166668541,
+      "post_descent_reserve": 0.5000005833331459,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5000005833331459
+    },
+    {
+      "eta": 1e-07,
+      "first_descent": 1,
+      "lambda": 0.9999999,
+      "mean": 0.9999998000000001,
+      "post_descent_pressure": 0.49999994166666856,
+      "post_descent_reserve": 0.5000000583333315,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5000000583333315
+    },
+    {
+      "eta": 1e-08,
+      "first_descent": 1,
+      "lambda": 0.99999999,
+      "mean": 0.9999999799999999,
+      "post_descent_pressure": 0.4999999941666666,
+      "post_descent_reserve": 0.5000000058333334,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5000000058333334
+    }
+  ],
+  "processed": 5689,
+  "source": {
+    "boundary_exponents": 8,
+    "grid_size": 801,
+    "kind": "skellam_sparse_limit_reserve_probe",
+    "tail_extra": 30,
+    "tail_sigma": 12.0,
+    "trim_relative": 1e-15,
+    "variance_values": [
+      1.0,
+      2.0,
+      5.0,
+      10.0,
+      20.0,
+      50.0,
+      100.0
+    ]
+  },
+  "top_smallest_variance_times_reserve": [
+    {
+      "eta": 1e-08,
+      "first_descent": 1,
+      "lambda": 0.99999999,
+      "mean": 0.9999999799999999,
+      "post_descent_pressure": 0.4999999941666666,
+      "post_descent_reserve": 0.5000000058333334,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5000000058333334
+    },
+    {
+      "eta": 1e-07,
+      "first_descent": 1,
+      "lambda": 0.9999999,
+      "mean": 0.9999998000000001,
+      "post_descent_pressure": 0.49999994166666856,
+      "post_descent_reserve": 0.5000000583333315,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5000000583333315
+    },
+    {
+      "eta": 1e-06,
+      "first_descent": 1,
+      "lambda": 0.999999,
+      "mean": 0.9999979999999999,
+      "post_descent_pressure": 0.4999994166668541,
+      "post_descent_reserve": 0.5000005833331459,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5000005833331459
+    },
+    {
+      "eta": 1e-05,
+      "first_descent": 1,
+      "lambda": 0.99999,
+      "mean": 0.9999800000000001,
+      "post_descent_pressure": 0.49999416668541663,
+      "post_descent_reserve": 0.5000058333145834,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5000058333145834
+    },
+    {
+      "eta": 0.0001,
+      "first_descent": 1,
+      "lambda": 0.9999,
+      "mean": 0.9998,
+      "post_descent_pressure": 0.4999416685415154,
+      "post_descent_reserve": 0.5000583314584846,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5000583314584846
+    },
+    {
+      "eta": 0.001,
+      "first_descent": 1,
+      "lambda": 0.999,
+      "mean": 0.998,
+      "post_descent_pressure": 0.4994168540153639,
+      "post_descent_reserve": 0.5005831459846362,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5005831459846362
+    },
+    {
+      "eta": 0.00125,
+      "first_descent": 1,
+      "lambda": 0.99875,
+      "mean": 0.9975,
+      "post_descent_pressure": 0.4992711260066122,
+      "post_descent_reserve": 0.5007288739933877,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5007288739933877
+    },
+    {
+      "eta": 0.0025,
+      "first_descent": 1,
+      "lambda": 0.9975,
+      "mean": 0.9950000000000001,
+      "post_descent_pressure": 0.4985428361795775,
+      "post_descent_reserve": 0.5014571638204225,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5014571638204225
+    },
+    {
+      "eta": 0.00375,
+      "first_descent": 1,
+      "lambda": 0.99625,
+      "mean": 0.9924999999999999,
+      "post_descent_pressure": 0.4978151287523571,
+      "post_descent_reserve": 0.5021848712476429,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5021848712476429
+    },
+    {
+      "eta": 0.005,
+      "first_descent": 1,
+      "lambda": 0.995,
+      "mean": 0.99,
+      "post_descent_pressure": 0.49708800196342057,
+      "post_descent_reserve": 0.5029119980365795,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5029119980365795
+    },
+    {
+      "eta": 0.00625,
+      "first_descent": 1,
+      "lambda": 0.99375,
+      "mean": 0.9875,
+      "post_descent_pressure": 0.4963614540562207,
+      "post_descent_reserve": 0.5036385459437793,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5036385459437793
+    },
+    {
+      "eta": 0.0075,
+      "first_descent": 1,
+      "lambda": 0.9925,
+      "mean": 0.9850000000000001,
+      "post_descent_pressure": 0.4956354832791731,
+      "post_descent_reserve": 0.5043645167208268,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5043645167208268
+    },
+    {
+      "eta": 0.00875,
+      "first_descent": 1,
+      "lambda": 0.99125,
+      "mean": 0.9824999999999999,
+      "post_descent_pressure": 0.4949100878856336,
+      "post_descent_reserve": 0.5050899121143664,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5050899121143664
+    },
+    {
+      "eta": 0.01,
+      "first_descent": 1,
+      "lambda": 0.99,
+      "mean": 0.98,
+      "post_descent_pressure": 0.49418526613387603,
+      "post_descent_reserve": 0.505814733866124,
+      "variance": 1.0,
+      "variance_times_reserve": 0.505814733866124
+    },
+    {
+      "eta": 0.01125,
+      "first_descent": 1,
+      "lambda": 0.98875,
+      "mean": 0.9775,
+      "post_descent_pressure": 0.49346101628706923,
+      "post_descent_reserve": 0.5065389837129308,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5065389837129308
+    },
+    {
+      "eta": 0.0125,
+      "first_descent": 1,
+      "lambda": 0.9875,
+      "mean": 0.9750000000000001,
+      "post_descent_pressure": 0.49273733661325725,
+      "post_descent_reserve": 0.5072626633867428,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5072626633867428
+    },
+    {
+      "eta": 0.01375,
+      "first_descent": 1,
+      "lambda": 0.98625,
+      "mean": 0.9724999999999999,
+      "post_descent_pressure": 0.4920142253853344,
+      "post_descent_reserve": 0.5079857746146657,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5079857746146657
+    },
+    {
+      "eta": 0.015,
+      "first_descent": 1,
+      "lambda": 0.985,
+      "mean": 0.97,
+      "post_descent_pressure": 0.491291680881027,
+      "post_descent_reserve": 0.508708319118973,
+      "variance": 1.0,
+      "variance_times_reserve": 0.508708319118973
+    },
+    {
+      "eta": 0.01625,
+      "first_descent": 1,
+      "lambda": 0.98375,
+      "mean": 0.9675,
+      "post_descent_pressure": 0.4905697013828692,
+      "post_descent_reserve": 0.5094302986171309,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5094302986171309
+    },
+    {
+      "eta": 0.0175,
+      "first_descent": 1,
+      "lambda": 0.9825,
+      "mean": 0.9650000000000001,
+      "post_descent_pressure": 0.48984828517818263,
+      "post_descent_reserve": 0.5101517148218173,
+      "variance": 1.0,
+      "variance_times_reserve": 0.5101517148218173
+    }
+  ]
+}
