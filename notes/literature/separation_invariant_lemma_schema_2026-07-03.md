@@ -427,3 +427,17 @@ max_{j >= D} a_{j+1}/a_j <= 1 - c / Var + lower-order terms,
 for the coefficient distribution of `(1+x)^s Q(x)`, with the `1 - c/s` statement recovered when `Var = s/4 + O(s)` or `Var = s/4 + O(1)`.
 
 This correction strengthens the proof program by preventing a false target. The hard local ratio is controlled by the width of the binomial-convolved path distribution, not by the number of leaves alone. For fixed arms, these coincide up to constants; for very long broom handles, they do not.
+
+The proof-facing reduction is now separated out in
+
+```text
+notes/literature/hub_bouquet_variance_reserve_proof_schema_2026-07-03.md
+```
+
+The key new algebraic handle there is the exact conditional-ratio identity for `A(x)=(1+x)^sQ(x)`:
+
+```text
+A_{k+1}/A_k = E_k[(s-k+Y)/(k+1-Y)],
+```
+
+where `P_k(Y=y) proportional q_y binom(s,k-y)`. This turns the reserve into a conditional leaf-count excess estimate near the first descent.
