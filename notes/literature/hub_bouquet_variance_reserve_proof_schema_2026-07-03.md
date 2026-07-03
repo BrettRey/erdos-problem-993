@@ -445,6 +445,21 @@ python3 scripts/probe_signed_conditional_index.py \
 
 So the next localization lemma should target an `O(V)` bound with a loose constant, empirically `4`, rather than a sharp-looking `3`.
 
+Finally, I added an effective signed ratio-drop probe:
+
+```bash
+python3 scripts/probe_signed_ratio_drop.py \
+  --out results/signed_pb_ratio_drop_probe_2026-07-03.json
+```
+
+For
+
+```text
+Delta_eff = 1 - (c_{D+1}/c_D)/(c_D/c_{D-1}),
+```
+
+the generated corpus had zero failures of `Delta_eff >= 1/(4V)` among `11,683` rows with `V >= 1`. The smallest observed `V * Delta_eff` was `0.4092860938`. This is only a sufficient diagnostic and computational evidence, not a theorem.
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is

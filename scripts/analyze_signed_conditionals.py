@@ -146,6 +146,8 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
     c_z = float(signed[descent_index])
     previous_ratio = float(signed[descent_index] / signed[descent_index - 1])
     pressure = float(signed[descent_index + 1] / signed[descent_index])
+    effective_ratio = pressure / previous_ratio
+    effective_drop = 1.0 - effective_ratio
     y_values, weights = conditional_y(x_pmf, y_pmf, z)
     y_prev_values, prev_weights = conditional_y(x_pmf, y_pmf, z - 1)
     y_stats = conditional_stats(y_values, weights)
@@ -208,6 +210,9 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
         "pressure": pressure,
         "reserve": 1.0 - pressure,
         "variance_times_reserve": variance * (1.0 - pressure),
+        "effective_ratio_drop_factor": effective_ratio,
+        "effective_ratio_drop": effective_drop,
+        "variance_times_effective_ratio_drop": variance * effective_drop,
         "x_identity_pressure": x_ratio_identity,
         "x_identity_pressure_core": x_ratio_core,
         "x_identity_pressure_lower_boundary": x_boundary,
@@ -273,9 +278,13 @@ def compact_analysis(row: dict[str, Any]) -> dict[str, Any]:
         "side_variance_fraction",
         "first_descent_value",
         "first_descent_minus_signed_mean",
+        "previous_ratio",
         "pressure",
         "reserve",
         "variance_times_reserve",
+        "effective_ratio_drop_factor",
+        "effective_ratio_drop",
+        "variance_times_effective_ratio_drop",
         "conditional_x_mean_at_descent",
         "conditional_y_mean_at_descent",
         "conditional_x_index_plus_one_over_variance",

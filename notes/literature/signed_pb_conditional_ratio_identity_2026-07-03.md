@@ -241,16 +241,60 @@ python3 scripts/probe_signed_conditional_index.py \
 
 It processed the same `11,820` rows and found zero X-side or Y-side failures. Thus `4V` is the current empirical localization target, not `3V`.
 
+## Effective Signed Ratio-Drop Probe
+
+A more direct sufficient diagnostic is the ratio drop between consecutive signed ratios:
+
+```text
+Delta_eff
+  = 1 - (c_{D+1}/c_D)/(c_D/c_{D-1}).
+```
+
+Because `D` is the first strict descent,
+
+```text
+c_D/c_{D-1} < 1.
+```
+
+Therefore
+
+```text
+1 - c_{D+1}/c_D > Delta_eff.
+```
+
+So a lower bound
+
+```text
+Delta_eff >= c/V
+```
+
+would be enough for the reserve lemma. This is only a sufficient route; the reserve could hold even if this diagnostic failed.
+
+I added:
+
+```bash
+python3 scripts/probe_signed_ratio_drop.py \
+  --out results/signed_pb_ratio_drop_probe_2026-07-03.json
+```
+
+This regenerated the same `11,820` signed rows and tested the working constant `c = 1/4`. It found zero failures among the `11,683` rows with `V >= 1`. The smallest observed value was
+
+```text
+V * Delta_eff = 0.4092860938.
+```
+
+This margin is smaller than the raw reserve margin, so it is a more demanding diagnostic. It remains only computational evidence. The proof task would be to derive this effective signed ratio drop, probably using the boundary-corrected conditional identities plus the conditional-index localization above.
+
 ## Immediate Lemma Targets
 
 1. **Conditional-index localization.** At the first signed descent `D`, bound the relevant conditional index, for example `E_{\pi_D}[D+Y]`, by `O(Var X + Var Y)`. The current empirical target is a constant around `4`, not `3`.
-2. **Conditional Newton drop.** Turn
+2. **Conditional Newton drop / effective signed ratio drop.** Turn
 
 ```text
 r_i <= [i/(i+1)] r_{i-1}
 ```
 
-into a drop for `E_{\pi_D}[r_{D+Y}]` relative to the preceding signed ratio.
+into a bound on `Delta_eff`, or otherwise into a direct reserve bound.
 3. **Perturbative side.** Prove that if `Var Y <= epsilon V`, then the signed first-descent reserve differs from the one-sided `X` reserve by `O(epsilon/V)` or another loss small enough to preserve a constant.
 4. **Balanced side.** Prove a direct reserve bound under `Var X, Var Y >= epsilon V`.
 
