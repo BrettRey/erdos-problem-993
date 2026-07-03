@@ -32,7 +32,7 @@ s_j = b_{j+1}/b_j
 
 where the ratios are defined inside the support.
 
-## Exact X-Side Identity
+## X-Side Identity With Boundary Term
 
 For each signed support point `z` with `c_z > 0`, define the conditional distribution
 
@@ -40,7 +40,7 @@ For each signed support point `z` with `c_z > 0`, define the conditional distrib
 pi_z(j) = a_{z+j} b_j / c_z.
 ```
 
-This is the law of `Y` conditional on `X - Y = z`. Then
+This is the law of `Y` conditional on `X - Y = z`. If no lower boundary term enters, then
 
 ```text
 c_{z+1}/c_z
@@ -49,39 +49,54 @@ c_{z+1}/c_z
   = E_{pi_z} [ r_{z+Y} ].
 ```
 
+In general there is a lower-boundary correction. With `a_i = 0` and `b_j = 0` outside support,
+
+```text
+c_{z+1}/c_z
+  = E_{pi_z} [ r_{z+Y} ] + a_0 b_{-z-1}/c_z.
+```
+
+The extra term is zero unless `-z-1` is in the support of `Y`. This matters for rows whose first descent is negative.
+
 Similarly,
 
 ```text
 c_z/c_{z-1}
-  = E_{pi_{z-1}} [ r_{z-1+Y} ].
+  = E_{pi_{z-1}} [ r_{z-1+Y} ] + a_0 b_{-z}/c_{z-1}.
 ```
 
 Thus the post-descent pressure is an average of the one-sided local ratios of `X`, but under the conditional law at the signed level `z`.
 
-## Exact Y-Side Identity
+## Reflected Y-Side Identity With Boundary Term
 
-The same ratio can be written using the `Y` side. Since
+The same ratio can be written using the `Y` side. Define
 
 ```text
-c_z = sum_i a_i b_{i-z},
+t_j = b_{j-1}/b_j,   t_0 = 0.
 ```
 
-let
+Then
+
+```text
+c_{z+1}/c_z
+  = E_{pi_z} [ t_Y ] + a_{z+1+n_Y} b_{n_Y}/c_z,
+```
+
+where `n_Y` is the maximum support point of `Y`. The upper-boundary correction is zero unless `z+1+n_Y` is in the support of `X`.
+
+Equivalently, using the law of `X` conditional on `X-Y=z`,
 
 ```text
 rho_z(i) = a_i b_{i-z} / c_z,
 ```
 
-the law of `X` conditional on `X - Y = z`. Then
+the interior part is
 
 ```text
-c_{z+1}/c_z
-  = sum_i a_i b_{i-z-1} / c_z
-  = E_{rho_z} [ b_{X-z-1}/b_{X-z} ]
-  = E_{rho_z} [ 1/s_{X-z-1} ].
+E_{rho_z} [ b_{X-z-1}/b_{X-z} ].
 ```
 
-This is the reflected local-ratio form. It should be useful when the `Y` side, rather than the `X` side, carries the variance controlling the signed descent.
+This reflected local-ratio form should be useful when the `Y` side, rather than the `X` side, carries the variance controlling the signed descent.
 
 ## Newton Input On Each Side
 
@@ -154,6 +169,41 @@ The computational side-variance runs give the right calibration:
 | `0.25` | `0.5774912085` |
 
 These are empirical guideposts, not constants in a theorem.
+
+## Conditional Analyzer
+
+I added a numerical checker for the identities and the conditional index statistics:
+
+```bash
+python3 scripts/analyze_signed_conditionals.py \
+  --out results/signed_pb_conditional_analysis_2026-07-03.json
+```
+
+It reads the signed probe and optimizer certificates, extracts the best rows, reconstructs the PMFs, and evaluates the boundary-corrected conditional identities. The run processed `69` unique signed rows and found maximum identity error
+
+```text
+7.77e-16
+```
+
+up to floating-point precision.
+
+The worst-reserve rows have the expected one-sided shape:
+
+- `V` is essentially `1`;
+- the first descent is at `D = 1`;
+- `min(Var X, Var Y)/V` is tiny;
+- `E[X | X-Y=D]` is about `1.00` to `1.03`;
+- `V * E[1/(X+1) | X-Y=D]` is about `0.49` to `0.50`.
+
+This numerically explains why the sparse boundary gives `V * reserve` near `1/2`: the conditional one-sided index is sitting at `X = 1`, where the Newton factor has its largest drop.
+
+The same analysis gives a concrete target for localization. Among the analyzed rows,
+
+```text
+(E[X | X-Y=D] + 1) / V
+```
+
+was at most about `2.89`. This is only empirical, but it makes the first lemma target sharper: prove a shift-invariant bound of this form, with boundary terms handled explicitly.
 
 ## Immediate Lemma Targets
 

@@ -414,10 +414,19 @@ notes/literature/signed_pb_conditional_ratio_identity_2026-07-03.md
 For `c_z = P(X-Y=z)`, it writes
 
 ```text
-c_{z+1}/c_z = E[ a_{z+1+Y}/a_{z+Y} | X-Y=z ],
+c_{z+1}/c_z = E[ a_{z+1+Y}/a_{z+Y} | X-Y=z ] + boundary,
 ```
 
-and also gives the reflected `Y`-side identity. This avoids the artificial index introduced by multiplying the Laurent polynomial by a large power of `x`.
+and also gives the reflected `Y`-side identity with its corresponding boundary term. This avoids the artificial index introduced by multiplying the Laurent polynomial by a large power of `x`.
+
+I added a checker:
+
+```bash
+python3 scripts/analyze_signed_conditionals.py \
+  --out results/signed_pb_conditional_analysis_2026-07-03.json
+```
+
+It processed `69` best/probe rows and verified the boundary-corrected identities to maximum error `7.77e-16`. The worst-reserve rows have `E[X | X-Y=D]` near `1`, which explains the observed `V * reserve` boundary near `1/2`.
 
 ## Perturbation By The Hub-Included Term
 
