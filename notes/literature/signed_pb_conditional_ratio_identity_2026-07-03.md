@@ -285,6 +285,31 @@ V * Delta_eff = 0.4092860938.
 
 This margin is smaller than the raw reserve margin, so it is a more demanding diagnostic. It remains only computational evidence. The proof task would be to derive this effective signed ratio drop, probably using the boundary-corrected conditional identities plus the conditional-index localization above.
 
+I then added an adversarial grouped optimizer for the same diagnostic:
+
+```bash
+python3 scripts/optimize_signed_ratio_drop.py \
+  --out results/signed_pb_ratio_drop_optimizer_2026-07-03.json
+```
+
+It ran `31` feasible grouped searches and found zero failures of the working `1/4` target. The optimizer lowered the smallest observed value to
+
+```text
+V * Delta_eff = 0.336426.
+```
+
+The best row was near the same sparse one-sided shape:
+
+```text
+V = 1.000000,
+D = 2,
+c_D/c_{D-1} = 0.499810,
+c_{D+1}/c_D = 0.331661,
+V * reserve = 0.668339.
+```
+
+This is a useful warning: the effective-drop route has much less slack than the raw reserve route. It still clears `1/4` in this optimizer run, but the data do not justify promoting a stronger constant.
+
 ## Immediate Lemma Targets
 
 1. **Conditional-index localization.** At the first signed descent `D`, bound the relevant conditional index, for example `E_{\pi_D}[D+Y]`, by `O(Var X + Var Y)`. The current empirical target is a constant around `4`, not `3`.

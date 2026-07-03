@@ -460,6 +460,15 @@ Delta_eff = 1 - (c_{D+1}/c_D)/(c_D/c_{D-1}),
 
 the generated corpus had zero failures of `Delta_eff >= 1/(4V)` among `11,683` rows with `V >= 1`. The smallest observed `V * Delta_eff` was `0.4092860938`. This is only a sufficient diagnostic and computational evidence, not a theorem.
 
+The adversarial version,
+
+```bash
+python3 scripts/optimize_signed_ratio_drop.py \
+  --out results/signed_pb_ratio_drop_optimizer_2026-07-03.json
+```
+
+lowered the observed minimum to `V * Delta_eff = 0.336426` but still found zero failures of the `1/4` working target across `31` grouped optimizer runs. This narrows the plausible proof route: the effective-drop lemma may be strong enough for `c = 1/4`, but it is not a high-margin route and should not be stated with a stronger constant.
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is
