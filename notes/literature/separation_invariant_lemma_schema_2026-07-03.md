@@ -397,3 +397,33 @@ This gives a cleaner proof subproblem:
 > Prove a hub-bouquet reserve theorem: for `I(T) = (1+x)^s Q(x) + x R(x)`, with fixed or controlled arm polynomial `Q`, the first post-descent ratio is at most `1 - c/s + O(s^{-2})`, with `c` bounded away from `0`.
 
 For fixed arms, the `xR(x)` term has bounded degree and is absent near the middle of the leaf-binomial range. The problem reduces to ratios of `(1+x)^s Q(x)`, where `Q` is a fixed path-product polynomial. This looks much more tractable than the original tree recurrence: it is an explicit coefficient-ratio estimate for a binomial convolution.
+
+## Variance Correction
+
+The `1 - c/s` form is the right first target for fixed or controlled arms, but it is not the correct fully general asymptotic statement for arbitrary broom handles. I ran a floating-point probe of the dominant product term `(1+x)^s I(P_l)` at `s = 5000`:
+
+```bash
+python3 scripts/probe_broom_variance_scaling.py \
+  --out results/broom_variance_scaling_probe_2026-07-03.json
+```
+
+This is not a certificate, because it omits the exponentially small hub-included term `x I(P_{l-1})`. It is meant only to identify the right denominator for the proof statement.
+
+The result is decisive enough for strategy:
+
+| Arm `l` | Pressure | `s * reserve` | `n * reserve` | `variance * reserve` |
+|---:|---:|---:|---:|---:|
+| 193 | `0.9992098719` | `3.9506404050` | `4.1039252527` | `1.0013777758` |
+| 5,000 | `0.9992021635` | `3.9891826243` | `7.9791630851` | `1.3541778914` |
+| 20,000 | `0.9995314396` | `2.3428020814` | `11.7144789672` | `1.4239332080` |
+| 50,000 | `0.9997188657` | `1.4056714875` | `15.4626674969` | `1.6087164720` |
+
+So the robust statement should be variance-based:
+
+```text
+max_{j >= D} a_{j+1}/a_j <= 1 - c / Var + lower-order terms,
+```
+
+for the coefficient distribution of `(1+x)^s Q(x)`, with the `1 - c/s` statement recovered when `Var = s/4 + O(s)` or `Var = s/4 + O(1)`.
+
+This correction strengthens the proof program by preventing a false target. The hard local ratio is controlled by the width of the binomial-convolved path distribution, not by the number of leaves alone. For fixed arms, these coincide up to constants; for very long broom handles, they do not.

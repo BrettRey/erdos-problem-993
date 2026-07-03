@@ -182,7 +182,9 @@ to test the asymptotic ridge. Across 1,980 exact hub-bouquet rows with `s` up to
 
 This is now the most concrete proof path from the computational side: derive a coefficient-ratio reserve for `(1+x)^s Q(x)` after first descent, first for fixed path-product `Q`, then for controlled hub decompositions. That would give the crossing-only invariant exactly where the current searches place the hardest cases.
 
-Compact audit artifacts: `results/stress_invariant_audit_2026-07-03.json`, `results/forest_product_stress_audit_2026-07-03.json`, `results/ratio_profile_power_audit_2026-07-03.json`, `results/product_ratio_beam_search_2026-07-03.json`, `results/tie_fugacity_bump_audit_2026-07-03.json`, `results/crossing_pressure_optimizer_2026-07-03.json`, `results/crossing_family_scan_2026-07-03.json`, `results/asymptotic_hub_ridge_2026-07-03.json`, and `results/asymptotic_broom_ridge_2026-07-03.json`.
+A follow-up floating-point probe corrected the denominator of that proposed reserve. For fixed or controlled arms, the reserve looks like `c/s`. But for very long broom handles, `s * reserve` falls while `variance * reserve` remains order `1`. At `s = 5000`, the dominant product term `(1+x)^s I(P_l)` has `s * reserve = 1.4056714875` for `l = 50000`, but `variance * reserve = 1.6087164720`. The robust proof target is therefore a variance/local-ratio reserve, with the `c/s` form as the fixed-arm corollary.
+
+Compact audit artifacts: `results/stress_invariant_audit_2026-07-03.json`, `results/forest_product_stress_audit_2026-07-03.json`, `results/ratio_profile_power_audit_2026-07-03.json`, `results/product_ratio_beam_search_2026-07-03.json`, `results/tie_fugacity_bump_audit_2026-07-03.json`, `results/crossing_pressure_optimizer_2026-07-03.json`, `results/crossing_family_scan_2026-07-03.json`, `results/asymptotic_hub_ridge_2026-07-03.json`, `results/asymptotic_broom_ridge_2026-07-03.json`, and `results/broom_variance_scaling_probe_2026-07-03.json`.
 
 ## Li--Li--Yang--Zhang 2025
 Source: Ethan Y. H. Li, Grace M. X. Li, Arthur L. B. Yang, Zhong-Xue Zhang, "A symmetric function approach to log-concavity of independence polynomials," arXiv:2501.04245v1, 2025.

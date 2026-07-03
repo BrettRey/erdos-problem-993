@@ -2,6 +2,55 @@
   "claim_tested": "LC-defect pressure is separated from near-mode tail-rise pressure in current stress sources; low-mode and mean-bound metrics survive LC stress rows; direct crossing-pressure searches find no post-descent upward transition.",
   "date": "2026-07-03",
   "sources": {
+    "broom_variance_scaling_probe": {
+      "counts": {
+        "rows": 13
+      },
+      "interpretation": "Approximate dominant-term probe; shows long broom handles are governed by variance reserve rather than an s-only reserve.",
+      "numeric": {
+        "max_crossing_pressure": 0.9997188657024983,
+        "min_s_times_reserve": 1.4056714875082532,
+        "variance_times_reserve_range": [
+          1.001377775784857,
+          1.9455954358923593
+        ]
+      },
+      "path": "results/broom_variance_scaling_probe_2026-07-03.json",
+      "source": {
+        "approximation": "dominant product term (1+x)^s I(P_l); hub term omitted",
+        "kind": "broom_variance_scaling_probe",
+        "s": 5000
+      },
+      "top_by_crossing_pressure": [
+        {
+          "arm": 50000,
+          "crossing_pressure": 0.9997188657024983,
+          "crossing_reserve": 0.00028113429750165064,
+          "n_times_reserve": 15.462667496888287,
+          "s_times_reserve": 1.4056714875082532,
+          "variance": 5722.234840437778,
+          "variance_times_reserve": 1.6087164720059448
+        },
+        {
+          "arm": 20000,
+          "crossing_pressure": 0.9995314395837285,
+          "crossing_reserve": 0.000468560416271524,
+          "n_times_reserve": 11.714478967204371,
+          "s_times_reserve": 2.34280208135762,
+          "variance": 3038.9532674380307,
+          "variance_times_reserve": 1.4239332080204716
+        },
+        {
+          "arm": 193,
+          "crossing_pressure": 0.9992098719189992,
+          "crossing_reserve": 0.0007901280810007627,
+          "n_times_reserve": 4.1039252527179615,
+          "s_times_reserve": 3.9506404050038135,
+          "variance": 1267.3613302244985,
+          "variance_times_reserve": 1.001377775784857
+        }
+      ]
+    },
     "asymptotic_broom_ridge": {
       "counts": {
         "broom_rows": 240,
