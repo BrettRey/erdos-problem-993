@@ -139,6 +139,29 @@ For fixed or controlled arms in `(1+x)^s Q(x)`, `V = s/4 + O(s)` or `s/4 + O(1)`
 
 The natural first constant to try is not large. The data suggest `V * reserve` often lies between `1` and `2` in the hard range, so even `c = 1/4` would be a useful theorem.
 
+## General Poisson-Binomial Falsification Probe
+
+I added a separate falsification probe for the candidate lemma:
+
+```bash
+python3 scripts/probe_pb_variance_reserve.py \
+  --out results/pb_variance_reserve_probe_2026-07-03.json
+```
+
+It scanned 7,645 binomial-grid rows and 2,440 deterministic random Poisson-binomial rows. It did not find evidence that `V * reserve` collapses toward zero. The smallest observed values by variance cutoff were:
+
+| Variance cutoff | Source | `V` | Pressure | `V * reserve` |
+|---:|---|---:|---:|---:|
+| 1 | random PB, `beta_0.5_5` | `1.3000146658` | `0.5349365442` | `0.6045893131` |
+| 2 | binomial `n=20, p=0.142` | `2.43672` | `0.7033799534` | `0.7227800000` |
+| 5 | binomial `n=50, p=0.117` | `5.16555` | `0.8328749393` | `0.8632928571` |
+| 10 | binomial `n=50, p=0.294` | `10.3782` | `0.9109419263` | `0.9242625000` |
+| 20 | binomial `n=100, p=0.297` | `20.8791` | `0.9539760474` | `0.9609387097` |
+| 50 | binomial `n=500, p=0.499` | `124.9995` | `0.9920398247` | `0.9950179283` |
+| 500 | binomial `n=5000, p=0.887` | `501.155` | `0.9977801313` | `1.1124983097` |
+
+Interpretation: the candidate lemma still looks plausible, and the extremal behavior may already be visible in ordinary binomial laws. The probe also warns against trying to prove a sharp constant from the tree data. A conservative constant such as `c = 1/4` or `c = 1/2`, with an explicit lower-variance exception range, would be enough for the hub lane.
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is
