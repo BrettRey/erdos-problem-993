@@ -77,6 +77,39 @@ fifth_failures   = 0
 
 The smallest observed `V * reserve` above variance `1` was about `0.5615`, still above the working constants `1/4` and `1/5`.
 
+## Follow-Up Optimizer
+
+I added an adversarial grouped optimizer:
+
+```bash
+python3 scripts/optimize_signed_pb_reserve.py \
+  --out results/signed_pb_reserve_optimizer_2026-07-03.json
+```
+
+It searches laws of the form
+
+```text
+X = sum_g Bin(x_g, p_g),   Y = sum_h Bin(y_h, q_h),
+p_g, q_h <= 1/2,
+```
+
+and minimizes `V * reserve` over grouped block counts and probabilities. The default run covered six `(x_n,y_n)` pairs and six variance cutoffs, for `31` feasible optimizer runs.
+
+The best rows by variance cutoff were:
+
+| Variance cutoff | `(x_n,y_n)` | `V` | Pressure | `V * reserve` |
+|---:|---:|---:|---:|---:|
+| 1 | `(200,50)` | `1.0000007257` | `0.4985807522` | `0.5014196117` |
+| 2 | `(100,100)` | `2.0054842731` | `0.6643453157` | `0.6731501905` |
+| 5 | `(50,50)` | `5.0595761830` | `0.8336119443` | `0.8418530436` |
+| 10 | `(100,100)` | `10.7669509552` | `0.9146638892` | `0.9188097196` |
+| 20 | `(200,200)` | `21.9441263825` | `0.9562838118` | `0.9593135594` |
+| 50 | `(200,50)` | `53.5762478932` | `0.9816026958` | `0.9856585309` |
+
+The optimizer improves the broad probe's minimum from about `0.5615` to about `0.5014`. That is essentially the same sparse one-sided boundary seen in the unsigned grouped optimizer: the best row has `Y` almost deterministic at zero and `X` close to a sparse low-mean law.
+
+This strengthens the empirical message but not the theorem. The working constant `c = 1/4` still has a large buffer in the adversarial signed search, while a sharp constant above `1/2` remains implausible.
+
 ## Interpretation
 
 This is evidence, not a theorem. Its useful information is negative: the obvious signed-law stress families did not create a new cancellation mechanism. The hardest rows still look close to the one-sided sparse boundary or to a deterministic shift plus a low-variance low-probability component.
@@ -97,5 +130,7 @@ but any proof must be invariant under the arbitrary shift `h`. Equivalently, one
 
 ```text
 scripts/probe_signed_pb_reserve.py
+scripts/optimize_signed_pb_reserve.py
 results/signed_pb_reserve_probe_2026-07-03.json
+results/signed_pb_reserve_optimizer_2026-07-03.json
 ```

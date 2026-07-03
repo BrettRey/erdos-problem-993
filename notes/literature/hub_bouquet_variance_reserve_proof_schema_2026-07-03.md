@@ -371,6 +371,23 @@ notes/literature/signed_low_probability_pb_reserve_probe_2026-07-03.md
 
 Interpretation: this is only empirical support. It says the signed case has not yet produced a new obstruction, so the next proof target should be a shift-invariant local-ratio inequality for `X-Y` rather than a claimed extension of the one-sided Newton argument.
 
+I also added an adversarial grouped signed optimizer:
+
+```bash
+python3 scripts/optimize_signed_pb_reserve.py \
+  --out results/signed_pb_reserve_optimizer_2026-07-03.json
+```
+
+It ran `31` feasible grouped signed searches. The best row had
+
+```text
+V = 1.0000007257,
+reserve = 0.5014192478,
+V * reserve = 0.5014196117.
+```
+
+The best rows again lie near the sparse one-sided boundary, with one signed side nearly deterministic. Thus the optimizer lowers the empirical minimum from `0.5615` to `0.5014` but still leaves the working `c = 1/4` target with a factor-two buffer.
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is
