@@ -179,6 +179,49 @@ python3 scripts/verify_binomial_variance_reserve.py \
 
 It checked 949,721 rational parameter rows with zero failures. The smallest sampled `V * reserve` among rows with `V >= 1` was about `0.561`, so the theorem's `1/4` constant is conservative.
 
+## Low-Probability Poisson-Binomial Case: Proved
+
+The one-sided case is now also closed in:
+
+```text
+notes/literature/low_probability_pb_reserve_2026-07-03.md
+```
+
+If all Bernoulli parameters satisfy `p_i <= 1/2` and `V >= 1`, then
+
+```text
+1 - a_{D+1}/a_D > 1/(5V).
+```
+
+The proof is short:
+
+1. Write `a_k` as an elementary symmetric polynomial `e_k(w_1,...,w_n)`.
+2. Newton's inequalities imply the ratio drop
+
+```text
+a_{D+1}/a_D < D/(D+1),
+```
+
+once `D` is the first strict descent.
+
+3. Darroch's mode localization gives `D+1 < mu+3`.
+4. Since `p_i <= 1/2`, `V >= mu/2`, so `mu <= 2V`.
+5. Hence
+
+```text
+1 - a_{D+1}/a_D > 1/(D+1) > 1/(mu+3) >= 1/(2V+3) >= 1/(5V).
+```
+
+I added a reproducible sanity probe:
+
+```bash
+python3 scripts/probe_low_probability_pb_reserve.py \
+  --samples 200 \
+  --out results/low_probability_pb_reserve_probe_2026-07-03.json
+```
+
+It processed 5,600 sampled one-sided PB rows, including 4,498 with `V >= 1`, and found zero failures of the `1/(5V)` bound.
+
 ## General Poisson-Binomial Falsification Probe
 
 I added a separate falsification probe for the candidate lemma:
@@ -309,8 +352,8 @@ This is the real broom case. It should be attacked after the product-term lemma,
 
 ## Immediate Proof Tasks
 
-1. Prove or source the Variance Reserve Lemma for Poisson-binomial laws.
-2. If no off-the-shelf theorem exists, prove the weaker version needed here using the exact ratio identity and Darroch mode localization.
+1. Prove the two-sided signed reserve lemma for shifted laws `h + X - Y`, where `X` and `Y` are low-probability PB sums.
+2. Connect that signed lemma back to arbitrary PB laws by splitting variables with `p_i > 1/2` into deterministic shifts minus low-probability failures.
 3. Certify the fixed-arm hub-bouquet corollary: for fixed path-product `Q`, the term `xR` is absent near first descent for all large `s`.
 4. Extend to broom handles `l = l(s)` using the perturbation estimate between `(1+x)^s I(P_l)` and `(1+x)^s I(P_l) + xI(P_{l-1})`.
 
