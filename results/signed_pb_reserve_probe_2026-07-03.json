@@ -1,0 +1,805 @@
+{
+  "best_by_variance_cutoff": [
+    {
+      "best": {
+        "first_descent_value": 2,
+        "kind": "random_grouped",
+        "pressure": 0.4606454539265925,
+        "reserve": 0.5393545460734075,
+        "signed_mean": 1.622376547242234,
+        "variance": 1.0410653828517753,
+        "variance_times_reserve": 0.5615033470007574,
+        "x_blocks": [
+          [
+            2,
+            0.1753435712448303
+          ],
+          [
+            3,
+            0.4294994806904298
+          ]
+        ],
+        "x_n": 5,
+        "y_blocks": [
+          [
+            2,
+            0.0011022983380416136
+          ],
+          [
+            8,
+            0.0018255550803291172
+          ]
+        ],
+        "y_n": 10
+      },
+      "variance_cutoff": 1
+    },
+    {
+      "best": {
+        "first_descent_value": 3,
+        "kind": "two_binomial",
+        "p": 0.269,
+        "pressure": 0.6375323962972618,
+        "q": 0.005,
+        "reserve": 0.36246760370273823,
+        "signed_mean": 2.6400000000000006,
+        "variance": 2.0161400000000005,
+        "variance_times_reserve": 0.7307854345292388,
+        "x_blocks": [
+          [
+            10,
+            0.269
+          ]
+        ],
+        "x_n": 10,
+        "y_blocks": [
+          [
+            10,
+            0.005
+          ]
+        ],
+        "y_n": 10
+      },
+      "variance_cutoff": 2
+    },
+    {
+      "best": {
+        "first_descent_value": 7,
+        "kind": "random_grouped",
+        "pressure": 0.8255957773351162,
+        "reserve": 0.17440422266488376,
+        "signed_mean": 6.555688007725091,
+        "variance": 5.062866202076836,
+        "variance_times_reserve": 0.8829852444295229,
+        "x_blocks": [
+          [
+            4,
+            0.18138236852648654
+          ],
+          [
+            1,
+            0.40817246110616257
+          ],
+          [
+            15,
+            0.4107936638205091
+          ]
+        ],
+        "x_n": 20,
+        "y_blocks": [
+          [
+            3,
+            0.08249259413995955
+          ],
+          [
+            1,
+            0.2186447888319675
+          ],
+          [
+            1,
+            0.2737963135428083
+          ]
+        ],
+        "y_n": 5
+      },
+      "variance_cutoff": 5
+    },
+    {
+      "best": {
+        "first_descent_value": 16,
+        "kind": "random_grouped",
+        "pressure": 0.9100315276865318,
+        "reserve": 0.08996847231346816,
+        "signed_mean": 15.664555266159958,
+        "variance": 10.276452526372942,
+        "variance_times_reserve": 0.924556734599654,
+        "x_blocks": [
+          [
+            21,
+            0.19913791068386485
+          ],
+          [
+            15,
+            0.3743468560320705
+          ],
+          [
+            14,
+            0.4194596068753585
+          ]
+        ],
+        "x_n": 50,
+        "y_blocks": [
+          [
+            10,
+            0.0004978194937280604
+          ]
+        ],
+        "y_n": 10
+      },
+      "variance_cutoff": 10
+    },
+    {
+      "best": {
+        "first_descent_value": 37,
+        "kind": "random_grouped",
+        "pressure": 0.9514693263096062,
+        "reserve": 0.048530673690393766,
+        "signed_mean": 36.49799227556024,
+        "variance": 20.01399667637688,
+        "variance_times_reserve": 0.9712927419418718,
+        "x_blocks": [
+          [
+            24,
+            0.011451257046963714
+          ],
+          [
+            14,
+            0.44775529827961924
+          ],
+          [
+            2,
+            0.49819845784618944
+          ],
+          [
+            60,
+            0.4993835714390974
+          ]
+        ],
+        "x_n": 100,
+        "y_blocks": [
+          [
+            1,
+            0.09226714317883544
+          ],
+          [
+            2,
+            0.18465253522377797
+          ],
+          [
+            2,
+            0.2716255289466935
+          ]
+        ],
+        "y_n": 5
+      },
+      "variance_cutoff": 20
+    },
+    {
+      "best": {
+        "first_descent_value": 49,
+        "kind": "two_binomial",
+        "p": 0.35150000000000003,
+        "pressure": 0.9829115306279688,
+        "q": 0.43400000000000005,
+        "reserve": 0.017088469372031234,
+        "signed_mean": 48.60000000000001,
+        "variance": 57.871750000000006,
+        "variance_times_reserve": 0.9889396273808487,
+        "x_blocks": [
+          [
+            200,
+            0.35150000000000003
+          ]
+        ],
+        "x_n": 200,
+        "y_blocks": [
+          [
+            50,
+            0.43400000000000005
+          ]
+        ],
+        "y_n": 50
+      },
+      "variance_cutoff": 50
+    }
+  ],
+  "counts": {
+    "fifth_failures": 0,
+    "quarter_failures": 0,
+    "variance_ge_1": 11683
+  },
+  "fifth_failures": [],
+  "processed": 11820,
+  "quarter_failures": [],
+  "source": {
+    "binomial_grid_size": 31,
+    "kind": "signed_low_probability_pb_reserve_probe",
+    "max_groups": 6,
+    "random_samples": 2000,
+    "seed": 993
+  },
+  "top_smallest_v_reserve": [
+    {
+      "first_descent_value": 2,
+      "kind": "random_grouped",
+      "pressure": 0.4606454539265925,
+      "reserve": 0.5393545460734075,
+      "signed_mean": 1.622376547242234,
+      "variance": 1.0410653828517753,
+      "variance_times_reserve": 0.5615033470007574,
+      "x_blocks": [
+        [
+          2,
+          0.1753435712448303
+        ],
+        [
+          3,
+          0.4294994806904298
+        ]
+      ],
+      "x_n": 5,
+      "y_blocks": [
+        [
+          2,
+          0.0011022983380416136
+        ],
+        [
+          8,
+          0.0018255550803291172
+        ]
+      ],
+      "y_n": 10
+    },
+    {
+      "first_descent_value": 1,
+      "kind": "two_binomial",
+      "p": 0.08750000000000001,
+      "pressure": 0.4157330234534739,
+      "q": 0.021500000000000002,
+      "reserve": 0.584266976546526,
+      "signed_mean": 0.6600000000000001,
+      "variance": 1.0088150000000002,
+      "variance_times_reserve": 0.5894172899447838,
+      "x_blocks": [
+        [
+          10,
+          0.08750000000000001
+        ]
+      ],
+      "x_n": 10,
+      "y_blocks": [
+        [
+          10,
+          0.021500000000000002
+        ]
+      ],
+      "y_n": 10
+    },
+    {
+      "first_descent_value": 2,
+      "kind": "random_grouped",
+      "pressure": 0.4396823743963068,
+      "reserve": 0.5603176256036932,
+      "signed_mean": 1.5268342539552198,
+      "variance": 1.0609111884747373,
+      "variance_times_reserve": 0.5944472381025571,
+      "x_blocks": [
+        [
+          5,
+          0.30541314140844694
+        ]
+      ],
+      "x_n": 5,
+      "y_blocks": [
+        [
+          4,
+          1.0085972779812045e-05
+        ],
+        [
+          1,
+          0.0001911091958955963
+        ]
+      ],
+      "y_n": 5
+    },
+    {
+      "first_descent_value": 1,
+      "kind": "two_binomial",
+      "p": 0.021500000000000002,
+      "pressure": 0.5147154573591904,
+      "q": 0.005,
+      "reserve": 0.48528454264080956,
+      "signed_mean": 0.8250000000000002,
+      "variance": 1.3006375000000003,
+      "variance_times_reserve": 0.6311792743289861,
+      "x_blocks": [
+        [
+          50,
+          0.021500000000000002
+        ]
+      ],
+      "x_n": 50,
+      "y_blocks": [
+        [
+          50,
+          0.005
+        ]
+      ],
+      "y_n": 50
+    },
+    {
+      "first_descent_value": 2,
+      "kind": "random_grouped",
+      "pressure": 0.502822903547435,
+      "reserve": 0.497177096452565,
+      "signed_mean": 1.6538083026755728,
+      "variance": 1.2791474925603097,
+      "variance_times_reserve": 0.6359628362857138,
+      "x_blocks": [
+        [
+          1,
+          0.06813417392042899
+        ],
+        [
+          6,
+          0.12086431590676967
+        ],
+        [
+          2,
+          0.1902595387914296
+        ],
+        [
+          1,
+          0.4999913036850515
+        ]
+      ],
+      "x_n": 10,
+      "y_blocks": [
+        [
+          4,
+          1.547585777329304e-08
+        ],
+        [
+          16,
+          0.001251380378122128
+        ]
+      ],
+      "y_n": 20
+    },
+    {
+      "first_descent_value": 1,
+      "kind": "random_grouped",
+      "pressure": 0.38032874378995685,
+      "reserve": 0.6196712562100432,
+      "signed_mean": 0.4877530013144762,
+      "variance": 1.041925843534686,
+      "variance_times_reserve": 0.6456514963408478,
+      "x_blocks": [
+        [
+          5,
+          0.17009286916547658
+        ]
+      ],
+      "x_n": 5,
+      "y_blocks": [
+        [
+          4,
+          0.0688004631004879
+        ],
+        [
+          1,
+          0.08750949211095513
+        ]
+      ],
+      "y_n": 5
+    },
+    {
+      "first_descent_value": 1,
+      "kind": "two_binomial",
+      "p": 0.005,
+      "pressure": 0.48012567701037345,
+      "q": 0.005,
+      "reserve": 0.5198743229896265,
+      "signed_mean": 0.75,
+      "variance": 1.24375,
+      "variance_times_reserve": 0.6465936892183479,
+      "x_blocks": [
+        [
+          200,
+          0.005
+        ]
+      ],
+      "x_n": 200,
+      "y_blocks": [
+        [
+          50,
+          0.005
+        ]
+      ],
+      "y_n": 50
+    },
+    {
+      "eta": 0.002,
+      "first_descent_value": 2,
+      "kind": "finite_skellam",
+      "lambda": 1.998,
+      "p": 0.002,
+      "pressure": 0.6657763274969598,
+      "q": 8e-05,
+      "reserve": 0.3342236725030402,
+      "signed_mean": 1.996,
+      "variance": 1.99600384,
+      "variance_times_reserve": 0.6671117337349707,
+      "x_blocks": [
+        [
+          999,
+          0.002
+        ]
+      ],
+      "x_n": 999,
+      "y_blocks": [
+        [
+          25,
+          8e-05
+        ]
+      ],
+      "y_n": 25
+    },
+    {
+      "eta": 0.002,
+      "first_descent_value": 2,
+      "kind": "finite_skellam",
+      "lambda": 1.998,
+      "p": 0.001,
+      "pressure": 0.6657773348071296,
+      "q": 4e-05,
+      "reserve": 0.33422266519287036,
+      "signed_mean": 1.996,
+      "variance": 1.99800192,
+      "variance_times_reserve": 0.6677775267628722,
+      "x_blocks": [
+        [
+          1998,
+          0.001
+        ]
+      ],
+      "x_n": 1998,
+      "y_blocks": [
+        [
+          50,
+          4e-05
+        ]
+      ],
+      "y_n": 50
+    },
+    {
+      "first_descent_value": 2,
+      "kind": "two_binomial",
+      "p": 0.17,
+      "pressure": 0.5411050857077159,
+      "q": 0.005,
+      "reserve": 0.45889491429228413,
+      "signed_mean": 1.6500000000000001,
+      "variance": 1.46075,
+      "variance_times_reserve": 0.670330746052454,
+      "x_blocks": [
+        [
+          10,
+          0.17
+        ]
+      ],
+      "x_n": 10,
+      "y_blocks": [
+        [
+          10,
+          0.005
+        ]
+      ],
+      "y_n": 10
+    },
+    {
+      "first_descent_value": 1,
+      "kind": "two_binomial",
+      "p": 0.10400000000000001,
+      "pressure": 0.4832200091445174,
+      "q": 0.038,
+      "reserve": 0.5167799908554827,
+      "signed_mean": 0.66,
+      "variance": 1.2974,
+      "variance_times_reserve": 0.6704703601359032,
+      "x_blocks": [
+        [
+          10,
+          0.10400000000000001
+        ]
+      ],
+      "x_n": 10,
+      "y_blocks": [
+        [
+          10,
+          0.038
+        ]
+      ],
+      "y_n": 10
+    },
+    {
+      "eta": 0.02,
+      "first_descent_value": 2,
+      "kind": "finite_skellam",
+      "lambda": 1.98,
+      "p": 0.02,
+      "pressure": 0.6576224286665547,
+      "q": 0.006666666666666667,
+      "reserve": 0.34237757133344526,
+      "signed_mean": 1.96,
+      "variance": 1.9602666666666666,
+      "variance_times_reserve": 0.6711513404992416,
+      "x_blocks": [
+        [
+          99,
+          0.02
+        ]
+      ],
+      "x_n": 99,
+      "y_blocks": [
+        [
+          3,
+          0.006666666666666667
+        ]
+      ],
+      "y_n": 3
+    },
+    {
+      "eta": 0.02,
+      "first_descent_value": 2,
+      "kind": "finite_skellam",
+      "lambda": 1.98,
+      "p": 0.01,
+      "pressure": 0.6577281494230344,
+      "q": 0.004,
+      "reserve": 0.34227185057696563,
+      "signed_mean": 1.96,
+      "variance": 1.9801199999999999,
+      "variance_times_reserve": 0.6777393367644612,
+      "x_blocks": [
+        [
+          198,
+          0.01
+        ]
+      ],
+      "x_n": 198,
+      "y_blocks": [
+        [
+          5,
+          0.004
+        ]
+      ],
+      "y_n": 5
+    },
+    {
+      "first_descent_value": -1,
+      "kind": "random_grouped",
+      "pressure": 0.3713065980140747,
+      "reserve": 0.6286934019859254,
+      "signed_mean": -1.6929720378123705,
+      "variance": 1.0816893092296047,
+      "variance_times_reserve": 0.6800509317113658,
+      "x_blocks": [
+        [
+          5,
+          3.5136438085166244e-05
+        ],
+        [
+          3,
+          0.00018259093555424174
+        ],
+        [
+          2,
+          0.0022279340215718524
+        ]
+      ],
+      "x_n": 10,
+      "y_blocks": [
+        [
+          1,
+          0.17049394903323906
+        ],
+        [
+          2,
+          0.33513380155106054
+        ],
+        [
+          1,
+          0.41499850875885086
+        ],
+        [
+          1,
+          0.44239129995839155
+        ]
+      ],
+      "y_n": 5
+    },
+    {
+      "eta": 0.02,
+      "first_descent_value": 2,
+      "kind": "finite_skellam",
+      "lambda": 1.98,
+      "p": 0.005,
+      "pressure": 0.6577810688771263,
+      "q": 0.002,
+      "reserve": 0.3422189311228737,
+      "signed_mean": 1.96,
+      "variance": 1.99006,
+      "variance_times_reserve": 0.6810362060703861,
+      "x_blocks": [
+        [
+          396,
+          0.005
+        ]
+      ],
+      "x_n": 396,
+      "y_blocks": [
+        [
+          10,
+          0.002
+        ]
+      ],
+      "y_n": 10
+    },
+    {
+      "first_descent_value": 2,
+      "kind": "random_grouped",
+      "pressure": 0.3661765685006507,
+      "reserve": 0.6338234314993493,
+      "signed_mean": 1.2841230538796649,
+      "variance": 1.076422536404354,
+      "variance_times_reserve": 0.6822618257670409,
+      "x_blocks": [
+        [
+          2,
+          0.19510731947399185
+        ],
+        [
+          3,
+          0.3312303227061395
+        ]
+      ],
+      "x_n": 5,
+      "y_blocks": [
+        [
+          5,
+          0.019956510637347484
+        ]
+      ],
+      "y_n": 5
+    },
+    {
+      "eta": 0.02,
+      "first_descent_value": 2,
+      "kind": "finite_skellam",
+      "lambda": 1.98,
+      "p": 0.002,
+      "pressure": 0.6578125538333597,
+      "q": 0.0008,
+      "reserve": 0.3421874461666403,
+      "signed_mean": 1.96,
+      "variance": 1.996024,
+      "variance_times_reserve": 0.6830143550473221,
+      "x_blocks": [
+        [
+          990,
+          0.002
+        ]
+      ],
+      "x_n": 990,
+      "y_blocks": [
+        [
+          25,
+          0.0008
+        ]
+      ],
+      "y_n": 25
+    },
+    {
+      "eta": 0.02,
+      "first_descent_value": 2,
+      "kind": "finite_skellam",
+      "lambda": 1.98,
+      "p": 0.001,
+      "pressure": 0.6578230047795046,
+      "q": 0.0004,
+      "reserve": 0.3421769952204954,
+      "signed_mean": 1.96,
+      "variance": 1.998012,
+      "variance_times_reserve": 0.6836737425744924,
+      "x_blocks": [
+        [
+          1980,
+          0.001
+        ]
+      ],
+      "x_n": 1980,
+      "y_blocks": [
+        [
+          50,
+          0.0004
+        ]
+      ],
+      "y_n": 50
+    },
+    {
+      "first_descent_value": 1,
+      "kind": "random_grouped",
+      "pressure": 0.44993508280306765,
+      "reserve": 0.5500649171969323,
+      "signed_mean": 0.6066643885172799,
+      "variance": 1.2451400993785326,
+      "variance_times_reserve": 0.6849078856632326,
+      "x_blocks": [
+        [
+          20,
+          0.04794299813394465
+        ]
+      ],
+      "x_n": 20,
+      "y_blocks": [
+        [
+          1,
+          0.002396735506646357
+        ],
+        [
+          1,
+          0.019719027478682007
+        ],
+        [
+          5,
+          0.023991564516123696
+        ],
+        [
+          2,
+          0.05198901256533948
+        ],
+        [
+          1,
+          0.10614396346498726
+        ]
+      ],
+      "y_n": 10
+    },
+    {
+      "first_descent_value": 1,
+      "kind": "two_binomial",
+      "p": 0.07100000000000001,
+      "pressure": 0.32631125281862555,
+      "q": 0.038,
+      "reserve": 0.6736887471813744,
+      "signed_mean": 0.33000000000000007,
+      "variance": 1.02515,
+      "variance_times_reserve": 0.690632019172986,
+      "x_blocks": [
+        [
+          10,
+          0.07100000000000001
+        ]
+      ],
+      "x_n": 10,
+      "y_blocks": [
+        [
+          10,
+          0.038
+        ]
+      ],
+      "y_n": 10
+    }
+  ]
+}

@@ -334,6 +334,43 @@ Details are in:
 notes/literature/skellam_sparse_limit_reserve_2026-07-03.md
 ```
 
+## Signed Low-Probability Probe
+
+The low-probability theorem is one-sided. To reach arbitrary Poisson-binomial laws, variables with `p_i > 1/2` must be split as deterministic successes minus low-probability failures, leaving a signed law
+
+```text
+h + X - Y,
+```
+
+where `X` and `Y` are independent low-probability Poisson-binomial sums. The one-sided Newton proof does not transfer directly, because shifting the Laurent polynomial for `X-Y` changes the ordinary polynomial index used by Newton's inequalities.
+
+I added a signed-support falsification probe:
+
+```bash
+python3 scripts/probe_signed_pb_reserve.py \
+  --random-samples 2000 \
+  --binomial-grid-size 31 \
+  --max-groups 6 \
+  --out results/signed_pb_reserve_probe_2026-07-03.json
+```
+
+It processed `11,820` signed laws, including `11,683` with variance at least `1`, and found zero failures of either
+
+```text
+reserve >= 1/(4V)
+reserve >= 1/(5V)
+```
+
+at the first descent in signed support coordinates. The smallest observed `V * reserve` for `V >= 1` was about `0.5615`.
+
+Details are in:
+
+```text
+notes/literature/signed_low_probability_pb_reserve_probe_2026-07-03.md
+```
+
+Interpretation: this is only empirical support. It says the signed case has not yet produced a new obstruction, so the next proof target should be a shift-invariant local-ratio inequality for `X-Y` rather than a claimed extension of the one-sided Newton argument.
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is
@@ -352,7 +389,7 @@ This is the real broom case. It should be attacked after the product-term lemma,
 
 ## Immediate Proof Tasks
 
-1. Prove the two-sided signed reserve lemma for shifted laws `h + X - Y`, where `X` and `Y` are low-probability PB sums.
+1. Prove the two-sided signed reserve lemma for shifted laws `h + X - Y`, where `X` and `Y` are low-probability PB sums, using first descent in signed support coordinates.
 2. Connect that signed lemma back to arbitrary PB laws by splitting variables with `p_i > 1/2` into deterministic shifts minus low-probability failures.
 3. Certify the fixed-arm hub-bouquet corollary: for fixed path-product `Q`, the term `xR` is absent near first descent for all large `s`.
 4. Extend to broom handles `l = l(s)` using the perturbation estimate between `(1+x)^s I(P_l)` and `(1+x)^s I(P_l) + xI(P_{l-1})`.
