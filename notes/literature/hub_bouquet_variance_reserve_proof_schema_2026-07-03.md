@@ -109,7 +109,7 @@ mu = E[X+Y],
 V  = Var(X+Y).
 ```
 
-For a Poisson-binomial law, Darroch localizes the mode within distance `< 1` of `mu`. If `D` is the first strict descent index, then `D - mu` is bounded. A local-normal expansion gives
+For a Poisson-binomial law, Darroch localizes the mode within distance at most `1` of `mu`. If `D` is the first strict descent index, then `D - mu` is bounded. A local-normal expansion gives
 
 ```text
 log(A_{D+1}/A_D)
@@ -204,12 +204,12 @@ a_{D+1}/a_D < D/(D+1),
 
 once `D` is the first strict descent.
 
-3. Darroch's mode localization gives `D+1 < mu+3`.
+3. Darroch's mode localization gives `D+1 <= mu+3`.
 4. Since `p_i <= 1/2`, `V >= mu/2`, so `mu <= 2V`.
 5. Hence
 
 ```text
-1 - a_{D+1}/a_D > 1/(D+1) > 1/(mu+3) >= 1/(2V+3) >= 1/(5V).
+1 - a_{D+1}/a_D > 1/(D+1) >= 1/(mu+3) >= 1/(2V+3) >= 1/(5V).
 ```
 
 I added a reproducible sanity probe:

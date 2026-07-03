@@ -107,10 +107,16 @@ Now let `M` be the largest mode. The first strict descent is one step after the 
 D = M + 1.
 ```
 
-Darroch's mode theorem for Poisson-binomial laws gives `|M - mu| < 1`, hence
+Use Darroch's mode theorem in the weaker form
 
 ```text
-D+1 = M+2 < mu+3.
+|M - mu| <= 1.
+```
+
+Then
+
+```text
+D+1 = M+2 <= mu+3.
 ```
 
 Because all `p_i <= 1/2`,
@@ -131,7 +137,7 @@ Combining these estimates,
 ```text
 1 - a_{D+1}/a_D
   > 1/(D+1)
-  > 1/(mu+3)
+  >= 1/(mu+3)
   >= 1/(2V+3).
 ```
 
@@ -177,7 +183,7 @@ belongs to this two-sided case. The next proof target should therefore be a sign
 
 ## Source Note
 
-The only external input is Darroch's mode localization theorem for Poisson-binomial laws. Tang and Tang's survey, *The Poisson Binomial Distribution -- Old & New*, records this as Darroch's rule and states the usual `|mode - mean| < 1` consequence:
+The only external input is Darroch's mode localization theorem for Poisson-binomial laws. Tang and Tang's survey, *The Poisson Binomial Distribution -- Old & New*, records this as Darroch's rule and states that a mode differs from the mean by at most `1`:
 
 ```text
 https://arxiv.org/abs/1908.10024
