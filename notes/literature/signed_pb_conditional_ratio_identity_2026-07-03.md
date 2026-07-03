@@ -310,6 +310,22 @@ V * reserve = 0.668339.
 
 This is a useful warning: the effective-drop route has much less slack than the raw reserve route. It still clears `1/4` in this optimizer run, but the data do not justify promoting a stronger constant.
 
+The reason is visible in the one-sided Poisson boundary. For `X ~ Pois(lambda)`,
+
+```text
+D = floor(lambda) + 1,
+Delta_eff = 1/(D+1),
+V * Delta_eff = lambda/(D+1).
+```
+
+Thus at `lambda = 1`, `V * Delta_eff = 1/3`. Details are in:
+
+```text
+notes/literature/poisson_effective_ratio_drop_boundary_2026-07-03.md
+```
+
+This is a limiting calculation for the sufficient diagnostic, not a theorem for the full signed Poisson-binomial problem.
+
 ## Immediate Lemma Targets
 
 1. **Conditional-index localization.** At the first signed descent `D`, bound the relevant conditional index, for example `E_{\pi_D}[D+Y]`, by `O(Var X + Var Y)`. The current empirical target is a constant around `4`, not `3`.

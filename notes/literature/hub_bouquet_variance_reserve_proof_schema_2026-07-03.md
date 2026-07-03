@@ -469,6 +469,14 @@ python3 scripts/optimize_signed_ratio_drop.py \
 
 lowered the observed minimum to `V * Delta_eff = 0.336426` but still found zero failures of the `1/4` working target across `31` grouped optimizer runs. This narrows the plausible proof route: the effective-drop lemma may be strong enough for `c = 1/4`, but it is not a high-margin route and should not be stated with a stronger constant.
 
+This optimizer minimum is explained by the one-sided Poisson calculation in:
+
+```text
+notes/literature/poisson_effective_ratio_drop_boundary_2026-07-03.md
+```
+
+For `Pois(1)`, the effective-drop constant is exactly `1/3`. Thus the observed `0.336426` is not surprising and should be read as a limiting-boundary calibration for this sufficient diagnostic, not as evidence of a robust larger margin.
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is
