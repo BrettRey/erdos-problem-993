@@ -243,7 +243,7 @@ It scanned 7,645 binomial-grid rows and 2,440 deterministic random Poisson-binom
 | 50 | binomial `n=500, p=0.499` | `124.9995` | `0.9920398247` | `0.9950179283` |
 | 500 | binomial `n=5000, p=0.887` | `501.155` | `0.9977801313` | `1.1124983097` |
 
-Interpretation: the candidate lemma still looks plausible, and the extremal behavior may already be visible in ordinary binomial laws. The probe also warns against trying to prove a sharp constant from the tree data. A conservative constant such as `c = 1/4` or `c = 1/2`, with an explicit lower-variance exception range, would be enough for the hub lane.
+Interpretation: the candidate lemma still looks plausible, and the extremal behavior may already be visible in ordinary binomial laws. The probe also warns against trying to prove a sharp constant from the tree data. A conservative constant such as `c = 1/4`, with an explicit lower-variance exception range, would be enough for the hub lane. The later sparse-boundary probe suggests that `c = 1/2` is a sharp-boundary value, not a conservative target.
 
 ## Grouped Poisson-Binomial Optimizer
 
@@ -322,10 +322,10 @@ The best fixed-variance rows were:
 | 50 | `49.9999995` | `5e-7` | `0.9803921378` | `0.9803931092` |
 | 100 | `99.999999` | `1e-6` | `0.9900989904` | `0.9901009611` |
 
-This explains the grouped optimizer's best rows and calibrates the proof target:
+This gives a limiting explanation of the grouped optimizer's best rows and calibrates the proof target:
 
-1. Any universal theorem with constant `c > 1/2` is impossible.
-2. The possible sharp constant, if the full lemma is true, is `c = 1/2` with a non-attained boundary or plateau convention.
+1. A standard finite-approximation argument from this boundary should rule out any universal theorem with constant `c > 1/2`; that argument still needs to be written if sharpness matters.
+2. The likely sharp ceiling, if the full lemma is true, is `c = 1/2` with a non-attained boundary or plateau convention.
 3. The proof needed for the hub lane should use a deliberately nonsharp constant such as `c = 1/4`.
 
 Details are in:

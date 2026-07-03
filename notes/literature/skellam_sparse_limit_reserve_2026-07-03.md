@@ -3,7 +3,7 @@ Date: 2026-07-03
 
 ## Purpose
 
-The grouped Poisson-binomial optimizer found hardest rows with many probabilities near `0` and some probabilities near `1`. This note identifies the limiting local model for that shape and calibrates the best possible constant in the variance-reserve lemma.
+The grouped Poisson-binomial optimizer found hardest rows with many probabilities near `0` and some probabilities near `1`. This note identifies the limiting local model for that shape and calibrates a limiting upper bound on any universal constant in the variance-reserve lemma.
 
 ## Limiting Model
 
@@ -32,7 +32,7 @@ The variance tends
 V = lambda + eta.
 ```
 
-This is the two-sided sparse boundary of the Poisson-binomial problem. It is exactly the shape seen in the grouped optimizer: a large deterministic shift, a low-probability success component, and a small low-probability failure component from variables with `p_i` near `1`.
+This is the two-sided sparse boundary of the Poisson-binomial problem. It matches the apparent shape seen in the grouped optimizer: a large deterministic shift, a low-probability success component, and a small low-probability failure component from variables with `p_i` near `1`.
 
 ## Probe
 
@@ -75,7 +75,7 @@ The near-sharp `V=1` boundary is:
 
 ## Consequence
 
-This kills any hope for a universal constant larger than `1/2` in the variance-reserve lemma. In the limit
+This gives a limiting obstruction to any universal constant larger than `1/2` in the variance-reserve lemma. In the limit
 
 ```text
 lambda = 1 - eta,
@@ -89,7 +89,9 @@ the first strict descent occurs at `1`, the post-descent pressure tends to `1/2`
 V * reserve -> 1/2.
 ```
 
-The homogeneous Poisson endpoint `lambda=1, eta=0` has a plateau at `0,1`, so its first strict descent moves to `2` and gives `V * reserve = 2/3`. The near-deterministic failure component breaks that plateau and exposes the true sharp boundary. This explains why the finite grouped optimizer found best values just above `0.5`.
+The homogeneous Poisson endpoint `lambda=1, eta=0` has a plateau at `0,1`, so its first strict descent moves to `2` and gives `V * reserve = 2/3`. The near-deterministic failure component breaks that plateau and exposes the limiting boundary approached by the grouped optimizer. This is consistent with why the finite grouped optimizer found best values just above `0.5`.
+
+To turn this from calibration into a formal upper-bound proposition, one still has to write the standard finite approximation step: take `N` variables with `p=lambda/N` and `M` variables with `p=1-eta/M`, then pass the fixed local probabilities and adjacent ratios to the limit.
 
 ## Proof Implication
 
@@ -103,6 +105,6 @@ The right theorem target is now:
 >
 > for some absolute `c <= 1/2`.
 
-The conservative working target `c = 1/4` remains appropriate. A sharp theorem, if true, should have constant `1/2` with non-attainment or exceptional plateau handling.
+The conservative working target `c = 1/4` remains appropriate. If the full theorem is true, this boundary suggests that any sharp constant is at most `1/2`; proving sharpness would require a separate argument.
 
 For the hub-bouquet lane, sharpness is unnecessary. It is enough to prove any explicit constant below the sparse-boundary value.

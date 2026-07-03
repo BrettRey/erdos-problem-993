@@ -9,7 +9,7 @@ This records a proved partial case of the variance-reserve lemma from issue #5. 
 0 <= p_i <= 1/2.
 ```
 
-The full grouped-optimizer obstruction is two-sided, because variables with `p_i` near `1` become small failure probabilities after a shift. Still, this lemma gives a real theorem-level foothold: the low-probability half already has the desired `1/V` reserve.
+The apparent grouped-optimizer obstruction is two-sided, because variables with `p_i` near `1` become small failure probabilities after a shift. Still, this lemma gives a real theorem-level foothold: the low-probability half already has the desired `1/V` reserve.
 
 ## Statement
 
@@ -167,7 +167,7 @@ The Poisson boundary at `V = 1` has `V * reserve = 2/3` in the one-sided endpoin
 
 ## Consequence For Issue #5
 
-This proves the variance-reserve lemma in the low-probability PB case. The remaining hard case is not arbitrary heterogeneity; it is specifically the two-sided shifted law obtained when some variables have `p_i > 1/2`:
+This proves the variance-reserve lemma in the low-probability PB case. After splitting variables with `p_i > 1/2`, the remaining unreduced PB case can be represented as a two-sided shifted law:
 
 ```text
 S = h + X - Y,
