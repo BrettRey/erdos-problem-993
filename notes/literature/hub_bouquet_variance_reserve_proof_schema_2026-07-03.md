@@ -139,6 +139,46 @@ For fixed or controlled arms in `(1+x)^s Q(x)`, `V = s/4 + O(s)` or `s/4 + O(1)`
 
 The natural first constant to try is not large. The data suggest `V * reserve` often lies between `1` and `2` in the hard range, so even `c = 1/4` would be a useful theorem.
 
+## Binomial Base Case: Proved
+
+The homogeneous case is now closed in
+
+```text
+notes/literature/binomial_variance_reserve_lemma_2026-07-03.md
+```
+
+For `b_k = binom(n,k)p^k(1-p)^{n-k}`, with variance `V=np(1-p)`, let `D` be the first strict descent and assume `D<n`. Then
+
+```text
+V * (1 - b_{D+1}/b_D) >= V/(V+3).
+```
+
+In particular, if `V >= 1`,
+
+```text
+b_{D+1}/b_D <= 1 - 1/(4V).
+```
+
+The proof is exact. Writing `a=(n+1)p`, `D=floor(a)+1`, and `theta=D-a`, one has
+
+```text
+1 - b_{D+1}/b_D = (theta+1)/((D+1)(1-p)),
+V * (1 - b_{D+1}/b_D) = np(theta+1)/(D+1).
+```
+
+The lower bound follows from `theta+1 >= 1`, `D+1 <= np+3`, and `V <= np`.
+
+I also added an exact rational checker:
+
+```bash
+python3 scripts/verify_binomial_variance_reserve.py \
+  --max-n 200 \
+  --max-den 100 \
+  --out results/binomial_variance_reserve_check_2026-07-03.json
+```
+
+It checked 949,721 rational parameter rows with zero failures. The smallest sampled `V * reserve` among rows with `V >= 1` was about `0.561`, so the theorem's `1/4` constant is conservative.
+
 ## General Poisson-Binomial Falsification Probe
 
 I added a separate falsification probe for the candidate lemma:
