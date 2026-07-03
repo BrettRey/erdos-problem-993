@@ -326,6 +326,14 @@ notes/literature/poisson_effective_ratio_drop_boundary_2026-07-03.md
 
 This is a limiting calculation for the sufficient diagnostic, not a theorem for the full signed Poisson-binomial problem.
 
+The one-sided finite PB reduction is separated out in:
+
+```text
+notes/literature/one_sided_effective_drop_reduction_2026-07-03.md
+```
+
+There, Newton reduces the one-sided `1/4` effective-drop target to the sufficient localization `D+1 <= 4V`. A probe found zero failures of that localization on the current one-sided corpus, but the localization itself remains unproved.
+
 ## Immediate Lemma Targets
 
 1. **Conditional-index localization.** At the first signed descent `D`, bound the relevant conditional index, for example `E_{\pi_D}[D+Y]`, by `O(Var X + Var Y)`. The current empirical target is a constant around `4`, not `3`.

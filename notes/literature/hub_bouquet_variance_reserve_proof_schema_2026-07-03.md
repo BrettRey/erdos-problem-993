@@ -477,6 +477,14 @@ notes/literature/poisson_effective_ratio_drop_boundary_2026-07-03.md
 
 For `Pois(1)`, the effective-drop constant is exactly `1/3`. Thus the observed `0.336426` is not surprising and should be read as a limiting-boundary calibration for this sufficient diagnostic, not as evidence of a robust larger margin.
 
+The one-sided finite PB reduction is now recorded in:
+
+```text
+notes/literature/one_sided_effective_drop_reduction_2026-07-03.md
+```
+
+Newton gives `Delta_eff >= 1/(D+1)`, so a sufficient one-sided route is the localization `D+1 <= 4V`. The current one-sided probe found zero failures of both `Delta_eff >= 1/(4V)` and `D+1 <= 4V`, but this is still only evidence for the localization target, not a proof.
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is
