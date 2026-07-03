@@ -405,6 +405,20 @@ raises the best observed `V * reserve` at the `V >= 1` cutoff:
 
 This points to a two-regime proof: treat the nearly one-sided case by perturbing the one-sided low-probability theorem, and treat the genuinely two-sided case by a stronger smoothing/local-ratio inequality.
 
+The exact algebraic handle for that split is recorded in:
+
+```text
+notes/literature/signed_pb_conditional_ratio_identity_2026-07-03.md
+```
+
+For `c_z = P(X-Y=z)`, it writes
+
+```text
+c_{z+1}/c_z = E[ a_{z+1+Y}/a_{z+Y} | X-Y=z ],
+```
+
+and also gives the reflected `Y`-side identity. This avoids the artificial index introduced by multiplying the Laurent polynomial by a large power of `x`.
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is
