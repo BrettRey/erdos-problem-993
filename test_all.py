@@ -5,6 +5,7 @@ import importlib.util
 import io
 import os
 import shutil
+import sys
 import tempfile
 import unittest
 
@@ -32,6 +33,20 @@ if _LC_BREAKER_SPEC is None or _LC_BREAKER_SPEC.loader is None:
     raise RuntimeError("Unable to load scripts/lc_breaker_optimizer.py")
 lc_breaker_optimizer = importlib.util.module_from_spec(_LC_BREAKER_SPEC)
 _LC_BREAKER_SPEC.loader.exec_module(lc_breaker_optimizer)
+
+_ANALYZE_CORPUS_SPEC = importlib.util.spec_from_file_location(
+    "analyze_prufer_corpus",
+    os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "scripts",
+        "analyze_prufer_corpus.py",
+    ),
+)
+if _ANALYZE_CORPUS_SPEC is None or _ANALYZE_CORPUS_SPEC.loader is None:
+    raise RuntimeError("Unable to load scripts/analyze_prufer_corpus.py")
+analyze_prufer_corpus = importlib.util.module_from_spec(_ANALYZE_CORPUS_SPEC)
+sys.modules[_ANALYZE_CORPUS_SPEC.name] = analyze_prufer_corpus
+_ANALYZE_CORPUS_SPEC.loader.exec_module(analyze_prufer_corpus)
 
 
 class TestGraph6(unittest.TestCase):
@@ -70,6 +85,45 @@ class TestGraph6(unittest.TestCase):
     def test_trailing_newline(self):
         n, adj = parse_graph6(b"@\n")
         self.assertEqual(n, 1)
+
+
+class TestAnalyzeCorpusHarness(unittest.TestCase):
+    """Focused checks for adversarial corpus and family harness helpers."""
+
+    def test_graph6_encoder_long_order_roundtrip(self):
+        adj = [[] for _ in range(63)]
+        encoded = analyze_prufer_corpus.graph6_from_adj(adj)
+        n, parsed = parse_graph6(encoded.encode("ascii"))
+        self.assertEqual(n, 63)
+        self.assertEqual(parsed, adj)
+
+    def test_galvin_generator_order_and_alpha(self):
+        adj = analyze_prufer_corpus.make_galvin_tree(4, 3)
+        poly = independence_poly(len(adj), adj)
+        self.assertEqual(len(adj), 29)
+        self.assertEqual(len(poly) - 1, 16)
+
+    def test_bautista_ramos_figure_example(self):
+        adj = analyze_prufer_corpus.make_bautista_ramos_tree(2, 5)
+        poly = independence_poly(len(adj), adj)
+        defects = {defect["k"] for defect in analyze_prufer_corpus.lc_defects(poly)}
+        self.assertEqual(len(adj), 70)
+        self.assertEqual(len(poly) - 1, 37)
+        self.assertEqual(defects, {34, 36})
+        self.assertTrue(is_unimodal(poly))
+
+    def test_li_kadrawi_levit_witnesses(self):
+        cases = [
+            (analyze_prufer_corpus.make_li_tree(4, 4, starred=False), 14),
+            (analyze_prufer_corpus.make_li_tree(3, 4, starred=True), 14),
+        ]
+        for adj, alpha in cases:
+            poly = independence_poly(len(adj), adj)
+            defects = {defect["k"] for defect in analyze_prufer_corpus.lc_defects(poly)}
+            self.assertEqual(len(adj), 26)
+            self.assertEqual(len(poly) - 1, alpha)
+            self.assertEqual(defects, {13})
+            self.assertTrue(is_unimodal(poly))
 
 
 class TestIndependencePoly(unittest.TestCase):

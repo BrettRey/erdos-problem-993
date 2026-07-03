@@ -1,0 +1,573 @@
+{
+  "all_epochs_non_unimodal_total": 0,
+  "epoch_count": 11,
+  "processed_per_epoch": [
+    50000,
+    50000,
+    50000,
+    50000,
+    50000,
+    50000,
+    50000,
+    50000,
+    50000,
+    50000,
+    50000
+  ],
+  "source": {
+    "command_template": "python3 scripts/analyze_prufer_corpus.py /tmp/erdos993-ramos-sun/60_vertex_output/search_output_${epoch}.txt --limit 0 --target-k 30 --canonicalize --out results/ramos_sun_60_epoch${epoch}_summary.json",
+    "corpus_root": "/tmp/erdos993-ramos-sun/60_vertex_output",
+    "description": "Aggregate of exact recomputation summaries for Ramos-Sun 60-vertex PatternBoost top-50000 epoch files.",
+    "script": "scripts/analyze_prufer_corpus.py"
+  },
+  "takeaways": {
+    "max_lc_ratio_by_epoch": [
+      1.29827176778651,
+      2.460325097593762,
+      3.3106585411016347,
+      3.3106585411016347,
+      3.3358165094122856,
+      3.3358165094122856,
+      3.3358165094122856,
+      3.3358165094122856,
+      3.3358165094122856,
+      3.3358165094122856,
+      3.3358165094122856
+    ],
+    "max_near_miss_by_epoch": [
+      0.8764440260284707,
+      0.8492379210541141,
+      0.848627544742322,
+      0.8493861559973486,
+      0.8493861559973486,
+      0.8493861559973486,
+      0.8493861559973486,
+      0.8493861559973486,
+      0.8493940107104357,
+      0.8493940107104357,
+      0.8493940107104357
+    ],
+    "non_lc_growth": [
+      1,
+      282,
+      6222,
+      20033,
+      24163,
+      27281,
+      30345,
+      32708,
+      34953,
+      37688,
+      39766
+    ],
+    "unique_canonical_by_epoch": [
+      50000,
+      50000,
+      49683,
+      38342,
+      29393,
+      32178,
+      32435,
+      37787,
+      39338,
+      38421,
+      43595
+    ]
+  },
+  "total_rows_processed": 550000,
+  "trend": [
+    {
+      "alpha_hist": {
+        "30": 456,
+        "31": 6812,
+        "32": 16758,
+        "33": 15853,
+        "34": 7628,
+        "35": 2119,
+        "36": 341,
+        "37": 30,
+        "38": 3
+      },
+      "d_leaf_le1": 9571,
+      "degree2_adjacent_leaf_mean": 9.45232,
+      "degree2_mean": 29.40532,
+      "epoch": 1,
+      "first_descent_hist": {
+        "18": 4164,
+        "19": 45512,
+        "20": 324
+      },
+      "lc_defect_count_hist": {
+        "0": 49999,
+        "1": 1
+      },
+      "lc_position_hist": {
+        "30": 1
+      },
+      "lc_ratio_max": 1.29827176778651,
+      "lc_ratio_mean": 0.8615509022597281,
+      "lc_ratio_median": 0.8609898952654227,
+      "leaves_mean": 17.03382,
+      "mode_first_hist": {
+        "17": 4164,
+        "18": 45512,
+        "19": 324
+      },
+      "mode_minus_mu_mean": 0.17653911615485846,
+      "mu_mean": 17.74666088384514,
+      "multi_leaf_hub": 40429,
+      "near_miss_ratio_max": 0.8764440260284707,
+      "near_miss_ratio_mean": 0.7775987374503062,
+      "near_miss_ratio_median": 0.7722235532762286,
+      "non_log_concave": 1,
+      "non_log_concave_fraction": 2e-05,
+      "non_unimodal": 0,
+      "positive_target_score": 1,
+      "processed": 50000,
+      "summary_path": "results/ramos_sun_60_epoch01_summary.json",
+      "unique_canonical_fraction": 1.0,
+      "unique_canonical_graph6": 50000
+    },
+    {
+      "alpha_hist": {
+        "30": 11497,
+        "31": 34804,
+        "32": 3698,
+        "33": 1
+      },
+      "d_leaf_le1": 39577,
+      "degree2_adjacent_leaf_mean": 10.466,
+      "degree2_mean": 38.3145,
+      "epoch": 2,
+      "first_descent_hist": {
+        "18": 47780,
+        "19": 2220
+      },
+      "lc_defect_count_hist": {
+        "0": 49718,
+        "1": 282
+      },
+      "lc_position_hist": {
+        "30": 282
+      },
+      "lc_ratio_max": 2.460325097593762,
+      "lc_ratio_mean": 0.8565968865250679,
+      "lc_ratio_median": 0.854411847899117,
+      "leaves_mean": 12.16934,
+      "mode_first_hist": {
+        "17": 47780,
+        "18": 2220
+      },
+      "mode_minus_mu_mean": -0.21675786428449853,
+      "mu_mean": 17.2611578642845,
+      "multi_leaf_hub": 10423,
+      "near_miss_ratio_max": 0.8492379210541141,
+      "near_miss_ratio_mean": 0.8169959968869012,
+      "near_miss_ratio_median": 0.8220565667718186,
+      "non_log_concave": 282,
+      "non_log_concave_fraction": 0.00564,
+      "non_unimodal": 0,
+      "positive_target_score": 282,
+      "processed": 50000,
+      "summary_path": "results/ramos_sun_60_epoch02_summary.json",
+      "unique_canonical_fraction": 1.0,
+      "unique_canonical_graph6": 50000
+    },
+    {
+      "alpha_hist": {
+        "30": 35615,
+        "31": 14383,
+        "32": 2
+      },
+      "d_leaf_le1": 49981,
+      "degree2_adjacent_leaf_mean": 9.08124,
+      "degree2_mean": 43.68742,
+      "epoch": 3,
+      "first_descent_hist": {
+        "18": 47256,
+        "19": 2744
+      },
+      "lc_defect_count_hist": {
+        "0": 43778,
+        "1": 6222
+      },
+      "lc_position_hist": {
+        "30": 6222
+      },
+      "lc_ratio_max": 3.3106585411016347,
+      "lc_ratio_mean": 0.9035735220230698,
+      "lc_ratio_median": 0.8519966495626194,
+      "leaves_mean": 9.47636,
+      "mode_first_hist": {
+        "17": 47256,
+        "18": 2744
+      },
+      "mode_minus_mu_mean": -0.061037531486656374,
+      "mu_mean": 17.115917531486655,
+      "multi_leaf_hub": 19,
+      "near_miss_ratio_max": 0.848627544742322,
+      "near_miss_ratio_mean": 0.7916461444314481,
+      "near_miss_ratio_median": 0.7927635395814865,
+      "non_log_concave": 6222,
+      "non_log_concave_fraction": 0.12444,
+      "non_unimodal": 0,
+      "positive_target_score": 6222,
+      "processed": 50000,
+      "summary_path": "results/ramos_sun_60_epoch03_summary.json",
+      "unique_canonical_fraction": 0.99366,
+      "unique_canonical_graph6": 49683
+    },
+    {
+      "alpha_hist": {
+        "30": 28867,
+        "31": 21131,
+        "32": 2
+      },
+      "d_leaf_le1": 49998,
+      "degree2_adjacent_leaf_mean": 8.07486,
+      "degree2_mean": 44.99242,
+      "epoch": 4,
+      "first_descent_hist": {
+        "18": 39858,
+        "19": 10142
+      },
+      "lc_defect_count_hist": {
+        "0": 29967,
+        "1": 20033
+      },
+      "lc_position_hist": {
+        "30": 20033
+      },
+      "lc_ratio_max": 3.3106585411016347,
+      "lc_ratio_mean": 1.021066652084799,
+      "lc_ratio_median": 0.850496016348612,
+      "leaves_mean": 8.99544,
+      "mode_first_hist": {
+        "17": 39858,
+        "18": 10142
+      },
+      "mode_minus_mu_mean": 0.08933416005962014,
+      "mu_mean": 17.11350583994038,
+      "multi_leaf_hub": 2,
+      "near_miss_ratio_max": 0.8493861559973486,
+      "near_miss_ratio_mean": 0.77080170608882,
+      "near_miss_ratio_median": 0.7643270227379206,
+      "non_log_concave": 20033,
+      "non_log_concave_fraction": 0.40066,
+      "non_unimodal": 0,
+      "positive_target_score": 20033,
+      "processed": 50000,
+      "summary_path": "results/ramos_sun_60_epoch04_summary.json",
+      "unique_canonical_fraction": 0.76684,
+      "unique_canonical_graph6": 38342
+    },
+    {
+      "alpha_hist": {
+        "30": 25582,
+        "31": 24416,
+        "32": 2
+      },
+      "d_leaf_le1": 49998,
+      "degree2_adjacent_leaf_mean": 7.78088,
+      "degree2_mean": 45.32036,
+      "epoch": 5,
+      "first_descent_hist": {
+        "18": 38326,
+        "19": 11674
+      },
+      "lc_defect_count_hist": {
+        "0": 25837,
+        "1": 24163
+      },
+      "lc_position_hist": {
+        "30": 24163
+      },
+      "lc_ratio_max": 3.3358165094122856,
+      "lc_ratio_mean": 1.0530517778420452,
+      "lc_ratio_median": 0.8499447893315806,
+      "leaves_mean": 8.86564,
+      "mode_first_hist": {
+        "17": 38326,
+        "18": 11674
+      },
+      "mode_minus_mu_mean": 0.12441325096752771,
+      "mu_mean": 17.109066749032472,
+      "multi_leaf_hub": 2,
+      "near_miss_ratio_max": 0.8493861559973486,
+      "near_miss_ratio_mean": 0.7656797001165737,
+      "near_miss_ratio_median": 0.7507240142802825,
+      "non_log_concave": 24163,
+      "non_log_concave_fraction": 0.48326,
+      "non_unimodal": 0,
+      "positive_target_score": 24163,
+      "processed": 50000,
+      "summary_path": "results/ramos_sun_60_epoch05_summary.json",
+      "unique_canonical_fraction": 0.58786,
+      "unique_canonical_graph6": 29393
+    },
+    {
+      "alpha_hist": {
+        "30": 22454,
+        "31": 27544,
+        "32": 2
+      },
+      "d_leaf_le1": 49998,
+      "degree2_adjacent_leaf_mean": 8.18258,
+      "degree2_mean": 44.41738,
+      "epoch": 6,
+      "first_descent_hist": {
+        "18": 37756,
+        "19": 12244
+      },
+      "lc_defect_count_hist": {
+        "0": 22719,
+        "1": 27281
+      },
+      "lc_position_hist": {
+        "30": 27281
+      },
+      "lc_ratio_max": 3.3358165094122856,
+      "lc_ratio_mean": 1.0773383843306796,
+      "lc_ratio_median": 1.0524885961409498,
+      "leaves_mean": 9.35632,
+      "mode_first_hist": {
+        "17": 37756,
+        "18": 12244
+      },
+      "mode_minus_mu_mean": 0.10797434667512483,
+      "mu_mean": 17.136905653324874,
+      "multi_leaf_hub": 2,
+      "near_miss_ratio_max": 0.8493861559973486,
+      "near_miss_ratio_mean": 0.7688227096269593,
+      "near_miss_ratio_median": 0.7524975431842875,
+      "non_log_concave": 27281,
+      "non_log_concave_fraction": 0.54562,
+      "non_unimodal": 0,
+      "positive_target_score": 27281,
+      "processed": 50000,
+      "summary_path": "results/ramos_sun_60_epoch06_summary.json",
+      "unique_canonical_fraction": 0.64356,
+      "unique_canonical_graph6": 32178
+    },
+    {
+      "alpha_hist": {
+        "30": 19510,
+        "31": 30488,
+        "32": 2
+      },
+      "d_leaf_le1": 49998,
+      "degree2_adjacent_leaf_mean": 8.50472,
+      "degree2_mean": 43.66942,
+      "epoch": 7,
+      "first_descent_hist": {
+        "18": 37210,
+        "19": 12790
+      },
+      "lc_defect_count_hist": {
+        "0": 19655,
+        "1": 30345
+      },
+      "lc_position_hist": {
+        "30": 30345
+      },
+      "lc_ratio_max": 3.3358165094122856,
+      "lc_ratio_mean": 1.1009975302605115,
+      "lc_ratio_median": 1.0890614603166613,
+      "leaves_mean": 9.76856,
+      "mode_first_hist": {
+        "17": 37210,
+        "18": 12790
+      },
+      "mode_minus_mu_mean": 0.09554317202528977,
+      "mu_mean": 17.16025682797471,
+      "multi_leaf_hub": 2,
+      "near_miss_ratio_max": 0.8493861559973486,
+      "near_miss_ratio_mean": 0.7712505599853011,
+      "near_miss_ratio_median": 0.7516483506854768,
+      "non_log_concave": 30345,
+      "non_log_concave_fraction": 0.6069,
+      "non_unimodal": 0,
+      "positive_target_score": 30345,
+      "processed": 50000,
+      "summary_path": "results/ramos_sun_60_epoch07_summary.json",
+      "unique_canonical_fraction": 0.6487,
+      "unique_canonical_graph6": 32435
+    },
+    {
+      "alpha_hist": {
+        "30": 17066,
+        "31": 32932,
+        "32": 2
+      },
+      "d_leaf_le1": 49998,
+      "degree2_adjacent_leaf_mean": 8.942,
+      "degree2_mean": 42.72686,
+      "epoch": 8,
+      "first_descent_hist": {
+        "18": 36803,
+        "19": 13197
+      },
+      "lc_defect_count_hist": {
+        "0": 17292,
+        "1": 32708
+      },
+      "lc_position_hist": {
+        "30": 32708
+      },
+      "lc_ratio_max": 3.3358165094122856,
+      "lc_ratio_mean": 1.1191782442181009,
+      "lc_ratio_median": 1.108939625107471,
+      "leaves_mean": 10.27376,
+      "mode_first_hist": {
+        "17": 36803,
+        "18": 13197
+      },
+      "mode_minus_mu_mean": 0.07544370686097011,
+      "mu_mean": 17.18849629313903,
+      "multi_leaf_hub": 2,
+      "near_miss_ratio_max": 0.8493861559973486,
+      "near_miss_ratio_mean": 0.7749382581409345,
+      "near_miss_ratio_median": 0.7587971680218781,
+      "non_log_concave": 32708,
+      "non_log_concave_fraction": 0.65416,
+      "non_unimodal": 0,
+      "positive_target_score": 32708,
+      "processed": 50000,
+      "summary_path": "results/ramos_sun_60_epoch08_summary.json",
+      "unique_canonical_fraction": 0.75574,
+      "unique_canonical_graph6": 37787
+    },
+    {
+      "alpha_hist": {
+        "30": 14854,
+        "31": 35144,
+        "32": 2
+      },
+      "d_leaf_le1": 49998,
+      "degree2_adjacent_leaf_mean": 9.24438,
+      "degree2_mean": 42.0503,
+      "epoch": 9,
+      "first_descent_hist": {
+        "18": 36307,
+        "19": 13693
+      },
+      "lc_defect_count_hist": {
+        "0": 15047,
+        "1": 34953
+      },
+      "lc_position_hist": {
+        "30": 34953
+      },
+      "lc_ratio_max": 3.3358165094122856,
+      "lc_ratio_mean": 1.136472687065077,
+      "lc_ratio_median": 1.1257937717857507,
+      "leaves_mean": 10.6435,
+      "mode_first_hist": {
+        "17": 36307,
+        "18": 13693
+      },
+      "mode_minus_mu_mean": 0.06456882111928867,
+      "mu_mean": 17.20929117888071,
+      "multi_leaf_hub": 2,
+      "near_miss_ratio_max": 0.8493940107104357,
+      "near_miss_ratio_mean": 0.777091285577131,
+      "near_miss_ratio_median": 0.7608924407436765,
+      "non_log_concave": 34953,
+      "non_log_concave_fraction": 0.69906,
+      "non_unimodal": 0,
+      "positive_target_score": 34953,
+      "processed": 50000,
+      "summary_path": "results/ramos_sun_60_epoch09_summary.json",
+      "unique_canonical_fraction": 0.78676,
+      "unique_canonical_graph6": 39338
+    },
+    {
+      "alpha_hist": {
+        "30": 12222,
+        "31": 37776,
+        "32": 2
+      },
+      "d_leaf_le1": 49998,
+      "degree2_adjacent_leaf_mean": 9.50482,
+      "degree2_mean": 41.44296,
+      "epoch": 10,
+      "first_descent_hist": {
+        "18": 35823,
+        "19": 14177
+      },
+      "lc_defect_count_hist": {
+        "0": 12312,
+        "1": 37688
+      },
+      "lc_position_hist": {
+        "30": 37688
+      },
+      "lc_ratio_max": 3.3358165094122856,
+      "lc_ratio_mean": 1.1573393930848492,
+      "lc_ratio_median": 1.141491988632386,
+      "leaves_mean": 10.98144,
+      "mode_first_hist": {
+        "17": 35823,
+        "18": 14177
+      },
+      "mode_minus_mu_mean": 0.05510535103949259,
+      "mu_mean": 17.22843464896051,
+      "multi_leaf_hub": 2,
+      "near_miss_ratio_max": 0.8493940107104357,
+      "near_miss_ratio_mean": 0.7789714786079032,
+      "near_miss_ratio_median": 0.7609991350525285,
+      "non_log_concave": 37688,
+      "non_log_concave_fraction": 0.75376,
+      "non_unimodal": 0,
+      "positive_target_score": 37688,
+      "processed": 50000,
+      "summary_path": "results/ramos_sun_60_epoch10_summary.json",
+      "unique_canonical_fraction": 0.76842,
+      "unique_canonical_graph6": 38421
+    },
+    {
+      "alpha_hist": {
+        "30": 10019,
+        "31": 39979,
+        "32": 2
+      },
+      "d_leaf_le1": 49998,
+      "degree2_adjacent_leaf_mean": 9.9253,
+      "degree2_mean": 40.54798,
+      "epoch": 11,
+      "first_descent_hist": {
+        "18": 35445,
+        "19": 14555
+      },
+      "lc_defect_count_hist": {
+        "0": 10234,
+        "1": 39766
+      },
+      "lc_position_hist": {
+        "30": 39766
+      },
+      "lc_ratio_max": 3.3358165094122856,
+      "lc_ratio_mean": 1.1738160226460745,
+      "lc_ratio_median": 1.1527081387498668,
+      "leaves_mean": 11.45952,
+      "mode_first_hist": {
+        "17": 35445,
+        "18": 14555
+      },
+      "mode_minus_mu_mean": 0.036084739646649815,
+      "mu_mean": 17.25501526035335,
+      "multi_leaf_hub": 2,
+      "near_miss_ratio_max": 0.8493940107104357,
+      "near_miss_ratio_mean": 0.78246103919378,
+      "near_miss_ratio_median": 0.7869380882027461,
+      "non_log_concave": 39766,
+      "non_log_concave_fraction": 0.79532,
+      "non_unimodal": 0,
+      "positive_target_score": 39766,
+      "processed": 50000,
+      "summary_path": "results/ramos_sun_60_epoch11_summary.json",
+      "unique_canonical_fraction": 0.8719,
+      "unique_canonical_graph6": 43595
+    }
+  ]
+}
