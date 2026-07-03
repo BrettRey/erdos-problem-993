@@ -1,0 +1,691 @@
+{
+  "best_by_s": [
+    {
+      "alpha": 5097,
+      "crossing_pos": 2554,
+      "crossing_pressure": 0.9992098719189995,
+      "crossing_reserve": 0.0007901280810005209,
+      "family": "broom",
+      "first_descent": 2554,
+      "first_upward_pos": null,
+      "label": "broom(194,5000)",
+      "n": 5194,
+      "n_times_reserve": 4.103925252716706,
+      "params": {
+        "arms": [
+          193
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 3.9506404050026047
+    }
+  ],
+  "counts": {
+    "broom_rows": 240,
+    "multiarm_star_rows": 0,
+    "post_descent_upward_rows": 0
+  },
+  "numeric": {
+    "max_crossing_pressure": 0.9992098719189995,
+    "max_s_times_reserve": 7.990411506192569,
+    "min_crossing_reserve": 0.0007901280810005209,
+    "min_s_times_reserve": 3.9506404050026047
+  },
+  "processed": 240,
+  "source": {
+    "arm_values": [],
+    "broom_arm_values": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149,
+      150,
+      151,
+      152,
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216,
+      217,
+      218,
+      219,
+      220,
+      221,
+      222,
+      223,
+      224,
+      225,
+      226,
+      227,
+      228,
+      229,
+      230,
+      231,
+      232,
+      233,
+      234,
+      235,
+      236,
+      237,
+      238,
+      239,
+      240
+    ],
+    "broom_max_arm": 120,
+    "formula": "(1+x)^s prod I(P_a) + x prod I(P_{a-1})",
+    "kind": "asymptotic_hub_ridge",
+    "max_arms": 3,
+    "s_values": [
+      5000
+    ]
+  },
+  "top_by_crossing_pressure": [
+    {
+      "alpha": 5097,
+      "crossing_pos": 2554,
+      "crossing_pressure": 0.9992098719189995,
+      "crossing_reserve": 0.0007901280810005209,
+      "family": "broom",
+      "first_descent": 2554,
+      "first_upward_pos": null,
+      "label": "broom(194,5000)",
+      "n": 5194,
+      "n_times_reserve": 4.103925252716706,
+      "params": {
+        "arms": [
+          193
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 3.9506404050026047
+    },
+    {
+      "alpha": 5120,
+      "crossing_pos": 2567,
+      "crossing_pressure": 0.9992052591572159,
+      "crossing_reserve": 0.0007947408427840751,
+      "family": "broom",
+      "first_descent": 2567,
+      "first_upward_pos": null,
+      "label": "broom(241,5000)",
+      "n": 5241,
+      "n_times_reserve": 4.165236757031337,
+      "params": {
+        "arms": [
+          240
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 3.9737042139203758
+    },
+    {
+      "alpha": 5059,
+      "crossing_pos": 2533,
+      "crossing_pressure": 0.9992005303423901,
+      "crossing_reserve": 0.0007994696576099609,
+      "family": "broom",
+      "first_descent": 2533,
+      "first_upward_pos": null,
+      "label": "broom(118,5000)",
+      "n": 5118,
+      "n_times_reserve": 4.0916857076477795,
+      "params": {
+        "arms": [
+          117
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 3.997348288049804
+    },
+    {
+      "alpha": 5082,
+      "crossing_pos": 2546,
+      "crossing_pressure": 0.9991959266541868,
+      "crossing_reserve": 0.0008040733458132788,
+      "family": "broom",
+      "first_descent": 2546,
+      "first_upward_pos": null,
+      "label": "broom(165,5000)",
+      "n": 5165,
+      "n_times_reserve": 4.153038831125585,
+      "params": {
+        "arms": [
+          164
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.020366729066394
+    },
+    {
+      "alpha": 5106,
+      "crossing_pos": 2559,
+      "crossing_pressure": 0.9991913517581865,
+      "crossing_reserve": 0.0008086482418134314,
+      "family": "broom",
+      "first_descent": 2559,
+      "first_upward_pos": null,
+      "label": "broom(212,5000)",
+      "n": 5212,
+      "n_times_reserve": 4.214674636331605,
+      "params": {
+        "arms": [
+          211
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.0432412090671574
+    },
+    {
+      "alpha": 5021,
+      "crossing_pos": 2512,
+      "crossing_pressure": 0.9991910830188152,
+      "crossing_reserve": 0.0008089169811848452,
+      "family": "broom",
+      "first_descent": 2512,
+      "first_upward_pos": null,
+      "label": "broom(42,5000)",
+      "n": 5042,
+      "n_times_reserve": 4.07855941913399,
+      "params": {
+        "arms": [
+          41
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.044584905924226
+    },
+    {
+      "alpha": 5044,
+      "crossing_pos": 2525,
+      "crossing_pressure": 0.99918648890095,
+      "crossing_reserve": 0.0008135110990500543,
+      "family": "broom",
+      "first_descent": 2525,
+      "first_upward_pos": null,
+      "label": "broom(89,5000)",
+      "n": 5089,
+      "n_times_reserve": 4.1399579830657265,
+      "params": {
+        "arms": [
+          88
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.0675554952502715
+    },
+    {
+      "alpha": 5068,
+      "crossing_pos": 2538,
+      "crossing_pressure": 0.99918192363822,
+      "crossing_reserve": 0.0008180763617799545,
+      "family": "broom",
+      "first_descent": 2538,
+      "first_upward_pos": null,
+      "label": "broom(136,5000)",
+      "n": 5136,
+      "n_times_reserve": 4.201640194101846,
+      "params": {
+        "arms": [
+          135
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.090381808899772
+    },
+    {
+      "alpha": 5091,
+      "crossing_pos": 2551,
+      "crossing_pressure": 0.9991773869606126,
+      "crossing_reserve": 0.0008226130393873207,
+      "family": "broom",
+      "first_descent": 2551,
+      "first_upward_pos": null,
+      "label": "broom(183,5000)",
+      "n": 5183,
+      "n_times_reserve": 4.263603383144483,
+      "params": {
+        "arms": [
+          182
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.113065196936604
+    },
+    {
+      "alpha": 5006,
+      "crossing_pos": 2504,
+      "crossing_pressure": 0.9991769371316064,
+      "crossing_reserve": 0.0008230628683936731,
+      "family": "broom",
+      "first_descent": 2504,
+      "first_upward_pos": null,
+      "label": "broom(13,5000)",
+      "n": 5013,
+      "n_times_reserve": 4.126014159257483,
+      "params": {
+        "arms": [
+          12
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.115314341968365
+    },
+    {
+      "alpha": 5115,
+      "crossing_pos": 2564,
+      "crossing_pressure": 0.9991728786014596,
+      "crossing_reserve": 0.000827121398540371,
+      "family": "broom",
+      "first_descent": 2564,
+      "first_upward_pos": null,
+      "label": "broom(230,5000)",
+      "n": 5230,
+      "n_times_reserve": 4.32584491436614,
+      "params": {
+        "arms": [
+          229
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.135606992701854
+    },
+    {
+      "alpha": 5030,
+      "crossing_pos": 2517,
+      "crossing_pressure": 0.999172388989861,
+      "crossing_reserve": 0.0008276110101389122,
+      "family": "broom",
+      "first_descent": 2517,
+      "first_upward_pos": null,
+      "label": "broom(60,5000)",
+      "n": 5060,
+      "n_times_reserve": 4.187711711302896,
+      "params": {
+        "arms": [
+          59
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.138055050694561
+    },
+    {
+      "alpha": 5053,
+      "crossing_pos": 2530,
+      "crossing_pressure": 0.9991678625119452,
+      "crossing_reserve": 0.000832137488054794,
+      "family": "broom",
+      "first_descent": 2530,
+      "first_upward_pos": null,
+      "label": "broom(107,5000)",
+      "n": 5107,
+      "n_times_reserve": 4.2497261514958335,
+      "params": {
+        "arms": [
+          106
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.16068744027397
+    },
+    {
+      "alpha": 5077,
+      "crossing_pos": 2543,
+      "crossing_pressure": 0.9991633644087473,
+      "crossing_reserve": 0.0008366355912527284,
+      "family": "broom",
+      "first_descent": 2543,
+      "first_upward_pos": null,
+      "label": "broom(154,5000)",
+      "n": 5154,
+      "n_times_reserve": 4.312019837316562,
+      "params": {
+        "arms": [
+          153
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.183177956263641
+    },
+    {
+      "alpha": 5100,
+      "crossing_pos": 2556,
+      "crossing_pressure": 0.9991588944152909,
+      "crossing_reserve": 0.0008411055847091115,
+      "family": "broom",
+      "first_descent": 2556,
+      "first_upward_pos": null,
+      "label": "broom(201,5000)",
+      "n": 5201,
+      "n_times_reserve": 4.374590146072089,
+      "params": {
+        "arms": [
+          200
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.205527923545557
+    },
+    {
+      "alpha": 5015,
+      "crossing_pos": 2509,
+      "crossing_pressure": 0.9991582302434971,
+      "crossing_reserve": 0.0008417697565028603,
+      "family": "broom",
+      "first_descent": 2509,
+      "first_upward_pos": null,
+      "label": "broom(31,5000)",
+      "n": 5031,
+      "n_times_reserve": 4.23494364496589,
+      "params": {
+        "arms": [
+          30
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.208848782514302
+    },
+    {
+      "alpha": 5039,
+      "crossing_pos": 2522,
+      "crossing_pressure": 0.9991537429132265,
+      "crossing_reserve": 0.0008462570867735203,
+      "family": "broom",
+      "first_descent": 2522,
+      "first_upward_pos": null,
+      "label": "broom(78,5000)",
+      "n": 5078,
+      "n_times_reserve": 4.297293486635937,
+      "params": {
+        "arms": [
+          77
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.231285433867602
+    },
+    {
+      "alpha": 5062,
+      "crossing_pos": 2535,
+      "crossing_pressure": 0.9991492837439002,
+      "crossing_reserve": 0.0008507162560997773,
+      "family": "broom",
+      "first_descent": 2535,
+      "first_upward_pos": null,
+      "label": "broom(125,5000)",
+      "n": 5125,
+      "n_times_reserve": 4.359920812511359,
+      "params": {
+        "arms": [
+          124
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.253581280498887
+    },
+    {
+      "alpha": 5086,
+      "crossing_pos": 2548,
+      "crossing_pressure": 0.9991448524722761,
+      "crossing_reserve": 0.0008551475277238283,
+      "family": "broom",
+      "first_descent": 2548,
+      "first_upward_pos": null,
+      "label": "broom(172,5000)",
+      "n": 5172,
+      "n_times_reserve": 4.4228230133876405,
+      "params": {
+        "arms": [
+          171
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.275737638619142
+    },
+    {
+      "alpha": 5109,
+      "crossing_pos": 2561,
+      "crossing_pressure": 0.9991404488383682,
+      "crossing_reserve": 0.0008595511616318285,
+      "family": "broom",
+      "first_descent": 2561,
+      "first_upward_pos": null,
+      "label": "broom(219,5000)",
+      "n": 5219,
+      "n_times_reserve": 4.485997512556513,
+      "params": {
+        "arms": [
+          218
+        ],
+        "s": 5000
+      },
+      "post_descent_upward_count": 0,
+      "s_times_reserve": 4.297755808159143
+    }
+  ],
+  "tracked_M_s_2_3_6": []
+}

@@ -168,7 +168,21 @@ Finally, I added a direct beam search over hard-component products. This search 
 
 I then tested the first proposed proof mechanism for the separation lemma: at each post-descent LC bump, set `lambda = a_k/a_{k+1}` so sizes `k` and `k+1` tie, then compute `mu(lambda)-k`. This falsified the broad tie-fugacity mechanism. Across the same 3,050 product rows, there were 8,777 post-descent LC-bump events, 6,590 had negative `mu(lambda)-k`, and the minimum was `-3.8776208619` at Bautista--Ramos `TG_{8,8}`. There were still 0 post-descent upward-transition events. So the ratio separation survives, but the mean/tie route cannot be applied to all LC bumps. It can only be considered for actual upward crossings, which remain absent in the stress set.
 
-Compact audit artifacts: `results/stress_invariant_audit_2026-07-03.json`, `results/forest_product_stress_audit_2026-07-03.json`, `results/ratio_profile_power_audit_2026-07-03.json`, `results/product_ratio_beam_search_2026-07-03.json`, and `results/tie_fugacity_bump_audit_2026-07-03.json`.
+I then attacked actual upward crossings directly. The evolutionary optimizer `scripts/crossing_pressure_optimizer.py` maximizes the largest ratio `a_{j+1}/a_j` after the first descent. In a bounded run over `n = 60, 100, 140, 180`, it found no strict crossing and no non-unimodal tree; the best pressure was `0.9770457694` at `n = 180`, on a broom-like two-branch tree. A deterministic scan of brooms and multi-arm stars, `scripts/scan_crossing_families.py`, was sharper: over 5,870 rows with `50 <= n <= 500`, it again found 0 post-descent upward transitions and 0 non-unimodal rows, while the best pressure rose to `0.9917502654` at `M(488;2,3,6)`. The older broom ridge `broom(33,467)` was second at `0.9916957223`.
+
+Interpretation: the crossing-only invariant is still alive, but the hardest known positive examples are not the published non-LC families. They are high-leaf hub families very close to a post-mode plateau. This points back toward the PNP hub lane: prove an explicit reserve for broom-like and finite-arm hub bouquets, then generalize the reserve through hub decomposition or transfer.
+
+The next scan used the exact hub-bouquet formula
+
+```text
+(1+x)^s prod I(P_a) + x prod I(P_{a-1})
+```
+
+to test the asymptotic ridge. Across 1,980 exact hub-bouquet rows with `s` up to 5,000, there were again 0 post-descent upward transitions. The bounded mixed scan found pressure `0.9992005303` at `broom(118,5000)`, and a focused broom scan over arms `1..240` improved this to `0.9992098719` at `broom(194,5000)`. The observed reserve is about `4/s`; for example `broom(194,5000)` has `s * (1-pressure) = 3.9506404050`. `M(5000;2,3,6)` remains close, with `s * reserve = 4.0883573287`, but it is not the asymptotic leader in the checked range.
+
+This is now the most concrete proof path from the computational side: derive a coefficient-ratio reserve for `(1+x)^s Q(x)` after first descent, first for fixed path-product `Q`, then for controlled hub decompositions. That would give the crossing-only invariant exactly where the current searches place the hardest cases.
+
+Compact audit artifacts: `results/stress_invariant_audit_2026-07-03.json`, `results/forest_product_stress_audit_2026-07-03.json`, `results/ratio_profile_power_audit_2026-07-03.json`, `results/product_ratio_beam_search_2026-07-03.json`, `results/tie_fugacity_bump_audit_2026-07-03.json`, `results/crossing_pressure_optimizer_2026-07-03.json`, `results/crossing_family_scan_2026-07-03.json`, `results/asymptotic_hub_ridge_2026-07-03.json`, and `results/asymptotic_broom_ridge_2026-07-03.json`.
 
 ## Li--Li--Yang--Zhang 2025
 Source: Ethan Y. H. Li, Grace M. X. Li, Arthur L. B. Yang, Zhong-Xue Zhang, "A symmetric function approach to log-concavity of independence polynomials," arXiv:2501.04245v1, 2025.

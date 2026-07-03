@@ -1,0 +1,968 @@
+{
+  "counts": {
+    "broom_rows": 3570,
+    "multiarm_star_rows": 2300,
+    "non_log_concave": 0,
+    "non_unimodal": 0,
+    "post_descent_upward_rows": 0
+  },
+  "numeric": {
+    "crossing_pressure": {
+      "max": 0.991750265410068,
+      "mean": 0.9644139595309189,
+      "median": 0.9768909112933861,
+      "min": 0.6920481255448997
+    },
+    "crossing_reserve": {
+      "max": 0.3079518744551003,
+      "mean": 0.03558604046908114,
+      "median": 0.023118921164764772,
+      "min": 0.008249734589931945
+    },
+    "lc_ratio": {
+      "max": 0.9920318725099602,
+      "mean": 0.976392557812685,
+      "median": 0.9847328244274809,
+      "min": 0.8203673835125448
+    }
+  },
+  "post_descent_upward_rows": [],
+  "processed": 5870,
+  "source": {
+    "arm_values": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "broom_max_path": 80,
+    "kind": "crossing_family_scan",
+    "max_arms": 3,
+    "max_n": 500,
+    "min_n": 50,
+    "step_n": 10
+  },
+  "top_by_crossing_pressure": [
+    {
+      "alpha": 494,
+      "crossing_pos": 248,
+      "crossing_pressure": 0.991750265410068,
+      "crossing_reserve": 0.008249734589931945,
+      "family": "multiarm_star",
+      "first_descent": 248,
+      "graph6": null,
+      "label": "M(488;2,3,6)",
+      "lc_pos": 247,
+      "lc_ratio": 0.9919356243698063,
+      "log_concave": true,
+      "mode_first": 247,
+      "n": 500,
+      "params": {
+        "arms": [
+          2,
+          3,
+          6
+        ],
+        "s": 488
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 483,
+      "crossing_pos": 243,
+      "crossing_pressure": 0.9916957223198212,
+      "crossing_reserve": 0.008304277680178829,
+      "family": "broom",
+      "first_descent": 243,
+      "graph6": null,
+      "label": "broom(33,467)",
+      "lc_pos": 241,
+      "lc_ratio": 0.9916985126900073,
+      "log_concave": true,
+      "mode_first": 242,
+      "n": 500,
+      "params": {
+        "path_len": 33,
+        "star_size": 467
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 484,
+      "crossing_pos": 243,
+      "crossing_pressure": 0.9915806577125745,
+      "crossing_reserve": 0.008419342287425469,
+      "family": "multiarm_star",
+      "first_descent": 243,
+      "graph6": null,
+      "label": "M(478;2,3,6)",
+      "lc_pos": 242,
+      "lc_ratio": 0.9917696930391237,
+      "log_concave": true,
+      "mode_first": 242,
+      "n": 490,
+      "params": {
+        "arms": [
+          2,
+          3,
+          6
+        ],
+        "s": 478
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 494,
+      "crossing_pos": 248,
+      "crossing_pressure": 0.9915799258599376,
+      "crossing_reserve": 0.008420074140062406,
+      "family": "multiarm_star",
+      "first_descent": 248,
+      "graph6": null,
+      "label": "M(488;2,4,5)",
+      "lc_pos": 247,
+      "lc_ratio": 0.9919332499293643,
+      "log_concave": true,
+      "mode_first": 247,
+      "n": 500,
+      "params": {
+        "arms": [
+          2,
+          4,
+          5
+        ],
+        "s": 488
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 473,
+      "crossing_pos": 238,
+      "crossing_pressure": 0.9915201288058794,
+      "crossing_reserve": 0.008479871194120636,
+      "family": "broom",
+      "first_descent": 238,
+      "graph6": null,
+      "label": "broom(33,457)",
+      "lc_pos": 236,
+      "lc_ratio": 0.991522573616253,
+      "log_concave": true,
+      "mode_first": 237,
+      "n": 490,
+      "params": {
+        "path_len": 33,
+        "star_size": 457
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 479,
+      "crossing_pos": 241,
+      "crossing_pressure": 0.9914964293139772,
+      "crossing_reserve": 0.00850357068602281,
+      "family": "broom",
+      "first_descent": 241,
+      "graph6": null,
+      "label": "broom(42,458)",
+      "lc_pos": 239,
+      "lc_ratio": 0.9915977940363199,
+      "log_concave": true,
+      "mode_first": 240,
+      "n": 500,
+      "params": {
+        "path_len": 42,
+        "star_size": 458
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 484,
+      "crossing_pos": 243,
+      "crossing_pressure": 0.9914068030087079,
+      "crossing_reserve": 0.008593196991292129,
+      "family": "multiarm_star",
+      "first_descent": 243,
+      "graph6": null,
+      "label": "M(478;2,4,5)",
+      "lc_pos": 242,
+      "lc_ratio": 0.9917672201121746,
+      "log_concave": true,
+      "mode_first": 242,
+      "n": 490,
+      "params": {
+        "arms": [
+          2,
+          4,
+          5
+        ],
+        "s": 478
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 474,
+      "crossing_pos": 238,
+      "crossing_pressure": 0.9914039295239393,
+      "crossing_reserve": 0.008596070476060702,
+      "family": "multiarm_star",
+      "first_descent": 238,
+      "graph6": null,
+      "label": "M(468;2,3,6)",
+      "lc_pos": 237,
+      "lc_ratio": 0.9915967898759606,
+      "log_concave": true,
+      "mode_first": 237,
+      "n": 480,
+      "params": {
+        "arms": [
+          2,
+          3,
+          6
+        ],
+        "s": 468
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 463,
+      "crossing_pos": 233,
+      "crossing_pressure": 0.9913369487044853,
+      "crossing_reserve": 0.008663051295514701,
+      "family": "broom",
+      "first_descent": 233,
+      "graph6": null,
+      "label": "broom(33,447)",
+      "lc_pos": 231,
+      "lc_ratio": 0.9913390154341203,
+      "log_concave": true,
+      "mode_first": 232,
+      "n": 480,
+      "params": {
+        "path_len": 33,
+        "star_size": 447
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 496,
+      "crossing_pos": 249,
+      "crossing_pressure": 0.9913178999687327,
+      "crossing_reserve": 0.008682100031267348,
+      "family": "multiarm_star",
+      "first_descent": 249,
+      "graph6": null,
+      "label": "M(493;2,4)",
+      "lc_pos": 248,
+      "lc_ratio": 0.9919781811158812,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "arms": [
+          2,
+          4
+        ],
+        "s": 493
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 469,
+      "crossing_pos": 236,
+      "crossing_pressure": 0.9913145207247257,
+      "crossing_reserve": 0.0086854792752743,
+      "family": "broom",
+      "first_descent": 236,
+      "graph6": null,
+      "label": "broom(42,448)",
+      "lc_pos": 234,
+      "lc_ratio": 0.9914175151913497,
+      "log_concave": true,
+      "mode_first": 235,
+      "n": 490,
+      "params": {
+        "path_len": 42,
+        "star_size": 448
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 474,
+      "crossing_pos": 239,
+      "crossing_pressure": 0.9912923954864737,
+      "crossing_reserve": 0.008707604513526257,
+      "family": "broom",
+      "first_descent": 239,
+      "graph6": null,
+      "label": "broom(51,449)",
+      "lc_pos": 237,
+      "lc_ratio": 0.9914946010256104,
+      "log_concave": true,
+      "mode_first": 238,
+      "n": 500,
+      "params": {
+        "path_len": 51,
+        "star_size": 449
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 494,
+      "crossing_pos": 248,
+      "crossing_pressure": 0.9912712160566262,
+      "crossing_reserve": 0.008728783943373841,
+      "family": "broom",
+      "first_descent": 248,
+      "graph6": null,
+      "label": "broom(11,489)",
+      "lc_pos": 247,
+      "lc_ratio": 0.9919350069821423,
+      "log_concave": true,
+      "mode_first": 247,
+      "n": 500,
+      "params": {
+        "path_len": 11,
+        "star_size": 489
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 474,
+      "crossing_pos": 238,
+      "crossing_pressure": 0.9912264115281336,
+      "crossing_reserve": 0.008773588471866378,
+      "family": "multiarm_star",
+      "first_descent": 238,
+      "graph6": null,
+      "label": "M(468;2,4,5)",
+      "lc_pos": 237,
+      "lc_ratio": 0.9915942122057338,
+      "log_concave": true,
+      "mode_first": 237,
+      "n": 480,
+      "params": {
+        "arms": [
+          2,
+          4,
+          5
+        ],
+        "s": 468
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 464,
+      "crossing_pos": 233,
+      "crossing_pressure": 0.9912196228222065,
+      "crossing_reserve": 0.008780377177793453,
+      "family": "multiarm_star",
+      "first_descent": 233,
+      "graph6": null,
+      "label": "M(458;2,3,6)",
+      "lc_pos": 232,
+      "lc_ratio": 0.9914164660527881,
+      "log_concave": true,
+      "mode_first": 232,
+      "n": 470,
+      "params": {
+        "arms": [
+          2,
+          3,
+          6
+        ],
+        "s": 458
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 453,
+      "crossing_pos": 228,
+      "crossing_pressure": 0.9911456794634287,
+      "crossing_reserve": 0.008854320536571314,
+      "family": "broom",
+      "first_descent": 228,
+      "graph6": null,
+      "label": "broom(33,437)",
+      "lc_pos": 226,
+      "lc_ratio": 0.9911473322651129,
+      "log_concave": true,
+      "mode_first": 227,
+      "n": 470,
+      "params": {
+        "path_len": 33,
+        "star_size": 437
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 486,
+      "crossing_pos": 244,
+      "crossing_pressure": 0.9911403907184136,
+      "crossing_reserve": 0.008859609281586356,
+      "family": "multiarm_star",
+      "first_descent": 244,
+      "graph6": null,
+      "label": "M(483;2,4)",
+      "lc_pos": 243,
+      "lc_ratio": 0.9918140152839028,
+      "log_concave": true,
+      "mode_first": 243,
+      "n": 490,
+      "params": {
+        "arms": [
+          2,
+          4
+        ],
+        "s": 483
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 459,
+      "crossing_pos": 231,
+      "crossing_pressure": 0.9911246587587919,
+      "crossing_reserve": 0.008875341241208146,
+      "family": "broom",
+      "first_descent": 231,
+      "graph6": null,
+      "label": "broom(42,438)",
+      "lc_pos": 229,
+      "lc_ratio": 0.9912293305839914,
+      "log_concave": true,
+      "mode_first": 230,
+      "n": 480,
+      "params": {
+        "path_len": 42,
+        "star_size": 438
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 464,
+      "crossing_pos": 234,
+      "crossing_pressure": 0.9911039170056682,
+      "crossing_reserve": 0.008896082994331755,
+      "family": "broom",
+      "first_descent": 234,
+      "graph6": null,
+      "label": "broom(51,439)",
+      "lc_pos": 232,
+      "lc_ratio": 0.9913098198152087,
+      "log_concave": true,
+      "mode_first": 233,
+      "n": 490,
+      "params": {
+        "path_len": 51,
+        "star_size": 439
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 484,
+      "crossing_pos": 243,
+      "crossing_pressure": 0.9910917719677232,
+      "crossing_reserve": 0.008908228032276755,
+      "family": "broom",
+      "first_descent": 243,
+      "graph6": null,
+      "label": "broom(11,479)",
+      "lc_pos": 242,
+      "lc_ratio": 0.9917690500670538,
+      "log_concave": true,
+      "mode_first": 242,
+      "n": 490,
+      "params": {
+        "path_len": 11,
+        "star_size": 479
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    }
+  ],
+  "top_by_lc_ratio": [
+    {
+      "alpha": 499,
+      "crossing_pos": 251,
+      "crossing_pressure": 0.9841269841269841,
+      "crossing_reserve": 0.015873015873015928,
+      "family": "broom",
+      "first_descent": 251,
+      "graph6": null,
+      "label": "broom(2,498)",
+      "lc_pos": 249,
+      "lc_ratio": 0.9920318725099602,
+      "log_concave": true,
+      "mode_first": 249,
+      "n": 500,
+      "params": {
+        "path_len": 2,
+        "star_size": 498
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 498,
+      "crossing_pos": 250,
+      "crossing_pressure": 0.9893687282953747,
+      "crossing_reserve": 0.0106312717046253,
+      "family": "broom",
+      "first_descent": 250,
+      "graph6": null,
+      "label": "broom(3,497)",
+      "lc_pos": 249,
+      "lc_ratio": 0.9920142222222222,
+      "log_concave": true,
+      "mode_first": 249,
+      "n": 500,
+      "params": {
+        "path_len": 3,
+        "star_size": 497
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 498,
+      "crossing_pos": 250,
+      "crossing_pressure": 0.9880382317505163,
+      "crossing_reserve": 0.011961768249483695,
+      "family": "broom",
+      "first_descent": 250,
+      "graph6": null,
+      "label": "broom(4,496)",
+      "lc_pos": 249,
+      "lc_ratio": 0.9920095897126887,
+      "log_concave": true,
+      "mode_first": 249,
+      "n": 500,
+      "params": {
+        "path_len": 4,
+        "star_size": 496
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 497,
+      "crossing_pos": 250,
+      "crossing_pressure": 0.9867008199416458,
+      "crossing_reserve": 0.013299180058354176,
+      "family": "multiarm_star",
+      "first_descent": 250,
+      "graph6": null,
+      "label": "M(495;2,2)",
+      "lc_pos": 249,
+      "lc_ratio": 0.9919964397428269,
+      "log_concave": true,
+      "mode_first": 249,
+      "n": 500,
+      "params": {
+        "arms": [
+          2,
+          2
+        ],
+        "s": 495
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 497,
+      "crossing_pos": 250,
+      "crossing_pressure": 0.986037794658877,
+      "crossing_reserve": 0.013962205341123024,
+      "family": "broom",
+      "first_descent": 250,
+      "graph6": null,
+      "label": "broom(5,495)",
+      "lc_pos": 249,
+      "lc_ratio": 0.9919959920204036,
+      "log_concave": true,
+      "mode_first": 249,
+      "n": 500,
+      "params": {
+        "path_len": 5,
+        "star_size": 495
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 497,
+      "crossing_pos": 250,
+      "crossing_pressure": 0.9853693770698626,
+      "crossing_reserve": 0.014630622930137394,
+      "family": "multiarm_star",
+      "first_descent": 250,
+      "graph6": null,
+      "label": "M(494;2,3)",
+      "lc_pos": 249,
+      "lc_ratio": 0.9919917785249065,
+      "log_concave": true,
+      "mode_first": 249,
+      "n": 500,
+      "params": {
+        "arms": [
+          2,
+          3
+        ],
+        "s": 494
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 497,
+      "crossing_pos": 250,
+      "crossing_pressure": 0.9843452365041245,
+      "crossing_reserve": 0.015654763495875468,
+      "family": "broom",
+      "first_descent": 250,
+      "graph6": null,
+      "label": "broom(6,494)",
+      "lc_pos": 248,
+      "lc_ratio": 0.9919875407264579,
+      "log_concave": true,
+      "mode_first": 249,
+      "n": 500,
+      "params": {
+        "path_len": 6,
+        "star_size": 494
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 497,
+      "crossing_pos": 250,
+      "crossing_pressure": 0.9840381860693518,
+      "crossing_reserve": 0.015961813930648217,
+      "family": "multiarm_star",
+      "first_descent": 250,
+      "graph6": null,
+      "label": "M(493;3,3)",
+      "lc_pos": 248,
+      "lc_ratio": 0.9919871175021054,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "arms": [
+          3,
+          3
+        ],
+        "s": 493
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 496,
+      "crossing_pos": 250,
+      "crossing_pressure": 0.9840281217832267,
+      "crossing_reserve": 0.01597187821677326,
+      "family": "multiarm_star",
+      "first_descent": 250,
+      "graph6": null,
+      "label": "M(493;2,2,2)",
+      "lc_pos": 248,
+      "lc_ratio": 0.991978638517988,
+      "log_concave": true,
+      "mode_first": 249,
+      "n": 500,
+      "params": {
+        "arms": [
+          2,
+          2,
+          2
+        ],
+        "s": 493
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 496,
+      "crossing_pos": 249,
+      "crossing_pressure": 0.9913178999687327,
+      "crossing_reserve": 0.008682100031267348,
+      "family": "multiarm_star",
+      "first_descent": 249,
+      "graph6": null,
+      "label": "M(493;2,4)",
+      "lc_pos": 248,
+      "lc_ratio": 0.9919781811158812,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "arms": [
+          2,
+          4
+        ],
+        "s": 493
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 496,
+      "crossing_pos": 249,
+      "crossing_pressure": 0.9904586627790907,
+      "crossing_reserve": 0.00954133722090933,
+      "family": "broom",
+      "first_descent": 249,
+      "graph6": null,
+      "label": "broom(7,493)",
+      "lc_pos": 248,
+      "lc_ratio": 0.9919762757884267,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "path_len": 7,
+        "star_size": 493
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 496,
+      "crossing_pos": 249,
+      "crossing_pressure": 0.9906472061430344,
+      "crossing_reserve": 0.009352793856965635,
+      "family": "multiarm_star",
+      "first_descent": 249,
+      "graph6": null,
+      "label": "M(492;2,2,3)",
+      "lc_pos": 248,
+      "lc_ratio": 0.9919739532301484,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "arms": [
+          2,
+          2,
+          3
+        ],
+        "s": 492
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 496,
+      "crossing_pos": 249,
+      "crossing_pressure": 0.9899798629903216,
+      "crossing_reserve": 0.01002013700967841,
+      "family": "multiarm_star",
+      "first_descent": 249,
+      "graph6": null,
+      "label": "M(492;3,4)",
+      "lc_pos": 248,
+      "lc_ratio": 0.9919734996275636,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "arms": [
+          3,
+          4
+        ],
+        "s": 492
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 496,
+      "crossing_pos": 249,
+      "crossing_pressure": 0.9896181131177284,
+      "crossing_reserve": 0.010381886882271596,
+      "family": "multiarm_star",
+      "first_descent": 249,
+      "graph6": null,
+      "label": "M(492;2,5)",
+      "lc_pos": 248,
+      "lc_ratio": 0.9919696885906291,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "arms": [
+          2,
+          5
+        ],
+        "s": 492
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 496,
+      "crossing_pos": 249,
+      "crossing_pressure": 0.9893089746804518,
+      "crossing_reserve": 0.010691025319548242,
+      "family": "multiarm_star",
+      "first_descent": 249,
+      "graph6": null,
+      "label": "M(491;2,3,3)",
+      "lc_pos": 248,
+      "lc_ratio": 0.9919692680535622,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "arms": [
+          2,
+          3,
+          3
+        ],
+        "s": 491
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 496,
+      "crossing_pos": 249,
+      "crossing_pressure": 0.9886804539114563,
+      "crossing_reserve": 0.011319546088543686,
+      "family": "broom",
+      "first_descent": 249,
+      "graph6": null,
+      "label": "broom(8,492)",
+      "lc_pos": 248,
+      "lc_ratio": 0.991966399289234,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "path_len": 8,
+        "star_size": 492
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 496,
+      "crossing_pos": 249,
+      "crossing_pressure": 0.9882799565445921,
+      "crossing_reserve": 0.011720043455407891,
+      "family": "multiarm_star",
+      "first_descent": 249,
+      "graph6": null,
+      "label": "M(491;3,5)",
+      "lc_pos": 248,
+      "lc_ratio": 0.9919649994750203,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "arms": [
+          3,
+          5
+        ],
+        "s": 491
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 496,
+      "crossing_pos": 249,
+      "crossing_pressure": 0.9879709910994927,
+      "crossing_reserve": 0.012029008900507288,
+      "family": "multiarm_star",
+      "first_descent": 249,
+      "graph6": null,
+      "label": "M(490;3,3,3)",
+      "lc_pos": 248,
+      "lc_ratio": 0.9919645830376375,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "arms": [
+          3,
+          3,
+          3
+        ],
+        "s": 490
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 495,
+      "crossing_pos": 249,
+      "crossing_pressure": 0.9886370172031712,
+      "crossing_reserve": 0.011362982796828791,
+      "family": "multiarm_star",
+      "first_descent": 249,
+      "graph6": null,
+      "label": "M(491;2,2,4)",
+      "lc_pos": 248,
+      "lc_ratio": 0.991960252590322,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "arms": [
+          2,
+          2,
+          4
+        ],
+        "s": 491
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    },
+    {
+      "alpha": 495,
+      "crossing_pos": 249,
+      "crossing_pressure": 0.9879697670304465,
+      "crossing_reserve": 0.012030232969553523,
+      "family": "multiarm_star",
+      "first_descent": 249,
+      "graph6": null,
+      "label": "M(491;4,4)",
+      "lc_pos": 248,
+      "lc_ratio": 0.9919597950103478,
+      "log_concave": true,
+      "mode_first": 248,
+      "n": 500,
+      "params": {
+        "arms": [
+          4,
+          4
+        ],
+        "s": 491
+      },
+      "post_descent_upward_count": 0,
+      "unimodal": true
+    }
+  ]
+}

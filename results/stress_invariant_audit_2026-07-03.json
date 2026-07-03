@@ -1,7 +1,247 @@
 {
-  "claim_tested": "LC-defect pressure is separated from near-mode tail-rise pressure in current stress sources; low-mode and mean-bound metrics survive LC stress rows.",
+  "claim_tested": "LC-defect pressure is separated from near-mode tail-rise pressure in current stress sources; low-mode and mean-bound metrics survive LC stress rows; direct crossing-pressure searches find no post-descent upward transition.",
   "date": "2026-07-03",
   "sources": {
+    "asymptotic_broom_ridge": {
+      "counts": {
+        "broom_rows": 240,
+        "multiarm_star_rows": 0,
+        "post_descent_upward_rows": 0
+      },
+      "numeric": {
+        "max_crossing_pressure": 0.9992098719189995,
+        "min_crossing_reserve": 0.0007901280810005209,
+        "min_s_times_reserve": 3.9506404050026047
+      },
+      "path": "results/asymptotic_broom_ridge_2026-07-03.json",
+      "processed": 240,
+      "source": {
+        "broom_arm_values": "1-240",
+        "kind": "asymptotic_hub_ridge",
+        "s_values": [
+          5000
+        ]
+      },
+      "top_by_crossing_pressure": [
+        {
+          "crossing_pressure": 0.9992098719189995,
+          "crossing_reserve": 0.0007901280810005209,
+          "family": "broom",
+          "first_descent": 2554,
+          "label": "broom(194,5000)",
+          "n": 5194,
+          "params": {
+            "arms": [
+              193
+            ],
+            "s": 5000
+          },
+          "s_times_reserve": 3.9506404050026047
+        },
+        {
+          "crossing_pressure": 0.9992052591572159,
+          "crossing_reserve": 0.0007947408427840751,
+          "family": "broom",
+          "first_descent": 2567,
+          "label": "broom(241,5000)",
+          "n": 5241,
+          "params": {
+            "arms": [
+              240
+            ],
+            "s": 5000
+          },
+          "s_times_reserve": 3.9737042139203758
+        }
+      ]
+    },
+    "asymptotic_hub_ridge": {
+      "counts": {
+        "broom_rows": 720,
+        "multiarm_star_rows": 1260,
+        "post_descent_upward_rows": 0
+      },
+      "numeric": {
+        "max_crossing_pressure": 0.9992005303423901,
+        "min_crossing_reserve": 0.0007994696576099609,
+        "min_s_times_reserve": 2.898343284037829
+      },
+      "path": "results/asymptotic_hub_ridge_2026-07-03.json",
+      "processed": 1980,
+      "source": {
+        "arm_values": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "broom_max_arm": 120,
+        "kind": "asymptotic_hub_ridge",
+        "max_arms": 3,
+        "s_values": [
+          100,
+          200,
+          500,
+          1000,
+          2000,
+          5000
+        ]
+      },
+      "top_by_crossing_pressure": [
+        {
+          "crossing_pressure": 0.9992005303423901,
+          "crossing_reserve": 0.0007994696576099609,
+          "family": "broom",
+          "first_descent": 2533,
+          "label": "broom(118,5000)",
+          "n": 5118,
+          "params": {
+            "arms": [
+              117
+            ],
+            "s": 5000
+          },
+          "s_times_reserve": 3.997348288049804
+        },
+        {
+          "crossing_pressure": 0.999182328534265,
+          "crossing_reserve": 0.0008176714657350103,
+          "family": "multiarm_star",
+          "first_descent": 2504,
+          "label": "M(5000;2,3,6)",
+          "n": 5012,
+          "params": {
+            "arms": [
+              2,
+              3,
+              6
+            ],
+            "s": 5000
+          },
+          "s_times_reserve": 4.088357328675052
+        }
+      ]
+    },
+    "crossing_family_scan": {
+      "counts": {
+        "broom_rows": 3570,
+        "multiarm_star_rows": 2300,
+        "non_log_concave": 0,
+        "non_unimodal": 0,
+        "post_descent_upward_rows": 0
+      },
+      "numeric": {
+        "max_crossing_pressure": 0.991750265410068,
+        "min_crossing_reserve": 0.008249734589931945
+      },
+      "path": "results/crossing_family_scan_2026-07-03.json",
+      "processed": 5870,
+      "source": {
+        "arm_values": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "broom_max_path": 80,
+        "max_arms": 3,
+        "max_n": 500,
+        "min_n": 50,
+        "step_n": 10
+      },
+      "top_by_crossing_pressure": [
+        {
+          "crossing_pos": 248,
+          "crossing_pressure": 0.991750265410068,
+          "crossing_reserve": 0.008249734589931945,
+          "family": "multiarm_star",
+          "first_descent": 248,
+          "label": "M(488;2,3,6)",
+          "lc_ratio": 0.9919356243698063,
+          "mode_first": 247,
+          "n": 500,
+          "params": {
+            "arms": [
+              2,
+              3,
+              6
+            ],
+            "s": 488
+          }
+        },
+        {
+          "crossing_pos": 243,
+          "crossing_pressure": 0.9916957223198212,
+          "crossing_reserve": 0.008304277680178829,
+          "family": "broom",
+          "first_descent": 243,
+          "label": "broom(33,467)",
+          "lc_ratio": 0.9916985126900073,
+          "mode_first": 242,
+          "n": 500,
+          "params": {
+            "path_len": 33,
+            "star_size": 467
+          }
+        }
+      ]
+    },
+    "crossing_pressure_optimizer": {
+      "counts": {
+        "non_log_concave_best_rows": 0,
+        "non_unimodal_best_rows": 0,
+        "post_descent_upward_best_rows": 0
+      },
+      "numeric": {
+        "max_crossing_pressure": 0.977045769369791,
+        "min_crossing_reserve": 0.02295423063020896
+      },
+      "parameters": {
+        "archive_size": 16,
+        "generations": 120,
+        "max_n": 180,
+        "min_n": 60,
+        "pop_size": 70,
+        "seed": 993,
+        "step_n": 40
+      },
+      "path": "results/crossing_pressure_optimizer_2026-07-03.json",
+      "processed_n_values": [
+        60,
+        100,
+        140,
+        180
+      ],
+      "top_by_crossing_pressure": [
+        {
+          "crossing_pos": 88,
+          "crossing_pressure": 0.977045769369791,
+          "crossing_reserve": 0.02295423063020896,
+          "first_descent": 88,
+          "mode_first": 87,
+          "n": 180,
+          "structure": {
+            "branch_vertices": 2,
+            "degree_top5": [
+              170,
+              3,
+              2,
+              2,
+              2
+            ],
+            "leaves": 171,
+            "max_degree": 170,
+            "signature": "n180_l171_d170_b2"
+          }
+        }
+      ]
+    },
     "bautista_ramos_grid": {
       "counts": {
         "d_leaf_le1": 64,

@@ -279,3 +279,121 @@ then derive a contradiction from mean reserve, tail lock, or structural transfer
 ```
 
 This crossing-only version is exactly what Lemma 1 needs. It remains untested in the current stress set because no such crossings occur; that is itself the observed separation.
+
+## Direct Crossing-Pressure Search Outcome
+
+I then searched for the crossing obstruction directly, using the post-first-descent ratio
+
+```text
+max { a_{j+1} / a_j : j >= D(P) }
+```
+
+as the objective rather than using LC defects as a proxy.
+
+The evolutionary optimizer was run as:
+
+```bash
+python3 scripts/crossing_pressure_optimizer.py \
+  --min-n 60 \
+  --max-n 180 \
+  --step-n 40 \
+  --pop-size 70 \
+  --generations 120 \
+  --archive-size 16 \
+  --seed 993 \
+  --verbose-every 30 \
+  --out results/crossing_pressure_optimizer_2026-07-03.json
+```
+
+It found no strict post-descent crossing and no non-unimodal tree. Its best pressures were:
+
+| `n` | Best pressure | Reserve |
+|---:|---:|---:|
+| 60 | `0.9287861476` | `0.0712138524` |
+| 100 | `0.9575083299` | `0.0424916701` |
+| 140 | `0.9699738045` | `0.0300261955` |
+| 180 | `0.9770457694` | `0.0229542306` |
+
+The optimizer repeatedly converged to broom-like trees with one very high-degree vertex and one small branch vertex. This is useful as a sanity check, but it is not the sharpest stress source.
+
+The deterministic family scan was run as:
+
+```bash
+python3 scripts/scan_crossing_families.py \
+  --min-n 50 \
+  --max-n 500 \
+  --step-n 10 \
+  --broom-max-path 80 \
+  --arm-values 2-6 \
+  --max-arms 3 \
+  --top 20 \
+  --out results/crossing_family_scan_2026-07-03.json
+```
+
+It scanned 5,870 broom and multi-arm-star rows, with 0 non-unimodal rows, 0 post-descent upward-transition rows, and 0 non-log-concave rows. The best crossing pressure was
+
+```text
+0.991750265410068
+```
+
+at the multi-arm star `M(488;2,3,6)` on 500 vertices. This slightly improves the old broom benchmark `broom(33,467)`, which has pressure `0.9916957223198212`.
+
+This changes the next proof target. Brooms are not just examples; they are a ridge in the crossing-pressure landscape. But the best observed ridge has a small finite arm bouquet attached to the hub. The natural next mathematical task is an asymptotic ratio calculation for
+
+```text
+M(s;2,3,6)
+```
+
+and nearby `M(s; a,b,c)` families, compared against the broom asymptotic. If these families have an explicit reserve of order `1/s` below `1`, they may supply the model inequality for the general hub case.
+
+## Asymptotic Hub-Ridge Outcome
+
+For a hub with `s` pendant leaves and fixed path arms `a_1, ..., a_m`, the independence polynomial has the exact closed form
+
+```text
+(1+x)^s prod_j I(P_{a_j}) + x prod_j I(P_{a_j-1}).
+```
+
+I added `scripts/asymptotic_hub_ridge.py` to exploit this formula and scan larger hub bouquets without vertex-level DP. The main scan was:
+
+```bash
+python3 scripts/asymptotic_hub_ridge.py \
+  --s-values 100,200,500,1000,2000,5000 \
+  --broom-max-arm 120 \
+  --arm-values 2-10 \
+  --max-arms 3 \
+  --top 40 \
+  --self-check \
+  --out results/asymptotic_hub_ridge_2026-07-03.json
+```
+
+It scanned 1,980 exact hub-bouquet rows and found 0 post-descent upward transitions. The best row in that bounded scan was `broom(118,5000)`, with crossing pressure `0.9992005303423901` and reserve `0.000799469657610`, so `s * reserve = 3.9973482880`.
+
+Because the broom optimum was hitting the arm cap, I ran a focused `s=5000` broom scan:
+
+```bash
+python3 scripts/asymptotic_hub_ridge.py \
+  --s-values 5000 \
+  --broom-arm-values 1-240 \
+  --arm-values '' \
+  --max-arms 3 \
+  --top 20 \
+  --self-check \
+  --out results/asymptotic_broom_ridge_2026-07-03.json
+```
+
+This scanned 240 exact broom rows, again with 0 post-descent upward transitions. The best row was `broom(194,5000)`, with crossing pressure `0.9992098719189995`, reserve `0.000790128081001`, and `s * reserve = 3.9506404050`. The second row was `broom(241,5000)`, so the long-arm broom ridge is not fully optimized yet.
+
+The important point is not the exact maximizing arm. The important point is that the hard hub examples are now visibly governed by a binomial-tail reserve:
+
+```text
+max_{j >= D} a_{j+1}/a_j = 1 - about 4/s.
+```
+
+For comparison, `M(5000;2,3,6)` has pressure `0.999182328534265` and `s * reserve = 4.0883573287`, close to but below the best broom. Thus `M(s;2,3,6)` was a finite-range ridge, not obviously the asymptotic maximizer.
+
+This gives a cleaner proof subproblem:
+
+> Prove a hub-bouquet reserve theorem: for `I(T) = (1+x)^s Q(x) + x R(x)`, with fixed or controlled arm polynomial `Q`, the first post-descent ratio is at most `1 - c/s + O(s^{-2})`, with `c` bounded away from `0`.
+
+For fixed arms, the `xR(x)` term has bounded degree and is absent near the middle of the leaf-binomial range. The problem reduces to ratios of `(1+x)^s Q(x)`, where `Q` is a fixed path-product polynomial. This looks much more tractable than the original tree recurrence: it is an explicit coefficient-ratio estimate for a binomial convolution.
