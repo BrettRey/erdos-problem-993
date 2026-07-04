@@ -340,7 +340,13 @@ The remaining one-sided localization gap is narrowed in:
 notes/literature/one_sided_localization_reduction_2026-07-04.md
 ```
 
-That note reduces the gap to a local-mode mean lemma for odds weights `0 <= w_i <= 1`: if `e_2 > 0` and `e_3 >= e_2`, prove `mu >= 5/2`. The associated probe found zero failures among `137119` nondegenerate cases and `7569` narrower D=4 cases, while also showing that the raw shortcut `e_3 >= e_2 => V >= 5/4` is false unless the degenerate `e_2=0` rows are excluded.
+That note reduces the gap to a local-mode mean lemma for odds weights `0 <= w_i <= 1`: if `e_2 > 0` and `e_3 >= e_2`, prove `mu >= 5/2`. The lemma is proved in:
+
+```text
+notes/literature/local_mode_mean_bound_proof_2026-07-04.md
+```
+
+Thus the one-sided effective-drop route now reaches `Delta_eff >= 1/(4V)`. This is useful input for the signed problem, but it does not remove the signed conditional/boundary-term obstacles below.
 
 ## Immediate Lemma Targets
 

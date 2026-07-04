@@ -3,7 +3,7 @@ Date: 2026-07-04
 
 ## Purpose
 
-This note narrows the unproved part of the one-sided effective-drop route. It does not prove the signed reserve lemma and does not prove the localization lemma. It reduces the remaining one-sided `1/4` target to a small elementary symmetric-polynomial inequality.
+This note narrows the one-sided effective-drop route. It does not prove the signed reserve lemma. It reduces the remaining one-sided `1/4` target to a small elementary symmetric-polynomial inequality; that local-mode mean inequality is proved in the later proof note cited below.
 
 ## Starting Point
 
@@ -181,7 +181,13 @@ Equivalently, using the automatic-side-condition reduction above:
 
 > If `0 <= w_i <= 1`, `e_2 > 0`, and `e_3 >= e_2`, then `mu >= 5/2`.
 
-This mean inequality is still unproved here.
+This mean inequality is proved in:
+
+```text
+notes/literature/local_mode_mean_bound_proof_2026-07-04.md
+```
+
+The proof uses a deletion lemma plus a size-biased random-pair argument. It closes this elementary target, not the signed reserve target.
 
 I also added an adversarial optimizer:
 
@@ -217,11 +223,13 @@ V = 5/4.
 
 ## Current Status
 
-The proof route is now:
+The one-sided proof route is now:
 
-1. Prove the elementary mean lemma: if `0 <= w_i <= 1`, `e_2 > 0`, and `e_3 >= e_2`, then `mu >= 5/2`.
-2. Conclude `D+1 <= 4V` for one-sided low-probability PB laws with `V >= 1`.
-3. Combine with Newton to get the one-sided effective-drop bound `Delta_eff >= 1/(4V)`.
-4. Return to the signed case, where conditional averaging and boundary terms remain.
+1. The elementary mean lemma is proved in `local_mode_mean_bound_proof_2026-07-04.md`.
+2. Therefore the remaining `D=4` case has `V >= 5/4`, hence `D+1=5 <= 4V`.
+3. The crude Darroch/Newton chain already handled `V >= 3/2` and the `D <= 3` cases.
+4. Thus the sufficient one-sided localization `D+1 <= 4V` is proved for the route considered here.
+5. Combining with Newton gives the one-sided effective-drop bound `Delta_eff >= 1/(4V)`.
+6. The signed case remains open: conditional averaging and boundary terms still have to be handled.
 
-Only step 1 is unproved here. The probes and optimizer are evidence for the target and checks on the boundary case, not a proof.
+This closes the one-sided localization gap for this proof route. It does not prove the full signed reserve needed for issue #5.

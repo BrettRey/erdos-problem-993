@@ -162,4 +162,10 @@ The remaining localization target is narrowed further in:
 notes/literature/one_sided_localization_reduction_2026-07-04.md
 ```
 
-The reduction shows that the only one-sided gap is the `D=4` case. The remaining elementary target is now the local-mode mean lemma: if `0 <= w_i <= 1`, `e_2 > 0`, and `e_3 >= e_2`, then `mu=sum_i w_i/(1+w_i) >= 5/2`. This would imply `V=sum_i w_i/(1+w_i)^2 >= 5/4`.
+That follow-up note reduces the only one-sided gap to the local-mode mean lemma. The lemma is proved in:
+
+```text
+notes/literature/local_mode_mean_bound_proof_2026-07-04.md
+```
+
+Consequently, the sufficient localization `D+1 <= 4V` is now proved for one-sided low-probability PB laws with `V >= 1`, and hence the one-sided effective-drop bound `Delta_eff >= 1/(4V)` follows from Newton. This still does not prove the signed case.

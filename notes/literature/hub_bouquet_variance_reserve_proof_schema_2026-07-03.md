@@ -491,7 +491,13 @@ The remaining one-sided localization gap is now isolated in:
 notes/literature/one_sided_localization_reduction_2026-07-04.md
 ```
 
-The only unresolved case in that route is `D=4`. A dedicated elementary-symmetric probe found zero failures among `137119` nondegenerate local-mode cases and `7569` narrower D=4 cases, identifying the exact boundary example `w_1=...=w_5=1`. The live target is the mean lemma `e_2 > 0` and `e_3 >= e_2` imply `mu >= 5/2`; this is still a target lemma rather than a theorem.
+The only unresolved case in that route was `D=4`. A dedicated elementary-symmetric probe found zero failures among `137119` nondegenerate local-mode cases and `7569` narrower D=4 cases, identifying the exact boundary example `w_1=...=w_5=1`. The local-mode mean lemma is now proved in:
+
+```text
+notes/literature/local_mode_mean_bound_proof_2026-07-04.md
+```
+
+Therefore the one-sided effective-drop route reaches `Delta_eff >= 1/(4V)`. This is still only the one-sided input; the signed reserve and hub perturbation arguments below remain open.
 
 ## Perturbation By The Hub-Included Term
 
