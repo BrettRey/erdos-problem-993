@@ -1,0 +1,2873 @@
+{
+  "best_by_source": [
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "five_ones_plus_zero",
+      "support_size": 5,
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 5.4942323492568335e-05,
+      "counts": [
+        9,
+        1,
+        1,
+        1
+      ],
+      "e1": 4.380836472922286,
+      "e2": 7.990756423966893,
+      "e3": 7.9908113662903855,
+      "e4": 4.906433020817483,
+      "feasible": true,
+      "fun": 2.697646928978028,
+      "mean": 2.697646928978028,
+      "mean_minus_5_over_2": 0.19764692897802805,
+      "message": "Maximum number of iterations has been exceeded.",
+      "n": 12,
+      "seed": 777371863,
+      "source": "grouped_differential_evolution_penalty",
+      "success": false,
+      "support_size": 12,
+      "values": [
+        0.1535340259038412,
+        0.9998486339978738,
+        0.9999395066217112,
+        0.9992420991681306
+      ],
+      "values_rational_approx": [
+        "76/495",
+        "1",
+        "1",
+        "999/1000"
+      ],
+      "variance": 1.788451726539108,
+      "variance_minus_5_over_4": 0.538451726539108,
+      "weights_desc": [
+        0.9999395066217112,
+        0.9998486339978738,
+        0.9992420991681306,
+        0.1535340259038412,
+        0.1535340259038412,
+        0.1535340259038412,
+        0.1535340259038412,
+        0.1535340259038412,
+        0.1535340259038412,
+        0.1535340259038412,
+        0.1535340259038412,
+        0.1535340259038412
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "999/1000",
+        "76/495",
+        "76/495",
+        "76/495",
+        "76/495",
+        "76/495",
+        "76/495",
+        "76/495",
+        "76/495",
+        "76/495"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -8.599343459536612e-11,
+      "counts": [
+        8,
+        3,
+        3,
+        2
+      ],
+      "e1": 4.999999999956842,
+      "e2": 9.999999999827473,
+      "e3": 9.99999999974148,
+      "e4": 4.999999999828015,
+      "feasible": true,
+      "fun": 2.4999999999892917,
+      "mean": 2.4999999999892917,
+      "mean_minus_5_over_2": -1.070832311711456e-11,
+      "message": "Positive directional derivative for linesearch",
+      "n": 16,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_1",
+      "success": false,
+      "support_size": 5,
+      "values": [
+        1.1132359283626496e-14,
+        0.9999999999855773,
+        6.569811217761259e-15,
+        1.0
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "0",
+        "1"
+      ],
+      "variance": 1.2500000000001088,
+      "variance_minus_5_over_4": 1.0880185641326534e-13,
+      "weights_desc": [
+        1.0,
+        1.0,
+        0.9999999999855773,
+        0.9999999999855773,
+        0.9999999999855773,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        6.569811217761259e-15,
+        6.569811217761259e-15,
+        6.569811217761259e-15
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        0,
+        5
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        1.0
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        1,
+        4
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "grid_a": 1.0,
+      "grid_b": 1.0,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "two_group_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        1.0
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -5.488942633746774e-13,
+      "e1": 4.999999999999723,
+      "e2": 9.999999999998895,
+      "e3": 9.999999999998346,
+      "e4": 4.999999999998904,
+      "feasible": true,
+      "fun": 2.499999999999932,
+      "mean": 2.499999999999932,
+      "mean_minus_5_over_2": -6.794564910705958e-14,
+      "message": "Optimization terminated successfully",
+      "n": 7,
+      "seed": 4,
+      "source": "ungrouped_slsqp",
+      "start_kind": "ungrouped_seed_4",
+      "success": true,
+      "support_size": 5,
+      "variance": 1.2500000000000018,
+      "variance_minus_5_over_4": 1.7763568394002505e-15,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9999999999997217,
+        1.1102230246251565e-15,
+        5.971785566050158e-16
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0"
+      ]
+    }
+  ],
+  "best_feasible_by_constraint_margin": [
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "five_ones_plus_zero",
+      "support_size": 5,
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        0,
+        5
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        1.0
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        1,
+        4
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        1.0
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        2,
+        3
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        1.0
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        3,
+        2
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        1.0
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        4,
+        1
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        1.0
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.0
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.05
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.1
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.15000000000000002
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.2
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.25
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.30000000000000004
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.35000000000000003
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.4
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.45
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.5
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.55
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.6000000000000001
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.65
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.7000000000000001
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.75
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.8
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.8500000000000001
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": 0.0,
+      "counts": [
+        5,
+        0
+      ],
+      "e1": 5.0,
+      "e2": 10.0,
+      "e3": 10.0,
+      "e4": 5.0,
+      "feasible": true,
+      "mean": 2.5,
+      "mean_minus_5_over_2": 0.0,
+      "n": 5,
+      "source": "ones_plus_equal_remainder_grid",
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.9
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    }
+  ],
+  "best_feasible_by_mean": [
+    {
+      "constraint_margin_e3_minus_e2": -8.599343459536612e-11,
+      "counts": [
+        8,
+        3,
+        3,
+        2
+      ],
+      "e1": 4.999999999956842,
+      "e2": 9.999999999827473,
+      "e3": 9.99999999974148,
+      "e4": 4.999999999828015,
+      "feasible": true,
+      "fun": 2.4999999999892917,
+      "mean": 2.4999999999892917,
+      "mean_minus_5_over_2": -1.070832311711456e-11,
+      "message": "Positive directional derivative for linesearch",
+      "n": 16,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_1",
+      "success": false,
+      "support_size": 5,
+      "values": [
+        1.1132359283626496e-14,
+        0.9999999999855773,
+        6.569811217761259e-15,
+        1.0
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "0",
+        "1"
+      ],
+      "variance": 1.2500000000001088,
+      "variance_minus_5_over_4": 1.0880185641326534e-13,
+      "weights_desc": [
+        1.0,
+        1.0,
+        0.9999999999855773,
+        0.9999999999855773,
+        0.9999999999855773,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        1.1132359283626496e-14,
+        6.569811217761259e-15,
+        6.569811217761259e-15,
+        6.569811217761259e-15
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -1.2390088954816747e-11,
+      "counts": [
+        9,
+        3,
+        1,
+        1
+      ],
+      "e1": 4.999999999993804,
+      "e2": 9.999999999975216,
+      "e3": 9.999999999962826,
+      "e4": 4.999999999975218,
+      "feasible": true,
+      "fun": 2.499999999998451,
+      "mean": 2.499999999998451,
+      "mean_minus_5_over_2": -1.5489831639570184e-12,
+      "message": "Positive directional derivative for linesearch",
+      "n": 14,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_1",
+      "success": false,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999998,
+        0.9999999999967637,
+        0.9999999999970413
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "1",
+        "1"
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        0.9999999999999998,
+        0.9999999999999998,
+        0.9999999999999998,
+        0.9999999999970413,
+        0.9999999999967637,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -5.824674076393421e-12,
+      "counts": [
+        8,
+        4,
+        3,
+        1
+      ],
+      "e1": 4.999999999997087,
+      "e2": 9.999999999988347,
+      "e3": 9.999999999982522,
+      "e4": 4.999999999988348,
+      "feasible": true,
+      "fun": 2.4999999999992717,
+      "mean": 2.4999999999992717,
+      "mean_minus_5_over_2": -7.283063041541027e-13,
+      "message": "Optimization terminated successfully",
+      "n": 16,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_1",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999992776,
+        0.0,
+        0.9999999999999766
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "0",
+        "1"
+      ],
+      "variance": 1.2500000000000002,
+      "variance_minus_5_over_4": 2.220446049250313e-16,
+      "weights_desc": [
+        0.9999999999999766,
+        0.9999999999992776,
+        0.9999999999992776,
+        0.9999999999992776,
+        0.9999999999992776,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -3.4017233474514796e-12,
+      "counts": [
+        11,
+        2,
+        2,
+        1
+      ],
+      "e1": 4.999999999998299,
+      "e2": 9.999999999993198,
+      "e3": 9.999999999989797,
+      "e4": 4.999999999993198,
+      "feasible": true,
+      "fun": 2.499999999999575,
+      "mean": 2.499999999999575,
+      "mean_minus_5_over_2": -4.249933738265099e-13,
+      "message": "Optimization terminated successfully",
+      "n": 16,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_3",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.99999999999962,
+        0.9999999999996178,
+        0.999999999999824
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "1",
+        "1"
+      ],
+      "variance": 1.2500000000000002,
+      "variance_minus_5_over_4": 2.220446049250313e-16,
+      "weights_desc": [
+        0.999999999999824,
+        0.99999999999962,
+        0.99999999999962,
+        0.9999999999996178,
+        0.9999999999996178,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -2.4655832930875476e-12,
+      "counts": [
+        9,
+        3,
+        2,
+        1
+      ],
+      "e1": 4.999999999998767,
+      "e2": 9.999999999995067,
+      "e3": 9.999999999992601,
+      "e4": 4.999999999995068,
+      "feasible": true,
+      "fun": 2.499999999999692,
+      "mean": 2.499999999999692,
+      "mean_minus_5_over_2": -3.0819791163594346e-13,
+      "message": "Optimization terminated successfully",
+      "n": 15,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_4",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999823,
+        0.9999999999994099,
+        0.0
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "1",
+        "0"
+      ],
+      "variance": 1.2500000000000002,
+      "variance_minus_5_over_4": 2.220446049250313e-16,
+      "weights_desc": [
+        0.9999999999999823,
+        0.9999999999999823,
+        0.9999999999999823,
+        0.9999999999994099,
+        0.9999999999994099,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -2.403410803708539e-12,
+      "counts": [
+        8,
+        5
+      ],
+      "e1": 4.999999999998797,
+      "e2": 9.999999999995191,
+      "e3": 9.999999999992788,
+      "e4": 4.9999999999951905,
+      "feasible": true,
+      "fun": 2.4999999999996994,
+      "mean": 2.4999999999996994,
+      "mean_minus_5_over_2": -3.006483950684924e-13,
+      "message": "Optimization terminated successfully",
+      "n": 13,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_1",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999997595
+      ],
+      "values_rational_approx": [
+        "0",
+        "1"
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        0.9999999999997595,
+        0.9999999999997595,
+        0.9999999999997595,
+        0.9999999999997595,
+        0.9999999999997595,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -9.183764859699295e-13,
+      "counts": [
+        6,
+        4,
+        4,
+        1
+      ],
+      "e1": 4.999999999999541,
+      "e2": 9.999999999998163,
+      "e3": 9.999999999997245,
+      "e4": 4.999999999998163,
+      "feasible": true,
+      "fun": 2.499999999999885,
+      "mean": 2.499999999999885,
+      "mean_minus_5_over_2": -1.1501910535116622e-13,
+      "message": "Optimization terminated successfully",
+      "n": 15,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_4",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999998928,
+        0.0,
+        0.9999999999999697
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "0",
+        "1"
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        0.9999999999999697,
+        0.9999999999998928,
+        0.9999999999998928,
+        0.9999999999998928,
+        0.9999999999998928,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -7.86926079854311e-13,
+      "counts": [
+        11,
+        5
+      ],
+      "e1": 4.999999999999606,
+      "e2": 9.999999999998424,
+      "e3": 9.999999999997637,
+      "e4": 4.9999999999984235,
+      "feasible": true,
+      "fun": 2.4999999999999014,
+      "mean": 2.4999999999999014,
+      "mean_minus_5_over_2": -9.85878045867139e-14,
+      "message": "Optimization terminated successfully",
+      "n": 16,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_3",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999212
+      ],
+      "values_rational_approx": [
+        "0",
+        "1"
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        0.9999999999999212,
+        0.9999999999999212,
+        0.9999999999999212,
+        0.9999999999999212,
+        0.9999999999999212,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -6.785683126508957e-13,
+      "counts": [
+        3,
+        2
+      ],
+      "e1": 4.999999999999661,
+      "e2": 9.999999999998641,
+      "e3": 9.999999999997963,
+      "e4": 4.999999999998642,
+      "feasible": true,
+      "fun": 2.499999999999915,
+      "mean": 2.499999999999915,
+      "mean_minus_5_over_2": -8.482103908136196e-14,
+      "message": "Optimization terminated successfully",
+      "n": 5,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_3",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        1.0,
+        0.9999999999998302
+      ],
+      "values_rational_approx": [
+        "1",
+        "1"
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        0.9999999999998302,
+        0.9999999999998302
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -6.625811010962934e-13,
+      "counts": [
+        10,
+        5,
+        1
+      ],
+      "e1": 4.99999999999967,
+      "e2": 9.999999999998677,
+      "e3": 9.999999999998014,
+      "e4": 4.999999999998677,
+      "feasible": true,
+      "fun": 2.4999999999999174,
+      "mean": 2.4999999999999174,
+      "mean_minus_5_over_2": -8.260059303211165e-14,
+      "message": "Optimization terminated successfully",
+      "n": 16,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_1",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999338,
+        0.0
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "0"
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        0.9999999999999338,
+        0.9999999999999338,
+        0.9999999999999338,
+        0.9999999999999338,
+        0.9999999999999338,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -5.435651928564766e-13,
+      "counts": [
+        8,
+        5,
+        3
+      ],
+      "e1": 4.999999999999727,
+      "e2": 9.99999999999891,
+      "e3": 9.999999999998366,
+      "e4": 4.99999999999891,
+      "feasible": true,
+      "fun": 2.499999999999932,
+      "mean": 2.499999999999932,
+      "mean_minus_5_over_2": -6.794564910705958e-14,
+      "message": "Optimization terminated successfully",
+      "n": 16,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_1",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999455,
+        0.0
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "0"
+      ],
+      "variance": 1.2500000000000002,
+      "variance_minus_5_over_4": 2.220446049250313e-16,
+      "weights_desc": [
+        0.9999999999999455,
+        0.9999999999999455,
+        0.9999999999999455,
+        0.9999999999999455,
+        0.9999999999999455,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -5.488942633746774e-13,
+      "e1": 4.999999999999723,
+      "e2": 9.999999999998895,
+      "e3": 9.999999999998346,
+      "e4": 4.999999999998904,
+      "feasible": true,
+      "fun": 2.499999999999932,
+      "mean": 2.499999999999932,
+      "mean_minus_5_over_2": -6.794564910705958e-14,
+      "message": "Optimization terminated successfully",
+      "n": 7,
+      "seed": 4,
+      "source": "ungrouped_slsqp",
+      "start_kind": "ungrouped_seed_4",
+      "success": true,
+      "support_size": 5,
+      "variance": 1.2500000000000018,
+      "variance_minus_5_over_4": 1.7763568394002505e-15,
+      "weights_desc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9999999999997217,
+        1.1102230246251565e-15,
+        5.971785566050158e-16
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -8.313350008393172e-13,
+      "counts": [
+        7,
+        5,
+        1
+      ],
+      "e1": 4.999999999999427,
+      "e2": 9.999999999997813,
+      "e3": 9.999999999996982,
+      "e4": 4.999999999998338,
+      "feasible": true,
+      "fun": 2.499999999999935,
+      "mean": 2.499999999999935,
+      "mean_minus_5_over_2": -6.483702463810914e-14,
+      "message": "Optimization terminated successfully",
+      "n": 13,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_4",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        6.9730962169299896e-15,
+        0.9999999999998644,
+        5.612787584080897e-14
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "0"
+      ],
+      "variance": 1.2500000000001048,
+      "variance_minus_5_over_4": 1.0480505352461478e-13,
+      "weights_desc": [
+        0.9999999999998644,
+        0.9999999999998644,
+        0.9999999999998644,
+        0.9999999999998644,
+        0.9999999999998644,
+        5.612787584080897e-14,
+        6.9730962169299896e-15,
+        6.9730962169299896e-15,
+        6.9730962169299896e-15,
+        6.9730962169299896e-15,
+        6.9730962169299896e-15,
+        6.9730962169299896e-15,
+        6.9730962169299896e-15
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -4.956035581926699e-13,
+      "counts": [
+        5,
+        5,
+        5,
+        1
+      ],
+      "e1": 4.999999999999752,
+      "e2": 9.99999999999901,
+      "e3": 9.999999999998515,
+      "e4": 4.99999999999901,
+      "feasible": true,
+      "fun": 2.4999999999999383,
+      "mean": 2.4999999999999383,
+      "mean_minus_5_over_2": -6.17284001691587e-14,
+      "message": "Optimization terminated successfully",
+      "n": 16,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_4",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999505,
+        0.0,
+        0.0
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        0.9999999999999505,
+        0.9999999999999505,
+        0.9999999999999505,
+        0.9999999999999505,
+        0.9999999999999505,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -4.991562718714704e-13,
+      "counts": [
+        5,
+        5,
+        4,
+        1
+      ],
+      "e1": 4.999999999999727,
+      "e2": 9.999999999998925,
+      "e3": 9.999999999998426,
+      "e4": 4.999999999999002,
+      "feasible": true,
+      "fun": 2.499999999999943,
+      "mean": 2.499999999999943,
+      "mean_minus_5_over_2": -5.684341886080802e-14,
+      "message": "Optimization terminated successfully",
+      "n": 15,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_1",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        3.0477185705543227e-15,
+        0.0,
+        0.9999999999999758,
+        0.999999999999809
+      ],
+      "values_rational_approx": [
+        "0",
+        "0",
+        "1",
+        "1"
+      ],
+      "variance": 1.2500000000000153,
+      "variance_minus_5_over_4": 1.532107773982716e-14,
+      "weights_desc": [
+        0.9999999999999758,
+        0.9999999999999758,
+        0.9999999999999758,
+        0.9999999999999758,
+        0.999999999999809,
+        3.0477185705543227e-15,
+        3.0477185705543227e-15,
+        3.0477185705543227e-15,
+        3.0477185705543227e-15,
+        3.0477185705543227e-15,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -3.4283687000424834e-13,
+      "counts": [
+        10,
+        5
+      ],
+      "e1": 4.999999999999828,
+      "e2": 9.999999999999313,
+      "e3": 9.99999999999897,
+      "e4": 4.999999999999312,
+      "feasible": true,
+      "fun": 2.499999999999957,
+      "mean": 2.499999999999957,
+      "mean_minus_5_over_2": -4.3076653355456074e-14,
+      "message": "Optimization terminated successfully",
+      "n": 15,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_3",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999656
+      ],
+      "values_rational_approx": [
+        "0",
+        "1"
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        0.9999999999999656,
+        0.9999999999999656,
+        0.9999999999999656,
+        0.9999999999999656,
+        0.9999999999999656,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -3.339550858072471e-13,
+      "counts": [
+        6,
+        4,
+        4,
+        1
+      ],
+      "e1": 4.999999999999833,
+      "e2": 9.999999999999332,
+      "e3": 9.999999999998998,
+      "e4": 4.999999999999332,
+      "feasible": true,
+      "fun": 2.4999999999999583,
+      "mean": 2.4999999999999583,
+      "mean_minus_5_over_2": -4.1744385725905886e-14,
+      "message": "Optimization terminated successfully",
+      "n": 15,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_1",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999606,
+        0.0,
+        0.9999999999999907
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "0",
+        "1"
+      ],
+      "variance": 1.2500000000000002,
+      "variance_minus_5_over_4": 2.220446049250313e-16,
+      "weights_desc": [
+        0.9999999999999907,
+        0.9999999999999606,
+        0.9999999999999606,
+        0.9999999999999606,
+        0.9999999999999606,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -3.2152058793144533e-13,
+      "counts": [
+        6,
+        2,
+        2,
+        1
+      ],
+      "e1": 4.999999999999839,
+      "e2": 9.999999999999357,
+      "e3": 9.999999999999035,
+      "e4": 4.999999999999358,
+      "feasible": true,
+      "fun": 2.4999999999999596,
+      "mean": 2.4999999999999596,
+      "mean_minus_5_over_2": -4.04121180963557e-14,
+      "message": "Optimization terminated successfully",
+      "n": 11,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_1",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999662,
+        0.9999999999999595,
+        0.9999999999999879
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "1",
+        "1"
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        0.9999999999999879,
+        0.9999999999999662,
+        0.9999999999999662,
+        0.9999999999999595,
+        0.9999999999999595,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -3.126388037344441e-13,
+      "counts": [
+        9,
+        4,
+        1
+      ],
+      "e1": 4.999999999999844,
+      "e2": 9.999999999999375,
+      "e3": 9.999999999999062,
+      "e4": 4.999999999999375,
+      "feasible": true,
+      "fun": 2.499999999999961,
+      "mean": 2.499999999999961,
+      "mean_minus_5_over_2": -3.907985046680551e-14,
+      "message": "Optimization terminated successfully",
+      "n": 14,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_1",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999631,
+        0.9999999999999911
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "1"
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        0.9999999999999911,
+        0.9999999999999631,
+        0.9999999999999631,
+        0.9999999999999631,
+        0.9999999999999631,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -3.090860900556436e-13,
+      "counts": [
+        8,
+        3,
+        2
+      ],
+      "e1": 4.9999999999998455,
+      "e2": 9.999999999999382,
+      "e3": 9.999999999999073,
+      "e4": 4.999999999999382,
+      "feasible": true,
+      "fun": 2.4999999999999614,
+      "mean": 2.4999999999999614,
+      "mean_minus_5_over_2": -3.863576125695545e-14,
+      "message": "Optimization terminated successfully",
+      "n": 13,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_4",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999797,
+        0.9999999999999531
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "1"
+      ],
+      "variance": 1.2500000000000002,
+      "variance_minus_5_over_4": 2.220446049250313e-16,
+      "weights_desc": [
+        0.9999999999999797,
+        0.9999999999999797,
+        0.9999999999999797,
+        0.9999999999999531,
+        0.9999999999999531,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -3.0020430585864233e-13,
+      "counts": [
+        8,
+        5
+      ],
+      "e1": 4.999999999999851,
+      "e2": 9.999999999999403,
+      "e3": 9.999999999999103,
+      "e4": 4.999999999999402,
+      "feasible": true,
+      "fun": 2.4999999999999627,
+      "mean": 2.4999999999999627,
+      "mean_minus_5_over_2": -3.730349362740526e-14,
+      "message": "Optimization terminated successfully",
+      "n": 13,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_4",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999701
+      ],
+      "values_rational_approx": [
+        "0",
+        "1"
+      ],
+      "variance": 1.2499999999999998,
+      "variance_minus_5_over_4": -2.220446049250313e-16,
+      "weights_desc": [
+        0.9999999999999701,
+        0.9999999999999701,
+        0.9999999999999701,
+        0.9999999999999701,
+        0.9999999999999701,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -3.019806626980426e-13,
+      "counts": [
+        9,
+        5,
+        1
+      ],
+      "e1": 4.99999999999985,
+      "e2": 9.9999999999994,
+      "e3": 9.999999999999098,
+      "e4": 4.999999999999399,
+      "feasible": true,
+      "fun": 2.4999999999999627,
+      "mean": 2.4999999999999627,
+      "mean_minus_5_over_2": -3.730349362740526e-14,
+      "message": "Optimization terminated successfully",
+      "n": 15,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_4",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999699,
+        0.0
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "0"
+      ],
+      "variance": 1.2500000000000002,
+      "variance_minus_5_over_4": 2.220446049250313e-16,
+      "weights_desc": [
+        0.9999999999999699,
+        0.9999999999999699,
+        0.9999999999999699,
+        0.9999999999999699,
+        0.9999999999999699,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -3.0020430585864233e-13,
+      "counts": [
+        8,
+        3,
+        3,
+        2
+      ],
+      "e1": 4.99999999999985,
+      "e2": 9.9999999999994,
+      "e3": 9.9999999999991,
+      "e4": 4.9999999999994,
+      "feasible": true,
+      "fun": 2.4999999999999627,
+      "mean": 2.4999999999999627,
+      "mean_minus_5_over_2": -3.730349362740526e-14,
+      "message": "Optimization terminated successfully",
+      "n": 16,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_4",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999499,
+        0.0,
+        1.0
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "0",
+        "1"
+      ],
+      "variance": 1.2500000000000002,
+      "variance_minus_5_over_4": 2.220446049250313e-16,
+      "weights_desc": [
+        1.0,
+        1.0,
+        0.9999999999999499,
+        0.9999999999999499,
+        0.9999999999999499,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -2.8954616482224083e-13,
+      "counts": [
+        6,
+        5,
+        4
+      ],
+      "e1": 4.999999999999854,
+      "e2": 9.99999999999942,
+      "e3": 9.99999999999913,
+      "e4": 4.999999999999418,
+      "feasible": true,
+      "fun": 2.4999999999999636,
+      "mean": 2.4999999999999636,
+      "mean_minus_5_over_2": -3.6415315207705135e-14,
+      "message": "Optimization terminated successfully",
+      "n": 15,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_4",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.0,
+        0.9999999999999709,
+        0.0
+      ],
+      "values_rational_approx": [
+        "0",
+        "1",
+        "0"
+      ],
+      "variance": 1.25,
+      "variance_minus_5_over_4": 0.0,
+      "weights_desc": [
+        0.9999999999999709,
+        0.9999999999999709,
+        0.9999999999999709,
+        0.9999999999999709,
+        0.9999999999999709,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "constraint_margin_e3_minus_e2": -6.821210263296962e-13,
+      "counts": [
+        5,
+        4,
+        2
+      ],
+      "e1": 4.99999999999945,
+      "e2": 9.999999999997929,
+      "e3": 9.999999999997247,
+      "e4": 4.9999999999986295,
+      "feasible": true,
+      "fun": 2.4999999999999667,
+      "mean": 2.4999999999999667,
+      "mean_minus_5_over_2": -3.3306690738754696e-14,
+      "message": "Optimization terminated successfully",
+      "n": 11,
+      "source": "grouped_slsqp",
+      "start_kind": "seed_0",
+      "success": true,
+      "support_size": 5,
+      "values": [
+        0.9999999999998616,
+        9.385788263194664e-15,
+        5.110285620451422e-14
+      ],
+      "values_rational_approx": [
+        "1",
+        "0",
+        "0"
+      ],
+      "variance": 1.25000000000014,
+      "variance_minus_5_over_4": 1.4011014570769476e-13,
+      "weights_desc": [
+        0.9999999999998616,
+        0.9999999999998616,
+        0.9999999999998616,
+        0.9999999999998616,
+        0.9999999999998616,
+        5.110285620451422e-14,
+        5.110285620451422e-14,
+        9.385788263194664e-15,
+        9.385788263194664e-15,
+        9.385788263194664e-15,
+        9.385788263194664e-15
+      ],
+      "weights_rational_approx": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    }
+  ],
+  "counterexample_candidates": [],
+  "counterexamples": 0,
+  "feasible": 37070,
+  "near_counterexamples_strict_tolerance": 0,
+  "processed": 57904,
+  "source": {
+    "de_maxiter": 160,
+    "de_penalty": 10000000.0,
+    "de_restarts": 1,
+    "grid_step": 0.05,
+    "group_restarts": 5,
+    "kind": "local_mode_mean_breaker",
+    "max_groups": 4,
+    "max_support": 16,
+    "seed": 993,
+    "slsqp_maxiter": 400,
+    "ungrouped_max_n": 12,
+    "ungrouped_restarts": 5
+  }
+}
