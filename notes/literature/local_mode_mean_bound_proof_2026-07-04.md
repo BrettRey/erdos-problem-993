@@ -23,6 +23,13 @@ then
 E S >= 5/2.
 ```
 
+The equivalence uses the finite odds transform `w_i=p_i/(1-p_i)`;
+the assumption `p_i <= 1/2` ensures `p_i<1` and hence
+
+```text
+P(S=k) = prod_i(1-p_i) e_k(w).
+```
+
 The result below proves this target. It does not prove the signed hub-bouquet reserve and does not close the signed conditional/boundary-term part of issue #5.
 
 ## Notation
@@ -45,7 +52,7 @@ is log-concave, where `r` is the number of positive weights in that set.
 
 The only use of Newton here is the following small consequence.
 
-**Lemma 1.** For weights in `[0,1]`, if `0 < e_2 < e_1`, then `e_3 < e_2`.
+**Lemma 1.** For positive weights, if `0 < e_2 < e_1`, then `e_3 < e_2`.
 
 **Proof.** If there are fewer than three positive weights, then `e_3=0`, and the claim is immediate from `e_2>0`. Otherwise, with `r >= 3` positive weights, Newton's inequalities give
 
@@ -84,13 +91,13 @@ B >= A
 
 for every positive coordinate `i`.
 
-Indeed, suppose instead that `B < A`. If `B=0`, then `C=0` and
+Indeed, suppose instead that `B < A`. If `B=0`, then `C=0`; since the full `e_2=B+aA` is positive and `a>0`, also `A>0`. Thus
 
 ```text
 e_3 = 0 < aA = e_2,
 ```
 
-contradicting `e_3 >= e_2`. If `B>0`, Lemma 1 applied to the deleted weight vector gives `C < B`. Since `0 < a <= 1`,
+contradicting `e_3 >= e_2`. If `B>0`, Lemma 1 applied to the deleted weight vector gives `C < B`. Since `a>0` and `B<A`,
 
 ```text
 e_3 = C + aB < B + aB <= B + aA = e_2,
@@ -194,6 +201,10 @@ mu >= 5/2.
 ```
 
 This proves the local-mode mean bound.
+
+The restriction `w_i <= 1` is used in the last comparison through
+`u_i=1-w_i >= 0`; Lemma 1 and the deletion lemma themselves only need
+positive weights.
 
 ## Boundary Case
 
