@@ -394,6 +394,8 @@ def evaluate_pattern_values(
 def target_value(row: dict[str, Any], target: str) -> float:
     if target == "reserve":
         return float(row["variance_times_reserve"])
+    if target == "side_reduction":
+        return float(row["variance_times_best_side_reduction_bound"])
     return float(row["variance_times_effective_ratio_drop"])
 
 
@@ -439,7 +441,7 @@ def add_optimizer_rows(
         ([100, 100, 50, 10], [100, 50, 10, 2]),
     ]
     side_floors = [0.0, 0.02, 0.05, 0.1]
-    targets = ["effective", "reserve"]
+    targets = ["effective", "reserve", "side_reduction"]
     for pattern_index, (x_counts, y_counts) in enumerate(patterns):
         dimension = len(x_counts) + len(y_counts)
         bounds = [(0.0, 0.5)] * dimension
@@ -605,6 +607,11 @@ def main() -> int:
         for row in feasible
         if row["variance_times_reserve"] < args.candidate_constant - TOL
     ]
+    side_reduction_below_candidate = [
+        row
+        for row in feasible
+        if row["variance_times_best_side_reduction_bound"] < args.candidate_constant - TOL
+    ]
     side_floors = [0.0, 0.02, 0.05, 0.1, 0.25]
     summary = {
         "source": {
@@ -624,6 +631,7 @@ def main() -> int:
             "feasible": len(feasible),
             "effective_candidate_failures": len(effective_failures),
             "reserve_candidate_failures": len(reserve_failures),
+            "side_reduction_below_candidate": len(side_reduction_below_candidate),
         },
         "best_by_effective_ratio_drop": [
             compact_breaker(row)
@@ -634,6 +642,13 @@ def main() -> int:
         "best_by_raw_reserve": [
             compact_breaker(row)
             for row in sorted(feasible, key=lambda row: row["variance_times_reserve"])[: args.top]
+        ],
+        "best_by_corrected_side_reduction_bound": [
+            compact_breaker(row)
+            for row in sorted(
+                feasible,
+                key=lambda row: row["variance_times_best_side_reduction_bound"],
+            )[: args.top]
         ],
         "best_effective_by_variance_cutoff": best_by_cutoff(
             feasible,
@@ -664,6 +679,25 @@ def main() -> int:
             }
             for floor in side_floors
         ],
+        "best_corrected_side_bound_by_side_balance": [
+            {
+                "side_variance_fraction_floor": floor,
+                "best": compact_breaker(
+                    min(
+                        (
+                            row
+                            for row in feasible
+                            if row["side_variance_fraction"] >= floor
+                        ),
+                        key=lambda row: row["variance_times_best_side_reduction_bound"],
+                        default=None,
+                    )
+                )
+                if any(row["side_variance_fraction"] >= floor for row in feasible)
+                else None,
+            }
+            for floor in side_floors
+        ],
         "effective_failure_certificates": [
             failure_certificate(row)
             for row in sorted(effective_failures, key=lambda row: row["variance_times_effective_ratio_drop"])[
@@ -676,6 +710,27 @@ def main() -> int:
                 : args.top
             ]
         ],
+        "low_side_reduction_certificates": [
+            failure_certificate(row)
+            for row in sorted(
+                side_reduction_below_candidate,
+                key=lambda row: row["variance_times_best_side_reduction_bound"],
+            )[: args.top]
+        ],
+        "low_side_reduction_best_raw_reserve": [
+            compact_breaker(row)
+            for row in sorted(
+                side_reduction_below_candidate,
+                key=lambda row: row["variance_times_reserve"],
+            )[: args.top]
+        ],
+        "low_side_reduction_best_effective_drop": [
+            compact_breaker(row)
+            for row in sorted(
+                side_reduction_below_candidate,
+                key=lambda row: row["variance_times_effective_ratio_drop"],
+            )[: args.top]
+        ],
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n")
@@ -683,7 +738,8 @@ def main() -> int:
         f"Wrote {args.out}; attempted={counters['attempted']}, "
         f"analyzed={counters['analyzed']}, feasible={len(feasible)}, "
         f"effective_failures={len(effective_failures)}, "
-        f"reserve_failures={len(reserve_failures)}",
+        f"reserve_failures={len(reserve_failures)}, "
+        f"side_reduction_below_candidate={len(side_reduction_below_candidate)}",
         flush=True,
     )
     return 1 if effective_failures or reserve_failures else 0

@@ -21,13 +21,14 @@ from indpoly import (
 from nm_optimizer import _selection_score, _update_archive, run_optimizer
 from trees import trees
 
+_ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+_SCRIPTS_DIR = os.path.join(_ROOT_DIR, "scripts")
+if _SCRIPTS_DIR not in sys.path:
+    sys.path.insert(0, _SCRIPTS_DIR)
+
 _LC_BREAKER_SPEC = importlib.util.spec_from_file_location(
     "lc_breaker_optimizer",
-    os.path.join(
-        os.path.dirname(os.path.abspath(__file__)),
-        "scripts",
-        "lc_breaker_optimizer.py",
-    ),
+    os.path.join(_SCRIPTS_DIR, "lc_breaker_optimizer.py"),
 )
 if _LC_BREAKER_SPEC is None or _LC_BREAKER_SPEC.loader is None:
     raise RuntimeError("Unable to load scripts/lc_breaker_optimizer.py")
@@ -36,17 +37,25 @@ _LC_BREAKER_SPEC.loader.exec_module(lc_breaker_optimizer)
 
 _ANALYZE_CORPUS_SPEC = importlib.util.spec_from_file_location(
     "analyze_prufer_corpus",
-    os.path.join(
-        os.path.dirname(os.path.abspath(__file__)),
-        "scripts",
-        "analyze_prufer_corpus.py",
-    ),
+    os.path.join(_SCRIPTS_DIR, "analyze_prufer_corpus.py"),
 )
 if _ANALYZE_CORPUS_SPEC is None or _ANALYZE_CORPUS_SPEC.loader is None:
     raise RuntimeError("Unable to load scripts/analyze_prufer_corpus.py")
 analyze_prufer_corpus = importlib.util.module_from_spec(_ANALYZE_CORPUS_SPEC)
 sys.modules[_ANALYZE_CORPUS_SPEC.name] = analyze_prufer_corpus
 _ANALYZE_CORPUS_SPEC.loader.exec_module(analyze_prufer_corpus)
+
+_ANALYZE_SIGNED_SPEC = importlib.util.spec_from_file_location(
+    "analyze_signed_conditionals",
+    os.path.join(_SCRIPTS_DIR, "analyze_signed_conditionals.py"),
+)
+if _ANALYZE_SIGNED_SPEC is None or _ANALYZE_SIGNED_SPEC.loader is None:
+    raise RuntimeError("Unable to load scripts/analyze_signed_conditionals.py")
+analyze_signed_conditionals = importlib.util.module_from_spec(_ANALYZE_SIGNED_SPEC)
+sys.modules[_ANALYZE_SIGNED_SPEC.name] = analyze_signed_conditionals
+_ANALYZE_SIGNED_SPEC.loader.exec_module(analyze_signed_conditionals)
+
+from probe_signed_pb_reserve import signed_metric  # noqa: E402
 
 
 class TestGraph6(unittest.TestCase):
@@ -124,6 +133,41 @@ class TestAnalyzeCorpusHarness(unittest.TestCase):
             self.assertEqual(len(poly) - 1, alpha)
             self.assertEqual(defects, {13})
             self.assertTrue(is_unimodal(poly))
+
+
+class TestSignedConditionalReduction(unittest.TestCase):
+    """Regression checks for corrected signed conditional reductions."""
+
+    def test_x_reduction_keeps_upper_boundary_beta(self):
+        row = signed_metric(
+            x_blocks=[(1, 0.5)],
+            y_blocks=[(10, 0.5)],
+            kind="x_boundary_counterexample",
+        )
+        self.assertIsNotNone(row)
+        analysis = analyze_signed_conditionals.analyze_row(
+            row,
+            "x_boundary_counterexample",
+        )
+        self.assertIsNotNone(analysis)
+
+        old_omitted_bound = (
+            analysis["x_inverse_index_gain"]
+            - analysis["x_dispersion_penalty"]
+            - analysis["x_lower_boundary_penalty"]
+        )
+        self.assertEqual(analysis["first_descent_value"], -3)
+        self.assertAlmostEqual(analysis["effective_ratio_drop"], 3.0 / 10.0)
+        self.assertAlmostEqual(old_omitted_bound, 4.0 / 11.0)
+        self.assertAlmostEqual(
+            analysis["x_reciprocal_upper_boundary_beta"],
+            42.0 / 55.0,
+        )
+        self.assertAlmostEqual(analysis["x_reduction_bound"], -1.0 / 55.0)
+        self.assertLessEqual(
+            analysis["y_reduction_bound"],
+            analysis["effective_ratio_drop"] + 1e-12,
+        )
 
 
 class TestIndependencePoly(unittest.TestCase):

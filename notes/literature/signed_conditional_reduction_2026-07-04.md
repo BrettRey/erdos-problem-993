@@ -479,37 +479,54 @@ I_side - H_side - Boundary_side >= c(epsilon)/V.
 This would turn the algebraic reduction directly into the signed effective
 drop.
 
-## Best Next Lemma Target
+## Revised Next Lemma Target
 
-The most focused next lemma is the following conditional Newton-drop lemma.
+The corrected side-bound audit in
 
-> **Signed conditional Newton-drop lemma.** Let `X` and `Y` be independent
-> low-probability Poisson-binomial sums, `V=Var X+Var Y>=1`, and let `D` be
-> the first strict descent of `c_z=P(X-Y=z)`. With the X-side quantities
-> `I_X,H_X,nu_X,beta_X` and the reflected Y-side quantities
-> `I_Y,H_Y,beta_Y,nu_Y` defined above, prove that at least one side has
+```text
+notes/literature/corrected_side_bound_audit_2026-07-04.md
+```
+
+shows that the side-bound-only target is too strong: high-variance balanced
+half-heavy laws can have tiny
+
+```text
+V * max(X_side_bound, Y_side_bound)
+```
+
+while already having large raw and effective reserve. The focused next lemma
+therefore needs an explicit fallback clause.
+
+> **Signed conditional Newton-or-reserve lemma.** Let `X` and `Y` be
+> independent low-probability Poisson-binomial sums, `V=Var X+Var Y>=1`, and
+> let `D` be the first strict descent of `c_z=P(X-Y=z)`. With the corrected
+> X-side quantities `I_X,H_X,nu_X,beta_X` and the reflected Y-side quantities
+> `I_Y,H_Y,beta_Y,nu_Y` defined above, prove that either at least one side has
 >
 > ```text
 > I_side - H_side - Boundary_side >= c/V
 > ```
 >
-> for an absolute constant `c>0`.
+> or the raw/effective reserve is already at least `c'/V` by a direct
+> smoothing or half-heavy argument.
 
-This lemma is still essentially the signed reserve problem, but it has a
-smaller attack surface: all terms are explicit conditional expectations and
-boundary masses. For a first proof attempt, split it into the two smaller
-lemmas:
+This lemma is still close to the signed reserve problem, but it has a smaller
+attack surface: the near-sharp sparse boundary is handled by explicit
+conditional expectations and boundary masses, while the half-heavy balanced
+regime is handled by a separate large-reserve mechanism. For a first proof
+attempt, split it into the two smaller lemmas:
 
 1. **Perturbative near-one-sided lemma.** Prove the displayed inequality when
    `min(Var X, Var Y) <= epsilon V`, using the one-sided `1/(4V)` theorem as
    the endpoint.
-2. **Balanced smoothing lemma.** Prove the displayed inequality when both side
-   variances are at least `epsilon V`.
+2. **Balanced smoothing fallback.** Prove a direct raw/effective reserve bound
+   when both side variances are at least `epsilon V` and the corrected
+   side-bound is below the target scale.
 
 The perturbative lemma is the better immediate target because it is anchored
 to the proved one-sided result and to the observed sparse boundary. The
-balanced lemma is probably cleaner after the dispersion term `H_side` is
-better understood.
+balanced fallback should start with half-heavy/binomial smoothing examples,
+where the corrected conditional bound is weak but the actual reserve is large.
 
 ## Overclaim Guard
 

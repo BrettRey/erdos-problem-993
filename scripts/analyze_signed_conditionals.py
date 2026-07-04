@@ -130,6 +130,23 @@ def upper_y_boundary_term(x_pmf: np.ndarray, y_pmf: np.ndarray, z: int) -> float
     return 0.0
 
 
+def upper_x_reciprocal_boundary(x_pmf: np.ndarray, y_pmf: np.ndarray, z: int) -> float:
+    """Return the c_{z-1} term with X one past max(X), normalized later."""
+    x_index = len(x_pmf) - 1
+    y_index = x_index + 1 - z
+    if 0 <= y_index < len(y_pmf):
+        return float(x_pmf[x_index] * y_pmf[y_index])
+    return 0.0
+
+
+def lower_y_reciprocal_boundary(x_pmf: np.ndarray, y_pmf: np.ndarray, z: int) -> float:
+    """Return the c_{z-1} term with Y one below zero, normalized later."""
+    x_index = z - 1
+    if 0 <= x_index < len(x_pmf):
+        return float(x_pmf[x_index] * y_pmf[0])
+    return 0.0
+
+
 def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
     x_blocks = as_blocks(row["x_blocks"])
     y_blocks = as_blocks(row["y_blocks"])
@@ -145,6 +162,7 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
     c_prev = float(signed[descent_index - 1])
     c_z = float(signed[descent_index])
     previous_ratio = float(signed[descent_index] / signed[descent_index - 1])
+    reciprocal_previous_ratio = float(signed[descent_index - 1] / signed[descent_index])
     pressure = float(signed[descent_index + 1] / signed[descent_index])
     effective_ratio = pressure / previous_ratio
     effective_drop = 1.0 - effective_ratio
@@ -170,10 +188,76 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
     )
     y_boundary = upper_y_boundary_term(x_pmf, y_pmf, z) / c_z
     y_ratio_identity = y_ratio_core + y_boundary
+
+    x_forward_mean = x_ratio_core
+    x_reciprocal_core = expectation(
+        y_values,
+        weights,
+        lambda y: reverse_ratio(x_pmf, z + y),
+    )
+    x_reciprocal_beta = upper_x_reciprocal_boundary(x_pmf, y_pmf, z) / c_z
+    x_reciprocal_identity = x_reciprocal_core + x_reciprocal_beta
+    x_forward_reciprocal_mean = expectation(
+        y_values,
+        weights,
+        lambda y: ratio(x_pmf, z + y) * reverse_ratio(x_pmf, z + y),
+    )
+    x_inverse_index_gain = expectation(
+        y_values,
+        weights,
+        lambda y: 1.0 / float(z + y + 1) if z + y + 1 > 0 else 0.0,
+    )
+    x_dispersion_penalty = (
+        x_forward_mean * x_reciprocal_core - x_forward_reciprocal_mean
+    )
+    x_lower_boundary_penalty = x_boundary * x_reciprocal_core
+    x_upper_boundary_penalty = (x_forward_mean + x_boundary) * x_reciprocal_beta
+    x_reduction_bound = (
+        x_inverse_index_gain
+        - x_dispersion_penalty
+        - x_lower_boundary_penalty
+        - x_upper_boundary_penalty
+    )
+
+    y_backward_mean = y_ratio_core
+    y_reciprocal_core = expectation(
+        y_values,
+        weights,
+        lambda y: ratio(y_pmf, y),
+    )
+    y_reciprocal_beta = lower_y_reciprocal_boundary(x_pmf, y_pmf, z) / c_z
+    y_reciprocal_identity = y_reciprocal_core + y_reciprocal_beta
+    y_backward_reciprocal_mean = expectation(
+        y_values,
+        weights,
+        lambda y: reverse_ratio(y_pmf, y) * ratio(y_pmf, y),
+    )
+    y_inverse_index_gain = expectation(
+        y_values,
+        weights,
+        lambda y: 1.0 / float(y + 1),
+    )
+    y_dispersion_penalty = (
+        y_backward_mean * y_reciprocal_core - y_backward_reciprocal_mean
+    )
+    y_lower_reciprocal_penalty = y_backward_mean * y_reciprocal_beta
+    y_upper_boundary_penalty = y_boundary * (y_reciprocal_core + y_reciprocal_beta)
+    y_reduction_bound = (
+        y_inverse_index_gain
+        - y_dispersion_penalty
+        - y_lower_reciprocal_penalty
+        - y_upper_boundary_penalty
+    )
+    best_side_reduction_bound = max(x_reduction_bound, y_reduction_bound)
+
     identity_errors = [
         abs(pressure - x_ratio_identity),
         abs(previous_ratio - x_previous_identity),
         abs(pressure - y_ratio_identity),
+        abs(reciprocal_previous_ratio - x_reciprocal_identity),
+        abs(reciprocal_previous_ratio - y_reciprocal_identity),
+        abs(effective_ratio - (x_forward_mean + x_boundary) * x_reciprocal_identity),
+        abs(effective_ratio - (y_backward_mean + y_boundary) * y_reciprocal_identity),
     ]
     finite_identity_errors = [error for error in identity_errors if math.isfinite(error)]
 
@@ -182,6 +266,7 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
     x_var = float(row["x_variance"])
     y_var = float(row["y_variance"])
     variance = float(row["variance"])
+    signed_mean = float(row.get("signed_mean", row["x_mean"] - row["y_mean"]))
     side_fraction = min(x_var, y_var) / variance if variance > 0.0 else math.nan
 
     inv_index = expectation(
@@ -203,10 +288,11 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
         "y_variance": y_var,
         "variance": variance,
         "side_variance_fraction": side_fraction,
-        "signed_mean": row["signed_mean"],
+        "signed_mean": signed_mean,
         "first_descent_value": z,
-        "first_descent_minus_signed_mean": z - float(row["signed_mean"]),
+        "first_descent_minus_signed_mean": z - signed_mean,
         "previous_ratio": previous_ratio,
+        "reciprocal_previous_ratio": reciprocal_previous_ratio,
         "pressure": pressure,
         "reserve": 1.0 - pressure,
         "variance_times_reserve": variance * (1.0 - pressure),
@@ -222,6 +308,27 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
         "y_identity_pressure": y_ratio_identity,
         "y_identity_pressure_core": y_ratio_core,
         "y_identity_pressure_upper_boundary": y_boundary,
+        "x_reciprocal_identity": x_reciprocal_identity,
+        "x_reciprocal_core": x_reciprocal_core,
+        "x_reciprocal_upper_boundary_beta": x_reciprocal_beta,
+        "y_reciprocal_identity": y_reciprocal_identity,
+        "y_reciprocal_core": y_reciprocal_core,
+        "y_reciprocal_lower_boundary_beta": y_reciprocal_beta,
+        "x_inverse_index_gain": x_inverse_index_gain,
+        "x_dispersion_penalty": x_dispersion_penalty,
+        "x_lower_boundary_penalty": x_lower_boundary_penalty,
+        "x_upper_boundary_penalty": x_upper_boundary_penalty,
+        "x_reduction_bound": x_reduction_bound,
+        "variance_times_x_reduction_bound": variance * x_reduction_bound,
+        "y_inverse_index_gain": y_inverse_index_gain,
+        "y_dispersion_penalty": y_dispersion_penalty,
+        "y_lower_reciprocal_penalty": y_lower_reciprocal_penalty,
+        "y_upper_boundary_penalty": y_upper_boundary_penalty,
+        "y_reduction_bound": y_reduction_bound,
+        "variance_times_y_reduction_bound": variance * y_reduction_bound,
+        "best_side_reduction_bound": best_side_reduction_bound,
+        "variance_times_best_side_reduction_bound": variance * best_side_reduction_bound,
+        "best_reduction_side": "x" if x_reduction_bound >= y_reduction_bound else "y",
         "max_identity_error": max(finite_identity_errors, default=math.nan),
         "conditional_y_mean_at_descent": y_stats["mean"],
         "conditional_y_variance_at_descent": y_stats["variance"],
@@ -253,8 +360,27 @@ def extract_rows(path: Path, *, top: int) -> list[tuple[str, dict[str, Any]]]:
         best = item.get("best")
         if best is not None:
             rows.append((f"{path.name}:cutoff={item.get('variance_cutoff')}", best))
+    for section in [
+        "best_effective_by_variance_cutoff",
+        "best_reserve_by_variance_cutoff",
+        "best_effective_by_side_balance",
+    ]:
+        for item in data.get(section, []):
+            best = item.get("best")
+            if best is not None:
+                label_items = [
+                    f"{key}={value}"
+                    for key, value in item.items()
+                    if key != "best"
+                ]
+                label = ",".join(label_items)
+                rows.append((f"{path.name}:{section}:{label}", best))
     for index, row in enumerate(data.get("best_by_variance_times_reserve", [])[:top]):
         rows.append((f"{path.name}:best_vres_rank={index + 1}", row))
+    for index, row in enumerate(data.get("best_by_effective_ratio_drop", [])[:top]):
+        rows.append((f"{path.name}:best_vdrop_rank={index + 1}", row))
+    for index, row in enumerate(data.get("best_by_raw_reserve", [])[:top]):
+        rows.append((f"{path.name}:best_raw_reserve_rank={index + 1}", row))
     for index, row in enumerate(data.get("top_smallest_v_reserve", [])[:top]):
         rows.append((f"{path.name}:top_probe_rank={index + 1}", row))
     return rows
@@ -290,6 +416,17 @@ def compact_analysis(row: dict[str, Any]) -> dict[str, Any]:
         "conditional_x_index_plus_one_over_variance",
         "conditional_y_index_plus_one_over_variance",
         "variance_times_expected_inverse_x_index_plus_one",
+        "x_reduction_bound",
+        "variance_times_x_reduction_bound",
+        "x_reciprocal_upper_boundary_beta",
+        "x_upper_boundary_penalty",
+        "y_reduction_bound",
+        "variance_times_y_reduction_bound",
+        "y_reciprocal_lower_boundary_beta",
+        "y_upper_boundary_penalty",
+        "best_side_reduction_bound",
+        "variance_times_best_side_reduction_bound",
+        "best_reduction_side",
         "conditional_y_total_variation_from_previous",
         "max_identity_error",
     ]
@@ -300,6 +437,47 @@ def parse_paths(raw: list[str] | None) -> list[Path]:
     if not raw:
         return DEFAULT_INPUTS
     return [Path(item) for item in raw]
+
+
+def best_by_cutoff(
+    rows: list[dict[str, Any]],
+    cutoffs: list[float],
+    *,
+    key: str,
+) -> list[dict[str, Any]]:
+    out = []
+    for cutoff in cutoffs:
+        candidates = [
+            row
+            for row in rows
+            if row["variance"] >= cutoff and math.isfinite(row[key])
+        ]
+        best = min(candidates, key=lambda row: row[key], default=None)
+        out.append({"variance_cutoff": cutoff, "best": compact_analysis(best) if best else None})
+    return out
+
+
+def best_by_side_balance(
+    rows: list[dict[str, Any]],
+    floors: list[float],
+    *,
+    key: str,
+) -> list[dict[str, Any]]:
+    out = []
+    for floor in floors:
+        candidates = [
+            row
+            for row in rows
+            if row["side_variance_fraction"] >= floor and math.isfinite(row[key])
+        ]
+        best = min(candidates, key=lambda row: row[key], default=None)
+        out.append(
+            {
+                "side_variance_fraction_floor": floor,
+                "best": compact_analysis(best) if best else None,
+            }
+        )
+    return out
 
 
 def main() -> int:
@@ -346,6 +524,45 @@ def main() -> int:
         "best_by_variance_times_reserve": [
             compact_analysis(row) for row in analyses[: args.top]
         ],
+        "smallest_corrected_side_reduction_bound": [
+            compact_analysis(row)
+            for row in sorted(
+                analyses,
+                key=lambda row: row["variance_times_best_side_reduction_bound"],
+            )[: args.top]
+        ],
+        "smallest_corrected_x_reduction_bound": [
+            compact_analysis(row)
+            for row in sorted(
+                analyses,
+                key=lambda row: row["variance_times_x_reduction_bound"],
+            )[: args.top]
+        ],
+        "smallest_corrected_y_reduction_bound": [
+            compact_analysis(row)
+            for row in sorted(
+                analyses,
+                key=lambda row: row["variance_times_y_reduction_bound"],
+            )[: args.top]
+        ],
+        "largest_x_upper_boundary_penalty": [
+            compact_analysis(row)
+            for row in sorted(
+                analyses,
+                key=lambda row: row["x_upper_boundary_penalty"],
+                reverse=True,
+            )[: args.top]
+        ],
+        "best_corrected_side_bound_by_variance_cutoff": best_by_cutoff(
+            analyses,
+            [1, 1.25, 1.5, 2, 5, 10, 20, 50],
+            key="variance_times_best_side_reduction_bound",
+        ),
+        "best_corrected_side_bound_by_side_balance": best_by_side_balance(
+            analyses,
+            [0.0, 0.02, 0.05, 0.1, 0.25],
+            key="variance_times_best_side_reduction_bound",
+        ),
         "largest_conditional_index_over_variance": [
             compact_analysis(row)
             for row in sorted(
