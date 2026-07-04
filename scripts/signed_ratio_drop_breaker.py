@@ -79,13 +79,20 @@ def metric_with_analysis(
     *,
     source: str,
     details: dict[str, Any] | None = None,
+    counters: dict[str, int] | None = None,
 ) -> dict[str, Any] | None:
     x_blocks = clean_blocks(x_blocks)
     y_blocks = clean_blocks(y_blocks)
-    metric = signed_metric(x_blocks=x_blocks, y_blocks=y_blocks, kind=source, details=details)
+    metric = signed_metric(
+        x_blocks=x_blocks,
+        y_blocks=y_blocks,
+        kind=source,
+        details=details,
+        counters=counters,
+    )
     if metric is None:
         return None
-    analysis = analyze_row(metric, source)
+    analysis = analyze_row(metric, source, counters=counters)
     if analysis is None:
         return None
     analysis["x_blocks"] = metric["x_blocks"]
@@ -185,7 +192,13 @@ def add_candidate(
         counters["duplicates"] += 1
         return
     seen.add(key)
-    row = metric_with_analysis(x_blocks, y_blocks, source=source, details=details)
+    row = metric_with_analysis(
+        x_blocks,
+        y_blocks,
+        source=source,
+        details=details,
+        counters=counters,
+    )
     if row is None:
         counters["not_analyzed"] += 1
         return
@@ -672,7 +685,16 @@ def main() -> int:
     rng = random.Random(args.seed)
     rows: list[dict[str, Any]] = []
     seen: set[tuple[Any, ...]] = set()
-    counters = {"attempted": 0, "duplicates": 0, "not_analyzed": 0, "analyzed": 0}
+    counters = {
+        "attempted": 0,
+        "duplicates": 0,
+        "not_analyzed": 0,
+        "analyzed": 0,
+        "no_descent": 0,
+        "terminal_descent": 0,
+        "nonpositive_descent_mass": 0,
+        "zero_variance": 0,
+    }
 
     add_finite_skellam_boundary(rows, seen, counters, max_side_n=args.max_side_n)
     add_near_one_sided_perturbations(rows, seen, counters, max_side_n=args.max_side_n)

@@ -11,6 +11,8 @@ import sys
 import tempfile
 import unittest
 
+import numpy as np
+
 from graph6 import parse_graph6
 from erdos993_hunt import independence_poly_tree
 from indpoly import (
@@ -57,7 +59,7 @@ analyze_signed_conditionals = importlib.util.module_from_spec(_ANALYZE_SIGNED_SP
 sys.modules[_ANALYZE_SIGNED_SPEC.name] = analyze_signed_conditionals
 _ANALYZE_SIGNED_SPEC.loader.exec_module(analyze_signed_conditionals)
 
-from probe_signed_pb_reserve import signed_metric  # noqa: E402
+from probe_signed_pb_reserve import first_descent, signed_metric  # noqa: E402
 
 
 class TestGraph6(unittest.TestCase):
@@ -140,6 +142,48 @@ class TestAnalyzeCorpusHarness(unittest.TestCase):
 class TestSignedConditionalReduction(unittest.TestCase):
     """Regression checks for corrected signed conditional reductions."""
 
+    @staticmethod
+    def _convolve_fraction(
+        left: list[Fraction],
+        right: list[Fraction],
+    ) -> list[Fraction]:
+        out = [Fraction(0) for _ in range(len(left) + len(right) - 1)]
+        for i, left_value in enumerate(left):
+            for j, right_value in enumerate(right):
+                out[i + j] += left_value * right_value
+        return out
+
+    @classmethod
+    def _exact_grouped_pmf(
+        cls,
+        blocks: list[tuple[int, Fraction]],
+    ) -> list[Fraction]:
+        pmf = [Fraction(1)]
+        for count, p in blocks:
+            block = [
+                Fraction(math.comb(count, k)) * p**k * (1 - p) ** (count - k)
+                for k in range(count + 1)
+            ]
+            pmf = cls._convolve_fraction(pmf, block)
+        return pmf
+
+    @classmethod
+    def _exact_signed_scaled_slacks(
+        cls,
+        x_blocks: list[tuple[int, Fraction]],
+        y_blocks: list[tuple[int, Fraction]],
+    ) -> tuple[Fraction, Fraction]:
+        x_pmf = cls._exact_grouped_pmf(x_blocks)
+        y_pmf = cls._exact_grouped_pmf(y_blocks)
+        signed = cls._convolve_fraction(x_pmf, list(reversed(y_pmf)))
+        descent = next(
+            k for k in range(1, len(signed)) if signed[k] < signed[k - 1]
+        )
+        previous_ratio = signed[descent] / signed[descent - 1]
+        pressure = signed[descent + 1] / signed[descent]
+        variance = sum(count * p * (1 - p) for count, p in [*x_blocks, *y_blocks])
+        return variance * (1 - pressure / previous_ratio), variance * (1 - pressure)
+
     def test_fair_binomial_signed_fallback_constants(self):
         best_delta = None
         best_reserve = None
@@ -176,6 +220,50 @@ class TestSignedConditionalReduction(unittest.TestCase):
 
         self.assertEqual(best_delta, (4, Fraction(5, 8)))
         self.assertEqual(best_reserve, (4, Fraction(3, 4)))
+
+    def test_first_descent_treats_roundoff_plateau_as_tie(self):
+        seq = np.array([0.4, 0.5, np.nextafter(0.5, 0.0), 0.4])
+        self.assertEqual(first_descent(seq), 3)
+
+    def test_analyzer_counts_terminal_descent_rows(self):
+        metric_counters = {
+            "no_descent": 0,
+            "terminal_descent": 0,
+            "nonpositive_descent_mass": 0,
+            "zero_variance": 0,
+        }
+        self.assertIsNone(
+            signed_metric(
+                x_blocks=[(1, 0.2)],
+                y_blocks=[(0, 0.0)],
+                kind="terminal_descent_regression",
+                counters=metric_counters,
+            )
+        )
+        self.assertEqual(metric_counters["terminal_descent"], 1)
+
+        counters = {
+            "no_descent": 0,
+            "terminal_descent": 0,
+            "nonpositive_descent_mass": 0,
+        }
+        analysis = analyze_signed_conditionals.analyze_row(
+            {
+                "x_blocks": [[1, 0.2]],
+                "y_blocks": [[0, 0.0]],
+                "x_n": 1,
+                "y_n": 0,
+                "x_mean": 0.2,
+                "y_mean": 0.0,
+                "x_variance": 0.16,
+                "y_variance": 0.0,
+                "variance": 0.16,
+            },
+            "terminal_descent_regression",
+            counters=counters,
+        )
+        self.assertIsNone(analysis)
+        self.assertEqual(counters["terminal_descent"], 1)
 
     def test_x_reduction_keeps_upper_boundary_beta(self):
         row = signed_metric(
@@ -249,6 +337,16 @@ class TestSignedConditionalReduction(unittest.TestCase):
             self.assertAlmostEqual(analysis["variance_times_reserve"], reserve)
             self.assertGreater(analysis["variance_times_effective_ratio_drop"], 0.75)
             self.assertGreater(analysis["variance_times_reserve"], 0.75)
+
+    def test_half_heavy_dust_point_disproves_eight_tenths_exactly(self):
+        scaled_effective, scaled_reserve = self._exact_signed_scaled_slacks(
+            x_blocks=[(5, Fraction(1, 250)), (7, Fraction(1, 2))],
+            y_blocks=[(1, Fraction(1, 50)), (4, Fraction(1, 2))],
+        )
+        self.assertGreater(scaled_effective, Fraction(3, 4))
+        self.assertGreater(scaled_reserve, Fraction(3, 4))
+        self.assertLess(scaled_effective, Fraction(4, 5))
+        self.assertLess(scaled_reserve, Fraction(4, 5))
 
 
 class TestIndependencePoly(unittest.TestCase):

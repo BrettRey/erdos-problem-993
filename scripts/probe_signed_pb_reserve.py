@@ -27,11 +27,13 @@ except ImportError as exc:  # pragma: no cover - environment guard
 
 
 Block = tuple[int, float]
+STRICT_DESCENT_RTOL = 1e-10
 
 
 def first_descent(seq: np.ndarray) -> int | None:
+    """Return the first numerically strict descent, treating roundoff ties as ties."""
     for k in range(1, len(seq)):
-        if seq[k] < seq[k - 1]:
+        if seq[k] < seq[k - 1] * (1.0 - STRICT_DESCENT_RTOL):
             return k
     return None
 
@@ -75,13 +77,26 @@ def signed_metric(
     y_blocks: list[Block],
     kind: str,
     details: dict[str, Any] | None = None,
+    counters: dict[str, int] | None = None,
 ) -> dict[str, Any] | None:
     x_pmf = grouped_pmf(x_blocks)
     y_pmf = grouped_pmf(y_blocks)
     signed = np.convolve(x_pmf, y_pmf[::-1])
     support_start = -(len(y_pmf) - 1)
     descent_index = first_descent(signed)
-    if descent_index is None or descent_index >= len(signed) - 1 or signed[descent_index] <= 0:
+    if descent_index is None:
+        if counters is not None:
+            counters["no_descent"] = counters.get("no_descent", 0) + 1
+        return None
+    if descent_index >= len(signed) - 1:
+        if counters is not None:
+            counters["terminal_descent"] = counters.get("terminal_descent", 0) + 1
+        return None
+    if signed[descent_index] <= 0:
+        if counters is not None:
+            counters["nonpositive_descent_mass"] = (
+                counters.get("nonpositive_descent_mass", 0) + 1
+            )
         return None
 
     x_mean = sum(count * p for count, p in x_blocks)
@@ -90,6 +105,8 @@ def signed_metric(
     y_var = sum(count * p * (1.0 - p) for count, p in y_blocks)
     variance = x_var + y_var
     if variance <= 0:
+        if counters is not None:
+            counters["zero_variance"] = counters.get("zero_variance", 0) + 1
         return None
 
     pressure = float(signed[descent_index + 1] / signed[descent_index])

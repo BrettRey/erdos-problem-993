@@ -94,20 +94,32 @@ def total_variation(
     return 0.5 * sum(abs(map_a.get(key, 0.0) - map_b.get(key, 0.0)) for key in keys)
 
 
-def expectation(values: np.ndarray, weights: np.ndarray, fn) -> float:
+def expectation(
+    values: np.ndarray,
+    weights: np.ndarray,
+    fn,
+    *,
+    diagnostics: dict[str, int] | None = None,
+) -> float:
     if len(values) == 0 or float(weights.sum()) <= 0.0:
         return math.nan
     total = 0.0
     mass = 0.0
+    skipped_nonfinite = 0
     for value, weight_raw in zip(values, weights):
         weight = float(weight_raw)
         if weight <= 0.0:
             continue
         term = fn(int(value))
         if not math.isfinite(term):
+            skipped_nonfinite += 1
             continue
         total += weight * term
         mass += weight
+    if diagnostics is not None:
+        diagnostics["nonfinite_expectation_terms"] = (
+            diagnostics.get("nonfinite_expectation_terms", 0) + skipped_nonfinite
+        )
     if mass <= 0.0:
         return math.nan
     return total / mass
@@ -147,15 +159,35 @@ def lower_y_reciprocal_boundary(x_pmf: np.ndarray, y_pmf: np.ndarray, z: int) ->
     return 0.0
 
 
-def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
+def analyze_row(
+    row: dict[str, Any],
+    source: str,
+    counters: dict[str, int] | None = None,
+) -> dict[str, Any] | None:
     x_blocks = as_blocks(row["x_blocks"])
     y_blocks = as_blocks(row["y_blocks"])
     x_pmf = trim_zero_tail(grouped_pmf(x_blocks))
     y_pmf = trim_zero_tail(grouped_pmf(y_blocks))
+    if x_pmf[0] <= 0.0 or y_pmf[0] <= 0.0:
+        raise ValueError("deterministic shifts must be stripped before analysis")
     signed = np.convolve(x_pmf, y_pmf[::-1])
     support_start = -(len(y_pmf) - 1)
     descent_index = first_descent(signed)
-    if descent_index is None or descent_index >= len(signed) - 1:
+    if descent_index is None:
+        if counters is not None:
+            counters["no_descent"] = counters.get("no_descent", 0) + 1
+        return None
+    if descent_index >= len(signed) - 1:
+        # Terminal descents have Delta=1 and are benign for minimum searches,
+        # but they should be counted rather than silently mixed with failures.
+        if counters is not None:
+            counters["terminal_descent"] = counters.get("terminal_descent", 0) + 1
+        return None
+    if signed[descent_index] <= 0.0:
+        if counters is not None:
+            counters["nonpositive_descent_mass"] = (
+                counters.get("nonpositive_descent_mass", 0) + 1
+            )
         return None
 
     z = support_start + descent_index
@@ -170,14 +202,21 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
     y_prev_values, prev_weights = conditional_y(x_pmf, y_pmf, z - 1)
     y_stats = conditional_stats(y_values, weights)
     y_prev_stats = conditional_stats(y_prev_values, prev_weights)
+    diagnostics = {"nonfinite_expectation_terms": 0}
 
-    x_ratio_core = expectation(y_values, weights, lambda y: ratio(x_pmf, z + y))
+    x_ratio_core = expectation(
+        y_values,
+        weights,
+        lambda y: ratio(x_pmf, z + y),
+        diagnostics=diagnostics,
+    )
     x_boundary = lower_x_boundary_term(x_pmf, y_pmf, z) / c_z
     x_ratio_identity = x_ratio_core + x_boundary
     x_previous_core = expectation(
         y_prev_values,
         prev_weights,
         lambda y: ratio(x_pmf, z - 1 + y),
+        diagnostics=diagnostics,
     )
     x_previous_boundary = lower_x_boundary_term(x_pmf, y_pmf, z - 1) / c_prev
     x_previous_identity = x_previous_core + x_previous_boundary
@@ -185,6 +224,7 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
         y_values,
         weights,
         lambda y: reverse_ratio(y_pmf, y),
+        diagnostics=diagnostics,
     )
     y_boundary = upper_y_boundary_term(x_pmf, y_pmf, z) / c_z
     y_ratio_identity = y_ratio_core + y_boundary
@@ -194,6 +234,7 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
         y_values,
         weights,
         lambda y: reverse_ratio(x_pmf, z + y),
+        diagnostics=diagnostics,
     )
     x_reciprocal_beta = upper_x_reciprocal_boundary(x_pmf, y_pmf, z) / c_z
     x_reciprocal_identity = x_reciprocal_core + x_reciprocal_beta
@@ -201,11 +242,13 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
         y_values,
         weights,
         lambda y: ratio(x_pmf, z + y) * reverse_ratio(x_pmf, z + y),
+        diagnostics=diagnostics,
     )
     x_inverse_index_gain = expectation(
         y_values,
         weights,
         lambda y: 1.0 / float(z + y + 1) if z + y + 1 > 0 else 0.0,
+        diagnostics=diagnostics,
     )
     x_dispersion_penalty = (
         x_forward_mean * x_reciprocal_core - x_forward_reciprocal_mean
@@ -224,6 +267,7 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
         y_values,
         weights,
         lambda y: ratio(y_pmf, y),
+        diagnostics=diagnostics,
     )
     y_reciprocal_beta = lower_y_reciprocal_boundary(x_pmf, y_pmf, z) / c_z
     y_reciprocal_identity = y_reciprocal_core + y_reciprocal_beta
@@ -231,11 +275,13 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
         y_values,
         weights,
         lambda y: reverse_ratio(y_pmf, y) * ratio(y_pmf, y),
+        diagnostics=diagnostics,
     )
     y_inverse_index_gain = expectation(
         y_values,
         weights,
         lambda y: 1.0 / float(y + 1),
+        diagnostics=diagnostics,
     )
     y_dispersion_penalty = (
         y_backward_mean * y_reciprocal_core - y_backward_reciprocal_mean
@@ -259,6 +305,9 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
         abs(effective_ratio - (x_forward_mean + x_boundary) * x_reciprocal_identity),
         abs(effective_ratio - (y_backward_mean + y_boundary) * y_reciprocal_identity),
     ]
+    nonfinite_identity_error_count = sum(
+        1 for error in identity_errors if not math.isfinite(error)
+    )
     finite_identity_errors = [error for error in identity_errors if math.isfinite(error)]
 
     x_index_mean = z + y_stats["mean"]
@@ -273,13 +322,16 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
         y_values,
         weights,
         lambda y: 1.0 / float(z + y + 1) if z + y + 1 > 0 else 0.0,
+        diagnostics=diagnostics,
     )
     conditional_newton_factor = expectation(
         y_values,
         weights,
         lambda y: float(z + y) / float(z + y + 1) if z + y + 1 > 0 else 0.0,
+        diagnostics=diagnostics,
     )
 
+    # Under pi, the X index is N=z+Y, so its variance equals Var_pi(Y).
     return {
         "source": source,
         "x_n": row["x_n"],
@@ -330,6 +382,8 @@ def analyze_row(row: dict[str, Any], source: str) -> dict[str, Any] | None:
         "variance_times_best_side_reduction_bound": variance * best_side_reduction_bound,
         "best_reduction_side": "x" if x_reduction_bound >= y_reduction_bound else "y",
         "max_identity_error": max(finite_identity_errors, default=math.nan),
+        "nonfinite_identity_error_count": nonfinite_identity_error_count,
+        "nonfinite_expectation_terms": diagnostics["nonfinite_expectation_terms"],
         "conditional_y_mean_at_descent": y_stats["mean"],
         "conditional_y_variance_at_descent": y_stats["variance"],
         "conditional_x_mean_at_descent": x_index_mean,
@@ -493,19 +547,45 @@ def main() -> int:
 
     seen = set()
     analyses: list[dict[str, Any]] = []
+    counters = {
+        "attempted": 0,
+        "duplicates": 0,
+        "analyzed": 0,
+        "not_analyzed": 0,
+        "no_descent": 0,
+        "terminal_descent": 0,
+        "nonpositive_descent_mass": 0,
+    }
     for path in parse_paths(args.inputs):
         if not path.exists():
             raise SystemExit(f"missing input: {path}")
         for source, row in extract_rows(path, top=args.top):
+            counters["attempted"] += 1
             key = row_key(row)
             if key in seen:
+                counters["duplicates"] += 1
                 continue
             seen.add(key)
-            analysis = analyze_row(row, source)
+            analysis = analyze_row(row, source, counters=counters)
             if analysis is not None:
                 analyses.append(analysis)
+                counters["analyzed"] += 1
+            else:
+                counters["not_analyzed"] += 1
 
     analyses.sort(key=lambda row: row["variance_times_reserve"])
+    total_nonfinite_expectation_terms = sum(
+        row["nonfinite_expectation_terms"] for row in analyses
+    )
+    total_nonfinite_identity_errors = sum(
+        row["nonfinite_identity_error_count"] for row in analyses
+    )
+    if total_nonfinite_expectation_terms or total_nonfinite_identity_errors:
+        raise SystemExit(
+            "non-finite conditional diagnostics encountered: "
+            f"expectation_terms={total_nonfinite_expectation_terms}, "
+            f"identity_errors={total_nonfinite_identity_errors}"
+        )
     summary = {
         "source": {
             "kind": "signed_pb_conditional_ratio_analysis",
@@ -513,6 +593,7 @@ def main() -> int:
             "top_per_section": args.top,
         },
         "processed": len(analyses),
+        "counts": counters,
         "max_identity_error": max(
             (
                 row["max_identity_error"]
@@ -521,6 +602,8 @@ def main() -> int:
             ),
             default=math.nan,
         ),
+        "nonfinite_expectation_terms": total_nonfinite_expectation_terms,
+        "nonfinite_identity_errors": total_nonfinite_identity_errors,
         "best_by_variance_times_reserve": [
             compact_analysis(row) for row in analyses[: args.top]
         ],

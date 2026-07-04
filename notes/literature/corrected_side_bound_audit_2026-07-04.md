@@ -136,6 +136,24 @@ identity error
 6.66e-16.
 ```
 
+A hardened rerun after adding relative-drop descent tolerance and non-finite
+diagnostic counters gave the same top-row result:
+
+```text
+attempted = 71
+duplicates = 3
+analyzed = 68
+terminal descents = 0
+non-finite expectation terms = 0
+non-finite identity errors = 0
+max identity error = 6.661e-16
+```
+
+This identity error certifies the displayed identities at the computed descent
+index. It does not, by itself, certify descent placement. Non-dyadic
+near-plateau rows should be rechecked with a relative-drop tolerance or exact
+arithmetic before their descent index is treated as a certificate.
+
 On those saved near-sharp rows, the smallest observed corrected side bound was
 
 ```text
@@ -152,6 +170,11 @@ effective-drop failures below 1/4 = 0
 raw-reserve failures below 1/4 = 0
 rows with V * best_side_reduction_bound below 1/4 = 146
 ```
+
+These are finite smoke runs over the listed families and parameter ranges; the
+zero failure counts are not universal statements. Rows dropped between
+`attempted` and `analyzed` include terminal descents with `Delta=1`, which
+trivially satisfy the reserve targets but are not useful for minimum searches.
 
 The joint smoke breaker used the same small run with fallback threshold `0.75`
 and found:
@@ -192,19 +215,19 @@ V * Delta_eff ~= 0.333877,
 V * best_side_reduction_bound ~= 0.333876.
 ```
 
-The low side-bound rows are not reserve threats. In the smoke output, among
-rows with `V * best_side_reduction_bound < 1/4`, the smallest stored actual
-slack was
+In these runs, the low side-bound rows were not reserve threats. In the smoke
+output, among rows with `V * best_side_reduction_bound < 1/4`, the smallest
+stored actual slack was
 
 ```text
 min V * reserve ~= 0.827112,
 min V * Delta_eff ~= 0.799800.
 ```
 
-The low side-bound rows are strongly half-heavy. In the joint smoke output,
-the lowest-reserve low-side-bound examples had half-heavy variance fraction
-between about `0.86` and `0.97`; the smallest-side-bound optimizer examples
-had half-heavy variance fraction essentially `1`.
+In these runs, the low side-bound rows were strongly half-heavy. In the joint
+smoke output, the lowest-reserve low-side-bound examples had half-heavy
+variance fraction between about `0.86` and `0.97`; the smallest-side-bound
+optimizer examples had half-heavy variance fraction essentially `1`.
 
 The explicit half-heavy+dust grid found the closest fallback rows so far:
 
@@ -227,7 +250,8 @@ V * reserve ~= 0.789747.
 ```
 
 Thus `0.75` remains a plausible fallback search threshold in these runs, but
-`0.8` is already too aggressive as a conjectural universal fallback constant.
+`0.8` is already too aggressive as a conjectural universal fallback constant;
+the second displayed half-heavy+dust row is an exact rational counterexample.
 
 The worst side-bound row was the balanced half-heavy case
 
@@ -241,6 +265,10 @@ V * Delta_eff ~= 0.997012,
 V * reserve ~= 1.49402.
 ```
 
+The Binomial(500,1/2) row is a float counterexample to the side-bound-only
+target with large margin. Exact certification of this side-bound value would
+be needed before citing it as a theorem-level disproof.
+
 ## Interpretation
 
 The naive side-selection lemma
@@ -249,10 +277,11 @@ The naive side-selection lemma
 V * max(X_side_bound, Y_side_bound) >= 1/4
 ```
 
-is false as a proof target. The corrected conditional Newton bound is too
-weak in high-variance, half-heavy, normal-like cases. This does not threaten
-the signed reserve route because those rows already have large raw and
-effective reserve.
+should be retired as a proof target. The corrected conditional Newton bound is
+too weak in the high-variance, half-heavy, normal-like cases found here; the
+`Binomial(500,1/2)` pair shows this weakness can be severe. This does not
+threaten the signed reserve route because those rows already have large raw
+and effective reserve.
 
 The better target is a two-clause lemma:
 
@@ -260,8 +289,8 @@ The better target is a two-clause lemma:
 > `V * best_side_reduction_bound >= c`, or the raw/effective reserve is already
 > at least `c'/V` by a direct smoothing or half-heavy argument.
 
-Empirically, the side-bound clause carries the near-sharp sparse boundary, and
-the fallback clause carries the half-heavy balanced regime.
+Empirically in these runs, the side-bound clause carries the near-sharp sparse
+boundary, and the fallback clause carries the half-heavy balanced regime.
 
 The most concrete fallback target suggested by this audit is:
 
@@ -279,6 +308,7 @@ The exact fair-binomial model is proved separately in
 notes/literature/fair_binomial_signed_fallback_2026-07-04.md
 ```
 
+The source note now records the corrected constants from the 2026-07-04 audit.
 It gives the theorem-level base case
 
 ```text
@@ -286,13 +316,15 @@ V * Delta_eff >= 5/8,
 V * reserve >= 3/4
 ```
 
-for `X~Binomial(m,1/2)` and `Y~Binomial(n,1/2)`. Both constants are sharp at
-total fair count `m+n=4`; constants near `0.8` are disfavored by the
-half-heavy+dust rows above and cannot be inferred from the exact model.
+for `X~Binomial(m,1/2)` and `Y~Binomial(n,1/2)` with
+`V=(m+n)/4 >= 1`. Both constants are sharp at total fair count `m+n=4`.
+Constants near `0.8` are ruled out for the displayed half-heavy+dust
+perturbation by an exact rational regression test, and cannot be inferred from
+the exact fair-binomial model.
 
 ## Overclaim Guard
 
 This audit does not prove the signed reserve theorem, the effective-drop
 diagnostic, the hub-bouquet reserve, or Erdos 993. It also disproves one
 over-strong proof target: the corrected conditional side-bound alone cannot be
-the whole argument.
+the whole argument. Issue #5 remains open.
