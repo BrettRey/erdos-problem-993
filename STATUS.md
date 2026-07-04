@@ -9,6 +9,18 @@
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## Current state (2026-07-04)
+
+### Session notes (2026-07-04, morning, signed-reserve audit hardening)
+- **Mode switch:** issue #5 signed-reserve work is now in audit-hardening mode, not forward proof-push mode. Do not close issue #5 or claim signed reserve, hub-bouquet reserve, or Erdos #993 from the current notes.
+- **Claim-status ledger added:** `notes/literature/audit_hardening_claims_ledger_2026-07-04.md` is the current reliability surface. It separates theorem-level claims, finite algebra, computational evidence, superseded targets, regression coverage, and permitted next work.
+- **Prompt 4 patched:** `notes/literature/corrected_side_bound_audit_2026-07-04.md` now records the code/formula audit outcome and fixes the overclaim findings: missing `V=(m+n)/4 >= 1` scope, finite-search caveats, terminal-descent caveat, max-identity-error caveat, and float-vs-exact certification boundaries.
+- **Numeric guardrails added:** `first_descent` now uses a relative-drop tolerance to avoid float-resolved plateau ties; signed analysis tracks no-descent, terminal-descent, nonpositive-mass, and non-finite diagnostic cases explicitly.
+- **Regression coverage expanded:** `test_all.py` covers the corrected X-side `beta_X` boundary, exact fair-binomial constants (`5/8`, `3/4` at total count 4), plateau tolerance, terminal-descent counting, half-heavy+dust near misses, and an exact rational half-heavy+dust row below a `0.8` fallback constant.
+- **Shipped:** commit `a2c1abd` (`Harden signed reserve audit surface`) pushed to `origin/master`. Issue #5 updated at `https://github.com/BrettRey/erdos-problem-993/issues/5#issuecomment-4882264719`.
+- **Verification:** `python3 -m unittest test_all.py -v` passed (`53` tests); `python3 -m py_compile scripts/analyze_signed_conditionals.py scripts/probe_signed_pb_reserve.py scripts/signed_ratio_drop_breaker.py test_all.py` passed; hardened analyzer rerun on `results/signed_ratio_drop_breaker_extended_2026-07-04.json` processed `68` rows with `max_identity_error=6.661e-16`, `terminal=0`, and `nonfinite=0`.
+- **Next action:** exact-certify or explicitly quarantine the large float side-bound breaker, then externally audit the one-sided effective-drop route before any theorem-level manuscript migration.
+
 ## Current state (2026-07-01)
 
 ### Session notes (2026-07-01, STP2 formal hygiene and public targets)

@@ -6,6 +6,11 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
 
 ---
 
+## 2026-07-04
+
+- **Switch issue #5 signed-reserve work to audit-hardening mode** External audits found real errors in the recent proof route (missing X-side boundary term, fair-binomial constant error, strict-transfer overstatement, float plateau risk). The durable stance is now: patch audit findings before extending the route, keep theorem/algebra/computation/conjecture/disproof separated, regression-test every concrete error, and do not close issue #5 or claim signed reserve / hub-bouquet reserve / Erdos #993 from these notes.
+- **Use `notes/literature/audit_hardening_claims_ledger_2026-07-04.md` as the claim-status surface** The ledger records what is theorem-level, algebraic, computational, superseded, or still blocked. It is a reliability surface, not a proof note; no manuscript import from this lane without a later audit pass.
+
 ## 2026-07-01
 
 - **Guard Lean LC/STP2 at `k >= 1`** The old Nat-subtraction boundary created artificial `k = 0` obligations. `Formal/STP2Closure.lean` now treats LC/STP2 as guarded non-boundary conditions and records a regression for `leafI * leafI = [1,2,1]`.
