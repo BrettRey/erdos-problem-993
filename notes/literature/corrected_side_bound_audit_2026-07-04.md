@@ -282,14 +282,13 @@ notes/literature/fair_binomial_signed_fallback_2026-07-04.md
 It gives the theorem-level base case
 
 ```text
-V * Delta_eff >= 1/2,
+V * Delta_eff >= 5/8,
 V * reserve >= 3/4
 ```
 
-for `X~Binomial(m,1/2)` and `Y~Binomial(n,1/2)`. The `1/2` effective-drop
-constant is sharp at total fair count `m+n=5`; constants near `0.8` are
-disfavored by the half-heavy+dust rows above and cannot be inferred from the
-exact model.
+for `X~Binomial(m,1/2)` and `Y~Binomial(n,1/2)`. Both constants are sharp at
+total fair count `m+n=4`; constants near `0.8` are disfavored by the
+half-heavy+dust rows above and cannot be inferred from the exact model.
 
 ## Overclaim Guard
 

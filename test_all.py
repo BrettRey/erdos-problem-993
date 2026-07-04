@@ -1,8 +1,10 @@
 """Tests for the Erdős Problem #993 search code."""
 
 import contextlib
+from fractions import Fraction
 import importlib.util
 import io
+import math
 import os
 import shutil
 import sys
@@ -137,6 +139,43 @@ class TestAnalyzeCorpusHarness(unittest.TestCase):
 
 class TestSignedConditionalReduction(unittest.TestCase):
     """Regression checks for corrected signed conditional reductions."""
+
+    def test_fair_binomial_signed_fallback_constants(self):
+        best_delta = None
+        best_reserve = None
+        for total_count in range(4, 41):
+            probabilities = [
+                Fraction(math.comb(total_count, k), 2**total_count)
+                for k in range(total_count + 1)
+            ]
+            descent = next(
+                k
+                for k in range(1, total_count + 1)
+                if probabilities[k] < probabilities[k - 1]
+            )
+            previous_ratio = probabilities[descent] / probabilities[descent - 1]
+            pressure = (
+                probabilities[descent + 1] / probabilities[descent]
+                if descent + 1 <= total_count
+                else Fraction(0)
+            )
+            effective_drop = 1 - pressure / previous_ratio
+            variance = Fraction(total_count, 4)
+            scaled_effective = variance * effective_drop
+            scaled_reserve = variance * (1 - pressure)
+            best_delta = (
+                (total_count, scaled_effective)
+                if best_delta is None or scaled_effective < best_delta[1]
+                else best_delta
+            )
+            best_reserve = (
+                (total_count, scaled_reserve)
+                if best_reserve is None or scaled_reserve < best_reserve[1]
+                else best_reserve
+            )
+
+        self.assertEqual(best_delta, (4, Fraction(5, 8)))
+        self.assertEqual(best_reserve, (4, Fraction(3, 4)))
 
     def test_x_reduction_keeps_upper_boundary_beta(self):
         row = signed_metric(

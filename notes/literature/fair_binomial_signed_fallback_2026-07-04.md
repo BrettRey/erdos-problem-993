@@ -30,12 +30,11 @@ Delta_eff = 1 - R_+/R_-.
 Then
 
 ```text
-V * Delta_eff >= 1/2,
+V * Delta_eff >= 5/8,
 V * (1 - R_+) >= 3/4.
 ```
 
-The constants are sharp for this exact model: `V * Delta_eff = 1/2` at
-`N=5`, and `V * (1-R_+) = 3/4` at `N=4`.
+The constants are sharp for this exact model: both minima occur at `N=4`.
 
 ## Proof
 
@@ -91,6 +90,8 @@ V * Delta_eff
   >= 5/8.
 ```
 
+The last inequality is minimized at `r=2`.
+
 Also
 
 ```text
@@ -102,10 +103,13 @@ If `N=2r+1`, then `k=r+2`, `r>=2`, and
 
 ```text
 V * Delta_eff
-  = ((2r+1)/4) * (2/(r+3))
-  = (2r+1)/(2(r+3))
-  >= 1/2.
+  = ((2r+1)/4) * ((2r+2)/(r(r+3)))
+  = (2r+1)(r+1)/(2r(r+3))
+  >= 3/4.
 ```
+
+For the last inequality, cross-multiplication gives
+`2(r-1)(r-2) >= 0`.
 
 Also
 
@@ -116,13 +120,31 @@ V * (1-R_+) = (2r+1)/(r+3) >= 1.
 
 Combining the two parity cases gives the stated bounds.
 
+At the sharp case `N=4`, the post-descent ratio `R_+` uses the last support
+point. Thus the endpoint case must not be excluded by an interior-support
+assumption.
+
 ## Calibration
 
-The proof-track suggestion `V * Delta_eff >= 5/8` is true for even `N`, but
-false for odd `N`: at `N=5`, `V=5/4` and `Delta_eff=2/5`, so
+An earlier version of this note incorrectly stated that the sharp
+effective-drop constant was `1/2`, attained at `N=5`. The correct values at
+`N=5` are
 
 ```text
-V * Delta_eff = 1/2.
+R_- = 1/2,
+R_+ = 1/5,
+Delta_eff = 3/5,
+V * Delta_eff = 3/4.
+```
+
+The global minimum under `V>=1` is instead attained at `N=4`, where
+
+```text
+R_- = 2/3,
+R_+ = 1/4,
+Delta_eff = 5/8,
+V * Delta_eff = 5/8,
+V * (1-R_+) = 3/4.
 ```
 
 This exact model supports a conservative half-heavy fallback branch, but it
