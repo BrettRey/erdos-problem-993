@@ -1,0 +1,177 @@
+# One-Sided Localization Reduction
+Date: 2026-07-04
+
+## Purpose
+
+This note narrows the unproved part of the one-sided effective-drop route. It does not prove the signed reserve lemma and does not prove the localization lemma. It reduces the remaining one-sided `1/4` target to a small elementary symmetric-polynomial inequality.
+
+## Starting Point
+
+For a one-sided low-probability Poisson-binomial law, the previous note gives:
+
+```text
+Delta_eff >= 1/(D+1).
+```
+
+Thus `Delta_eff >= 1/(4V)` follows from
+
+```text
+D + 1 <= 4V.
+```
+
+The crude Darroch/Newton chain already gives
+
+```text
+D+1 <= 2V+3.
+```
+
+Therefore, if `V >= 3/2`, then
+
+```text
+D+1 <= 2V+3 <= 4V.
+```
+
+So the only possible gap is
+
+```text
+1 <= V < 3/2.
+```
+
+In that band, the crude chain gives
+
+```text
+D+1 < 6,
+```
+
+hence `D <= 4`. If `D <= 3`, then `D+1 <= 4 <= 4V`. Therefore the only remaining one-sided case is:
+
+```text
+D = 4.
+```
+
+## Elementary D=4 Target
+
+Write odds
+
+```text
+w_i = p_i/(1-p_i),     0 <= w_i <= 1.
+```
+
+The coefficient sequence is proportional to the elementary symmetric sequence
+
+```text
+e_k(w_1,...,w_n).
+```
+
+If the first strict descent is at `D=4`, then
+
+```text
+e_1 >= e_0 = 1,
+e_2 >= e_1,
+e_3 >= e_2,
+e_4 <  e_3.
+```
+
+Thus the one-sided localization would follow from the following elementary inequality:
+
+> If `0 <= w_i <= 1` and
+>
+> ```text
+> e_1 >= e_0 = 1,
+> e_2 >= e_1,
+> e_3 >= e_2,
+> ```
+>
+> then
+>
+> ```text
+> sum_i w_i/(1+w_i)^2 >= 5/4.
+> ```
+
+The right-hand side is exactly `V >= (D+1)/4` for `D=4`.
+
+This is slightly stronger than the exact need, since it does not use the condition `e_4 < e_3`. The narrower D=4 statement is:
+
+> If `0 <= w_i <= 1`, the first strict descent of the elementary symmetric sequence occurs at `D=4`, and the support continues far enough for the post-descent ratio to be relevant, then `V >= 5/4`.
+
+The tempting shortcut
+
+```text
+e_3 >= e_2  =>  V >= 5/4
+```
+
+is too weak as stated: it admits irrelevant low-support equality cases such as one nonzero weight, where `e_2=e_3=0`. The actual reduction needs the pre-D4 guard, not merely the necessary condition `e_3 >= e_2`.
+
+## Probe
+
+I added:
+
+```bash
+python3 scripts/probe_d4_variance_bound.py \
+  --out results/d4_variance_bound_probe_2026-07-04.json
+```
+
+The probe samples random odds vectors and the structured family consisting of `m` ones plus one remainder. It checks the D=4 implication above and separately records failures of the over-broad `e_3 >= e_2` shortcut. This is only a falsification probe.
+
+Default run:
+
+```text
+processed = 159080
+weak_guard_e3_ge_e2_rows = 138120
+weak_guard_failures = 1001
+pre_d4_guard_cases = 137119
+pre_d4_guard_failures = 0
+d4_cases = 7569
+d4_failures = 0
+```
+
+The `1001` weak-guard failures are the expected irrelevant low-support rows with `e_2=e_3=0`. They show why the shortcut should not be used as the proof target. The stronger pre-D4 guard had no sampled failures, and its lowest-variance rows were exactly the five-fair-weight boundary below.
+
+The same boundary appears if one minimizes the mean
+
+```text
+mu = sum_i w_i/(1+w_i)
+```
+
+under the pre-D4 guard:
+
+```text
+best sampled pre-D4 mean = 5/2.
+```
+
+This gives a plausible proof subroute. Since `w_i <= 1` is equivalent to `p_i <= 1/2`,
+
+```text
+V = sum_i p_i(1-p_i) >= (1/2) sum_i p_i = mu/2.
+```
+
+Therefore the elementary variance target would follow from the mean target:
+
+> If `0 <= w_i <= 1` and `e_1 >= 1`, `e_2 >= e_1`, `e_3 >= e_2`, then `mu >= 5/2`.
+
+This mean inequality is also unproved here.
+
+The expected boundary example is:
+
+```text
+w_1 = ... = w_5 = 1,
+```
+
+corresponding to `Bin(5,1/2)`. Here
+
+```text
+e_3 = e_2 = 10,
+mu = 5/2,
+V = 5/4.
+```
+
+## Current Status
+
+The proof route is now:
+
+1. Prove the elementary pre-D4 inequality above, or at least its narrower D=4 corollary.
+2. Conclude `D+1 <= 4V` for one-sided low-probability PB laws with `V >= 1`.
+3. Combine with Newton to get the one-sided effective-drop bound `Delta_eff >= 1/(4V)`.
+4. Return to the signed case, where conditional averaging and boundary terms remain.
+
+Only step 1 is new and unproved here. The probe is evidence for the target and a check on the boundary case, not a proof.

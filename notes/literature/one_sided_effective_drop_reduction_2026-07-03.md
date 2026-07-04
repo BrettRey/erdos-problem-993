@@ -155,3 +155,11 @@ A useful next lemma would be:
 > If `0 <= p_i <= 1/2`, `V >= 1`, and `D` is the first strict descent, then `D+1 <= 4V`.
 
 Together with Newton, this would prove the one-sided effective-drop bound at the `1/4` scale. It would still not prove the signed case, but it would remove one uncertainty from the route.
+
+The remaining localization target is narrowed further in:
+
+```text
+notes/literature/one_sided_localization_reduction_2026-07-04.md
+```
+
+The reduction shows that the only one-sided gap is the `D=4` case. The remaining elementary target is the slightly stronger pre-D4 inequality: if `0 <= w_i <= 1` and `e_1 >= 1`, `e_2 >= e_1`, `e_3 >= e_2`, then `V=sum_i w_i/(1+w_i)^2 >= 5/4`.

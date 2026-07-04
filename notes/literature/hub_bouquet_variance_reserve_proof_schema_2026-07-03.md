@@ -485,6 +485,14 @@ notes/literature/one_sided_effective_drop_reduction_2026-07-03.md
 
 Newton gives `Delta_eff >= 1/(D+1)`, so a sufficient one-sided route is the localization `D+1 <= 4V`. The current one-sided probe found zero failures of both `Delta_eff >= 1/(4V)` and `D+1 <= 4V`, but this is still only evidence for the localization target, not a proof.
 
+The remaining one-sided localization gap is now isolated in:
+
+```text
+notes/literature/one_sided_localization_reduction_2026-07-04.md
+```
+
+The only unresolved case in that route is `D=4`. A dedicated elementary-symmetric probe found zero failures among `137119` pre-D4 cases and `7569` narrower D=4 cases, identifying the exact boundary example `w_1=...=w_5=1`, but this is still a target lemma rather than a theorem.
+
 ## Perturbation By The Hub-Included Term
 
 The full hub-bouquet polynomial is
