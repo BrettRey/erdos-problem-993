@@ -1,0 +1,4055 @@
+{
+  "best_by_effective_ratio_drop": [
+    {
+      "conditional_x_index_plus_one_over_variance": 3.0000720613731087,
+      "conditional_x_mean_at_descent": 2.0000720629534277,
+      "conditional_y_index_plus_one_over_variance": 1.0000720624266293,
+      "conditional_y_mean_at_descent": 7.20629534277506e-05,
+      "conditional_y_total_variation_from_previous": 3.611779972893409e-05,
+      "effective_ratio_drop": 0.3338773220216449,
+      "effective_ratio_drop_factor": 0.6661226779783551,
+      "first_descent_minus_signed_mean": 0.9995981086620223,
+      "first_descent_value": 2,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 201.32306555478328,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          1200
+        ],
+        [
+          20
+        ]
+      ],
+      "pressure": 0.33325534793272427,
+      "previous_ratio": 0.5002912510712524,
+      "reserve": 0.6667446520672757,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.02,
+      "side_variance_fraction": 0.00021623535870586368,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.0000000005267604,
+      "variance_times_effective_ratio_drop": 0.33387732219751826,
+      "variance_times_expected_inverse_x_index_plus_one": 0.33332732832441436,
+      "variance_times_reserve": 0.6667446524184905,
+      "x_blocks": [
+        [
+          1200,
+          0.0008338484408622789
+        ]
+      ],
+      "x_mean": 1.0006181290347347,
+      "x_n": 1200,
+      "x_variance": 0.9997837651679405,
+      "y_blocks": [
+        [
+          20,
+          1.0811884837842142e-05
+        ]
+      ],
+      "y_mean": 0.00021623769675684285,
+      "y_n": 20,
+      "y_variance": 0.0002162353588197679
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.0000678645695897,
+      "conditional_x_mean_at_descent": 2.0000678649066157,
+      "conditional_y_index_plus_one_over_variance": 1.0000678647942687,
+      "conditional_y_mean_at_descent": 6.786490661562945e-05,
+      "conditional_y_total_variation_from_previous": 3.4013961834115325e-05,
+      "effective_ratio_drop": 0.3338780228281343,
+      "effective_ratio_drop_factor": 0.6661219771718657,
+      "first_descent_minus_signed_mean": 0.9995728889466353,
+      "first_descent_value": 2,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 0.33387802286564194,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          1200
+        ],
+        [
+          20
+        ]
+      ],
+      "pressure": 0.33325990517371096,
+      "previous_ratio": 0.500298618863504,
+      "reserve": 0.666740094826289,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.0002036359494186834,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.0000000001123395,
+      "variance_times_effective_ratio_drop": 0.33387802286564194,
+      "variance_times_expected_inverse_x_index_plus_one": 0.33332767801654106,
+      "variance_times_reserve": 0.6667400949011902,
+      "x_blocks": [
+        [
+          1200,
+          0.0008338589575635237
+        ]
+      ],
+      "x_mean": 1.0006307490762285,
+      "x_n": 1200,
+      "x_variance": 0.9997963641628979,
+      "y_blocks": [
+        [
+          20,
+          1.0181901143188878e-05
+        ]
+      ],
+      "y_mean": 0.00020363802286377757,
+      "y_n": 20,
+      "y_variance": 0.00020363594944155977
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.9999999999999987,
+      "conditional_x_mean_at_descent": 2.0,
+      "conditional_y_index_plus_one_over_variance": 0.9999999999999996,
+      "conditional_y_mean_at_descent": 0.0,
+      "conditional_y_total_variation_from_previous": 0.0,
+      "effective_ratio_drop": 0.333889352237976,
+      "effective_ratio_drop_factor": 0.666110647762024,
+      "first_descent_minus_signed_mean": 0.9991652748774904,
+      "first_descent_value": 2,
+      "max_identity_error": 0.0,
+      "optimizer_fun": 0.33388935223797617,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          1200
+        ],
+        [
+          20
+        ]
+      ],
+      "pressure": 0.3333335655886769,
+      "previous_ratio": 0.5004177109442699,
+      "reserve": 0.6666664344113231,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.0,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.0000000000000004,
+      "variance_times_effective_ratio_drop": 0.33388935223797617,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3333333333333335,
+      "variance_times_reserve": 0.6666664344113234,
+      "x_blocks": [
+        [
+          1200,
+          0.0008340289376020913
+        ]
+      ],
+      "x_mean": 1.0008347251225096,
+      "x_n": 1200,
+      "x_variance": 1.0000000000000004,
+      "y_blocks": [
+        [
+          20,
+          0.0
+        ]
+      ],
+      "y_mean": 0.0,
+      "y_n": 20,
+      "y_variance": 0.0
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.0004425910036585,
+      "conditional_x_mean_at_descent": 2.00044259134202,
+      "conditional_y_index_plus_one_over_variance": 1.0004425912291994,
+      "conditional_y_mean_at_descent": 0.00044259134201979453,
+      "conditional_y_total_variation_from_previous": 0.00022181350213367767,
+      "effective_ratio_drop": 0.3339267661332239,
+      "effective_ratio_drop_factor": 0.6660732338667761,
+      "first_descent_minus_signed_mean": 1.00165982201562,
+      "first_descent_value": 2,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 0.333926766170881,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          1000
+        ],
+        [
+          20
+        ]
+      ],
+      "pressure": 0.3328526589395442,
+      "previous_ratio": 0.4997238171653049,
+      "reserve": 0.6671473410604558,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.0013295367240900976,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.0000000001127705,
+      "variance_times_effective_ratio_drop": 0.333926766170881,
+      "variance_times_expected_inverse_x_index_plus_one": 0.33329645308293904,
+      "variance_times_reserve": 0.6671473411356903,
+      "x_blocks": [
+        [
+          1000,
+          0.0009996698031037679
+        ]
+      ],
+      "x_mean": 0.9996698031037679,
+      "x_n": 1000,
+      "x_variance": 0.9986704633885304,
+      "y_blocks": [
+        [
+          20,
+          6.648125596939676e-05
+        ]
+      ],
+      "y_mean": 0.0013296251193879354,
+      "y_n": 20,
+      "y_variance": 0.00132953672424003
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.9999996463338925,
+      "conditional_x_mean_at_descent": 2.0,
+      "conditional_y_index_plus_one_over_variance": 0.9999998821112975,
+      "conditional_y_mean_at_descent": 0.0,
+      "conditional_y_total_variation_from_previous": 0.0,
+      "effective_ratio_drop": 0.3340006673340007,
+      "effective_ratio_drop_factor": 0.6659993326659993,
+      "first_descent_minus_signed_mean": 0.9989978768607544,
+      "first_descent_value": 2,
+      "max_identity_error": 0.0,
+      "optimizer_fun": 0.6666663712126433,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          1000
+        ],
+        [
+          20
+        ]
+      ],
+      "pressure": 0.3333337073797901,
+      "previous_ratio": 0.5005015636358873,
+      "reserve": 0.6666662926202098,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.0,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0000001178887163,
+      "variance_times_effective_ratio_drop": 0.33400070670891063,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3333333726295721,
+      "variance_times_reserve": 0.6666663712126433,
+      "x_blocks": [
+        [
+          1000,
+          0.0010010021231392457
+        ]
+      ],
+      "x_mean": 1.0010021231392456,
+      "x_n": 1000,
+      "x_variance": 1.0000001178887163,
+      "y_blocks": [
+        [
+          20,
+          0.0
+        ]
+      ],
+      "y_mean": 0.0,
+      "y_n": 20,
+      "y_variance": 0.0
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.000206602333423,
+      "conditional_x_mean_at_descent": 2.000206609235533,
+      "conditional_y_index_plus_one_over_variance": 1.0002066069345128,
+      "conditional_y_mean_at_descent": 0.00020660923553295432,
+      "conditional_y_total_variation_from_previous": 0.00010361381180057166,
+      "effective_ratio_drop": 0.334032260965646,
+      "effective_ratio_drop_factor": 0.665967739034354,
+      "first_descent_minus_signed_mean": 1.000140472062443,
+      "first_descent_value": 2,
+      "max_identity_error": 5.551115123125783e-17,
+      "optimizer_fun": 0.33403226173410216,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          800,
+          100,
+          10
+        ],
+        [
+          50,
+          10,
+          2
+        ]
+      ],
+      "pressure": 0.333109274880617,
+      "previous_ratio": 0.5001883054629971,
+      "reserve": 0.666890725119383,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.0006202337571441309,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.0000000023005449,
+      "variance_times_effective_ratio_drop": 0.33403226173410216,
+      "variance_times_expected_inverse_x_index_plus_one": 0.33331611718825616,
+      "variance_times_reserve": 0.666890726653595,
+      "x_blocks": [
+        [
+          800,
+          0.0010971009694440243
+        ],
+        [
+          100,
+          0.0011137045175440806
+        ],
+        [
+          10,
+          0.001142854059131485
+        ]
+      ],
+      "x_mean": 1.0004797679009425,
+      "x_n": 910,
+      "x_variance": 0.9993797685419739,
+      "y_blocks": [
+        [
+          10,
+          9.97488949908067e-06
+        ],
+        [
+          50,
+          1.0007646114055647e-05
+        ],
+        [
+          2,
+          1.0054381345914122e-05
+        ]
+      ],
+      "y_mean": 0.0006202399633854173,
+      "y_n": 62,
+      "y_variance": 0.0006202337585710064
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.000191513446353,
+      "conditional_x_mean_at_descent": 2.0001916909852246,
+      "conditional_y_index_plus_one_over_variance": 1.0001916317980384,
+      "conditional_y_mean_at_descent": 0.00019169098522469244,
+      "conditional_y_total_variation_from_previous": 9.613709845456779e-05,
+      "effective_ratio_drop": 0.33404073361940945,
+      "effective_ratio_drop_factor": 0.6659592663805906,
+      "first_descent_minus_signed_mean": 1.0000417105221653,
+      "first_descent_value": 2,
+      "max_identity_error": 5.551115123125783e-17,
+      "optimizer_fun": 0.6668745296112037,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          800,
+          100,
+          10
+        ],
+        [
+          50,
+          10,
+          2
+        ]
+      ],
+      "pressure": 0.33312550985165856,
+      "previous_ratio": 0.5002190474233599,
+      "reserve": 0.6668744901483414,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.0005754223164710792,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0000000591758462,
+      "variance_times_effective_ratio_drop": 0.33404075338655254,
+      "variance_times_expected_inverse_x_index_plus_one": 0.333317379260293,
+      "variance_times_reserve": 0.6668745296112037,
+      "x_blocks": [
+        [
+          100,
+          0.0008191235964999069
+        ],
+        [
+          800,
+          0.0011324565122156475
+        ],
+        [
+          10,
+          0.0012656147758706255
+        ]
+      ],
+      "x_mean": 1.000533717181215,
+      "x_n": 910,
+      "x_variance": 0.999424636825324,
+      "y_blocks": [
+        [
+          50,
+          9.066662653761633e-06
+        ],
+        [
+          10,
+          1.0094709648952353e-05
+        ],
+        [
+          2,
+          1.057373710131098e-05
+        ]
+      ],
+      "y_mean": 0.0005754277033802271,
+      "y_n": 62,
+      "y_variance": 0.0005754223505221817
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.0002289226949417,
+      "conditional_x_mean_at_descent": 2.0002320005742407,
+      "conditional_y_index_plus_one_over_variance": 1.0002309744558044,
+      "conditional_y_mean_at_descent": 0.0002320005742405562,
+      "conditional_y_total_variation_from_previous": 0.0001163913648727338,
+      "effective_ratio_drop": 0.334120395664364,
+      "effective_ratio_drop_factor": 0.665879604335636,
+      "first_descent_minus_signed_mean": 1.000153463535907,
+      "first_descent_value": 2,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 205.29930020996687,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          800,
+          100,
+          10
+        ],
+        [
+          50,
+          10,
+          2
+        ]
+      ],
+      "pressure": 0.3330819625982234,
+      "previous_ratio": 0.5002134926936939,
+      "reserve": 0.6669180374017766,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.1,
+      "side_variance_fraction": 0.000696512442917636,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.0000010258814838,
+      "variance_times_effective_ratio_drop": 0.3341207384322913,
+      "variance_times_expected_inverse_x_index_plus_one": 0.33331434255383974,
+      "variance_times_reserve": 0.6669187215806424,
+      "x_blocks": [
+        [
+          10,
+          0.0004903585168581997
+        ],
+        [
+          800,
+          0.0009694886335055624
+        ],
+        [
+          100,
+          0.002200485655461319
+        ]
+      ],
+      "x_mean": 1.0005430575191638,
+      "x_n": 910,
+      "x_variance": 0.999304512724027,
+      "y_blocks": [
+        [
+          10,
+          8.786584705227127e-06
+        ],
+        [
+          2,
+          1.0908173278419104e-05
+        ],
+        [
+          50,
+          1.1736777229238554e-05
+        ]
+      ],
+      "y_mean": 0.0006965210550710372,
+      "y_n": 62,
+      "y_variance": 0.0006965131574568544
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.0002296605868537,
+      "conditional_x_mean_at_descent": 2.000251891410736,
+      "conditional_y_index_plus_one_over_variance": 1.0002444798918235,
+      "conditional_y_mean_at_descent": 0.00025189141073603055,
+      "conditional_y_total_variation_from_previous": 0.00012646700126744324,
+      "effective_ratio_drop": 0.334293899904028,
+      "effective_ratio_drop_factor": 0.665706100095972,
+      "first_descent_minus_signed_mean": 1.0000011252481336,
+      "first_descent_value": 2,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 202.79650127472368,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          800,
+          100,
+          10
+        ],
+        [
+          50,
+          10,
+          2
+        ]
+      ],
+      "pressure": 0.3330623384731847,
+      "previous_ratio": 0.5003143856202739,
+      "reserve": 0.6669376615268152,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.05,
+      "side_variance_fraction": 0.0007562669256594449,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.000007409707388,
+      "variance_times_effective_ratio_drop": 0.33429637692400793,
+      "variance_times_expected_inverse_x_index_plus_one": 0.333314812908202,
+      "variance_times_reserve": 0.6669426033397332,
+      "x_blocks": [
+        [
+          10,
+          3.78214104327672e-05
+        ],
+        [
+          800,
+          0.0008781798369310492
+        ],
+        [
+          100,
+          0.002978330730884829
+        ]
+      ],
+      "x_mean": 1.00075515673765,
+      "x_n": 910,
+      "x_variance": 0.9992511371780121,
+      "y_blocks": [
+        [
+          10,
+          7.813855977405762e-06
+        ],
+        [
+          2,
+          1.2054135494761675e-05
+        ],
+        [
+          50,
+          1.3080703100399757e-05
+        ]
+      ],
+      "y_mean": 0.0007562819857835687,
+      "y_n": 62,
+      "y_variance": 0.0007562725293760714
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.9976256040025797,
+      "conditional_x_mean_at_descent": 2.0002467086508324,
+      "conditional_y_index_plus_one_over_variance": 0.9993728634134109,
+      "conditional_y_mean_at_descent": 0.0002467086508325312,
+      "conditional_y_total_variation_from_previous": 0.00012385967378962103,
+      "effective_ratio_drop": 0.3342836531192588,
+      "effective_ratio_drop_factor": 0.6657163468807412,
+      "first_descent_minus_signed_mean": 0.9991157705429572,
+      "first_descent_value": 2,
+      "max_identity_error": 0.0,
+      "optimizer_fun": 201.29844757468823,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          800,
+          100,
+          10
+        ],
+        [
+          50,
+          10,
+          2
+        ]
+      ],
+      "pressure": 0.33335804077940895,
+      "previous_ratio": 0.5007508713604233,
+      "reserve": 0.666641959220591,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.02,
+      "side_variance_fraction": 0.0007394088160637028,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.0008743936016402,
+      "variance_times_effective_ratio_drop": 0.33457594860667916,
+      "variance_times_expected_inverse_x_index_plus_one": 0.33360422158413133,
+      "variance_times_reserve": 0.6672248666843184,
+      "x_blocks": [
+        [
+          10,
+          0.0
+        ],
+        [
+          800,
+          0.0008846275750400083
+        ],
+        [
+          100,
+          0.002939222337715011
+        ]
+      ],
+      "x_mean": 1.0016242938035078,
+      "x_n": 910,
+      "x_variance": 1.0001343382512387,
+      "y_blocks": [
+        [
+          10,
+          8.39579817822057e-06
+        ],
+        [
+          2,
+          1.0137415749693666e-05
+        ],
+        [
+          50,
+          1.2716630663666216e-05
+        ]
+      ],
+      "y_mean": 0.0007400643464649038,
+      "y_n": 62,
+      "y_variance": 0.0007400553504014653
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.0001682431523005,
+      "conditional_x_mean_at_descent": 2.000168252392456,
+      "conditional_y_index_plus_one_over_variance": 1.0001682493120587,
+      "conditional_y_mean_at_descent": 0.00016825239245626435,
+      "conditional_y_total_variation_from_previous": 8.461160179953465e-05,
+      "effective_ratio_drop": 0.334641185892702,
+      "effective_ratio_drop_factor": 0.665358814107298,
+      "first_descent_minus_signed_mean": 0.9990040408626439,
+      "first_descent_value": 2,
+      "max_identity_error": 5.551115123125783e-17,
+      "optimizer_fun": 0.3346411869233564,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          500
+        ],
+        [
+          50
+        ]
+      ],
+      "pressure": 0.3331515613995378,
+      "previous_ratio": 0.5007096236434806,
+      "reserve": 0.6668484386004623,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.0005050236479062325,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.0000000030798792,
+      "variance_times_effective_ratio_drop": 0.3346411869233564,
+      "variance_times_expected_inverse_x_index_plus_one": 0.33331931367329976,
+      "variance_times_reserve": 0.666848440654275,
+      "x_blocks": [
+        [
+          500,
+          0.002003001975775797
+        ]
+      ],
+      "x_mean": 1.0015009878878984,
+      "x_n": 500,
+      "x_variance": 0.9994949794304177,
+      "y_blocks": [
+        [
+          50,
+          1.0100575010848437e-05
+        ]
+      ],
+      "y_mean": 0.0005050287505424219,
+      "y_n": 50,
+      "y_variance": 0.0005050236494616444
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.000303281309401,
+      "conditional_x_mean_at_descent": 2.0003033483245996,
+      "conditional_y_index_plus_one_over_variance": 1.000303325981683,
+      "conditional_y_mean_at_descent": 0.00030334832459962734,
+      "conditional_y_total_variation_from_previous": 0.00015254148297042417,
+      "effective_ratio_drop": 0.3346523130554586,
+      "effective_ratio_drop_factor": 0.6653476869445414,
+      "first_descent_minus_signed_mean": 0.9997667494457083,
+      "first_descent_value": 2,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 0.3346523205303001,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          400,
+          80,
+          8
+        ],
+        [
+          80,
+          8
+        ]
+      ],
+      "pressure": 0.3330044464696557,
+      "previous_ratio": 0.500496887573027,
+      "reserve": 0.6669955535303442,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.0009109272366349458,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.0000000223361416,
+      "variance_times_effective_ratio_drop": 0.3346523205303001,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3333080628859417,
+      "variance_times_reserve": 0.6669955684284513,
+      "x_blocks": [
+        [
+          80,
+          0.0020181147803254307
+        ],
+        [
+          400,
+          0.002050689430755214
+        ],
+        [
+          8,
+          0.0024274040641066672
+        ]
+      ],
+      "x_mean": 1.0011441872409734,
+      "x_n": 488,
+      "x_variance": 0.99908909507916,
+      "y_blocks": [
+        [
+          8,
+          1.0250147485836547e-05
+        ],
+        [
+          80,
+          1.0361693834937141e-05
+        ]
+      ],
+      "y_mean": 0.0009109366866816637,
+      "y_n": 88,
+      "y_variance": 0.0009109272569815455
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.0000001734012733,
+      "conditional_x_mean_at_descent": 2.000000188561469,
+      "conditional_y_index_plus_one_over_variance": 1.0000001835080696,
+      "conditional_y_mean_at_descent": 1.8856146895931293e-07,
+      "conditional_y_total_variation_from_previous": 9.484866383435482e-08,
+      "effective_ratio_drop": 0.33466930712448584,
+      "effective_ratio_drop_factor": 0.6653306928755142,
+      "first_descent_minus_signed_mean": 0.9979930883422365,
+      "first_descent_value": 2,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 0.6666655293977111,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          500
+        ],
+        [
+          50
+        ]
+      ],
+      "pressure": 0.3333344739712154,
+      "previous_ratio": 0.5010057066968704,
+      "reserve": 0.6666655260287846,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 5.656824570996621e-07,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0000000050533984,
+      "variance_times_effective_ratio_drop": 0.33466930881570317,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3333333193043441,
+      "variance_times_reserve": 0.6666655293977111,
+      "x_blocks": [
+        [
+          500,
+          0.00200401495468046
+        ]
+      ],
+      "x_mean": 1.0020074773402299,
+      "x_n": 500,
+      "x_variance": 0.9999994393709384,
+      "y_blocks": [
+        [
+          50,
+          1.131364932716428e-08
+        ]
+      ],
+      "y_mean": 5.65682466358214e-07,
+      "y_n": 50,
+      "y_variance": 5.656824599582809e-07
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.999999999955975,
+      "conditional_x_mean_at_descent": 2.0,
+      "conditional_y_index_plus_one_over_variance": 0.9999999999853251,
+      "conditional_y_mean_at_descent": 0.0,
+      "conditional_y_total_variation_from_previous": 0.0,
+      "effective_ratio_drop": 0.3346693386773547,
+      "effective_ratio_drop_factor": 0.6653306613226453,
+      "first_descent_minus_signed_mean": 0.9979919597599136,
+      "first_descent_value": 2,
+      "max_identity_error": 0.0,
+      "optimizer_fun": 0.33466933868226595,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          500
+        ],
+        [
+          50
+        ]
+      ],
+      "pressure": 0.33333467741342687,
+      "previous_ratio": 0.5010060362328314,
+      "reserve": 0.6666653225865731,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.0,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.000000000014675,
+      "variance_times_effective_ratio_drop": 0.33466933868226595,
+      "variance_times_expected_inverse_x_index_plus_one": 0.33333333333822496,
+      "variance_times_reserve": 0.6666653225963564,
+      "x_blocks": [
+        [
+          500,
+          0.002004016080480173
+        ]
+      ],
+      "x_mean": 1.0020080402400864,
+      "x_n": 500,
+      "x_variance": 1.000000000014675,
+      "y_blocks": [
+        [
+          50,
+          0.0
+        ]
+      ],
+      "y_mean": 0.0,
+      "y_n": 50,
+      "y_variance": 0.0
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.0002560757296837,
+      "conditional_x_mean_at_descent": 2.0002561637175145,
+      "conditional_y_index_plus_one_over_variance": 1.0002561343832292,
+      "conditional_y_mean_at_descent": 0.00025616371751457673,
+      "conditional_y_total_variation_from_previous": 0.000128835887940299,
+      "effective_ratio_drop": 0.33468179508466034,
+      "effective_ratio_drop_factor": 0.6653182049153397,
+      "first_descent_minus_signed_mean": 0.9994500700823057,
+      "first_descent_value": 2,
+      "max_identity_error": 5.551115123125783e-17,
+      "optimizer_fun": 0.666944155229209,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          400,
+          80,
+          8
+        ],
+        [
+          80,
+          8
+        ]
+      ],
+      "pressure": 0.33305586433011075,
+      "previous_ratio": 0.5005963490394666,
+      "reserve": 0.6669441356698893,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.0007691195749345559,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0000000293267737,
+      "variance_times_effective_ratio_drop": 0.3346818048997976,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3333119969410586,
+      "variance_times_reserve": 0.666944155229209,
+      "x_blocks": [
+        [
+          8,
+          0.001173087532765421
+        ],
+        [
+          400,
+          0.0019599242701108686
+        ],
+        [
+          80,
+          0.002599558099255362
+        ]
+      ],
+      "x_mean": 1.0013190562468997,
+      "x_n": 488,
+      "x_variance": 0.9992309097292834,
+      "y_blocks": [
+        [
+          80,
+          8.63619488872187e-06
+        ],
+        [
+          8,
+          9.778842263452803e-06
+        ]
+      ],
+      "y_mean": 0.000769126329205372,
+      "y_n": 88,
+      "y_variance": 0.0007691195974903515
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.0003122068010115,
+      "conditional_x_mean_at_descent": 2.0003122293683817,
+      "conditional_y_index_plus_one_over_variance": 1.0003122218443594,
+      "conditional_y_mean_at_descent": 0.0003122293683817312,
+      "conditional_y_total_variation_from_previous": 0.00015704266153621614,
+      "effective_ratio_drop": 0.33470380297733704,
+      "effective_ratio_drop_factor": 0.665296197022663,
+      "first_descent_minus_signed_mean": 0.9997406025032645,
+      "first_descent_value": 2,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 205.2878227031708,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          400,
+          80,
+          8
+        ],
+        [
+          80,
+          8
+        ]
+      ],
+      "pressure": 0.332994703029088,
+      "previous_ratio": 0.5005209777529281,
+      "reserve": 0.6670052969709119,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.1,
+      "side_variance_fraction": 0.000937622791596563,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.000000007521674,
+      "variance_times_effective_ratio_drop": 0.3347038054948699,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3333073179282182,
+      "variance_times_reserve": 0.6670053019879083,
+      "x_blocks": [
+        [
+          80,
+          0.001649602148400355
+        ],
+        [
+          400,
+          0.002073976311688757
+        ],
+        [
+          8,
+          0.0049547917427026356
+        ]
+      ],
+      "x_mean": 1.0011970304891524,
+      "x_n": 488,
+      "x_variance": 0.9990623847230249,
+      "y_blocks": [
+        [
+          8,
+          5.847693163662462e-06
+        ],
+        [
+          80,
+          1.1135643088845489e-05
+        ]
+      ],
+      "y_mean": 0.0009376329924169389,
+      "y_n": 88,
+      "y_variance": 0.0009376227986490559
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.995741349183507,
+      "conditional_x_mean_at_descent": 2.0002474549582647,
+      "conditional_y_index_plus_one_over_variance": 0.998745171929735,
+      "conditional_y_mean_at_descent": 0.00024745495826494583,
+      "conditional_y_total_variation_from_previous": 0.00012423843432140982,
+      "effective_ratio_drop": 0.33429108264749496,
+      "effective_ratio_drop_factor": 0.665708917352505,
+      "first_descent_minus_signed_mean": 0.9984762792401225,
+      "first_descent_value": 2,
+      "max_identity_error": 5.551115123125783e-17,
+      "optimizer_fun": 201.63184732100797,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          800,
+          100,
+          10
+        ],
+        [
+          50,
+          10,
+          2
+        ]
+      ],
+      "pressure": 0.333567931346214,
+      "previous_ratio": 0.5010717487048227,
+      "reserve": 0.666432068653786,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.02,
+      "side_variance_fraction": 0.0007407127539285974,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0015041705039007,
+      "variance_times_effective_ratio_drop": 0.3347939134337304,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3338140719897333,
+      "variance_times_reserve": 0.6674344961143086,
+      "x_blocks": [
+        [
+          10,
+          1.6050733850219877e-07
+        ],
+        [
+          800,
+          0.0008817665824179435
+        ],
+        [
+          100,
+          0.0029685068572506334
+        ]
+      ],
+      "x_mean": 1.0022655567328032,
+      "x_n": 910,
+      "x_variance": 1.000762343591696,
+      "y_blocks": [
+        [
+          10,
+          8.099793829405576e-06
+        ],
+        [
+          2,
+          1.094824716859504e-05
+        ],
+        [
+          50,
+          1.2778830805886905e-05
+        ]
+      ],
+      "y_mean": 0.000741835972925591,
+      "y_n": 62,
+      "y_variance": 0.0007418269122049199
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.9910103002108333,
+      "conditional_x_mean_at_descent": 2.0011215873937935,
+      "conditional_y_index_plus_one_over_variance": 0.9977486391208145,
+      "conditional_y_mean_at_descent": 0.0011215873937933927,
+      "conditional_y_total_variation_from_previous": 0.0005612525585416874,
+      "effective_ratio_drop": 0.33370218429265663,
+      "effective_ratio_drop_factor": 0.6662978157073434,
+      "first_descent_minus_signed_mean": 1.0025145775753228,
+      "first_descent_value": 2,
+      "max_identity_error": 0.0,
+      "optimizer_fun": 205.18350002604078,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          1200
+        ],
+        [
+          20
+        ]
+      ],
+      "pressure": 0.3332451875343944,
+      "previous_ratio": 0.5001444994692359,
+      "reserve": 0.6667548124656055,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.1,
+      "side_variance_fraction": 0.0033533249641913986,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.0033805591315574,
+      "variance_times_effective_ratio_drop": 0.33483028425898786,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3343664197716637,
+      "variance_times_reserve": 0.669008816535396,
+      "x_blocks": [
+        [
+          1200,
+          0.0008340422081166178
+        ]
+      ],
+      "x_mean": 1.0008506497399414,
+      "x_n": 1200,
+      "x_variance": 1.0000158980540372,
+      "y_blocks": [
+        [
+          20,
+          0.00016826136576321725
+        ]
+      ],
+      "y_mean": 0.003365227315264345,
+      "y_n": 20,
+      "y_variance": 0.0033646610775201753
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.991010294848631,
+      "conditional_x_mean_at_descent": 2.001121587393768,
+      "conditional_y_index_plus_one_over_variance": 0.9977486373320611,
+      "conditional_y_mean_at_descent": 0.0011215873937682535,
+      "conditional_y_total_variation_from_previous": 0.0005612525585291353,
+      "effective_ratio_drop": 0.33370218429266096,
+      "effective_ratio_drop_factor": 0.666297815707339,
+      "first_descent_minus_signed_mean": 1.0025145757611669,
+      "first_descent_value": 2,
+      "max_identity_error": 5.551115123125783e-17,
+      "optimizer_fun": 202.67504863361705,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          1200
+        ],
+        [
+          20
+        ]
+      ],
+      "pressure": 0.3332451881368933,
+      "previous_ratio": 0.5001445003734878,
+      "reserve": 0.6667548118631067,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.05,
+      "side_variance_fraction": 0.0033533249520438504,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.0033805609303825,
+      "variance_times_effective_ratio_drop": 0.334830284859264,
+      "variance_times_expected_inverse_x_index_plus_one": 0.33436642037110603,
+      "variance_times_reserve": 0.6690088171302356,
+      "x_blocks": [
+        [
+          1200,
+          0.0008340422096232824
+        ]
+      ],
+      "x_mean": 1.000850651547939,
+      "x_n": 1200,
+      "x_variance": 1.000015899859019,
+      "y_blocks": [
+        [
+          20,
+          0.0001682613654552852
+        ]
+      ],
+      "y_mean": 0.0033652273091057043,
+      "y_n": 20,
+      "y_variance": 0.0033646610713636066
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.9910102935651475,
+      "conditional_x_mean_at_descent": 2.001121587396218,
+      "conditional_y_index_plus_one_over_variance": 0.9977486369055404,
+      "conditional_y_mean_at_descent": 0.0011215873962178568,
+      "conditional_y_total_variation_from_previous": 0.0005612525597529053,
+      "effective_ratio_drop": 0.3337021842922526,
+      "effective_ratio_drop_factor": 0.6662978157077474,
+      "first_descent_minus_signed_mean": 1.0025145753409048,
+      "first_descent_value": 2,
+      "max_identity_error": 1.6653345369377348e-16,
+      "optimizer_fun": 201.16997779250062,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          1200
+        ],
+        [
+          20
+        ]
+      ],
+      "pressure": 0.33324518827870847,
+      "previous_ratio": 0.5001445005860218,
+      "reserve": 0.6667548117212916,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.02,
+      "side_variance_fraction": 0.0033533249564972746,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.003380561361766,
+      "variance_times_effective_ratio_drop": 0.33483028500280787,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3343664205146554,
+      "variance_times_reserve": 0.669008817275568,
+      "x_blocks": [
+        [
+          1200,
+          0.0008340422099784317
+        ]
+      ],
+      "x_mean": 1.000850651974118,
+      "x_n": 1200,
+      "x_variance": 1.0000159002844873,
+      "y_blocks": [
+        [
+          20,
+          0.00016826136575113718
+        ]
+      ],
+      "y_mean": 0.0033652273150227433,
+      "y_n": 20,
+      "y_variance": 0.0033646610772786545
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.998000913865139,
+      "conditional_x_mean_at_descent": 2.0009978354986755,
+      "conditional_y_index_plus_one_over_variance": 0.9999981973007259,
+      "conditional_y_mean_at_descent": 0.0009978354986756852,
+      "conditional_y_total_variation_from_previous": 0.0005011717939297729,
+      "effective_ratio_drop": 0.33450242557346366,
+      "effective_ratio_drop_factor": 0.6654975744265363,
+      "eta": 0.003,
+      "first_descent_minus_signed_mean": 1.0030000000000001,
+      "first_descent_value": 2,
+      "lambda": 1.0,
+      "max_identity_error": 1.1102230246251565e-16,
+      "pressure": 0.33258185639686894,
+      "previous_ratio": 0.49974916389959334,
+      "reserve": 0.667418143603131,
+      "scale": 500,
+      "search_family": "near_one_sided_x_dominant",
+      "side_variance_fraction": 0.0029966444343576385,
+      "source": "near_one_sided_x_dominant",
+      "variance": 1.00099964,
+      "variance_times_effective_ratio_drop": 0.3348368075781639,
+      "variance_times_expected_inverse_x_index_plus_one": 0.33358332252170664,
+      "variance_times_reserve": 0.6680853214762025,
+      "x_blocks": [
+        [
+          500,
+          0.002
+        ]
+      ],
+      "x_mean": 1.0,
+      "x_n": 500,
+      "x_variance": 0.998,
+      "y_blocks": [
+        [
+          25,
+          0.00012
+        ]
+      ],
+      "y_mean": 0.003,
+      "y_n": 25,
+      "y_variance": 0.00299964
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.0003330654360068,
+      "conditional_x_mean_at_descent": 2.000334247277365,
+      "conditional_y_index_plus_one_over_variance": 1.0003338532424717,
+      "conditional_y_mean_at_descent": 0.00033424727736497433,
+      "conditional_y_total_variation_from_previous": 0.00016822101770438253,
+      "effective_ratio_drop": 0.33484515482728094,
+      "effective_ratio_drop_factor": 0.6651548451727191,
+      "first_descent_minus_signed_mean": 0.9996547221521577,
+      "first_descent_value": 2,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 203.1168401055082,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          400,
+          80,
+          8
+        ],
+        [
+          80,
+          8
+        ]
+      ],
+      "pressure": 0.3329704740830808,
+      "previous_ratio": 0.5005909172872659,
+      "reserve": 0.6670295259169192,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.05,
+      "side_variance_fraction": 0.001003812962842276,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0000003939033875,
+      "variance_times_effective_ratio_drop": 0.3348452867239217,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3333056120601814,
+      "variance_times_reserve": 0.667029788662109,
+      "x_blocks": [
+        [
+          80,
+          0.0013095701881749942
+        ],
+        [
+          400,
+          0.0020879025313524265
+        ],
+        [
+          8,
+          0.007677809466778334
+        ]
+      ],
+      "x_mean": 1.0013491033291968,
+      "x_n": 488,
+      "x_variance": 0.9989965805451398,
+      "y_blocks": [
+        [
+          8,
+          2.6661294083551674e-06
+        ],
+        [
+          80,
+          1.2281205576094518e-05
+        ]
+      ],
+      "y_mean": 0.0010038254813544028,
+      "y_n": 88,
+      "y_variance": 0.0010038133582476025
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.9918323183585396,
+      "conditional_x_mean_at_descent": 2.0011350258734906,
+      "conditional_y_index_plus_one_over_variance": 0.9980317778528641,
+      "conditional_y_mean_at_descent": 0.0011350258734903753,
+      "conditional_y_total_variation_from_previous": 0.0005682500721091647,
+      "effective_ratio_drop": 0.33381119457693464,
+      "effective_ratio_drop_factor": 0.6661888054230654,
+      "first_descent_minus_signed_mean": 1.0027018834019452,
+      "first_descent_value": 2,
+      "max_identity_error": 2.220446049250313e-16,
+      "optimizer_fun": 205.1800939494534,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          1000
+        ],
+        [
+          20
+        ]
+      ],
+      "pressure": 0.3331397523418391,
+      "previous_ratio": 0.5000680732398042,
+      "reserve": 0.6668602476581609,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.1,
+      "side_variance_fraction": 0.0033954827286349046,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.003109367947484,
+      "variance_times_effective_ratio_drop": 0.33484913640586356,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3342749250562857,
+      "variance_times_reserve": 0.6689337615376805,
+      "x_blocks": [
+        [
+          1000,
+          0.0010007047373851118
+        ]
+      ],
+      "x_mean": 1.0007047373851117,
+      "x_n": 1000,
+      "x_variance": 0.9997033274136866,
+      "y_blocks": [
+        [
+          20,
+          0.0001703310393528449
+        ]
+      ],
+      "y_mean": 0.003406620787056898,
+      "y_n": 20,
+      "y_variance": 0.0034060405337975577
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 3.0003373572130108,
+      "conditional_x_mean_at_descent": 2.0003451487609416,
+      "conditional_y_index_plus_one_over_variance": 1.000342550980757,
+      "conditional_y_mean_at_descent": 0.0003451487609415943,
+      "conditional_y_total_variation_from_previous": 0.00017379802327580136,
+      "effective_ratio_drop": 0.3349629583448961,
+      "effective_ratio_drop_factor": 0.6650370416551039,
+      "first_descent_minus_signed_mean": 0.9995381945053932,
+      "first_descent_value": 2,
+      "max_identity_error": 5.551115123125783e-17,
+      "optimizer_fun": 202.78314095434496,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          400,
+          80,
+          8
+        ],
+        [
+          80,
+          8
+        ]
+      ],
+      "pressure": 0.3329589386973444,
+      "previous_ratio": 0.5006622456227345,
+      "reserve": 0.6670410613026556,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.05,
+      "side_variance_fraction": 0.0010365846298762032,
+      "source": "optimizer_breaker",
+      "target": "effective",
+      "variance": 1.000002596890617,
+      "variance_times_effective_ratio_drop": 0.33496382820705967,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3333054379590691,
+      "variance_times_reserve": 0.6670427935353288,
+      "x_blocks": [
+        [
+          80,
+          0.0010931133465388473
+        ],
+        [
+          400,
+          0.0021022199038965104
+        ],
+        [
+          8,
+          0.009145172102781748
+        ]
+      ],
+      "x_mean": 1.0014984061039658,
+      "x_n": 488,
+      "x_variance": 0.998966009568844,
+      "y_blocks": [
+        [
+          8,
+          7.1725642297888e-07
+        ],
+        [
+          80,
+          1.2885781974688665e-05
+        ]
+      ],
+      "y_mean": 0.0010366006093589244,
+      "y_n": 88,
+      "y_variance": 0.0010365873217731021
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.989055990648707,
+      "conditional_x_mean_at_descent": 2.001005782746499,
+      "conditional_y_index_plus_one_over_variance": 0.9970198487435458,
+      "conditional_y_mean_at_descent": 0.0010057827464988438,
+      "conditional_y_total_variation_from_previous": 0.0005036392545090478,
+      "effective_ratio_drop": 0.33383142826740697,
+      "effective_ratio_drop_factor": 0.666168571732593,
+      "eta": 0.003015,
+      "first_descent_minus_signed_mean": 1.00103,
+      "first_descent_value": 2,
+      "lambda": 1.001985,
+      "max_identity_error": 1.1102230246251565e-16,
+      "pressure": 0.33357786318357674,
+      "previous_ratio": 0.5007409195483307,
+      "reserve": 0.6664221368164233,
+      "scale": 1000,
+      "search_family": "finite_skellam_boundary",
+      "side_variance_fraction": 0.0030028134033546496,
+      "source": "finite_skellam_boundary",
+      "split": 0.003,
+      "total_variance_parameter": 1.005,
+      "variance": 1.0039978481952754,
+      "variance_times_effective_ratio_drop": 0.335166035640432,
+      "variance_times_expected_inverse_x_index_plus_one": 0.3345818115183067,
+      "variance_times_reserve": 0.6690863913533863,
+      "x_blocks": [
+        [
+          1002,
+          0.0009999850299401197
+        ]
+      ],
+      "x_mean": 1.001985,
+      "x_n": 1002,
+      "x_variance": 1.0009830299997753,
+      "y_blocks": [
+        [
+          50,
+          6.0299999999999995e-05
+        ]
+      ],
+      "y_mean": 0.003015,
+      "y_n": 50,
+      "y_variance": 0.0030148181954999997
+    }
+  ],
+  "best_by_raw_reserve": [
+    {
+      "conditional_x_index_plus_one_over_variance": 2.0013300298260077,
+      "conditional_x_mean_at_descent": 1.0013303394159114,
+      "conditional_y_index_plus_one_over_variance": 1.001330184518063,
+      "conditional_y_mean_at_descent": 0.0013303394159113991,
+      "conditional_y_total_variation_from_previous": 0.0013321184169663028,
+      "effective_ratio_drop": 0.5005559130623081,
+      "effective_ratio_drop_factor": 0.49944408693769193,
+      "first_descent_minus_signed_mean": 0.0033297589340905986,
+      "first_descent_value": 1,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 0.5005562220553884,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          500
+        ],
+        [
+          500
+        ]
+      ],
+      "pressure": 0.49944385537668246,
+      "previous_ratio": 0.9999995363624967,
+      "reserve": 0.5005561446233175,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.002663617496161419,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0000001546920794,
+      "variance_times_effective_ratio_drop": 0.5005559904943431,
+      "variance_times_expected_inverse_x_index_plus_one": 0.49977840304478977,
+      "variance_times_reserve": 0.5005562220553884,
+      "x_blocks": [
+        [
+          500,
+          0.0019986677463279664
+        ]
+      ],
+      "x_mean": 0.9993338731639833,
+      "x_n": 500,
+      "x_variance": 0.9973365367838775,
+      "y_blocks": [
+        [
+          500,
+          5.3272641961477115e-06
+        ]
+      ],
+      "y_mean": 0.002663632098073856,
+      "y_n": 500,
+      "y_variance": 0.002663617908201948
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.002768382396347,
+      "conditional_x_mean_at_descent": 1.0027683983023519,
+      "conditional_y_index_plus_one_over_variance": 1.0027683903383562,
+      "conditional_y_mean_at_descent": 0.0027683983023517747,
+      "conditional_y_total_variation_from_previous": 0.002776157872189024,
+      "effective_ratio_drop": 0.5011616213924146,
+      "effective_ratio_drop_factor": 0.4988383786075854,
+      "first_descent_minus_signed_mean": 0.006937076015943844,
+      "first_descent_value": 1,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 0.501161627485323,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          200,
+          50
+        ],
+        [
+          50,
+          10
+        ]
+      ],
+      "pressure": 0.49883837649490714,
+      "previous_ratio": 0.9999999957648041,
+      "reserve": 0.5011616235050929,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.005548812830094388,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.000000007942009,
+      "variance_times_effective_ratio_drop": 0.5011616253726447,
+      "variance_times_expected_inverse_x_index_plus_one": 0.49953881267478023,
+      "variance_times_reserve": 0.501161627485323,
+      "x_blocks": [
+        [
+          200,
+          0.0035795254924620096
+        ],
+        [
+          50,
+          0.005654143278730027
+        ]
+      ],
+      "x_mean": 0.9986122624289033,
+      "x_n": 250,
+      "x_variance": 0.9944511950678459,
+      "y_blocks": [
+        [
+          50,
+          8.608114956318144e-05
+        ],
+        [
+          10,
+          0.00012452809666881428
+        ]
+      ],
+      "y_mean": 0.0055493384448472155,
+      "y_n": 60,
+      "y_variance": 0.00554881287416311
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.9975046592704837,
+      "conditional_x_mean_at_descent": 1.0014993090381858,
+      "conditional_y_index_plus_one_over_variance": 0.999500487972329,
+      "conditional_y_mean_at_descent": 0.001499309038185794,
+      "conditional_y_total_variation_from_previous": 0.001497810624199047,
+      "effective_ratio_drop": 0.5000000443028282,
+      "effective_ratio_drop_factor": 0.4999999556971718,
+      "eta": 0.003,
+      "first_descent_minus_signed_mean": 0.0030000000000000027,
+      "first_descent_value": 1,
+      "lambda": 1.0,
+      "max_identity_error": 1.1102230246251565e-16,
+      "pressure": 0.49974967615221544,
+      "previous_ratio": 0.9994994408657348,
+      "reserve": 0.5002503238477846,
+      "scale": 1000,
+      "search_family": "near_one_sided_x_dominant",
+      "side_variance_fraction": 0.0029938328731436304,
+      "source": "near_one_sided_x_dominant",
+      "variance": 1.00199982,
+      "variance_times_effective_ratio_drop": 0.5009999543914259,
+      "variance_times_expected_inverse_x_index_plus_one": 0.5007495866973313,
+      "variance_times_reserve": 0.5012507344504218,
+      "x_blocks": [
+        [
+          1000,
+          0.001
+        ]
+      ],
+      "x_mean": 1.0,
+      "x_n": 1000,
+      "x_variance": 0.999,
+      "y_blocks": [
+        [
+          50,
+          6e-05
+        ]
+      ],
+      "y_mean": 0.003,
+      "y_n": 50,
+      "y_variance": 0.0029998200000000003
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.001494146083524,
+      "conditional_x_mean_at_descent": 1.0014978000909185,
+      "conditional_y_index_plus_one_over_variance": 1.001495971720002,
+      "conditional_y_mean_at_descent": 0.0014978000909185094,
+      "conditional_y_total_variation_from_previous": 0.0014963136926911891,
+      "effective_ratio_drop": 0.500001548161366,
+      "effective_ratio_drop_factor": 0.49999845183863395,
+      "eta": 0.0030029999999999996,
+      "first_descent_minus_signed_mean": 0.005006000000000066,
+      "first_descent_value": 1,
+      "lambda": 0.9979969999999999,
+      "max_identity_error": 1.1102230246251565e-16,
+      "pressure": 0.49874792591932426,
+      "previous_ratio": 0.997498940417293,
+      "reserve": 0.5012520740806757,
+      "scale": 1000,
+      "search_family": "finite_skellam_boundary",
+      "side_variance_fraction": 0.0030028141577629285,
+      "source": "finite_skellam_boundary",
+      "split": 0.003,
+      "total_variance_parameter": 1.001,
+      "variance": 1.0000018256398109,
+      "variance_times_effective_ratio_drop": 0.5000024609840978,
+      "variance_times_expected_inverse_x_index_plus_one": 0.49975134003211824,
+      "variance_times_reserve": 0.5012529891864175,
+      "x_blocks": [
+        [
+          998,
+          0.0009999969939879759
+        ]
+      ],
+      "x_mean": 0.9979969999999999,
+      "x_n": 998,
+      "x_variance": 0.9969990059999909,
+      "y_blocks": [
+        [
+          50,
+          6.005999999999999e-05
+        ]
+      ],
+      "y_mean": 0.0030029999999999996,
+      "y_n": 50,
+      "y_variance": 0.0030028196398199994
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.0029372230935105,
+      "conditional_x_mean_at_descent": 1.0029757414155647,
+      "conditional_y_index_plus_one_over_variance": 1.0029564536419677,
+      "conditional_y_mean_at_descent": 0.0029757414155646184,
+      "conditional_y_total_variation_from_previous": 0.002984351149040303,
+      "effective_ratio_drop": 0.50121878453439,
+      "effective_ratio_drop_factor": 0.49878121546561005,
+      "first_descent_minus_signed_mean": 0.007498571991887859,
+      "first_descent_value": 1,
+      "max_identity_error": 5.551115123125783e-17,
+      "optimizer_fun": 0.5012785694180754,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          200,
+          20,
+          5,
+          1
+        ],
+        [
+          50,
+          10,
+          2,
+          1
+        ]
+      ],
+      "pressure": 0.4987310704437444,
+      "previous_ratio": 0.9998994648950064,
+      "reserve": 0.5012689295562556,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.0059655570465161805,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0000192309182785,
+      "variance_times_effective_ratio_drop": 0.501228423431875,
+      "variance_times_expected_inverse_x_index_plus_one": 0.4995138900277624,
+      "variance_times_reserve": 0.5012785694180754,
+      "x_blocks": [
+        [
+          200,
+          0.004396097740808061
+        ],
+        [
+          20,
+          0.004440199921733185
+        ],
+        [
+          5,
+          0.004993338562177714
+        ],
+        [
+          1,
+          0.0054774317260003185
+        ]
+      ],
+      "x_mean": 0.9984676711331647,
+      "x_n": 226,
+      "x_variance": 0.9940535591486223,
+      "y_blocks": [
+        [
+          50,
+          8.960219204203691e-05
+        ],
+        [
+          1,
+          0.00011114154475546647
+        ],
+        [
+          10,
+          0.00011393629806048474
+        ],
+        [
+          2,
+          0.00011781449879519305
+        ]
+      ],
+      "y_mean": 0.005966243125052545,
+      "y_n": 63,
+      "y_variance": 0.005965671769656227
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.003311259382939,
+      "conditional_x_mean_at_descent": 1.003313882650069,
+      "conditional_y_index_plus_one_over_variance": 1.0033125688467992,
+      "conditional_y_mean_at_descent": 0.003313882650068835,
+      "conditional_y_total_variation_from_previous": 0.0033250152440410566,
+      "effective_ratio_drop": 0.5013913842707851,
+      "effective_ratio_drop_factor": 0.49860861572921483,
+      "first_descent_minus_signed_mean": 0.008307292786724041,
+      "first_descent_value": 1,
+      "max_identity_error": 5.551115123125783e-17,
+      "optimizer_fun": 0.5013920422300957,
+      "optimizer_success": true,
+      "pattern": [
+        [
+          200
+        ],
+        [
+          200
+        ]
+      ],
+      "pressure": 0.4986086143246634,
+      "previous_ratio": 0.9999999971830582,
+      "reserve": 0.5013913856753366,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.006645882994184161,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0000013094655749,
+      "variance_times_effective_ratio_drop": 0.5013920408255423,
+      "variance_times_expected_inverse_x_index_plus_one": 0.4994486423068672,
+      "variance_times_reserve": 0.5013920422300957,
+      "x_blocks": [
+        [
+          200,
+          0.004991694098820377
+        ]
+      ],
+      "x_mean": 0.9983388197640753,
+      "x_n": 200,
+      "x_variance": 0.9933554177688357,
+      "y_blocks": [
+        [
+          200,
+          3.323056275399673e-05
+        ]
+      ],
+      "y_mean": 0.006646112550799345,
+      "y_n": 200,
+      "y_variance": 0.006645891696739156
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.003505629093952,
+      "conditional_x_mean_at_descent": 1.0044044775779375,
+      "conditional_y_index_plus_one_over_variance": 1.0039540657712998,
+      "conditional_y_mean_at_descent": 0.004404477577937426,
+      "conditional_y_total_variation_from_previous": 0.0044216772307785505,
+      "effective_ratio_drop": 0.5017096320209571,
+      "effective_ratio_drop_factor": 0.49829036797904297,
+      "first_descent_minus_signed_mean": 0.010902432473174128,
+      "first_descent_value": 1,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 205.0623364852213,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          800,
+          100,
+          10
+        ],
+        [
+          50,
+          10,
+          2
+        ]
+      ],
+      "pressure": 0.4982166305751368,
+      "previous_ratio": 0.9998520192067826,
+      "reserve": 0.5017833694248632,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.1,
+      "side_variance_fraction": 0.008834340431131914,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.00044863786302,
+      "variance_times_effective_ratio_drop": 0.5019347179581235,
+      "variance_times_expected_inverse_x_index_plus_one": 0.499490436887483,
+      "variance_times_reserve": 0.5020084884434209,
+      "x_blocks": [
+        [
+          800,
+          0.00021106791638885315
+        ],
+        [
+          10,
+          0.005575884359382985
+        ],
+        [
+          100,
+          0.007733240020245918
+        ]
+      ],
+      "x_mean": 0.9979371787295042,
+      "x_n": 910,
+      "x_variance": 0.9916103340122758,
+      "y_blocks": [
+        [
+          2,
+          8.237533509491762e-05
+        ],
+        [
+          10,
+          8.716407256921543e-05
+        ],
+        [
+          50,
+          0.00015606439613592672
+        ]
+      ],
+      "y_mean": 0.008839611202678324,
+      "y_n": 62,
+      "y_variance": 0.008838303850744128
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.999736792150019,
+      "conditional_x_mean_at_descent": 1.0044854768805447,
+      "conditional_y_index_plus_one_over_variance": 1.0021058214023115,
+      "conditional_y_mean_at_descent": 0.004485476880544613,
+      "conditional_y_total_variation_from_previous": 0.00449435746640856,
+      "effective_ratio_drop": 0.5012432809660033,
+      "effective_ratio_drop_factor": 0.49875671903399665,
+      "first_descent_minus_signed_mean": 0.01015391070397964,
+      "first_descent_value": 1,
+      "max_identity_error": 2.220446049250313e-16,
+      "optimizer_fun": 202.5588267357356,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          800,
+          100,
+          10
+        ],
+        [
+          50,
+          10,
+          2
+        ]
+      ],
+      "pressure": 0.4986584213761865,
+      "previous_ratio": 0.9998029146193749,
+      "reserve": 0.5013415786238136,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.05,
+      "side_variance_fraction": 0.008971535565534169,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0023746548791654,
+      "variance_times_effective_ratio_drop": 0.5024335607687982,
+      "variance_times_expected_inverse_x_index_plus_one": 0.5004385207493989,
+      "variance_times_reserve": 0.5025320918496211,
+      "x_blocks": [
+        [
+          800,
+          0.00028887539267927046
+        ],
+        [
+          10,
+          0.0052396403403458
+        ],
+        [
+          100,
+          0.007153435590436633
+        ]
+      ],
+      "x_mean": 0.9988402765905376,
+      "x_n": 910,
+      "x_variance": 0.9933818150129269,
+      "y_blocks": [
+        [
+          10,
+          9.073262590386644e-05
+        ],
+        [
+          2,
+          9.561524347486772e-05
+        ],
+        [
+          50,
+          0.00015791261097057704
+        ]
+      ],
+      "y_mean": 0.008994187294517252,
+      "y_n": 62,
+      "y_variance": 0.00899283986623847
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.9867230368174884,
+      "conditional_x_mean_at_descent": 1.0033509282495634,
+      "conditional_y_index_plus_one_over_variance": 0.9950230761154477,
+      "conditional_y_mean_at_descent": 0.0033509282495634584,
+      "conditional_y_total_variation_from_previous": 0.0033340972124684836,
+      "effective_ratio_drop": 0.49930033553976916,
+      "effective_ratio_drop_factor": 0.5006996644602308,
+      "first_descent_minus_signed_mean": 0.004172718757470495,
+      "first_descent_value": 1,
+      "max_identity_error": 2.220446049250313e-16,
+      "optimizer_fun": 205.2108887047866,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          1200
+        ],
+        [
+          20
+        ]
+      ],
+      "pressure": 0.5006996611216825,
+      "previous_ratio": 0.9999999933322338,
+      "reserve": 0.4993003388783175,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.1,
+      "side_variance_fraction": 0.0066332443023746765,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.008369506531072,
+      "variance_times_effective_ratio_drop": 0.5034792329590357,
+      "variance_times_expected_inverse_x_index_plus_one": 0.503621889592558,
+      "variance_times_reserve": 0.503479236325526,
+      "x_blocks": [
+        [
+          1200,
+          0.0008354319008335859
+        ]
+      ],
+      "x_mean": 1.002518281000303,
+      "x_n": 1200,
+      "x_variance": 1.0016807452471865,
+      "y_blocks": [
+        [
+          20,
+          0.0003345499878886762
+        ]
+      ],
+      "y_mean": 0.006690999757773524,
+      "y_n": 20,
+      "y_variance": 0.006688761283885598
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.9930512071004574,
+      "conditional_x_mean_at_descent": 1.0049941831799285,
+      "conditional_y_index_plus_one_over_variance": 0.9990078209298948,
+      "conditional_y_mean_at_descent": 0.0049941831799285834,
+      "conditional_y_total_variation_from_previous": 0.0049841632087832,
+      "effective_ratio_drop": 0.5003321464822239,
+      "effective_ratio_drop_factor": 0.49966785351777604,
+      "eta": 0.01,
+      "first_descent_minus_signed_mean": 0.010000000000000009,
+      "first_descent_value": 1,
+      "lambda": 1.0,
+      "max_identity_error": 2.220446049250313e-16,
+      "pressure": 0.49916159291777806,
+      "previous_ratio": 0.998986805742187,
+      "reserve": 0.5008384070822219,
+      "scale": 250,
+      "search_family": "near_one_sided_x_dominant",
+      "side_variance_fraction": 0.009932787374119699,
+      "source": "near_one_sided_x_dominant",
+      "variance": 1.0059923076923076,
+      "variance_times_effective_ratio_drop": 0.5033302906522982,
+      "variance_times_expected_inverse_x_index_plus_one": 0.5021594433370615,
+      "variance_times_reserve": 0.5038395849215839,
+      "x_blocks": [
+        [
+          250,
+          0.004
+        ]
+      ],
+      "x_mean": 1.0,
+      "x_n": 250,
+      "x_variance": 0.996,
+      "y_blocks": [
+        [
+          13,
+          0.0007692307692307692
+        ]
+      ],
+      "y_mean": 0.01,
+      "y_n": 13,
+      "y_variance": 0.009992307692307693
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.002957466602512,
+      "conditional_x_mean_at_descent": 1.0049937255388202,
+      "conditional_y_index_plus_one_over_variance": 1.0039730602726424,
+      "conditional_y_mean_at_descent": 0.00499372553882013,
+      "conditional_y_total_variation_from_previous": 0.0049838706217123635,
+      "effective_ratio_drop": 0.5003403044579662,
+      "effective_ratio_drop_factor": 0.4996596955420339,
+      "eta": 0.01005,
+      "first_descent_minus_signed_mean": 0.015100000000000113,
+      "first_descent_value": 1,
+      "lambda": 0.9949499999999999,
+      "max_identity_error": 1.1102230246251565e-16,
+      "pressure": 0.4966307636005632,
+      "previous_ratio": 0.993938010272802,
+      "reserve": 0.5033692363994369,
+      "scale": 250,
+      "search_family": "finite_skellam_boundary",
+      "side_variance_fraction": 0.010032031751115165,
+      "source": "finite_skellam_boundary",
+      "split": 0.01,
+      "total_variance_parameter": 1.005,
+      "variance": 1.0010166261492122,
+      "variance_times_effective_ratio_drop": 0.5008489634949829,
+      "variance_times_expected_inverse_x_index_plus_one": 0.49967581719571774,
+      "variance_times_reserve": 0.5038809747278695,
+      "x_blocks": [
+        [
+          249,
+          0.00399578313253012
+        ]
+      ],
+      "x_mean": 0.9949499999999999,
+      "x_n": 249,
+      "x_variance": 0.9909743955722891,
+      "y_blocks": [
+        [
+          13,
+          0.0007730769230769231
+        ]
+      ],
+      "y_mean": 0.01005,
+      "y_n": 13,
+      "y_variance": 0.010042230576923076
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.9930990121834111,
+      "conditional_x_mean_at_descent": 1.005043560961364,
+      "conditional_y_index_plus_one_over_variance": 0.999056263691815,
+      "conditional_y_mean_at_descent": 0.005043560961363892,
+      "conditional_y_total_variation_from_previous": 0.005032944257440999,
+      "effective_ratio_drop": 0.5003156915585968,
+      "effective_ratio_drop_factor": 0.4996843084414032,
+      "eta": 0.0101,
+      "first_descent_minus_signed_mean": 0.010199999999999987,
+      "first_descent_value": 1,
+      "lambda": 0.9999,
+      "max_identity_error": 1.1102230246251565e-16,
+      "pressure": 0.49910319418196425,
+      "previous_ratio": 0.998837037206048,
+      "reserve": 0.5008968058180358,
+      "scale": 250,
+      "search_family": "finite_skellam_boundary",
+      "side_variance_fraction": 0.01003203158278253,
+      "source": "finite_skellam_boundary",
+      "split": 0.01,
+      "total_variance_parameter": 1.01,
+      "variance": 1.0059929530369232,
+      "variance_times_effective_ratio_drop": 0.5033140600017432,
+      "variance_times_expected_inverse_x_index_plus_one": 0.5021514992666787,
+      "variance_times_reserve": 0.503898656851648,
+      "x_blocks": [
+        [
+          250,
+          0.0039996
+        ]
+      ],
+      "x_mean": 0.9999,
+      "x_n": 250,
+      "x_variance": 0.99590079996,
+      "y_blocks": [
+        [
+          13,
+          0.0007769230769230769
+        ]
+      ],
+      "y_mean": 0.0101,
+      "y_n": 13,
+      "y_variance": 0.010092153076923077
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.0010044390710924,
+      "conditional_x_mean_at_descent": 1.0041334558030377,
+      "conditional_y_index_plus_one_over_variance": 1.0025657206927754,
+      "conditional_y_mean_at_descent": 0.004133455803037707,
+      "conditional_y_total_variation_from_previous": 0.0041124298806464185,
+      "effective_ratio_drop": 0.4994149718761254,
+      "effective_ratio_drop_factor": 0.5005850281238746,
+      "first_descent_minus_signed_mean": 0.013515030889762691,
+      "first_descent_value": 1,
+      "max_identity_error": 5.551115123125783e-17,
+      "optimizer_fun": 201.0896522886106,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          800,
+          100,
+          10
+        ],
+        [
+          50,
+          10,
+          2
+        ]
+      ],
+      "pressure": 0.49671008720154736,
+      "previous_ratio": 0.9922591753555834,
+      "reserve": 0.5032899127984527,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.02,
+      "side_variance_fraction": 0.008306777565601801,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0015637230337169,
+      "variance_times_effective_ratio_drop": 0.5001959185710312,
+      "variance_times_expected_inverse_x_index_plus_one": 0.5000923418858599,
+      "variance_times_reserve": 0.504076918827733,
+      "x_blocks": [
+        [
+          800,
+          0.0009783304842613718
+        ],
+        [
+          100,
+          0.0013353500817496304
+        ],
+        [
+          10,
+          0.007860647864638866
+        ]
+      ],
+      "x_mean": 0.9948058742304492,
+      "x_n": 910,
+      "x_variance": 0.9932439559686997,
+      "y_blocks": [
+        [
+          10,
+          9.277057017746193e-05
+        ],
+        [
+          2,
+          0.00012197188691450062
+        ],
+        [
+          50,
+          0.00014298511289216435
+        ]
+      ],
+      "y_mean": 0.008320905120211839,
+      "y_n": 62,
+      "y_variance": 0.008319767065017095
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.9890882354683879,
+      "conditional_x_mean_at_descent": 1.004992984999193,
+      "conditional_y_index_plus_one_over_variance": 0.9970208066293845,
+      "conditional_y_mean_at_descent": 0.004992984999192988,
+      "conditional_y_total_variation_from_previous": 0.004963158574349059,
+      "effective_ratio_drop": 0.49933583856207686,
+      "effective_ratio_drop_factor": 0.5006641614379231,
+      "eta": 0.01,
+      "first_descent_minus_signed_mean": 0.010000000000000009,
+      "first_descent_value": 1,
+      "lambda": 1.0,
+      "max_identity_error": 1.1102230246251565e-16,
+      "pressure": 0.4991651669259745,
+      "previous_ratio": 0.9970059879907452,
+      "reserve": 0.5008348330740255,
+      "scale": 500,
+      "search_family": "near_one_sided_x_dominant",
+      "side_variance_fraction": 0.009916706018674679,
+      "source": "near_one_sided_x_dominant",
+      "variance": 1.007996,
+      "variance_times_effective_ratio_drop": 0.5033285279272192,
+      "variance_times_expected_inverse_x_index_plus_one": 0.5031598509156818,
+      "variance_times_reserve": 0.5048395083992854,
+      "x_blocks": [
+        [
+          500,
+          0.002
+        ]
+      ],
+      "x_mean": 1.0,
+      "x_n": 500,
+      "x_variance": 0.998,
+      "y_blocks": [
+        [
+          25,
+          0.0004
+        ]
+      ],
+      "y_mean": 0.01,
+      "y_n": 25,
+      "y_variance": 0.009996000000000001
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.9989793241400284,
+      "conditional_x_mean_at_descent": 1.0049925691583843,
+      "conditional_y_index_plus_one_over_variance": 1.0019784599527264,
+      "conditional_y_mean_at_descent": 0.004992569158384404,
+      "conditional_y_total_variation_from_previous": 0.004962828797337908,
+      "effective_ratio_drop": 0.4993399796043324,
+      "effective_ratio_drop_factor": 0.5006600203956676,
+      "eta": 0.01005,
+      "first_descent_minus_signed_mean": 0.015100000000000113,
+      "first_descent_value": 1,
+      "lambda": 0.9949499999999999,
+      "max_identity_error": 1.1102230246251565e-16,
+      "pressure": 0.49663939227219783,
+      "previous_ratio": 0.9919693445458412,
+      "reserve": 0.5033606077278021,
+      "scale": 500,
+      "search_family": "finite_skellam_boundary",
+      "side_variance_fraction": 0.010015830701890984,
+      "source": "finite_skellam_boundary",
+      "split": 0.01,
+      "total_variance_parameter": 1.005,
+      "variance": 1.0030081576861445,
+      "variance_times_effective_ratio_drop": 0.5008420730019784,
+      "variance_times_expected_inverse_x_index_plus_one": 0.5006701465506765,
+      "variance_times_reserve": 0.5048747958088409,
+      "x_blocks": [
+        [
+          498,
+          0.00199789156626506
+        ]
+      ],
+      "x_mean": 0.9949499999999999,
+      "x_n": 498,
+      "x_variance": 0.9929621977861445,
+      "y_blocks": [
+        [
+          25,
+          0.000402
+        ]
+      ],
+      "y_mean": 0.01005,
+      "y_n": 25,
+      "y_variance": 0.0100459599
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.9891365681085695,
+      "conditional_x_mean_at_descent": 1.00504233979543,
+      "conditional_y_index_plus_one_over_variance": 0.997069453799394,
+      "conditional_y_mean_at_descent": 0.00504233979542991,
+      "conditional_y_total_variation_from_previous": 0.00501172393147383,
+      "effective_ratio_drop": 0.49931942347106806,
+      "effective_ratio_drop_factor": 0.5006805765289319,
+      "eta": 0.0101,
+      "first_descent_minus_signed_mean": 0.010199999999999987,
+      "first_descent_value": 1,
+      "lambda": 0.9999,
+      "max_identity_error": 1.1102230246251565e-16,
+      "pressure": 0.4991069056868807,
+      "previous_ratio": 0.996856936506383,
+      "reserve": 0.5008930943131193,
+      "scale": 500,
+      "search_family": "finite_skellam_boundary",
+      "side_variance_fraction": 0.010015829823869445,
+      "source": "finite_skellam_boundary",
+      "split": 0.01,
+      "total_variance_parameter": 1.01,
+      "variance": 1.00799631958,
+      "variance_times_effective_ratio_drop": 0.503312141153644,
+      "variance_times_expected_inverse_x_index_plus_one": 0.5031517321600425,
+      "variance_times_reserve": 0.5048983955706621,
+      "x_blocks": [
+        [
+          500,
+          0.0019998
+        ]
+      ],
+      "x_mean": 0.9999,
+      "x_n": 500,
+      "x_variance": 0.99790039998,
+      "y_blocks": [
+        [
+          25,
+          0.000404
+        ]
+      ],
+      "y_mean": 0.0101,
+      "y_n": 25,
+      "y_variance": 0.0100959196
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.004938260190724,
+      "conditional_x_mean_at_descent": 1.0049523268333451,
+      "conditional_y_index_plus_one_over_variance": 1.0049452761393993,
+      "conditional_y_mean_at_descent": 0.004952326833345027,
+      "conditional_y_total_variation_from_previous": 0.004913430167954665,
+      "effective_ratio_drop": 0.4988555201663454,
+      "effective_ratio_drop_factor": 0.5011444798336546,
+      "eta": 0.01001,
+      "first_descent_minus_signed_mean": 0.019020000000000148,
+      "first_descent_value": 1,
+      "lambda": 0.9909899999999999,
+      "max_identity_error": 3.3306690738754696e-16,
+      "pressure": 0.49467155704731486,
+      "previous_ratio": 0.9870837192729562,
+      "reserve": 0.5053284429526852,
+      "scale": 1000,
+      "search_family": "finite_skellam_boundary",
+      "side_variance_fraction": 0.010007925782413739,
+      "source": "finite_skellam_boundary",
+      "split": 0.01,
+      "total_variance_parameter": 1.001,
+      "variance": 1.0000070159978989,
+      "variance_times_effective_ratio_drop": 0.4988590201356267,
+      "variance_times_expected_inverse_x_index_plus_one": 0.49917878162901336,
+      "variance_times_reserve": 0.5053319883359791,
+      "x_blocks": [
+        [
+          991,
+          0.0009999899091826436
+        ]
+      ],
+      "x_mean": 0.9909899999999998,
+      "x_n": 991,
+      "x_variance": 0.9899990199998989,
+      "y_blocks": [
+        [
+          50,
+          0.0002002
+        ]
+      ],
+      "y_mean": 0.01001,
+      "y_n": 50,
+      "y_variance": 0.010007995998
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.9871122993567163,
+      "conditional_x_mean_at_descent": 1.0049923358263282,
+      "conditional_y_index_plus_one_over_variance": 0.9960300573701119,
+      "conditional_y_mean_at_descent": 0.004992335826328128,
+      "conditional_y_total_variation_from_previous": 0.0049526393134869335,
+      "effective_ratio_drop": 0.49883770004798056,
+      "effective_ratio_drop_factor": 0.5011622999520194,
+      "eta": 0.01,
+      "first_descent_minus_signed_mean": 0.010000000000000009,
+      "first_descent_value": 1,
+      "lambda": 1.0,
+      "max_identity_error": 1.1102230246251565e-16,
+      "pressure": 0.49916695766309915,
+      "previous_ratio": 0.9960185706524386,
+      "reserve": 0.5008330423369008,
+      "scale": 1000,
+      "search_family": "near_one_sided_x_dominant",
+      "side_variance_fraction": 0.009908840255382072,
+      "source": "near_one_sided_x_dominant",
+      "variance": 1.008998,
+      "variance_times_effective_ratio_drop": 0.5033262416730123,
+      "variance_times_expected_inverse_x_index_plus_one": 0.5036601413448586,
+      "variance_times_reserve": 0.5053395380518483,
+      "x_blocks": [
+        [
+          1000,
+          0.001
+        ]
+      ],
+      "x_mean": 1.0,
+      "x_n": 1000,
+      "x_variance": 0.999,
+      "y_blocks": [
+        [
+          50,
+          0.0002
+        ]
+      ],
+      "y_mean": 0.01,
+      "y_n": 50,
+      "y_variance": 0.009998
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.9995107952051219,
+      "conditional_x_mean_at_descent": 1.0066620804523267,
+      "conditional_y_index_plus_one_over_variance": 1.0030745667623104,
+      "conditional_y_mean_at_descent": 0.006662080452326729,
+      "conditional_y_total_variation_from_previous": 0.006640641926110136,
+      "effective_ratio_drop": 0.5003071198244813,
+      "effective_ratio_drop_factor": 0.49969288017551866,
+      "first_descent_minus_signed_mean": 0.01824858152619191,
+      "first_descent_value": 1,
+      "max_identity_error": 3.3306690738754696e-16,
+      "optimizer_fun": 0.505344921428684,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          100,
+          100,
+          50,
+          10
+        ],
+        [
+          100,
+          50,
+          10,
+          2
+        ]
+      ],
+      "pressure": 0.49645601242887333,
+      "previous_ratio": 0.9935222856377134,
+      "reserve": 0.5035439875711267,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.0,
+      "side_variance_fraction": 0.013369187733898136,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0035765174483449,
+      "variance_times_effective_ratio_drop": 0.5020964769680647,
+      "variance_times_expected_inverse_x_index_plus_one": 0.5006751630852144,
+      "variance_times_reserve": 0.505344921428684,
+      "x_blocks": [
+        [
+          100,
+          0.0014259510384678755
+        ],
+        [
+          50,
+          0.0034920307170023795
+        ],
+        [
+          100,
+          0.0060333366514426605
+        ],
+        [
+          10,
+          0.007463947757920255
+        ]
+      ],
+      "x_mean": 0.9951697824203751,
+      "x_n": 260,
+      "x_variance": 0.9901595145812462,
+      "y_blocks": [
+        [
+          10,
+          0.0
+        ],
+        [
+          100,
+          6.370795372841255e-05
+        ],
+        [
+          2,
+          0.00013057843737976658
+        ],
+        [
+          50,
+          0.00013572823397932468
+        ]
+      ],
+      "y_mean": 0.013418363946567022,
+      "y_n": 162,
+      "y_variance": 0.013417002867098621
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.0029428986313587,
+      "conditional_x_mean_at_descent": 1.0066237942255214,
+      "conditional_y_index_plus_one_over_variance": 1.004777271175308,
+      "conditional_y_mean_at_descent": 0.006623794225521449,
+      "conditional_y_total_variation_from_previous": 0.006602074063096296,
+      "effective_ratio_drop": 0.5002854789062467,
+      "effective_ratio_drop_factor": 0.49971452109375325,
+      "first_descent_minus_signed_mean": 0.01995575265145566,
+      "first_descent_value": 1,
+      "max_identity_error": 3.3306690738754696e-16,
+      "optimizer_fun": 204.84649896036046,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          200,
+          50
+        ],
+        [
+          50,
+          10
+        ]
+      ],
+      "pressure": 0.4955810611550073,
+      "previous_ratio": 0.9917283573635226,
+      "reserve": 0.5044189388449927,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.1,
+      "side_variance_fraction": 0.013336205262234052,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0018377436504444,
+      "variance_times_effective_ratio_drop": 0.5012048753685162,
+      "variance_times_expected_inverse_x_index_plus_one": 0.49981407242954856,
+      "variance_times_reserve": 0.505345931547019,
+      "x_blocks": [
+        [
+          50,
+          6.798167562833585e-06
+        ],
+        [
+          200,
+          0.004965340222496548
+        ]
+      ],
+      "x_mean": 0.9934079528774512,
+      "x_n": 250,
+      "x_variance": 0.9884770298616687,
+      "y_blocks": [
+        [
+          10,
+          0.00018706443794824215
+        ],
+        [
+          50,
+          0.00022986122298848926
+        ]
+      ],
+      "y_mean": 0.013363705528906884,
+      "y_n": 60,
+      "y_variance": 0.013360713788775746
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.9969977985456207,
+      "conditional_x_mean_at_descent": 1.0049919403881549,
+      "conditional_y_index_plus_one_over_variance": 1.0009849177362278,
+      "conditional_y_mean_at_descent": 0.004991940388154957,
+      "conditional_y_total_variation_from_previous": 0.004952300537268873,
+      "effective_ratio_drop": 0.498840335664968,
+      "effective_ratio_drop_factor": 0.501159664335032,
+      "eta": 0.01005,
+      "first_descent_minus_signed_mean": 0.015100000000000113,
+      "first_descent_value": 1,
+      "lambda": 0.9949499999999999,
+      "max_identity_error": 2.220446049250313e-16,
+      "pressure": 0.4966436986019997,
+      "previous_ratio": 0.9909889680786175,
+      "reserve": 0.5033563013980002,
+      "scale": 1000,
+      "search_family": "finite_skellam_boundary",
+      "side_variance_fraction": 0.010007917456314519,
+      "source": "finite_skellam_boundary",
+      "split": 0.01,
+      "total_variance_parameter": 1.005,
+      "variance": 1.0040030799474873,
+      "variance_times_effective_ratio_drop": 0.5008372334096662,
+      "variance_times_expected_inverse_x_index_plus_one": 0.5011669000437358,
+      "variance_times_reserve": 0.505371276914568,
+      "x_blocks": [
+        [
+          995,
+          0.0009999497487437185
+        ]
+      ],
+      "x_mean": 0.9949499999999999,
+      "x_n": 995,
+      "x_variance": 0.9939550999974873,
+      "y_blocks": [
+        [
+          50,
+          0.000201
+        ]
+      ],
+      "y_mean": 0.01005,
+      "y_n": 50,
+      "y_variance": 0.010047979949999999
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.9871608869385344,
+      "conditional_x_mean_at_descent": 1.0050416781276454,
+      "conditional_y_index_plus_one_over_variance": 0.9960788019046755,
+      "conditional_y_mean_at_descent": 0.005041678127645475,
+      "conditional_y_total_variation_from_previous": 0.005001096187207602,
+      "effective_ratio_drop": 0.49882130518239964,
+      "effective_ratio_drop_factor": 0.5011786948176004,
+      "eta": 0.0101,
+      "first_descent_minus_signed_mean": 0.010199999999999987,
+      "first_descent_value": 1,
+      "lambda": 0.9999,
+      "max_identity_error": 4.440892098500626e-16,
+      "pressure": 0.49910876514747915,
+      "previous_ratio": 0.9958698769689831,
+      "reserve": 0.5008912348525209,
+      "scale": 1000,
+      "search_family": "finite_skellam_boundary",
+      "side_variance_fraction": 0.010007907053172088,
+      "source": "finite_skellam_boundary",
+      "split": 0.01,
+      "total_variance_parameter": 1.01,
+      "variance": 1.00899815979,
+      "variance_times_effective_ratio_drop": 0.5033097789930873,
+      "variance_times_expected_inverse_x_index_plus_one": 0.5036519369851605,
+      "variance_times_reserve": 0.5053983342211342,
+      "x_blocks": [
+        [
+          1000,
+          0.0009999
+        ]
+      ],
+      "x_mean": 0.9999,
+      "x_n": 1000,
+      "x_variance": 0.9989001999899999,
+      "y_blocks": [
+        [
+          50,
+          0.000202
+        ]
+      ],
+      "y_mean": 0.0101,
+      "y_n": 50,
+      "y_variance": 0.010097959799999999
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.005833162418664,
+      "conditional_x_mean_at_descent": 1.0073376270677543,
+      "conditional_y_index_plus_one_over_variance": 1.0065826450312565,
+      "conditional_y_mean_at_descent": 0.0073376270677542755,
+      "conditional_y_total_variation_from_previous": 0.007303170543555387,
+      "effective_ratio_drop": 0.5000494326981911,
+      "effective_ratio_drop_factor": 0.49995056730180887,
+      "first_descent_minus_signed_mean": 0.024029915481214914,
+      "first_descent_value": 1,
+      "max_identity_error": 1.1102230246251565e-16,
+      "optimizer_fun": 200.7648453044479,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          200,
+          50
+        ],
+        [
+          50,
+          10
+        ]
+      ],
+      "pressure": 0.49416287663238445,
+      "previous_ratio": 0.9884234741433336,
+      "reserve": 0.5058371233676155,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.02,
+      "side_variance_fraction": 0.01483130114353399,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0007500447580977,
+      "variance_times_effective_ratio_drop": 0.5004244921539761,
+      "variance_times_expected_inverse_x_index_plus_one": 0.4991526323372402,
+      "variance_times_reserve": 0.5062165238504487,
+      "x_blocks": [
+        [
+          50,
+          0.0
+        ],
+        [
+          200,
+          0.004954081016088394
+        ]
+      ],
+      "x_mean": 0.9908162032176787,
+      "x_n": 250,
+      "x_variance": 0.9859076194748853,
+      "y_blocks": [
+        [
+          10,
+          0.0002066496175628259
+        ],
+        [
+          50,
+          0.0002555924504653068
+        ]
+      ],
+      "y_mean": 0.014846118698893598,
+      "y_n": 60,
+      "y_variance": 0.014842425283212467
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 1.9846755012849915,
+      "conditional_x_mean_at_descent": 1.008209461216932,
+      "conditional_y_index_plus_one_over_variance": 0.9963943784172997,
+      "conditional_y_mean_at_descent": 0.008209461216931908,
+      "conditional_y_total_variation_from_previous": 0.008178234602228864,
+      "effective_ratio_drop": 0.5004195859957639,
+      "effective_ratio_drop_factor": 0.4995804140042362,
+      "first_descent_minus_signed_mean": 0.01469203842665412,
+      "first_descent_value": 1,
+      "max_identity_error": 2.220446049250313e-16,
+      "optimizer_fun": 204.74439370185922,
+      "optimizer_success": false,
+      "pattern": [
+        [
+          200,
+          20,
+          5,
+          1
+        ],
+        [
+          50,
+          10,
+          2,
+          1
+        ]
+      ],
+      "pressure": 0.4994793780940605,
+      "previous_ratio": 0.9997977584642163,
+      "reserve": 0.5005206219059395,
+      "search_family": "optimizer_breaker",
+      "side_balance_floor": 0.1,
+      "side_variance_fraction": 0.01623451773812217,
+      "source": "optimizer_breaker",
+      "target": "reserve",
+      "variance": 1.0118578376750775,
+      "variance_times_effective_ratio_drop": 0.5063534802159312,
+      "variance_times_expected_inverse_x_index_plus_one": 0.504546296767005,
+      "variance_times_reserve": 0.506455714193529,
+      "x_blocks": [
+        [
+          200,
+          0.003480448883766401
+        ],
+        [
+          5,
+          0.005202952390440432
+        ],
+        [
+          1,
+          0.008162625592672036
+        ],
+        [
+          20,
+          0.013573661089044408
+        ]
+      ],
+      "x_mean": 1.0017403860790426,
+      "x_n": 226,
+      "x_variance": 0.9954308136608835,
+      "y_blocks": [
+        [
+          13,
+          0.0
+        ],
+        [
+          50,
+          0.000328648490113934
+        ]
+      ],
+      "y_mean": 0.0164324245056967,
+      "y_n": 63,
+      "y_variance": 0.01642702401419399
+    },
+    {
+      "conditional_x_index_plus_one_over_variance": 2.0054547176425124,
+      "conditional_x_mean_at_descent": 1.0153098254500332,
+      "conditional_y_index_plus_one_over_variance": 1.0103448381009488,
+      "conditional_y_mean_at_descent": 0.015309825450033147,
+      "conditional_y_total_variation_from_previous": 0.015447576243716347,
+      "effective_ratio_drop": 0.5048306253259303,
+      "effective_ratio_drop_factor": 0.49516937467406974,
+      "eta": 0.030749999999999996,
+      "first_descent_minus_signed_mean": 0.03650000000000009,
+      "first_descent_value": 1,
+      "lambda": 0.9942499999999999,
+      "max_identity_error": 1.1102230246251565e-16,
+      "pressure": 0.49443088219182635,
+      "previous_ratio": 0.9985086063072267,
+      "reserve": 0.5055691178081736,
+      "scale": 50,
+      "search_family": "finite_skellam_boundary",
+      "side_variance_fraction": 0.030285982600745078,
+      "source": "finite_skellam_boundary",
+      "split": 0.03,
+      "total_variance_parameter": 1.025,
+      "variance": 1.0049141512499997,
+      "variance_times_effective_ratio_drop": 0.5073114393744138,
+      "variance_times_expected_inverse_x_index_plus_one": 0.4998971886272442,
+      "variance_times_reserve": 0.5080535609204119,
+      "x_blocks": [
+        [
+          50,
+          0.019884999999999996
+        ]
+      ],
+      "x_mean": 0.9942499999999999,
+      "x_n": 50,
+      "x_variance": 0.9744793387499998,
+      "y_blocks": [
+        [
+          3,
+          0.010249999999999999
+        ]
+      ],
+      "y_mean": 0.030749999999999996,
+      "y_n": 3,
+      "y_variance": 0.0304348125
+    }
+  ],
+  "best_effective_by_side_balance": [
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 3.0000720613731087,
+        "conditional_x_mean_at_descent": 2.0000720629534277,
+        "conditional_y_index_plus_one_over_variance": 1.0000720624266293,
+        "conditional_y_mean_at_descent": 7.20629534277506e-05,
+        "conditional_y_total_variation_from_previous": 3.611779972893409e-05,
+        "effective_ratio_drop": 0.3338773220216449,
+        "effective_ratio_drop_factor": 0.6661226779783551,
+        "first_descent_minus_signed_mean": 0.9995981086620223,
+        "first_descent_value": 2,
+        "max_identity_error": 1.1102230246251565e-16,
+        "optimizer_fun": 201.32306555478328,
+        "optimizer_success": true,
+        "pattern": [
+          [
+            1200
+          ],
+          [
+            20
+          ]
+        ],
+        "pressure": 0.33325534793272427,
+        "previous_ratio": 0.5002912510712524,
+        "reserve": 0.6667446520672757,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.02,
+        "side_variance_fraction": 0.00021623535870586368,
+        "source": "optimizer_breaker",
+        "target": "effective",
+        "variance": 1.0000000005267604,
+        "variance_times_effective_ratio_drop": 0.33387732219751826,
+        "variance_times_expected_inverse_x_index_plus_one": 0.33332732832441436,
+        "variance_times_reserve": 0.6667446524184905,
+        "x_blocks": [
+          [
+            1200,
+            0.0008338484408622789
+          ]
+        ],
+        "x_mean": 1.0006181290347347,
+        "x_n": 1200,
+        "x_variance": 0.9997837651679405,
+        "y_blocks": [
+          [
+            20,
+            1.0811884837842142e-05
+          ]
+        ],
+        "y_mean": 0.00021623769675684285,
+        "y_n": 20,
+        "y_variance": 0.0002162353588197679
+      },
+      "side_variance_fraction_floor": 0.0
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 2.9756406469354,
+        "conditional_x_mean_at_descent": 2.0066629266665226,
+        "conditional_y_index_plus_one_over_variance": 0.9962763353965051,
+        "conditional_y_mean_at_descent": 0.006662926666522418,
+        "conditional_y_total_variation_from_previous": 0.003398902991419261,
+        "effective_ratio_drop": 0.33892247170910583,
+        "effective_ratio_drop_factor": 0.6610775282908942,
+        "first_descent_minus_signed_mean": 1.0200174913860038,
+        "first_descent_value": 2,
+        "max_identity_error": 1.1102230246251565e-16,
+        "optimizer_fun": 0.34245587811533695,
+        "optimizer_success": false,
+        "pattern": [
+          [
+            100,
+            100
+          ],
+          [
+            50
+          ]
+        ],
+        "pressure": 0.32947403854382995,
+        "previous_ratio": 0.4983894088725572,
+        "reserve": 0.67052596145617,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.02,
+        "side_variance_fraction": 0.020000059964028497,
+        "source": "optimizer_breaker",
+        "target": "effective",
+        "variance": 1.0104254120076872,
+        "variance_times_effective_ratio_drop": 0.34245587811533695,
+        "variance_times_expected_inverse_x_index_plus_one": 0.3362479820970576,
+        "variance_times_reserve": 0.6775164708662013,
+        "x_blocks": [
+          [
+            100,
+            1.079792476500235e-05
+          ],
+          [
+            100,
+            0.009991194593009105
+          ]
+        ],
+        "x_mean": 1.0001992517774108,
+        "x_n": 200,
+        "x_variance": 0.9902168431783553,
+        "y_blocks": [
+          [
+            50,
+            0.000404334863268293
+          ]
+        ],
+        "y_mean": 0.020216743163414652,
+        "y_n": 50,
+        "y_variance": 0.020208568829331943
+      },
+      "side_variance_fraction_floor": 0.02
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 2.8244759603059797,
+        "conditional_x_mean_at_descent": 2.0180325541487067,
+        "conditional_y_index_plus_one_over_variance": 0.9527426972413757,
+        "conditional_y_mean_at_descent": 0.018032554148706616,
+        "conditional_y_total_variation_from_previous": 0.008931556535027156,
+        "effective_ratio_drop": 0.3342548813400126,
+        "effective_ratio_drop_factor": 0.6657451186599874,
+        "first_descent_minus_signed_mean": 1.0322494264740993,
+        "first_descent_value": 2,
+        "max_identity_error": 5.551115123125783e-17,
+        "optimizer_fun": 0.3571608069760265,
+        "optimizer_success": false,
+        "pattern": [
+          [
+            100,
+            100
+          ],
+          [
+            50
+          ]
+        ],
+        "pressure": 0.33689033411250097,
+        "previous_ratio": 0.5060350044933025,
+        "reserve": 0.6631096658874991,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.05,
+        "side_variance_fraction": 0.050000006810482424,
+        "source": "optimizer_breaker",
+        "target": "effective",
+        "variance": 1.0685283204965776,
+        "variance_times_effective_ratio_drop": 0.3571608069760265,
+        "variance_times_expected_inverse_x_index_plus_one": 0.3545746475989581,
+        "variance_times_reserve": 0.7085514575958162,
+        "x_blocks": [
+          [
+            100,
+            0.0029640773290766404
+          ],
+          [
+            100,
+            0.0072482647390084125
+          ]
+        ],
+        "x_mean": 1.0212342068085052,
+        "x_n": 200,
+        "x_variance": 1.0151018971945553,
+        "y_blocks": [
+          [
+            50,
+            0.0010696726656520877
+          ]
+        ],
+        "y_mean": 0.05348363328260439,
+        "y_n": 50,
+        "y_variance": 0.05342642330202223
+      },
+      "side_variance_fraction_floor": 0.05
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 2.606145594330967,
+        "conditional_x_mean_at_descent": 2.040604426712107,
+        "conditional_y_index_plus_one_over_variance": 0.8919169551593354,
+        "conditional_y_mean_at_descent": 0.040604426712106956,
+        "conditional_y_total_variation_from_previous": 0.01938869222027009,
+        "effective_ratio_drop": 0.329945377543472,
+        "effective_ratio_drop_factor": 0.670054622456528,
+        "first_descent_minus_signed_mean": 1.061337606869916,
+        "first_descent_value": 2,
+        "max_identity_error": 1.1102230246251565e-16,
+        "optimizer_fun": 0.3849490902251077,
+        "optimizer_success": true,
+        "pattern": [
+          [
+            200
+          ],
+          [
+            50
+          ]
+        ],
+        "pressure": 0.34661117208020276,
+        "previous_ratio": 0.5172879351379899,
+        "reserve": 0.6533888279197972,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.1,
+        "side_variance_fraction": 0.10000000953262808,
+        "source": "optimizer_breaker",
+        "target": "effective",
+        "variance": 1.1667055107459074,
+        "variance_times_effective_ratio_drop": 0.3849490902251077,
+        "variance_times_expected_inverse_x_index_plus_one": 0.3849775083520603,
+        "variance_times_reserve": 0.7623123461938369,
+        "x_blocks": [
+          [
+            200,
+            0.005278032368429929
+          ]
+        ],
+        "x_mean": 1.0556064736859858,
+        "x_n": 200,
+        "x_variance": 1.050034948549547,
+        "y_blocks": [
+          [
+            50,
+            0.0023388816111180356
+          ]
+        ],
+        "y_mean": 0.11694408055590177,
+        "y_n": 50,
+        "y_variance": 0.11667056219636046
+      },
+      "side_variance_fraction_floor": 0.1
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 2.0965195554371374,
+        "conditional_x_mean_at_descent": 1.3039439589531987,
+        "conditional_y_index_plus_one_over_variance": 1.1865496981886585,
+        "conditional_y_mean_at_descent": 0.30394395895319865,
+        "conditional_y_total_variation_from_previous": 0.16431681242182294,
+        "effective_ratio_drop": 0.41404418224982864,
+        "effective_ratio_drop_factor": 0.5859558177501714,
+        "eta": 0.1,
+        "first_descent_minus_signed_mean": 0.85,
+        "first_descent_value": 1,
+        "lambda": 0.75,
+        "max_identity_error": 1.1102230246251565e-16,
+        "pressure": 0.33718218004856687,
+        "previous_ratio": 0.5754395977212196,
+        "reserve": 0.6628178199514332,
+        "scale": 800,
+        "search_family": "boundary_heavy_grid",
+        "side_variance_fraction": 0.3183757038048115,
+        "source": "boundary_heavy_grid",
+        "variance": 1.0989375,
+        "variance_times_effective_ratio_drop": 0.455008678531171,
+        "variance_times_expected_inverse_x_index_plus_one": 0.494446104738287,
+        "variance_times_reserve": 0.728395358012878,
+        "x_blocks": [
+          [
+            600,
+            0.00125
+          ]
+        ],
+        "x_mean": 0.75,
+        "x_n": 600,
+        "x_variance": 0.7490625,
+        "y_blocks": [
+          [
+            80,
+            0.00125
+          ],
+          [
+            1,
+            0.5
+          ]
+        ],
+        "y_mean": 0.6,
+        "y_n": 81,
+        "y_variance": 0.349875
+      },
+      "side_variance_fraction_floor": 0.25
+    }
+  ],
+  "best_effective_by_variance_cutoff": [
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 3.0000720613731087,
+        "conditional_x_mean_at_descent": 2.0000720629534277,
+        "conditional_y_index_plus_one_over_variance": 1.0000720624266293,
+        "conditional_y_mean_at_descent": 7.20629534277506e-05,
+        "conditional_y_total_variation_from_previous": 3.611779972893409e-05,
+        "effective_ratio_drop": 0.3338773220216449,
+        "effective_ratio_drop_factor": 0.6661226779783551,
+        "first_descent_minus_signed_mean": 0.9995981086620223,
+        "first_descent_value": 2,
+        "max_identity_error": 1.1102230246251565e-16,
+        "optimizer_fun": 201.32306555478328,
+        "optimizer_success": true,
+        "pattern": [
+          [
+            1200
+          ],
+          [
+            20
+          ]
+        ],
+        "pressure": 0.33325534793272427,
+        "previous_ratio": 0.5002912510712524,
+        "reserve": 0.6667446520672757,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.02,
+        "side_variance_fraction": 0.00021623535870586368,
+        "source": "optimizer_breaker",
+        "target": "effective",
+        "variance": 1.0000000005267604,
+        "variance_times_effective_ratio_drop": 0.33387732219751826,
+        "variance_times_expected_inverse_x_index_plus_one": 0.33332732832441436,
+        "variance_times_reserve": 0.6667446524184905,
+        "x_blocks": [
+          [
+            1200,
+            0.0008338484408622789
+          ]
+        ],
+        "x_mean": 1.0006181290347347,
+        "x_n": 1200,
+        "x_variance": 0.9997837651679405,
+        "y_blocks": [
+          [
+            20,
+            1.0811884837842142e-05
+          ]
+        ],
+        "y_mean": 0.00021623769675684285,
+        "y_n": 20,
+        "y_variance": 0.0002162353588197679
+      },
+      "variance_cutoff": 1
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 2.3976427732884127,
+        "conditional_x_mean_at_descent": 2.001248909888072,
+        "conditional_y_index_plus_one_over_variance": 0.7998794119164098,
+        "conditional_y_mean_at_descent": 0.0012489098880719878,
+        "conditional_y_total_variation_from_previous": 0.0006247840057410979,
+        "effective_ratio_drop": 0.3336587006439523,
+        "effective_ratio_drop_factor": 0.6663412993560477,
+        "eta": 0.003,
+        "first_descent_minus_signed_mean": 0.7529999999999999,
+        "first_descent_value": 2,
+        "lambda": 1.25,
+        "max_identity_error": 1.6653345369377348e-16,
+        "pressure": 0.4162861111396402,
+        "previous_ratio": 0.6247340687751745,
+        "reserve": 0.5837138888603598,
+        "scale": 1000,
+        "search_family": "near_one_sided_x_dominant",
+        "side_variance_fraction": 0.0023965012433554813,
+        "source": "near_one_sided_x_dominant",
+        "variance": 1.2517498200000001,
+        "variance_times_effective_ratio_drop": 0.41765721847250126,
+        "variance_times_expected_inverse_x_index_plus_one": 0.4171196870046819,
+        "variance_times_reserve": 0.7306637553124554,
+        "x_blocks": [
+          [
+            1250,
+            0.001
+          ]
+        ],
+        "x_mean": 1.25,
+        "x_n": 1250,
+        "x_variance": 1.24875,
+        "y_blocks": [
+          [
+            50,
+            6e-05
+          ]
+        ],
+        "y_mean": 0.003,
+        "y_n": 50,
+        "y_variance": 0.0029998200000000003
+      },
+      "variance_cutoff": 1.25
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 2.0008399716888645,
+        "conditional_x_mean_at_descent": 2.069738616988768,
+        "conditional_y_index_plus_one_over_variance": 0.697250173772083,
+        "conditional_y_mean_at_descent": 0.06973861698876817,
+        "conditional_y_total_variation_from_previous": 0.031872751008027715,
+        "effective_ratio_drop": 0.32522705006533137,
+        "effective_ratio_drop_factor": 0.6747729499346686,
+        "first_descent_minus_signed_mean": 0.7630708865842752,
+        "first_descent_value": 2,
+        "max_identity_error": 2.220446049250313e-16,
+        "optimizer_fun": 0.4989714564889424,
+        "optimizer_success": true,
+        "pattern": [
+          [
+            200
+          ],
+          [
+            200
+          ]
+        ],
+        "pressure": 0.4539740456911146,
+        "previous_ratio": 0.6727804452372732,
+        "reserve": 0.5460259543088855,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.1,
+        "side_variance_fraction": 0.10000000159028823,
+        "source": "optimizer_breaker",
+        "target": "effective",
+        "variance": 1.5342249557308023,
+        "variance_times_effective_ratio_drop": 0.4989714564889424,
+        "variance_times_expected_inverse_x_index_plus_one": 0.5025844456672244,
+        "variance_times_reserve": 0.8377266455774188,
+        "x_blocks": [
+          [
+            200,
+            0.006952347423283344
+          ]
+        ],
+        "x_mean": 1.390469484656669,
+        "x_n": 200,
+        "x_variance": 1.3808024577178621,
+        "y_blocks": [
+          [
+            200,
+            0.0007677018562047207
+          ]
+        ],
+        "y_mean": 0.15354037124094413,
+        "y_n": 200,
+        "y_variance": 0.1534224980129401
+      },
+      "variance_cutoff": 1.5
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 1.9551050183612344,
+        "conditional_x_mean_at_descent": 3.020682927389579,
+        "conditional_y_index_plus_one_over_variance": 0.4963192446489691,
+        "conditional_y_mean_at_descent": 0.020682927389579227,
+        "conditional_y_total_variation_from_previous": 0.006760476079869467,
+        "effective_ratio_drop": 0.24943816316147616,
+        "effective_ratio_drop_factor": 0.7505618368385238,
+        "first_descent_minus_signed_mean": 1.0175691733016392,
+        "first_descent_value": 3,
+        "max_identity_error": 2.220446049250313e-16,
+        "optimizer_fun": 0.5129707891105524,
+        "optimizer_success": true,
+        "pattern": [
+          [
+            500
+          ],
+          [
+            500
+          ]
+        ],
+        "pressure": 0.5027995411433238,
+        "previous_ratio": 0.6698975573567515,
+        "reserve": 0.4972004588566762,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.02,
+        "side_variance_fraction": 0.02000001416947244,
+        "source": "optimizer_breaker",
+        "target": "effective",
+        "variance": 2.0565048371466554,
+        "variance_times_effective_ratio_drop": 0.5129707891105524,
+        "variance_times_expected_inverse_x_index_plus_one": 0.5120053204156496,
+        "variance_times_reserve": 1.0224951486702911,
+        "x_blocks": [
+          [
+            500,
+            0.0040471286730242835
+          ]
+        ],
+        "x_mean": 2.0235643365121416,
+        "x_n": 500,
+        "x_variance": 2.015374711264134,
+        "y_blocks": [
+          [
+            500,
+            8.226701962756183e-05
+          ]
+        ],
+        "y_mean": 0.041133509813780916,
+        "y_n": 500,
+        "y_variance": 0.04113012588252172
+      },
+      "variance_cutoff": 2
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 1.3411445838513443,
+        "conditional_x_mean_at_descent": 7.0,
+        "conditional_y_index_plus_one_over_variance": 0.16764307298141803,
+        "conditional_y_mean_at_descent": 0.0,
+        "conditional_y_total_variation_from_previous": 0.0,
+        "effective_ratio_drop": 0.12573283082077058,
+        "effective_ratio_drop_factor": 0.8742671691792294,
+        "first_descent_minus_signed_mean": 1.0049958365191172,
+        "first_descent_value": 7,
+        "max_identity_error": 0.0,
+        "optimizer_fun": 0.7500031381237393,
+        "optimizer_success": true,
+        "pattern": [
+          [
+            1200
+          ],
+          [
+            20
+          ]
+        ],
+        "pressure": 0.7487447699100683,
+        "previous_ratio": 0.8564255828261254,
+        "reserve": 0.25125523008993167,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.0,
+        "side_variance_fraction": 0.0,
+        "source": "optimizer_breaker",
+        "target": "effective",
+        "variance": 5.965054101047422,
+        "variance_times_effective_ratio_drop": 0.7500031381237393,
+        "variance_times_expected_inverse_x_index_plus_one": 0.7456317626309278,
+        "variance_times_reserve": 1.4987510406575606,
+        "x_blocks": [
+          [
+            1200,
+            0.0049958368029007355
+          ]
+        ],
+        "x_mean": 5.995004163480883,
+        "x_n": 1200,
+        "x_variance": 5.965054101047422,
+        "y_blocks": [
+          [
+            20,
+            0.0
+          ]
+        ],
+        "y_mean": 0.0,
+        "y_n": 20,
+        "y_variance": 0.0
+      },
+      "variance_cutoff": 5
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 1.1098633191479956,
+        "conditional_x_mean_at_descent": 12.164904606417917,
+        "conditional_y_index_plus_one_over_variance": 0.1825116310335003,
+        "conditional_y_mean_at_descent": 1.1649046064179174,
+        "conditional_y_total_variation_from_previous": 0.03391636447145164,
+        "effective_ratio_drop": 0.07443394372599421,
+        "effective_ratio_drop_factor": 0.9255660562740058,
+        "first_descent_minus_signed_mean": 1.1270166003830777,
+        "first_descent_value": 11,
+        "max_identity_error": 2.220446049250313e-16,
+        "optimizer_fun": 0.8829157173916166,
+        "optimizer_success": false,
+        "pattern": [
+          [
+            800,
+            100,
+            10
+          ],
+          [
+            50,
+            10,
+            2
+          ]
+        ],
+        "pressure": 0.8525121217925505,
+        "previous_ratio": 0.9210710743050108,
+        "reserve": 0.14748787820744946,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.1,
+        "side_variance_fraction": 0.10002558016221223,
+        "source": "optimizer_breaker",
+        "target": "effective",
+        "variance": 11.861735025646372,
+        "variance_times_effective_ratio_drop": 0.8829157173916166,
+        "variance_times_expected_inverse_x_index_plus_one": 0.9059075314409201,
+        "variance_times_reserve": 1.7494621307915694,
+        "x_blocks": [
+          [
+            800,
+            0.005192176586125204
+          ],
+          [
+            100,
+            0.05679551933793239
+          ],
+          [
+            10,
+            0.13752309799519766
+          ]
+        ],
+        "x_mean": 11.208524182645379,
+        "x_n": 910,
+        "x_variance": 10.67525809797566,
+        "y_blocks": [
+          [
+            50,
+            0.0
+          ],
+          [
+            2,
+            0.09799160762866113
+          ],
+          [
+            10,
+            0.11395575677711348
+          ]
+        ],
+        "y_mean": 1.335540783028457,
+        "y_n": 62,
+        "y_variance": 1.1864769276707117
+      },
+      "variance_cutoff": 10
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 1.1140151237368325,
+        "conditional_x_mean_at_descent": 22.738352086539685,
+        "conditional_y_index_plus_one_over_variance": 0.22236572558835277,
+        "conditional_y_mean_at_descent": 3.7383520865396838,
+        "conditional_y_total_variation_from_previous": 0.02984966456158269,
+        "effective_ratio_drop": 0.043795619213423786,
+        "effective_ratio_drop_factor": 0.9562043807865762,
+        "first_descent_minus_signed_mean": 1.1803732577416852,
+        "first_descent_value": 19,
+        "max_identity_error": 3.3306690738754696e-16,
+        "optimizer_fun": 0.9332331371309754,
+        "optimizer_success": false,
+        "pattern": [
+          [
+            100,
+            100,
+            50,
+            10
+          ],
+          [
+            100,
+            50,
+            10,
+            2
+          ]
+        ],
+        "pressure": 0.9131653920541287,
+        "previous_ratio": 0.9549897599328676,
+        "reserve": 0.08683460794587128,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.1,
+        "side_variance_fraction": 0.11178957030809658,
+        "source": "optimizer_breaker",
+        "target": "effective",
+        "variance": 21.308823893621998,
+        "variance_times_effective_ratio_drop": 0.9332331371309754,
+        "variance_times_expected_inverse_x_index_plus_one": 0.9010323605580868,
+        "variance_times_reserve": 1.8503433685902806,
+        "x_blocks": [
+          [
+            50,
+            0.0015082535518330274
+          ],
+          [
+            100,
+            0.04833832606455723
+          ],
+          [
+            100,
+            0.15289698032712506
+          ],
+          [
+            10,
+            0.1534885409470152
+          ]
+        ],
+        "x_mean": 21.733828726230033,
+        "x_n": 260,
+        "x_variance": 18.926719626783093,
+        "y_blocks": [
+          [
+            152,
+            0.0
+          ],
+          [
+            10,
+            0.39142019839717185
+          ]
+        ],
+        "y_mean": 3.9142019839717186,
+        "y_n": 162,
+        "y_variance": 2.3821042668389047
+      },
+      "variance_cutoff": 20
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 1.2632789951906773,
+        "conditional_x_mean_at_descent": 64.0008837046912,
+        "conditional_y_index_plus_one_over_variance": 0.019451971861019133,
+        "conditional_y_mean_at_descent": 0.0008837046912068599,
+        "conditional_y_total_variation_from_previous": 1.7059304955790872e-05,
+        "effective_ratio_drop": 0.018954879163641247,
+        "effective_ratio_drop_factor": 0.9810451208363588,
+        "first_descent_minus_signed_mean": 0.7427615662287934,
+        "first_descent_value": 64,
+        "max_identity_error": 1.1102230246251565e-16,
+        "pressure": 0.9702672497357836,
+        "previous_ratio": 0.9890138884831445,
+        "reserve": 0.0297327502642164,
+        "search_family": "random_large_grouped",
+        "side_variance_fraction": 1.770083401215538e-05,
+        "source": "random_large_grouped",
+        "variance": 51.45409996695154,
+        "variance_times_effective_ratio_drop": 0.9753062473474835,
+        "variance_times_expected_inverse_x_index_plus_one": 0.7915909389684931,
+        "variance_times_reserve": 1.5298719043873954,
+        "x_blocks": [
+          [
+            673,
+            0.012959340884521404
+          ],
+          [
+            306,
+            0.02930392266281718
+          ],
+          [
+            63,
+            0.05431104569875553
+          ],
+          [
+            158,
+            0.26675896575490543
+          ]
+        ],
+        "x_mean": 63.25814921840161,
+        "x_n": 1200,
+        "x_variance": 51.45318918646878,
+        "y_blocks": [
+          [
+            200,
+            4.553923152015368e-06
+          ]
+        ],
+        "y_mean": 0.0009107846304030737,
+        "y_n": 200,
+        "y_variance": 0.0009107804827598588
+      },
+      "variance_cutoff": 50
+    }
+  ],
+  "best_reserve_by_variance_cutoff": [
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 2.0013300298260077,
+        "conditional_x_mean_at_descent": 1.0013303394159114,
+        "conditional_y_index_plus_one_over_variance": 1.001330184518063,
+        "conditional_y_mean_at_descent": 0.0013303394159113991,
+        "conditional_y_total_variation_from_previous": 0.0013321184169663028,
+        "effective_ratio_drop": 0.5005559130623081,
+        "effective_ratio_drop_factor": 0.49944408693769193,
+        "first_descent_minus_signed_mean": 0.0033297589340905986,
+        "first_descent_value": 1,
+        "max_identity_error": 1.1102230246251565e-16,
+        "optimizer_fun": 0.5005562220553884,
+        "optimizer_success": true,
+        "pattern": [
+          [
+            500
+          ],
+          [
+            500
+          ]
+        ],
+        "pressure": 0.49944385537668246,
+        "previous_ratio": 0.9999995363624967,
+        "reserve": 0.5005561446233175,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.0,
+        "side_variance_fraction": 0.002663617496161419,
+        "source": "optimizer_breaker",
+        "target": "reserve",
+        "variance": 1.0000001546920794,
+        "variance_times_effective_ratio_drop": 0.5005559904943431,
+        "variance_times_expected_inverse_x_index_plus_one": 0.49977840304478977,
+        "variance_times_reserve": 0.5005562220553884,
+        "x_blocks": [
+          [
+            500,
+            0.0019986677463279664
+          ]
+        ],
+        "x_mean": 0.9993338731639833,
+        "x_n": 500,
+        "x_variance": 0.9973365367838775,
+        "y_blocks": [
+          [
+            500,
+            5.3272641961477115e-06
+          ]
+        ],
+        "y_mean": 0.002663632098073856,
+        "y_n": 500,
+        "y_variance": 0.002663617908201948
+      },
+      "variance_cutoff": 1
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 1.59541049316575,
+        "conditional_x_mean_at_descent": 1.1324242278585912,
+        "conditional_y_index_plus_one_over_variance": 0.8472429980103032,
+        "conditional_y_mean_at_descent": 0.1324242278585912,
+        "conditional_y_total_variation_from_previous": 0.10381359955256587,
+        "effective_ratio_drop": 0.46238092931272345,
+        "effective_ratio_drop_factor": 0.5376190706872765,
+        "eta": 0.25,
+        "first_descent_minus_signed_mean": 0.1499999999999999,
+        "first_descent_value": 1,
+        "lambda": 1.1,
+        "max_identity_error": 3.3306690738754696e-16,
+        "pressure": 0.5262842229884452,
+        "previous_ratio": 0.9789165818014209,
+        "reserve": 0.47371577701155476,
+        "scale": 100,
+        "search_family": "near_one_sided_x_dominant",
+        "side_variance_fraction": 0.1851714550509731,
+        "source": "near_one_sided_x_dominant",
+        "variance": 1.3365990990990992,
+        "variance_times_effective_ratio_drop": 0.6180179335599905,
+        "variance_times_expected_inverse_x_index_plus_one": 0.6394263630031181,
+        "variance_times_reserve": 0.6331680807826738,
+        "x_blocks": [
+          [
+            111,
+            0.009909909909909911
+          ]
+        ],
+        "x_mean": 1.1,
+        "x_n": 111,
+        "x_variance": 1.0890990990990992,
+        "y_blocks": [
+          [
+            25,
+            0.01
+          ]
+        ],
+        "y_mean": 0.25,
+        "y_n": 25,
+        "y_variance": 0.2475
+      },
+      "variance_cutoff": 1.25
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 1.5170784876265861,
+        "conditional_x_mean_at_descent": 2.003986258879917,
+        "conditional_y_index_plus_one_over_variance": 0.5070349275789763,
+        "conditional_y_mean_at_descent": 0.003986258879916993,
+        "conditional_y_total_variation_from_previous": 0.002011227395420549,
+        "effective_ratio_drop": 0.3360133848549468,
+        "effective_ratio_drop_factor": 0.6639866151450532,
+        "eta": 0.006,
+        "first_descent_minus_signed_mean": 0.01200000000000001,
+        "first_descent_value": 2,
+        "lambda": 1.994,
+        "max_identity_error": 3.3306690738754696e-16,
+        "pressure": 0.6639744469263054,
+        "previous_ratio": 0.9999816739999418,
+        "reserve": 0.33602555307369464,
+        "scale": 100,
+        "search_family": "finite_skellam_boundary",
+        "side_variance_fraction": 0.0030264945233266583,
+        "source": "finite_skellam_boundary",
+        "split": 0.003,
+        "total_variance_parameter": 2.0,
+        "variance": 1.9801126199999999,
+        "variance_times_effective_ratio_drop": 0.665344343840197,
+        "variance_times_expected_inverse_x_index_plus_one": 0.6593800830581225,
+        "variance_times_reserve": 0.6653684382837025,
+        "x_blocks": [
+          [
+            200,
+            0.00997
+          ]
+        ],
+        "x_mean": 1.994,
+        "x_n": 200,
+        "x_variance": 1.9741198199999999,
+        "y_blocks": [
+          [
+            5,
+            0.0012000000000000001
+          ]
+        ],
+        "y_mean": 0.006,
+        "y_n": 5,
+        "y_variance": 0.0059928
+      },
+      "variance_cutoff": 1.5
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 1.5006245083866683,
+        "conditional_x_mean_at_descent": 2.001999058915118,
+        "conditional_y_index_plus_one_over_variance": 0.5008743559472645,
+        "conditional_y_mean_at_descent": 0.0019990589151183333,
+        "conditional_y_total_variation_from_previous": 0.0009984066288343005,
+        "effective_ratio_drop": 0.33341690274252656,
+        "effective_ratio_drop_factor": 0.6665830972574734,
+        "eta": 0.003,
+        "first_descent_minus_signed_mean": 0.0029999999999998916,
+        "first_descent_value": 2,
+        "lambda": 2.0,
+        "max_identity_error": 2.220446049250313e-16,
+        "pressure": 0.666332962725271,
+        "previous_ratio": 0.9996247511627109,
+        "reserve": 0.333667037274729,
+        "scale": 1000,
+        "search_family": "near_one_sided_x_dominant",
+        "side_variance_fraction": 0.0014995352511453864,
+        "source": "near_one_sided_x_dominant",
+        "variance": 2.00049982,
+        "variance_times_effective_ratio_drop": 0.6670004539213819,
+        "variance_times_expected_inverse_x_index_plus_one": 0.6665001114563307,
+        "variance_times_reserve": 0.6675008480080287,
+        "x_blocks": [
+          [
+            1600,
+            0.00125
+          ]
+        ],
+        "x_mean": 2.0,
+        "x_n": 1600,
+        "x_variance": 1.9975,
+        "y_blocks": [
+          [
+            50,
+            6e-05
+          ]
+        ],
+        "y_mean": 0.003,
+        "y_n": 50,
+        "y_variance": 0.0029998200000000003
+      },
+      "variance_cutoff": 2
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 1.1745094880572564,
+        "conditional_x_mean_at_descent": 6.001423774815231,
+        "conditional_y_index_plus_one_over_variance": 0.1679917918006101,
+        "conditional_y_mean_at_descent": 0.0014237748152307573,
+        "conditional_y_total_variation_from_previous": 0.00023857013946756422,
+        "effective_ratio_drop": 0.1436674535017638,
+        "effective_ratio_drop_factor": 0.8563325464982362,
+        "first_descent_minus_signed_mean": 0.00623284492711651,
+        "first_descent_value": 6,
+        "max_identity_error": 2.220446049250313e-16,
+        "optimizer_fun": 0.8564228294866647,
+        "optimizer_success": true,
+        "pattern": [
+          [
+            1000
+          ],
+          [
+            20
+          ]
+        ],
+        "pressure": 0.8563325444405806,
+        "previous_ratio": 0.9999999975971302,
+        "reserve": 0.1436674555594194,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.0,
+        "side_variance_fraction": 0.0002788841546319071,
+        "source": "optimizer_breaker",
+        "target": "reserve",
+        "variance": 5.961147054159785,
+        "variance_times_effective_ratio_drop": 0.8564228172206771,
+        "variance_times_expected_inverse_x_index_plus_one": 0.8514408967349106,
+        "variance_times_reserve": 0.8564228294866647,
+        "x_blocks": [
+          [
+            1000,
+            0.005995429762742932
+          ]
+        ],
+        "x_mean": 5.9954297627429325,
+        "x_n": 1000,
+        "x_variance": 5.959484584702949,
+        "y_blocks": [
+          [
+            20,
+            8.3130383502453e-05
+          ]
+        ],
+        "y_mean": 0.00166260767004906,
+        "y_n": 20,
+        "y_variance": 0.0016624694568358348
+      },
+      "variance_cutoff": 5
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 0.08027777777777764,
+        "conditional_x_mean_at_descent": 0.0,
+        "conditional_y_index_plus_one_over_variance": 1.9266666666666634,
+        "conditional_y_mean_at_descent": 23.0,
+        "conditional_y_total_variation_from_previous": 1.0,
+        "effective_ratio_drop": 0.0758928571428571,
+        "effective_ratio_drop_factor": 0.9241071428571429,
+        "first_descent_minus_signed_mean": 0.5294117647062322,
+        "first_descent_value": -23,
+        "max_identity_error": 0.0,
+        "optimizer_fun": 0.9453781512605052,
+        "optimizer_success": true,
+        "pattern": [
+          [
+            500
+          ],
+          [
+            50
+          ]
+        ],
+        "pressure": 0.9241071428571169,
+        "previous_ratio": 0.9999999999999719,
+        "reserve": 0.07589285714288307,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.0,
+        "side_variance_fraction": 0.0,
+        "source": "optimizer_breaker",
+        "target": "effective",
+        "variance": 12.456747404844311,
+        "variance_times_effective_ratio_drop": 0.9453781512605052,
+        "variance_times_expected_inverse_x_index_plus_one": 12.456747404844311,
+        "variance_times_reserve": 0.9453781512608288,
+        "x_blocks": [
+          [
+            500,
+            0.0
+          ]
+        ],
+        "x_mean": 0.0,
+        "x_n": 500,
+        "x_variance": 0.0,
+        "y_blocks": [
+          [
+            50,
+            0.47058823529412463
+          ]
+        ],
+        "y_mean": 23.529411764706232,
+        "y_n": 50,
+        "y_variance": 12.456747404844311
+      },
+      "variance_cutoff": 10
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 0.47452634518155246,
+        "conditional_x_mean_at_descent": 8.954433186914702,
+        "conditional_y_index_plus_one_over_variance": 1.1419042568917415,
+        "conditional_y_mean_at_descent": 22.954433186914702,
+        "conditional_y_total_variation_from_previous": 0.10398268356180282,
+        "effective_ratio_drop": 0.04610482644318703,
+        "effective_ratio_drop_factor": 0.953895173556813,
+        "first_descent_minus_signed_mean": 0.33777793752765817,
+        "first_descent_value": -14,
+        "max_identity_error": 2.220446049250313e-16,
+        "optimizer_fun": 0.9671695135432794,
+        "optimizer_success": false,
+        "pattern": [
+          [
+            200
+          ],
+          [
+            50
+          ]
+        ],
+        "pressure": 0.9538951735558376,
+        "previous_ratio": 0.9999999999989775,
+        "reserve": 0.04610482644416236,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.1,
+        "side_variance_fraction": 0.40696623521698516,
+        "source": "optimizer_breaker",
+        "target": "reserve",
+        "variance": 20.97761965799004,
+        "variance_times_effective_ratio_drop": 0.9671695135228192,
+        "variance_times_expected_inverse_x_index_plus_one": 2.2328528150915643,
+        "variance_times_reserve": 0.9671695135432794,
+        "x_blocks": [
+          [
+            200,
+            0.04468243442639963
+          ]
+        ],
+        "x_mean": 8.936486885279926,
+        "x_n": 200,
+        "x_variance": 8.537182896026026,
+        "y_blocks": [
+          [
+            50,
+            0.46548529645615166
+          ]
+        ],
+        "y_mean": 23.274264822807584,
+        "y_n": 50,
+        "y_variance": 12.440436761964014
+      },
+      "variance_cutoff": 20
+    },
+    {
+      "best": {
+        "conditional_x_index_plus_one_over_variance": 1.0487562579722005,
+        "conditional_x_mean_at_descent": 52.67340389334961,
+        "conditional_y_index_plus_one_over_variance": 0.48210817391129285,
+        "conditional_y_mean_at_descent": 23.673403893349608,
+        "conditional_y_total_variation_from_previous": 0.03166949313858037,
+        "effective_ratio_drop": 0.019218243507225674,
+        "effective_ratio_drop_factor": 0.9807817564927743,
+        "first_descent_minus_signed_mean": 0.3261949892369991,
+        "first_descent_value": 29,
+        "max_identity_error": 2.220446049250313e-16,
+        "optimizer_fun": 0.9835541314530204,
+        "optimizer_success": true,
+        "pattern": [
+          [
+            200
+          ],
+          [
+            50
+          ]
+        ],
+        "pressure": 0.9807817564083433,
+        "previous_ratio": 0.9999999999139145,
+        "reserve": 0.019218243591656692,
+        "search_family": "optimizer_breaker",
+        "side_balance_floor": 0.02,
+        "side_variance_fraction": 0.24368327908095197,
+        "source": "optimizer_breaker",
+        "target": "reserve",
+        "variance": 51.178148864759706,
+        "variance_times_effective_ratio_drop": 0.9835541271319972,
+        "variance_times_expected_inverse_x_index_plus_one": 0.9566767175517036,
+        "variance_times_reserve": 0.9835541314530204,
+        "x_blocks": [
+          [
+            200,
+            0.2623751878706893
+          ]
+        ],
+        "x_mean": 52.475037574137865,
+        "x_n": 200,
+        "x_variance": 38.70688973210196,
+        "y_blocks": [
+          [
+            50,
+            0.47602465126749727
+          ]
+        ],
+        "y_mean": 23.801232563374864,
+        "y_n": 50,
+        "y_variance": 12.471259132657744
+      },
+      "variance_cutoff": 50
+    }
+  ],
+  "counts": {
+    "analyzed": 39233,
+    "attempted": 39747,
+    "duplicates": 335,
+    "effective_candidate_failures": 0,
+    "feasible": 38417,
+    "not_analyzed": 179,
+    "reserve_candidate_failures": 0
+  },
+  "effective_failure_certificates": [],
+  "reserve_failure_certificates": [],
+  "source": {
+    "candidate_constant": 0.25,
+    "de_maxiter": 16,
+    "de_popsize": 5,
+    "de_restarts": 1,
+    "kind": "signed_ratio_drop_breaker",
+    "max_groups": 8,
+    "max_side_n": 1600,
+    "random_samples": 2000,
+    "seed": 993,
+    "variance_cutoff": 1.0
+  }
+}
