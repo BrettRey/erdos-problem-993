@@ -340,7 +340,7 @@ The remaining one-sided localization gap is narrowed in:
 notes/literature/one_sided_localization_reduction_2026-07-04.md
 ```
 
-That note reduces the gap to an elementary pre-D4 inequality for odds weights `0 <= w_i <= 1`. The associated probe found zero failures among `137119` pre-D4 cases and `7569` narrower D=4 cases, while also showing that the weaker shortcut `e_3 >= e_2 => V >= 5/4` is false without the earlier pre-descent inequalities.
+That note reduces the gap to a local-mode mean lemma for odds weights `0 <= w_i <= 1`: if `e_2 > 0` and `e_3 >= e_2`, prove `mu >= 5/2`. The associated probe found zero failures among `137119` nondegenerate cases and `7569` narrower D=4 cases, while also showing that the raw shortcut `e_3 >= e_2 => V >= 5/4` is false unless the degenerate `e_2=0` rows are excluded.
 
 ## Immediate Lemma Targets
 

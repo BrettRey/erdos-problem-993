@@ -12,6 +12,10 @@ or, more narrowly,
     first strict descent of e_k(w) occurs at D=4
         =>  sum_i w_i/(1+w_i)^2 >= 5/4.
 
+It also tracks the still stronger-looking nondegenerate shortcut
+e_2 > 0 and e_3 >= e_2, because the low-support equality cases are the
+only known obstruction to the naive e_3 >= e_2 formulation.
+
 This script is a falsification probe, not a proof.
 """
 
@@ -60,6 +64,7 @@ def metric(weights: list[float], kind: str, details: dict[str, Any] | None = Non
         and coeffs[4] < coeffs[3]
     )
     weak_guard = coeffs[3] >= coeffs[2]
+    weak_positive_guard = coeffs[2] > 1e-12 and weak_guard
     row = {
         "kind": kind,
         "n": len(weights),
@@ -78,6 +83,8 @@ def metric(weights: list[float], kind: str, details: dict[str, Any] | None = Non
         "first_descent_prefix": first_descent_prefix,
         "weak_guard_e3_ge_e2": weak_guard,
         "weak_bound_ok": not weak_guard or variance + 1e-12 >= 1.25,
+        "weak_positive_guard": weak_positive_guard,
+        "weak_positive_bound_ok": not weak_positive_guard or variance + 1e-12 >= 1.25,
         "pre_d4_guard": pre_d4_guard,
         "pre_d4_bound_ok": not pre_d4_guard or variance + 1e-12 >= 1.25,
         "d4_case": d4_case,
@@ -158,6 +165,8 @@ def main() -> int:
 
     weak_feasible = [row for row in rows if row["weak_guard_e3_ge_e2"]]
     weak_failures = [row for row in rows if not row["weak_bound_ok"]]
+    weak_positive_cases = [row for row in rows if row["weak_positive_guard"]]
+    weak_positive_failures = [row for row in rows if not row["weak_positive_bound_ok"]]
     pre_d4_cases = [row for row in rows if row["pre_d4_guard"]]
     pre_d4_failures = [row for row in rows if not row["pre_d4_bound_ok"]]
     d4_cases = [row for row in rows if row["d4_case"]]
@@ -172,10 +181,20 @@ def main() -> int:
         "processed": len(rows),
         "weak_guard_e3_ge_e2_rows": len(weak_feasible),
         "weak_guard_failures": len(weak_failures),
+        "weak_positive_guard_cases": len(weak_positive_cases),
+        "weak_positive_guard_failures": len(weak_positive_failures),
         "pre_d4_guard_cases": len(pre_d4_cases),
         "pre_d4_guard_failures": len(pre_d4_failures),
         "d4_cases": len(d4_cases),
         "d4_failures": len(d4_failures),
+        "best_weak_positive_by_variance": [
+            compact(row)
+            for row in sorted(weak_positive_cases, key=lambda row: row["variance"])[: args.top]
+        ],
+        "best_weak_positive_by_mean": [
+            compact(row)
+            for row in sorted(weak_positive_cases, key=lambda row: row["mean"])[: args.top]
+        ],
         "best_pre_d4_by_variance": [
             compact(row)
             for row in sorted(pre_d4_cases, key=lambda row: row["variance"])[: args.top]
@@ -211,6 +230,12 @@ def main() -> int:
                 : args.top
             ]
         ],
+        "weak_positive_guard_failures_rows": [
+            compact(row)
+            for row in sorted(weak_positive_failures, key=lambda row: row["variance_minus_5_over_4"])[
+                : args.top
+            ]
+        ],
         "weak_guard_failures_rows": [
             compact(row)
             for row in sorted(weak_failures, key=lambda row: row["variance_minus_5_over_4"])[
@@ -222,6 +247,8 @@ def main() -> int:
     args.out.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n")
     print(
         f"Wrote {args.out}; processed={len(rows)}, "
+        f"weak_positive_cases={len(weak_positive_cases)}, "
+        f"weak_positive_failures={len(weak_positive_failures)}, "
         f"pre_d4_cases={len(pre_d4_cases)}, "
         f"pre_d4_failures={len(pre_d4_failures)}, "
         f"d4_cases={len(d4_cases)}, d4_failures={len(d4_failures)}, "

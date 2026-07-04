@@ -162,4 +162,4 @@ The remaining localization target is narrowed further in:
 notes/literature/one_sided_localization_reduction_2026-07-04.md
 ```
 
-The reduction shows that the only one-sided gap is the `D=4` case. The remaining elementary target is the slightly stronger pre-D4 inequality: if `0 <= w_i <= 1` and `e_1 >= 1`, `e_2 >= e_1`, `e_3 >= e_2`, then `V=sum_i w_i/(1+w_i)^2 >= 5/4`.
+The reduction shows that the only one-sided gap is the `D=4` case. The remaining elementary target is now the local-mode mean lemma: if `0 <= w_i <= 1`, `e_2 > 0`, and `e_3 >= e_2`, then `mu=sum_i w_i/(1+w_i) >= 5/2`. This would imply `V=sum_i w_i/(1+w_i)^2 >= 5/4`.

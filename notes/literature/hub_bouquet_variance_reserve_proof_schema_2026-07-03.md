@@ -491,7 +491,7 @@ The remaining one-sided localization gap is now isolated in:
 notes/literature/one_sided_localization_reduction_2026-07-04.md
 ```
 
-The only unresolved case in that route is `D=4`. A dedicated elementary-symmetric probe found zero failures among `137119` pre-D4 cases and `7569` narrower D=4 cases, identifying the exact boundary example `w_1=...=w_5=1`, but this is still a target lemma rather than a theorem.
+The only unresolved case in that route is `D=4`. A dedicated elementary-symmetric probe found zero failures among `137119` nondegenerate local-mode cases and `7569` narrower D=4 cases, identifying the exact boundary example `w_1=...=w_5=1`. The live target is the mean lemma `e_2 > 0` and `e_3 >= e_2` imply `mu >= 5/2`; this is still a target lemma rather than a theorem.
 
 ## Perturbation By The Hub-Included Term
 

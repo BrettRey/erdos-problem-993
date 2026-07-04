@@ -102,6 +102,32 @@ e_3 >= e_2  =>  V >= 5/4
 
 is too weak as stated: it admits irrelevant low-support equality cases such as one nonzero weight, where `e_2=e_3=0`. The actual reduction needs the pre-D4 guard, not merely the necessary condition `e_3 >= e_2`.
 
+However, after excluding the degenerate case `e_2=0`, the pre-D4 side conditions are automatic. Let `m` be the number of nonzero weights and `S=e_1`. If `e_3 >= e_2 > 0`, then
+
+```text
+e_3 = (1/3) sum_{|A|=2} w_A sum_{j notin A} w_j <= (S/3)e_2,
+```
+
+so `S >= 3`, hence `e_1 >= 1`. Also `e_3/e_2 <= (m-2)/3`, so `m >= 5`. Newton's inequalities for the nonzero weights give
+
+```text
+e_3/e_2 <= [2(m-2)/(3(m-1))] e_2/e_1.
+```
+
+Since `e_3/e_2 >= 1`, this implies
+
+```text
+e_2/e_1 >= 3(m-1)/(2(m-2)) > 1.
+```
+
+Thus the remaining mean lemma can be stated more cleanly as:
+
+> If `0 <= w_i <= 1`, `e_2 > 0`, and `e_3 >= e_2`, then `mu=sum_i w_i/(1+w_i) >= 5/2`.
+
+Equivalently, for a Poisson-binomial law `S=sum_i Bernoulli(p_i)` with all `p_i <= 1/2`, the target is:
+
+> If `P(S=3) >= P(S=2) > 0`, then `E S >= 5/2`.
+
 ## Probe
 
 I added:
@@ -119,13 +145,15 @@ Default run:
 processed = 159080
 weak_guard_e3_ge_e2_rows = 138120
 weak_guard_failures = 1001
+weak_positive_guard_cases = 137119
+weak_positive_guard_failures = 0
 pre_d4_guard_cases = 137119
 pre_d4_guard_failures = 0
 d4_cases = 7569
 d4_failures = 0
 ```
 
-The `1001` weak-guard failures are the expected irrelevant low-support rows with `e_2=e_3=0`. They show why the shortcut should not be used as the proof target. The stronger pre-D4 guard had no sampled failures, and its lowest-variance rows were exactly the five-fair-weight boundary below.
+The `1001` weak-guard failures are the expected irrelevant low-support rows with `e_2=e_3=0`. They show why the raw shortcut should not be used as the proof target. The nondegenerate weak-positive guard and the pre-D4 guard had identical counts in this corpus, no sampled failures, and the same five-fair-weight boundary below.
 
 The same boundary appears if one minimizes the mean
 
@@ -133,10 +161,10 @@ The same boundary appears if one minimizes the mean
 mu = sum_i w_i/(1+w_i)
 ```
 
-under the pre-D4 guard:
+under the nondegenerate local-mode guard:
 
 ```text
-best sampled pre-D4 mean = 5/2.
+best sampled mean = 5/2.
 ```
 
 This gives a plausible proof subroute. Since `w_i <= 1` is equivalent to `p_i <= 1/2`,
@@ -149,7 +177,29 @@ Therefore the elementary variance target would follow from the mean target:
 
 > If `0 <= w_i <= 1` and `e_1 >= 1`, `e_2 >= e_1`, `e_3 >= e_2`, then `mu >= 5/2`.
 
-This mean inequality is also unproved here.
+Equivalently, using the automatic-side-condition reduction above:
+
+> If `0 <= w_i <= 1`, `e_2 > 0`, and `e_3 >= e_2`, then `mu >= 5/2`.
+
+This mean inequality is still unproved here.
+
+I also added an adversarial optimizer:
+
+```bash
+python3 scripts/optimize_pre_d4_mean_bound.py \
+  --min-n 3 --max-n 12 --restarts 4 --maxiter 600 --popsize 12 \
+  --out results/pre_d4_mean_optimizer_2026-07-04.json
+```
+
+Default run:
+
+```text
+processed = 48
+feasible = 36
+failures = 0
+```
+
+The optimizer uses a penalty formulation, so it is only a diagnostic. Exact structured boundary rows were included separately. The best rows are the boundary `w_1=...=w_5=1` plus zeros, with `mu=5/2` and `V=5/4`; optimizer-only rows converge to the same boundary from nearby feasible points.
 
 The expected boundary example is:
 
@@ -169,9 +219,9 @@ V = 5/4.
 
 The proof route is now:
 
-1. Prove the elementary pre-D4 inequality above, or at least its narrower D=4 corollary.
+1. Prove the elementary mean lemma: if `0 <= w_i <= 1`, `e_2 > 0`, and `e_3 >= e_2`, then `mu >= 5/2`.
 2. Conclude `D+1 <= 4V` for one-sided low-probability PB laws with `V >= 1`.
 3. Combine with Newton to get the one-sided effective-drop bound `Delta_eff >= 1/(4V)`.
 4. Return to the signed case, where conditional averaging and boundary terms remain.
 
-Only step 1 is new and unproved here. The probe is evidence for the target and a check on the boundary case, not a proof.
+Only step 1 is unproved here. The probes and optimizer are evidence for the target and checks on the boundary case, not a proof.
