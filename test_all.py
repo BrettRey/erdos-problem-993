@@ -169,6 +169,48 @@ class TestSignedConditionalReduction(unittest.TestCase):
             analysis["effective_ratio_drop"] + 1e-12,
         )
 
+    def test_half_heavy_dust_near_misses_are_not_failures(self):
+        cases = [
+            (
+                [(1, 0.25), (6, 0.5)],
+                [(4, 0.5)],
+                0.23415870316380516,
+                0.7852688694525427,
+                0.9506802721088434,
+            ),
+            (
+                [(5, 0.004), (7, 0.5)],
+                [(1, 0.02), (4, 0.5)],
+                0.24306444597986393,
+                0.7896792287593093,
+                0.789746777744473,
+            ),
+        ]
+        for x_blocks, y_blocks, side_bound, effective_drop, reserve in cases:
+            row = signed_metric(
+                x_blocks=x_blocks,
+                y_blocks=y_blocks,
+                kind="half_heavy_dust_near_miss",
+            )
+            self.assertIsNotNone(row)
+            analysis = analyze_signed_conditionals.analyze_row(
+                row,
+                "half_heavy_dust_near_miss",
+            )
+            self.assertIsNotNone(analysis)
+            self.assertLess(analysis["variance_times_best_side_reduction_bound"], 0.25)
+            self.assertAlmostEqual(
+                analysis["variance_times_best_side_reduction_bound"],
+                side_bound,
+            )
+            self.assertAlmostEqual(
+                analysis["variance_times_effective_ratio_drop"],
+                effective_drop,
+            )
+            self.assertAlmostEqual(analysis["variance_times_reserve"], reserve)
+            self.assertGreater(analysis["variance_times_effective_ratio_drop"], 0.75)
+            self.assertGreater(analysis["variance_times_reserve"], 0.75)
+
 
 class TestIndependencePoly(unittest.TestCase):
     """Test independence polynomial computation."""

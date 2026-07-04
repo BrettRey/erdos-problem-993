@@ -93,9 +93,35 @@ def metric_with_analysis(
     analysis["x_mean"] = metric["x_mean"]
     analysis["y_mean"] = metric["y_mean"]
     analysis["search_family"] = source
+    analysis["half_heavy_variance_fraction"] = half_heavy_variance_fraction(
+        x_blocks,
+        y_blocks,
+        metric["variance"],
+    )
+    analysis["max_probability"] = max(
+        [p for _, p in x_blocks] + [p for _, p in y_blocks],
+        default=0.0,
+    )
     if details:
         analysis.update(details)
     return analysis
+
+
+def half_heavy_variance_fraction(
+    x_blocks: list[Block],
+    y_blocks: list[Block],
+    variance: float,
+    *,
+    threshold: float = 0.45,
+) -> float:
+    if variance <= 0.0:
+        return math.nan
+    heavy_variance = sum(
+        count * p * (1.0 - p)
+        for count, p in [*x_blocks, *y_blocks]
+        if p >= threshold
+    )
+    return heavy_variance / variance
 
 
 def compact_breaker(row: dict[str, Any]) -> dict[str, Any]:
@@ -116,6 +142,8 @@ def compact_breaker(row: dict[str, Any]) -> dict[str, Any]:
         "optimizer_success",
         "optimizer_fun",
         "side_balance_floor",
+        "half_heavy_variance_fraction",
+        "max_probability",
     ]:
         if key in row:
             out[key] = row[key]
@@ -324,6 +352,56 @@ def add_boundary_heavy_grid(
                         )
 
 
+def add_half_heavy_dust_grid(
+    rows: list[dict[str, Any]],
+    seen: set[tuple[Any, ...]],
+    counters: dict[str, int],
+    *,
+    max_side_n: int,
+) -> None:
+    """Add half-heavy binomial cores with small sparse dust perturbations."""
+    heavy_counts = range(3, 21)
+    dust_options = [
+        (0, 0.0),
+        (1, 0.02),
+        (1, 0.25),
+        (5, 0.02),
+        (5, 0.25),
+        (20, 0.02),
+        (20, 0.25),
+        (80, 0.02),
+        (80, 0.5),
+    ]
+    for hx in heavy_counts:
+        for hy in heavy_counts:
+            for sx, mux in dust_options:
+                for sy, muy in dust_options:
+                    if hx + sx > max_side_n or hy + sy > max_side_n:
+                        continue
+                    x_blocks: list[Block] = [(hx, 0.5)]
+                    y_blocks: list[Block] = [(hy, 0.5)]
+                    if sx:
+                        x_blocks.append((sx, min(0.5, mux / sx)))
+                    if sy:
+                        y_blocks.append((sy, min(0.5, muy / sy)))
+                    add_candidate(
+                        rows,
+                        seen,
+                        counters,
+                        x_blocks,
+                        y_blocks,
+                        source="half_heavy_dust_grid",
+                        details={
+                            "x_half_count": hx,
+                            "y_half_count": hy,
+                            "x_dust_count": sx,
+                            "y_dust_count": sy,
+                            "x_dust_mean": mux,
+                            "y_dust_mean": muy,
+                        },
+                    )
+
+
 def random_blocks(
     rng: random.Random,
     *,
@@ -396,10 +474,22 @@ def target_value(row: dict[str, Any], target: str) -> float:
         return float(row["variance_times_reserve"])
     if target == "side_reduction":
         return float(row["variance_times_best_side_reduction_bound"])
+    if target == "joint":
+        return min(
+            float(row["variance_times_reserve"]),
+            float(row["variance_times_effective_ratio_drop"]),
+        )
     return float(row["variance_times_effective_ratio_drop"])
 
 
-def optimizer_penalty(row: dict[str, Any] | None, *, target: str, variance_cutoff: float, side_floor: float) -> float:
+def optimizer_penalty(
+    row: dict[str, Any] | None,
+    *,
+    target: str,
+    variance_cutoff: float,
+    side_floor: float,
+    candidate_constant: float,
+) -> float:
     if row is None:
         return 1_000.0
     penalty = 0.0
@@ -412,6 +502,10 @@ def optimizer_penalty(row: dict[str, Any] | None, *, target: str, variance_cutof
     )
     if side_shortfall > 0.0:
         penalty += 200.0 + 50.0 * side_shortfall
+    if target == "joint":
+        side_excess = row["variance_times_best_side_reduction_bound"] - candidate_constant
+        if side_excess > 0.0:
+            penalty += 200.0 + 50.0 * side_excess
     return target_value(row, target) + penalty
 
 
@@ -425,6 +519,7 @@ def add_optimizer_rows(
     de_restarts: int,
     de_popsize: int,
     variance_cutoff: float,
+    candidate_constant: float,
 ) -> None:
     patterns = [
         ([200], [50]),
@@ -441,7 +536,7 @@ def add_optimizer_rows(
         ([100, 100, 50, 10], [100, 50, 10, 2]),
     ]
     side_floors = [0.0, 0.02, 0.05, 0.1]
-    targets = ["effective", "reserve", "side_reduction"]
+    targets = ["effective", "reserve", "side_reduction", "joint"]
     for pattern_index, (x_counts, y_counts) in enumerate(patterns):
         dimension = len(x_counts) + len(y_counts)
         bounds = [(0.0, 0.5)] * dimension
@@ -467,6 +562,7 @@ def add_optimizer_rows(
                             target=target,
                             variance_cutoff=variance_cutoff,
                             side_floor=side_floor,
+                            candidate_constant=candidate_constant,
                         )
 
                     result = differential_evolution(
@@ -548,6 +644,16 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--seed", type=int, default=993)
     parser.add_argument("--candidate-constant", type=float, default=0.25)
+    parser.add_argument(
+        "--fallback-constant",
+        type=float,
+        default=0.5,
+        help=(
+            "Diagnostic threshold for joint Newton-or-reserve threats: "
+            "report rows whose corrected side bound is below candidate-constant "
+            "and whose raw/effective reserve is below this value after multiplying by V."
+        ),
+    )
     parser.add_argument("--variance-cutoff", type=float, default=1.0)
     parser.add_argument("--max-side-n", type=int, default=1200)
     parser.add_argument("--random-samples", type=int, default=1200)
@@ -571,6 +677,7 @@ def main() -> int:
     add_finite_skellam_boundary(rows, seen, counters, max_side_n=args.max_side_n)
     add_near_one_sided_perturbations(rows, seen, counters, max_side_n=args.max_side_n)
     add_boundary_heavy_grid(rows, seen, counters, max_side_n=args.max_side_n)
+    add_half_heavy_dust_grid(rows, seen, counters, max_side_n=args.max_side_n)
     add_random_large_grouped(
         rows,
         seen,
@@ -588,6 +695,7 @@ def main() -> int:
         de_restarts=args.de_restarts,
         de_popsize=args.de_popsize,
         variance_cutoff=args.variance_cutoff,
+        candidate_constant=args.candidate_constant,
     )
 
     feasible = [
@@ -612,12 +720,23 @@ def main() -> int:
         for row in feasible
         if row["variance_times_best_side_reduction_bound"] < args.candidate_constant - TOL
     ]
+    joint_low_side_and_reserve = [
+        row
+        for row in side_reduction_below_candidate
+        if row["variance_times_reserve"] < args.fallback_constant - TOL
+    ]
+    joint_low_side_and_effective = [
+        row
+        for row in side_reduction_below_candidate
+        if row["variance_times_effective_ratio_drop"] < args.fallback_constant - TOL
+    ]
     side_floors = [0.0, 0.02, 0.05, 0.1, 0.25]
     summary = {
         "source": {
             "kind": "signed_ratio_drop_breaker",
             "seed": args.seed,
             "candidate_constant": args.candidate_constant,
+            "fallback_constant": args.fallback_constant,
             "variance_cutoff": args.variance_cutoff,
             "max_side_n": args.max_side_n,
             "random_samples": args.random_samples,
@@ -632,6 +751,8 @@ def main() -> int:
             "effective_candidate_failures": len(effective_failures),
             "reserve_candidate_failures": len(reserve_failures),
             "side_reduction_below_candidate": len(side_reduction_below_candidate),
+            "joint_low_side_and_reserve": len(joint_low_side_and_reserve),
+            "joint_low_side_and_effective": len(joint_low_side_and_effective),
         },
         "best_by_effective_ratio_drop": [
             compact_breaker(row)
@@ -731,6 +852,28 @@ def main() -> int:
                 key=lambda row: row["variance_times_effective_ratio_drop"],
             )[: args.top]
         ],
+        "joint_low_side_and_reserve_certificates": [
+            failure_certificate(row)
+            for row in sorted(
+                joint_low_side_and_reserve,
+                key=lambda row: row["variance_times_reserve"],
+            )[: args.top]
+        ],
+        "joint_low_side_and_effective_certificates": [
+            failure_certificate(row)
+            for row in sorted(
+                joint_low_side_and_effective,
+                key=lambda row: row["variance_times_effective_ratio_drop"],
+            )[: args.top]
+        ],
+        "best_by_half_heavy_variance_fraction": [
+            compact_breaker(row)
+            for row in sorted(
+                feasible,
+                key=lambda row: row["half_heavy_variance_fraction"],
+                reverse=True,
+            )[: args.top]
+        ],
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n")
@@ -739,7 +882,9 @@ def main() -> int:
         f"analyzed={counters['analyzed']}, feasible={len(feasible)}, "
         f"effective_failures={len(effective_failures)}, "
         f"reserve_failures={len(reserve_failures)}, "
-        f"side_reduction_below_candidate={len(side_reduction_below_candidate)}",
+        f"side_reduction_below_candidate={len(side_reduction_below_candidate)}, "
+        f"joint_low_side_and_reserve={len(joint_low_side_and_reserve)}, "
+        f"joint_low_side_and_effective={len(joint_low_side_and_effective)}",
         flush=True,
     )
     return 1 if effective_failures or reserve_failures else 0
