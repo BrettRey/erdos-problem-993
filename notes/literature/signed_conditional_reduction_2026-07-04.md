@@ -99,12 +99,15 @@ R_+ = c_{D+1}/c_D,
 Delta = 1 - R_+/R_-.
 ```
 
-Since `R_- < 1`, a lower bound on `Delta` implies at least the same lower
-bound for the raw reserve:
+Since `R_- < 1`, a lower bound on `Delta` implies at least the same weak
+lower bound for the raw reserve:
 
 ```text
-1 - R_+ > Delta.
+1 - R_+ >= Delta.
 ```
+
+The inequality is strict when `R_+>0`; terminal post-descent support gives
+equality.
 
 Thus a signed effective-drop theorem
 
@@ -214,12 +217,12 @@ nu_X E_pi[h_X]       lower-boundary penalty for the X-side identity
                      upper-boundary penalty for the reciprocal denominator
 ```
 
-If `Y` is deterministic at `0`, then `pi` is deterministic, `H_X=0`,
-`nu_X=0`, and `beta_X=0` away from the top support edge. In that case this
-reduces to the one-sided pointwise Newton drop at the signed descent. The
-one-sided localization theorem then supplies the `1/(4V)` scale. This is the
-precise sense in which the new one-sided result is a black-box endpoint for
-the signed route.
+If `Y` is deterministic at `0`, then `pi` is deterministic and, under the
+positive-support descent assumption above, `H_X=0`, `nu_X=0`, and `beta_X=0`.
+In that case this reduces to the one-sided pointwise Newton drop at the signed
+descent. The one-sided localization theorem then supplies the `1/(4V)` scale.
+This is the precise sense in which the new one-sided result is a black-box
+endpoint for the signed route.
 
 ### Why The `beta_X` Term Matters
 
@@ -300,6 +303,8 @@ The reciprocal denominator has a lower reflected boundary:
 c_{D-1}/c_D = E_pi[k_Y] + beta_Y,
 beta_Y = a_{D-1} b_0 / c_D.
 ```
+
+Here `beta_Y` is interpreted as zero when `D-1` is outside the support of `X`.
 
 Newton on the `Y` side gives
 
