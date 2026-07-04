@@ -84,6 +84,13 @@ Let `D` be the first strict descent in signed coordinates:
 c_D < c_{D-1}.
 ```
 
+The conditional reductions below are for positive-support descents, so assume
+`c_D>0`. A terminal descent to zero is a signed support-edge case rather than
+the interior first-descent obstruction targeted here. Also assume the
+non-deterministic Bernoulli parameters on each side are strictly below `1`,
+so the side supports are contiguous intervals after any deterministic shifts
+are stripped off.
+
 Write
 
 ```text
@@ -110,7 +117,7 @@ that `c=1/4` is plausible but not sharp. The one-sided Poisson boundary shows
 that this effective-drop route should not be expected to support any universal
 constant above `1/3`.
 
-## Exact X-Side Conditional Reduction
+## Corrected X-Side Conditional Reduction
 
 Let `pi` be the conditional law of `Y` given `X-Y=D`:
 
@@ -138,14 +145,19 @@ inside the support, with `r_n=0` if `n+1` is outside the support. Define
 h_X = 1_{N>=1} / r_{N-1}.
 ```
 
-The denominator ratio has the exact reciprocal form
+The reciprocal denominator ratio has an upper-boundary correction. If `n_X`
+is the maximum support point of `X`, then
 
 ```text
-c_{D-1}/c_D = E_pi[h_X].
+c_{D-1}/c_D = E_pi[h_X] + beta_X,
+beta_X = a_{n_X} b_{n_X+1-D}/c_D,
 ```
 
-Indeed, each term with `N>=1` maps from `a_N` to `a_{N-1}`, and a conditional
-atom with `N=0` has no predecessor in `c_{D-1}`.
+where the boundary term is interpreted as zero when `n_X+1-D` is outside
+the support of `Y`. Each term with `1 <= N <= n_X` maps from `a_N` to
+`a_{N-1}` and contributes to `E_pi[h_X]`; the extra term corresponds to
+`N=n_X+1`, which appears in `c_{D-1}` but not in the conditional law at
+`D`.
 
 The numerator ratio has one lower-boundary correction:
 
@@ -160,7 +172,7 @@ support of `Y`.
 Therefore
 
 ```text
-R_+/R_- = (E_pi[r_N] + nu_X) E_pi[h_X].
+R_+/R_- = (E_pi[r_N] + nu_X) (E_pi[h_X] + beta_X).
 ```
 
 Define
@@ -183,13 +195,14 @@ Consequently,
 
 ```text
 Delta
-  = 1 - (E_pi[r_N] + nu_X) E_pi[h_X]
-  >= I_X - H_X - nu_X E_pi[h_X].
+  = 1 - (E_pi[r_N] + nu_X) (E_pi[h_X] + beta_X)
+  >= I_X - H_X - nu_X E_pi[h_X]
+     - (E_pi[r_N] + nu_X) beta_X.
 ```
 
 This inequality is proved by algebra plus Newton. It is not a signed reserve
-theorem because the last two terms may, a priori, consume the inverse-index
-gain.
+theorem because the last three penalty terms may, a priori, consume the
+inverse-index gain.
 
 Interpretation:
 
@@ -197,13 +210,64 @@ Interpretation:
 I_X                  inverse-index Newton gain
 H_X                  conditional-dispersion penalty from changing measures
 nu_X E_pi[h_X]       lower-boundary penalty for the X-side identity
+(E_pi[r_N]+nu_X)beta_X
+                     upper-boundary penalty for the reciprocal denominator
 ```
 
 If `Y` is deterministic at `0`, then `pi` is deterministic, `H_X=0`,
-`nu_X=0`, and this reduces to the one-sided pointwise Newton drop at the
-signed descent. The one-sided localization theorem then supplies the
-`1/(4V)` scale. This is the precise sense in which the new one-sided result
-is a black-box endpoint for the signed route.
+`nu_X=0`, and `beta_X=0` away from the top support edge. In that case this
+reduces to the one-sided pointwise Newton drop at the signed descent. The
+one-sided localization theorem then supplies the `1/(4V)` scale. This is the
+precise sense in which the new one-sided result is a black-box endpoint for
+the signed route.
+
+### Why The `beta_X` Term Matters
+
+An earlier version of this reduction omitted `beta_X`. That omission makes
+the X-side bound false, not merely incomplete.
+
+For example, take
+
+```text
+X = Bernoulli(1/2),
+Y = Binomial(10,1/2).
+```
+
+The first strict descent is `D=-3`, and exact arithmetic gives
+
+```text
+Delta = 3/10.
+```
+
+The omitted-boundary X-side expression gives
+
+```text
+I_X - H_X - nu_X E[h_X] = 4/11,
+```
+
+which is larger than the true `Delta`. The missing term is
+
+```text
+beta_X = 42/55.
+```
+
+A low-probability example shows the same mechanism:
+
+```text
+X = Bernoulli(0.25),
+Y = Binomial(20,0.25).
+```
+
+Here the first strict descent is `D=-4`; numerically,
+
+```text
+Delta ~= 0.229176,
+old omitted-boundary X-side expression ~= 0.265599.
+```
+
+Thus the corrected X-side reduction must include the upper-boundary penalty.
+In regimes where `Y` has much wider support than `X`, this penalty can be
+large, so the reflected Y-side reduction may be the useful side.
 
 ## Reflected Y-Side Analogue
 
@@ -319,10 +383,10 @@ and should be small in a perturbative near-one-sided regime.
 A useful near-one-sided lemma would be:
 
 > If `Var Y <= epsilon (Var X + Var Y)` and `V>=1`, then at the signed first
-> descent either the X-side boundary term is zero/negligible and
+> descent either the X-side boundary terms are zero/negligible and
 >
 > ```text
-> H_X + nu_X E[h_X] <= (1/2) I_X,
+> H_X + nu_X E[h_X] + (E[r_N]+nu_X) beta_X <= (1/2) I_X,
 > I_X >= c_0/V,
 > ```
 >
@@ -338,10 +402,11 @@ in the near-one-sided regime. The constant need not be sharp.
 
 ### 3. Boundary Absorption
 
-The X-side boundary penalty is
+The X-side boundary penalties are
 
 ```text
-nu_X E[h_X].
+nu_X E[h_X],
+(E[r_N]+nu_X) beta_X.
 ```
 
 The reflected Y-side has two boundary penalties:
@@ -387,7 +452,7 @@ A conservative target is:
 > ```
 
 The conditional reduction suggests proving this by bounding
-`H_X + nu_X E[h_X]` relative to `I_X`.
+`H_X + nu_X E[h_X] + (E[r_N]+nu_X) beta_X` relative to `I_X`.
 
 ### Genuinely Two-Sided Regime
 
@@ -421,8 +486,8 @@ The most focused next lemma is the following conditional Newton-drop lemma.
 > **Signed conditional Newton-drop lemma.** Let `X` and `Y` be independent
 > low-probability Poisson-binomial sums, `V=Var X+Var Y>=1`, and let `D` be
 > the first strict descent of `c_z=P(X-Y=z)`. With the X-side quantities
-> `I_X,H_X,nu_X` and the reflected Y-side quantities `I_Y,H_Y,beta_Y,nu_Y`
-> defined above, prove that at least one side has
+> `I_X,H_X,nu_X,beta_X` and the reflected Y-side quantities
+> `I_Y,H_Y,beta_Y,nu_Y` defined above, prove that at least one side has
 >
 > ```text
 > I_side - H_side - Boundary_side >= c/V
