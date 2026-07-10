@@ -443,9 +443,23 @@ Assume, after possibly swapping/reflection,
 Var Y <= epsilon V.
 ```
 
-Use the one-sided theorem as the endpoint. The new task is a stability lemma:
-small reflected variance should not create enough conditional-dispersion or
-boundary loss to erase the one-sided `1/(4V)` effective drop.
+Use the plateau-safe first-weak-descent version of the one-sided theorem as
+the endpoint. A 2026-07-10 audit showed that the strict first-descent value is
+not a continuous endpoint: for
+
+```text
+X ~ Binomial(5,1/2), Y ~ Bernoulli(q), q -> 0+,
+```
+
+the strict descent moves from `4` to `3` and the effective drop tends to
+`1/2` rather than the one-sided strict-descent value `3/5`. The reflected
+variance tends to zero. Therefore no proof may assume an `O(Var Y)` comparison
+with the original strict-descent reserve.
+
+The new task is a plateau-aware stability lemma: small reflected variance
+should not erase the `1/(4V)` drop available at the relevant one-sided weak
+descent, and the proof must control which adjacent index becomes the signed
+strict descent.
 
 A conservative target is:
 
@@ -521,26 +535,45 @@ conditional expectations and boundary masses, while the half-heavy balanced
 regime is handled by a separate large-reserve mechanism. For a first proof
 attempt, split it into the two smaller lemmas:
 
-1. **Perturbative near-one-sided lemma.** Prove the displayed inequality when
-   `min(Var X, Var Y) <= epsilon V`, using the one-sided `1/(4V)` theorem as
-   the endpoint.
+1. **One-reflected-Bernoulli lemma.** First prove the signed bound for
+   `Y~Bernoulli(q)` by splitting according to whether the perturbation selects
+   the one-sided strict descent or the preceding weak descent. Only then
+   formulate a multi-variable perturbative lemma.
 2. **Balanced smoothing fallback.** Prove a direct raw/effective reserve bound
    when both side variances are at least `epsilon V` and the corrected
    side-bound is below the target scale.
 
-The perturbative lemma is the better immediate target because it is anchored
-to the proved one-sided result and to the observed sparse boundary. The
-balanced fallback should start with half-heavy/binomial smoothing examples,
-where the corrected conditional bound is weak but the actual reserve is large.
+The one-reflected-Bernoulli lemma has now been proved in
+
+```text
+notes/literature/one_reflected_bernoulli_effective_drop_2026-07-10.md
+```
+
+Its exact coefficient transform forces `D in {S-1,S}` and handles plateau
+index changes directly. The two-reflected-Bernoulli extension is also now
+proved in
+
+```text
+notes/literature/two_reflected_bernoulli_effective_drop_2026-07-10.md
+```
+
+There, `D in {S-2,S-1,S}` is paired with a six-term curvature identity and an
+exact Bernstein positivity certificate. A later cubic-curvature argument now
+supersedes the factor-by-factor bridge entirely:
+
+```text
+notes/literature/universal_poisson_binomial_effective_drop_2026-07-10.md
+```
+
+It proves the quarter-scale effective drop and raw reserve for every finite
+Poisson-binomial law with `V>=1` at a supported first descent. The conditional
+reductions in this note remain valid diagnostics and audit history, but are no
+longer dependencies of the signed theorem.
 
 ## Overclaim Guard
 
-This note proves only the conditional reductions and the conditional
-implications stated explicitly above. It does not prove:
-
-```text
-Delta >= 1/(4V)
-```
-
-for signed laws, the raw signed reserve theorem, the hub-bouquet perturbation
-step, or Erdos 993. Issue #5 should remain open.
+This note itself proves only the conditional reductions and the conditional
+implications stated explicitly above. The later universal note proves the
+general finite signed quarter bound. Neither the present reductions nor that
+reserve theorem proves the hub-included perturbation, the Case-B mode bound,
+or Erdős 993. Issue #5 should remain open.

@@ -1,10 +1,24 @@
 # Status of the 1-Private Mode Conjecture
 
-## Current Status: Single-Conjecture Reduction (Revised 2026-02-15)
+## Current Status: Conditional Two-Conjecture PNP Framework (Corrected 2026-07-10)
 
 **Conjecture (PNP):** For any tree $T$ and any maximal IS $S$ with $|S| < \text{mode}(I(T))$, some $u \in S$ has $\text{priv}(u) \ge 2$.
 
 Equivalently: if every $u \in S$ has $\text{priv}(u) \le 1$, then $|S| \ge \text{mode}(I(T))$.
+
+**Current dependency correction.** Hub Exclusion and Transfer are proved, but
+PNP does not reduce to Conjecture A alone. The current manuscript correctly
+requires both:
+
+1. Conjecture A for the $d_{\text{leaf}}\le1$ lane; and
+2. a separate Case-B hub bound comparing $\operatorname{mode} I(T)$ with the
+   explicit hub-reduction size bound.
+
+Transfer preserves the 1-Private property on the residual forest; it does not
+by itself compare the mode of $I(T)$ with modes or size bounds of residual
+components. Even a proof of PNP would constrain below-mode maximal independent
+sets rather than directly prove unimodality. The dependency map in
+`paper/main_v2.tex` is authoritative.
 
 ---
 
@@ -57,7 +71,14 @@ For trees with $\text{mode} > \lfloor n/3 \rfloor + 1$:
 
 *Status:* Verified exhaustively through $n = 22$ (227,678 such trees, **zero** with mode above threshold). Also verified for large constructed examples (caterpillars, lobsters, etc.) up to $n = 1000$ with mode/threshold ratios always $< 0.95$.
 
-**Mean Bound Approach (promising):** If mode ≤ ⌈μ⌉ holds (OPEN; Chudnovsky-Seymour 2007 proves real-rootedness for claw-free graphs only, NOT trees in general), then since $\mu = I'(1)/I(1)$ is the mean IS size, We verified $\mu < n/3$ for all $d_{\text{leaf}} \le 1$ trees through $n = 20$ (43,029 trees, max $\mu/(n/3) = 0.973$). Since $\mu < n/3$ implies $\text{mode} \le \lceil \mu \rceil \le \lfloor n/3 \rfloor + 1$, this reduces Conjecture A to: **$\mu(I(T)) < n/3$ for all $d_{\text{leaf}} \le 1$ trees.**
+**Mean-bound status:** The current manuscript proves
+$\mu(I(T))<n/3$ for every $d_{\text{leaf}}\le1$ tree by Steiner peeling.
+The remaining implication is the independent mode--mean conjecture
+$\operatorname{mode} I(T)\le\lceil\mu(T)\rceil$, or the narrower
+tie-fugacity condition $\mu(\lambda_m)\ge m-1$. Neither follows from positive
+log-concavity alone. Moreover, $d_{\text{leaf}}\le1$ log-concavity is false:
+the July 2026 Ramos--Sun stress corpus contains many such non-log-concave
+trees.
 
 **Extremal family:** Spiders $S(2^k)$ (hub + $k$ arms of length 2). Algebraically:
 $$I(S(2^k); x) = (1+2x)^k + x(1+x)^k, \quad n = 2k+1$$
@@ -66,9 +87,10 @@ Positive for $k \ge 5$ ($n \ge 11$); direct check for $k \le 4$. Second-tightest
 
 **Per-vertex bound $P(v \in S) \le 1/3$ FAILS** (leaves reach $P \approx 0.49$). The bound $\mu < n/3$ is a global property, not a per-vertex one. Inductive arguments via vertex deletion are problematic because deleting a vertex can break the $d_{\text{leaf}} \le 1$ property.
 
-If this holds, then Part 2 handles the case: $k \ge \lfloor n/3 \rfloor + 1 \ge \text{mode}$.
+If the mode--mean or tie-fugacity bridge holds, the proved mean bound and
+Part 2 handle this lane.
 
-#### Case B: Some $d_{\text{leaf}} \ge 2$ (REDUCES TO CONJECTURE A)
+#### Case B: Some $d_{\text{leaf}} \ge 2$ (SEPARATE HUB BOUND OPEN)
 
 **Setup:** Let $v$ have $d_{\text{leaf}}(v) = d \ge 2$. By Hub Exclusion, $v \notin S$ and all $d$ leaf-children of $v$ are in $S$.
 
@@ -84,9 +106,11 @@ where $h$ = number of hubs, $c$ = components of $T'$, and $c \ge h \ge 1$.
 
 **Verification:** $\text{mode}(I(T)) \le F + \lceil(n - F - h + c)/3\rceil$ holds for all 8,710,881 trees with $d_{\text{leaf}} \ge 2$ through $n = 22$ (zero violations, minimum surplus $= 1$).
 
-**Inductive reduction.** For each component of $T'$: if it has all $d_{\text{leaf}} \le 1$, Conjecture A bounds its mode. If some vertex has $d_{\text{leaf}} \ge 2$, apply Hub Exclusion + Transfer recursively. The recursion terminates at components with all $d_{\text{leaf}} \le 1$.
-
-**Therefore, PNP for ALL trees reduces to Conjecture A.** If every tree with all $d_{\text{leaf}} \le 1$ has $\text{mode} \le \lfloor n/3 \rfloor + 1$, then PNP holds.
+**Open Case-B comparison.** The displayed computational inequality is the
+separate Case-B hub-bound conjecture. Recursively transferring $S$ to smaller
+components proves lower bounds on $|S|$, but it does not supply the missing
+upper bound on $\operatorname{mode} I(T)$. Conjecture A therefore does not
+close this case by itself.
 
 ---
 
@@ -111,9 +135,11 @@ where $h$ = number of hubs, $c$ = components of $T'$, and $c \ge h \ge 1$.
 |------|-----------|------------------------|--------|
 | Low-mode | $\text{mode} \le \lfloor n/3 \rfloor + 1$ | Part 1: $k \ge \lfloor n/3 \rfloor + 1$ | PROVED |
 | High-mode, all $d_{\text{leaf}} \le 1$ | mode $> \lfloor n/3 \rfloor + 1$ | Conjecture A: can't happen | CONJECTURE |
-| High-mode, some $d_{\text{leaf}} \ge 2$ | mode $> \lfloor n/3 \rfloor + 1$ | Transfer + Part 1 on residual | REDUCES TO CONJECTURE A |
+| High-mode, some $d_{\text{leaf}} \ge 2$ | mode $> \lfloor n/3 \rfloor + 1$ | Transfer + separate Case-B hub comparison | CONJECTURE |
 
-**The entire PNP proof reduces to Conjecture A.** Case B is handled by the Transfer Lemma + recursive application of Hub Exclusion, eventually terminating at $d_{\text{leaf}} \le 1$ components where Conjecture A applies.
+**PNP is conditional on both Conjecture A and the Case-B hub bound.** The
+proved Transfer Lemma is a necessary combinatorial reduction, not the missing
+mode comparison.
 
 ---
 
@@ -137,11 +163,21 @@ where $h$ = number of hubs, $c$ = components of $T'$, and $c \ge h \ge 1$.
 
 ## What Remains
 
-**One open step: Conjecture A.**
+**Two open steps for PNP: Conjecture A and the Case-B hub bound.**
 
-**Conjecture A (reduced to Mean Bound).** Prove $\mu(I(T)) < n/3$ for all $d_{\text{leaf}} \le 1$ trees. The extremal family $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the bound is tight. By real-rootedness (Chudnovsky--Seymour 2007), $\mu < n/3$ implies $\text{mode} \le \lfloor n/3 \rfloor + 1$.
+**Conjecture A.** The mean inequality $\mu(I(T))<n/3$ is proved. What remains
+is to prove mode--mean localization, or the narrower tie-fugacity condition,
+for $d_{\text{leaf}}\le1$ trees. Real-rootedness cannot be invoked: general
+tree independence polynomials are not real-rooted, and the lane is not even
+log-concave in general.
 
-Case B (trees with $d_{\text{leaf}} \ge 2$) reduces to Conjecture A via the Transfer Lemma and induction on the number of multi-leaf hubs.
+**Case B.** Prove
+$\operatorname{mode} I(T)\le F+\lceil(n-F-h+c)/3\rceil$ for trees with
+multi-leaf hubs, or find a replacement comparison strong enough for the PNP
+corollary.
+
+Finally, PNP is not itself a proof of independence-sequence unimodality; it is
+one structural ingredient in the manuscript's broader program.
 
 **Failed approaches:**
 - Per-vertex bound $P(v \in S) \le 1/3$: FAILS (leaves reach $P \approx 0.49$)
@@ -150,10 +186,20 @@ Case B (trees with $d_{\text{leaf}} \ge 2$) reduces to Conjecture A via the Tran
 - Core edge contraction increasing $\mu/n$: FAILS (18% decrease rate from $n = 9$)
 - Spider extremality via contraction: dead end
 
-**Promising directions:**
-- (a) Hard-core model: $\mu = \sum_v P(v \in S)$ where $P$ is the hard-core measure at $\lambda = 1$. For leaf-support pairs, $P(w) + P(v) = 1/2 + P(v)/2$, with combined load $P(v)/2 - 1/6 \le 0$ when $P(v) \le 1/3$. This holds for all support vertices with $\ge 1$ non-leaf child. The residual "core" vertices need $\sum_{\text{core}} P(v) \le |\text{core}|/3$.
-- (b) Root structure / pressure bounds: the tree recursion $R(v) = 1/\prod(1+R(c_j))$ gives $P(v) = R/(1+R)$. Bounding the sum $\sum P(v)$ via the recursion.
-- (c) Spider extremality (verified $n \le 20$, algebraic proof for extremal spider): prove $S(2^k, 1)$ maximizes $\mu$ among $d_{\text{leaf}} \le 1$ trees.
+**Current directions:**
+- (a) Prove the tie-fugacity condition
+  $\mu(\lambda_m)\ge m-1$ for $d_{\text{leaf}}\le1$ trees. This is the
+  narrowest live bridge from the proved mean bound to Conjecture A.
+- (b) Prove the broader mode--mean inequality
+  $\operatorname{mode} I(T)\le\lceil\mu(T)\rceil$, without importing
+  real-rootedness or log-concavity.
+- (c) Prove the separate Case-B hub comparison. The signed
+  Poisson-binomial reserve program is a bounded analytic subroute for
+  hub-bouquet families. Its quarter-scale effective-drop and raw-reserve
+  theorem is now proved for every finite Poisson-binomial law, closing the
+  signed bridge and the product term `A=(1+x)^sQ`. The hub-included
+  perturbation `xR` remains open for growing arms, and the result has not been
+  lifted to arbitrary multi-hub trees or the Case-B mode bound.
 
 ---
 

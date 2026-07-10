@@ -1,0 +1,166 @@
+{
+  "anchored_checks": {
+    "binomial_5_p_11_over_31": {
+      "S": 3,
+      "q_threshold": "20/119",
+      "rows": {
+        "above": {
+          "descent": 2,
+          "q": "1/2",
+          "scaled": {
+            "decimal": "0.61750233616777528",
+            "exact": "4562211/7388168"
+          },
+          "t": "1"
+        },
+        "below": {
+          "descent": 3,
+          "q": "1/10",
+          "scaled": {
+            "decimal": "0.61032478951619162",
+            "exact": "40364745747/66136500500"
+          },
+          "t": "1/9"
+        },
+        "equal": {
+          "descent": 3,
+          "q": "20/119",
+          "scaled": {
+            "decimal": "0.62977758741797829",
+            "exact": "3093938760/4912748281"
+          },
+          "t": "20/99"
+        }
+      },
+      "t_threshold": "20/99",
+      "u": "11/10",
+      "v": "11/20"
+    },
+    "fair_binomial_plateau": {
+      "S": 4,
+      "q_0_delta": "3/5",
+      "q_0_descent": 4,
+      "q_1_over_1000_delta": "1997601/3996001",
+      "q_1_over_1000_descent": 3
+    }
+  },
+  "arithmetic": "fractions.Fraction (exact rational)",
+  "conditions": {
+    "q": "0 <= q <= 1/2",
+    "q_values": [
+      "0",
+      "1/1000",
+      "1/100",
+      "1/20",
+      "1/10",
+      "20/119",
+      "1/4",
+      "1/3",
+      "2/5",
+      "1/2"
+    ],
+    "variance_x": ">= 1",
+    "x_parameters": "0 < p_i <= 1/2"
+  },
+  "counts": {
+    "actual_quarter_checks": 47850,
+    "curvature_decomposition_checks": 47850,
+    "failures": 0,
+    "individual_newton_bound_checks": 143550,
+    "profiles_eligible_and_unique": {
+      "core_multisets": 4432,
+      "heavy_dust_blocks": 353
+    },
+    "profiles_generated": {
+      "core_multisets": 4921,
+      "heavy_dust_blocks": 560
+    },
+    "proof_chain_quarter_checks": 47850,
+    "rows": 47850,
+    "selection_cases": {
+      "S": 39878,
+      "S-1": 7972
+    },
+    "threshold_equal_rows": 47,
+    "unique_profiles_seen": 5417
+  },
+  "grid": {
+    "core_m_range": [
+      4,
+      9
+    ],
+    "core_probability_values": [
+      "1/10",
+      "1/6",
+      "1/4",
+      "1/3",
+      "2/5",
+      "1/2"
+    ],
+    "dust_counts": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "dust_probability_values": [
+      "1/100",
+      "1/50",
+      "1/20",
+      "1/10"
+    ],
+    "heavy_count_range": [
+      2,
+      8
+    ],
+    "heavy_probability_values": [
+      "1/4",
+      "1/3",
+      "2/5",
+      "1/2"
+    ]
+  },
+  "minimum_scaled_effective_drop": {
+    "D": 2,
+    "S": 2,
+    "delta": {
+      "decimal": "0.42302323635081091",
+      "exact": "283055/669124"
+    },
+    "family_first_seen": "core_multisets",
+    "parameters": [
+      {
+        "count": 5,
+        "p": "1/10"
+      },
+      {
+        "count": 4,
+        "p": "1/6"
+      }
+    ],
+    "proof_lower": {
+      "decimal": "0.33333333333333331",
+      "exact": "1/3"
+    },
+    "proof_scaled": {
+      "decimal": "0.3351851851851852",
+      "exact": "181/540"
+    },
+    "q": "0",
+    "scaled": {
+      "decimal": "0.42537336544164878",
+      "exact": "10246591/24088464"
+    },
+    "selection": "S",
+    "variance_total": {
+      "decimal": "1.0055555555555555",
+      "exact": "181/180"
+    },
+    "variance_x": {
+      "decimal": "1.0055555555555555",
+      "exact": "181/180"
+    }
+  },
+  "status": "passed"
+}

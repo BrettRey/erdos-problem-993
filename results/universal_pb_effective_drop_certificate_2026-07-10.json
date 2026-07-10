@@ -1,0 +1,280 @@
+{
+  "certificate": "universal Poisson-binomial effective-drop theorem",
+  "certificate_date": "2026-07-10",
+  "arithmetic": "exact SymPy rationals/polynomials and fractions.Fraction",
+  "sympy_version": "1.14.0",
+  "theorem_scope": {
+    "variance_assumption": "Var >= 1",
+    "endpoint_convention": "delta_0=delta_n=1 with f outside support zero",
+    "cubic_recurrence": "delta_(j+/-1)*(1-delta_j) <= delta_j",
+    "conclusion": "Var*delta_D >= 1/4 at the first supported strict descent"
+  },
+  "proof_certificates": {
+    "recurrence_and_mass_window": {
+      "status": "passed",
+      "endpoint_convention": "delta_0 = delta_n = 1",
+      "reciprocal_curvature_law": "abs(1/delta_(j+1)-1/delta_j) <= 1",
+      "window_induction": "delta_(D+r) <= d/(1-r*d)",
+      "endpoint_exclusion_condition": "(r+1)*d < 1",
+      "crossing_factor_a": "(1-2*d)/(1-d)",
+      "right_mass_bound": "R_r=a^r*product(j=1..r-1,1-j*d)",
+      "left_mass_bound": "L_r=(1-d)^(-r)*product(j=2..r+1,1-j*d)",
+      "R_over_L_step": "(H-1)*(H+1-r)/((H+1)*(H-r-1))",
+      "R_over_L_step_minus_one": "2*r/((H+1)*(H-r-1))"
+    },
+    "max_atom_and_scalar_reduction": {
+      "status": "passed",
+      "smoothed_variance": "Var(X+U)=Var(X)+1/12",
+      "bathtub_minimum": "1/(12*M^2)",
+      "max_atom_bound": "Var(X)>=(M^(-2)-1)/12",
+      "pairwise_bound": "Var(X)>=M^2*A",
+      "scalar_threshold": "(d + 3)/(4*d**2)",
+      "quarter_target": "1/(4*d)",
+      "branch_mass_squared": "d/(3+d)"
+    },
+    "asymmetric_cell": {
+      "status": "passed",
+      "interval": "3 < H < 4",
+      "window_radius": 3,
+      "numerator": "-3*H**10 - 16*H**9 + 750*H**8 - 3676*H**7 + 6613*H**6 - 5460*H**5 + 800*H**4 + 4696*H**3 - 7176*H**2 + 4272*H - 912",
+      "denominator": "4*H**5*(H + 1)**3",
+      "degree": 10,
+      "sturm_sequence_length": 11,
+      "sturm_variations_left": 4,
+      "sturm_variations_right": 4,
+      "root_count_closed_interval": 0,
+      "checkpoint_values": {
+        "H=3": "29/81",
+        "H=7/2": "702061237/196036848",
+        "H=4": "217931/32000"
+      }
+    },
+    "compact_sturm_cells": [
+      {
+        "m": 4,
+        "interval": "[4,5]",
+        "degree": 10,
+        "denominator": "4*H^8",
+        "sturm_sequence_length": 11,
+        "sturm_variations_left": 4,
+        "sturm_variations_right": 4,
+        "root_count_closed_interval": 0,
+        "left_numerator_positive": true,
+        "midpoint_numerator_positive": true,
+        "right_numerator_positive": true
+      },
+      {
+        "m": 5,
+        "interval": "[5,6]",
+        "degree": 12,
+        "denominator": "4*H^10",
+        "sturm_sequence_length": 13,
+        "sturm_variations_left": 4,
+        "sturm_variations_right": 4,
+        "root_count_closed_interval": 0,
+        "left_numerator_positive": true,
+        "midpoint_numerator_positive": true,
+        "right_numerator_positive": true
+      },
+      {
+        "m": 6,
+        "interval": "[6,7]",
+        "degree": 14,
+        "denominator": "4*H^12",
+        "sturm_sequence_length": 15,
+        "sturm_variations_left": 5,
+        "sturm_variations_right": 5,
+        "root_count_closed_interval": 0,
+        "left_numerator_positive": true,
+        "midpoint_numerator_positive": true,
+        "right_numerator_positive": true
+      },
+      {
+        "m": 7,
+        "interval": "[7,8]",
+        "degree": 16,
+        "denominator": "4*H^14",
+        "sturm_sequence_length": 17,
+        "sturm_variations_left": 6,
+        "sturm_variations_right": 6,
+        "root_count_closed_interval": 0,
+        "left_numerator_positive": true,
+        "midpoint_numerator_positive": true,
+        "right_numerator_positive": true
+      },
+      {
+        "m": 8,
+        "interval": "[8,9]",
+        "degree": 18,
+        "denominator": "4*H^16",
+        "sturm_sequence_length": 19,
+        "sturm_variations_left": 6,
+        "sturm_variations_right": 6,
+        "root_count_closed_interval": 0,
+        "left_numerator_positive": true,
+        "midpoint_numerator_positive": true,
+        "right_numerator_positive": true
+      },
+      {
+        "m": 9,
+        "interval": "[9,10]",
+        "degree": 20,
+        "denominator": "4*H^18",
+        "sturm_sequence_length": 21,
+        "sturm_variations_left": 8,
+        "sturm_variations_right": 8,
+        "root_count_closed_interval": 0,
+        "left_numerator_positive": true,
+        "midpoint_numerator_positive": true,
+        "right_numerator_positive": true
+      },
+      {
+        "m": 10,
+        "interval": "[10,11]",
+        "degree": 22,
+        "denominator": "4*H^20",
+        "sturm_sequence_length": 23,
+        "sturm_variations_left": 8,
+        "sturm_variations_right": 8,
+        "root_count_closed_interval": 0,
+        "left_numerator_positive": true,
+        "midpoint_numerator_positive": true,
+        "right_numerator_positive": true
+      },
+      {
+        "m": 11,
+        "interval": "[11,12]",
+        "degree": 24,
+        "denominator": "4*H^22",
+        "sturm_sequence_length": 25,
+        "sturm_variations_left": 9,
+        "sturm_variations_right": 9,
+        "root_count_closed_interval": 0,
+        "left_numerator_positive": true,
+        "midpoint_numerator_positive": true,
+        "right_numerator_positive": true
+      },
+      {
+        "m": 12,
+        "interval": "[12,13]",
+        "degree": 26,
+        "denominator": "4*H^24",
+        "sturm_sequence_length": 27,
+        "sturm_variations_left": 10,
+        "sturm_variations_right": 10,
+        "root_count_closed_interval": 0,
+        "left_numerator_positive": true,
+        "midpoint_numerator_positive": true,
+        "right_numerator_positive": true
+      },
+      {
+        "m": 13,
+        "interval": "[13,14]",
+        "degree": 28,
+        "denominator": "4*H^26",
+        "sturm_sequence_length": 29,
+        "sturm_variations_left": 11,
+        "sturm_variations_right": 11,
+        "root_count_closed_interval": 0,
+        "left_numerator_positive": true,
+        "midpoint_numerator_positive": true,
+        "right_numerator_positive": true
+      },
+      {
+        "m": 14,
+        "interval": "[14,15]",
+        "degree": 30,
+        "denominator": "4*H^28",
+        "sturm_sequence_length": 31,
+        "sturm_variations_left": 12,
+        "sturm_variations_right": 12,
+        "root_count_closed_interval": 0,
+        "left_numerator_positive": true,
+        "midpoint_numerator_positive": true,
+        "right_numerator_positive": true
+      },
+      {
+        "m": 15,
+        "interval": "[15,16]",
+        "degree": 32,
+        "denominator": "4*H^30",
+        "sturm_sequence_length": 33,
+        "sturm_variations_left": 12,
+        "sturm_variations_right": 12,
+        "root_count_closed_interval": 0,
+        "left_numerator_positive": true,
+        "midpoint_numerator_positive": true,
+        "right_numerator_positive": true
+      }
+    ],
+    "analytic_tail": {
+      "status": "passed",
+      "bonferroni_bound": "b_r >= c_r = 1-r(r+1)/(2H)",
+      "S0": "(6*H*R + 3*H - R**3 - 3*R**2 - 2*R)/(3*H)",
+      "T0": "R*(R + 1)*(40*H*R + 20*H - 12*R**3 - 33*R**2 - 17*R + 2)/(60*H)",
+      "scaled_polynomial": "G=180*H^2*(S0*T0-target)",
+      "R=5_interval": "[16,21]",
+      "R=5_bernstein_coefficients": [
+        "424800",
+        "1350000",
+        "2254950",
+        "11439225/4",
+        "2800350"
+      ],
+      "R>=6_cell": "H=R(R+1)/2+(R+1)t, 0<=t<=1",
+      "R>=6_shift": "u=R-6>=0",
+      "R>=6_bernstein_prefactors": [
+        "(u + 6)**2*(u + 7)**2/16",
+        "(u + 6)*(u + 7)**2/16",
+        "(u + 7)**2/16",
+        "(u + 7)**2*(u + 8)/16",
+        "(u + 7)**2*(u + 8)**2/16"
+      ],
+      "R>=6_positive_polynomials": [
+        "121*u**4 + 2474*u**3 + 17431*u**2 + 46014*u + 25400",
+        "121*u**5 + 3442*u**4 + 37967*u**3 + 199405*u**2 + 480475*u + 384510",
+        "121*u**6 + 4410*u**5 + 65863*u**4 + 512764*u**3 + 2172926*u**2 + 4668316*u + 3829440",
+        "121*u**5 + 3684*u**4 + 43735*u**3 + 249961*u**2 + 671859*u + 644400",
+        "121*u**4 + 2958*u**3 + 25579*u**2 + 88782*u + 91440"
+      ]
+    }
+  },
+  "finite_exact_pbd_scan": {
+    "status": "no counterexample on this finite grid",
+    "role": "falsification scan only; not used by the proof certificate",
+    "probability_grid": [
+      "1/10",
+      "1/5",
+      "1/3",
+      "1/2",
+      "2/3",
+      "4/5",
+      "9/10"
+    ],
+    "min_n": 4,
+    "max_n": 9,
+    "vectors_processed": 11320,
+    "eligible_variance_at_least_one": 9759,
+    "terminal_outside_support_skipped": 19,
+    "minimum_scaled_drop": "523409277/1200931480",
+    "minimum_scaled_drop_decimal": 0.4358360870014,
+    "minimizer": {
+      "n": 9,
+      "probabilities": [
+        "1/10",
+        "1/10",
+        "1/10",
+        "1/10",
+        "1/10",
+        "1/10",
+        "1/5",
+        "1/5",
+        "4/5"
+      ],
+      "variance": "51/50",
+      "descent": 3,
+      "drop": "51314635/120093148"
+    }
+  },
+  "status": "passed"
+}

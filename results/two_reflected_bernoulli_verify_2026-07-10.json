@@ -1,0 +1,179 @@
+{
+  "anchored_checks": {
+    "delta0_plateau": {
+      "D": 3,
+      "S": 4,
+      "parameters": [
+        {
+          "count": 5,
+          "p": "1/2"
+        }
+      ],
+      "q": [
+        "1/2",
+        "1/2"
+      ],
+      "scaled": {
+        "decimal": "0.77777777777777779",
+        "exact": "7/9"
+      }
+    },
+    "delta1_plateau": {
+      "D": 3,
+      "S": 3,
+      "parameters": [
+        {
+          "count": 5,
+          "p": "11/31"
+        }
+      ],
+      "q": [
+        "20/119",
+        "0"
+      ],
+      "scaled": {
+        "decimal": "0.62977758741797829",
+        "exact": "3093938760/4912748281"
+      }
+    }
+  },
+  "arithmetic": "fractions.Fraction and exact SymPy polynomials",
+  "conditions": {
+    "q_i": "0 <= q_i <= 1/2",
+    "q_values": [
+      "0",
+      "1/1000",
+      "1/100",
+      "1/10",
+      "1/5",
+      "1/3",
+      "2/5",
+      "1/2"
+    ],
+    "variance_x": ">= 1",
+    "x_parameters": "0 < p_i <= 1/2"
+  },
+  "counts": {
+    "actual_quarter_checks": 97488,
+    "curvature_decomposition_checks": 97488,
+    "delta0_equal_rows": 2,
+    "delta1_equal_rows": 69,
+    "failures": 0,
+    "individual_newton_and_long_gap_checks": 584928,
+    "normalized_G_reconstructions": 97488,
+    "profiles_eligible_and_unique": {
+      "core_multisets": 2440,
+      "heavy_dust_blocks": 268
+    },
+    "profiles_generated": {
+      "core_multisets": 2919,
+      "heavy_dust_blocks": 448
+    },
+    "proof_chain_quarter_checks": 97488,
+    "rows": 97488,
+    "selection_cases": {
+      "S": 62716,
+      "S-1": 34772
+    },
+    "shifted_newton_checks": 0,
+    "unique_profiles_seen": 3315,
+    "variance_payment_checks": 97488
+  },
+  "grid": {
+    "core_m_range": [
+      4,
+      8
+    ],
+    "core_probability_values": [
+      "1/10",
+      "1/6",
+      "1/4",
+      "1/3",
+      "2/5",
+      "1/2"
+    ],
+    "dust_counts": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "dust_probability_values": [
+      "1/100",
+      "1/50",
+      "1/20",
+      "1/10"
+    ],
+    "heavy_count_range": [
+      2,
+      8
+    ],
+    "heavy_probability_values": [
+      "1/4",
+      "1/3",
+      "2/5",
+      "1/2"
+    ],
+    "q_pairs": "combinations with replacement"
+  },
+  "minimum_scaled_effective_drop": {
+    "D": 2,
+    "S": 2,
+    "curvature_lower": {
+      "decimal": "0.33333333333333331",
+      "exact": "1/3"
+    },
+    "delta": {
+      "decimal": "0.43279888902916297",
+      "exact": "17141/39605"
+    },
+    "family_first_seen": "core_multisets",
+    "parameters": [
+      {
+        "count": 2,
+        "p": "1/10"
+      },
+      {
+        "count": 6,
+        "p": "1/6"
+      }
+    ],
+    "proof_lower": {
+      "decimal": "0.33333333333333331",
+      "exact": "1/3"
+    },
+    "proof_scaled": {
+      "decimal": "0.33777777777777779",
+      "exact": "76/225"
+    },
+    "q": [
+      "0",
+      "0"
+    ],
+    "scaled": {
+      "decimal": "0.43856954088288513",
+      "exact": "1302716/2970375"
+    },
+    "selection": "S",
+    "variance_total": {
+      "decimal": "1.0133333333333334",
+      "exact": "76/75"
+    },
+    "variance_x": {
+      "decimal": "1.0133333333333334",
+      "exact": "76/75"
+    }
+  },
+  "status": "passed",
+  "symbolic_certificate": {
+    "bernstein_coefficients_checked": 75,
+    "bernstein_maximum": "224",
+    "bernstein_minimum": "0",
+    "bernstein_reconstructions": 3,
+    "diagonal_derivative_identity": "passed",
+    "polynomial_engine": "sympy 1.14.0",
+    "six_term_curvature_identity": "passed",
+    "variance_payment_numerator_degree": 2,
+    "y_derivative_identity": "passed"
+  }
+}

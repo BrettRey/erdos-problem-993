@@ -9,6 +9,65 @@
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## Current state (2026-07-10)
+
+### Session notes (GPT-5.6 Ultra signed-reserve breakthrough)
+
+- **Universal finite PB theorem proved.** For every finite Poisson-binomial
+  law with variance `V>=1` and a supported first strict descent `D`,
+  `V * Delta_eff(D) >= 1/4`; consequently the raw post-descent reserve also
+  satisfies `V * reserve >= 1/4`. Shifting `X-Y` to an ordinary PB law closes
+  the full nonterminal finite signed bridge. Terminal raw reserve is immediate;
+  its effective quotient is undefined.
+- **Proof mechanism.** Hillion--Johnson's cubic inequalities propagate local
+  Turán curvature into explicit two-sided mass windows. A pairwise variance
+  bound and a sharp max-atom variance bound reduce the theorem to one scalar
+  inequality. The original exact Sturm replay closes `3<H<=16`; a second,
+  Lean-friendly certificate now replaces all 13 finite cells by 275/275
+  strictly positive Bernstein coefficients. An analytic
+  Bonferroni--Bernstein argument closes `H>=16`.
+- **Exact replay.** `scripts/verify_universal_pb_effective_drop.py` certifies
+  the endpoint recurrence, mass-window algebra, asymmetric degree-10 cell,
+  twelve compact Sturm cells, and the full Bernstein tail. Its separate exact
+  11,320-vector scan found zero failures. Certificate:
+  `results/universal_pb_effective_drop_certificate_2026-07-10.json`.
+- **Lean-friendly finite replay.**
+  `scripts/verify_universal_pb_finite_bernstein.py` exactly reconstructs all
+  13 finite-cell numerators in the full Bernstein basis, verifies all 275
+  coefficients are positive, and emits Lean 4.28 identities that compile.
+  Certificate:
+  `results/universal_pb_finite_bernstein_certificate_2026-07-10.json`.
+- **Aristotle staging.** A minimal Lean 4.28 packet for endpoint-aware
+  curvature propagation and the raw-from-effective corollary is prepared at
+  `formalization/pb_effective_drop_aristotle/`. It has not been uploaded.
+  Harmonic's terms say submitted code may be used to train its models unless
+  model training has been turned off in Brett's dashboard settings. The API
+  cannot reveal that setting, so no upload occurred.
+- **Independent special-case proofs.** The full Skellam limit and finite laws
+  with one and two reflected Bernoulli factors were proved and independently
+  audited before the universal argument was found. Their replay harnesses
+  passed 2,691 high-precision Skellam rows, 47,850 exact one-factor rows, and
+  97,488 exact two-factor rows. A redundant three-factor direct proof was also
+  found, but the universal theorem supersedes it as a dependency.
+- **Product term closed, issue #5 still open.** For
+  `A=(1+x)^sQ`, `V_A=s/4+V_Q`, and `s>=4`, every post-descent ratio is at most
+  `1-1/(s+4V_Q)`. The remaining hub-bouquet problem is perturbation by
+  `B=xR`: prove separate pre-descent and post-descent increment budgets,
+  especially when broom arms grow with `s`. This does not close Case B, PNP,
+  or Erdős #993.
+- **Audit corrections preserved.** The old conditional side-bound-only target
+  is exactly false, and strict-first-descent continuity fails at plateaus.
+  Exact regression tests now cover both failures; the full suite passes
+  (`55` tests).
+- **Manuscript posture.** `paper/main_v2.tex` was not changed. The universal PB
+  theorem is a new private result and would require a deliberate standalone or
+  revision decision, a Hillion--Johnson citation, and the exact certificate
+  material before manuscript migration.
+- **Verification:** `python3 -m unittest test_all.py -v` passed; all five new
+  theorem/certificate harnesses passed; the emitted finite-cell Lean file and
+  the Aristotle staging skeleton build under Lean 4.28; `python3 -m py_compile`
+  on the new scripts passed; `git diff --check` passed.
+
 ## Current state (2026-07-04)
 
 ### Session notes (2026-07-04, morning, signed-reserve audit hardening)

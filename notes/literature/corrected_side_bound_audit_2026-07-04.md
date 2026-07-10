@@ -253,6 +253,44 @@ Thus `0.75` remains a plausible fallback search threshold in these runs, but
 `0.8` is already too aggressive as a conjectural universal fallback constant;
 the second displayed half-heavy+dust row is an exact rational counterexample.
 
+## Exact Side-Bound Disproof
+
+The smaller displayed half-heavy row also gives a compact exact disproof of
+the side-bound-only target. Take
+
+```text
+X = Bernoulli(1/4) + Binomial(6,1/2),
+Y = Binomial(4,1/2).
+```
+
+Exact rational evaluation of the corrected analyzer definitions gives
+
+```text
+D = 2,
+V = 43/16,
+X_side_bound = 399961/4594590,
+Y_side_bound = 8069/92610,
+V * max(X_side_bound,Y_side_bound)
+  = 346967/1481760
+  < 1/4.
+```
+
+The exact gap below `1/4` is
+
+```text
+23473/1481760.
+```
+
+The row is not a reserve threat:
+
+```text
+V * Delta_eff = 19393/24696,
+V * reserve   = 559/588.
+```
+
+This certificate removes the former dependence on a large floating-point row
+for the theorem-level retirement of the side-bound-only target.
+
 The worst side-bound row was the balanced half-heavy case
 
 ```text
@@ -265,9 +303,26 @@ V * Delta_eff ~= 0.997012,
 V * reserve ~= 1.49402.
 ```
 
-The Binomial(500,1/2) row is a float counterexample to the side-bound-only
-target with large margin. Exact certification of this side-bound value would
-be needed before citing it as a theorem-level disproof.
+The `Binomial(500,1/2)` row has also been exact-certified. With
+`C=binom(1000,501)`, its two corrected side bounds are
+
+```text
+B_X = 1001/(501*502^2) + 1/(502*C),
+B_Y = 1001*1504/(500*501*502^2) - 1/(501*502*C),
+```
+
+with `B_Y>B_X`. Hence
+
+```text
+250 * max(B_X,B_Y)
+  = 188188/31563501 - 250/(501*502*C)
+  < 1/4.
+```
+
+The saved float differs from the exact value by less than `4.8e-14`. This
+large row explains how the conditional side bound can collapse in a balanced
+normal-like regime, while the small rational row above is the preferred
+disproof certificate.
 
 ## Interpretation
 

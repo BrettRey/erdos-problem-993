@@ -17,6 +17,48 @@ x R(x)
 
 is a perturbation to handle after the product term is understood.
 
+## 2026-07-10 Closure Update
+
+The product-term variance reserve and the entire finite signed bridge are now
+proved in
+
+```text
+notes/literature/universal_poisson_binomial_effective_drop_2026-07-10.md
+```
+
+For every finite Poisson-binomial law with `V>=1` at a supported first strict
+descent,
+
+```text
+V * Delta_eff >= 1/4,
+V * raw_reserve >= 1/4.
+```
+
+Consequently, for
+
+```text
+A=(1+x)^s Q,       V_A=s/4+V_Q,       s>=4,
+```
+
+every post-descent ratio satisfies
+
+```text
+A[j+1]/A[j] <= 1 - 1/(4V_A) = 1 - 1/(s+4V_Q).
+```
+
+Thus the candidate variance-reserve lemma and Immediate Proof Tasks 1--3
+below are closed. The remaining hub-bouquet problem is perturbation by
+`B=xR`. A sufficient post-descent budget is
+
+```text
+B[j+1]-B[j] <= A[j]/(4V_A),       j>=D_A,
+```
+
+together with a separate pre-descent check preventing `A+B` from descending
+before `D_A`. Fixed arms should reduce to a finite threshold certificate
+because `B` has fixed support; growing broom arms still overlap the mode and
+remain open. Issue #5, Case B, and Erdős 993 are not closed.
+
 ## Exact Setup
 
 For a hub with `s` pendant leaves and path arms `a_1, ..., a_m`,
@@ -497,7 +539,9 @@ The only unresolved case in that route was `D=4`. A dedicated elementary-symmetr
 notes/literature/local_mode_mean_bound_proof_2026-07-04.md
 ```
 
-Therefore the one-sided effective-drop route reaches `Delta_eff >= 1/(4V)`. This is still only the one-sided input; the signed reserve and hub perturbation arguments below remain open.
+Therefore the one-sided effective-drop route reaches `Delta_eff >= 1/(4V)`.
+The universal theorem in the closure update now supplies the signed reserve;
+only the hub-included perturbation remains open in this schema.
 
 ## Perturbation By The Hub-Included Term
 
@@ -516,6 +560,10 @@ For growing arms, `xR` is not automatically absent. The next perturbation statem
 This is the real broom case. It should be attacked after the product-term lemma, not before.
 
 ## Immediate Proof Tasks
+
+Status update: tasks 1--3 are superseded by the universal theorem cited at the
+top of this note. Tasks 4--5, concerning the hub-included perturbation, remain
+open.
 
 1. Prove the two-sided signed reserve lemma for shifted laws `h + X - Y`, where `X` and `Y` are low-probability PB sums, using first descent in signed support coordinates.
 2. Split that proof into a near-one-sided perturbation lemma and a genuinely two-sided smoothing lemma.

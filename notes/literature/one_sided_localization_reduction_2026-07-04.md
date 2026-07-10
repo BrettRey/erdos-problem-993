@@ -1,6 +1,11 @@
 # One-Sided Localization Reduction
 Date: 2026-07-04
 
+**2026-07-10 status update.** The one-sided theorem below remains valid, but
+the signed case is no longer open: it is proved separately in
+`notes/literature/universal_poisson_binomial_effective_drop_2026-07-10.md`.
+This note is now an input/history surface rather than the active bottleneck.
+
 ## Purpose
 
 This note narrows the one-sided effective-drop route. It does not prove the signed reserve lemma. It reduces the remaining one-sided `1/4` target to a small elementary symmetric-polynomial inequality; that local-mode mean inequality is proved in the later proof note cited below.
@@ -225,11 +230,23 @@ V = 5/4.
 
 The one-sided proof route is now:
 
-1. The elementary mean lemma is proved in `local_mode_mean_bound_proof_2026-07-04.md`.
-2. Therefore the remaining `D=4` case has `V >= 5/4`, hence `D+1=5 <= 4V`.
-3. The crude Darroch/Newton chain already handled `V >= 3/2` and the `D <= 3` cases.
-4. Thus the sufficient one-sided localization `D+1 <= 4V` is proved for the route considered here.
-5. Combining with Newton gives the one-sided effective-drop bound `Delta_eff >= 1/(4V)`.
-6. The signed case remains open: conditional averaging and boundary terms still have to be handled.
+1. The support-domain step has been made explicit: after zero parameters are
+   removed, `D<=m-1`, so every ratio used below is defined.
+2. The elementary mean lemma is proved in `local_mode_mean_bound_proof_2026-07-04.md`.
+3. Therefore the remaining `D=4` case has `V >= 5/4`, hence `D+1=5 <= 4V`.
+4. The crude Darroch/Newton chain already handled `V >= 3/2` and the `D <= 3` cases.
+5. Thus the sufficient one-sided localization `D+1 <= 4V` is proved for the route considered here.
+6. Combining with Newton gives the one-sided effective-drop bound `Delta_eff >= 1/(4V)`.
+7. The same proof applies at the first weak descent, which is the
+   plateau-safe endpoint for later signed perturbation.
+8. At the time of this reduction, the signed case still had conditional
+   averaging, descent-index selection, and boundary obstacles. The universal
+   2026-07-10 theorem cited at the top supersedes those obstacles.
 
-This closes the one-sided localization gap for this proof route. It does not prove the full signed reserve needed for issue #5.
+An independent 2026-07-10 line audit found no algebraic defect after the
+support repair. It also supplied a `Binomial(5,1/2)-Bernoulli(q)` example
+showing that the strict first-descent value itself is not continuous as
+`q->0+`; only the weak-descent endpoint matches the limiting signed descent.
+
+This closes the one-sided localization gap for this proof route. It does not
+prove the full signed reserve needed for issue #5.

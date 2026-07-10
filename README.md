@@ -16,21 +16,30 @@ This repository does not contain a proof of Erdos Problem #993.
 
 The current active targets are:
 
-1. STP2/tree-DP route. `Formal/STP2Closure.lean` now guards the LC/STP2
+1. Signed-reserve/hub-bouquet route. The one-sided low-probability
+   Poisson-binomial bound has now been lifted to every finite
+   Poisson-binomial law: at a supported first descent,
+   `V * Delta_eff >= 1/4`, hence the raw reserve has the same lower bound.
+   This closes the general signed bridge and the product-term reserve for
+   `A=(1+x)^s Q`. The active target is now perturbation by the hub-included
+   term `xR`, especially for growing broom arms. This is not a general-tree
+   reduction.
+
+2. STP2/tree-DP route. `Formal/STP2Closure.lean` now guards the LC/STP2
    inequalities at `k >= 1` and records two abstract counterexamples showing
    that coefficient-shape hypotheses are too weak, even with contiguous
    support. The remaining target is to identify a genuine tree-DP realizability
    invariant.
 
-2. Fixed-r certificate route. The abstract Route-2 Lean bridge is packaged; the
+3. Fixed-r certificate route. The abstract Route-2 Lean bridge is packaged; the
    next step is to emit a concrete `Route2SplitCertificateFor` or
    `Route2FamilyCertificate` instance from exact rational data.
 
-3. Forest/product search route. Products of known non-log-concave tree
+4. Forest/product search route. Products of known non-log-concave tree
    polynomials should be searched using a direct valley/non-unimodality score
    rather than log-concavity defect.
 
-4. Computation frontier. Exhaustive tree unimodality is verified through
+5. Computation frontier. Exhaustive tree unimodality is verified through
    `n <= 29`; the analogous `n = 29` log-concavity / near-miss audit has not
    been completed.
 
@@ -41,7 +50,8 @@ The manuscript (`paper/main_v2.tex`) reports:
 **Proved theorems:**
 - **Subdivision-contraction identity:** I(T_e) = I(T) + x I(T/e) for any tree edge e
 - **Conditional subdivision lemma:** If edge contraction shifts the mode by at most 1 (ECMS), then subdivision preserves unimodality, making any minimal counterexample homeomorphically irreducible
-- **PNP reduction:** Hub Exclusion + Transfer Lemmas reduce unimodality for all trees to Conjecture A about trees with d_leaf <= 1
+- **Mean bound:** mu(T) < n/3 for every d_leaf <= 1 tree on n >= 3 vertices
+- **Conditional PNP framework:** Hub Exclusion + Transfer reduce the 1-Private maximal-IS bound to Conjecture A together with a separate Case-B hub bound; PNP itself does not prove unimodality
 - **Edge bound:** P(u) + P(v) < 2/3 for every tree edge (hard-core model)
 - **Leaf-attachment asymptotics:** nm(s) = 1 - C/s + O(1/s^2) with C in [4, 8)
 
@@ -60,12 +70,18 @@ The manuscript (`paper/main_v2.tex`) reports:
 pip install networkx numpy
 ```
 
+The July 2026 proof-audit harnesses additionally use:
+
+```bash
+pip install mpmath sympy
+```
+
 Optional: install [nauty](https://pallini.di.uniroma1.it/) for fast tree enumeration (`brew install nauty` on macOS).
 
 ## Reproduce
 
 ```bash
-# Unit tests (37 tests)
+# Unit tests (55 tests)
 python3 -m unittest test_all.py -v
 
 # Exhaustive search, n <= 26 locally (8 workers, requires geng)
@@ -84,6 +100,13 @@ python3 targeted.py --max-n 500 --random-count 5000
 
 # Evolutionary nm optimizer (multi-arm star search)
 python3 nm_optimizer.py --min-n 50 --max-n 200
+
+# Signed-reserve theorem audit harnesses
+python3 scripts/verify_skellam_effective_drop.py
+python3 scripts/verify_one_reflected_bernoulli.py
+python3 scripts/verify_two_reflected_bernoulli.py
+python3 scripts/verify_universal_pb_effective_drop.py
+python3 scripts/verify_universal_pb_finite_bernstein.py
 ```
 
 ## Key files

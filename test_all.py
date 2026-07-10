@@ -167,22 +167,202 @@ class TestSignedConditionalReduction(unittest.TestCase):
             pmf = cls._convolve_fraction(pmf, block)
         return pmf
 
+    @staticmethod
+    def _exact_first_descent(
+        seq: list[Fraction],
+        *,
+        weak: bool = False,
+    ) -> int | None:
+        for k in range(1, len(seq)):
+            if seq[k] < seq[k - 1] or (weak and seq[k] == seq[k - 1]):
+                return k
+        return None
+
+    @classmethod
+    def _exact_signed_profile(
+        cls,
+        x_blocks: list[tuple[int, Fraction]],
+        y_blocks: list[tuple[int, Fraction]],
+        *,
+        weak: bool = False,
+    ) -> tuple[list[Fraction], list[Fraction], list[Fraction], int, int]:
+        x_pmf = cls._exact_grouped_pmf(x_blocks)
+        y_pmf = cls._exact_grouped_pmf(y_blocks)
+        signed = cls._convolve_fraction(x_pmf, list(reversed(y_pmf)))
+        descent = cls._exact_first_descent(signed, weak=weak)
+        if descent is None:
+            raise AssertionError("exact signed profile has no descent")
+        support_start = -(len(y_pmf) - 1)
+        return x_pmf, y_pmf, signed, descent, support_start + descent
+
+    @staticmethod
+    def _exact_ratio(seq: list[Fraction], index: int) -> Fraction:
+        if index < 0 or index >= len(seq) - 1:
+            return Fraction(0)
+        return seq[index + 1] / seq[index]
+
+    @staticmethod
+    def _exact_reverse_ratio(seq: list[Fraction], index: int) -> Fraction:
+        if index <= 0 or index >= len(seq):
+            return Fraction(0)
+        return seq[index - 1] / seq[index]
+
+    @staticmethod
+    def _exact_expectation(
+        weighted_values: list[tuple[int, Fraction]],
+        fn,
+    ) -> Fraction:
+        total_weight = sum((weight for _, weight in weighted_values), Fraction(0))
+        return sum(
+            (weight * fn(value) for value, weight in weighted_values),
+            Fraction(0),
+        ) / total_weight
+
+    @classmethod
+    def _exact_side_reduction_components(
+        cls,
+        x_pmf: list[Fraction],
+        y_pmf: list[Fraction],
+        z: int,
+    ) -> dict[str, Fraction]:
+        lo = max(0, -z)
+        hi = min(len(y_pmf) - 1, len(x_pmf) - 1 - z)
+        conditional = [
+            (y, x_pmf[z + y] * y_pmf[y])
+            for y in range(lo, hi + 1)
+        ]
+        c_z = sum((weight for _, weight in conditional), Fraction(0))
+
+        x_lower_index = -z - 1
+        x_boundary = (
+            x_pmf[0] * y_pmf[x_lower_index] / c_z
+            if 0 <= x_lower_index < len(y_pmf)
+            else Fraction(0)
+        )
+        y_upper_index = len(y_pmf) - 1
+        y_upper_x_index = z + 1 + y_upper_index
+        y_boundary = (
+            x_pmf[y_upper_x_index] * y_pmf[y_upper_index] / c_z
+            if 0 <= y_upper_x_index < len(x_pmf)
+            else Fraction(0)
+        )
+        x_upper_index = len(x_pmf) - 1
+        x_upper_y_index = x_upper_index + 1 - z
+        x_reciprocal_beta = (
+            x_pmf[x_upper_index] * y_pmf[x_upper_y_index] / c_z
+            if 0 <= x_upper_y_index < len(y_pmf)
+            else Fraction(0)
+        )
+        y_lower_x_index = z - 1
+        y_reciprocal_beta = (
+            x_pmf[y_lower_x_index] * y_pmf[0] / c_z
+            if 0 <= y_lower_x_index < len(x_pmf)
+            else Fraction(0)
+        )
+
+        x_forward_mean = cls._exact_expectation(
+            conditional,
+            lambda y: cls._exact_ratio(x_pmf, z + y),
+        )
+        x_reciprocal_core = cls._exact_expectation(
+            conditional,
+            lambda y: cls._exact_reverse_ratio(x_pmf, z + y),
+        )
+        x_forward_reciprocal_mean = cls._exact_expectation(
+            conditional,
+            lambda y: (
+                cls._exact_ratio(x_pmf, z + y)
+                * cls._exact_reverse_ratio(x_pmf, z + y)
+            ),
+        )
+        x_inverse_index_gain = cls._exact_expectation(
+            conditional,
+            lambda y: Fraction(1, z + y + 1) if z + y + 1 > 0 else Fraction(0),
+        )
+        x_dispersion_penalty = (
+            x_forward_mean * x_reciprocal_core - x_forward_reciprocal_mean
+        )
+        x_lower_boundary_penalty = x_boundary * x_reciprocal_core
+        x_upper_boundary_penalty = (
+            x_forward_mean + x_boundary
+        ) * x_reciprocal_beta
+        x_reduction_bound = (
+            x_inverse_index_gain
+            - x_dispersion_penalty
+            - x_lower_boundary_penalty
+            - x_upper_boundary_penalty
+        )
+
+        y_backward_mean = cls._exact_expectation(
+            conditional,
+            lambda y: cls._exact_reverse_ratio(y_pmf, y),
+        )
+        y_reciprocal_core = cls._exact_expectation(
+            conditional,
+            lambda y: cls._exact_ratio(y_pmf, y),
+        )
+        y_backward_reciprocal_mean = cls._exact_expectation(
+            conditional,
+            lambda y: (
+                cls._exact_reverse_ratio(y_pmf, y)
+                * cls._exact_ratio(y_pmf, y)
+            ),
+        )
+        y_inverse_index_gain = cls._exact_expectation(
+            conditional,
+            lambda y: Fraction(1, y + 1),
+        )
+        y_dispersion_penalty = (
+            y_backward_mean * y_reciprocal_core - y_backward_reciprocal_mean
+        )
+        y_lower_reciprocal_penalty = y_backward_mean * y_reciprocal_beta
+        y_upper_boundary_penalty = y_boundary * (
+            y_reciprocal_core + y_reciprocal_beta
+        )
+        y_reduction_bound = (
+            y_inverse_index_gain
+            - y_dispersion_penalty
+            - y_lower_reciprocal_penalty
+            - y_upper_boundary_penalty
+        )
+
+        return {
+            "x_inverse_index_gain": x_inverse_index_gain,
+            "x_dispersion_penalty": x_dispersion_penalty,
+            "x_lower_boundary_penalty": x_lower_boundary_penalty,
+            "x_upper_boundary_penalty": x_upper_boundary_penalty,
+            "x_reduction_bound": x_reduction_bound,
+            "y_inverse_index_gain": y_inverse_index_gain,
+            "y_dispersion_penalty": y_dispersion_penalty,
+            "y_lower_reciprocal_penalty": y_lower_reciprocal_penalty,
+            "y_upper_boundary_penalty": y_upper_boundary_penalty,
+            "y_reduction_bound": y_reduction_bound,
+        }
+
+    @staticmethod
+    def _exact_effective_drop(
+        signed: list[Fraction],
+        descent: int,
+    ) -> Fraction:
+        previous_ratio = signed[descent] / signed[descent - 1]
+        pressure = signed[descent + 1] / signed[descent]
+        return 1 - pressure / previous_ratio
+
     @classmethod
     def _exact_signed_scaled_slacks(
         cls,
         x_blocks: list[tuple[int, Fraction]],
         y_blocks: list[tuple[int, Fraction]],
     ) -> tuple[Fraction, Fraction]:
-        x_pmf = cls._exact_grouped_pmf(x_blocks)
-        y_pmf = cls._exact_grouped_pmf(y_blocks)
-        signed = cls._convolve_fraction(x_pmf, list(reversed(y_pmf)))
-        descent = next(
-            k for k in range(1, len(signed)) if signed[k] < signed[k - 1]
+        _, _, signed, descent, _ = cls._exact_signed_profile(
+            x_blocks,
+            y_blocks,
         )
-        previous_ratio = signed[descent] / signed[descent - 1]
         pressure = signed[descent + 1] / signed[descent]
         variance = sum(count * p * (1 - p) for count, p in [*x_blocks, *y_blocks])
-        return variance * (1 - pressure / previous_ratio), variance * (1 - pressure)
+        return variance * cls._exact_effective_drop(signed, descent), variance * (
+            1 - pressure
+        )
 
     def test_fair_binomial_signed_fallback_constants(self):
         best_delta = None
@@ -337,6 +517,99 @@ class TestSignedConditionalReduction(unittest.TestCase):
             self.assertAlmostEqual(analysis["variance_times_reserve"], reserve)
             self.assertGreater(analysis["variance_times_effective_ratio_drop"], 0.75)
             self.assertGreater(analysis["variance_times_reserve"], 0.75)
+
+    def test_half_heavy_side_reduction_disproof_exactly(self):
+        x_blocks = [(1, Fraction(1, 4)), (6, Fraction(1, 2))]
+        y_blocks = [(4, Fraction(1, 2))]
+        x_pmf, y_pmf, signed, descent, z = self._exact_signed_profile(
+            x_blocks,
+            y_blocks,
+        )
+        variance = sum(
+            count * p * (1 - p) for count, p in [*x_blocks, *y_blocks]
+        )
+        components = self._exact_side_reduction_components(x_pmf, y_pmf, z)
+        x_bound = (
+            components["x_inverse_index_gain"]
+            - components["x_dispersion_penalty"]
+            - components["x_lower_boundary_penalty"]
+            - components["x_upper_boundary_penalty"]
+        )
+        y_bound = (
+            components["y_inverse_index_gain"]
+            - components["y_dispersion_penalty"]
+            - components["y_lower_reciprocal_penalty"]
+            - components["y_upper_boundary_penalty"]
+        )
+
+        self.assertEqual(z, 2)
+        self.assertEqual(variance, Fraction(43, 16))
+        self.assertEqual(x_bound, components["x_reduction_bound"])
+        self.assertEqual(y_bound, components["y_reduction_bound"])
+        self.assertEqual(x_bound, Fraction(399961, 4594590))
+        self.assertEqual(y_bound, Fraction(8069, 92610))
+
+        scaled_best = variance * max(x_bound, y_bound)
+        self.assertEqual(scaled_best, Fraction(346967, 1481760))
+        self.assertLess(scaled_best, Fraction(1, 4))
+        self.assertEqual(Fraction(1, 4) - scaled_best, Fraction(23473, 1481760))
+
+        pressure = signed[descent + 1] / signed[descent]
+        self.assertEqual(
+            variance * self._exact_effective_drop(signed, descent),
+            Fraction(19393, 24696),
+        )
+        self.assertEqual(variance * (1 - pressure), Fraction(559, 588))
+
+    def test_strict_descent_discontinuity_at_binomial_plateau_exactly(self):
+        x_blocks = [(5, Fraction(1, 2))]
+        y_at_plateau = [(1, Fraction(0))]
+        _, _, base_signed, base_descent, base_z = self._exact_signed_profile(
+            x_blocks,
+            y_at_plateau,
+        )
+        _, _, base_signed_weak, base_weak_descent, base_weak_z = (
+            self._exact_signed_profile(x_blocks, y_at_plateau, weak=True)
+        )
+        self.assertEqual(base_z, 4)
+        self.assertEqual(
+            self._exact_effective_drop(base_signed, base_descent),
+            Fraction(3, 5),
+        )
+        self.assertEqual(base_weak_z, 3)
+        self.assertEqual(
+            self._exact_effective_drop(base_signed_weak, base_weak_descent),
+            Fraction(1, 2),
+        )
+
+        q = Fraction(1, 1000)
+        _, _, signed, descent, z = self._exact_signed_profile(
+            x_blocks,
+            [(1, q)],
+        )
+        _, _, signed_weak, weak_descent, weak_z = self._exact_signed_profile(
+            x_blocks,
+            [(1, q)],
+            weak=True,
+        )
+        perturbed_drop = self._exact_effective_drop(signed, descent)
+        self.assertEqual(z, 3)
+        self.assertEqual(weak_z, 3)
+        self.assertEqual(descent, weak_descent)
+        self.assertEqual(signed, signed_weak)
+        self.assertEqual(
+            perturbed_drop,
+            1 - Fraction(10) * (5 - 4 * q) / (10 - 5 * q) ** 2,
+        )
+        self.assertEqual(perturbed_drop, Fraction(1997601, 3996001))
+        self.assertEqual(
+            Fraction(1, 2) - perturbed_drop,
+            Fraction(799, 7992002),
+        )
+        self.assertLess(
+            abs(perturbed_drop - Fraction(1, 2)),
+            abs(perturbed_drop - Fraction(3, 5)),
+        )
 
     def test_half_heavy_dust_point_disproves_eight_tenths_exactly(self):
         scaled_effective, scaled_reserve = self._exact_signed_scaled_slacks(

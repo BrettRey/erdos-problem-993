@@ -4,23 +4,46 @@
 
 **Conjecture A.** If every vertex of tree $T$ has $d_{\text{leaf}}(v) \le 1$, then $\text{mode}(I(T)) \le \lfloor n/3 \rfloor + 1$.
 
-## Proof Reduction via Mean Bound
+## Current Reduction (Corrected 2026-07-10)
 
-### Step 1: Mode ≤ Mean (Log-Concavity)
+### Step 1: Mean bound (PROVED)
 
-**Correction (2026-02-15):** Tree IS polynomials are NOT real-rooted in general. Chudnovsky and Seymour (2007) proved real-rootedness for *claw-free* graphs, but trees with any vertex of degree ≥ 3 contain induced $K_{1,3}$ (a claw). Verified computationally: $S(2,2,2)$ and $K_{1,3}$ both have complex roots.
+The current manuscript proves
 
-However, for $d_{\text{leaf}} \le 1$ trees, the IS polynomial is *log-concave* (verified for all 227,678 such trees through $n = 22$). For a log-concave sequence with positive terms, $\text{mode} \le \lceil \mu \rceil$ where $\mu = I'(1)/I(1)$ is the mean IS size.
+$$
+\mu(I(T))<n/3
+$$
 
-Since $\mu < n/3$ implies $\lceil \mu \rceil \le \lfloor n/3 \rfloor + 1$ (by case analysis on $n \bmod 3$), **Conjecture A reduces to: $\mu(I(T)) < n/3$ for all $d_{\text{leaf}} \le 1$ trees.**
+for every $d_{\text{leaf}}\le1$ tree by a decimation identity and Steiner
+peeling. Spider extremality is no longer needed to establish this inequality.
 
-### Step 2: Spider Extremality (CONJECTURE, verified n ≤ 20)
+### Step 2: Mode--mean or tie-fugacity bridge (OPEN)
+
+Conjecture A would follow from either
+
+$$
+\operatorname{mode} I(T)\le\lceil\mu(T)\rceil
+$$
+
+or the narrower tie-fugacity condition
+
+$$
+\mu(\lambda_m)\ge m-1.
+$$
+
+Neither statement follows from positive log-concavity alone. For example,
+$(1,2,3,4,5)$ is strictly log-concave but has mode $4$ and mean $8/3$.
+Moreover, the July 2026 Ramos--Sun stress corpus contains many
+$d_{\text{leaf}}\le1$ trees whose independence sequences are not
+log-concave. Thus no log-concavity shortcut remains.
+
+### Historical Step: Spider Extremality (CONJECTURE, verified n ≤ 20)
 
 **Conjecture A1.** Among all $d_{\text{leaf}} \le 1$ trees on $n$ vertices, spiders maximize $\mu$.
 
 Verified exhaustively through $n = 20$ (43,029 trees at $n = 20$). The best $d_{\text{leaf}} \le 1$ tree is always a spider, at every $n$ from 5 to 20.
 
-### Step 3: Optimal Spider Configuration (verified n ≤ 20)
+### Historical Step: Optimal Spider Configuration (verified n ≤ 20)
 
 Among $d_{\text{leaf}} \le 1$ spiders on $n$ vertices, $\mu$ is maximized by:
 - $S(2^k, 1)$ for even $n = 2k + 2$
@@ -30,7 +53,7 @@ Both have one arm of length 1 (giving $d_{\text{leaf}}(\text{hub}) = 1$) and rem
 
 The arm-1 "trick": replacing two arms of length 2 with one of length 3 and one of length 1 increases $\mu$, because a pendant edge has disproportionately high per-vertex IS contribution. The $d_{\text{leaf}} \le 1$ constraint limits this to at most one arm of length 1.
 
-### Step 4: Mean Bound for Optimal Spider (PROVED)
+### Calibration: Mean Bound for Optimal Spider (PROVED)
 
 **Lemma.** $\mu(S(2^k, 1)) < n/3$ for all $k \ge 1$.
 
@@ -53,16 +76,18 @@ Asymptotically: gap $\to 1/6$ as $k \to \infty$.
 
 | Step | Statement | Status |
 |------|-----------|--------|
-| 1 | $\text{mode} \le \lceil \mu \rceil$ | OPEN (CS07 applies to claw-free only; trees are not claw-free) |
-| 2 | Spiders maximize $\mu$ among $d_{\text{leaf}} \le 1$ | CONJECTURE (n ≤ 20) |
-| 3 | $S(2^k, 1)$ is optimal spider | CONJECTURE (n ≤ 20) |
-| 4 | $\mu(S(2^k, 1)) < n/3$ | PROVED (algebraic) |
+| 1 | $\mu(T)<n/3$ for $d_{\text{leaf}}\le1$ | PROVED (Steiner peeling) |
+| 2 | $\text{mode} \le \lceil \mu \rceil$ or tie-fugacity bridge | OPEN |
+| 3 | Spiders maximize $\mu$ among $d_{\text{leaf}} \le 1$ | HISTORICAL CONJECTURE (not needed for Step 1) |
+| 4 | $\mu(S(2^k, 1)) < n/3$ | PROVED calibration |
 
-**Open:** Steps 2 and 3. If these hold, then $\mu(T) < n/3$ for all $d_{\text{leaf}} \le 1$ trees, proving Conjecture A.
+**Open:** Step 2. The proved mean bound plus either mode bridge would prove
+Conjecture A. Conjecture A is only the $d_{\text{leaf}}\le1$ part of the
+conditional PNP framework; a separate Case-B hub bound remains open.
 
 ---
 
-## Failed Approaches for Direct Proof of μ < n/3
+## Historical Failed Approaches for Direct Proof of μ < n/3
 
 ### Per-vertex bound P(v ∈ S) ≤ 1/3
 

@@ -1,0 +1,165 @@
+{
+  "certificate": "Bernstein replacement for universal PBD finite scalar cells",
+  "certificate_date": "2026-07-10",
+  "arithmetic": "exact SymPy rationals/polynomials",
+  "sympy_version": "1.14.0",
+  "basis": "binomial(n,i)*t^i*(1-t)^(n-i) on 0<=t<=1",
+  "substitution": "H=left_endpoint+t",
+  "asymmetric_cells": 1,
+  "compact_symmetric_cells": 12,
+  "total_cells": 13,
+  "total_coefficients": 275,
+  "all_reconstructions_exact": true,
+  "all_coefficients_strictly_positive": true,
+  "combined_cell_digest_sha256": "c920cc3bc11eb1564047645ef6b8dd4221efa834b439115bcbad6fb8fdfe4330",
+  "cells": [
+    {
+      "name": "asymmetric_3_4",
+      "interval": "[3,4]",
+      "degree": 10,
+      "coefficient_count": 11,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "22272",
+      "maximum_numerator_digits": 8,
+      "maximum_denominator_digits": 2,
+      "coefficient_sha256": "e1e452c9c93c30cd33ff0470c6d81a4c0bfb79fe07c36459cd4daaa2ffb789d5"
+    },
+    {
+      "name": "symmetric_4_5",
+      "interval": "[4,5]",
+      "degree": 10,
+      "coefficient_count": 11,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "332800",
+      "maximum_numerator_digits": 9,
+      "maximum_denominator_digits": 3,
+      "coefficient_sha256": "441f603ac3f60919665f154801ae9fec150ba2dac02382ac870105f92067c356"
+    },
+    {
+      "name": "symmetric_5_6",
+      "interval": "[5,6]",
+      "degree": 12,
+      "coefficient_count": 13,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "476945150",
+      "maximum_numerator_digits": 12,
+      "maximum_denominator_digits": 3,
+      "coefficient_sha256": "80a652bad6b13e69c4f3200f6140f0f7ceb8d681b433a817927fcfde6f4c80be"
+    },
+    {
+      "name": "symmetric_6_7",
+      "interval": "[6,7]",
+      "degree": 14,
+      "coefficient_count": 15,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "252843503616",
+      "maximum_numerator_digits": 16,
+      "maximum_denominator_digits": 4,
+      "coefficient_sha256": "e3ad5553e47317b267ea56a45a2d853029a9a602545ba7f2357462a617cd0d85"
+    },
+    {
+      "name": "symmetric_7_8",
+      "interval": "[7,8]",
+      "degree": 16,
+      "coefficient_count": 17,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "141578177942152",
+      "maximum_numerator_digits": 18,
+      "maximum_denominator_digits": 4,
+      "coefficient_sha256": "6c774572e048423c105ff978b7042abb398369666ac5f6a6f903df5e8fe7f980"
+    },
+    {
+      "name": "symmetric_8_9",
+      "interval": "[8,9]",
+      "degree": 18,
+      "coefficient_count": 19,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "92316620768411648",
+      "maximum_numerator_digits": 22,
+      "maximum_denominator_digits": 5,
+      "coefficient_sha256": "e9b192d522d49b1e66d1948d4bb774cce9eab468e3bca0f4ed1b06a69d467169"
+    },
+    {
+      "name": "symmetric_9_10",
+      "interval": "[9,10]",
+      "degree": 20,
+      "coefficient_count": 21,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "71284663153149460650",
+      "maximum_numerator_digits": 26,
+      "maximum_denominator_digits": 5,
+      "coefficient_sha256": "876f43f48d0c3c1ea3a7fa237ac1ea527a7855286ebc58ac891969ca880718d1"
+    },
+    {
+      "name": "symmetric_10_11",
+      "interval": "[10,11]",
+      "degree": 22,
+      "coefficient_count": 23,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "65053547560474378240000",
+      "maximum_numerator_digits": 29,
+      "maximum_denominator_digits": 6,
+      "coefficient_sha256": "b741906966aed963db8b6dd41732fa6fd1ffab2ef99e7491db3ae904fd033091"
+    },
+    {
+      "name": "symmetric_11_12",
+      "interval": "[11,12]",
+      "degree": 24,
+      "coefficient_count": 25,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "69645362929101036447979796",
+      "maximum_numerator_digits": 33,
+      "maximum_denominator_digits": 6,
+      "coefficient_sha256": "6c318dad1104904865f9aa3c865bad147fed1a827cd868b49c2bb5d66476f70a"
+    },
+    {
+      "name": "symmetric_12_13",
+      "interval": "[12,13]",
+      "degree": 26,
+      "coefficient_count": 27,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "86706679760909016273411637248",
+      "maximum_numerator_digits": 37,
+      "maximum_denominator_digits": 7,
+      "coefficient_sha256": "643c6c7cf85a5535537a9eb95135fb2a8954b4866b83fbd40fa41a1a24c41728"
+    },
+    {
+      "name": "symmetric_13_14",
+      "interval": "[13,14]",
+      "degree": 28,
+      "coefficient_count": 29,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "124437022735783915561664544889462",
+      "maximum_numerator_digits": 40,
+      "maximum_denominator_digits": 7,
+      "coefficient_sha256": "64f915da71a6e95d98d0b4451704204ee7a447fd71e6090dfd134ab3231bae18"
+    },
+    {
+      "name": "symmetric_14_15",
+      "interval": "[14,15]",
+      "degree": 30,
+      "coefficient_count": 31,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "204172536352322626071425358548172800",
+      "maximum_numerator_digits": 44,
+      "maximum_denominator_digits": 9,
+      "coefficient_sha256": "e31285e840aa69d9882286637143a1c78da0a2ff88ca3527d82e8c1e04b7f234"
+    },
+    {
+      "name": "symmetric_15_16",
+      "interval": "[15,16]",
+      "degree": 32,
+      "coefficient_count": 33,
+      "all_strictly_positive": true,
+      "minimum_coefficient": "380093996939768323066638847260414000000",
+      "maximum_numerator_digits": 48,
+      "maximum_denominator_digits": 9,
+      "coefficient_sha256": "0850f4a393088df01ab34888ea804ee55937c3a9de9948c7a8166b365f5beb4c"
+    }
+  ],
+  "lean_emitter": {
+    "available": true,
+    "contents": "List \u211a coefficient data, positivity proofs, and ring identities"
+  },
+  "status": "passed"
+}
