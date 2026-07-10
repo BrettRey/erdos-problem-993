@@ -548,6 +548,24 @@ The result does not determine the sharp constant. Sparse Poisson limits still
 suggest \(1/3\) as the true boundary, but the present proof claims only
 \(1/4\).
 
+## Lean Formalization Status
+
+The first formal layer is complete in
+`formalization/pb_effective_drop_aristotle/PBReserve/Core.lean`. It verifies in
+Lean 4.28:
+
+- iteration of the normalized cubic-curvature recurrence over the window used
+  in this proof;
+- exclusion of a curvature-one endpoint from that window;
+- the first-crossing ratio lower bound;
+- transfer from effective drop to raw reserve.
+
+The file has no `sorry` or additional axioms. This layer assumes the normalized
+Hillion--Johnson recurrence rather than deriving it from a Poisson-binomial
+law, so it is not yet an end-to-end formalization of the theorem. The audited
+Aristotle run and exact scope boundary are recorded in
+`formalization/pb_effective_drop_aristotle/ARISTOTLE_RESULT.md`.
+
 ## Replay
 
 Run:

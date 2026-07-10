@@ -196,14 +196,14 @@ note and replayable certificate. A sensible staged formalization is:
 - finally formalize the Hillion--Johnson cubic input for a fully end-to-end
   theorem.
 
-The first minimal Lean 4.28 packet is prepared at
-`formalization/pb_effective_drop_aristotle/`. It contains nine audited theorem
-statements covering curvature propagation, endpoint exclusion, the crossing
-ratio, and the raw-from-effective implication; the skeleton builds with
-exactly those nine proof holes. It has not yet been uploaded. Harmonic's terms
-say submitted code may be used to train its models unless model training has
-been turned off in Brett's dashboard settings. The API cannot reveal that
-setting, so no upload occurred.
+The first minimal Lean 4.28 packet at
+`formalization/pb_effective_drop_aristotle/` is now complete. Aristotle project
+`8d59a353-5c7b-4071-b837-9ab7bf561be3` filled all nine proof holes covering
+curvature propagation, endpoint exclusion, the crossing ratio, and the
+raw-from-effective implication. Independent local replay builds without
+`sorry` or new axioms. This milestone remains conditional on the normalized
+Hillion--Johnson recurrence and therefore does not yet constitute an
+end-to-end formalization of the universal PB theorem.
 
 ## Principal New Files
 

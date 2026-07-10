@@ -37,12 +37,15 @@ The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapsho
   coefficients are positive, and emits Lean 4.28 identities that compile.
   Certificate:
   `results/universal_pb_finite_bernstein_certificate_2026-07-10.json`.
-- **Aristotle staging.** A minimal Lean 4.28 packet for endpoint-aware
-  curvature propagation and the raw-from-effective corollary is prepared at
-  `formalization/pb_effective_drop_aristotle/`. It has not been uploaded.
-  Harmonic's terms say submitted code may be used to train its models unless
-  model training has been turned off in Brett's dashboard settings. The API
-  cannot reveal that setting, so no upload occurred.
+- **Aristotle core formalization complete.** Project
+  `8d59a353-5c7b-4071-b837-9ab7bf561be3`, task
+  `eb147738-3627-4d2b-96a5-6922b28b92e6`, filled all nine proof holes in the
+  minimal Lean 4.28 packet at `formalization/pb_effective_drop_aristotle/`.
+  Local replay builds with no `sorry` or new axioms. This verifies the
+  endpoint-aware curvature propagation, endpoint exclusion, crossing ratio,
+  and raw-from-effective layer conditional on the normalized
+  Hillion--Johnson recurrence; it is not yet an end-to-end formalization of
+  the universal PB theorem.
 - **Independent special-case proofs.** The full Skellam limit and finite laws
   with one and two reflected Bernoulli factors were proved and independently
   audited before the universal argument was found. Their replay harnesses
@@ -65,8 +68,8 @@ The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapsho
   material before manuscript migration.
 - **Verification:** `python3 -m unittest test_all.py -v` passed; all five new
   theorem/certificate harnesses passed; the emitted finite-cell Lean file and
-  the Aristotle staging skeleton build under Lean 4.28; `python3 -m py_compile`
-  on the new scripts passed; `git diff --check` passed.
+  completed Aristotle core build under Lean 4.28; `python3 -m py_compile` on
+  the new scripts passed; `git diff --check` passed.
 
 ## Current state (2026-07-04)
 
