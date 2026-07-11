@@ -6,6 +6,12 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
 
 ---
 
+## 2026-07-10
+
+- **Treat the universal finite Poisson-binomial reserve bound as a proved private theorem, not as a solution of Erdős #993** Exact symbolic replay, independent mathematical audits, and the completed conditional Lean core support the theorem itself. It closes the finite signed nonterminal bridge, but it does not control the additive `xR` perturbation in the hub-bouquet argument and therefore does not close Case B, PNP, issue #5, or the original problem.
+- **Keep the current manuscript unchanged pending a deliberate publication decision** The result may justify a standalone note or a later manuscript revision, but migration requires a Hillion--Johnson citation and manuscript-grade presentation of the exact certificates. No release, Erdős Problems announcement, or solution claim should be made from the current repository state.
+- **Use fixed-arm `A+xR` perturbation as the next proof target** The next bounded research lane is separate pre-descent and post-descent increment control for fixed arm length. Growing brooms and end-to-end Lean formalization are later targets; the latter is tracked separately in GitHub issue #7, while issue #5 remains open.
+
 ## 2026-07-04
 
 - **Switch issue #5 signed-reserve work to audit-hardening mode** External audits found real errors in the recent proof route (missing X-side boundary term, fair-binomial constant error, strict-transfer overstatement, float plateau risk). The durable stance is now: patch audit findings before extending the route, keep theorem/algebra/computation/conjecture/disproof separated, regression-test every concrete error, and do not close issue #5 or claim signed reserve / hub-bouquet reserve / Erdos #993 from these notes.

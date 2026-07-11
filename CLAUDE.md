@@ -31,6 +31,11 @@ A **counterexample** is any tree where this sequence is not unimodal (i.e., it d
 - Problem page: erdosproblems.com/993
 - Do NOT fabricate results or claim verification without running actual computations
 
+## Proof-agent workflow
+
+- A July 2026 GPT-5.6-sol Ultra session made substantive progress on the signed-reserve lane, including a universal finite Poisson-binomial bound. Treat this as evidence that the model is worth using on tightly scoped proof work, not as a substitute for exact replay or independent audit.
+- Aristotle (Harmonic) is available through `scripts/aristotle_cli.py` and the Harmonic API/dashboard. Use it for frozen, bounded Lean packets after the mathematical statement is settled; replay every result locally and audit for `sorry` and unexpected axioms. The completed conditional example is `formalization/pb_effective_drop_aristotle/`.
+
 ## Setup
 
 Python 3.14.2 is available (`python3 --version`). Before running anything:

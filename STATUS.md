@@ -66,6 +66,16 @@ The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapsho
   theorem is a new private result and would require a deliberate standalone or
   revision decision, a Hillion--Johnson citation, and the exact certificate
   material before manuscript migration.
+- **Shipped and externally tracked.** Commits `6b078d2` and `011c65b` are on
+  `origin/master`. Issue #5 was updated but deliberately left open for the
+  `A+xR` perturbation problem; issue #7 now tracks end-to-end Lean
+  formalization. No release, manuscript update, Erdős Problems post, or
+  solution announcement was made.
+- **Clean stopping point.** The next bounded mathematical target is the
+  fixed-arm `A+xR` perturbation theorem, with separate pre-descent and
+  post-descent increment budgets. Growing-broom asymptotics and full Lean
+  formalization should not be taken first. Stale Aristotle/Lean build children
+  were terminated; no project, Aristotle, harness, or agent process remains.
 - **Verification:** `python3 -m unittest test_all.py -v` passed; all five new
   theorem/certificate harnesses passed; the emitted finite-cell Lean file and
   completed Aristotle core build under Lean 4.28; `python3 -m py_compile` on
