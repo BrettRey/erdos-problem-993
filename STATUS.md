@@ -9,6 +9,97 @@
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## Current state (2026-07-11)
+
+### Session notes (broad prefix-GSB variance push, numbered D1--D27 round)
+
+- **Lane.** This is the variance/moment attack (D6/D13), separate from the
+  2026-07-10 signed-reserve Poisson-binomial lane (D4). The numbered search
+  through D27 was run against one strict resolution gate; the full index is
+  `notes/solve_today_registry_2026-07-11.md`. No resolution: no counterexample
+  and no full proof. The manuscript was not changed.
+- **Central reduction (D13).** Prefix GSB, `Var(e_r) <= 2 mu_r + 2 eta_r` for
+  `r <= L-2` with `mu_r=(r+1)i_(r+1)/i_r`, implies full unimodality: it makes
+  `d_r=mu_r-(r+1)` nonincreasing through the uncertified prefix, and the known
+  decreasing tail from `L` absorbs the rest, with plateaus automatic. In
+  coefficients this is `(r+2)i_r i_(r+2) <= (r+1)i_(r+1)^2 + i_r i_(r+1)`. It is
+  strictly weaker than ordered log-concavity and survives the 26-vertex
+  deep-tail LC failure.
+- **Base cases proved (r <= 3).** D6 proves `Var_r(e) <= E_r(e)`
+  unconditionally for `r=1` and `r=2` (exact discriminant argument), so any
+  minimal failure has `r>=3`. D12 proves the rank-three prefix-GSB theorem
+  `alpha>=7 ==> 5 i_3 i_5 <= 4 i_4^2 + i_3 i_4` (equivalently `mu_4<=mu_3+1`)
+  with an exact symbolic certificate. Packet
+  `notes/rank3_prefix_gsb_theorem_packet_2026-07-11.md`, replay
+  `scratch_rank3_gsb_certificate_20260711.py` (independently audited; local
+  replay prints `symbolic_certificates: passed` with positive finite-base
+  minima through order 14). A minimal failure therefore has `r>=4`, `k>=4`.
+- **Rank-four method limit (D12).** The rank-three proof cannot be generalized
+  from the same recorded radius-two statistics alone. Two order-13 trees (`L??????_B_H__y`,
+  `L??????o@_DA@{`) share identical radius-two moments but have `i_6=170` and
+  `168`. This blocks extension of that certificate from those statistics; it
+  does not rule out other rank-four mechanisms. Replay
+  `scratch_rank4_radius2_obstruction_20260711.py`.
+- **Spectral route blocked (D14).** The down--up chain reduces prefix GSB to a
+  gap bound plus an aggregate energy inequality, but the separated energy
+  estimate is false at an exact, audited `n=210` witness (join two rooted
+  spherical trees with branching `(2,3,2,1,2,1,1)`, `alpha=124`, last prefix
+  rank `r=81`). That tree is still unimodal (true GSB ratio approximately
+  0.214). Frozen packet `notes/d14_ed_obstruction_packet_2026-07-11.md`,
+  certificate `scratch_d14_ed_obstruction_certificate_20260711.py` passed.
+- **Earlier families, mostly negative.** D1 shifted-ratio domination is exactly
+  false at rooted `n=29`. D2 minimal-counterexample corridor is
+  theorem-strength blocked (subsumes open vertex-deletion mode stability;
+  adjacent summand modes are not universal). D3 connector engineering
+  converged with no counterexample (best order 171, no later ascent). D7
+  pair-switching Hall/min-cut models each fail at small order and are blocked
+  pending a new block-tree cut inequality. The unedged `Var<=2 mu` is false at
+  Galvin's `T_(6,6,1)`, and unrestricted GSB is false at Galvin's `T_(14,8,1)`,
+  so a global monotone-`d_r` proof is blocked and the prefix window is
+  essential. D10 and D16 are blocked.
+- **D19--D24 localization.** Decorated paths compress back to one
+  product-minus-corner bridge (D19); direct leaves suppress the correcting
+  branch and nested stars binomially smooth hard bumps (D20); block drift is
+  algebraically equivalent to GSB (D21); bare nonedge signs and componentwise
+  collision allocation fail (D22); stable or marginal periodic phase grammars
+  cannot maintain standardized phase separation (D23); and separated or
+  termwise-positive Bencs deficit extractions fail (D24).
+- **D25--D26 local-allocation limits.** The sign `q_nonedge<=0` fails exactly on
+  `T_(40,20,1)` at `n=1641,r=20`. Parent-oriented and symmetric inverse-degree
+  fork allocations fail on an exact 9,418-vertex prefix composition at
+  `r=3279`, while global ordered LC and GSB remain positive. The subsequent
+  bounded `AF_lambda` cycle found one exact all-parameter obstruction: a center
+  joined to five copies of `G(60,18)`, with `n=11106,alpha=5701,r=3799`, has a
+  negative gap already at `lambda=0` and a negative slope, so every
+  `lambda in [0,1]` fails. Bare support exchange fails at `n=20,r=7`; its
+  one-fallback correction has extensive finite support but no proof. Full
+  marked networks saturated through `n=11`, but their total-capacity cut is
+  exactly GSB, so this is diagnostic rather than a reduction.
+- **Remaining candidate (D27).** Fixed-orbit and fixed-common-set proofs of
+  `q_far<=0` are false, while the aggregate prefix sign remains compatible with
+  finite evidence through every tree of order 18. The path-Rayleigh and Bencs
+  identities do not control the required fixed-rank slice, so this is still
+  theorem-strength rather than a demonstrated simpler route.
+- **Computational falsification (evidence only).** The exact bivariate
+  extension-moment DP finds zero prefix failures of `Var_r(e)<=E_r(e)` across
+  all 3,490,529 trees through order 21, including all 2,144,505 at order 21.
+  This is falsification force only; it is not a proof and does not reduce a
+  minimal counterexample into the computed range.
+- **Posture.** These are private research results. No manuscript change, no
+  release, no Erdős Problems post, no solution claim. Do not open a broad D28
+  round. The bounded augmented-fork cycle is complete and refuted. Retain
+  aggregate `q_far<=0` only as a separate parked proposition unless a genuinely
+  global rank-window compensation mechanism appears. Radius-three moments
+  remain a possible later experiment, not a demonstrated necessity; D14 and
+  the full marked-flow route stay frozen.
+- **Shipped.** Commit `b5cf7ed` ("Add 2026-07-11 obstruction search") pushed to
+  `origin/master` with all 78 session artifacts. No build ran (no changes touch
+  `paper/main_v2.tex`).
+- **Follow-up package.** These session notes include the D25 all-parameter
+  obstruction packet, exact replay, compact JSON certificate, and the D19--D27
+  status corrections. The exact replay and full test suite pass; the paper is
+  still untouched.
+
 ## Current state (2026-07-10)
 
 ### Session notes (GPT-5.6 Ultra signed-reserve breakthrough)

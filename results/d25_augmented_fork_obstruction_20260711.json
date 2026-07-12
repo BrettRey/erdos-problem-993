@@ -1,0 +1,67 @@
+{
+  "at": "2026-07-12T00:06:38Z",
+  "candidate": {
+    "cleared_gap_at_lambda_zero": {
+      "digits": 5137,
+      "sha256_20": "e6af643fbcbeeb578be9",
+      "sign": -1
+    },
+    "cleared_slope": {
+      "digits": 5138,
+      "sha256_20": "cf42ac994945a2c15812",
+      "sign": -1
+    },
+    "conclusion": "gap is negative at zero and strictly decreases",
+    "equality_lambda": "-0.02838508823786863213585119225875164172526",
+    "lambda_domain": "[0,1]"
+  },
+  "certificate": "passed",
+  "command": "python3 scratch_d25_augmented_fork_obstruction_certificate_20260711.py",
+  "exact_inputs": {
+    "a_branch_root": {
+      "digits": 2569,
+      "sha256_20": "997fc6201e091b24a3cf",
+      "sign": 1
+    },
+    "a_center": {
+      "digits": 2568,
+      "sha256_20": "ff7f9c993e409dca890d",
+      "sign": 1
+    },
+    "i_r": {
+      "digits": 2569,
+      "sha256_20": "e1ea3ed7d07bf86f7ff3",
+      "sign": 1
+    },
+    "joint_two_branch_roots": {
+      "digits": 2569,
+      "sha256_20": "68ca03336d1c17a14bb2",
+      "sign": 1
+    },
+    "q_ordered": {
+      "digits": 5137,
+      "sha256_20": "445061094fb1f2e169cf",
+      "sign": 1
+    }
+  },
+  "global_checks": {
+    "gsb_gap": {
+      "digits": 5139,
+      "sha256_20": "6fc3ed6d0ceaa05e69be",
+      "sign": 1
+    },
+    "independence_sequence_unimodal": true
+  },
+  "kind": "d25_augmented_fork_all_lambda_obstruction",
+  "prefix": {
+    "alpha": 5701,
+    "limit": 3801,
+    "rank": 3799
+  },
+  "tree": {
+    "branch_root_degree": 61,
+    "description": "new center joined to five copies of G(60,18)",
+    "edges": 11105,
+    "n": 11106
+  }
+}

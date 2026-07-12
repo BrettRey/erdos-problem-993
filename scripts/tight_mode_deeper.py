@@ -16,11 +16,11 @@ import json
 import sys
 from collections import Counter, defaultdict
 
-sys.path.insert(0, "/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993")
+sys.path.insert(0, "/Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993")
 
 
 def main():
-    with open("/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/tight_mode_cases.json") as f:
+    with open("/Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/results/tight_mode_cases.json") as f:
         data = json.load(f)
 
     cases = data["tight_cases_detail"]  # n <= 12 only

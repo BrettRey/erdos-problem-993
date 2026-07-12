@@ -25,21 +25,37 @@ The current active targets are:
    term `xR`, especially for growing broom arms. This is not a general-tree
    reduction.
 
-2. STP2/tree-DP route. `Formal/STP2Closure.lean` now guards the LC/STP2
+2. Prefix-GSB variance route. Unimodality for every tree reduces to the prefix
+   inequality `Var(e_r) <= 2 mu_r + 2 eta_r` for `r <= L-2`, where `e_r` counts
+   one-vertex extensions of a uniform independent `r`-set. This bound is proved
+   unconditionally for `r = 1, 2` and, for `r = 3`, as an exact symbolic
+   theorem (`alpha >= 7 ==> 5 i_3 i_5 <= 4 i_4^2 + i_3 i_4`). It has zero
+   failures across all trees through order 21. The open step is `r >= 4`, where
+   two trees agree on the radius-two statistics used by the rank-three
+   certificate but differ in `i_6`. This blocks extension of that particular
+   certificate from those statistics alone; it does not rule out other
+   rank-four mechanisms. The D19--D27 audit refuted several local covariance,
+   support-exchange, and componentwise-flow shortcuts. A subsequent bounded
+   audit refuted the entire fixed-`lambda` GSB-augmented distance-two fork
+   family on an exact 11,106-vertex last-prefix witness. Aggregate far
+   covariance is the remaining focused candidate, but it has no proof and the
+   known path/orbit localizations are false.
+
+3. STP2/tree-DP route. `Formal/STP2Closure.lean` now guards the LC/STP2
    inequalities at `k >= 1` and records two abstract counterexamples showing
    that coefficient-shape hypotheses are too weak, even with contiguous
    support. The remaining target is to identify a genuine tree-DP realizability
    invariant.
 
-3. Fixed-r certificate route. The abstract Route-2 Lean bridge is packaged; the
+4. Fixed-r certificate route. The abstract Route-2 Lean bridge is packaged; the
    next step is to emit a concrete `Route2SplitCertificateFor` or
    `Route2FamilyCertificate` instance from exact rational data.
 
-4. Forest/product search route. Products of known non-log-concave tree
+5. Forest/product search route. Products of known non-log-concave tree
    polynomials should be searched using a direct valley/non-unimodality score
    rather than log-concavity defect.
 
-5. Computation frontier. Exhaustive tree unimodality is verified through
+6. Computation frontier. Exhaustive tree unimodality is verified through
    `n <= 29`; the analogous `n = 29` log-concavity / near-miss audit has not
    been completed.
 

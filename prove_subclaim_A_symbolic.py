@@ -637,8 +637,8 @@ output = {
 }
 
 import os
-os.makedirs('/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results', exist_ok=True)
-with open('/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/symbolic_proof_analysis.json', 'w') as f:
+os.makedirs('/Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/results', exist_ok=True)
+with open('/Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/results/symbolic_proof_analysis.json', 'w') as f:
     json.dump(output, f, indent=2)
 
 print()

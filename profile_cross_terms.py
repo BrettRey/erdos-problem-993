@@ -25,7 +25,7 @@ import sys
 import time
 from multiprocessing import Pool
 
-sys.path.insert(0, '/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993')
+sys.path.insert(0, '/Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993')
 from indpoly import _polymul, _polyadd
 
 GENG = '/opt/homebrew/bin/geng'

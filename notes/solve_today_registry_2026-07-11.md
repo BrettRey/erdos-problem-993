@@ -61,8 +61,17 @@ near-miss counts as a resolution unless a proved argument makes it exhaustive.
 | D13 | Prefix extension-slope bound | Variance with residual-edge correction | active: weaker prefix round | Prove `Var(e_r)<=2 mu_r+2 eta_r` only for `r<=L-2` |
 | D14 | Ranked incidence operators | Down-up spectral/Poincare inequality | blocked: aggregate ED false on exact n=210 prefix witness | Reopen only with a function-specific Poincare bound that does not split gap and energy |
 | D16 | Maximum-set activity split | M-footprint and addable-H expectations | blocked at two theorem-strength monotonicity lemmas | New bounded-reverse exchange or rooted-state telescope |
-| D17 | Negative convolution/bridge construction | Nonunimodal forest product followed by rare-root connection | active | Exact descent--later-ascent product or a theorem obstruction |
-| D18 | Distance-class covariance | Far-pair cancellation plus star-sharp distance-two bound | active | Prove either aggregate covariance inequality or find an exact prefix witness |
+| D17 | Negative convolution/bridge construction | Nonunimodal forest product followed by rare-root connection | frozen after D19/D20/D23 construction round | Reopen only with a mechanism escaping bridge compression, root-mass loss, and binomial smoothing |
+| D18 | Distance-class covariance | Far-pair cancellation plus distance-two fork budget | parked at aggregate `q_far`; the augmented fork is refuted | Reopen with a global rank-window mechanism or an exact prefix witness; pairwise, componentwise, and fixed-`lambda` fork variants are blocked |
+| D19 | Decorated-path compression | Iterated rooted bridges and corner perturbations | blocked: the expansion compresses to one product-minus-corner bridge | A mechanism escaping the exact compression identity |
+| D20 | Two-scale rooted-state grammar | Hard selected-state bumps plus direct or nested leaves | blocked for tested bounded grammars: direct-leaf mass loss and nested binomial smoothing | A state species preserving both correcting mass and a separated shoulder |
+| D21 | Matching-block drift | Size-biased drift of occupied-block deficit | blocked/circular: the averaged drift is exactly prefix GSB; pointwise loss fails on `K_(1,4)` | A new decomposition of `Var(e)-2 eta` |
+| D22 | Global symmetric-difference switching | Nonedge covariance and componentwise collision capacity | blocked: bare signs and componentwise allocations are false | A canonical cross-component transport with a recoverable inverse |
+| D23 | Recursive phase grammar | Stable or marginal root-occupancy phase cycles | blocked for periodic high-branching grammars by the exact response/variance recurrence | An exact mechanism outside the recurrence obstruction |
+| D24 | Bencs deficit decomposition | Termwise positive Christoffel--Darboux extraction | blocked: separated and canonically charged summands are false | Group complete switching orbits or compensate induced subtrees globally |
+| D25 | Fork/nonedge covariance | Local distance-two allocations and aggregate nonedge signs | blocked: bare signs/local allocations and every fixed `AF_lambda`, `lambda in [0,1]`, have exact prefix obstructions | Reopen only with a non-fixed or genuinely global allocation not reducible to the failed family |
+| D26 | Matching-block support flow | Support exchange, fallback marks, and full max flow | diagnostic: bare exchange false; fallback empirical; full-flow global cut equals GSB | A support or cut lemma strictly simpler than GSB |
+| D27 | Aggregate far covariance | Orbit and common-set regrouping of `q_far` | parked at the aggregate sign; orbit/common-layer signs are false | A global proof mechanism for `q_far<=0` or an exact prefix witness |
 
 ## Output contract for workers
 
@@ -915,8 +924,10 @@ both have `n=13`, `alpha=9`, identical
 but have `i6=170` and `168`, respectively.  Their prefix rank-four GSB gaps
 are `156031` and `159319`.  The replay script
 `scratch_rank4_radius2_obstruction_20260711.py` verifies treehood, graph6
-decoding, the moments, polynomials, and gaps.  Any uniform moment proof needs
-genuinely new radius-three-or-higher information.
+decoding, the moments, polynomials, and gaps.  The rank-three
+exact-reconstruction certificate therefore cannot determine
+`i6` from this recorded radius-two tuple; the witness does not rule out other
+rank-four mechanisms.
 
 ### D18 distance-class covariance profile
 
@@ -951,3 +962,71 @@ maxima become more negative with rank on the exact frontier.  Thus the
 audited low-rank bases remove the star-sharp `r=1` regime and leave a very
 slack uniform target for `r>=4`.  D18 is active at an aggregate tree-edge
 telescoping or compression theorem; no pairwise-local proof is permitted.
+
+### D19--D24 continuation
+
+D19 shows exactly that an iterated decorated path still compresses to
+
+```text
+F_next=F_prefix(E+S)-S_prefix S,
+```
+
+with the selected-corner term controlled by a two-rank-shift deletion
+injection.  It therefore does not create independent perturbations.  D20's
+two-scale state grammar exposes the complementary obstruction: direct leaves
+make the selected correction exponentially negligible, while nested stars
+convolve it with a growing binomial factor and erase the hard bumps.  The
+co-scaling search found no exact crossing.
+
+D21 proves that the proposed matching-block drift is algebraically equivalent
+to prefix GSB, and `K_(1,4)` blocks the intended pointwise loss-three map.  D22
+then gives exact prefix failures of the bare nonedge signs and of assigning
+collision capacity independently to symmetric-difference components.  D23
+derives exact mass, mean-response, and variance recurrences for recursive
+phase grammars: stable or marginal periodic high-branching phases have
+standardized mean separation tending to zero, while an expanding response is
+repelling.  D24 extracts the exact Bencs deficit but finds prefix witnesses
+against both separated energy and canonically charged termwise positivity.
+These lanes are frozen at their recorded obstruction packets or certificates.
+
+### D25--D27 continuation and surviving split
+
+D25 refutes the aggregate nonedge sign on `T_(40,20,1)` at `n=1641,r=20`.
+It also gives an exact 9,418-vertex last-prefix witness against both the
+parent-oriented and symmetric inverse-degree fork allocations, while ordered
+LC and GSB remain positive.  The final augmented candidate was
+
+```text
+Q_c <= B_c+N(lambda a_c+(1-lambda)S_c).          (AF_lambda)
+```
+
+Exact small-tree and initial structured hard scans retained `lambda=1/2`, but
+a broader same-branch scan found a decisive exact obstruction.  Join a new
+center to five copies of `G(60,18)`.  The resulting tree has
+
+```text
+n=11106, alpha=5701, L=3801, r=L-2=3799.
+```
+
+After clearing the common branch-root degree `61`, the local AF gap is already
+negative at `lambda=0` and has negative slope.  Equality would require
+`lambda approximately -0.0283850882378686`, so every `lambda in [0,1]` fails.
+The exact replay is
+`scratch_d25_augmented_fork_obstruction_certificate_20260711.py`.  The tree's
+true GSB gap is positive and its independence sequence is unimodal.  This
+blocks only the fixed-parameter local family.  In any event, summing
+`(AF_lambda)` would have supplied only the distance-two budget `2q2`; it never
+controlled `qfar`.
+
+D26 refutes bare support exchange at an exact order-20 prefix witness.  A
+one-fallback correction survives the recorded finite audits, but its available
+summations do not prove GSB.  Full fallback/marked networks saturate through
+order 11, yet their all-target capacity cut is exactly GSB, so they are a
+diagnostic representation rather than a reduction.
+
+D27 keeps the independent aggregate proposition `qfar<=0` compatible with the
+prefix, but rules out two localizations: a complete switching orbit and an
+exact-common-set layer can each contribute positively while the global sum is
+negative.  The bounded AF cycle is now complete and refuted; aggregate
+`qfar<=0` remains a separate theorem-strength dependency, parked pending a new
+global rank-window compensation mechanism.  No broad D28 round follows.

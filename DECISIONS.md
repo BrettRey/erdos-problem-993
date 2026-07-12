@@ -6,6 +6,40 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
 
 ---
 
+## 2026-07-11
+
+- **Reduce Erdős #993 to prefix GSB and treat `r <= 3` as the proved base** The
+  variance/moment lane (D6/D13) reduces tree unimodality to the prefix
+  inequality `Var(e_r) <= 2 mu_r + 2 eta_r` for `r <= L-2`, proves it
+  unconditionally for `r=1,2` (D6, discriminant argument) and as an audited
+  symbolic theorem for `r=3` (D12, `alpha>=7 ==> 5 i_3 i_5 <= 4 i_4^2 + i_3 i_4`).
+  A minimal failure now has `r>=4`. This is a reduction plus a base, not a
+  solution; the resolution gate is unmet.
+- **Record the rank-four limit of the rank-three radius-two tuple** Two order-13
+  trees with identical recorded radius-two moments differ at `i_6` (170 vs 168),
+  so the rank-three certificate cannot be extended from those recorded
+  statistics alone. This does not establish that every `r=4` proof requires
+  radius-three data.
+- **Block the D14 down--up spectral route at the separated energy estimate** The
+  separated aggregate energy inequality is false at an exact audited `n=210`
+  witness, though that tree is still unimodal. Reopen D14 only with a corrected
+  non-separated energy inequality, not with broader spherical scans.
+- **Treat the whole solve-today round as falsification and localization, not
+  resolution** The numbered round through D27 is predominantly obstruction and
+  localization work, mostly through exact counterexamples to proposed
+  invariants (D1 at `n=29`, unedged `Var<=2 mu` at
+  `T_(6,6,1)`, unrestricted GSB at `T_(14,8,1)`, D7 flows at small order). No
+  manuscript change, release, or Erdős Problems announcement follows.
+- **Close the bounded augmented-fork cycle as refuted** Exact small-tree and
+  random scans initially left `AF_lambda` viable, but a structured same-branch
+  search produced an exact last-prefix obstruction on a center joined to five
+  copies of `G(60,18)`. Its gap is negative at `lambda=0` and decreases with
+  `lambda`, so every `lambda in [0,1]` fails. This blocks only that fixed-parameter
+  local allocation, not GSB. Aggregate `q_far<=0` remains separate and parked.
+- **Do not promote full marked flow as a reduction** Its total target-capacity
+  cut is exactly GSB. Saturation through order 11 is finite diagnostic evidence
+  only.
+
 ## 2026-07-10
 
 - **Treat the universal finite Poisson-binomial reserve bound as a proved private theorem, not as a solution of Erdős #993** Exact symbolic replay, independent mathematical audits, and the completed conditional Lean core support the theorem itself. It closes the finite signed nonterminal bridge, but it does not control the additive `xR` perturbation in the hub-bouquet argument and therefore does not close Case B, PNP, issue #5, or the original problem.

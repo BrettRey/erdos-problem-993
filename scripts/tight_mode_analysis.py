@@ -17,7 +17,7 @@ import sys
 from collections import Counter, defaultdict
 from typing import Any
 
-sys.path.insert(0, "/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993")
+sys.path.insert(0, "/Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993")
 from indpoly import independence_poly, _polymul, _polyadd
 from trees import trees
 
@@ -229,7 +229,7 @@ def main() -> None:
     ap.add_argument("--min-n", type=int, default=5)
     ap.add_argument("--max-n", type=int, default=16)
     ap.add_argument("--backend", default="auto", choices=["auto", "geng", "networkx"])
-    ap.add_argument("--out", default="/Users/brettreynolds/Documents/LLM-CLI-projects/papers/Erdos_Problem_993/results/tight_mode_cases.json")
+    ap.add_argument("--out", default="/Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/results/tight_mode_cases.json")
     args = ap.parse_args()
 
     print(f"Analyzing tight mode cases for n = {args.min_n} to {args.max_n}")
