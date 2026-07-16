@@ -35,6 +35,25 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
   cross-gap recovery. No witnesses. The disproof-relevant gap to V=1 is
   roughly 11/n at best and widening with size, so no family in the searched
   classes is on a crossing trajectory.
+- **Aperiodic composition attack closed** Trees grown by iterating five
+  pairs of rooted maps under Fibonacci, Thue-Morse, periodic, and random
+  control words (103 constructions, exact map/adjacency cross-check):
+  certified root angle 0 at every dominance ratio <= 1.5 for every
+  control class, best 0.095 at ratio 2 (below T_{6,6,1}). Aperiodic
+  ordering does not produce exotic root geometry when each composition
+  map individually smooths. No witnesses; c-b = 1.
+- **Dominance-angle frontier measured; root-space attacks closed**
+  Pareto evolution with per-threshold champions and subtree crossover
+  (85,114 certified evals): phi*(tau) = 0, 0, 0.054, 0.103, 0.181,
+  0.324, 0.449 at tau = 1.05, 1.1, 1.2, 1.35, 1.5, 1.75, 2.0. The two
+  strictest slots never left zero; the curve extrapolates to zero near
+  tau ~ 1.1, i.e., an empirical exclusion zone: no certified non-real
+  root pair within ~10% of dominant modulus was ever produced by any
+  search. R <= 0.957 and c-b = 1 throughout. The single-champion
+  tradeoff of the 611k-eval run is therefore a universal frontier at
+  this search power, and the spectral route to a counterexample requires
+  entering a region no tree has ever exhibited. Frontier trees saved to
+  `results/pareto_root_frontier_20260716.json`.
 - **Bump-interference attack (exact pathology blocks) closed** 540,492 exact
   joins pairing the 21 exhaustive LC-failure trees (n=26/28) with each other
   at every vertex pair and with smooth partners sized to translate the k=14

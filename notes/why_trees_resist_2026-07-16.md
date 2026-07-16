@@ -95,6 +95,22 @@ unusable ~-- it reported angle 0.685 for a path, certified value 0):
 A counterexample needs the empty corner of that frontier: near-dominant
 modulus AND substantial angle. This is the spectral form of law 1.
 
+Two follow-up attacks hardened this into a measured frontier:
+
+- Aperiodic composition families (Fibonacci / Thue-Morse / random
+  control words over five growth-op pairs,
+  `scratch_aperiodic_composition_20260716.py`): certified angle 0 at
+  every ratio <= 1.5 for every control class; aperiodic ordering does
+  not unlock exotic root geometry when each map individually smooths.
+- Pareto-frontier evolution (85,114 certified evals, per-threshold
+  champions, subtree crossover,
+  `scratch_pareto_root_evolution_20260716.py`): measured frontier
+  phi*(tau) = 0 / 0 / 0.054 / 0.103 / 0.181 / 0.324 / 0.449 at
+  tau = 1.05 / 1.1 / 1.2 / 1.35 / 1.5 / 1.75 / 2.0. The curve
+  extrapolates to zero near tau ~ 1.1: an empirical exclusion zone
+  ~-- no certified non-real pair within ~10% of dominant modulus was
+  ever produced. `R <= 0.957`, `c - b = 1` throughout.
+
 ## 5. What would falsify these barriers
 
 - A tree family whose genuine-descent rebound deficit decays faster

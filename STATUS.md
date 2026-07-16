@@ -45,6 +45,16 @@ The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapsho
   (Kronecker-packed exact arithmetic), plus ten dated scratch probes and
   two results JSONs. Self-tests cross-check every fast path against the
   generic big-int DP.
+- **Post-ship follow-ups (same session).** Two residual attacks run and
+  closed: aperiodic composition families (certified angle 0 at every
+  ratio <= 1.5 for all control words) and Pareto dominance-angle
+  frontier evolution (85,114 certified evals; measured frontier
+  phi* = 0/0/0.054/0.103/0.181/0.324/0.449 at
+  tau = 1.05/1.1/1.2/1.35/1.5/1.75/2.0, extrapolating to zero near
+  tau ~ 1.1). The exclusion zone ~-- no certified non-real pair within
+  ~10% of dominant modulus, ever ~-- is the sharpest form of the
+  spectral barrier. Frontier trees:
+  `results/pareto_root_frontier_20260716.json`.
 - **Posture.** Manuscript untouched; no public claims. The conjectural
   positive reading (universal `V <= 1 - c/n`) is parked as a separate
   program per the 2026-07-11 posture.
