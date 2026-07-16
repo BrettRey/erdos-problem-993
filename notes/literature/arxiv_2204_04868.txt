@@ -1,0 +1,1495 @@
+                                                        On complex roots of the independence polynomial
+
+                                                      Ferenc Bencs∗             Péter Csikvári†             Piyush Srivastava‡               Jan Vondrák§
+
+
+
+
+arXiv:2204.04868v2 [cs.DM] 13 Nov 2022
+                                                                                                    Abstract
+                                                     The independence polynomial of a graph is the generating polynomial      Í of all its independent sets.
+                                                Formally, given a graph 𝐺, its independence polynomial 𝑍𝐺 (𝜆) is given by 𝐼 𝜆 |𝐼 | , where the sum is over
+                                                all independent sets 𝐼 of 𝐺. The independence polynomial has been an important object of study in both
+                                                combinatorics and computer science. In particular, the algorithmic problem of estimating 𝑍𝐺 (𝜆) for a
+                                                fixed positive 𝜆 on an input graph 𝐺 is a natural generalization of the problem of counting independent
+                                                sets, and its study has led to some of the most striking connections between computational complexity
+                                                and the theory of phase transitions. More surprisingly, the independence polynomial for negative and
+                                                complex values of 𝜆 also turns out to be related to problems in statistical physics and combinatorics.
+                                                In particular, the locations of the complex roots of the independence polynomial of bounded degree
+                                                graphs turn out to be very closely related to the Lovász local lemma, and also to the questions in the
+                                                computational complexity of counting. Consequently, the locations of such zeros have been studied in
+                                                many works. In this direction, it is known from the work of Shearer [29] and of Scott and Sokal [27] –
+                                                inspired by the study of the Lovász local lemma – that the independence polynomial 𝑍𝐺 (𝜆) of a graph
+                                                                                                                               𝑑𝑑
+                                                𝐺 of maximum degree at most 𝑑 + 1 does not vanish provided that |𝜆| ≤ (𝑑+1)       𝑑+1 . Significant extensions
+
+                                                of this result have recently been given in the case when 𝜆 is in the right half-plane (i.e., when <𝜆 ≥ 0)
+                                                by Peters and Regts [26] and Bencs and Csikvári [9]. In this paper, our motivation is to further extend
+                                                these results to find new zero free regions not only in the right half plane, but also in the left half-plane,
+                                                that is, when <𝜆 ≤ 0.
+                                                     We give new geometric criterions for establishing zero-free regions as well as for carrying out
+                                                semi-rigorous numerical explorations. We then provide two examples of the (rigorous) use of these
+                                                criterions, by establishing two new zero-free regions in the left-half plane. We also extend the results
+                                                of Bencs and Csikvári [9] for the right half-plane using our framework. By a direct application of the
+                                                interpolation method of Barvinok [5], combined with extensions due to Patel and Regts [25], our results
+                                                also imply deterministic polynomial time approximation algorithms for the independence polynomial
+                                                of bounded degree graphs in the new zero-free regions.
+
+
+
+
+                                            ∗ Korteweg de Vries Institute for Mathematics, University of Amsterdam. Email: ferenc.bencs@gmail.com.
+                                            † Alfréd Rényi Institute of Mathematics and Eötvös Loránd University. Email: peter.csikvari@gmail.com.
+                                            ‡ Tata Institute of Fundamental Research. Email: piyush.srivastava@tifr.res.in.
+                                            § Stanford University. Email: jvondrak@stanford.edu.
+                                              FB was supported by the NKFIH (National Research, Development and Innovation Office, Hungary) grant KKP-133921 when
+                                         the project started. After this, he was funded by the Netherlands Organisation of Scientific Research (NWO): VI.Vidi.193.068. PC
+                                         is supported by the MTA-Rényi Momentum Counting in Sparse Graphs Research Group. PS acknowledges support from the DAE,
+                                         Government of India, under project no. RTI4001, from the Ramanujan Fellowship of SERB, from the Infosys foundation, through
+                                         its support for the Infosys-Chandrasekharan virtual center for Random Geometry, and from Adobe Systems Incorporated via a
+                                         gift to TIFR. Part of this work was performed when the authors were visiting the Simons Institute for the Theory of Computing
+                                         at the University of California, Berkeley. The contents of this paper do not necessarily reflect the views of the funding agencies
+                                         listed above.
+1    Introduction
+The independence polynomial, also known as the partition function of the hard core lattice gas in the
+statistical physics literature, is the graph polynomial given by
+                                                         ∑︁
+                                         𝑍𝐺 (𝜆) :=               𝜆 |𝐼 | .
+                                                  𝐼 :independent set in 𝐺
+
+An independent set in a graph 𝐺 is subset of its vertices no two of which are adjacent in 𝐺. In statistical
+mechanics, the polynomial arises in the modeling of adsorption phenomena (usually with 𝐺 being a lattice);
+while in combinatorics, it is the natural generating function of independent sets of graphs, and offers a
+natural generalization to the problem of counting independent sets in a graph. These connections have
+led to the polynomial being studied extensively in the setting 𝜆 > 0, both in statistical physics and in
+computational complexity, and, in particular, has led to some very tight connections between the two
+fields [32, 35].
+    The setting 𝜆 < 0, and more generally, of complex 𝜆 is also of interest. In particular, the problem
+of understanding where the complex zeros of 𝑍𝐺 lie for graphs 𝐺 in a given class is of special interest.
+In statistical mechanics, it relates to the Yang-Lee theory of phase transitions [36]. In the special case
+when 𝐺 is a lattice, the work of Dobrushin and Shlosman [14, 15] also related the question to other, more
+probabilistic notions of phase transitions. In combinatorics, the behavior of 𝑍𝐺 at negative and complex 𝜆
+plays an important role in the study of the Lovász local lemma; for a detailed discussion of this connection,
+we refer to the work of Shearer [29] as elucidated by Scott and Sokal [27]. For our purposes, we start with
+the following result proved in the above two papers. We denote by GΔ the set of finite graphs with vertex
+degrees at most Δ, for some fixed Δ ≥ 3.
+Theorem 1.1 ([29], see also Corollary 5.7 and the discussion following it in [27]). Let 𝑑 ≥ 2 be an
+                                                   𝑑𝑑
+integer. If 𝜆 ∈ C is such that |𝜆| ≤ 𝜆 ∗ (𝑑) := (𝑑+1) 𝑑+1 then 𝑍𝐺 (𝜆) ≠ 0 for all graphs 𝐺 ∈ G𝑑+1 . Further, for
+
+any negative real 𝜆1 < −𝜆 ∗ (𝑑), there exists a graph 𝐺 ∈ 𝐺𝑑+1 and 𝜆 0 satisfying 𝜆1 < 𝜆 0 < −𝜆 ∗ (𝑑) such that
+𝑍𝐺 (𝜆 0) = 0.
+    It is also known that the above theorem gives a full description of the zero-free region of 𝑍𝐺 , as 𝐺 varies
+over G𝑑+1 , on the negative real line. The emphasis in the works leading to Theorem 1.1 was on obtaining
+zero-free regions shaped like disks (or like product of disks – polydisks – in the more general setting of
+the multivariate independence polynomial that we will not consider in this paper), and in the univariate
+setting, Theorem 1.1 essentially characterizes the radius of the largest such zero-free disk centered at the
+origin. Further, two different polynomial time approximation algorithms for 𝑍𝐺 (𝜆) for 𝐺 ∈ G𝑑+1 and
+|𝜆| < 𝜆 ∗ (𝑑) were given by Patel and Regts [25] and Harvey, Srivastava and Vondrák [20].
+
+Zero-free regions and algorithms It is well known by now, however, that the actual zero-free region
+for 𝑍𝐺 as 𝐺 varies over G𝑑+1 is not described by a disk. It also turns out that the work towards characterizing
+this region is of importance for the algorithmic problem of approximating 𝑍𝐺 for an input graph 𝐺 ∈ G𝑑+1 .
+In order to describe this connection, we first recall the work of Peters and Regts [26] on proving a conjecture
+of Sokal. There, they considered 𝑍𝐺 as 𝐺 varies over spherically symmetric 𝑑-ary trees, and proved that it
+is non zero as long as 𝜆 ∈ 𝑈𝑑 , where 𝑈𝑑 is the open region (see fig. 1 for an example drawing of this curve)
+containing the origin bounded by the curve
+                                                                             
+                                                           −𝛼𝑑 𝑑
+                                   𝜕𝑈𝑑 := 𝜅 (𝛼) :=                   |𝛼 | = 1   .                          (1.1)
+                                                        (𝑑 + 𝛼)𝑑+1
+Using the results of Peters and Regts [26] on the existence of zeros near the boundary of 𝜕𝑈𝑑 , Bezáková,
+Galanis, Goldberg, and Štefankovič [11] showed that for every complex rational 𝜆 outside the closure of
+
+                                                        1
+𝑈𝑑 that does not lie on the positive real line, the problem of approximating (up to any polynomial factor)
+𝑍𝐺 (𝜆) for graphs 𝐺 in G𝑑+1 is #P-hard.1 On the other hand, due to the results of Barvinok [5] and Patel
+and Regts [25], the same problem admits a fully polynomial time approximation scheme (FPTAS) for any
+complex rational 𝜆 if for some 𝜖 > 0, the 𝜖-neighborhood of the line segment [0, 𝜆] is zero-free for the
+polynomials 𝑍𝐺 for all 𝐺 ∈ G𝑑+1 .
+
+Known results In light of the above results, the problem of characterizing the location of the zeros of
+𝑍𝐺 for general graph in G𝑑+1 becomes of interest. Recall that 𝑈𝑑 is the zero-free region for spherically
+symmetric 𝑑-ary trees. Perhaps the first natural question to ask is whether the region 𝑈𝑑 is zero-free for
+𝑍𝐺 even as 𝐺 varies over all graphs in G𝑑+1 . The answer to this is no: Buys [12] showed that one can
+obtain a counterexample for 3 ≤ 𝑑 + 1 ≤ 9 by considering spherically symmetric trees in which the arity
+of each vertex depends upon the distance from the root of the tree. Thus, the location of zeros of 𝑍𝐺 for 𝐺
+in G𝑑+1 inside the region 𝑈𝑑 needs to be studied more closely.
+    In preparation for stating the contributions of this paper, we now turn to describing what is known
+                                                                      𝑑𝑑
+about the zero-free region of 𝑍𝐺 for graphs in G𝑑+1 . Let 𝜆𝑐 (𝑑) := (𝑑−1) 𝑑+1 be the unique point of intersection
+
+of the curve 𝜕𝑈𝑑 with the positive real line. (We note in passing that this quantity, known as the uniqueness
+threshold for the hard core model, has played a central role in the study of the algorithmic estimation
+of 𝑍𝐺 on the positive real line: in particular, this study led to some of the tightest known connections
+between statistical mechanics phase transitions and computational complexity [18, 31, 32, 35].) Peters and
+Regts [26] showed that for any positive 𝜆 0 < 𝜆𝑐 (𝑑), there is an 𝜖 0 = 𝜖 0 (𝜆 0) > 0 such that for any 𝑧
+satisfying |=𝑧| ≤ 𝜖 0 and <𝑧 = 𝜆 0, 𝑍𝐺 (𝑧) ≠ 0 for all 𝐺 ∈ G𝑑+1 . They also gave explicit lower bounds
+on 𝜖 0 (𝜆 0) for 𝜆 0 ∈ (0, tan(𝜋/(2𝑑))) (note that tan(𝜋/(2𝑑)) > 𝜆 ∗ (𝑑) for 𝑑 ≥ 2, so these results are not
+implied by Theorem 1.1). Bencs and Csikvári [9], using different methods, improved on the latter lower
+bounds, and thereby significantly extended the known zero-free region inside 𝑈𝑑 in the right half-plane.
+In Section 1.3 below, we describe some more recent papers that study phenomena such as the limit shape
+(after appropriate scaling) of the zero-free region as 𝑑 ↑ ∞, and that explore further connections between
+zero-freeness and other aspects of the independent set model. However, for specific finite 𝑑, none of these
+results seem to provide any new zero-free regions in the left half-plane beyond the half-disk implied by
+Theorem 1.1.
+
+1.1    Contributions
+In this paper, we give two geometric criterions (Theorems 4.5 and 4.6) which together give a framework for
+rigorously establishing (connected) zero-free regions as well as a way to carry out semi-rigorous numerical
+explorations.
+    We provide several examples of the (rigorous) use of these criterions. We establish two new zero-free
+regions in the left half plane: Theorem 6.1 gives a better result in the vicinity of the negative real line,
+while Theorem 7.1 gives a better result near the imaginary line. When restricted to the imaginary axis,
+the latter region agrees with the result of Bencs and Csikvári [9] for the right half-plane. We also extend
+the previous zero-freeness results of Bencs and Csikvári [9] for the right-half plane using the geometric
+criterions developed in this paper (Theorem 8.1, see also Remark 8.3). We also show that our framework
+gives a new proof of the Sokal conjecture, which was first proved by Peters and Regts via a potential
+function argument [26] (Theorem 5.1). See fig. 1 for a graphical illustration of these new zero-freeness
+results.
+   1 In contrast, for positive real 𝜆 outside 𝑈 , the same problem is NP-hard [18, 32], and is unlikely to be #P-hard for all such
+                                               𝑑
+𝜆 unless there is a collapse in the polynomial hierarchy. (The fact that approximate counting with positive weights cannot be
+#P-hard under standard complexity theoretic assumptions is a well-known direct consequence of Toda’s theorem [34] and earlier
+results of Stockmeyer [33] and Sipser [30]; see, e.g., Ex. 17.5 in [1].)
+
+
+                                                                2
+Algorithmic implications Following the template provided by the results of Barvinok [5] and Patel
+and Regts [25], these new zero-freeness results also immediately lead to new polynomial-time algorithms
+for the approximation of 𝑍𝐺 (𝜆) for 𝜆 lying in the interior of these regions on graphs 𝐺 ∈ G𝑑+1 of maximum
+degree at most 𝑑 + 1. Given complex numbers 𝑍 and 𝑍ˆ we say that 𝑍ˆ is a multiplicative 𝜀-approximation
+of 𝑍 if 𝑒 −𝜀 < ||𝑍𝑍 || < 𝑒 −𝜀 and the angle between 𝑍ˆ and 𝑍 considered as vectors in C = R2 is at most 𝜀.
+                  ˆ
+
+Then the algorithmic framework of Barvinok [5] and Patel and Regts [25] combined with our zero-free
+                                                                   𝑂𝑑,𝜆 (1)
+regions provides a deterministic algorithm of running time |𝑉𝜀 |              for obtaining a multiplicative 𝜀-
+approximation of 𝑍𝐺 (𝜆) whenever 𝐺 = (𝑉 , 𝐸) has maximum degree 𝑑 + 1 and 𝜆 is in the interior of the
+zero-free region provided by this paper.
+
+Numerical explorations We now comment briefly on the connections to numerical explorations –
+alluded to above – of our work. The naive method to numerically check whether a point 𝜆 is in the zero
+free region of 𝑍𝐺 for all graphs in G𝑑+1 would be to evaluate 𝑍𝐺 (𝜆) for all such graphs, and to check if it
+evaluates to 0. Known results allow one to restrict the set of graphs one has to explore to trees in G𝑑+1
+(see Theorem 3.2 below), but the resulting procedure is still computationally infeasible. In contrast, the
+geometric criterions in Theorems 4.5 and 4.6 allow one to do the following. Given 𝑑 and 𝜆, one tries to
+construct a curve in the complex plane with certain prescribed properties. The existence of such a curve
+then certifies that no graph in G𝑑+1 has 𝑍𝐺 (𝜆) = 0. What curves would “work” for a given 𝑑 and 𝜆 can
+then be explored numerically: in fact, many of our zero-freeness results listed above were obtained by first
+conjecturing the form of such a curve guided by numerical experiments, and then rigorously verifying –
+as done in the proofs of the theorems listed above – that the curve has the prescribed properties. We want
+to highlight, however, that although this method is “sound” – in the sense that producing such a curve as
+a certificate guarantees zero-freeness – it is not necessarily “complete” – one may not be able to construct
+such a curve as a certificate even though 𝜆 is in the zero-free region.
+
+1.2   Organization of the paper
+After a short section of preliminaries, we introduce in Section 3 various simple criterions to prove that a
+𝜆 ∈ C is in the zero-free region of independence polynomial of graphs of bounded degree. Building on
+this work, we introduce in Section 4 two new criterions (Theorems 4.5 and 4.6) which use constructions
+of certain curves in order to prove zero-free regions. The remaining sections are direct applications of
+these two criterions, and are independent of each other. Since some of the proofs are somewhat technical,
+these sections are arranged in increasing order of difficulty. In Section 5 we give a new proof of Sokal’s
+conjecture originally proven by Peters and Regts. In Section 6 we give a new zero-free region in the vicinity
+                        𝑑𝑑
+of the critical point (𝑑+1) 𝑑+1 . In Section 7 we provide a zero-free region close the imaginary axis. Finally,
+
+in Section 8 we prove a zero-free region in the right half plane.
+    For those readers who are interested in the ideas in general, but want to avoid technical difficulties we
+recommend reading the paper till the end of Section 5 and omitting Theorem 4.6 and its proof.
+
+1.3   Related work
+The work of Barvinok [3] (see also [5]) pioneered the direct use of zero-free regions for designing algo-
+rithms for approximate counting. However, in most examples, a direct application of Barvinok’s method
+gives a quasi-polynomial time algorithm: Patel and Regts [25] showed how to use various combinatorial
+tools in order to reduce this quasi-polynomial runtime to a polynomial runtime in various “bounded-
+degree” settings. The method has since then been used to attack a wide variety of approximate counting
+
+
+
+                                                      3
+                                                         90°
+
+
+
+
+                                                             tan( /(2d))
+
+
+
+                                                                        1/d
+                                                                * (d)
+                                                                                            c(d)
+             180°                                       0                                            0°
+
+
+
+
+                                                               tan( /(2d))
+
+
+
+
+                                                        270°
+Figure 1: New zero free regions for 𝑑 = 9 (graphs of degree at most 10). In the left half plane, the red region
+corresponds to Theorem 6.1, while the blue region corresponds to Theorem 7.1. In the right half plane, the yellow
+region corresponds to Theorem 8.1. The smaller grey circle around the origin has radius 𝜆 ∗ (𝑑) (the “Shearer radius”
+from Theorem 1.1), and the points ±𝜄 tan(𝜋/(2𝑑)) are marked on the imaginary axis. The outer black “cardioid-
+shaped” curve is the boundary 𝜕𝑈𝑑 as defined in eq. (1.1). A magnified version of the red region (corresponding to
+Theorem 6.1) is given in Figure 5.
+
+
+problems: see, e.g., [3, 4, 6, 10, 16, 19, 23]. How this method relates to other methods of approximate count-
+ing, such as Markov chain Monte Carlo, or the method of reduction to tree-recurrences and “correlation
+decay” (first used by Bandyopadhyay and Gamarnik [2] and Weitz [35]), has also been explored in sev-
+eral papers, see, e.g., [21, 22, 24, 28]. In the statistical physics literature, very strong connections between
+Markov chain Monte Carlo and zero-freeness are known in the special case of integer lattices through the
+work of Dobrushin and Shlosman [14, 15].
+    As already discussed in detail in the previous subsections, the complex zeros of the independence poly-
+nomial have also been studied extensively in the context of its connections to the Lovász local lemma and
+also in the context of its computational complexity [11, 20, 25, 27, 29]. Here we describe a few more recent
+works in this direction. Recent work of de Boer, Buys, Guerini, Peters, and Regts [13] establishes strong
+formal connections between the computational complexity of the hard core model, complex dynamics, and
+zero-freeness of the partition function (see Main Theorem of [13]): in particular they prove that the zeros
+of 𝑍𝐺 for graphs in G𝑑+1 are dense in the complement of 𝑈𝑑 . The limit shapes of the zero-free regions have
+
+
+                                                         4
+also been studied: Bencs, Buys, and Peters [8] show that in the 𝑑 → ∞ limit, a rescaled version of zero-free
+region tends to a bounded 0-star shaped region, whose boundary intersects lim𝑑→∞ 𝑑 · 𝜕𝑈𝑑 only at real
+parameters. In particular, the results of [8] show that for large enough 𝑑 the zero-free region is strictly con-
+tained in 𝑈𝑑 except for the two real parameters. The problem of fully characterizing the zero-free region
+of 𝑍𝐺 for 𝐺 ∈ G𝑑+1 in the complex plane, however, still remains open.
+
+
+2    Preliminaries
+Branch cuts We adopt the following convention for defining fractional powers and complex logarithms.
+Given 𝑧 = 𝑟𝑒 𝜄𝜃 with 𝑟 > 0 and 𝜃 ∈ (−𝜋, 𝜋], we define
+
+                                     log 𝑧 := log 𝑟 + 𝜄𝜃 , and                                             (2.1)
+                                         𝛿     𝛿
+                                       𝑧 := 𝑟 exp(𝜄𝛿𝜃 ), for any 𝛿 > 0.                                    (2.2)
+
+We leave the functions undefined when 𝑧 = 0 (except that we adopt the usual convention that 00 = 1).
+Note that with the above definition, log and 𝑧𝛿 for non-integral 𝛿 are defined but discontinuous on the
+negative real line. However, we do have the following identity for all 𝑧 ≠ 0 and 𝛿 ≥ 0:
+
+                                              𝑧𝛿 = exp(𝛿 log 𝑧).
+
+Further, for 𝑧 ≠ 0, we use the convention arg 𝑧 = =(log 𝑧).
+
+Graphs and independence polynomials For the sake of providing a quick reference, we recollect
+here some basic notation and terminology about graphs and their independence polynomials that was
+introduced in the introduction above. We denote the set of all graphs of degree at most 𝑑 + 1 by G𝑑+1 . The
+independence polynomial 𝑍𝐺 (𝜆) of a graph 𝐺 is given by
+                                                     ∑︁
+                                    𝑍𝐺 (𝜆) :=                    𝜆 |𝐼 | .                              (2.3)
+                                                   𝐼 :independent set in 𝐺
+
+Two quantities of interest with respect to the independence polynomial are the Shearer radius 𝜆 ∗ (𝑑) :=
+   𝑑𝑑                                                 𝑑𝑑                     ∗
+ (𝑑+1) 𝑑+1
+           , and the uniqueness threshold 𝜆𝑐 (𝑑) := (𝑑−1) 𝑑+1 . The former, 𝜆 (𝑑), is specially connected to
+
+the Lovász local lemma, and also the radius of the largest circular disk around the origin in which 𝑍𝐺
+is zero-free for all graphs in G𝑑+1 (see Theorem 1.1 above). The latter, 𝜆𝑐 (𝑑), is intimately connected
+to the complexity of approximating 𝑍𝐺 (𝜆) for 𝐺 ∈ G𝑑+1 , for 𝜆 on the positive real line: in particular,
+Weitz [35] gave a deterministic fully polynomial approximation scheme (FPTAS) for 𝑍𝐺 (𝜆) for 𝐺 ∈ G𝑑+1 ,
+provided 𝜆 < 𝜆𝑐 (𝑑), while in a series of works [17, 18, 31, 32] starting with a paper of Sly, it was shown
+that a randomized fully polynomial approximation scheme (FPRAS) for the same problem in the regime
+𝜆 > 𝜆𝑐 (𝑑) would imply NP = RP. Further, in terms of the curve 𝜕𝑈𝑑 of Peters and Regts [26] (see eq. (1.1)
+above), 𝜆𝑐 (𝑑) is the unique point of intersection of 𝜕𝑈𝑑 with the positive real line, while −𝜆 ∗ (𝑑) is the
+unique point of intersection of 𝜕𝑈𝑑 with the negative real line.
+
+
+3    A relaxed recurrence for the independence polynomial
+As stated in the introduction, our goal is to study the location of the complex zeros of the (univariate)
+independence polynomial                                 ∑︁
+                                   𝑍𝐺 (𝜆) :=                       𝜆 |𝐼 | .
+                                              𝐼 ⊆𝑉 (𝐺) independent
+
+
+                                                         5
+Recall that we focus on the class of graphs GΔ with degrees at most Δ for some fixed Δ ≥ 3. It is more
+convenient, however, to work in terms of the notation 𝑑 := Δ − 1. We now proceed to describe a known
+characterization of zero-free regions for the independence polynomial of bounded degree graphs, in prepa-
+ration for which we introduce the following definition.
+
+Definition 3.1 (The set 𝑆𝜆 = 𝑆𝜆 (𝑑)). For 𝜆 ∈ C, define 𝑆𝜆 ⊆ C as the set of points that can be generated
+by the following rules:
+
+    • 0 ∈ 𝑆𝜆 (𝑑),
+
+    • If 𝑧 1, . . . , 𝑧𝑑 ∈ 𝑆𝜆 (𝑑) are such that 𝑧𝑖 ≠ −1 for 1 ≤ 𝑖 ≤ 𝑑, then
+                                                                                 𝜆
+                                                𝑓 (𝑧 1, . . . , 𝑧𝑑 ) = Î𝑑                                              (3.1)
+                                                                          𝑖=1 (1 + 𝑧𝑖 )
+
+      is also in 𝑆𝜆 (𝑑).
+
+    (Although the definition of 𝑆𝜆 depends on 𝑑, we will often omit this dependence from our notation
+when the value of 𝑑 is clear from the context.)
+    The following theorem is well known [27, 35], and has been used in previous work on the subject
+(e.g. in [9, 26]). It can most directly be obtained from a result of Bencs [7], who showed that the inde-
+pendence polynomial of a graph divides (as a polynomial) the independence polynomial of the so-called
+“self-avoiding walk tree” of the graph. The zero-free regions of the independence polynomial of a tree can
+in turn be analyzed in terms of the “tree recurrences” described in eq. (3.1) [27, 35].
+
+Theorem 3.2 (see, e.g., Proposition 2.7 (1) of [7], and Lemma 2.1 of [9]). Fix 𝑑 ≥ 2. 𝑍𝐺 (𝜆) = 0 for
+some graph 𝐺 ∈ G𝑑+1 if and only if −1 ∈ 𝑆𝜆 (𝑑).
+
+   A standard application of Theorem 3.2 is to define a “trapping region” 𝑇 such that 0 ∈ 𝑇 , −1 ∉ 𝑇 and
+                                         𝑑𝑑                                 1
+𝑓 maps 𝑇 to 𝑇 . For instance, if |𝜆| ≤ (𝑑+1) 𝑑+1 , then 𝑇 = {𝑧 ∈ C | |𝑧| ≤ 𝑑+1 } is such a region:
+
+
+                                                                     𝑑
+                                        𝜆                   𝑑𝑑      Ö      1        1
+                                                    ≤                           =
+                                                        (𝑑 + 1)              1
+                                                                    𝑖=1 1 − 𝑑+1
+                                                                                  𝑑 +1
+                                 Î𝑑                             𝑑+1
+                                    𝑖=1 (1 + 𝑧𝑖 )
+
+showing Shearer’s result. In general, it is not easy to handle 𝑑 variables at the same time. Therefore,
+in what follows we try to find sufficient conditions that only require understanding the behaviour of a
+univariate map.
+   In the following, we relax the recurrence 𝑓 (𝑧 1, . . . , 𝑧𝑑 ) to allow fractional powers and more than 𝑑
+arguments. As we will see, this in fact leads to a simplification of the problem.
+
+Definition 3.3 (The set 𝑆˜𝜆 = 𝑆˜𝜆 (𝑑)). For 𝜆 ∈ C, define 𝑆˜𝜆 ⊆ C as the set of points that can be generated
+by the following rules:
+
+    • 0 ∈ 𝑆˜𝜆 (𝑑),
+                                                                        Í
+    • If 𝑧 1, . . . , 𝑧𝑘 ∈ 𝑆˜𝜆 (𝑑) and 𝛿 1, . . . , 𝛿𝑘 ≥ 0 are such that 𝑘𝑖=1 𝛿𝑖 ≤ 𝑑 and 𝑧𝑖 ≠ −1 for 1 ≤ 𝑖 ≤ 𝑘, then
+
+                                                                                     𝜆
+                                            𝑓𝛿1,...,𝛿𝑘 (𝑧 1, . . . , 𝑧𝑘 ) = Î𝑘                                         (3.2)
+                                                                            𝑖=1 (1 + 𝑧𝑖 )
+                                                                                          𝛿𝑖
+
+
+      is also in 𝑆˜𝜆 (𝑑).
+
+
+                                                               6
+   (As with 𝑆𝜆 , although the definition of 𝑆𝜆 depends on 𝑑, we will often omit this dependence from our
+notation when the value of 𝑑 is clear from the context.)
+   Clearly, we have 𝑆𝜆 (𝑑) ⊆ 𝑆˜𝜆 (𝑑), since the new generation rule subsumes 𝑓 (𝑧 1, . . . , 𝑧𝑑 ). Hence, from
+Theorem 3.2, we directly obtain the following.
+Lemma 3.4. Fix 𝑑 ≥ 2. If −1 ∉ 𝑆˜𝜆 (𝑑), then 𝑍𝐺 (𝜆) ≠ 0 for every 𝐺 ∈ G𝑑+1 .
+    The main advantage of the relaxed recurrence is that it allows us to replace the multivariate recurrence
+by a univariate one. We do this as follows: Consider the set {log(1 + 𝑧) : 𝑧 ∈ 𝑆˜𝜆 }. Note that this is well
+defined if −1 ∉ 𝑆˜𝜆 . If we write 𝑤𝑖 = log(1 + 𝑧𝑖 ), then the recurrence
+                                                                                𝜆
+                                           𝑓𝛿1,...,𝛿𝑘 (𝑧 1, . . . , 𝑧𝑘 ) = Î𝑘
+                                                                           𝑖=1 (1 + 𝑧𝑖 )
+                                                                                           𝛿𝑖
+
+
+can be rewritten by substitution as
+
+                           𝑔𝛿1,...,𝛿𝑘 (𝑤 1, . . . , 𝑤𝑘 ) = log(1 + 𝑓𝛿1,...,𝛿𝑘 (𝑒 𝑤1 − 1, . . . , 𝑒 𝑤𝑘 − 1))
+                                                        𝑘
+                                                                  !
+                                                      Ö                              Í𝑘           
+                                    = log 1 + 𝜆           𝑒 −𝛿𝑖 𝑤𝑖 = log 1 + 𝜆𝑒 − 𝑖=1 𝛿𝑖 𝑤𝑖 .
+                                                   𝑖=1
+    Hence, a combination of fractional powers in 𝑓𝛿1,...,𝛿𝑘 corresponds to a linear combination of the points
+𝑤𝑖 = log(1 + 𝑧𝑖 ). If we normalize the linear combination by 𝑑1 , and use the fact that 0 is always a possible
+choice for 𝑤𝑖 , we obtain a convex linear combination of 𝑤 1, . . . , 𝑤𝑘 in the exponent. This motivates the
+following characterization. Note that the characterization is in terms of the behavior of a function of only
+one complex variable.
+Theorem 3.5. Fix 𝑑 ≥ 2. The number −1 is not contained in 𝑆˜𝜆 (𝑑) if and only if there is a convex set 𝑇 ⊂ C
+containing 0 such that for every 𝑤 ∈ 𝑇 ,
+
+                                                   𝑔(𝑤) = log(1 + 𝜆𝑒 −𝑑𝑤 )
+
+is well-defined and 𝑔(𝑤) ∈ 𝑇 .
+Proof. Suppose first that −1 ∉ 𝑆˜𝜆 = 𝑆˜𝜆 (𝑑). We define
+                                                  
+                                        𝑇 = conv log(1 + 𝑧)|𝑧 ∈ 𝑆˜𝜆 .
+
+Note that since −1 ∉ 𝑆˜𝜆 , 𝑇 is well-defined, and further, is convex by definition. Also, 0 ∈ 𝑇 , since 0 ∈
+𝑆˜𝜆 . Now consider 𝑤 ∈ 𝑇 . By Caratheodory’s theorem, there exist 𝛿 1, 𝛿 2, 𝛿 3 ≥ 0 summing up to 𝑑, and
+                                      Í3
+𝑧 1, 𝑧 2, 𝑧 3 ∈ 𝑆˜𝜆 , such that 𝑤 = 𝑑1 𝑖=1 𝛿𝑖 log(1 + 𝑧𝑖 ). We thus have 𝜆 exp(−𝑑𝑤) = 𝑓𝛿1,𝛿2,𝛿3 (𝑧 1, 𝑧 2, 𝑧 3 ) ∈ 𝑆˜𝜆 .
+Thus, 𝜆 exp(−𝑑𝑤) ≠ −1 and hence 𝑔(𝑤) = log(1 + 𝜆 exp(−𝑑𝑤)) = log(1 + 𝑓𝛿1,𝛿2,𝛿3 (𝑧 1, 𝑧 2, 𝑧 3 )) is well-defined
+and lies in 𝑇 .
+      Conversely, suppose that 𝑇 is any arbitrary convex set containing 0, on which the map 𝑔(𝑤) = log(1 +
+𝜆 exp(−𝑑𝑤)) is well defined, and satisfies 𝑔(𝑤) ∈ 𝑇 for all 𝑤 ∈ 𝑇 . We claim that if −1 ∈ 𝑆˜𝜆 , then there
+exists 𝑤 ∈ 𝑇 such that −1 = 𝜆 exp(−𝑑𝑤).
+      To see this, define the depth of every 𝑧 ∈ 𝑆˜𝜆 as follows: depth(0) = 0, and for 𝑧 ≠ 0, depth(𝑧) is the
+smallest integer 𝐷 such that 𝑧 can be written as 𝑓𝛿1,𝛿2,...,𝛿𝑘 (𝑧 1, 𝑧 2, . . . , 𝑧𝑘 ) where 𝑘 is a positive integer, 𝛿𝑖 ≥ 0
+sum to at most 𝑑, and 𝑧𝑖 ∈ 𝑆˜𝜆 have depth at most 𝐷 −1. Note that depth(𝑧) ≥ 1 for 𝑧 ≠ 0. Now, if −1 ∈ 𝑆˜ (𝜆),
+let 𝐷 −1 = depth(−1).
+      We claim now that for all 𝑧 ∈ 𝑆˜𝜆 of depth at most 𝐷 −1 − 1, log(1 + 𝑧) ∈ 𝑇 . This is proved by induction
+on the depth of 𝑧: it is true in the base case depth(𝑧) = 0 (so that 𝑧 = 0), since 0 ∈ 𝑇 . Otherwise, from the
+
+                                                                  7
+definition of depth, we can find 𝑧 1, 𝑧 2, . . . 𝑧𝑘 of depth strictly smaller than 𝑧, and 𝛿𝑖 ≥ 0 summing up to at
+most 𝑑, such that                                                                             !
+                                                                             𝑘
+                                                                            ∑︁ 𝛿𝑖
+                       𝑧 = 𝑓𝛿1,𝛿2,...,𝛿𝑘 (𝑧 1, 𝑧 2, . . . , 𝑧𝑘 ) = 𝜆 exp −𝑑       log(1 + 𝑧𝑖 ) .            (3.3)
+                                                                            𝑖=1
+                                                                                𝑑
+Thus, we have log(1 + 𝑧) = 𝑔(𝑤) where 𝑤 is a convex combination of 0 and the quantities log(1 + 𝑧𝑖 ). The
+latter quantities are all inductively in 𝑇 , so that 𝑤 is also in 𝑇 (as 𝑇 is convex). But since 𝑇 is closed under
+applications of 𝑔, this implies that 𝑔(𝑤) = log(1 + 𝑧) is also in 𝑇 . This establishes the claim that for every
+𝑧 ∈ 𝑆˜𝜆 of depth at most 𝐷 1 − 1, log(1 + 𝑧) is an element of 𝑇 .
+    Now, applying the argument leading to eq. (3.3) with 𝑧 = −1 (which by assumption has depth 𝐷 −1 ), we
+conclude that there exists a 𝑤 ∈ 𝑇 such that −1 = 𝜆 exp(−𝑑𝑤). But this contradicts the hypothesis that
+𝑔(𝑤) = log(1 + 𝜆 exp(−𝑑𝑤)) is well-defined on 𝑇 . Thus, it cannot be the case that −1 ∈ 𝑆˜𝜆 .                  
+
+    For natural reasons, we call a 𝑇 as in the statement of the above theorem a trapping region for 𝜆.
+
+    Remark: Sometimes it is desirable to avoid −1 even in the closure of 𝑆𝜆 , or 𝑆˜𝜆 . By our transformation,
+this corresponds to the property that there is a convex set 𝑇 containing 0 and closed under 𝑔(𝑤) = log(1 +
+𝜆𝑒 −𝑑𝑤 ), such that <(𝑤) ≥ −𝐾 for every 𝑤 ∈ 𝑇 and some constant 𝐾 > 0. This is equivalent to saying that
+every point 𝑧 ∈ 𝑆˜𝜆 satisfies |1 + 𝑧| ≥ 𝑒 −𝐾 .
+
+
+4    Criterion in the original complex plane
+The previous section shows that we get a rather clean picture when we study the behavior of the extended
+recurrence (eq. (3.2)) after a change of variable, 𝑤 = log(1 + 𝑧). However, we can also formulate a criterion
+using trapping regions in the original variable 𝑧. This criterion looks more intuitive, but it seems we lose
+a bit in the transition (in particular, we do not get an equivalence here).
+
+Theorem 4.1. If there is a convex set 𝑆 ⊂ C containing 0, not containing −1, such that 𝑓 (𝑧) = (1+𝑧)
+                                                                                                 𝜆
+                                                                                                     𝑑 ∈ 𝑆 for
+
+every 𝑧 ∈ 𝑆, then 𝑍𝐺 (𝜆) ≠ 0 for every 𝐺 ∈ GΔ .
+
+   In order to prove this statement, we need the following fact about the behavior of arithmetic vs. geo-
+metric averages in the complex plane. While we believe this fact to be standard, we are unable to find an
+exact reference, and hence provide a proof for completeness.2
+
+Lemma 4.2 (“geometric averages dominate arithmetic averages”). For any two points 𝑧 1, 𝑧 2 ∈ C \ {0}
+satisfying |arg(𝑧 1 ) − arg(𝑧 2 )| ≤ 𝜋, and 𝛼 ∈ [0, 1], there exist 𝛽 ∈ [0, 1] and 𝑡 ∈ [0, 1] such that
+
+                                              𝑡𝑧 𝛼1 𝑧 21−𝛼 = 𝛽𝑧 1 + (1 − 𝛽)𝑧 2 .
+
+Proof. We reduce to the case where 𝑧 2 = 1, by dividing by 𝑧 2 and substituting 𝑧 = 𝑧 1 /𝑧 2 . Our goal then is
+to find 𝑡, 𝛽 ∈ [0, 1] such that
+                                           𝑡𝑧 𝛼 = 𝛽𝑧 + (1 − 𝛽).
+We can also assume that arg 𝑧 ∈ [0, 𝜋], by complex conjugation if this is not the case.
+    Now, if arg 𝑧 = 0 the claim is trivially true because, then, if 𝑧 = <𝑧 ≥ 1, we can take 𝛽 = 0, 𝑡 = 𝑧 −𝛼 ,
+while when 0 < 𝑧 = <𝑧 < 1, we can take 𝛽 = 1, 𝑡 = 𝑧 1−𝛼 . Similarly, when arg 𝑧 = 𝜋, 𝑧 is a strictly negative
+                                                     1
+real number, so that we can choose 𝑡 = 0 and 𝛽 = 1−𝑧    ∈ [0, 1].
+  2 Note that, despite the title, the lemma does not contradict the usual inequality between the arithmetic and the geometric
+means of positive reals. The lemma is in fact a trivial statement for the case of positive reals.
+
+
+
+                                                              8
+    We can thus assume that 𝜃 := arg(𝑧) ∈ (0, 𝜋) and 𝑟 := |𝑧| > 0. Note that arg(𝑧 𝛼 ) = 𝛼𝜃 . Let 𝑦 (𝛼) be
+the unique point with argument 𝛼𝜃 on the line segment joining 1 and 𝑧. From an elementary geometric
+argument, we then have
+                                                     𝑟 sin 𝜃
+                                  |𝑦 (𝛼)| =                           .
+                                            𝑟 sin((1 − 𝛼)𝜃 ) + sin 𝛼𝜃
+We now define the function 𝑓 (𝑥) : [0, 1] → R as
+
+                                                |𝑦 (𝑥)|              𝑟 1−𝑥 sin 𝜃
+                               𝑓 (𝑥) := log             = log                           .
+                                                  |𝑧𝑥 |       𝑟 sin((1 − 𝑥)𝜃 ) + sin 𝑥𝜃
+Note that the claim of the lemma is equivalent to showing that 𝑓 (𝑥) ≤ 0 for all 𝑥 ∈ [0, 1] (the quantity 𝑡
+can then be taken to 𝑒 𝑓 (𝛼) ∈ [0, 1] and 𝛽 ∈ [0, 1] is such that 𝛽𝑧 + 1 − 𝛽 = 𝑦 (𝛼)).
+    To this end, we first note that 𝑓 (0) = 𝑓 (1) = 0, so the claim would follow if 𝑓 is convex on [0, 1]. We
+verify this by directly computing the second derivative of 𝑓 and checking that it is non-negative in [0, 1]:
+
+                                           𝜃 2 (1 + 𝑟 2 − 2𝑟 cos 𝜃 )
+                           𝑓 00 (𝑥) =                                  ≥ 0, when 𝑥 ∈ [0, 1].                          
+                                        (𝑟 sin((1 − 𝑥)𝜃 ) + sin 𝑥𝜃 ) 2
+Proof of Theorem 4.1. Suppose that there is a convex set 𝑆 containing 0, not containing −1, and closed under
+                  𝜆
+the map 𝑓 (𝑧) = (1+𝑧) 𝑑 . We will transform 𝑆 into a convex set 𝑇 satisfying the assumptions of Theorem 3.5.
+
+Define
+                                        𝑇 = conv {log(1 + 𝑧) : 𝑧 ∈ 𝑆 } .
+By construction, 𝑇 is convex and it contains 0 (since 0 ∈ 𝑆). We need to prove that 𝑔(𝑤) = log(1 + 𝜆𝑒 −𝑑𝑤 )
+                                                                                       Í
+is well-defined on 𝑇 and preserves membership in 𝑇 . Consider 𝑤 ∈ 𝑇 , i.e., 𝑤 = 𝑘𝑖=1 𝛼𝑖 log(1 +𝑧𝑖 ), a convex
+                                                                                          Í
+combination of points log(1 + 𝑧𝑖 ) such that 𝑧𝑖 ∈ 𝑆. We can set 𝛿𝑖 = 𝑑𝛼𝑖 , hence 𝑤 = 𝑑1 𝑘𝑖=1 𝛿𝑖 log(1 + 𝑧𝑖 ).
+Then,                                                                              !
+                                              −𝑑𝑤                     𝜆
+                            𝑔(𝑤) = log(1 + 𝜆𝑒     ) = log 1 + Î𝑘                     .
+                                                                 𝑖=1 (1 + 𝑧 𝑖 ) 𝛿𝑖
+
+Now, we appeal to Lemma 4.2. Note first that 1 + 𝑆 := {1 + 𝑧|𝑧 ∈ 𝑆 } is a convex set containing 1 and not
+containing 0, so that by the separating hyperplane theorem, all of 1 + 𝑆 lies in a halfplane defined by a
+line passing through 0, and therefore |arg(1 + 𝑢) − arg(1 + 𝑣)| ≤ 𝜋 is true for all 𝑢, 𝑣 ∈ 𝑆. Now, we take
+                                                                          𝛿𝑖            𝛿𝑗
+
+one pair 𝑧𝑖 , 𝑧 𝑗 of points at a time, and consider 𝑢𝑖 𝑗 = (1 + 𝑧𝑖 ) 𝛿𝑖 +𝛿 𝑗 (1 + 𝑧 𝑗 ) 𝛿𝑖 +𝛿 𝑗 . By Lemma 4.2, there is
+𝛽 ∈ [0, 1] such that 1 +𝑧𝑖 𝑗 = 𝛽 (1 +𝑧𝑖 ) + (1 − 𝛽) (1 +𝑧 𝑗 ) is a point of the same argument and smaller-or-equal
+modulus as 𝑢𝑖 𝑗 . Hence we can replace both 𝑧𝑖 and 𝑧 𝑗 by 𝑧𝑖 𝑗 and continue. We maintain the property that
+                    Î
+the argument of (1 + 𝑧𝑖 )𝛿𝑖 remains preserved and the modulus can only decrease. Eventually, we obtain
+                                                                             Î                              Î
+a point 𝑧˜ ∈ conv {𝑧 1, . . . , 𝑧𝑘 } ⊆ 𝑆 such that arg((1 + ˜𝑧)𝑑 ) = arg( (1 + 𝑧𝑖 )) and |(1 + ˜𝑧)𝑑 | ≤ | (1 + 𝑧𝑖 )|.
+Hence, we can write                                                        
+                                                                    𝑐 ·𝜆
+                                              𝑔(𝑤) = log 1 +                  ,
+                                                                  (1 + ˜𝑧)𝑑
+where 𝑐 ≤ 1 is a non-negative real number. Now, note that since 𝑧˜ ∈ 𝑆, we have 𝑓 ( ˜𝑧) = (1+𝜆˜𝑧) 𝑑 ∈ 𝑆, as 𝑆 is
+                                                                                   𝑐 ·𝜆
+closed under applications of 𝑓 . Then, since 0 ∈ 𝑆, and 𝑆 is convex, we get 𝑦 := (1+ ˜𝑧) 𝑑
+                                                                                           ∈ 𝑆, and further that
+𝑦 ≠ −1, as −1 ∉ 𝑆. Thus, by definition of 𝑇 , 𝑔(𝑤) = log(1 + 𝑦) ∈ 𝑇 , as 𝑦 ∈ 𝑆. This proves that 𝑇 satisfies
+the assumptions of Theorem 3.5 and hence −1 is not contained in 𝑆˜𝜆 , which implies that 𝑍𝐺 (𝜆) ≠ 0.          
+
+   Next, we present a more abstract extended version of this criterion, where we allow a “convex” initial
+segment ℎ(𝑡), 𝑡 ∈ [0, 1] rather than a line segment. First we define the following notion:
+
+
+                                                            9
+Definition 4.3 (−1-covered points). A point 𝑧 ∈ C is −1-covered by 𝑧 0 ∈ C if arg(1 + 𝑧) = arg(1 + 𝑧 0) and
+|1 + 𝑧| ≥ |1 + 𝑧 0 |. More generally, a set 𝑇 is −1 covered by a set 𝑆 if for every 𝑧 ∈ 𝑇 , there is a point 𝑧 0 ∈ 𝑆
+such that 𝑧 is −1-covered by 𝑧 0.
+Geometrically, the above notion captures 𝑧 being “covered” by 𝑧 0 when “viewed” from the point −1. The
+utility of this definition for our purposes comes from the following simple observation.
+Observation 4.4. Fix an integer 𝑑 ≥ 2 and a 𝜆 ∈ C, and consider 𝑓 (𝑧) := (1+𝑧)
+                                                                           𝜆
+                                                                               𝑑 . If 𝑧 ∈ C is −1-covered by
+
+𝑤 ∈ C, then 𝑓 (𝑧) = 𝛼 𝑓 (𝑤) for some 𝛼 ∈ [0, 1].
+Proof. If 𝜆 = 0, there is nothing to prove, so assume 𝜆 ≠ 0. Since 𝑧 is −1-covered by 𝑤, we have |1 + 𝑧| ≥
+|1 + 𝑤 | and arg(1 + 𝑤) = arg(1 + 𝑧). It follows that arg(𝑓 (𝑧)) = arg(𝑓 (𝑤)), and |𝑓 (𝑧)| ≤ |𝑓 (𝑤)|. Thus,
+𝑓 (𝑧) lies on the segment joining the origin to 𝑓 (𝑤), and the claim follows.                            
+
+   Next we state and prove our first main geometric criterion for zero-freeness, which will be applied
+multiple times in the subsequent sections.
+Theorem 4.5. For 𝜆 ∈ C, assume that there is a curve {ℎ(𝑡) : 𝑡 ∈ [𝑎, 𝑏]}, where 𝑎 < 𝑏 are real numbers,
+such that
+    • ℎ(𝑡) = 0 for some 𝑡 ∈ [𝑎, 𝑏],
+
+    • arg(1 + ℎ(𝑡)) is strictly increasing for 𝑡 ∈ [𝑎, 𝑏),
+
+    • ℎ(𝑡) is “convex” in the sense that for any 𝑡 1, 𝑡 2 ∈ [𝑎, 𝑏], 𝛼 ∈ [0, 1], 𝛼ℎ(𝑡 1 ) + (1 − 𝛼)ℎ(𝑡 2 ) is −1-covered
+      by ℎ(𝑡) for some 𝑡 ∈ [𝑡 1, 𝑡 2 ].
+
+    • for every 𝑡 ∈ [𝑎, 𝑏], 𝑓 (ℎ(𝑡)) := (1+ℎ𝜆(𝑡 )) 𝑑 is −1-covered by ℎ(𝑡 0) for some 𝑡 0 ∈ [𝑎, 𝑏].
+
+Then 𝑍𝐺 (𝜆) ≠ 0 for any 𝐺 ∈ G𝑑+1 .
+Proof. By an affine reparameterization of the curve ℎ, if necessary, we assume that 𝑎 = 0 and 𝑏 = 1. Given
+the curve ℎ(𝑡), 𝑡 ∈ [0, 1], we define a trapping region, in the sense of Theorem 4.1, as a “shadow of the
+curve ℎ(𝑡) when illuminated from the point −1”:
+
+                            𝑆 = {𝑧 ∈ C : ∃𝑡 ∈ [0, 1] such that 𝑧 is −1-covered by ℎ(𝑡)}.
+
+This is a convex set, since for any 𝑧 1, 𝑧 2 ∈ 𝑆, 𝑧 1 and 𝑧 2 are −1-covered by ℎ(𝑡 1 ), ℎ(𝑡 2 ) respectively, 𝑧 =
+𝛼𝑧 1 + (1 − 𝛼)𝑧 2 is −1-covered by 𝑧 0 = 𝛼 0ℎ(𝑡 1 ) + (1 − 𝛼 0)ℎ(𝑡 2 ) (for some 𝛼 0 ∈ [0, 1]), and 𝑧 0 in turn is covered
+by ℎ(𝑡) for some 𝑡 ∈ [𝑡 1, 𝑡 2 ] by the convexity of ℎ(𝑡).
+     Also, 0 is contained in 𝑆 because ℎ(𝑡) = 0 for some 𝑡 ∈ [0, 1]; −1 is not contained in 𝑆, since 0 is the
+only real value on the curve ℎ(𝑡) (this follows since arg(1 + ℎ(𝑡)) is assumed to be a strictly increasing
+function of 𝑡), so that 𝑆 contains only non-negative real numbers.
+     To apply Theorem 4.1 in order to conclude the proof, it remains to prove that 𝑆 is closed under the
+                  𝜆
+map 𝑓 (𝑧) = (1+𝑧)    𝑑 . For any 𝑧 ∈ 𝑆, there is a 𝑡 ∈ [0, 1] such that 𝑧 is −1-covered by ℎ(𝑡). Observation 4.4
+
+then implies that 𝑓 (𝑧) = 𝛼 𝑓 (ℎ(𝑡)) for some 𝛼 ∈ [0, 1]. By the assumptions of the theorem, we know that
+𝑓 (ℎ(𝑡)) is −1-covered by some point ℎ(𝑡 0), 𝑡 0 ∈ [0, 1], which implies that 𝑓 (ℎ(𝑡)) ∈ 𝑆. Hence by convexity,
+since 0 ∈ 𝑆, we also get 𝑓 (𝑧) = 𝛼 𝑓 (ℎ(𝑡)) ∈ 𝑆, as required.                                                            
+
+    Next, we formulate a more concrete sufficient condition which can be used in numerical experiments.3
+The proof we give here highlights the connections of this result with numerical exploration, even though
+alternative proofs may be possible (see Remarks 4.7 and 4.8 following the proof).
+   3 This was the result stated in a talk at the Simons Institute for the Theory of Computing, UC Berkeley, on March 18, 2019.
+
+
+
+                                                              10
+                                                 The h curve for d = 9
+                                  0.10
+
+
+                                  0.08
+
+
+                                  0.06
+
+
+                                  0.04
+
+
+                                  0.02
+
+
+                                  0.00                  =      * (d) exp(r(d)     (d))
+                                             0.00      0.02        0.04         0.06
+
+Figure 2: The ℎ curve from Theorem 4.6. We set 𝑑 =n 9, and 𝜆 ∗ (𝑑) is the Shearer thresholdo       described in Theorem 1.1.
+                         −1   1                                 1    2𝑑 (𝑑+1) sin2 (𝜃 /2)
+𝜃 (𝑑) is chosen to be cos 𝑑+0.5 , while 𝑟 (𝑑) := min 𝑑 log(1 + 𝑑 ), 𝑑 2 +4(𝑑+1) sin2 (𝜃 /2) . The choice of these parameters
+is based on their use in the later Theorem 6.1, which applies Theorem 4.6.
+
+
+Theorem 4.6. For 𝜆 ∈ C, =(𝜆) > 0, define a curve
+
+    • ℎ(𝑡) = 𝑡𝜆 for 𝑡 ∈ [0, 1],
+
+    • ℎ(𝑡) = (1+ℎ (𝑡𝜆−1)) 𝑑 for 𝑡 > 1.
+
+If =(ℎ(𝑡)) ≥ 0 for all 𝑡 ≥ 0, then 𝑍𝐺 (𝜆) ≠ 0 for all 𝐺 ∈ G𝑑+1 . (See also Figure 2 for an example of the curve ℎ
+in the statement of the theorem. )
+
+Proof. Note that the curve ℎ(𝑡) is continuous since it is continuous at 𝑡 ≤ 1: this is because at 𝑡 = 1 we have
+lim𝑡 →1− ℎ(𝑡) = lim𝑡 →1+ ℎ(𝑡) = 𝜆, and by the recursion ℎ is continuous at 𝑡 if it is continuous at 𝑡 − 1. By
+continuity and the assumption =(ℎ(𝑡)) ≥ 0 for all 𝑡 ≥ 0 this implies that the continuous functions arg(ℎ(𝑡))
+and arg(1 + ℎ(𝑡)) are also non-negative for 𝑡 ≥ 0. The identity arg(ℎ(𝑡)) = arg(𝜆) − 𝑑 arg(1 + ℎ(𝑡 − 1)) for
+𝑡 ≥ 1 (valid whenever the right hand side lies in (−𝜋, 𝜋]) then implies that arg(1 + ℎ(𝑡 − 1)) cannot exceed
+ 1                                                                                   1
+𝑑 arg(𝜆), because if 𝑡 is the infimum of points for which arg(1 + ℎ(𝑡 − 1)) > 𝑑 arg(𝜆) then the identity
+gives a contradiction to arg(ℎ(𝑡 + 𝜖)) ≥ 0 for some small enough positive 𝜖. Since arg(1 + ℎ(𝑡 − 1)) ≥ 0,
+the identity then also implies that
+
+                              0 ≤ arg(ℎ(𝑡)) = arg(𝜆) − 𝑑 arg(1 + ℎ(𝑡 − 1)) ≤ arg(𝜆).                                  (4.1)
+
+Hence the argument of any point of the curve is contained in [0, arg(𝜆)].
+   In order to define a trapping region, we start by defining the following quantity:
+
+                        𝜏 ★ := sup{𝑡 0 : arg(1 + ℎ(𝑡)) is non-decreasing for all 𝑡 ∈ [0, 𝑡 0]}.                       (4.2)
+
+                                                              11
+Note that 𝜏 ★ ≥ 1. We also allow 𝜏 ★ = ∞, although this cannot really happen. We will now show that the
+region
+       𝑆 in the upper half plane bounded by the line segments [0, ℎ(1)] and [0, ℎ(𝜏 ★ + 1)] and the curve
+ ℎ(𝑡 + 1)|0 ≤ 𝑡 ≤ 𝜏 ★ is a trapping region in the sense of Theorem 4.1. Note that by definition 0 ∈ 𝑆, while
+−1 ∉ 𝑆 (since, from the observations above, arg 𝑧 ∈ [0, arg 𝜆] for all 𝑧 ∈ 𝑆). It remains to show that (1) 𝑆 is
+convex, and (2) 𝑓 (𝑧) = 𝜆/(1 + 𝑧)𝑑 ∈ 𝑆 for all 𝑧 in 𝑆.
+    We start by proving that 𝑆 is convex. Since the curve ℎ lies in the upper half plane (see eq. (4.1)), this
+will follow if we establish the following two facts:
+
+   1. arg(ℎ(𝑡)) is non-increasing for 𝑡 ∈ [1, 𝜏 ★ + 1].
+                  
+   2. The curve ℎ(𝑡) : 𝑡 ∈ [1, 𝜏 ★ + 1] is “turning to the right”. More formally, for any 𝑡 ∈ [1, 𝜏 ★ +1), there
+      is a small enough neighborhood 𝑁𝑡 of 𝑡 such that for 𝑡 1 ≤ 𝑡 2 in 𝑁𝑡 , arg(𝐷 − (ℎ) (𝑡 1 )/𝐷 + (ℎ) (𝑡 2 )) ≥ 0.
+      Here 𝐷 + and 𝐷 − denote the right and left one-sided derivatives.
+
+      We first prove item 1. This follows since in the interval 𝑡 ∈ [1, 𝜏 ★ + 1], we have arg(ℎ(𝑡)) = arg(𝜆) −
+𝑑 arg(1 + ℎ(𝑡 − 1)), which is non-increasing by the definition of 𝜏 ★.
+      We now consider item 2. Note that ℎ(𝑡) is continuously differentiable in the neighborhood of any 𝑡
+which is not an integer. Further, for such a 𝑡, we have ℎ 0 (𝑡) = (1+ℎ (𝑡−𝜆𝑑        −1)) 𝑑+1
+                                                                                             ℎ 0 (𝑡 − 1). We now prove the
+claim for such 𝑡 (i.e., non-integral 𝑡) using an induction on d𝑡e. In the base case, when d𝑡e = 1, we have
+ℎ 0 (𝑡) = 𝜆, so arg(𝐷 − (ℎ) (𝑡 1 )/𝐷 + (ℎ) (𝑡 2 )) = arg(1) = 0 for 𝑡 1, 𝑡 2 in any small enough neighborhood of 𝑡. In
+the inductive case, we have, for 𝑡 1 ≤ 𝑡 2 in a small enough neighborhood of 𝑡,
+
+                               𝐷 − (ℎ) (𝑡 1 )               1 + ℎ(𝑡 2 − 1)       𝐷 − (ℎ) (𝑡 1 − 1)
+                        arg                   = (𝑑 + 1) arg                + arg                   .                 (4.3)
+                               𝐷 + (ℎ) (𝑡 2 )               1 + ℎ(𝑡 1 − 1)       𝐷 + (ℎ) (𝑡 2 − 1)
+
+The claim now follows since the first term is non-negative due to the definition of 𝜏 ★, while the second is
+non-negative by the inductive hypothesis.
+   We now consider the case of integral 𝑡. Here, we find via a direct induction that
+
+                               𝐷 − (ℎ) (𝑡)       𝐷 − (ℎ) (1)         𝜆
+                         arg     +
+                                           = arg   +
+                                                             = arg          = 𝜋 − arg 𝜆 ≥ 0.                         (4.4)
+                               𝐷 (ℎ) (𝑡)         𝐷 (ℎ) (1)         (−𝑑𝜆 2 )
+The proof for item 2 now follows from the already proved case of non-integral 𝑡 and the fact that the
+derivative ℎ 0 is a well-defined continuous function except at integral 𝑡. As noted earlier, this proves that 𝑆 is
+convex. In fact, from the definition of 𝜏 ★, we also obtain that 0 = arg(1+ℎ(0)) ≤ arg(1+𝑧) ≤ arg(1+ℎ(𝜏 ★))
+for all 𝑧 ∈ 𝑆. Since arg(1 + ℎ(𝑡)) is non-decreasing for 𝑡 ∈ [0, 𝜏 ★] and 𝑆 is convex, it follows that if a line
+is drawn from 𝑧 ∈ 𝑆 in the direction of −1, it will intersect the boundary of 𝑆 at some point ℎ(𝑡) for
+0 ≤ 𝑡 ≤ 𝜏 ★.
+    We can now prove that 𝑆 satisfies the remaining requirement for being a trapping region, which is,
+that it is closed under application of 𝑓 . Consider any point 𝑧 ∈ 𝑆. As noted above, if a line is drawn from
+𝑧 towards −1, then it must intersect the boundary of 𝑆 on a point 𝑧˜ of the form ℎ(𝑡) for 𝑡 ∈ [0, 𝜏 ★]. Hence,
+there is a point 𝑧˜ = ℎ(𝑡), 𝑡 ∈ [0, 𝜏 ★] such that arg(1 + ℎ(𝑡)) = arg(1 + 𝑧) and |1 + ℎ(𝑡)| ≤ |1 + 𝑧|. By
+construction,
+                                                        𝜆
+                                        𝑓 (ℎ(𝑡)) =              = ℎ(𝑡 + 1)                                  (4.5)
+                                                   (1 + ℎ(𝑡))𝑑
+                                                             𝜆
+which is still in 𝑆 (since 𝑡 ∈ [0, 𝜏 ★]). Finally, 𝑓 (𝑧) = (1+𝑧) 𝑑 has the same argument as ℎ(𝑡 + 1), and possibly
+
+smaller modulus, hence 𝑓 (𝑧) ∈ 𝑆 by convexity (since 0 ∈ 𝑆).
+   Thus, 𝑆 as defined above is a trapping region, and this concludes the proof.                                  
+
+
+
+                                                             12
+Figure 3: A numerical
+                      exploration of points that satisfy the condition of Theorem 4.6 for 𝑑 = 9. Colors represent
+the value of 𝜏 ★ .
+
+
+Remark 4.7. We note that the proof of Theorem 4.6 also indicates a numerical approach to check this
+criterion, see Figure 3. We do not have to track the curve for 𝑡 → ∞. It is sufficient to compute ℎ(𝑡)
+for 𝑡 ∈ [0, 𝜏 ★ + 1] as defined above. If arg(1 + ℎ(𝜏 ★)) ≤ 𝑑1 arg(𝜆) and arg(1 + ℎ(𝑡)) is non-increasing for
+𝑡 ∈ [𝜏 ★, 𝜏 ★ + 1], the argument above implies that 𝑆 is a trapping region and the entire curve is contained
+in the upper half-plane.
+
+Remark 4.8. We also remark that it is possible to prove Theorem 4.6 from Theorem 4.5 by considering
+the curve from the proof of Theorem 4.6 on the interval [0, 𝜏 ★]. The curve in Theorem 4.5 represents the
+portion of the curve in Theorem 4.6 “visible from −1”; i.e., the points ℎ(𝑡) that are not −1-covered by any
+other point ℎ(𝑡 0).
+
+
+5    Derivation of the Sokal conjecture
+Here we provide a short proof using Theorem 4.5 that there are no complex roots close to the positive real
+                                       𝑑𝑑
+axis, up to the critical point 𝜆 ∗ = (𝑑−1) 𝑑+1 . This was first proved by Peters and Regts [26].
+
+
+
+
+                                                       13
+                                                   z+                                    h
+                                                  f(z )                                  f(h)
+                0.004
+
+                0.002
+
+                        0                                                                   f(0)
+                0.000
+
+                0.002
+
+                0.004                             f(z + )
+                                                   z
+                         0.0       0.2      0.4             0.6        0.8   1.0   1.2      1.4
+
+Figure 4: A sketch of the ℎ curve in the proof of Theorem 5.1. In the notation of the theorem, the sketch corresponds
+to 𝑑 := 3, 𝜖 := 0.1 and 𝛿 := 0.01. 𝜃 has been set to 0 for simplicity. As before, 𝑓 is the map 𝑧 ↦→ 𝜆/(1 + 𝑧)𝑑 . The
+aspect ratio in the figure has been chosen to be different from 1 to accentuate features close to the real line.
+
+
+Theorem 5.1. For every fixed 𝑑 ≥ 2, and every 𝜖 ∈ (0, 1), there is an 𝜖 0 > 0 such that 𝑍𝐺 (𝜆) ≠ 0 for 𝐺 of
+                                               (𝑑−𝜖) 𝑑                        0
+maximum degree at most 𝑑 + 1 when 𝜆 = (1 − 𝜖) (𝑑−1) 𝑑+1 exp(𝜄𝜃 ) with |𝜃 | ≤ 𝜖 .
+
+
+                        1−𝜖                                    𝜆0                        (𝑑−𝜖)        𝑑
+Proof. Note that 𝑧 0 := 𝑑−1 is a fixed point of the map 𝑧 ↦→ (1+𝑧) 𝑑 where 𝜆0 = (1 − 𝜖) (𝑑−1) 𝑑+1 . Note also
+
+that 𝜆0 → 𝜆 ∗ as 𝜖 → 0. We consider two complex conjugate points 𝑧 ± = 1−𝜖±𝜄𝛿
+                                                                          𝑑−1 for some 𝛿 > 0 to be fixed
+later. We have 𝜆 = 𝜆0 exp(𝜄𝜃 ) where 𝜃 > 0 is small enough (as a function of 𝜖 and 𝛿) to be fixed later. We
+will now use Theorem 4.5 for the curve defined by
+                                             (
+                                               −𝑡𝑧 − if 𝑡 ∈ [−1, 0)
+                                      ℎ(𝑡) =                        .                                   (5.1)
+                                               𝑡𝑧 +   if 𝑡 ∈ [0, 1]
+The first three conditions required of the curve ℎ in Theorem 4.5 are satisfied by construction (see fig. 4 for
+an example sketch). We now proceed to verify the fourth condition. To start with, a direct computation
+reveals that
+                                                                                  −𝑑
+                                    𝜆                  (𝑑 − 𝜖)𝑑        1 − 𝜖 − 𝜄𝛿
+                     𝑓 (𝑧 − ) =             = (1 − 𝜖)               1+                 exp(𝜄𝜃 )           (5.2)
+                                (1 + 𝑧 − )𝑑           (𝑑 − 1)𝑑+1         𝑑 −1
+                                                                −𝑑
+                                              1−𝜖           𝜄𝛿
+                                            =         1−             exp(𝜄𝜃 ).                            (5.3)
+                                              𝑑 −1        𝑑 −𝜖
+                 𝛿𝑖
+We have arg(1 − 𝑑−𝜖 ) = − tan−1 ( 𝑑−𝜖
+                                   𝛿         𝛿
+                                      ) = − 𝑑−𝜖  + 𝑂 (𝛿 2 ). Therefore,
+                                                            
+                                                       𝜄𝛿             𝑑𝛿
+                       arg(𝑓 (𝑧 − )) = −𝑑 arg 1 −              +𝜃 =      + 𝑂 (𝛿 2 ) + 𝜃 .                       (5.4)
+                                                     𝑑 −𝜖           𝑑 −𝜖
+
+                                                                  14
+    In comparison,                                           
+                                                    𝛿    −1      𝛿
+                                 arg 𝑧 + = tan             =         + 𝑂 (𝛿 2 ).                   (5.5)
+                                                   1−𝜖        1−𝜖
+Thus, for all 𝛿 > 0 small enough (depending on 𝜖 and 𝑑) and all 𝜃 ≥ 0 small enough (depending on 𝑑 ≥ 2,
+𝛿 and 𝜖), we have
+                                          arg 𝑧 + > arg 𝑓 (𝑧 − ) > 0.                              (5.6)
+                                 1−𝜖
+Observe also that |𝑓 (𝑧 − )| < | 𝑑−1 | < |𝑧 + |. This implies that 𝑓 (𝑧 − ) is −1-covered by some point on the
+line segment from 0 to 𝑧 + , and in particular, 0 ≤ arg(1 + 𝑓 (𝑧 − )) ≤ arg(1 + 𝑧 + ). An essentially symmetric
+argument shows that 𝑓 (𝑧 + ) is also −1-covered by some point on the line segment between 0 and 𝑧 − , and
+in particular, 0 ≥ arg(1 + 𝑓 (𝑧 + )) ≥ arg(1 + 𝑧 − ). The inequality analogous to eq. (5.6) for 𝑓 (𝑧 + ) is (again,
+provided that 𝜃 has small enough magnitude)
+                                                     arg 𝑧 − < arg 𝑓 (𝑧 + ) < 0.                                         (5.7)
+For later use, we also record the following computation. For small positive 𝜃 and 𝛿, we have, by a direct
+computation,
+                                          𝑓 (𝑧 + )      𝑑 (𝑑 − 1)
+                                  arg                =−           𝛿 + 𝑂 (𝛿 2 ) + 𝑂 (𝜃 ), and                             (5.8)
+                                        1 + 𝑓 (𝑧 + )    (𝑑 − 𝜖) 2
+                                              𝑧+           𝑑 −1
+                                        arg          =                𝛿 + 𝑂 (𝛿 2 ).                                      (5.9)
+                                            1 + 𝑧 + (𝑑 − 𝜖) (1 − 𝜖)
+In particular, since 𝑑 ≥ 2, we have
+                                                       𝑓 (𝑧 + )           𝑧+
+                                               arg                + arg        ≥0                                       (5.10)
+                                                     1 + 𝑓 (𝑧 + )       1 + 𝑧+
+for all small enough 𝛿 > 0 and 𝜃 > 0. At this point, we specify our choice of 𝜃 and 𝛿: we choose 𝛿 < 1
+and 𝜃 < 𝜋/10 positive and small enough that (i) eq. (5.6), its analogue eq. (5.7) for 𝑓 (𝑧 + ), and eq. (5.10) are
+all valid, and (ii) |arg 𝑧 + | = |arg 𝑧 − | ≤ 𝜋/10. In the following, we use these conditions imposed on 𝛿 and 𝜃
+without comment.
+     We now claim that the curve {𝑓 (𝑡𝑧 + ) : 0 ≤ 𝑡 ≤ 1} is also −1-covered by the curve ℎ defined above. To
+                                                                                                                  𝛾 0 (𝑡 )
+prove this, we define 𝛾 (𝑡) := 1 + 𝑓 (𝑡𝑧 + ), and note that we have (for 𝑠 ∈ (0, 1)) d𝑠d arg 𝛾 (𝑠)|𝑠=𝑡 = = 𝛾 (𝑡 ) .
+     We begin by noting that as 𝑡 increases from 0 to 1, arg 𝑓 (𝑡𝑧 + ) decreases from 𝜃 = arg 𝑓 (0) to arg 𝑓 (𝑧 + ) >
+arg 𝑧 − (since arg (1 + 𝑡𝑧 + ) increases as 𝑡 increases), while |𝑓 (𝑡𝑧 + )| decreases from 𝜆0 to |𝑓 (𝑧 + )| < |𝑧 − | (again,
+since |1 + 𝑡𝑧 + | increases as 𝑡 increases). We now compute
+                                                  𝛾 0 (𝑡)
+                                                                                        
+                                  d                                 𝑧+         𝑓 (𝑡𝑧 + )
+                                    arg 𝛾 (𝑡) = =         = −𝑑=             ·              .                            (5.11)
+                                 d𝑡                𝛾 (𝑡)          1 + 𝑡𝑧 + 1 + 𝑓 (𝑡𝑧 + )
+We will now show that d𝑡d arg 𝛾 (𝑡) ≤ 0 for all 𝑡 ∈ (0, 1). For any particular 𝑡, if arg 𝑓 (𝑡𝑧 + ) ≥ 0, then
+eq. (5.11) immediately implies that d𝑡d arg 𝛾 (𝑡) < 0 (since arg 𝑧 + > 0). For any other 𝑡 ∈ (0, 1), we must
+have arg 𝑓 (𝑧 + ) ≤ arg 𝑓 (𝑡𝑧 + ) ≤ 0. We then get
+            𝑓 (𝑡𝑧 + )                    sin arg 𝑓 (𝑡𝑧 + )
+    arg                 = tan−1                                                                                         (5.12)
+          1 + 𝑓 (𝑡𝑧 + )         |𝑓 (𝑡𝑧 + )| + cos arg 𝑓 (𝑡𝑧 + )
+                                         sin arg 𝑓 (𝑧 + )
+                        ≥ tan−1                                   since arg 𝑓 (𝑡𝑧 + ) ≥ arg 𝑓 (𝑧 + ),                   (5.13)
+                                 |𝑓 (𝑡𝑧 + )| + cos arg 𝑓 (𝑧 + )
+                                        sin arg 𝑓 (𝑧 + )
+                        ≥ tan−1                                  since |𝑓 (𝑡𝑧 + )| ≥ |𝑓 (𝑧 + )| and arg 𝑓 (𝑧 + ) ≤ 0,   (5.14)
+                                 |𝑓 (𝑧 + )| + cos arg 𝑓 (𝑧 + )
+                                𝑓 (𝑧 + )                  𝑧+
+                        = arg               ≥ − arg            .                                                        (5.15)
+                              1 + 𝑓 (𝑧 + )            1 + 𝑧+
+
+                                                                  15
+                                                                                                      𝑧+
+Here, the last inequality comes from eq. (5.10). Combining this with the observation that arg 1+𝑡𝑧       +
+                                                                                                           is strictly
+                                                                                                    d
+decreasing in 𝑡 for 𝑡 ∈ (0, 1), and substituting in eq. (5.11), we get the required claim that d𝑡 arg 𝛾 (𝑡) ≤ 0
+for all 𝑡 in (0, 1). Thus, arg(1 + 𝑓 (𝑡𝑧 + )) decreases as 𝑡 increases from 0 to 1. An essentially symmetrical
+argument shows that arg(1 + 𝑓 (𝑡𝑧 − )) increases as 𝑡 increases from 0 to 1. Since we already established that
+𝑓 (𝑧 + ) and 𝑓 (𝑧 − ) are −1-covered by ℎ, and also that arg 𝑧 − < arg 𝑓 (ℎ(𝑡)) < arg 𝑧 + for all 𝑡 ∈ [−1, 1], this
+establishes that the whole curve {𝑓 (ℎ(𝑡)) | 𝑡 ∈ [−1, 1]} is −1-covered by ℎ.
+     We thus see that the fourth condition of Theorem 4.5 is also satisfied for the curve ℎ. We conclude
+therefore that 𝑍𝐺 (𝜆) ≠ 0 for all graphs 𝐺 of maximum degree at most 𝑑 + 1.
+                                                                                                                     
+
+
+6    A new zero-free region in the vicinity of the critical point
+In this section, we use Theorem 4.6 to establish a new zero-free region for the independence polynomial
+in the vicinity of the negative real line. The result in this section applies more generally to points in the
+left half-plane away from the imaginary axis; we consider points close to the imaginary axis in Section 7.
+                                         𝑑𝑑
+     We recall that 𝜆 ∗ = 𝜆 ∗ (𝑑) := (𝑑+1)  𝑑+1 is the Shearer threshold. Consider the boundary 𝜕𝑈𝑑 of the
+
+“cardioid-shaped” region 𝑈𝑑 (eq. (1.1)) of Peters and Regts [26]. Near the negative real line, one can calculate
+that the curve 𝜕𝑈𝑑 follows a power law of the following form. Let 𝑅𝑈 (𝜃 ) denote the polar equation of 𝜕𝑈𝑑 ,
+and let (𝑋𝑈 (𝜃 ), 𝑌𝑈 (𝜃 )) denote the corresponding Cartesian coordinates (𝑅𝑈 (𝜃 ) cos 𝜃, 𝑅𝑈 (𝜃 ) sin 𝜃 ). In the
+vicinity of the point −𝜆 ∗ (𝑑) on 𝜕𝑈𝑑 , a somewhat tedious but straightforward calculation shows that for
+small 𝜙,
+                                 𝑋𝑈 (𝜋 + 𝜙) = −𝜆 ∗ (𝑑) − 𝑐𝑑 · |𝜙 | 2/3 + 𝑜 (|𝜙)| 2/3 ),                      (6.1)
+where 𝑐𝑑 is a positive constant depending only on 𝑑. While we cannot prove that the true root-free region
+matches this exact power law, we have the following result which gives a weaker power law (see fig. 5 for
+a pictorial description).
+
+Theorem 6.1. Fix an integer 𝑑 ≥ 2. If 𝜆 = −𝜆 ∗ exp(𝑟 − 𝜄𝜃 ), where 𝜃 ∈ (0, cos−1 𝑑+0.5           1
+                                                                                                    ] and 0 ≤ 𝑟 ≤
+   n                              2 (𝜃 /2)
+                                           o
+                     2𝑑  (𝑑+1) sin
+min 𝑑 log(1 + 𝑑1 ), 𝑑 2 +4(𝑑+1) sin2 (𝜃 /2) , then 𝑍𝐺 (𝜆) ≠ 0 for any graph 𝐺 of degree at most 𝑑 + 1.
+
+    Before proving the theorem, we briefly describe the power law (analogous to the one stated above
+for 𝜕𝑈𝑑 ) that the region described in the theorem follows. Again, we denote by ˜       𝑅(𝜃 ) the polar equation
+of the boundary of the region described by the theorem, and let (𝑋 (𝜃 ), 𝑌 (𝜃 )) denote the corresponding
+                                                                         ˜     ˜
+Cartesian coordinates (𝑅(𝜃          ˜ ) sin 𝜃 ). In the vicinity of the point −𝜆 ∗ (𝑑) = 𝑅𝑈 (𝜋) = 𝑅(𝜋),
+                         ˜ ) cos 𝜃, 𝑅(𝜃                                                            ˜    a similar
+computation as above then shows that for small 𝜙,
+
+                                    𝑋˜ (𝜋 + 𝜙) = −𝜆 ∗ (𝑑) − 𝑐˜𝑑 · |𝜙 | 2 + 𝑜 (|𝜙 | 2 ),                          (6.2)
+
+where 𝑐˜𝑑 = 𝜆∗2𝑑(𝑑) is a positive constant depending only on 𝑑.
+
+Proof of Theorem 6.1. We use Theorem 4.6. In particular, we will show that the curve ℎ(𝑡) defined there
+lies in the upper half plane {𝑧|=𝑧 ≥ 0} for every 𝑡 ≥ 0. (See Figure 2 for an example of this curve for a
+particular setting of the parameters 𝑑, 𝑟 and 𝜃 .) In fact, we will prove by an induction on d𝑡e that for all
+𝑡 ≥ 0,
+                       1       1
+    1. |ℎ(𝑡)| ≤ 𝜏 := 𝑑+1−𝛿 ≤ 𝑑+0.5 ≤ 21 , and
+
+    2. arg ℎ(𝑡) ∈ [0, 𝜋 − 𝜃 ],
+
+
+
+                                                            16
+                                                          90°
+
+
+
+
+                                                                        * (d)
+
+
+                        180°                                                               0°
+                                                         0
+
+
+
+
+                                                         270°
+
+Figure 5: The red region is the zero-free region in Theorem 6.1, plotted here for 𝑑 = 9 (i.e., for graphs of degree at
+most 10). The black circle around the origin has radius 𝜆 ∗ (𝑑), and the markings are according to polar coordinates.
+
+
+where 𝛿 = 𝛿 (𝑑, 𝑟, 𝜃 ) < 1/2 is a fixed non-negative constant. We first verify these for the base case d𝑡e = 1.
+                                                 𝑑𝑑         1
+In this case, we have |ℎ(𝑡)| = 𝑡 |𝜆| ≤ exp(𝑟 ) (𝑑+1) 𝑑+1 ≤ 𝑑+1 ≤ 𝜏 since 𝑟 ≤ 𝑑 log(1 + 1/𝑑). Further, arg ℎ(𝑡) =
+
+arg 𝜆 = 𝜋 − 𝜃 .
+    We now proceed with the induction. For ease of notation, we denote |ℎ(𝑡 − 1)| as 𝜌 and arg ℎ(𝑡 − 1) as
+𝜋 − 𝛼. From the induction hypothesis, we have 𝜌 ≤ 𝜏 and 𝛼 ∈ [𝜃, 𝜋]. This gives
+                                        √︁                     √︁
+                       |1 + ℎ(𝑡 − 1)| = 1 + 𝜌 2 − 2𝜌 cos 𝛼 ≥ 1 + 𝜌 2 − 2𝜌 cos 𝜃
+                                                                      √︄
+                                        √                                         2 sin2 (𝜃 /2)
+                                      ≥ 1 + 𝜏 2 − 2𝜏 cos 𝜃 = (1 − 𝜏) 1 + 2𝜏 ·
+                                                                                    (1 − 𝜏) 2
+                                                    √︂
+                                           𝑑 −𝛿            4(𝑑 + 1) sin2 (𝜃 /2)
+                                      ≥           · 1+                          .                           (6.3)
+                                        𝑑 +1−𝛿                     𝑑2
+Here, for the second inequality we use the fact that the quantity inside the square-root is decreasing in 𝜌
+                 1
+since 𝜌 ≤ 𝜏 ≤ 𝑑+0.5 ≤ cos 𝜃 , since 𝜃 ∈ [0, cos−1 (1/(𝑑 + 0.5))]. Similarly, the last inequality uses 𝜏 ≥ 𝑑+1
+                                                                                                           1
+                                                                                                              .
+Now, note that since arg ℎ(𝑡 − 1) ∈ [0, 𝜋], |ℎ(𝑡 − 1)| ≤ 𝜏 ≤ 1 and |1 + ℎ(𝑡 − 1)| > 0, we have
+
+                                               arg(1 + ℎ(𝑡 − 1)) ≥ 0,                                            (6.4)
+
+and also
+                                               =ℎ(𝑡 − 1)         𝜌 sin 𝛼     𝜏 sin 𝛼
+                        arg(1 + ℎ(𝑡 − 1)) ≤                  =           ≤
+                                             1 + <ℎ(𝑡 − 1) 1 − 𝜌 cos 𝛼     1 − 𝜏 cos 𝛼
+                                                   sin 𝛼
+                                           =                   .                                                 (6.5)
+                                             𝑑 + 1 − 𝛿 − cos 𝛼
+
+                                                         17
+                                                √
+From this, using the fact that 𝑑 sin 𝛼 + cos 𝛼 ≤ 𝑑 2 + 1 for 𝛼 ∈ [0, 𝜋], we deduce that
+
+                                           arg(1 + ℎ(𝑡 − 1)) ≤ 1/𝑑,                                         (6.6)
+
+provided that 𝛿 ≤ 1/2. Now, we have
+
+                    arg ℎ(𝑡) = arg 𝜆 − 𝑑 arg(1 + ℎ(𝑡 − 1)) = 𝜋 − 𝜃 − 𝑑 arg(1 + ℎ(𝑡 − 1)),                   (6.7)
+
+so that eqs. (6.4) and (6.6) imply item 2 of the induction hypothesis (since 𝜃 ≤ 𝜋/2 so that 𝜋 − 𝜃 − 1 ≥ 0).
+For item 1, we use eq. (6.3) to calculate
+
+     log |ℎ(𝑡)| + log(𝑑 + 1 − 𝛿) = 𝑟 + 𝑑 log 𝑑 − (𝑑 + 1) log(𝑑 + 1) − 𝑑 log |1 + ℎ(𝑡 − 1)| + log(𝑑 + 1 − 𝛿)
+                                                                                
+                                                             𝛿                   𝛿
+                                 ≤ 𝑟 + (𝑑 + 1) log 1 −             − 𝑑 log 1 −                              (6.8)
+                                                          𝑑 +1                   𝑑
+                                                                               
+                                               𝑑           4(𝑑 + 1) sin2 (𝜃 /2)
+                                            − log 1 +                                                       (6.9)
+                                               2                    𝑑2
+                                              𝑑𝛿        2𝑑 (𝑑 + 1) sin2 (𝜃 /2)
+                                 < 𝑟 −𝛿 +          − 2                                                     (6.10)
+                                            𝑑 − 𝛿 𝑑 + 4(𝑑 + 1) sin2 (𝜃 /2)
+                                          2𝑑 (𝑑 + 1) sin2 (𝜃 /2)        𝛿2
+                                 =𝑟 − 2                            +         ≤ 0,                          (6.11)
+                                       𝑑 + 4(𝑑 + 1) sin2 (𝜃 /2) 𝑑 − 𝛿
+                        2
+                  (𝑑+1) sin (𝜃 /2)
+provided 𝑟 ≤ 𝑑2𝑑
+               2 +4(𝑑+1) sin2 (𝜃 /2) and 𝛿 is chosen to be a small enough non-negative constant depending only
+
+upon 𝑟, 𝑑 and 𝜃 (note that the second inequality above is strict when 𝛿 is positive).                        
+
+
+7    A zero-free region close to the imaginary axis
+The analysis in the previous section was devoted to understanding the behavior of the zero-free region
+close to the negative real line. We now turn to understanding the behavior of the zero region close to the
+imaginary axis. The theorem below, while it covers all arguments in the third argument, is most interesting
+when the argument of the activity 𝜆 is closer to 𝜋/2 than to 𝜋.
+
+Theorem 7.1. Let 𝑑 ≥ 2. Suppose that 𝜆 = 𝑟𝑒 𝜄𝜑 where 𝜑 ∈ [ 𝜋2 , 𝜋) and
+
+                                                 sin(𝜑/𝑑) sin𝑑 (𝜑)
+                                  𝑟 <                                      ,                                (7.1)
+                                   sin((𝑑 − 1)𝜑/𝑑 − 𝑑𝜓 ∗ ) sin𝑑 (𝜑 − 𝜓 ∗ )
+
+where 𝜓 ∗ = max 𝑑+1
+                 1
+                                        
+                    ((2 − 1/𝑑)𝜑 − 𝜋) , 0 . Then 𝑍𝐺 (𝜆) ≠ 0 for any graph of degree at most 𝑑 + 1.
+
+Proof. For a given 𝜑, let us choose 𝑟 ∗, 𝜆∗ so that arg(1 + 𝜆∗ ) = 𝜑/𝑑 and arg(𝜆∗ ) = arg(𝜆) = 𝜑. Note that for
+                                                                    𝜆
+𝑡 ∈ [0, 1], 𝜑/𝑑 ≥ arg(1 + 𝑡𝜆∗ ) ≥ 0. As before denote 𝑓 (𝑧) = (1+𝑧)   𝑑.
+
+    We claim that the function ℎ(𝑡) = 𝑡𝜆∗ satisfies the conditions of Theorem 4.5. The first three conditions
+of the theorem are satisfied trivially, thus we only have to show that the points 𝑓 (𝑡𝜆∗ ), 𝑡 ∈ [0, 1] are −1-
+covered by the segment
+                                                {𝑡𝜆∗ : 𝑡 ∈ [0, 1]}.                                       (7.2)
+Further, as arg(𝑓 (𝑡𝜆∗ )) = 𝜑 − 𝑑 arg(1 + 𝑡𝜆∗ ) decreases monotonically from 𝜑 to 0 as 𝑡 goes from 0 to 1, it
+would be sufficient to prove that arg(1 + 𝑓 (𝑡𝜆∗ )) is at most 𝜑/𝑑 for all 𝑡 ∈ [0, 1). (See the example sketch
+in fig. 6.)
+
+
+                                                       18
+                   1.0
+                                                                                         h
+                   0.8                                                                   f(h)
+
+                   0.6                                 *
+                                                           f(0)
+                   0.4
+                   0.2
+                                         /d                                           f( * )
+                   0.0                                            0
+                                1.0              0.5              0.0          0.5             1.0
+
+
+
+
+Figure 6: A sketch of the ℎ curve in the proof of Theorem 7.1. In the notation of the theorem, the sketch corresponds
+to 𝑑 := 3 and 𝜑 := 2𝜋/3, and 𝑟 has been chosen to be 0.99 times the value on the right hand side of eq. (7.1). As
+before, 𝑓 is the map 𝑧 ↦→ 𝜆/(1 + 𝑧)𝑑 .
+
+
+      To prove this, we investigate the curve 𝛾 (𝑡) = 1 + 𝑓 (𝑡𝜆∗ ) for 𝑡 ∈ [0, 1]. Note first that we have
+0 ≤ arg(𝛾 (𝑡)) ≤ arg(𝑓 (𝑡𝜆∗ )) ≤ 𝜑 for all 𝑡 ∈ [0, 1]. Further, for all 𝑡 ∈ [0, 1), we have (here, we denote by
+𝛾 0 (𝑡) the right one-sided derivative of 𝛾 at 𝑡)
+                                                                𝑑𝜆𝜆∗
+                                               𝛾 0 (𝑡) = −                 .                                    (7.3)
+                                                             (1 + 𝑡𝜆∗ )𝑑+1
+Since 𝜑/𝑑 ≥ arg(1 + 𝑡𝜆∗ ) ≥ 0 and arg(−𝜆𝜆∗ ) = 2𝜑 − 𝜋, we have that as 𝑡 increases from 0 to 1,
+                                      arg 𝛾 0 (𝑡) = 2𝜑 − 𝜋 − (𝑑 + 1) arg(1 + 𝑡𝜆∗ )                              (7.4)
+decreases monotonically from 2𝜑 − 𝜋 ∈ [0, 𝜋) to (1 − 1/𝑑)𝜑 − 𝜋 ≥ −𝜋 + 𝜑/𝑑.
+                                                      𝛾 0 (𝑡 )
+    Next, we compute that d𝑠d arg 𝛾 (𝑠)|𝑠=𝑡 = = 𝛾 (𝑡 ) has the same sign as sin(arg 𝛾 0 (𝑡) − arg 𝛾 (𝑡)): note that
+the existence of this derivative follows since 𝛾 (𝑡) and 𝛾 0 (𝑡) are non-zero, and since arg 𝛾 (𝑡) ∈ [0, 𝜋) for
+𝑡 ∈ [0, 1).
+    We now claim that arg(𝛾 (𝑡)) ≤ 𝜑/𝑑 for all 𝑡 ∈ [0, 1]. For the sake of contradiction let us assume that
+arg 𝛾 (𝑡) can be bigger than 𝜑/𝑑. As arg 𝛾 (1) = 0, we then see that there must exist a 𝑡 ∗ ∈ [0, 1) such that
+arg 𝛾 (𝑡 ∗ ) = 𝜑/𝑑 and d𝑠d arg 𝛾 (𝑠)|𝑠=𝑡∗ ≤ 0. Using the fact (noted just below eq. (7.4)) that 𝜋 > arg 𝛾 0 (𝑡 ∗ ) ≥
+−𝜋 + 𝜑/𝑑 and the expression for the sign of d𝑠d arg(𝛾 (𝑠))|𝑠=𝑡∗ noted above, these conditions can be written
+as
+                                   arg 𝛾 (𝑡 ∗ ) = 𝜑/𝑑          and arg 𝛾 0 (𝑡 ∗ ) ≤ 𝜑/𝑑.                       (7.5)
+Define 𝛼 := arg(1 + 𝑡 ∗ 𝜆∗ ) ≥ 0. Equation (7.5), along with the expression for arg 𝛾 0 (𝑡) in eq. (7.4), and the
+fact arg 𝛾 (𝑡 ∗ ) ≤ arg 𝑓 (𝑡 ∗ 𝜆∗ ) = 𝜙 − 𝑑𝛼 noted above, gives
+                                              𝜑
+                                          𝛼 ≤ (1 − 1/𝑑)       and 𝛼 ≥ 𝜓 ∗.                                   (7.6)
+                                              𝑑
+
+                                                             19
+                                                                                  𝛾 (𝑡 ∗ )
+
+
+
+
+                                                                         𝜑 − 𝑑𝛼
+                                   𝜑/𝑑
+                       0
+                                                                1
+
+                                          Figure 7: Angles appearing in eq. (7.6).
+
+
+The standard sine rule applied to the triangle with vertices 0, 1, 𝛾 (𝑡 ∗ ) gives us that (see fig. 7)
+
+                                     |𝛾 (𝑡 ∗ ) − 1|                     1
+                                                    =                                        .                              (7.7)
+                                    sin arg 𝛾 (𝑡 ∗ ) sin (arg (𝛾 (𝑡 ∗ ) − 1) − arg 𝛾 (𝑡 ∗ ))
+
+ Using the facts that (i) |𝛾 (𝑡 ∗ ) − 1| = |𝑓 (𝑡 ∗ 𝜆∗ )| = 𝑟 /|1 + 𝑡 ∗ 𝜆∗ |𝑑 , (ii) arg (𝛾 (𝑡 ∗ ) − 1) = arg 𝑓 (𝑡 ∗ 𝜆∗ ) = 𝜑 − 𝑑𝛼,
+and (iii) arg 𝛾 (𝑡 ∗ ) = 𝜑/𝑑, we get
+
+                                            𝑟 sin𝑑 (𝜑 − 𝛼)
+                             sin(𝜑/𝑑) =                      sin((1 − 1/𝑑)𝜑 − 𝑑𝛼)
+                                                sin𝑑 𝜑
+                                                         sin𝑑 (𝜑 − 𝛼) sin((1 − 1/𝑑)𝜑 − 𝑑𝛼)
+                                         < sin(𝜑/𝑑)                                                .                        (7.8)
+                                                       sin𝑑 (𝜑 − 𝜓 ∗ ) sin((1 − 1/𝑑)𝜑 − 𝑑𝜓 ∗ )
+
+But, in conjunction with eq. (7.6), this contradicts the fact that the function
+
+                                         𝑥 ↦→ sin𝑑 (𝜑 − 𝑥) sin((1 − 1/𝑑)𝜑 − 𝑑𝑥)                                             (7.9)
+
+is a strictly decreasing function on (𝜓 ∗, (1 − 1/𝑑)𝜑/𝑑), since its derivative is
+
+                                  − 𝑑 sin𝑑−1 (𝜑 − 𝑥) · sin ((2 − 1/𝑑)𝜑 − (𝑑 + 1)𝑥) < 0.             (7.10)
+
+Here, we use the condition 𝑥 ∈ (𝜓 ∗, (1−1/𝑑)𝜑/𝑑) and the definition of 𝜓 ∗ as max 𝑑+1
+                                                                                   1
+                                                                                                           
+                                                                                      ((2 − 1/𝑑)𝜑 − 𝜋) , 0
+to deduce the last inequality.                                                                           
+
+
+8     Zero free regions in the right half plane
+In this section, we use the framework of Section 4 to establish a zero free region for the independence
+polynomial in the right half plane. The results here improve upon those in the manuscript [9] when 𝜆 is
+close to the real axis and match those results when 𝜆 is on the imaginary axis: see Remark 8.3 for a more
+detailed discussion.
+    We start with some notation. For any integer 𝑑 ≥ 2, let 𝜃𝑑 ∈ (𝜋/(2(𝑑 + 1)), 𝜋/2) be the unique solution
+of
+                                                  tan((𝜋/2 − 𝑥)/𝑑)
+                                     tan(2𝑥/𝑑) =                        .                              (8.1)
+                                                   1 − tan( (𝜋 /2−𝑥)/𝑑)
+                                                             tan(𝑥)
+
+
+
+
+                                                               20
+To see that 𝜃𝑑 exists and is unique, we first note that the left hand side of the above equation is monotone
+increasing while the right hand side is monotone decreasing, so that it has at most one solution in the
+given interval. To show existence, we note that as 𝑥 ↓ 𝜋/(2(𝑑 + 1)), we have
+                                                                                                  tan((𝜋/2 − 𝑥)/𝑑)
+                       lim         tan(2𝑥/𝑑) = tan(𝜋/(𝑑 (𝑑 + 1))) <                     lim                               = ∞,   (8.2)
+                  𝑥 ↓𝜋 /(2(𝑑+1))                                                    𝑥 ↓𝜋 /(2(𝑑+1)) 1 − tan( (𝜋 /2−𝑥)/𝑑)
+                                                                                                             tan(𝑥)
+
+while as 𝑥 ↑ 𝜋/2 we have
+                                                                                     tan((𝜋/2 − 𝑥)/𝑑)
+                                    lim tan(2𝑥/𝑑) = tan(𝜋/𝑑) > lim                                          = 0.                 (8.3)
+                                   𝑥 ↑𝜋 /2                                  𝑥 ↑𝜋 /2 1 − tan( (𝜋 /2−𝑥)/𝑑)
+                                                                                              tan(𝑥)
+
+Together, these show that there is a unique solution 𝜃𝑑 , such that for all 𝑥 such that 𝜋/(2(𝑑 + 1)) < 𝑥 < 𝜃𝑑 ,
+we have
+                             tan(2𝑥/𝑑)             tan((𝜋/2 − 𝑥)/𝑑)
+                                         <                                       ,                        (8.4)
+                                sin 𝑥      sin(𝑥) − cos(𝑥) tan((𝜋/2 − 𝑥)/𝑑)
+while for 𝜃𝑑 < 𝑥 < 𝜋/2,
+                                             tan(2𝑥/𝑑)           tan((𝜋/2 − 𝑥)/𝑑)
+                                                       >                                  ,                                      (8.5)
+                                                sin 𝑥    sin(𝑥) − cos(𝑥) tan((𝜋/2 − 𝑥)/𝑑)
+For later comparison with results of [9], we also note that at 𝑥 = 𝜋/6 we have (assuming 𝑑 ≥ 3)
+
+                             tan(2𝑥/𝑑) tan(𝜋/(3𝑑))             tan(𝜋/(3𝑑))
+                                      =            <                                ,                                            (8.6)
+                                sin 𝑥    sin(𝜋/6)    sin(𝜋/6) − cos(𝜋/6)tan(𝜋/(3𝑑))
+which implies that 𝜋/6 < 𝜃𝑑 for all 𝑑 ≥ 2 (this conclusion is trivially true for 𝑑 = 2). We are now ready to
+state the main result describing zeros in the right half plane.
+
+Theorem 8.1. Let 𝜃 ∈ (0, 𝜋/2] and 0 ≤ 𝑟 ≤ 𝑟 1,𝑑 (𝜃 ), where
+                                         ( tan(2𝜃 /𝑑)
+                                                                     sin(𝜃 )          if 𝜃 ≤ 𝜃𝑑
+                                                 𝑟 1,𝑑 (𝜃 ) =   tan( (𝜃 +𝛽 ∗ )/𝑑)                  ,                             (8.7)
+                                                                     sin(𝜃 )          if 𝜃 > 𝜃𝑑
+
+and where 𝛽 ∗ ∈ (0, 𝜃 ) is defined as the unique solution of
+                                       tan((𝜃 + 𝑥)/𝑑)           tan((𝜋/2 − 𝜃 )/𝑑)
+                                                      =                                   ,                                      (8.8)
+                                           sin(𝜃 )      sin(𝑥) − cos(𝑥) tan((𝜋/2 − 𝜃 )/𝑑)
+when 𝜃 ∈ [𝜃𝑑 , 𝜋/2) and as 𝛽 ∗ := 0 when 𝜃 = 𝜋/2. If 𝜆 = 𝑟 exp(𝜄𝜃 ), then 𝑍𝐺 (𝜆) ≠ 0 for any graph 𝐺 with
+degree at most 𝑑 + 1.
+
+    The proof of this theorem is based on the following technical lemma, which employs the framework
+of Theorem 4.5.
+
+Lemma 8.2. Let 𝜆 = 𝑟 exp(𝜄𝜃 ) with 𝜃 ∈ (0, 𝜋/2] and 𝑟 > 0. Suppose that there exist 𝑟 2 ≥ 0 and 𝛽,𝜓 ∈ [0, 𝜋/2)
+satisfying
+
+   1. 𝜃 − 𝑑𝜓 ≥ −𝛽,
+
+   2. 𝑟 2 ≥ 𝑟 ,
+
+   3. 𝑟 sin(𝜃 ) ≤ tan𝜓 ,
+
+   4. 𝜃 + 𝑑 arg(1 + 𝑟 2 exp(𝜄𝛽)) ≤ 𝜋/2, and
+
+                                                                       21
+                                         h
+                             0.3         f(h)                B                                    f(O)
+                             0.2
+                             0.1                                 f(A)
+                             0.0                             O
+
+                             0.1
+                             0.2
+                                                                                         f(B)     A
+                             0.3
+
+                                   0.4          0.2        0.0          0.2       0.4       0.6
+
+
+
+Figure 8: An example sketch of the ℎ curve from Lemma 8.2. In the notation of the lemma, the sketch corresponds
+to 𝑑 := 3, 𝛽 := 𝜃 := 𝜋/(2(𝑑 + 1)), 𝜓 := 2𝜃 /𝑑, 𝑟 2 := 𝑟 := tan(2𝜃 /𝑑)/sin 𝜃 and 𝜆 := 𝑟 exp(𝜄𝜃 ). As before, 𝑓 is the
+map 𝑧 ↦→ 𝜆/(1 + 𝑧)𝑑 .
+
+
+   5. 𝜃 ≥ 𝛽.
+
+Then the curve                                   (
+                                                      −𝑡 · 𝑟 2 exp(−𝜄𝛽)       if 𝑡 ∈ [−1, 0], 𝑎𝑛𝑑
+                                    ℎ(𝑡) :=                                                                      (8.9)
+                                                      𝑡 · tan(𝜓 )𝜄            if 𝑡 ∈ [0, 1]
+satisfies the conditions of Theorem 4.5.
+
+Proof. Let 𝐴 denote the point 𝑟 2 exp(−𝜄𝛽), 𝐵 the point 𝜄 tan𝜓 , and 𝑂 the origin. (See fig. 8 for an example
+sketch.) Since ℎ(0) = 0, ℎ satisfies the first condition of Theorem 4.5. Further, the curve ℎ(𝑡) traverses the
+directed line segment 𝐴𝑂 as 𝑡 varies from −1 to 0 and the line segment 𝑂𝐵 as 𝑡 varies from 0 to 1, and this
+establishes the second condition of Theorem 4.5 (since 𝛽 ∈ [0, 𝜋/2) and 𝜓 ≥ 0).
+    A convex combination of any two points ℎ(𝑡 1 ) and ℎ(𝑡 2 ), where 𝑡 1 < 𝑡 2 , lies either on the curve ℎ (when
+0 ∉ (𝑡 1, 𝑡 2 )), or on the boundary of the triangle with vertices ℎ(𝑡 1 ) ∈ 𝐴𝑂, ℎ(0) = 0 and ℎ(𝑡 2 ) ∈ 𝑂𝐵 (when
+0 ∈ (𝑡 1, 𝑡 2 )). It is therefore −1 covered by ℎ(𝑡) for some 𝑡 ∈ [𝑡 1, 𝑡 2 ]. This establishes the third condition of
+Theorem 4.5.
+    Note that the segment 𝑂𝐵 of the curve ℎ −1-covers every point in the set
+
+                              𝐿1 := {𝑧 : <𝑧 ≥ 0 and 0 ≤ =𝑧 ≤ =𝐵 = tan𝜓 ≥ 0} ,                                  (8.10)
+
+while the segment 𝐴𝑂 −1-covers every point in the set
+
+                      𝐿2 := {𝑧 : −𝜋/2 < −𝛽 ≤ arg 𝑧 ≤ 0 and =𝑧 ≥ =𝐴 = −𝑟 2 sin 𝛽 ≤ 0} .                         (8.11)
+
+    It remains to verify the fourth condition of Theorem 4.5, which is that for every 𝑡 ∈ [0, 1], 𝑓 (ℎ(𝑡)) is
+−1-covered by some point on the curve ℎ. We do so by proving that for all 𝑡 ∈ [−1, 1], 𝑓 (ℎ(𝑡)) ∈ 𝐿1 ∪ 𝐿2 .
+    Consider first a point 𝑓 (ℎ(𝑡)) for 𝑡 ∈ [0, 1]. Note that as 𝑡 increases from 0 to 1, arg(1 + ℎ(𝑡)) increases
+from 0 to 𝜓 . From item 1 in the statement of the lemma, we thus get that arg 𝑓 (ℎ(𝑡)) ∈ [−𝛽, 𝜃 ], while
+item 2 gives |𝑓 (ℎ(𝑡))| ≤ 𝑟 ≤ 𝑟 2 . Together with item 3, these imply that for 𝑡 ∈ [0, 1],
+
+                                                                    22
+   1. 0 ≤ =𝑓 (ℎ(𝑡)) ≤ 𝑟 sin 𝜃 ≤ tan𝜓 (when arg 𝑓 (ℎ(𝑡)) ≥ 0), and
+
+   2. 0 ≥ =𝑓 (ℎ(𝑡)) ≥ −𝑟 sin 𝛽 ≥ −𝑟 2 sin 𝛽 (when arg 𝑓 (ℎ(𝑡)) ≤ 0).
+
+Thus, for all 𝑡 ∈ [0, 1], 𝑓 (ℎ(𝑡)) ∈ 𝐿1 ∪ 𝐿2 , and thus is −1-covered by the curve ℎ.
+    Now, consider a point 𝑓 (ℎ(𝑡)) for 𝑡 ∈ [−1, 0]. Define 𝑔(𝑡) := 𝑓 (ℎ(𝑡)). From item 4, we get that
+arg 𝑔(𝑡) ∈ [𝜃, 𝜋/2] for all 𝑡 ∈ [−1, 0]. We also have 𝑔(0) = 𝜆 ∈ 𝐿1 (where the last inclusion follows from
+item 3). Thus, in order to establish that 𝑔(𝑡) ∈ 𝐿1 for all 𝑡 ∈ [−1, 0], it suffices to prove that 𝑘 (𝑡) := =𝑔(𝑡)
+has a non-negative right derivative at every 𝑡 ∈ [−1, 0). The latter in turn would follow if we establish
+that arg 𝑔 0 (𝑡) ∈ [0, 𝜋) for all 𝑡 ∈ [−1, 0), where 𝑔 0 (𝑡) denotes the right derivative of 𝑔 at 𝑡.
+    We now compute, for 𝑡 ∈ [−1, 0),
+
+                                                                𝜆               exp(−𝜄𝛽)
+                             𝑔 0 (𝑡) = 𝑑 · 𝑟 2 ·                                                                 (8.12)
+                                                   (1 − 𝑡 · 𝑟 2 exp(−𝜄𝛽)) (1 − 𝑡 · 𝑟 2 exp(−𝜄𝛽))
+                                                                         𝑑
+
+
+so that (after multiplying denominators with conjugates and ignoring positive real factors)
+
+                                    ©h                                  i                       ª
+                         0
+                                    ­                                 𝑑
+                                                                                                ®
+                    arg 𝑔 (𝑡) = arg ­ exp(𝜄𝜃 ) · (1 − 𝑡 · 𝑟 2 exp(𝜄𝛽)) · [exp(−𝜄𝛽) − 𝑡 · 𝑟 2 ] ®® .
+                                    ­                                                                            (8.13)
+                                    ­|               {z                } |      {z         }®
+                                                                                =:𝜈
+                                    «                =:𝜇                                        ¬
+Since 𝑡 ∈ [−1, 0), item 4 in the statement of the lemma then implies that arg 𝜇 ∈ [𝜃, 𝜋/2]. Further,
+arg 𝜈 ∈ [−𝛽, 0]. Together with 𝜃 ≥ 𝛽 (item 5 in the statement of the lemma), this implies that arg 𝑔 0 (𝑡) =
+arg (𝜇 · 𝜈) ∈ [0, 𝜋/2] ⊆ [0, 𝜋). Given the above discussion about the relationship between the functions 𝑘
+and 𝑔, this completes the proof.                                                                           
+
+   With the above lemma, we can now complete the proof of Theorem 8.1.
+
+Proof of Theorem 8.1. We will prove that if 𝑟 ≤ 𝑟 1,𝑑 (𝜃 ), then we can find 𝛽,𝜓 ∈ [0, 𝜋/2) and 𝑟 2 > 0, such
+that the conditions of Lemma 8.2 hold. By applying Theorem 4.5 for the curve ℎ obtained from the lemma,
+we get the desired statement.
+
+   1. Consider first the case 𝜃 ≤ 𝜃𝑑 . Then, let
+                                                                                                  
+                                      2𝜃                                                   𝜋/2 − 𝜃
+                    𝛽 = 𝜃,          𝜓= ,               𝑟 2 = arg max arg(1 + 𝑡 exp(𝜄𝜃 )) ≤           ≤ ∞.        (8.14)
+                                      𝑑                        𝑡 ≥0                          𝑑
+
+      Items 1 and 3 to 5 in Lemma 8.2 are satisfied by construction (as discussed below, we might have to
+      redefine 𝑟 2 to make sure it is finite). We now show that item 2 holds:
+
+          • If 𝜃 ≤ 𝜋/(2(𝑑 + 1)), then 𝑟 2 = ∞ ≥ 𝑟 . In this case, we redefine 𝑟 2 = 𝑟 , and all of the conditions
+            continue to hold.
+                                                                                  tan( (𝜋 /2−𝜃 )/𝑑)           tan(2𝜃 /𝑑)
+          • Otherwise 𝜃 > 𝜋/(2(𝑑 + 1)). In this case, we have 𝑟 2 = sin(𝜃 )−cos(𝜃        ) tan( (𝜋 /2−𝜃 )/𝑑) ≥ sin(𝜃 ) =
+            𝑟 1,𝑑 (𝜃 ) ≥ 𝑟 , where the first inequality follows from eq. (8.4) since 𝜋/(2(𝑑 + 1)) < 𝜃 ≤ 𝜃𝑑 .
+
+   2. Consider now the case 𝜃 > 𝜃𝑑 . Then let 𝛽 be 𝛽 ∗ ∈ [0, 𝜃 ] as described in the statement of the theorem.
+      By definition, 𝛽 ∗ = 0 when 𝜃 = 𝜋/2, so we first show that even when 𝜃 ∈ (𝜃𝑑 , 𝜋/2), this 𝛽 ∗ exists
+      and is unique. To see this, note that
+
+                                                                    tan((𝜃 + 𝑥)/𝑑)
+                                                       𝛾 1 (𝑥) :=                                                (8.15)
+                                                                        sin(𝜃 )
+
+                                                                23
+      is continuous, monotone increasing and positive on [0, 𝜃 ] (when 0 < 𝜃 < 𝜋/2). On the other hand,
+                                                              tan((𝜋/2 − 𝜃 )/𝑑)
+                                         𝛾 2 (𝑥) :=                                                                       (8.16)
+                                                      sin(𝑥) − cos(𝑥) tan((𝜋/2 − 𝜃 )/𝑑)
+      is continuous in [0, (𝜋/2 − 𝜃 )/𝑑)) ∪ ((𝜋/2 − 𝜃 )/𝑑, 𝜃 ], negative in [0, (𝜋/2 − 𝜃 )/𝑑)), and monotone
+      decreasing in ((𝜋/2 − 𝜃 )/𝑑, 𝜃 ]. Further, in the interval ((𝜋/2 − 𝜃 )/𝑑, 𝜃 ] we also have
+
+                               𝛾 1 ((𝜋/2 − 𝜃 )/𝑑) < ∞,             and          lim          𝛾 2 (𝑥) = ∞,                 (8.17)
+                                                                            𝑥 ↓(𝜋 /2−𝜃 )/𝑑
+
+      at the left endpoint, while at the right endpoint, 𝜃 > 𝜃𝑑 implies 𝛾 1 (𝜃 ) > 𝛾 2 (𝜃 ) (due to eq. (8.5)). The
+      above observations imply that when 𝜃 ∈ (𝜃𝑑 , 𝜋/2), 𝛾 1 (𝑥) = 𝛾 2 (𝑥) has exactly one solution 𝛽 ∗ ∈ [0, 𝜃 ],
+      which lies in ((𝜋/2 − 𝜃 )/𝑑, 𝜃 ].
+      Then, we define
+                                                   𝛽 = 𝛽 ∗,𝜓 = (𝜃 + 𝛽)/𝑑,
+                                                                   
+                                                             𝜋 /2−𝜃
+                               arg max arg(1 + 𝑡 exp(𝜄𝛽)) ≤ 𝑑        < ∞ when 𝜃 ∈ (𝜃𝑑 , 𝜋/2),
+                              
+                              
+                                                                                                                         (8.18)
+                       𝑟2 =       𝑡 ≥0
+                              
+                               tan(𝜋/(2𝑑))
+                                                                                      when 𝜃 = 𝜋/2.
+
+      Note that 𝑟 2 is finite when 𝜃 ∈ (𝜃𝑑 , 𝜋/2) since 𝛽 = 𝛽 ∗ > (𝜋/2 − 𝜃 )/𝑑.
+      Again, items 1 and 3 to 5 in Lemma 8.2 are satisfied by construction. We now show that item 2 holds.
+      To see this, we first note that when 𝜃𝑑 < 𝜃 < 𝜋/2, item 2 holds since in that case, eq. (8.18) and the
+                                             tan( (𝜋 /2−𝜃 )/𝑑)              tan( (𝜃 +𝛽 ∗ )/𝑑)
+      definition of 𝛽 ∗ give 𝑟 2 = sin(𝛽 ∗ )−cos(𝛽  ∗ ) tan( (𝜋 /2−𝜃 )/𝑑) =      sin(𝜃 )      = 𝑟 1,𝑑 (𝜃 ) ≥ 𝑟 . In the remaining
+      case 𝜃 = 𝜋/2, item 2 holds since in that case, eq. (8.18) gives again 𝑟 2 = tan(𝜋/(2𝑑)) = 𝑟 1,𝑑 (𝜋/2) ≥
+      𝑟.                                                                                                                        
+Remark 8.3. We remark that the zero-free region established in Theorem 8.1 contains the zero-free region
+described in the manuscript [9] when arg 𝜆 = 𝜃 ≤ 𝜃𝑑 (recall also from the paragraph just before the
+statement of Theorem 8.1 that 𝜃𝑑 is always greater than 𝜋/6). For such 𝜃 , the above theorem gives zero-
+freeness for all 𝜆 with |𝜆| < tan(2𝜃 /𝑑)/sin(𝜃 ) and arg(𝜆) = 𝜃 . On the other hand, the zero-free region in
+Theorem 1.4 of [9] requires at least that |𝜆| ≤ tan(𝜋/(2𝑑)). But when 𝑑 ≥ 2 and 𝜃 ∈ (0, 𝜋/2), elementary
+arguments involving the convexity of the function 𝜃 ↦→ tan(2𝜃 /𝑑) − sin(𝜃 ) tan(𝜋/(2𝑑)) in the interval
+(0, 𝜋/2) imply that tan(𝜋/(2𝑑)) < tan(2𝜃 /𝑑)/sin(𝜃 ), showing that Theorem 8.1 gives a larger zero-free
+region. For the case 𝜃 = 𝜋/2, we compute directly that 𝑟 1,𝑑 (𝜋/2) = tan(𝜋/(2𝑑)).
+    For the case 𝜃𝑑 < arg 𝜆 < 𝜋/2, the zero-free region in [9] has only an implicit description, and numerical
+calculations show that even in this case, the zero free region described in Theorem 8.1 is better than the
+one in [9], except possibly in the close vicinity of 𝜃 = 𝜋/2.
+
+
+References
+ [1] Arora, S., and Barak, B. Computational Complexity: A Modern Approach. Cambridge University
+     Press, 2009.
+
+ [2] Bandyopadhyay, A., and Gamarnik, D. Counting without sampling: Asymptotics of the log-
+     partition function for certain statistical physics models. Random Structures & Algorithms 33, 4 (2008),
+     452–479. Extended abstract in SODA 2006.
+
+ [3] Barvinok, A. Computing the Partition Function for Cliques in a Graph. Theory Comput. 11 (Dec.
+     2015), 339–355.
+
+                                                              24
+ [4] Barvinok, A. Computing the Permanent of (Some) Complex Matrices. Found. Comput. Math. 16, 2
+     (Jan. 2015), 329–342.
+
+ [5] Barvinok, A. Combinatorics and Complexity of Partition Functions. Algorithms and Combinatorics.
+     Springer, 2017.
+
+ [6] Barvinok, A., and Soberón, P. Computing the partition function for graph homomorphisms. Com-
+     binatorica 37, 4 (2017), 633–650.
+
+ [7] Bencs, F. On trees with real-rooted independence polynomial. Disc. Math. 341, 12 (Dec. 2018), 3321–
+     3330.
+
+ [8] Bencs, F., Buys, P., and Peters, H. The limit of the zero locus of the independence polynomial for
+     bounded degree graphs, Nov. 2021. arXiv:2111.06451.
+
+ [9] Bencs, F., and Csikvári, P.      Note on the zero-free region of the hard-core model, Jul 2018.
+     arXiv:1807.08963.
+
+[10] Bencs, F., Davies, E., Patel, V., and Regts, G. On zero-free regions for the anti-ferromagnetic Potts
+     model on bounded-degree graphs. Ann. Inst. Henri Poincaré D 8, 3 (Sept. 2021), 459–489.
+
+[11] Bezáková, I., Galanis, A., Goldberg, L. A., and Štefankovič, D. Inapproximability of the Indepen-
+     dent Set Polynomial in the Complex Plane. SIAM J. Comput. 49, 5 (2020), STOC18–395–STOC18–448.
+     STOC 2018 Special Section.
+
+[12] Buys, P. Cayley Trees do Not Determine the Maximal Zero-Free Locus of the Independence Polyno-
+     mial. Michigan Math. J. 70, 3 (Aug. 2021), 635–648.
+
+[13] de Boer, D., Buys, P., Guerini, L., Peters, H., and Regts, G. Zeros, chaotic ratios and the computa-
+     tional complexity of approximating the independence polynomial, Apr. 2021. arXiv:2104.11615.
+
+[14] Dobrushin, R. L., and Shlosman, S. B. Completely Analytical Gibbs Fields. In Statistical Physics
+     and Dynamical Systems: Rigorous Results, J. Fritz, A. Jaffe, and D. Szász, Eds., Progress in Physics.
+     Birkhäuser, Boston, MA, 1985, pp. 371–403.
+
+[15] Dobrushin, R. L., and Shlosman, S. B. Completely Analytical Interactions: Constructive Descrip-
+     tion. J. Stat. Phys. 46 (1987), 983–1014.
+
+[16] Eldar, L., and Mehraban, S. Approximating the permanent of a random matrix with vanishing
+     mean. In Proceedings of the 59th Annual IEEE Symposium on Foundations of Computer Science (FOCS)
+     (2018), IEEE, pp. 23–34.
+
+[17] Galanis, A., Ge, Q., Štefankovič, D., Vigoda, E., and Yang, L. Improved inapproximability results
+     for counting independent sets in the hard-core model. Random Struct. Algorithms 45, 1 (2014), 78–110.
+     Extended abstract in APPROX-RANDOM 2011.
+
+[18] Galanis, A., Štefankovič, D., and Vigoda, E. Inapproximability for antiferromagnetic spin systems
+     in the tree nonuniqueness region. J. ACM 62, 6 (2015), 50:1–50:60. Extended abstract in STOC 2014.
+
+[19] Harrow, A. W., Mehraban, S., and Soleimanifar, M. Classical algorithms, correlation decay, and
+     complex zeros of partition functions of Quantum many-body systems. In Proceedings of the 52nd
+     Annual ACM Symposium on Theory of Computing (STOC). ACM, June 2020, pp. 378–386.
+
+
+
+                                                   25
+[20] Harvey, N. J. A., Srivastava, P., and Vondrák, J. Computing the independence polynomial: From
+     the tree threshold down to the roots. In Proceedings of the 29th Annual ACM-SIAM Symposium on
+     Discrete Algorithms (SODA) (2018), SIAM, pp. 1557–1576.
+
+[21] Li, L., and Xie, G. Complex contraction on trees without proof of correlation decay, Dec. 2021.
+     arXiv:2112.15347.
+
+[22] Liu, J. Approximate Counting, Phase Transitions and Geometry of Polynomials. PhD Thesis,
+     UC Berkeley, 2019. Available at https://www2.eecs.berkeley.edu/Pubs/TechRpts/2019/
+     EECS-2019-110.html.
+
+[23] Liu, J., Sinclair, A., and Srivastava, P. A deterministic algorithm for counting colorings with 2Δ
+     colors. In Proceedings of the 60th Annual IEEE Symposium on Foundations of Computer Science (FOCS)
+     (2019), IEEE, pp. 1380–1404.
+
+[24] Liu, J., Sinclair, A., and Srivastava, P. Fisher zeros and correlation decay in the Ising model. J.
+     Math. Phys. 60 (2019), 103304. Extended abstract in proceedings of ITCS 2019.
+
+[25] Patel, V., and Regts, G. Deterministic polynomial-time approximation algorithms for partition
+     functions and graph polynomials. SIAM J. Comput. 46, 6 (2017), 1893–1919.
+
+[26] Peters, H., and Regts, G. On a Conjecture of Sokal Concerning Roots of the Independence Polyno-
+     mial. Michigan Math. J. 68, 1 (2019), 33–55.
+
+[27] Scott, A. D., and Sokal, A. D. The Repulsive Lattice Gas, the Independent-Set Polynomial, and the
+     Lovász Local Lemma. J. Stat. Phys. 118, 5-6 (Mar. 2005), 1151–1261.
+
+[28] Shao, S., and Sun, Y. Contraction: A Unified Perspective of Correlation Decay and Zero-Freeness of
+     2-Spin Systems. J. Stat. Phys. 185, 2 (Oct. 2021), 12. Extended abstract in proceedings of ICALP 2020.
+
+[29] Shearer, J. B. On a problem of Spencer. Combinatorica 5, 3 (Sept. 1985), 241–245.
+
+[30] Sipser, M. A complexity theoretic approach to randomness. In Proceedings of the 15th Annual ACM
+     Symposium on Theory of Computing (STOC) (1983), ACM, pp. 330–335.
+
+[31] Sly, A. Computational transition at the uniqueness threshold. In Proceedings of the 51st Annual IEEE
+     Symposium on Foundations of Computer Science (FOCS) (2010), IEEE, pp. 287–296.
+
+[32] Sly, A., and Sun, N. Counting in two-spin models on 𝑑-regular graphs. Ann. Probab. 42, 6 (2014),
+     2383–2416.
+
+[33] Stockmeyer, L. The complexity of approximate counting. In Proceedings of the 15th Annual ACM
+     Symposium on Theory of Computing (STOC) (1983), ACM, pp. 118–126.
+
+[34] Toda, S. PP is as Hard as the Polynomial-Time Hierarchy. SIAM J. Comput. 20, 5 (Oct. 1991), 865–877.
+
+[35] Weitz, D. Counting independent sets up to the tree threshold. In Proceedings of the 38th Annual ACM
+     Symposium on Theory of Computing (STOC) (2006), ACM, pp. 140–149.
+
+[36] Yang, C. N., and Lee, T. D. Statistical theory of equations of state and phase transitions. I. Theory of
+     condensation. Phys. Rev. 87, 3 (1952), 404–409.
+
+
+
+
+                                                     26
+

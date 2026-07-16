@@ -84,13 +84,19 @@ The \emph{independence polynomial} is $I(G;\, x) = \sum_{k=0}^{\alpha(G)} i_k(G)
 
 \textcite{alavi1987} showed that the independence sequence of a general graph can realize any prescribed shape, but conjectured that trees are constrained enough to force unimodality.
 The stronger property of log-concavity ($i_k^2 \ge i_{k-1}\, i_{k+1}$ for all~$k$) held for all trees tested until $n = 26$, when \textcite{kadrawi2025} found exactly two log-concavity failures.
-\textcite{galvin2025} subsequently constructed infinite families of subdivided stars with log-concavity failures arbitrarily far from the ends of the sequence; \textcite{bautistaramos2025} showed that log-concavity can break at an arbitrary number of indices; and \textcite{ramos2025} used machine learning to find tens of thousands more non-log-concave trees, but no unimodality failure.
+
+\textcite{galvin2025} constructed infinite families of subdivided stars with log-concavity failures arbitrarily far from either endpoint.
+\textcite{bautistaramos2025} showed that log-concavity can break at an arbitrary number of indices; \textcite{ramos2025} used machine learning to find tens of thousands more non-log-concave trees, but no unimodality failure.
+\textcite{bautistaramos2026recurrences} unified the known pattern families by linear recurrences, obtaining infinite families with log-concavity failures at one, two, and three consecutive indices and finite families with failures at four and five consecutive indices.
+
 On the algebraic side, \textcite{bendjeddou2024} proved that a subclass of trees~-- those in the image of an edge-replacement operator~-- have \enquote{pre-Lorentzian} multivariate independence polynomials, so their independence sequences are log-concave and unimodal, but the full conjecture remains open.
 
 On the positive side, unimodality has been proved for paths and centipedes \citep{alavi1987}, regular caterpillars, and Fibonacci trees.
 \textcite{levit2006} showed that $i_k(T)$ is strictly decreasing for $k \ge \lceil (2\alpha - 1)/3 \rceil$, so any violation has to occur in roughly the first two-thirds of the sequence.
 \textcite{basitgalvin2020} proved that for a uniformly random labelled tree, asymptotically almost surely the initial $\approx 49.5\%$ of the sequence is increasing and the terminal $\approx 38.8\%$ is decreasing; \textcite{heilman2025} proved a complementary $46.8\%$ increasing-prefix result and formulated the \enquote{four-fifths true} perspective.
+
 \textcite{li2025spiders} proved that all spiders have log-concave independence polynomials, implying unimodality for brooms as a special case; \textcite{li2026unimodality} extended this by proving unimodality for two further tree families that include the \textcite{kadrawi2025} log-concavity-failing examples.
+\textcite{hibi2026symmetric} used a rooted Bridge Lemma and $\gamma$-admissibility to construct a tree with a symmetric unimodal independence polynomial in every order except $2,4,5,7,10$, and a tree with such a polynomial of every degree except~$3$.
 
 My contributions:
 \begin{enumerate}
@@ -850,6 +856,8 @@ The gap case arises in 8\,405 of these edges (0.09\%); in every instance the sig
   If $|p-q|=1$, only one transition index lies between $m_-$ and $m_+$, so no strict valley can occur.
 \end{proof}
 
+A contemporaneous version of the same adjacent-mode bridge appears as Lemma~2.16 of \textcite{levitkadrawi2026}.
+
 \begin{theorem}[Conditional subdivision lemma]\label{thm:conditional}
   Assume ECMS (Conjecture~\ref{conj:ecms}) and the combined tail condition (Definition~\ref{def:combined_tail}).
   If $I(T)$ and $I(T/e)$ are both unimodal, then $I(T_e)$ is unimodal.
@@ -932,9 +940,12 @@ The case $n = 26$ is the first at which log-concavity fails: \textcite{kadrawi20
 My independent re-analysis reproduces these two failures (both at $k = 13$, worst ratio $i_{12}\, i_{14} / i_{13}^2 = 1.145$) and adds the near-miss metric: $\nm = 0.845$~-- far below the violation threshold.
 Even where log-concavity breaks, unimodality holds with a comfortable margin.
 Extending to $n = 27$ (751~million trees, run on Modal cloud compute with 1024 parallel workers) finds no unimodality violations and no log-concavity failures; the top near-miss ratio is $\nm = 0.8571425$ at position $k = 13$.
-\textcite{ramos2025} report PatternBoost log-concavity counter-examples with sizes from $27$ to $101$.
-I haven't been able to reconcile this with the exhaustive $n=27$ audit here, which finds no log-concavity failure at that order.
-Without access to their corpus, the discrepancy could reflect a different size convention, a different polynomial, or a false positive; I treat the $n=27$ comparison as unresolved rather than as evidence against either computation.
+
+\textcite{ramos2025} report in their abstract that their non-log-concave examples range from $27$ to $101$ vertices, but my exhaustive enumeration finds no log-concavity failure on $27$ vertices.
+Their Section~4.1 states that early searches found no failures at $N=27$ or~$29$, and neither the paper's appendix nor its linked $60$-vertex corpus supplies a $27$-vertex certificate.
+The abstract's lower endpoint remains unresolved: it may refer to a later example not included in the public artifacts, or it may be a typographical error.
+A $27$-vertex certificate or confirmation from the authors would settle the discrepancy.
+
 A subsequent resumed Modal backfill extends the exhaustive frontier to $n = 28$ (2\,023\,443\,032 trees; artifacts \texttt{results/analysis\_n28\_modal\_unimodality.json} and \texttt{results/analysis\_n28\_modal\_lc\_nm.json}), again with no unimodality violations.
 The companion $n = 28$ LC / near-miss audit finds 19 log-concavity failures, all at $k = 14$, with worst ratio $i_{13}\, i_{15} / i_{14}^2 = 1.5027778$; the top near-miss ratio is $\nm = 0.8565666$ at position $k = 13$.
 A further resumed Modal backfill extends the exhaustive frontier to $n = 29$ (5\,469\,566\,585 trees; artifact \texttt{results/analysis\_n29\_modal\_unimodality.json}), again with no unimodality violations.

@@ -1,0 +1,465 @@
+                                           Maximum Entropy of Sums of Independent Ternary
+                                                        Random Variables
+                                                                             Mladen Kovačevića,∗
+                                                       a
+                                                           Faculty of Technical Sciences, University of Novi Sad, Serbia
+
+
+
+
+arXiv:2605.11831v1 [cs.IT] 12 May 2026
+                                         Abstract
+                                         The classical problem of maximizing the Shannon entropy of a sum of inde-
+                                         pendent random variables supported on a finite alphabet is considered, and
+                                         settled in the ternary case. Namely, the following theorem is established:
+                                         if X1 , . . . , Xn are independent random variables taking values in {0, 1, 2},
+                                         then the entropy of Sn = X1 + · · · + Xn is maximized when X1 , . . . , Xn−1
+                                         are uniform on {0, 2} and the probability mass function of Xn is given
+                                         by P(Xn = 0) = P(Xn = 2) = w/2, P(Xn = 1) = 1 − w, where w =
+                                                                  −1
+                                           1 + 2−H(Bn )+H(Bn−1 )      and Bm ∼ Bin(m, 1/2). The statement can be seen
+                                         as an extension to ternary alphabets of the Shepp–Olkin–Mateev theorem.
+                                         The proof uses the Hermite–Biehler theorem, Newton’s inequalities, and Yu’s
+                                         maximum-entropy theorem for ultra-log-concave distributions.
+                                         Keywords: Maximum entropy, sums of random variables, binomial
+                                         distribution, Shepp–Olkin theorem, ultra-log-concavity
+                                         2020 MSC: 94A17, 60C05, 60G50
+
+
+                                         1. Introduction
+                                             Entropy maximization problems occupy an important place in probability,
+                                         statistics, information theory, and statistical mechanics (Jaynes, 1957; Cover
+                                         and Thomas, 2006). Many of the most familiar probability laws – uniform,
+                                         Gaussian, exponential, geometric, binomial, Poisson, etc. – can be character-
+                                         ized as the “most random” distributions subject to natural constraints. Such
+
+                                           ∗
+                                               Corresponding author.
+                                               Email address: kmladen@uns.ac.rs (Mladen Kovačević)
+results are useful not only as variational characterizations of classical distri-
+butions, but also because they often reveal hidden convexity, log-concavity,
+or stability phenomena behind probabilistic inequalities.
+    A particularly elegant problem in this context concerns the entropy of
+sums of independent random variables. Let X1 , . . . , Xn be independent ran-
+dom variables taking values in {0, 1, . . . , r}, and set
+
+                              Sn = X1 + · · · + Xn .                           (1)
+
+For r = 1, this is the classical Bernoulli-sum problem. The Shepp–Olkin–
+Mateev theorem (Shepp and Olkin, 1981; Mateev, 1978) asserts that H(Sn )
+is maximized when all Xi are Bernoulli(1/2). Equivalently, among all sums of
+independent Bernoulli random variables, the entropy-maximizing one is the
+symmetric binomial distribution. This result has inspired a substantial line
+of work on related problems (Harremoës, 2001; Hillion and Johnson, 2016,
+2017, 2019; Johnson, 2007; Johnson et al., 2013; Yu, 2008b,a).
+    For non-binary alphabets, however, very little is known. The naive guess
+that each Xi should be uniform on {0, 1, . . . , r} is false. In fact, the entropy-
+maximizing configuration appears to be highly nonuniform. The present au-
+thor conjectured in (Kovačević, 2021) that the maximum is attained by plac-
+ing n − 1 of the variables on the two endpoints 0 and r, each uniformly, while
+the remaining variable is a mixture of the uniform distribution on the end-
+points {0, r} and the uniform distribution on the interior points {1, . . . , r−1}.
+More precisely, the conjectured maximum is
+                                                             
+            w0 H(Bn ) + (1 − w0 ) H(Bn−1 ) + log2 (r − 1) + h(w0 ),             (2)
+
+where Bm ∼ Bin(m, 1/2) and
+                                            1
+                       w0 =                                  .                 (3)
+                              1 + (r − 1)2−H(Bn )+H(Bn−1 )
+
+This formula is consistent with the binary Shepp–Olkin–Mateev theorem,
+and was proved in (Kovačević, 2021) in several other special cases, including
+n = 2 for arbitrary r. In this note we prove the conjecture for the first
+non-binary alphabet, that is, for r = 2 and arbitrary n.
+   The conjecture was inspired in part by the continuous version of the
+problem (Ordentlich, 2006; Yu, 2008a) and suggests an interesting qualitative
+phenomenon. In the entropy-maximizing configuration, most variables do
+
+                                        2
+not use the whole alphabet – they use only the two extreme symbols. The
+remaining variable is responsible for distributing mass among the residue
+classes modulo r. Thus the conjecture separates the problem into two effects:
+binomial spreading along each residue class, and entropy of the residue class
+itself. Unfortunately, the proof method based on this observation does not
+seem to extend to r ⩾ 3.
+    The note is organized as follows. Section 2 recalls the needed facts about
+ultra-log-concavity, the Hermite–Biehler theorem, Newton’s inequalities, and
+Yu’s maximum-entropy theorem. Section 3 proves the ultra-log-concavity of
+the parity-conditioned laws, i.e., of the distributions in each of the two residue
+classes. In Section 4 we state and prove our main result – the maximum
+entropy theorem for sums of independent ternary random variables. Section 5
+presents a counterexample showing that our residue-class ultra-log-concavity
+approach fails for larger alphabets.
+
+2. Preliminaries
+    The Shannon entropy of a discrete random variable X taking values in
+{0, . . . , r} is defined as
+                                r
+                                X
+                    H(X) = −           P(X = j) log2 P(X = j).                          (4)
+                                j=0
+
+In the binary case we also write
+                    h(p) = −p log2 p − (1 − p) log2 (1 − p).                            (5)
+   A nonnegative sequence (u0 , . . . , um ) is said to be log-concave if the fol-
+lowing inequalities hold
+                     u2k ⩾ uk−1 uk+1 ,           k = 1, . . . , m − 1.                  (6)
+It is said to be ultra-log-concave of order m, abbreviated ULC(m), if the
+sequence                               m
+                                    uk
+                                    m
+                                                                     (7)
+                                         k       k=0
+is log-concave, or, equivalently, if
+    k(m − k)u2k ⩾ (k + 1)(m − k + 1)uk−1 uk+1 ,                 k = 1, . . . , m − 1.   (8)
+   We shall need in the sequel the following maximum-entropy theorem of
+Yu (Yu, 2008b).
+
+                                             3
+Theorem 1 (Yu). Let Y be a random variable taking values in {0, . . . , m}.
+If the probability mass function of Y is ULC(m), then
+
+                                 H(Y ) ⩽ H(Bm ),                                  (9)
+
+where Bm ∼ Bin(m, 1/2).
+
+   We shall also need a particular consequence of the Hermite–Biehler the-
+orem (Rahman and Schmeisser, 2002, Theorem 6.3.4) stated below.
+
+Theorem 2 (Hermite–Biehler). Let R and I be non-constant polynomials
+with real coefficients. Then R and I have strictly interlacing zeros if and
+only if the polynomial F (z) = R(z) + iI(z) has all its zeros either in the open
+upper half-plane or in the open lower half-plane.
+
+Corollary 3. Let P be a real polynomial all of whose zeros lie in the open
+left half-plane. Write
+                       P (z) = E(z 2 ) + zO(z 2 ).                    (10)
+Then E and O have only real nonpositive zeros.
+
+Proof. Set F (x) = P (ix). Since P has all zeros in the open left half-plane,
+F has all zeros in the open upper half-plane. Moreover,
+
+                          F (x) = E(−x2 ) + ixO(−x2 ).                           (11)
+
+By Theorem 2, the real and imaginary parts of F , namely E(−x2 ) and
+xO(−x2 ), have only real zeros. It follows immediately that all zeros of E
+and O are real and nonpositive.
+   Finally, we recall Newton’s inequalities in the following form (Stanley,
+1989, Theorem 2).
+
+Theorem 4 (Newton). If a polynomial F (t) = m               k
+                                                 P
+                                                    k=0 fk t with real coeffi-
+cients has only real zeros, then
+
+   k(m − k)fk2 ⩾ (k + 1)(m − k + 1)fk−1 fk+1 ,           k = 1, . . . , m − 1.   (12)
+
+In particular, if the coefficients fk are nonnegative, the sequence (f0 , . . . , fm )
+is ULC(m).
+
+
+
+                                          4
+3. Parity-conditioned laws
+   Let X1 , . . . , Xn be independent random variables taking values in {0, 1, 2}.
+Denote
+
+          P(Xi = 0) = ai ,          P(Xi = 1) = bi ,        P(Xi = 2) = ci .   (13)
+
+Let
+                              Sn = X1 + · · · + Xn .                           (14)
+Define
+                                             Sn − J
+                       J = Sn mod 2,             K=  .                         (15)
+                                                2
+Thus J ∈ {0, 1}, and Sn is determined by the pair (J, K).
+  Consider the generating polynomial
+                                     n
+                                     Y
+                          P (z) =      (ai + bi z + ci z 2 ).                  (16)
+                                     i=1
+
+Write its even–odd decomposition as
+
+                             P (z) = E(z 2 ) + zO(z 2 ),                       (17)
+
+where
+                              n
+                              X                           n−1
+                                                          X
+                     E(t) =            k
+                                    ek t ,       O(t) =         ok tk .        (18)
+                              k=0                         k=0
+
+Then
+                 ek = P(Sn = 2k),            ok = P(Sn = 2k + 1).              (19)
+Consequently, conditional on J = 0, K has probability mass function pro-
+portional to (e0 , . . . , en ), and conditional on J = 1, K has probability mass
+function proportional to (o0 , . . . , on−1 ).
+Proposition 5. The sequence (e0 , . . . , en ) is ULC(n), and the sequence
+(o0 , . . . , on−1 ) is ULC(n − 1).
+Proof. We first assume that ai , bi , ci > 0 for all i. For each i, the quadratic
+polynomial
+                               ai + bi z + ci z 2                            (20)
+has all zeros in the open left half-plane. Indeed, if its zeros are real, then
+their product is ai /ci > 0 and their sum is −bi /ci < 0, so both zeros are
+
+                                             5
+negative. If its zeros are not real, then they form a conjugate pair with real
+part −bi /(2ci ) < 0. Therefore P has all zeros in the open left half-plane. By
+Corollary 3, applied to
+
+                            P (z) = E(z 2 ) + zO(z 2 ),                      (21)
+
+both E and O have only real (and nonpositive) zeros. By Theorem 4, the
+sequences of coefficients of these polynomials are ULC, as claimed.
+    It remains to remove the positivity assumption. If some coefficients van-
+ish, replace each triple (ai , bi , ci ) by
+                                             
+                       ai + ε b i + ε c i + ε
+                                ,          ,    ,   ε > 0.               (22)
+                       1 + 3ε 1 + 3ε 1 + 3ε
+The corresponding even and odd coefficient sequences are ULC(n) and
+ULC(n − 1), respectively. Letting ε ↓ 0, and using the closedness of the
+ultra-log-concavity inequalities, gives the claim.
+Corollary 6. For every choice of independent ternary random variables
+X1 , . . . , X n ,
+                      H(K | J = 0) ⩽ H(Bn ),                     (23)
+and
+                          H(K | J = 1) ⩽ H(Bn−1 ).                           (24)
+Consequently,
+
+              H(K | J) ⩽ P(J = 0)H(Bn ) + P(J = 1)H(Bn−1 ).                  (25)
+
+Proof. If P(J = 0) > 0, the conditional law of K given J = 0 is obtained
+by normalizing the sequence (e0 , . . . , en ). Normalization preserves ultra-log-
+concavity, so this conditional law is ULC(n). By Theorem 1 we then have
+
+                            H(K | J = 0) ⩽ H(Bn ).                           (26)
+
+If P(J = 0) = 0, the term P(J = 0)H(K | J = 0) is irrelevant.
+    Similarly, if P(J = 1) > 0, the conditional law of K given J = 1 is
+obtained by normalizing (o0 , . . . , on−1 ) and is therefore ULC(n − 1). By
+Theorem 1 we then have
+
+                          H(K | J = 1) ⩽ H(Bn−1 ).                           (27)
+
+Averaging over J yields (25).
+
+                                        6
+4. The maximum entropy theorem
+Theorem 7. Let X1 , . . . , Xn be independent random variables taking values
+in {0, 1, 2}, and let
+                             Sn = X1 + · · · + Xn .                     (28)
+Then
+                H(Sn ) ⩽ w0 H(Bn ) + (1 − w0 )H(Bn−1 ) + h(w0 ),             (29)
+where
+                                            1
+                          w0 =                           .                   (30)
+                                 1 + 2−H(Bn )+H(Bn−1 )
+The equality is attained by taking X1 , . . . , Xn−1 uniform on {0, 2}, and taking
+Xn with distribution
+                                       w0
+          P(Xn = 0) = P(Xn = 2) =         ,      P(Xn = 1) = 1 − w0 .        (31)
+                                       2
+Proof. Let
+                                             Sn − J
+                       J = Sn mod 2,            K=   .                       (32)
+                                                2
+Since Sn = 2K + J, the pair (K, J) determines Sn , and hence
+
+                    H(Sn ) = H(K, J) = H(J) + H(K | J).                      (33)
+
+Let
+                                 w = P(J = 0).                               (34)
+Then
+                                 H(J) = h(w).                                (35)
+By Corollary 6 we have
+
+                   H(K | J) ⩽ wH(Bn ) + (1 − w)H(Bn−1 ),                     (36)
+
+and therefore
+
+                 H(Sn ) ⩽ h(w) + wH(Bn ) + (1 − w)H(Bn−1 ).                  (37)
+
+It remains to maximize the right-hand side over w ∈ [0, 1]. Since this ex-
+pression is strictly concave in w, it is easily found by differentiation that the
+maximizer is
+                                           1
+                          w0 =         −H(B n )+H(Bn−1 )
+                                                         .                   (38)
+                                1+2
+
+                                        7
+    It is left to check that the upper bound in (29) can be achieved. This
+was already done in (Kovačević, 2021, Theorem 2.1), but we repeat the con-
+struction for completeness. Let X1 , . . . , Xn−1 be independent and uniform
+on {0, 2}, and let Xn be independent of them with
+                                       w0
+         P(Xn = 0) = P(Xn = 2) =          ,     P(Xn = 1) = 1 − w0 .    (39)
+                                       2
+If Xn ∈ {0, 2}, then
+                                  Sn = 2Y,                              (40)
+where Y ∼ Bn . This event has probability w0 , and corresponds to J = 0.
+Thus
+                           K | J = 0 ∼ Bn .                         (41)
+If Xn = 1, then
+                                Sn = 2Y + 1,                            (42)
+where Y ∼ Bn−1 . This event has probability 1 − w0 , and corresponds to
+J = 1. Thus
+                         K | J = 1 ∼ Bn−1 .                        (43)
+Therefore equality holds in the conditional entropy bound, and also H(J) =
+h(w0 ). Hence the right-hand side of (29) is attained.
+  Figure 1 illustrates the conditional distributions K | J in the entropy-
+maximizing case.
+
+5. On extensions to larger alphabets
+   To conclude the paper, we note that, unfortunately, the proof method
+used to establish Theorem 7 does not carry over to larger alphabets.
+   Recall that the main point in the proof was to control the two conditional
+laws of K, according to whether Sn is even or odd. Namely, the probability
+generating function of Sn ,
+                                n
+                                Y
+                        P (z) =   (ai + bi z + ci z 2 ),                (44)
+                                 i=1
+
+is first decomposed into even and odd parts as
+
+                          P (z) = E(z 2 ) + zO(z 2 ).                   (45)
+
+                                       8
+                  0     1      2     3     4      5     6      7     8
+
+Figure 1: The probability distribution of S4 in the case when the distributions of Xi are
+chosen according to Theorem 7. For the purpose of illustration, the probability masses
+assigned to even, resp. odd, values (corresponding to the case J = 0, resp. J = 1) are
+marked in blue, resp. red. Note that K | J = 0 ∼ B4 and K | J = 1 ∼ B3 .
+
+
+The coefficients of E and O are precisely the (unnormalized) laws of K
+conditioned on the two parity classes. Since each quadratic ai + bi z + ci z 2 has
+all zeros in the left half-plane (because ai , bi , ci ⩾ 0), so does the product P .
+The Hermite–Biehler theorem then implies that E and O have only real zeros,
+and Newton’s inequalities imply that their coefficient sequences are ultra-log-
+concave of the appropriate orders. Finally, Yu’s maximum-entropy theorem
+for ultra-log-concave distributions bounds the two conditional entropies by
+H(Bn ) and H(Bn−1 ), respectively.
+    The above argument illustrates both why the ternary case is tractable
+and why the general conjecture remains difficult. For alphabets of size at
+least four, the analogous one-variable probability generating functions have
+degree r ⩾ 3, and positivity of their coefficients no longer implies that their
+roots are all in the left half-plane. Indeed, as the example below shows, the
+residue-class polynomials need not be real-rooted, and the sequences of their
+coefficients need not be ultra-log-concave. This is true already for r = 3 and
+n = 3. Thus the method used in the present paper does not simply iterate
+to larger alphabets; proving the full conjecture, if it is indeed true, will likely
+require a different argument.
+Example 1. Consider the case r = 3, n = 3. Let
+                      p(z) = 0.15 + 0.06z + 0.70z 2 + 0.09z 3                       (46)
+and
+                                    P (z) = p(z)3 .                                 (47)
+
+                                           9
+Write
+                    P (z) = P0 (z 3 ) + zP1 (z 3 ) + z 2 P2 (z 3 ).      (48)
+A direct calculation gives
+
+          P0 (t) = 0.003375 + 0.044091t + 0.369325t2 + 0.000729t3 ,
+          P1 (t) = 0.00405 + 0.23292t + 0.133758t2 ,                     (49)
+          P2 (t) = 0.04887 + 0.145872t + 0.01701t2 .
+
+The polynomial P0 is not real-rooted – it has one real zero and one complex
+conjugate pair. Moreover, the coefficients of P0 are not ultra-log-concave of
+order 3 because the inequality u21 ⩾ 3u0 u2 does not hold (here uk are the co-
+efficients of P0 ). This means that the conditional distribution corresponding
+to the residue class Sn ≡ 0 (mod r) is not ULC(n), and therefore Theorem
+1 cannot be used to upper-bound its entropy.                                △
+
+Funding
+    This work was supported by the Ministry of Science, Technological De-
+velopment and Innovation of the Republic of Serbia (contract no. 451-03-
+34/2026-03/200156) and by the Faculty of Technical Sciences, University of
+Novi Sad, Serbia (project no. 01-3609/1).
+
+Declaration of generative AI and AI-assisted technologies in the
+manuscript preparation process
+    During the preparation of this work, the author used ChatGPT (OpenAI)
+to verify some of the derivations and assist with formatting the manuscript.
+The author reviewed and edited the content as needed and takes full respon-
+sibility for the content of the published article.
+
+References
+T. M. Cover and J. A. Thomas, Elements of Information Theory, 2nd ed.,
+  John Wiley and Sons, Inc., 2006.
+
+P. Harremoës, “Binomial and Poisson distributions as maximum entropy
+  distributions,” IEEE Trans. Inform. Theory 47(5) (2001), 2039–2041.
+  https://doi.org/10.1109/18.930936
+
+                                          10
+E. Hillion and O. T. Johnson, “Discrete versions of the transport equation
+  and the Shepp–Olkin conjecture,” Ann. Probab. 44(1) (2016), 276–306.
+  https://doi.org/10.1214/14-AOP973
+
+E. Hillion and O. T. Johnson, “A proof of the Shepp–Olkin en-
+  tropy concavity conjecture,” Bernoulli 23(4B) (2017), 3638–3649.
+  https://doi.org/10.3150/16-BEJ860
+
+E. Hillion and O. T. Johnson, “A proof of the Shepp–Olkin entropy mono-
+  tonicity conjecture,” Electron. J. Probab. 24 (2019), article no. 126.
+  https://doi.org/10.1214/19-EJP380
+
+E. T. Jaynes, “Information theory and statistical mechanics,” Phys. Rev.
+  106(4) (1957), 620–630. https://doi.org/10.1103/PhysRev.106.620
+
+O. T. Johnson, “Log-concavity and the maximum entropy property of the
+  Poisson distribution,” Stochastic Process. Appl. 117(6) (2007), 791–802.
+  https://doi.org/10.1016/j.spa.2006.10.006
+
+O. Johnson, I. Kontoyiannis, and M. Madiman, “Log-concavity, ultra-
+  log-concavity, and a maximum entropy property of discrete compound
+  Poisson measures,” Discrete Applied Math. 161(9) (2013), 1232–1250.
+  https://doi.org/10.1016/j.dam.2011.08.025
+
+M. Kovačević, “On the maximum entropy of a sum of independent dis-
+ crete random variables,” Theory Probab. Appl. 66(3) (2021), 482–487.
+ https://doi.org/10.1137/S0040585X97T99054X
+
+P. Mateev, “The entropy of the multinomial distribution,” Theory Probab.
+  Appl. 23(1) (1978), 188–190. https://doi.org/10.1137/1123020
+
+E. Ordentlich, “Maximizing the entropy of a sum of independent bounded
+  random variables,” IEEE Trans. Inform. Theory 52(5) (2006), 2176–2181.
+  https://doi.org/10.1109/TIT.2006.872858
+
+Q. I. Rahman and G. Schmeisser, Analytic Theory of Polynomials, Oxford
+  University Press, 2002.
+
+L. A. Shepp and I. Olkin, “Entropy of the sum of independent Bernoulli
+  random variables and of the multinomial distribution,” Tech. Report 131,
+
+
+                                   11
+  Stanford University, 1978. Reprinted in Contributions to probability, Aca-
+  demic Press, New York, 1981, pp. 201–206. https://doi.org/10.1016/B978-
+  0-12-274460-0.50022-9
+
+R. P. Stanley, “Log-concave and unimodal sequences in algebra, combina-
+  torics, and geometry,” Ann. New York Acad. Sci. 576 (1989), 500–535.
+  https://doi.org/10.1111/j.1749-6632.1989.tb16434.x
+
+Y. Yu, “Maximum entropy for sums of symmetric and bounded random
+  variables: a short derivation,” IEEE Trans. Inform. Theory 54(4) (2008),
+  1818–1819. https://doi.org/10.1109/TIT.2008.917660
+
+Y. Yu, “On the maximum entropy properties of the binomial dis-
+  tribution,” IEEE Trans. Inform. Theory 54(7) (2008), 3351–3353.
+  https://doi.org/10.1109/TIT.2008.924715
+
+
+
+
+                                    12
+

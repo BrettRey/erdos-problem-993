@@ -1,0 +1,621 @@
+                                                   A proof of the Shepp–Olkin entropy concavity
+                                                                    conjecture
+
+
+
+
+arXiv:1503.01570v1 [math.PR] 5 Mar 2015
+                                                                     Erwan Hillion∗              Oliver Johnson†
+                                                                                   March 6, 2015
+
+
+                                                                                       Abstract
+                                                  We prove the Shepp–Olkin conjecture, which states that the entropy of the sum of
+                                                  independent Bernoulli random variables is concave in the parameters of the individual
+                                                  random variables. Our proof is a refinement of an argument previously presented by
+                                                  the same authors, which resolved the conjecture in the monotonic case (where all the
+                                                  parameters are simultaneously increasing). In fact, we show that the monotonic case
+                                                  is the worst case, using a careful analysis of concavity properties of the derivatives
+                                                  of the probability mass function. We propose a generalization of Shepp and Olkin’s
+                                                  original conjecture, to consider Rényi and Tsallis entropies.
+
+                                              MSC2000: primary; 60E15, secondary; 94A17, 60D99
+                                              Keywords: entropy, transportation of measures, Bernoulli sums, Poisson binomial dis-
+                                          tribution, concavity
+
+
+                                          1       Introduction
+                                          This paper considers a conjecture of Shepp and Olkin [15], that the entropy of Bernoulli
+                                          sums is a concave function of the parameters. We write B(p) for the law of a Bernoulli
+                                          variable with parameter p. Let (p1 , . . . , pn ) ∈ [0, 1]n be a n-tuple of parameters, P and
+                                          consider independent random variables (X1 , . . . , Xn ) with Xi ∼ B(pi ). We set S = ni=1 Xi
+                                          and, for k ∈ {0, . . . n}, we write fk := P(S = k) for the probability mass function of S,
+                                          defining a probability measure supported on {0, . . . , n}. Note that S is sometimes referred
+                                          to as having a Poisson binomial distribution.
+                                              For each k ∈ {0, . . . , n}, the probabilities fk can be seen as a smooth function of
+                                          the n parameters p := (p1 , . . . , pn ). For instance we have f0 = (1 − p1 ) · · · (1 − pn ) and
+                                              ∗
+                                              Department of Mathematics, University of Luxembourg, Campus Kirchberg, L-1359 Luxembourg,
+                                          Grand-Duchy of Luxembourg. Email erwan.hillion@uni.lu
+                                            †
+                                              School of Mathematics, University of Bristol, University Walk, Bristol BS8 1TW, United Kingdom.
+                                          Email o.johnson@bristol.ac.uk
+
+
+                                                                                            1
+fn = p1 · · · pn . A particular case is obtained when the parameters p1 = · · · = pn = p are all
+equal. In this case, (fk ) describes the binomial measure Bin(n, p). This paper is focused
+on the study of the Shannon entropy H of (fk ).
+
+Definition 1.1. Writing U(x) := x log(x) if x > 0 and U(0) := 0, we define:
+                                       n
+                                       X                   n
+                                                           X
+                           H(p) := −         U(fk ) := −         fk log(fk ).                  (1)
+                                       k=0                 k=0
+
+   The entropy H can itself be seen as a smooth function of the parameters p1 , . . . , pn .
+This article is devoted to the proof of the following:
+
+Theorem 1.2 (Shepp-Olkin Theorem). For any n ≥ 1, the function p 7→ H(p) is concave.
+
+     We simplify notation somewhat by considering the case where each pi := pi (t) is an
+affine function of parameter t ∈ [0, 1], so that the derivative p′i := dtd pi (t) is constant in t.
+Theorem 1.2 will follow if we can show that the entropy is concave in t.
+     Theorem 1.2 was conjectured by Shepp and Olkin [15] in 1981. In their original paper,
+Shepp and Olkin stated that the conjecture is true in the cases n = 2 and n = 3, and
+proved that it holds for the binomial case where all pi are identical (see also Mateev [11]).
+Since then, progress has been limited. In [20], Yu and Johnson considered the thinning
+operation of Rényi [13], and proved a result which implies concavity of entropy when each
+pi (t) is proportional to t or 1 − t. Further, Hillion [8, Theorem 1.1] proved Theorem 1.2 in
+the case where each pi (t) is either constant or equal to t.
+     More significant progress was made in [9] by the present authors, who proved that the
+entropy is concave when all p′i have the same sign. Perhaps surprisingly, in the current
+paper we show that this ‘monotone’ case resolved in [9] is the most difficult.
+     The strategy of [9] was to show that the entropy is a concave function along an inter-
+polating (geodesic) path between discrete random variables, assuming certain conditions
+are satisfied. In particular, [9, Theorem 4.4] showed that if a ‘k-monotonicity’ condition,
+a generalized log-concavity condition, and so-called Condition 4 hold, then the entropy is
+concave. At the heart of this analysis was control of terms of the form U(1 − x) by the
+second-order Taylor expansion of U. This relied on the fact that a term we refer to as Bk
+(see (12)) satisfies Bk ≤ 0.
+     However, unfortunately the inequality Bk ≤ 0 does not hold in general, so in this paper
+we will use Lemma 2.1 to control terms of this kind. The strategy is essentially to show that
+Condition 4 (here referred to as Proposition 2.4) holds in the general Shepp-Olkin case.
+Using this result, we deduce Corollary 2.5 which plays the part of the k-monotonicity and
+generalized log-concavity conditions. For the sake of simplicity we restrict our discussion
+to mass functions which are Bernoulli sums, but a version of Theorem 1.2 will hold for
+interpolating paths made up of log-concave f for which Proposition 2.4 holds.
+     The study of the entropy in the monotone case [9] was motivated by the theory of
+transportation of discrete probability measures and the introduction of a distance defined
+by a discrete form of the Benamou–Brenier formula [3] (see also [7]). This idea of a
+
+                                                 2
+discrete geodesic was designed as an analogue to the more developed theory of geodesics
+on continuous spaces such as Riemannian manifolds (see for example [19]), where concavity
+of the entropy relates to the Ricci curvature of the underlying manifold (see [5, 10, 16, 17]).
+Further, using ideas related to the Bakry-Émery Γ-calculus [2], concavity of the entropy
+can be used to prove functional inequalities, such as log-Sobolev or HWI (see for example
+[1, 6]). It remains an important problem to provide discrete analogues of this theory.
+    The structure of the paper is as follows: in Section 2 we state some technical results
+required for the proof of Theorem 1.2, the proofs of which are deferred to the appendix.
+In Section 3 we prove Theorem 1.2 itself. In Section 4 we propose a generalized form of
+Shepp and Olkin’s conjecture, in terms of Rényi and Tsallis entropies HR,q and HT,q .
+
+
+2     Technical results required in the proof
+We now state a number of technical results which are required in the proof of Theorem
+1.2, the main result of the paper. The proofs are deferred to the appendix.
+
+2.1    Concavity of functions
+We first state a technical result concerning certain functions U:
+
+Lemma 2.1. Let U : (0, ∞) 7→ R be a function such that (i) U(1) = 0, (ii) U ′ (1) = 1,
+(iii) U ′′′ (t) ≤ 0 for all t and (iv) log U ′′ (t) is convex in t.
+    For A, B, C, α, β, γ satisfying 0 < A < 1, 0 < C < 1 and B 2 ≤ AC, β 2 ≤ αγ we have:
+
+               αU(1 − A) − 2βU(1 − B) + γU(1 − C) ≥ −αA + 2βB − γC.                        (2)
+
+    Note that the conditions of this lemma are satisfied for U(x) = x log x.
+
+2.2    Cubic inequality for Bernoulli sums
+Let S = X1 + . . . + Xm be the sum of independent Bernoulli variables of parameters
+p1 , . . . , pm .
+
+Proposition 2.2. For any m and k, the following inequality holds:
+                        2
+                  πk−2 πk+1 + πk3 + πk−1
+                                     2
+                                         πk+2 ≥ πk−2 πk πk+2 + 2πk−1 πk πk+1 .             (3)
+
+    Note that for k outside the support of S, each term is equal to zero, so the inequality is
+trivially true. In the appendix, we show that Proposition 2.2 can be proved directly, using
+two other cubic inequalities (28) and (29) taken from [9].
+    If we write Dk := L(πk ) = πk2 − πk−1 πk+1 , then it is well known (see Proposition A.1)
+that Dk ≥ 0, a result referred to as log-concavity of πk . Observe that (3) is equivalent to
+the statement that L2 (πk ) = L(Dk ) = Dk2 − Dk−1 Dk+1 ≥ 0, that the Dk themselves are
+log-concave, a property is referred to as 2-fold log-concavity.
+
+                                               3
+    This result also follows from a result of Brändén [4], which resolved a conjecture made
+independently by Stanley, by McNamara and Sagan and by Fisk (see Brändén’s paper [4]
+for details). Brändén discusses conditions under which infinite log-concavity (the fact that
+the iterated Lr (πk ) ≥ 0 for all r ≥ 1) holds.
+
+2.3     Upper bounding hk
+                                                       P
+Recall that we consider the random variable S = nl=1 Xl with probability mass function
+                                                     P                                           (i)
+fk (t). For i ∈ {1, . . . , n} we define S (i) := l6=i Xl , with probability mass function fk
+supported on {0, . . . , n − 1}. Similarly, for a pair of indices i 6= j ∈ {1, . . . , n} we define
+          P                                    (i,j)
+S (i,j) := l /∈{i,j} Xl with mass function fk supported on {0, . . . , n − 2}.
+
+Definition 2.3. As in [9], we make the following definitions:
+                              X       (i)
+                                           X
+                     gk :=       p′i fk :=    p′i P(S (i) = k),                                         (4)
+                                       i                     i
+                                     X              (i,j)
+                                                                 X
+                          hk :=             p′i p′j fk      :=          p′i p′j P(S (i,j) = k).         (5)
+                                     i6=j                        i6=j
+
+
+    We prove a strong upper bound on hk , which lies at the heart of the proof of Theorem
+1.2:
+
+Proposition 2.4. For k = 0, . . . , n − 2:
+                            2
+                       hk (fk+1 − fk fk+2 ) ≤ 2gk gk+1 fk+1 − gk2fk+2 − gk+1
+                                                                         2
+                                                                             fk .                       (6)
+
+Corollary 2.5. For k = 0, . . . , n − 2, the hk fk ≤ gk2 and hk fk+2 ≤ gk+1
+                                                                        2
+                                                                            .
+
+    In [9], Proposition 2.4 is referred to as Condition 4, and is proved for the case where
+all p′i have the same sign. In fact, we show using Proposition 2.2 that this inequality holds
+in general.
+
+
+3     Proof of the Shepp–Olkin conjecture
+Theorem 1.2 is obvious if n = 1. We now fix some n ≥ 2 and take X1 , . . . Xn to be
+independent Bernoulli variables with parameters p1 , . . . , pn , where each pi = pi (t) is an
+affine function of t (with constant derivative p′i ).
+
+Proposition 3.1. To prove Theorem 1.2, it suffices to show that uk ≥ 0 for any choice
+of parameters (p1 , . . . , pn ), of slopes (p′1 , . . . , p′n ) and index k ∈ {0, . . . , n − 2}, where we
+write:                                            2                            
+                                                                              2
+                                         fk fk+2             gk     gk gk+1 gk+1
+                      uk := hk log          2
+                                                      +          −2        +          .                  (7)
+                                          fk+1               fk       fk+1   fk+2
+
+
+                                                            4
+Proof. As in [9], direct calculation (for example using the probability generating function)
+shows that the first two derivatives of fk satisfy
+                                  dfk
+                                      (t) = gk−1 − gk ,                                                 (8)
+                                   dt
+                                d2 fk
+                                      (t) = hk − 2hk−1 + hk−2 .                                         (9)
+                                 dt2
+Hence, we can write the derivative of the entropy:
+                         n
+                         X
+             ′′            d2
+          H (t) = −                  U(fk (t))
+                         k=0
+                             dt2
+                         n
+                         X                      2     n
+                                                        X            2 
+                                ′′ dfk                           ′   d fk
+                   = −     U (fk )                    −     U (fk )
+                       k=0
+                                    dt                  k=0
+                                                                      dt2
+                         n
+                         X                                      n
+                                                                X
+                                                        2
+                   = −          ′′
+                               U (fk ) (gk−1 − gk ) −                 U ′ (fk ) (hk − 2hk−1 + hk−2 )   (10)
+                         k=0                                    k=0
+                         X
+                         n−2
+                                                                                            
+                   ≤ −          gk2 U ′′ (fk ) − 2gk gk+1U ′′ (fk+1 ) + gk+1
+                                                                         2
+                                                                             U ′′ (fk+2 )
+                         k=0
+                                                                       
+                                             ′              ′               ′
+                                 +hk (U (fk ) − 2U (fk+1 ) + U (fk+2 )) .                              (11)
+
+The form of Equation (10) follows using (8) and (9). The relabelling in (11) uses the fact
+that gk is supported on {0, . . . , n − 1} and hk supported on {0, . . . , n − 2}. This expression
+is an inequality since (taking into account the end points of the range of summation) we
+                      2
+remove the terms −gn−1   U ′′ (fn−1 ) − g02 U ′′ (f1 ), which are negative assuming that U ′′ ≥ 0.
+     Making the choice of U(x) = x log x we deduce the form of uk given in (7), since
+  ′′
+U (x) = 1/x ≥ 0 in this case.
+     One of the main differences with the monotonic case studied in [9] is that the quantities
+(gl ) and (hl ) are not necessarily positive. However, we note the following:
+Lemma 3.2. If hk ≤ 0 then uk ≥ 0.
+Proof. This follows quite easily from
+                                     the   log-concavity property for the (fl ), see Proposi-
+                                     fk fk+2
+tion A.1, which implies that hk log f 2        ≥ 0. On the other hand, using the arithmetic-
+                                        k+1
+geometric inequality and then again the log-concavity property, we have:
+                           2
+                      gk2 gk+1    |gk ||gk+1|    |gk ||gk+1|    gk gk+1
+                         +     ≥ 2p           ≥2             ≥2         ,
+                      fk fk+2        fk fk+2        fk+1         fk+1
+
+which proves that uk ≥ 0.
+   Hence, from now on, we can suppose that hk > 0.
+
+                                                       5
+Proof of Theorem 1.2. We set:
+                                                                        2
+                    gk2 − fk hk         |gk ||gk+1| − fk+1 hk          gk+1 − fk+2 hk
+            Ak :=         2
+                                , Bk :=                       , C k :=       2
+                                                                                      ,     (12)
+                         gk                    |gk ||gk+1|                  gk+1
+
+and:
+                                   gk2         |gk ||gk+1|        g2
+                           αk :=       , βk :=             , γk := k+1 .                    (13)
+                                   fk             fk+1            fk+2
+Noticing that log(gk2 ) + log(gk+1
+                               2
+                                   ) − 2 log(|gk ||gk+1|) = 0, we have:
+                                                                               
+                 fk fk+2             hk fk               hk fk+1              hk fk+2
+           log      2
+                            = log            − 2 log                  + log             .   (14)
+                  fk+1                gk2               |gk ||gk+1|              2
+                                                                               gk+1
+
+Straightforward calculations give:
+
+    uk ≥ αk U(1 − Ak ) − 2βk U(1 − Bk ) + γk U(1 − Ck ) + (αk Ak − 2βk Bk + γk Ck ) .       (15)
+
+   We need to verify the assumptions of Lemma 2.1 on Ak , Bk , Ck . First, we can show
+that Bk2 ≤ Ak Ck , which is equivalent to
+                         2
+                    hk (fk+1 − fk fk+2 ) ≤ 2|gk ||gk+1|fk+1 − gk2 fk+2 − gk+1
+                                                                          2
+                                                                              fk .          (16)
+
+However, we notice that this is implied by the stronger inequality (6) from Proposition 2.4.
+Second, we need to check the the inequalities Ak ≥ 0 and Ck ≥ 0. As we have proved that
+0 ≤ Bk2 ≤ Ak Ck , it suffices to verify that Ak ≥ 0, which is a restatement of Corollary 2.5.
+   Clearly, the log-concavity of f shows that βk2 ≤ αk γk for the quantities defined in (13)
+We can thus apply Lemma 2.1 to deduce that uk ≥ 0 and prove Theorem 1.2.
+
+
+4      Tsallis and Rényi entropy
+Having resolved the Shepp-Olkin conjecture for (Shannon) entropy, it is natural to want
+to generalize our result to a wider class of entropy-like functionals. Recall the following
+definitions, each of which reduce to the Shannon entropy (1) as q → 1.
+
+Definition 4.1. Given a probability mass function f supported on {0, . . . , n}, for 0 ≤ q ≤
+∞ define
+                                                                    n
+                                                                             !
+                                                          1        X
+           1. q-Rényi entropy (see [14]): HR,q (f ) =        log        fxq ,          (17)
+                                                        1−q        x=0
+                                                                      n
+                                                                              !
+                                                          1         X
+          2. q-Tsallis entropy (see [18]): HT,q (f ) =          1−         fxq .        (18)
+                                                        q−1         x=0
+
+
+
+
+                                                  6
+    We know that HR,∞ (f ) = − log maxx f (x) (the min-entropy), which is not concave for
+Bernoulli sums (e.g. for Bernoulli(p) with p < 1/2, this is just − log(1 −p), which is convex
+in p). For q = 0, Rényi entropy is the log of the size of the support, which is constant (and
+hence concave) for Bernoulli sums. This suggests the following conjecture:
+
+Conjecture 4.2 (Generalized Shepp-Olkin conjecture).
+
+  1. There is a critical qR∗ such that the q-Rényi entropy of all Bernoulli sums is concave
+     for q ≤ qR∗ , and the entropy of some interpolation is convex for q > qR∗ .
+
+  2. There is a critical qT∗ such that the q-Tsallis entropy of all Bernoulli sums is concave
+     for q ≤ qT∗ , and the entropy of some interpolation is convex for q > qT∗ .
+
+Indeed (based on Lemma 4.3 below) we conjecture that qR∗ = 2 and qT∗ = 3.65986 . . ., the
+root of 2 − 4q + 2q = 0.
+
+   We mention some limited progress towards this conjecture.
+
+Lemma 4.3.
+
+  1. For any q > 2, there exists a Shepp–Olkin interpolation with convex q-Rényi entropy.
+
+  2. For any q > q ∗ := 3.65986 . . ., there exists a Shepp–Olkin interpolation with convex
+     q-Tsallis entropy.
+
+Proof.
+
+  1. Consider the Bernoulli B(p) family, for which T (p) = pq + (1 − p)q . As p → 0,
+     since q > 2, the T (p) → 1. Similarly, T (p)′ = q(pq−1 + (1 − p)q−1 ) → q, and
+                                                                                    q2
+     T (p)′′ = q(q −1)(pq−2 +(1−p)q−2 ) → q(q −1). In Equation (19) we obtain −q − 1−q =
+     q/(q − 1) > 0.
+
+  2. Consider the Binomial (2, p) family, for which T (p) = (p2 )q + (2p(1 − p))q + (1 − p)2q .
+     The second derivative of HT,q at p = 1/2 is 23−2q (2 − 4q + 2q )q/(q − 1), which is
+     positive for q > q ∗ .
+
+
+   Although Rényi and Tsallis entropies are monotone functions of one another, and so are
+maximised by the same mass function, the relationship between their concavity properties
+involves the chain rule.
+
+Lemma 4.4.
+
+  1. For q < 1, if the Tsallis entropy is concave, then so is the Rényi entropy.
+
+  2. For q > 1, if the Rényi entropy is concave, then so is the Tsallis entropy.
+
+
+                                              7
+                             P            q
+Proof. If we write T (t) =     x fx (t)
+                                  for some path, then
+                                  ′ 2                                 ′ 2
+     ′′           T ′′ (t)    1   T (t)        1    ′′              1   T (t)
+    HR,q (t) =             −              =        HT,q (f (t)) −             .             (19)
+               (1 − q)T (t) 1 − q T (t)      T (t)                1 − q T (t)
+Since the difference has a sign we can control, we can deduce the result holds.
+Remark 4.5. We can consider the Tsallis P entropy in the framework used earlier. Using
+                              ′′            n−2
+Equation (11) we deduce that HT,q (t) = −q k=0  uk , where
+                 1                                                                q−2 
+      uk := −       hk (fkq−1 − 2fk+1
+                                  q−1    q−1
+                                      + fk+2 ) + gk2 fkq−2 − 2gk gk+1fk+1
+                                                                      q−2    2
+                                                                          + gk+1 fk+2   .
+                1−q
+Conjecture 4.2 would follow if uk ≥ 0, or even if u
+                                                  ek := uk + ∇1 (vk ) ≥ 0, where vk is some
+function and ∇1 represents the left discrete derivative.
+   There is an heuristic argument which supports such a conjecture, at least in the mono-
+tonic case. Using the fact that
+                                         q−2                  q−2                q−2 
+        gk2 fkq−2 − 2gk gk+1fk+1
+                             q−2    2
+                                 + gk+1 fk+2   = (gk − gk+1)2 fk+1       2
+                                                                   + ∇1 gk+1 ∇1 (fk+2 ) ,
+                 1−q 2        q−2
+by taking vk = − 2−q gk+1∇1 (fk+2 ) we can write:
+
+                    1          q−1                 q−2    1               q−2 
+          u
+          ek = −       hk ∇2 (fk+2 ) + (∇1 gk+1)2 fk+1 +         2
+                                                             ∇1 gk+1 ∇1 (fk+2 ) ,           (20)
+                   1−q                                   2−q
+where ∇1 and ∇2 stand for the first and second left discrete derivatives. A possible con-
+tinuous analogy consists in considering, at least at a formal level, the expression
+                             1                                1               ′
+                   u := −       h(f q−1 )′′ + (g ′)2 f q−2 +     g 2 (f q−2 )′ ,            (21)
+                            1−q                              2−q
+for a triple (f, g, h) of real functions. If we make the further assumption that g = vf
+and h = v 2 f for some velocity function v, which was already an assumption made in the
+heuristic study of the monotonic case of the Shepp-Olkin conjecture [9, Section 2] and
+referred to as a Benamou-Brenier condition, equation (21) is simplified into
+
+                                              u = v ′2 f q ,
+
+which is clearly non-negative, and corresponds to [9, Corollary 2.6].
+
+
+A     Proof of technical results
+A.1     Proof of functional inequality, Lemma 2.1
+Proof of Lemma 2.1. We consider the function
+
+                     ξ(t) := αU(1 − tA) − 2βU(1 − tB) + γU(1 − tC),                         (22)
+
+                                                    8
+well-defined and smooth for 0 ≤ t ≤ 1. Its derivative is given by
+
+                ξ ′ (t) = −AαU ′ (1 − tA) + 2BβU ′ (1 − tB) − CγU ′ (1 − tC),              (23)
+
+so Inequality (2) can be rewritten ξ(1) − ξ(0) ≥ ξ ′ (0). Since, by the mean value theorem,
+ξ(1) − ξ(0) = ξ ′ (s) for some 0 ≤ s ≤ 1, it is sufficient to show the convexity of ξ, i.e. that
+ξ ′′ (t) ≥ 0 for any 0 < t < 1. We have:
+
+            ξ ′′ (t) = αA2 U ′′ (1 − tA) − 2βB 2 U ′′ (1 − tB) + γC 2 U ′′ (1 − tC)        (24)
+                        p
+                     ≥ 2 αγA2 C 2 U ′′ (1 − tA)U ′′ (1 − tC) − 2βB 2 U ′′ (1 − tB)         (25)
+                             p                                              
+                           2         ′′           ′′              ′′
+                     ≥ 2βB         U (1 − tA)U (1 − tC) − U (1 − tB)                       (26)
+                             p                                                       
+                     ≥ 2βB 2       U ′′ (1 − tA)U ′′ (1 − tC) − U ′′ (1 − t(A + C)/2)      (27)
+
+here (25) follows by the arithmetic mean-geometric mean inequality, and (26) follows by
+the assumptions β ≤ αγ and B 2 ≤ AC, and (27) uses the fact that by assumption (iii)
+U ′′ (s) is decreasing in s.
+      The result follows since we can deduce the positivity of (27) using assumption (iv) (the
+log-convexity of U ′′ )
+
+A.2     Proof of Proposition 2.2
+For πk the probability mass function of the sum T , we note that the quadratic Newton
+inequality (see for example Niculescu [12]) gives the log-concavity of π:
+                                                         2
+Proposition A.1. For any k ∈ {0, . . . , m − 2} we have πk+1 ≥ πk πk+2 .
+
+    Further properties of Bernoulli sums have been proven by the authors in [9]. The most
+interesting for our purposes are the inequalities stated there as C1 (k) ≥ 0 and C 1 (k) ≥ 0,
+which give that:
+                        2
+                                                                 
+                      πk−1 − πk−2 πk πk+1 ≤ πk−1 πk2 − πk−1 πk+1                         (28)
+                        2
+                                                     2
+                                                                   
+                       πk+1 − πk πk+2 πk−1 ≤ πk+1 πk − πk−1 πk+1                         (29)
+
+These results have been stated (and proven by induction on the number n of parameters)
+as [9, Theorem A2, Corollary A3].
+    Multiplying Equations (28) and (29) together, and rearranging, we simply obtain the
+positivity of
+                              2
+                                                                                  
+           πk−1 πk πk+1 πk−2 πk+1 + πk3 + πk−1
+                                           2
+                                               πk+2 − πk−2 πk πk+2 − 2πk−1 πk πk+1 ,
+
+and we deduce Proposition 2.2 holds.
+
+
+
+
+                                                9
+A.3      Proof of Proposition 2.4
+In the monotonic case studied in [9], Equation (6) was referred to as Condition 4, and was
+verified under the assumption that the p′i are non-negative. More precisely, some involved
+manipulations (using the definitions of gk and hk given in Equations (4) and (5)) allow us
+to deduce that (see Proposition 6.1 and Equation (73) of [9]):
+Lemma A.2. We can write the term
+                                            
+         2gk gk+1 fk+1 − gk2fk+2 − gk+12              2
+                                          fk − hk (fk+1    − fk fk+2 )
+              X                                                                                   
+                     ′2                    ′2                     ′ ′
+          =         pi pj (1 − pj )bi,j + pj pi (1 − pi )bj,i + 2pi pj pi (1 − pi )pj (1 − pj )ci,j ,   (30)
+               i<j
+
+where the coefficients satisfy
+                    3                              2              2
+               (i,j)        (i,j) (i,j) (i,j)   (i,j)    (i,j)   (i,j)    (i,j) (i,j) (i,j) (i,j)
+ci,j := − fk            + 2fk−1 fk fk+1 − fk+1 fk−2 − fk−1 fk+2 + fk−2 fk fk+2(31)
+
+    Lemma 6.2 of [9] shows that
+                                       1
+                              bi,j ≥ − (pi (1 − pj ) + pj (1 − pi ))ci,j                  (32)
+                                       2
+This result can be verified using the expression for bi,j given in [9, Equation (72)], using
+Equations (28) and (29) and other related cubic inequalities for π.
+                                                                                      (i,j)
+    We now observe that ci,j ≤ 0 by Proposition 2.2, simply by taking πk = fk               in
+Equation (3). Combining this with (32), we deduce that bi,j is positive, and that (treated
+as a quadratic in p′i and p′j , the bracketed term in Equation (30 has negative discriminant
+                                                                                                                 
+4pi (1 − pi )pj (1 − pj )c2i,j − 4bi,j bj,i ≤ c2i,j 4pi (1 − pi )pj (1 − pj ) − (pi (1 − pj ) + pj (1 − pi ))2
+                                          = −c2i,j (pi − pj )2 ,
+meaning that it is positive for all values of p′i and p′j .
+   Note that the negativity of ci,j shows that if we fix |p′i | and |p′j | then (30) is minimized
+when p′i and p′j have the same sign, justifying the claim that the monotonic case is the
+worst case.
+
+A.4      Proof of Corollary 2.5
+Proof of Corollary 2.5. Proposition 2.4 gives an upper bound on hk :
+                        2
+                                    
+                   hk fk+1 − fk fk+2 ≤ 2gk gk+1fk+1 − gk2fk+2 − gk+1
+                                                                 2
+                                                                     fk .                               (33)
+In order to prove that fk hk ≤ gk2 , it thus suffices to show that
+                                                                         
+                  2gk gk+1fk+1 − gk2 fk+2 − gk+1
+                                               2              2
+                                                   fk fk ≤ fk+1  − fk fk+2 gk2 .                        (34)
+But this equation can be simplified into
+                                        (fk+1gk − fk gk+1 )2 ≥ 0,                                       (35)
+which is obviously true.
+
+                                                     10
+References
+ [1] C. Ané, S. Blachere, D. Chafaı̈, P. Fougeres, I. Gentil, F. Malrieu, C. Roberto, and
+     G. Scheffer. Sur les inégalités de Sobolev logarithmiques. Panoramas et Syntheses,
+     10:217, 2000.
+
+ [2] D. Bakry and M. Émery. Diffusions hypercontractives. In Séminaire de probabilités,
+     XIX, 1983/84, volume 1123 of Lecture Notes in Math., pages 177–206. Springer, Berlin,
+     1985.
+
+ [3] J.-D. Benamou and Y. Brenier. A numerical method for the optimal time-continuous
+     mass transport problem and related problems. In Monge Ampère equation: appli-
+     cations to geometry and optimization (Deerfield Beach, FL, 1997), volume 226 of
+     Contemp. Math., pages 1–11. Amer. Math. Soc., Providence, RI, 1999.
+
+ [4] P. Brändén. Iterated sequences and the geometry of zeros. J. Reine Angew. Math.,
+     658:115–131, 2011.
+
+ [5] E. A. Carlen and W. Gangbo. Constrained steepest descent in the 2-Wasserstein
+     metric. Ann. of Math. (2), 157(3):807–846, 2003.
+
+ [6] D. Cordero-Erausquin. Some applications of mass transport to Gaussian-type inequal-
+     ities. Arch. Ration. Mech. Anal., 161(3):257–269, 2002.
+
+ [7] N. Gozlan, C. Roberto, P.-M. Samson, and P. Tetali. Displacement convexity of
+     entropy and related inequalities on graphs. Probability Theory and Related Fields
+     (online first), 2014. doi:10.1007/s00440-013-0523-y.
+
+ [8] E. Hillion. Concavity of entropy along binomial convolutions. Electron. Commun.
+     Probab., 17(4):1–9, 2012.
+
+ [9] E. Hillion and O. T. Johnson. Discrete versions of the transport equation and
+     the Shepp-Olkin conjecture. Annals of Probability (in press), 2015. See also
+     arXiv:1303.3381.
+
+[10] J. Lott and C. Villani. Ricci curvature for metric-measure spaces via optimal transport.
+     Ann. of Math. (2), 169(3):903–991, 2009.
+
+[11] P. Mateev. The entropy of the multinomial distribution. Teor. Verojatnost. i Prime-
+     nen., 23(1):196–198, 1978.
+
+[12] C. P. Niculescu. A new look at Newton’s inequalities. JIPAM. J. Inequal. Pure Appl.
+     Math., 1, 2000. Issue 2, Article 17; see also http://jipam.vu.edu.au/.
+
+[13] A. Rényi. A characterization of Poisson processes. Magyar Tud. Akad. Mat. Kutató
+     Int. Közl., 1:519–527, 1956.
+
+
+                                             11
+[14] A. Rényi. On measures of entropy and information. In J. Neyman, editor, Proceedings
+     of the 4th Berkeley Conference on Mathematical Statistics and Probability, pages 547–
+     561, Berkeley, 1961. University of California Press.
+
+[15] L. A. Shepp and I. Olkin. Entropy of the sum of independent Bernoulli random
+     variables and of the multinomial distribution. In Contributions to probability, pages
+     201–206. Academic Press, New York, 1981.
+
+[16] K.-T. Sturm. On the geometry of metric measure spaces. I. Acta Math., 196(1):65–131,
+     2006.
+
+[17] K.-T. Sturm. On the geometry of metric measure spaces. II. Acta Math., 196(1):133–
+     177, 2006.
+
+[18] C. Tsallis. Possible generalization of Boltzmann-Gibbs statistics. Journal of Statistical
+     Physics, 52:479–487, 1988.
+
+[19] C. Villani. Optimal transport: Old and New, volume 338 of Grundlehren der Mathe-
+     matischen Wissenschaften. Springer-Verlag, Berlin, 2009.
+
+[20] Y. Yu and O. T. Johnson. Concavity of entropy under thinning. In Proceedings of
+     ISIT 2009, 28th June - 3rd July 2009, Seoul, pages 144–148, 2009.
+
+
+
+
+                                             12
+

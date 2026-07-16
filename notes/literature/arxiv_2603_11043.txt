@@ -1,0 +1,3831 @@
+                                                  An asymptotically optimal bound for the
+                                                     concentration function of a sum of
+
+
+
+
+arXiv:2603.11043v1 [math.PR] 11 Mar 2026
+                                                   independent integer random variables
+                                                                             Valentas Kurauskas∗
+                                                                                 March 12, 2026
+
+
+                                                                                       Abstract
+                                                      For a random variable X define Q(X) = supx∈R P(X = x).
+                                                      Let X1 , . . . , Xn be independent integer random variables. Suppose
+                                                  Q(Xi ) ≤ αi ∈ (0, 1] for each i ∈ {1, . . . , n}. Juškevičius (2023) con-
+                                                  jectured that Q(X1 + · · · + Xn ) ≤ Q(Y1 + · · · + Yn ) where Y1 , . . . , Yn
+                                                  are independent and Yi is a random integer variable with Q(Yi ) = αi
+                                                  that has the smallest variance, i.e. the distribution of Yi has proba-
+                                                  bilities αi , . . . , αi , βi or probabilities βi , αi , . . . , αi on some interval of
+                                                  integers, where 0 ≤ βi < αi .
+                                                      We prove this conjecture asymptotically: i.e., we                P show that for
+                                                  each
+                                                     P δ > 0 there is VP          0 = V0 (δ) such that if Var (           Yi ) ≥ V0 then
+                                                  Q( Xi ) ≤ (1 + δ)Q( Yi ).
+                                                      This implies an analogous asymptotically optimal inequality for
+                                                  concentration at a point when X1 , . . . , Xn take values in a separable
+                                                  Hilbert space.
+                                                      Our long and technical argument relies on several non-trivial pre-
+                                                  vious results including an inverse Littlewood–Offord theorem and an
+                                                  approximation in total variation distance of sums of multivariate lat-
+                                                  tice random vectors by a discretized Gaussian distribution.
+                                              ∗
+                                               Faculty of Mathematics and Informatics, Vilnius University, Naugarduko 24, LT-03225
+                                           Vilnius, Lithuania. Email: valentas.kurauskas@mif.vu.lt.
+
+
+
+
+                                                                                            1
+1    Introduction
+The concentration function of a random variable X at value t > 0 will be
+defined as Q(X, t) = supx∈R P(X ∈ (x, x + t)). We will denote the maximum
+concentration at a point by Q(X) = supx∈R P(X = x). If X is an integer
+random variable, then simply Q(X, 1) = Q(X) = supx∈Z P(X = x).
+    For any random variable and a positive integer k we define Qk (X) =
+supA:|A|=k P(X ∈ A), that is Qk (X) is the sum of k largest probability masses
+of (the law of) X. If the law of X is µ, we will use the symbols X and
+µ interchangeably, so Q(µ) is the same as Q(X) and similarly for other
+functionals in this paper.
+    Let α1 , . . . , αn ∈ (0, 1]. What is the maximum possible value of Q(Sn )
+(or Q(Sn , L)) if Sn = X1 + · · · + Xn and X1 , . . . , Xn are independent random
+variables such that for each i we have Q(Xi ) ≤ αi (or Q(Xi , λi ) ≤ αi ))?
+These questions and their variants have been the subject of quite a lot of re-
+search over the past 90 years. They originated in the works of Lévy, Doeblin
+and Kolmogorov, also in those of Littlewood and Offord, and were further
+studied by Esseen, Kesten, Rogozin and others, see, for example, the paper
+[24] and the references therein. Nevertheless, for a general sequence of con-
+straints, inequalities obtained using classical characteristic function methods,
+e.g. [24, 30] can be suboptimal by at least a constant factor.
+    A subtler type of results are related to determining sequences of ran-
+dom variables that satisfy the same conditions as (Xi ) and maximize the
+concentration function value of the sum. If the extremizing sequence has a
+simple structure, we can easily get sharp quantitative bounds. For the inter-
+val version (in the case when λ1 = . . . λn = L) optimal results of this kind
+have been obtained in [12] (single-dimensional case) and [15] (asymptotically,
+high-dimensional case). The question of optimal bounds for the pointwise
+version of the problem has remained open. While the two versions of the
+concentration function problem look similar, they are not equivalent and
+the extremizers are different in general: they are symmetric in the interval
+case, see [12, 15], and non-symmetric in the pointwise case, see [14] and the
+definition of να below. This makes the pointwise problem more technically
+challenging and we need to use completely different ideas in this work.
+    It is known, see Ushakov [30], that the general problem of maximizing the
+pointwise concentration Q(Sn ) given pointwise bounds for the summands can
+be reduced to the case of integer random variables, see Corollary 1.2 below.
+To our knowledge, the best previous results for the concentration function
+
+                                       2
+problem for integer random variables, or its equivalent formulation in the
+language of sums, have been obtained in [11, 19, 21]. For example, building
+on Gabriel’s inequality, see Hardy, Littlewood and Pólya [11], Lev [19] showed
+that if each Xi is a uniform random variable on a set of size ki then Q(Sn ) ≤
+Q(Y1 + · · · + Yn ) where Y1 , . . . , Yn are independent and Yi is distributed
+uniformly on the interval {0, . . . , ki − 1}. In other words, in the uniform
+case, removing “gaps” in the supports of all the random summands can only
+increase the maximum probability of the sum. Madiman, Wang and Woo [21]
+obtained a similar result that works for a more general family of distributions
+of integers that includes all two-point distributions, see Theorem 2.27 below.
+    Given α ∈ (0, 1] let να be the probability measure which satisfies
+
+                      να ({i}) = α for i ∈ {0, . . . , bα−1 c − 1}
+
+and
+                            να ({bα−1 c}) = 1 − αbα−1 c.
+For example, when α ≥ 21 , να is the Bernoulli distribution with parameter
+1 − α and when α = k1 for an integer k, it is the uniform distribution on
+{0, . . . , k − 1}.
+    It will be important that να has minimum variance among probability
+distributions µ on integers with Q(µ) ≤ α, this can be seen using a standard
+argument and the main result of [2].
+    In this work we prove the following theorem.
+
+Theorem 1.1. For any δ > 0 there exists a number V0 (δ) such that the
+following holds.
+    Let X1 , . . . , Xn be a sequence of independentPinteger random variables
+such that Q(Xi ) ≤ αi , αi ∈ (0, 1] and let Sn = ni=1 Xi . Let Y1 , . . . , Yn be
+independent, Yi ∼ ναi .
+    If
+                                      X
+                                      n
+                                Var (   Yi ) ≥ V0 (δ)                         (1)
+                                      i=1
+
+then
+                                            X
+                                            n
+                            Q(Sn ) ≤ Q(           ai Yi )(1 + δ)             (2)
+                                            i=1
+
+for some a1 , . . . , an ∈ {−1, 1}.
+
+
+                                            3
+    As the sequence (ai Yi ) itself satisfies the conditions of the theorem, (2) is
+optimal up to the factor (1 + δ).
+    For a random element X in a Hilbert space H we can extend the nota-
+tion by defining Q(X) = supx∈H P(X = x). The following corollary follows
+immediately by applying the reduction of [30].
+Corollary 1.2. Theorem 1.1 extends verbatim to the case when X1 , . . . , Xn
+are independent random elements from a separable Hilbert space H over the
+reals. In particular, the constant V0 (δ) does not depend on H.
+     Since we can embed the random variables Yi into H by multiplying each
+by a fixed vector from H, the corollary is also optimal up to the constant
+factor (1 + δ).
+     Prior to this work, similar asymptotically tight upper bounds were avail-
+able in the “uniform” case α1 = · · · = αn [14, 30], and exact ones could
+be deduced, via the reduction of [30], in the case αi−1 ∈ [1, 2] ∪ Z for all
+i ∈ {1, . . . , n} from the results of [19, 21] mentioned above. The latter results
+could also be used to show bounds similar to (2) for more   √
+                                                                 general sequences
+                                                           2 6
+(αi ), however, with an extra constant factor of up to 3 . Alternatively, they
+can be derived from a very general framework of Madiman, Melbourne and
+Xu [20].
+     This work has been motivated by a conjecture that an exact version of
+(2) holds, see also [6, 14, 21]:
+Conjecture 1.3. (Juškevičius [13]) Let X1 , . . . , Xn and Y1 , . . . ,P
+                                                                       Yn be as in
+  Pn 1.1. Then there are a1 , . . . , an ∈ {−1, 1} such that Q( i=1 Xi ) ≤
+                                                                         n
+Theorem
+Q( i=1 ai Yi ).
+    Let us explain the need of a general sequence (ai ) ∈ {−1, 1}n in the
+statements of both the theorem and the conjecture. Consider the special
+case α1 = · · · = αn = α. When n is even,  Pthe balanced choice, for example
+ai = (−1) , i ∈ {1, . . . , n} maximizes Q( ai Yi ) [14, 28]. However, when n
+           i
+
+is odd and, for example, α ∈ ( 12 , 1), the optimal number of -1s and 1s can
+depend on α in a non-trivial way [28]. On the other hand, it seems plausible
+that asymptotically, in the general setting of Theorem 1.1, the choice of these
+signs has only a second order effect.
+    Theorem 1.1 shows that Conjecture 1.3 is close to being true in the limit;
+however, the constant V0 (δ) that arises in our proof is huge and not explicit.
+If the conjecture is indeed true, its proof appears to be beyond the reach of
+the methods we are currently aware of.
+
+                                        4
+     The rest of the paper consists of two major parts: Part I (Section 2) and
+Part II (Section 3). The final proof of Theorem 1.1 is given in Section 2.5 of
+Part I. The most diﬀicult result needed for the proof, Lemma 2.26, is stated
+in Part I, but the content of the whole Part II is devoted to its proof.
+     A reader who wishes to focus on the less trivial Part II may proceed
+straight to Section 3 after reading just the definitions in Section 2.1 and
+Section 2.3, and the statement of Lemma 2.26.
+     Intuitively, Lemma 2.26 that we prove in Part II can be seen as a special
+case of Theorem 1.1 where for i ∈ {1, . . . , n − 1} the random variables Xi
+are distributed according to some “rearrangement” of the distribution ναi
+(i.e. each Xi has bαi−1 c atoms with probability mass αi and, if there is any,
+an atom with the remaining mass), for i ∈ {1, . . . , n − 1} the values αi are
+bounded away from zero, “quantized” and “balanced” (Definition 2.4), while
+the last random variable Xn is a uniform random variable on an arbitrary
+finite set of integers.
+
+
+2     Part I: Main proof
+In this part we state the necessary lemmas and prove the main result, The-
+orem 1.1.
+
+2.1    Definitions
+A measure µ on integers is called unimodal if there is m ∈ Z such that
+µ({m}) ≥ µ({m + 1}) ≥ . . . and µ({m}) ≥ µ({m − 1}) ≥ . . . . Any such m
+is called a mode of µ.
+     In their work on rearrangement inequalities, Hardy, Littlewood and Pólya
+[11] introduced the notation µ+ , + µ and µ∗ which will be defined as fol-
+lows. Let µ be a finite measure on integers. We call a measure µ′ on
+Z a rearrangement of µ if there exists a bijection f : Z → Z such that
+µ′ ({x}) = µ({f (x)}) for each x ∈ Z. µ+ is the rearrangement of µ that
+satisfies µ+ ({0}) ≥ µ+ ({1}) ≥ µ+ ({−1}) ≥ µ+ ({2}) ≥ µ+ ({−2}) ≥ . . . .
+Similarly + µ is the rearrangement of µ that satisfies + µ({0}) ≥ + µ({−1}) ≥
++
+  µ({1}) ≥ + µ({−2}) ≥ + µ({2}) ≥ . . . . If µ+ = + µ then we say that
+µ has a symmetric decreasing rearrangement and denote this symmetric
+measure by µ∗ . Note that for a symmetric unimodal measure on integers
++
+  µ = µ+ = µ∗ = µ. When the law of an integer random variable X is µ, we
+
+
+                                      5
+let X + , + X and X ∗ denote random variables distributed according to µ+ ,
++
+  µ and µ∗ respectively, whenever these distributions exist.
+Definition 2.1. Let α ∈ (0, 1]. Let k = bα−1 c. We call a (probability)
+measure µ extremal for α if there is a set S ⊂ Z, |S| = k and a number
+b ∈ Z \ S such that µ(i) = α for all i ∈ S and µ(b) = 1 − kα.
+   Recall that an extremal measure for α obtained by taking S = {0, . . . , k −
+1} and b = k is denoted by να .
+Definition 2.2. Let α ∈ (0, 1]. We call a (probability) measure µ standard
+extremal for α if it is the distribution of X + i where i is an integer and
+X ∼ να or −X ∼ να , i. e. the support of µ is an interval and the smallest
+atom, whenever it is unique, is on one of the endpoints of the interval. We
+denote the set of standard extremal measures for α by SE(α). Any measure
+which is standard extremal for some α will be called standard extremal.
+Definition 2.3. Let α = (α1 , . . . , αn ) ∈ (0, 1]n . A sequence of standard
+extremal measures (µi , i ∈ {1, . . . , n}) will be called a standard extremal
+sequence (of measures) for α if for each i µi is standard extremal for αi . It
+will be called optimal if its convolution maximizes the concentration over the
+standard extremal sequences for α:
+                       (µi ) ∈ arg         max              Q(∗ni=1 µi ).
+                                     (µi ):∀i µi ∈SE(αi )
+
+We denote the corresponding maximum concentration function value by
+tSE (α1 , . . . , αn ).
+    We will use the definitions above and the next one interchangeably both
+for sequences (µi ) of measures and for sequences (Xi ) of corresponding inde-
+pendent random variables.
+Definition 2.4. Let (α1 , . . . , αn ) ∈ (0, 1]n . A standard extremal sequence
+(Xi ) for (αi ) will be called balanced if each index i ∈ {1, . . . , n} can be
+mapped bijectively to ji ∈ {1, . . . , n} so that Xji ∼ −Xi .
+     We call (α1 , . . . , αn ) ∈ (0, 1]n balanced if a balanced standard extremal
+sequence exists for (αi ), equivalently, if for each α ∈ (0, 1] either α−1 is an
+odd integer or |{i : αi = α}| is even. We call (α1 , . . . , αn ) strongly balanced
+if |{i :P
+        αi = α}| is even for each  P α ∈ (0, 1].
+     P( Xi = 0) equals Q( Xi ) and is the same for each standard ex-
+tremal balanced sequence (Xi ) for (α1 , . . . , αn ). We denote this probability
+by tbal
+     SE (α1 , . . . , αn ).
+
+
+                                              6
+   Finally, the ultimate quantity of our interest will be the maximum con-
+centration a sum of random variables with given concentration bounds can
+achieve:
+
+Definition 2.5. Given α = (α1 , . . . , αn ) ∈ (0, 1]n define
+
+                    t(α1 , . . . , αn ) :=           sup          Q(∗ni=1 µi ).
+                                             (µi ):∀i Q(µi )≤αi
+
+
+   A probability measure µ on Z is called strongly unimodal if its convolution
+with any unimodal probability measure on Z is unimodal. It is called log-
+concave if for all i ∈ Z
+
+                         µ({i})2 ≥ µ({i − 1})µ({i + 1}).
+
+Keilson and Gerber [16] proved that (a) a probability measure µ on Z is
+log-concave if and only if it is strongly unimodal (their Theorem 3) and (b)
+the class of strongly unimodal measures is closed under convolution (their
+Theorem 2).
+    As our measures να are log-concave, they are strongly unimodal and
+the convolution of each standard extremal sequence of measures is also log-
+concave and strongly unimodal. This property will be of fundamental im-
+portance in our proofs.
+
+2.2     Useful lemmas
+In this section we present a few simple but essential lemmas.
+
+Lemma 2.6. Let Yα ∼ να . Then
+                  1                                       
+      Var Yα =      −3α2 k 2 (k + 1)2 + 2αk(k + 1)(2k + 1) ,                      k = bα−1 c.
+                 12
+In particular, if α = k1 for a positive integer k then
+
+                                                     k2 − 1
+                                   Var Yα =                 .
+                                                       12
+If α ≥ 12 then
+                                  Var Yα = α(1 − α).
+
+
+                                                 7
+Furthermore, let f be defined by f (α) = Var Yα . Then f is continuous and
+non-increasing for α ∈ (0, 1). If k is a positive integer, then in the interval
+   1
+( k+1 , k1 ) f is differentiable and for α in this interval f ′′ (α) < 0 and
+
+                   1                             1
+                  − k(k + 1)(k + 2) ≤ f ′ (α) ≤ − k(k 2 − 1) ≤ 0.
+                   6                             6
+Finally, if k ∈ Z, k ≥ 2 then
+          1                     1                                            1
+∂+ f (       ) = sup f ′ (α) = − k(k 2 − 1) = inf          f ′ (α) = ∂− f (     ),
+         k+1    α∈( 1 , 1 )     6                1    1
+                                             α∈( k , k−1 )                  k−1
+                     k+1 k
+
+
+
+where ∂+ f (α), ∂− f (α) denote the right and left derivatives of f at α respec-
+tively.
+
+     Thus at points k1 , k ∈ Z, f is described by a convex function, however
+in-between those points f is concave. Also its derivative within the intervals
+   1
+( k+1 , k1 ) it is decreasing, however the ranges of f ′ in the consequtive intervals
+have an opposite, “increasing” order.
+Proof The second and the third equalities are just the variance of a uniform
+random variable on k points an the variance of a Bernoulli random variable.
+                                                    1
+                                               α−
+To prove the first equality, let p = p(α) = 1 − k+1
+                                                 1  = 1 − (k + 1)(1 − kα). Then
+                                               k    k+1
+
+
+                              να = pν 1 + (1 − p)ν 1 .
+                                      k              k+1
+
+
+By the law of total variance and the case α = k1 of this lemma and by a
+simple calculation:
+
+                     p(k 2 − 1) (1 − p)((k + 1)2 − 1)
+             Var Yα =            +                      + p(1 − p)/4
+                         12                 12
+                 1                                       
+              =    −3α2 k 2 (k + 1)2 + 2αk(k + 1)(2k + 1) .
+                12
+It is easy to check from this that limx→1− f (x) = 0 and limx→ 1 − f (x) =
+                                                                          k
+limx→ 1 + f (x) for k integer, k ≥ 2.
+       k
+    For k a positive integer and α ∈ ( k+1
+                                        1
+                                           , k1 ) we have f ′ (α) = 12−1 (−6αk 2 (k+
+
+
+
+
+                                          8
+1)2 + 2k(k + 1)(2k + 1)), so f ′′ (α) < 0 in this interval and
+         1                         1
+        − k(k + 1)(k + 2) = − (−6k(k + 1)2 + 2k(k + 1)(2k + 1))
+         6                        12
+                ′         ′
+        = lim f   (x) ≤ f   (α) ≤    lim f ′ (x)
+            x→ k −
+            1                          1
+                                     x→ k+1 +
+
+             1                                        1
+        =      (−6k 2 (k + 1) + 2k(k + 1)(2k + 1)) = − k(k 2 − 1) ≤ 0.
+            12                                        6
+Since for a fixed integer k, 12−1 (−6xk 2 (k + 1)2 + 2k(k + 1)(2k + 1)) is differ-
+entiable for all x, limx→ 1 − f ′ (x) = ∂− f (x) and limx→ 1 + f ′ (x) = ∂+ f (x).
+                          k                                k
+                                                                                   □
+    It will be important for us that for a log-concave random variable the value
+of the concentration function is determined by its variance up to a constant
+factor. The next lemma follows from Theorem 1.1 of Bobkov, Marsiglietti
+and Melbourne [6] and an improvement of the upper bound by Aravinda [1].
+
+Lemma 2.7 ([1, 6]). Let X be an integer-valued log-concave random variable
+Then
+                 1                         1             1
+         √               ≤ Q(X) ≤ √                ≤√         .
+           1 + 12Var X                  1 + Var X       Var X
+
+   Our next lemma says that the distribution of a log-concave integer√ ran-
+dom variable X must be almost flat in an interval of length around o( Var X)
+that includes its mode. It will be used multiple times in this paper.
+
+Lemma 2.8. Let X be a random integer variable with a log-concave distri-
+bution. Assume P(X = x0 ) = maxx P(X = x). Let i be a positive integer.
+                                           3 P(X=x )
+If, for γ ∈ [0, 1) we have Var X ≥ 2(γ+1)i
+                                       (1−γ)3
+                                                  0
+                                                     then
+
+              max(P(X = x0 − i), P(X = x0 + i)) ≥ P(X = x0 )γ.                  (3)
+
+In particular, (3) always holds for
+                                               31               2
+                                 4P(X = x0 )                 23 i
+                     γ =1−                            i≥1− √       .
+                                   Var X                     Var X
+Proof Write p0 := P(X = x0 ). Suppose that (3) does not hold. Then
+
+               P(X = x0 + i) < p0 γ      and          P(X = x0 − i) < p0 γ.
+
+                                           9
+Since X is log-concave we get for non-zero integers k:
+
+                           P(X = x0 + ki) < p0 γ k .
+
+Using unimodality:
+                                      X
+                                      ∞
+                                                               p0 i3 (γ + 1)
+           E(X − x0 ) IX−x0 ≥0 < p0
+                      2
+                                            i(ki)2 γ k−1 =                   .
+                                      k=1
+                                                                (1 − γ)3
+
+and similarly for E(X − x0 )2 IX−x0 <0 . Thus
+
+                                           2(γ + 1)i3 p0
+                          E(X − x0 )2 <                  .
+                                             (1 − γ)3
+
+So
+
+                Var X = E(X − x0 + (x0 − EX))2
+                                             2(γ + 1)i3 p0
+                = E(X − x0 )2 − (x0 − EX)2 <               ,
+                                               (1 − γ)3
+
+which is a contradiction.
+   Using the already proved part we have that (3) holds if
+
+                                 4i3 p0   2(γ + 1)i3 p0
+                     Var X ≥            ≥               ,
+                               (1 − γ)3     (1 − γ)3
+or                                                31
+                                           4p0
+                            γ ≤1−                         i.
+                                          Var X
+Finally, the last inequality of (3) follows by using the upper bound from
+Lemma 2.7.                                                              □
+   A simple corollary of the last lemma shows that the terms of a sum of
+independent log-concave random variables which don’t contribute much to
+the variance of the sum do not affect the concentration much.
+
+Lemma 2.9. Let ϵ > 0. Let X be a log-concave integer random variable,
+and let Y be any integer random variable. If Var Y ≤ ϵVar X then
+                                                  4   1
+                      Q(X + Y ) ≥ (1 − 3 · 2 9 ϵ 3 )Q(X).
+
+                                      10
+Proof By Chebyshev’s theorem for any a > 0
+                                    a√          4Var Y  4ϵ
+                 P(|Y − EY | ≥         Var X) ≤ 2      ≤ 2.
+                                    2          a Var X  a
+Let m√be a mode of X. By Lemma 2.8 either √  for all integers i with m ≤ i ≤
+m + a Var X or for all integers i with m − a Var X ≤ i ≤ m we have
+                                   2 √
+                                             !
+                                 2 3 a Var X                         2
+    P(X = i) ≥ P(X = m) 1 − √                   = P(X = m)(1 − 2 3 a).
+                                      Var X
+
+Without loss of generality we√ can assume that the inequality holds for all
+integer i ∈ I1 , I1 = [m, m + a Var X]. A closed interval of length l contains
+either blc or blc + 1 integer points, it contains exactly blc + 1 integer points
+when it starts with an integer. Thus the interval
+                                              √     I1 contains √
+                                                                at least as many
+integer points as the interval I2 = [EY − a2 Var X, EY + a2 Var X].
+    Thus
+                                                       a√
+               Q(X + Y ) ≥ P(X + Y = m + bEY +            Var Xc)
+                                                       2
+                ≥ P(Y ∈ I2 ) min P(X = i)
+                             i∈I1
+                             4ϵ          2
+               ≥ P(X = m)(1 −  2
+                                 )(1 − 2 3 a)
+                             a
+                             4ϵ      2
+               ≥ P(X = m)(1 − 2 − 2 3 a).
+                             a
+As the minimum of f (x) = xb2 + cx for b, c > 0 is 3 · 2− 3 b 3 c 3 , maximizing the
+                                                           2   1   2
+
+
+right side of the last inequality over a we get that
+                                                                     
+               Q(X + Y ) ≥ P(X = m) 1 − 3 · 2− 3 (4ϵ) 3 (2 3 ) 3
+                                                   2       1     2 2
+
+
+                                        4   1
+                ≥ P(X = m)(1 − 3 · 2 9 ϵ 3 ).
+
+                                                                                 □
+   A simple technical corollary of the last lemma is:
+Lemma 2.10. Let k and K be positive integers and let δ ∈ (0, 1). Let
+α ∈ (0, 1]n . Let (Y1 , . . . , Yn ) be a standard extremalP
+                                                           sequence for α, and
+suppose that αi ≥ K −1 for i ∈ {1, . . . , k}. Write Sn = ni=1 Yi . If
+                                                70
+                           Var Sn ≥ Vk,K,δ :=      kK 2
+                                                δ3
+                                        11
+then
+                Q(Y1 + · · · + Yn ) ≥ (1 − δ)Q(Yk+1 + · · · + Yn )               (4)
+
+                    P                             2
+Proof We haveP Var ( ki=1 Yi ) ≤ kK 2 . Let ϵ =P2 3 δ3
+                                                 108
+                                                       . Since (1 + ϵ−1 ) ≤ 70
+                                                                             δ3
+                                                                                we
+                                                                    −1
+have that Var ( i=1 Yi ) ≥ Vk,K,δ implies Var ( i=1 Yi ) ≥ (1 + ϵ )kK and
+                n                                 n                        2
+
+
+                                  X
+                                  k                     X
+                                                        n
+                          Var (         Yi ) ≤ ϵVar (           Yi ).
+                                  i=1                   i=k+1
+
+
+So (4) follows by Lemma 2.9.                                                      □
+   We will also need some properties of the optimal probability.
+
+Lemma 2.11. t(α1 , . . . , αn ) is non-decreasing in each of αi ∈ (0, 1].
+
+Proof We omit the details as the proof, based on Krein-Milman theorem,
+see, e.g., proof of Theorem 1 in [14] or Theorem 1.5 of [20], is standard: for
+any sequence of measures µ1 , . . . , µn with Q(µi ) = αi , i ∈ {1, . . . , n} we can
+represent the ith measure as a mixture of extremal measures for αi′ (which
+are extreme points of the convex set of measures with concentration function
+at most αi′ ), where αi′ is any number such that 1 ≥ αi′ ≥ αi . Then taking
+the expectation over all random variables except the i-th one we pick the
+component of the mixture that maximizes the concentration function, and
+doing this for each i obtain an sequence µ′1 , . . . , µ′n of (extremal) measures
+with Q(µ′i ) = αi′ for all i and Q(µ′1 ∗ · · · ∗ µn ) ≥ Q(µ1 ∗ · · · ∗ µn ).        □
+   The proof of monotonicity of the optimal value for standard extremal
+sequences is also simple, but with a different argument.
+
+Lemma 2.12. tSE (α1 , . . . , αn ) is non-decreasing in each of αi ∈ (0, 1].
+
+Proof Fix α1 , . . . , αn−1 ∈ (0, 1]. it suﬀices to show that for each pos-
+itive integer k and every α′ , α such that k+1               1
+                                                               ≤ α < α′ ≤ k1 we have
+tSE (α1 , . . . , αn−1 , α′ ) ≥ tSE (α1 , . . . , αn−1 , α).
+     Consider a standard extremal sequence of independent random variables
+(Y1 , . . . , Yn−1 , Y ) for (α1 , . . . , αn−1 , α) such that
+
+                Q(Y1 + · · · + Yn−1 + Y ) = tSE (α1 , . . . , αn−1 , α).
+
+We can assume that the maximum atom of the sum is 0.
+
+                                             12
+    Write µn−1 and µ for the laws of Y1 + · · · + Yn−1 and Y respectively.
+    Since each Yi is strongly unimodal, the convolution µn−1 is also strongly
+unimodal [16]. Let I be a set of k largest atoms of µn−1 . By the unimodality
+we can assume it is an interval. Furthermore we can assume that a set J of
+k + 1 largest atoms of µn−1 is also an interval and that |J \ I| = 1. It follows
+that µn−1 ∗ µ is maximized over the “extended set” of standard extremal
+measures µ for α when µ({i}) = α for i ∈ −I and µ({b}) = 1 − kα for
+b ∈ −(J \ I). Here the “extended set” of extremal measures for α consists
+of the union of SE(α) and the uniform measures on k + 1 integers, i.e. we
+                             1              1
+include the case µ({b}) = k+1   when α = k+1   .
+    Now consider replacing µ with a standard extremal measure µ′ for α′
+such that µ′ ({i}) = α′ for i ∈ −I and µ′ ({b}) = 1 − kα′ for b ∈ −(J \ I).
+We can express µ = pν−I + (1 − p)ν−J and µ′ = p′ ν−J + (1 − p′ )ν−J where
+1 ≥ p′ ≥ p ≥ 0 and νA is the uniform measure on A.
+    So
+
+        (µn−1 ∗ µ)({0}) = p(µn−1 ∗ ν−I )({0}) + (1 − p)(µn−1 ∗ ν−J )({0})
+         = p′ (µn−1 ∗ ν−I )({0}) + (1 − p′ )(µn−1 ∗ ν−J )({0}) + (p − p′ )∆
+         = (µn−1 ∗ µ′ )({0}) + (p − p′ )∆
+
+where
+                   ∆ = (µn−1 ∗ ν−I )({0}) − (µn−1 ∗ ν−J )({0}).
+Note that ∆ is just difference between the average of the k largest atoms of
+µn−1 and the average of k + 1 largest atoms of µn−1 , so it is non-negative.
+Thus
+
+                    tSE (α1 , . . . , αn−1 , α′ ) ≥ (µn−1 ∗ µ′ )({0})
+                     ≥ (µn−1 ∗ µ)({0}) = tSE (α1 , . . . , αn−1 , α).
+
+                                                                           □
+    We now proceed to give a few lemmas about the continuity of the optimal
+concentration function of sums of independent random variables. They will
+be necessary in the final proof of Theorem 1.1. We start with a simple lemma
+for the balanced case that is valid for large α.
+Lemma 2.13. If (α1 , . . . , αn−2 ) is a balanced sequence, α, α′ ∈ [ 21 , 1], and
+α′ = (1 + ϵ)α for ϵ > 0 then
+                                    ′   ′
+           SE (α1 , . . . , αn−2 , α , α ) ≤ (1 + 8αϵ)tSE (α1 , . . . , αn−2 , α, α).
+          tbal                                         bal
+
+
+
+                                              13
+Proof Let µ and µ′ be the laws of the sum of balanced standard extremal
+sequences for (α, α) and (α′ , α′ ) respectively. Then µ and µ′ are symmet-
+ric and unimodal with support on {−1, 0, 1}, µ({0}) = α2 + (1 − α)2 and
+µ′ ({0}) = (α′ )2 + (1 − α′ )2 , so
+
+                   µ′ ({0}) − µ({0}) = 4αϵ + 2ϵ2 − 2ϵ ≤ 4αϵ.
+
+   Let µn−2 be the law of the convolution of a balanced standard extremal
+sequence for (α1 , . . . , αn−2 ).
+   Then using symmetry and µ({1}) ≥ µ′ ({1})
+
+       (µn−2 ∗ µ′ )({0}) − (µn−2 ∗ µ)({0})
+        = (µ′ ({0}) − µ({0}))µn−2 ({0}) + 2(µ′ ({1}) − µ({1})µn−2 ({1})
+        ≤ 4αϵµn−2 ({0})
+        ≤ 8αϵµ ∗ µn−2 ({0}).
+
+   The last line follows since (µ ∗ µn−2 )({0}) ≥ (α2 + (1 − α)2 )µn−2 ({0}) ≥
+1
+  µ ({0}).
+2 n−2
+                                                                             □
+
+    The next couple of lemmas are a bit more technical. In particular, the
+next lemma shows that in the strongly balanced case there is a “continuity
+for mid-sized” αi : if we divide the interval [0, 1] into a grid with step size
+K −2 , then we can approximate t(α1 , . . . , αn ) by replacing αi that are not too
+large and not too small with the nearest value above αi on the grid.
+
+Lemma 2.14. Let (Xi , i ∈ {1, . . . , m}) and (Xi′ , i ∈ {1, . . . , m}) be balanced
+standard extremal sequences of random variables for strongly balanced se-
+quences (αi , i ∈ {1, . . . , m}) and (αi′ , i ∈ {1, . . . , m}) respectively. Assume
+furthermore, that for each i ∈ {1, . . . , m} there are integers ti such that
+                                                                        
+              1     ′             ti           1      ′        ti − 1 ti
+                 ≤ αi ≤ αi = 2 ≤ 1 − , α i ∈                         ,     .
+             K                   K            K                  K2 K2
+
+    Let Y be a symmetric log-concave integer random variable, independent
+of both the sequences.
+    Then
+
+   P(X1′ + · · · + Xm
+                    ′
+                      + Y = 0) ≥ P(X1 + · · · + Xm + Y = 0)(1 − 39K − 6 )
+                                                                               1
+
+
+
+
+                                         14
+Proof We may assume (αi ) and (αi′ ) are non-increasing, (−1)i−1 Xi ∼ ναi
+and (−1)i−1 Xi′ ∼ να′i . As they are strongly balanced, m is even. Since the
+inequality is trivial for K ≤ 396 , we can assume K > 396 .
+   Let α, α′ ∈ [K −1 , 1 − K −1 ], α′ ≤ α = tK −2 for an integer t, α′ ∈ [(t −
+1)K −2 , tK −2 ]. Also write k = bα−1 c and k ′ = b(α′ )−1 c. Since
+                                      1 1        1       1
+                        min             −   =          > 2,
+                   i,j∈{1,...,K},i̸=j i   j   K(K − 1)  K
+there is at most one i ∈ {1, . . . , K} such that 1i ∈ [(t − 1)K −2 , tK −2 ] which
+means that k ′ ∈ {k, k + 1}.
+   It is easy to check that we can express
+                                     α′             α′
+                          να = να + µα,α (1 − )
+                            ′                 ′
+                                      α              α
+where µα,α′ does not matter, say µα′ ,α = δk if α′ = α, while for α′ < α
+                         (
+                           δk ,                   if k ′ = k
+                 µα,α′ =
+                           xδk + (1 − x)δk+1 , if k ′ = k + 1,
+                                                           ′
+                                   (k + 1)α′ − αα
+                                x=           ′    .
+                                       1 − αα
+                                                                               ′
+When k ′ = k+1, α′ ≤ k+1     1
+                               , so x ≤ 1. As k+1
+                                               1
+                                                  < α ≤ k1 , we have (k+1)α′ − αα =
+α′ ((k + 1) − α−1 ) > 0, so x > 0. So µα,α′ is a probability measure.
+     So for i ∈ {1, . . . , m} we can assume a coupling
+                                                    αi′
+        Xi′ = Ii Xi + (−1)i−1 (1 − Ii )Zi ,           Ii ∼ Bin(
+                                                        ), Zi ∼ µαi ,α′i ,
+                                                    αi
+where (Ii ), (Zi ) are sequences of independent random variables, independent
+of (Xi ) and Y .
+    Now write ∆i = (−1)i−1 (1 − Ii )Zi . We will group the sequences of ran-
+dom variables into consecutive pairs, so that the distribution of the sum of
+elements in each pair is symmetric.
+    Thus we can write
+                                    m
+                      X
+                      m             X
+                                    2
+
+                            Xi =          Pj ;    Pj = X2j−1 + X2j
+                      i=1           j=1
+                                    m
+                      X
+                      m             X
+                                    2
+
+                            Xi′ =         I′j Pj + (1 − I′j )Rj ,
+                      i=1           j=1
+
+
+
+                                                 15
+where I′j = I2j−1 I2j and Rj can be seen as a mixture (since α2j−1 = α2j )
+                
+                                                   α′2j−1      α′
+                
+                                                          (1− α2j−1 )
+                
+                  X2j−1 + ∆2j , with probability
+                                                   α 2j−1        2j−1
+                
+                                                          α′
+                
+                                                     1−( α  2j−1 2
+                                                                  )
+                
+                                                            2j−1
+                                                      α ′
+                                                   (1− α2j−1 )2
+          Rj ∼ ∆2j−1 + ∆2j , with probability          α′
+                                                         2j−1
+
+                
+                                                        2j−1 2
+                
+                
+                                                   1−( α
+                                                         2j−1
+                                                               )
+                
+                                                  α′2j−1      α′
+                
+                                                          (1− α2j−1 )
+                                                  α2j−1
+
+                ∆2j−1 + X2j , with probability 1−( α′2j−1 )2 .
+                
+                                                                 2j−1
+
+                                                                  α2j−1
+
+                                    Pm              ′
+                                                             Pm    ′
+With this coupling write Sn =          i=1 Xi +Y , Sn =       i=1 Xi +Y , Vαi = Var Xi
+and
+                                            X
+                                            m
+                            V = Var Sn =           Vαi + Var Y.
+                                            i=1
+
+Using Markov’s inequality
+                  m                                P m2
+                  X
+                  2                                              ′
+                                                      j=1 E(1 − Ij )k2j−1
+                                                                     2
+             P(         (1 − I′j )k2j−1
+                                   2
+                                        ≥ uV ) ≤                            .
+                  j=1
+                                                             uV
+
+and
+                                           ′  2
+                                         α2j−1
+           E(1 − I′j )k2j−1
+                       2       2
+                            = k2j−1 (1 −          )
+                                         α2j−1
+                                       2
+                           α2j−1 − K −2            2
+                                                2k2j−1     2
+                                                         2k2j−1
+            ≤ k2j−1 (1 −
+               2
+                                           )≤ 2        ≤        .                  (5)
+                              α2j−1            K α2j−1     K
+
+Meanwhile Var (X2j−1 + X2j ) = 2Var X2j−1 . In the case k2j−1 ≥ 2 we have
+                                      2
+                                     k2j−1 −1    2
+                                                k2j−1
+using Lemma 2.6 Var X2j−1 ≥             12
+                                              ≥   16
+                                                      , so
+
+                                E((1 − I′j )k2j−1
+                                             2
+                                                  )  16
+                                                    ≤ .
+                               Var (X2j−1 + X2j )    K
+
+In the case k2j−1 = 1 we have α2j−1 ≥ 21 and Var X2j−1 = α2j−1 (1 − α2j−1 ) ≥
+α2j−1 K −1 . So using the penultimate inequality of (5)
+
+              E((1 − I′j )k2j−1
+                           2
+                                )     2
+                                    2k2j−1   K      4  16
+                                  ≤ 2      ·      ≤   ≤ .
+             Var (X2j−1 + X2j )    K α2j−1 2α2j−1   K  K
+
+                                           16
+A bound that holds for the ratio of jth terms for each j, holds for the ratio
+of their sums. Thus for any u > 0
+                                  m
+                                  X
+                                  2
+                                                                 16
+                             P(         (1 − I′j )kj2 ≥ uV ) ≤      .
+                                  j=1
+                                                                 uK
+
+                           P m2
+                                      (1 − I′j )kj2 < uV for u = K − 2 , so that P(Ā) ≤
+                                                                        1
+Let A be the event that j=1
+16K − 2 .
+      1
+
+
+    Fix a sequence I ′ = (I1′ , . . . , I ′m ) such that the event AI ′ defined by I′j = Ij′
+                                           2
+for each j implies the event A.
+    Since Rj and X2j−1 + X2j are symmetric and
+
+                                −kj ≤ Rj , X2j−1 + X2j ≤ kj ,
+
+we have that
+                                               m
+                      X                       X
+                                              2
+
+                          (1 − Ij′ )Rj ) ≤          (1 − Ij′ )kj2 ≤ 16K − 2 Var Sn
+                                                                          1
+              Var (
+                      j                       j=1
+
+
+and                                                     !
+                           X
+                                 Ij′ (X2j−1 + X2j )         ≥ Var Sn (1 − 16K − 2 ).
+                                                                                 1
+            Var     Y +                                                                 (6)
+                            j
+                               P                   √
+Denote by B the event that | (1 − Ij′ )Rj | ≤ s Var Sn with a small positive
+                            later. ByPChebyshev’s bound P(B̄) ≤ 16K − 2 s−2 .
+                                                                                1
+constant s to be specified
+                  P
+Now with I ′ fixed j (1−Ij′ )Rj and j Ij′ (X2j−1 +X2j ) are both independent,
+and the latter term is log-concave, with mode 0, so we get:
+                                   X
+     P(Sn′ = 0|I = I ′ ) = P(Y +      (Ij′ (X2j−1 + X2j ) + (1 − Ij′ )Rj ) = 0)
+                 X                           X
+      ≥ P(Y +      Ij′ (X2j−1 + X2j ) = −       (1 − Ij′ )Rj |B)P(B)
+                            X
+                               Ij′ (X2j−1 + X2j ) = t)(1 − 16K − 2 s−2 ).
+                                                                    1
+      ≥     min P(Y +
+            √
+          |t|≤s Var Sn
+
+         ′      P
+Write SnI := Y + Ij′ (X2j−1 + X2j ). Now by (6) if K ≥ 172 , which is true by
+                                  ′
+an above assumption, then Var SnI ≥ 17−1 Var Sn , therefore by Lemma 2.8
+
+
+
+                                                   17
+           √
+for |t| ≤ s Var Sn
+                                                               2   √
+                         ′            ′        2 s             3       Var Sn
+                    P(SnI = t) ≥ P(SnI = 0)(1 − p                               )
+                                                                   Var SnI ′
+                                               1   2
+                    ≥ P(Sn = 0)(1 − 17 2 · 2 3 s)
+
+So, combining all the previous bounds and expanding over all I ′ where AI ′
+holds
+                     X
+       P(Sn′ = 0) ≥      P(Sn′ = 0|I′ = I ′ )(1 − 16K − 2 s−2 )P(I′ = I ′ )
+                                                        1
+
+
+                         I′
+
+          ≥ P(Sn = 0)(1 − 16K − 2 s−2 )(1 − 17 2 · 2 3 · s)P(A)
+                                     1                     1       2
+
+
+
+          ≥ P(Sn = 0)(1 − 16K − 2 s−2 )(1 − 17 2 · 2 3 · s)(1 − 16K − 2 )
+                                     1                     1       2                 1
+
+
+
+          ≥ P(Sn = 0)(1 − (16K − 2 s−2 + 17 2 · 2 3 s + 16K − 2 ))
+                                         1             1       2                1
+
+
+
+          ≥ P(Sn = 0)(1 − 39K − 6 )
+                                     1
+
+
+
+
+with s = K − 6 .
+                1
+
+
+                                                                                                  □
+   The next lemma shows that tbal    SE is continuous in the sense that those αi
+which are of the form k1i for ki a suﬀiciently large odd integer, can be replaced
+by ki1−2 and the value of tbal
+                            SE can increase by only a small fraction.
+
+Lemma 2.15. Let K be a positive integer. Let (Xi′ , i ∈ {1, . . . , n}) and
+(Xi , i ∈ {1, . . . , n}) be sequences of independent random variables where Xi
+is distributed unifomly on {− ki2−1 , . . . , ki2−1 } while Xi′ is distributed uniformly
+on {− ki2+1 , . . . , ki2+1 } and ki , ki ≥ K, are odd integers.
+    Let Y be a symmetric log-concave integer random variable, independent
+of both the sequences.
+    Then
+        X
+        n                          X
+                                   n                                   X
+                                                                       n
+                                             Xi′ = 0) ≥ P(Y +                Xi = 0)(1−14K − 5 ).
+                                                                                              1
+P(Y +         Xi +Y = 0) ≥ P(Y +
+        i=1                         i=1                                i=1
+
+Proof The first inequality follows by Lemma 2.19.
+    We prove the second inequality by using a coupling. The second inequal-
+ity is trivial for K ≤ 145 , so we can assume without loss of generality that
+K > 145 .
+
+                                              18
+                               P
+    Denote Sn = Y + ni=1 Xi . Let (ξi , i ∈ {1, . . . , n}) be the sequence
+of independent Rademacher random variables, independent of (Xi ) and Y .
+Also let (Ii , i ∈ {1, . . . , n}) be a sequence of independent Bernoulli random
+variables, independent of all other ones, with P(Ii = 1) = ki2+2 .
+                  P
+    Write ∆ = ni=1 ξi Ii ki2+1 . Then Sn′ defined by
+
+                                             X
+                                             n
+                                Sn′ = Sn −         I i Xi + ∆
+                                             i=1
+                          Pn
+is distributed as Y + i=1 Xi′ .
+    Fix ϵ > 0 to be specified later. By Markov’s inequality
+              X               X          P            P
+                                      E( i ki2 Ii )  2 i ki   2
+           P(    ki I i ≥ ϵ
+                  2         2
+                                ki ) ≤ 2 P 2 = 2 P 2 ≤ 2 .
+                                 2
+
+               i              i
+                                       ϵ   i ki     ϵ   i ki ϵK
+
+Let us fix I1 , . . . , In ∈ {0, 1} such that
+                                   X               X
+                                       ki2 Ii < ϵ2   ki2 .                   (7)
+                                   i                i
+
+                    P                      P    1
+    Write ∆I = i ξi Ii ki2+1 and r = ( i ki2 ) 2 . We have (ki + 1)2 /4 ≤ ki2 for
+i ∈ {1, . . . , n}. Using (7) and Chebyshev’s inequality
+                                             P
+                         ′       Var ∆I        Ii (ki + 1)2   ϵ2
+              P(|∆I | ≥ ϵ r) ≤ ′ 2 P 2 = i ′ 2 P 2 ≤ ′ 2 ≤ ϵ
+                               (ϵ )   i ki   4(ϵ )    i ki  (ϵ )
+          √
+for ϵ′ = ϵ.                P
+    Denote SnI = Sn − i Ii Xi . We have
+
+                  P(Sn′ = 0|I1 = I1 , . . . , In = In ) = P(SnI = −∆I )
+                  ≥ P(SnI = −∆I , |∆I | < ϵ′ r)
+                  ≥ min
+                    ′  ′
+                         P(SnI = −j ′ )P(|∆I | < ϵ′ r)
+                     |j |≤ϵ r
+
+                  ≥ min
+                    ′  ′
+                         P(SnI = −j ′ )(1 − ϵ).
+                     |j |≤ϵ r
+
+
+    Since the all the independent terms of the sum have a log-concave distri-
+
+
+
+                                             19
+bution, for |j ′ | ≤ ϵ′ r we have using Lemma 2.8
+                                                                  !
+                                              2 3 ϵ′ r
+                                                        2
+
+             P(SnI = −j ′ ) ≥ P(SnI = 0) 1 − p
+                                              Var SnI
+                                                                         !
+                                                            2 3 ϵ′ r
+                                                              2
+
+                               ≥ P(SnI = 0) 1 − p                            .
+                                                 (1 − 2ϵ2 )Var Sn
+In the last inequality we used (7), Lemma 2.6 and ki ≥ K ≥ 2 for i ∈
+{1, . . . , n} to bound
+                                X k2 − 1 X k2
+              Var Sn − Var Sn =
+                            I
+                                  Ii i    ≤   Ii i ≤ 2ϵ2 Var Sn .
+                                i
+                                       12   i
+                                                12
+
+So for |j ′ | ≤ ϵ′ r assuming ϵ ≤ 21
+                                                                          !
+                                                            2 3 · ϵ′ r
+                                                              2
+
+              P(SnI = −j ′ ) ≥ P(SnI = 0) 1 − p
+                                                     (1 − 2ϵ2 )Var Sn
+                                            √           !
+                                       2
+                                       3ϵ
+                                          ′
+                                     2        24Var S n
+              ≥ P(SnI = 0) 1 − p
+                                      (1 − 2ϵ2 )Var Sn
+               ≥ P(SnI = 0)(1 − 4 · 2 3 · 3 2 ϵ′ )
+                                         2    1
+
+
+
+               ≥ P(Sn = 0)(1 − 4 · 2 3 · 3 2 ϵ′ )
+                                         2    1
+
+
+
+    So
+ P(Sn′ = 0|I1 = I1 , . . . , In = In )
+ ≥ P(Sn′ = 0, ∆I < ϵ′ r|I1 = I1 , . . . , In = In )
+ = P(Sn′ = 0|I1 = I1 , . . . , In = In , ∆I < ϵ′ r)P(∆I < ϵ′ r|I1 = I1 , . . . , In = In )
+ ≥ P(Sn = 0)(1 − 4 · 2 3 · 3 2 ϵ′ )(1 − ϵ)
+                           2     1
+
+
+                                                           √
+   ≥ P(Sn = 0)(1 − 4 · 2 3 · 3 2 ϵ′ − ϵ) ≥ P(Sn = 0)(1 − 12 ϵ).
+                            2   1
+
+
+                        P            P
+The event A = { i ki2 Ii < ϵ2 i ki2 } holds with probability at least 1 −
+  2
+ϵ2 K
+     . So by the already proved inequality, which holds for each realization of
+(I1 , . . . , In ) on A
+                                                            √         2
+          P(Sn′ = 0) ≥ P(Sn′ = 0|A)P(A) ≥ P(Sn = 0)(1 − 12 ϵ)(1 − 2 )
+                                                                     ϵK
+                              √        2                        − 15
+           ≥ P(Sn = 0)(1 − 12 ϵ − 2 ) ≥ P(Sn = 0)(1 − 14K ),
+                                     ϵK
+
+                                             20
+if we put ϵ = K − 5 .
+                   2
+
+
+                                                                        □
+    We will often use the following inequality, which refer to as the HLP
+rearrangement inequality. See also a more general Theorem 2.27 below.
+Theorem 2.16. Let X, Y, Z1 , . . . , Zn be integer random variables. Suppose
+the symmetric decreasing arrangement Zi∗ exists for each i ∈ {1, . . . , n}.
+Then
+
+      Q(X + Y + Z1 + · · · + Zn ) ≤ P(X + + + Y + Z1∗ + · · · + Zn∗ = 0).
+
+Proof When the random variables have bounded support, this is a restate-
+ment of Theorem 374 of [11]. Otherwise, the same result follows by the
+bounded support case and conditioning.                               □
+    We end this section with a simple result, similar to the “balancing lemma”
+of [14] which shows that Theorem 1.1 holds exactly in the strongly balanced
+case.
+Lemma 2.17. Let 1 ≥ α1 ≥ · · · ≥ αn > 0. If (αi ) is strongly balanced then
+t(α1 , . . . , αn ) = tbal
+                       SE (α1 , . . . , αn ).
+
+Proof Using a standard argument (see, e.g., proof of Lemma 2.24 below),
+we can assume that there exists a sequence of independent random variables
+              n such that for each i ∈ {1, . . . , n} the law of Xi is extremal for αi
+X1 , . . . , XP
+and S = i Xi satisfies Q(S) = t(α1 , . . . , αn ).
+                                 P n2                       P n2
+    We can split S into S1 = k=1        X2k−1 and S2 = k=1        X2k . By the simple
+argument from the proof of Lemma 1 from [14],
+
+               P(S = 0) ≤ max(P(S1 − S1′ = 0), P(S2 − S2′ = 0))                   (8)
+
+where S1′ and S2′ are independent copies of S1 and S2 respectively. Without
+loss of generality we can assume P(S = 0) ≤ P(S1 − S1′ = 0). Note that
+                                      P n2
+S1 − S1′ can be written as i=1             Zi where Zi = Xi − Xi′ and Xi′ ∼ Xi and
+X1 , X1′ , . . . , X n2 , X ′n are independent.
+                             2                                       P
+   PBy the rearrangement inequality, i.e., Theorem 2.16, P( Zi = 0) ≤
+P( Zi∗ = 0) where Zi∗ is distributed according to the symmetric decreasing
+rearrangement of the distribution of Zi . An argument from the proof of The-
+orem 1 of [14] based on the HLP rearrangement inequality (Theorem 2.16)
+shows that for each integer k P(Zi∗ ∈ [−k, k]) ≤ P(Yi − Yi′ ∈ [−k, k]) where
+
+                                         21
+Yi , Yi′ ∼ να2i are independent. Finally, as in Theorem 1 of [14],P                   we can
+apply Corollary 3 of [14] (see Lemma 2.19 below) to get that P( Zi∗ =
+          P n2
+0) ≤ P( i=1    (Yi − Yi′ ) = 0). Note that (Y1 , −Y1′ , . . . , Y n2 , −Y n′ ) is a standard
+                                                                          2
+extremal balanced sequence for (αi ) as required.                                          □
+
+2.3      ϵ-dominated concentration functions
+Denote Ij = {−b j−1 2
+                      c, . . . , d j−1
+                                    2
+                                       e}. Note that Ij is the support of the uniform
+               +
+distribution ν 1 , since by Definition 2.1 ν 1 is the uniform distribution on
+                  j                                 j
+
+{0, . . . , j − 1}.
+
+Definition 2.18. Let µ1 and µ2 be finite measures on integers. Let ϵ ≥ 0.
+We write
+                               µ1 ≼ ϵ µ2
+and say the concentration function of µ1 is ϵ-dominated by the concentration
+function of µ2 if for each positive integer j
+
+                 Qj (µ1 ) = µ+
+                             1 (Ij ) ≤ (1 + ϵ)Qj (µ2 ) = (1 + ϵ)µ2 (Ij ).
+                                                                 +
+
+
+When the measures are probability measures, we extend the notation ≼ϵ to
+random variables distributed according to them. For exact domination (i.e.,
+the case ϵ = 0) we use notation ≼ to mean ≼0 .
+
+    It is worth noting that the results of [11, 19, 21] (see, for example, The-
+orem 2.16 and Theorem 2.27 below) yield not only boundsP         for the concen-
+tration, but also statements about the exact domination of ni=1 Xi of inde-
+pendent
+Pn         integer random variables by a sum of simpler independent
+                                                               Pn       variables
+                             P fact that the bound for Qk ( i=1 Xi ) follows
+   i=1 Yi . This is due to the
+from the bound for Q(Uk + ni=1 Xi ) where Uk is a new independent random
+variable distributed uniformly on a set of k integers.
+    Another exact result that follows from [14] is the following.
+
+Lemma 2.19. Let µ1 , . . . , µn and µ′1 , . . . , µ′n be two sequences of probability
+measures on Z. If each measure is symmetric and unimodal and µ′i ≼ µi ,
+i ∈ {1, . . . , n} then
+                                ∗ni=1 µ′i ≼ ∗ni=1 µi .
+
+
+
+
+                                            22
+Proof Denote µ = ∗ni=1 µi , µ′ = ∗ni=1 µ′i , p′i = µ′ ({i}) and pi = µ({i}). Corol-
+lary 3 of [14] says that for any non-negative integer k
+             x′k := µ′ ({−k, . . . , k}) ≤ xk := ∗ki=1 µi ({−k, . . . , k}).
+It remains to show x′k−1 + p′k = µ′ (I2k ) ≤ xk−1 + pk = µ(I2k ) for each positive
+integer k. But this follows by adding the inqualities x′k = x′k−1 + 2p′k ≤ xk =
+xk−1 + 2pk and x′k−1 ≤ xk−1 and dividing by 2.                                 □
+    However, in this paper we will need to deal with situations where one
+or more involved measures are non-symmetric, and we will use approximate
+domination for that.                                      Rm          R∞
+    We call a number m a median of a finite measure µ if −∞ dµ ≥ 21 −∞ dµ
+     R∞           R∞
+and m dµ ≥ 21 −∞ dµ. For a random variable X ∼ µ this is a standard
+definition of median.
+    Before proving our results about ϵ-dominated concentration functions, we
+need one nice and simple property of measures µ+ .
+    In the next lemma imagine an integer-valued measure on integers as a set
+of balls, where the balls are given linear order which agrees with the linear
+order on Z. Think of the balls (each representing a mass unit of the measure)
+as being placed on an interval of integers and stacked in columns, a ball to
+the left or below of a given ball is smaller. We will work with a more fine-
+grained definition of median: we want to capture the “middle ball”, not only
+the “middle atom”.
+    Formally, let µ be an integer-valuedP measure with finite support in Z,
+assume µ is not identically 0. Let N = x∈Z µ({x}) and fix a non-decreasing
+function fµ+ : I → supp(µ+ ) where I = Iµ is an interval in Z containing N
+consecutive integers such that
+                        µ+ ({j}) = |{i ∈ I : fµ+ (i) = j}|.                              (9)
+We take the median of an interval of integers {a, . . . , b} to be a+b
+                                                                     2
+                                                                       . As {i :
+fµ+ (i) ∈ Ij } is an interval, denote its median by mj , mj = mj,fµ+ .
+    Let m = mµ+ denote the median of the interval I = Iµ+ , i.e., the range of
+fµ+ . Then both fµ+ (bmc) and fµ+ (dme) are medians of µ+ . Also fµ+ (bmj c)
+and fµ+ (dmj e) are medians of the measure µ+ restricted to Ij .
+Lemma 2.20. Let µ, fµ+ and {mj } be as above.
+   Then 0 is a median of µ+ , 0 = fµ+ (bmc) = fµ+ (bm1 c) = fµ+ (bm2 c) = . . .
+and the medians have a nestedness property:
+    m3 ∈ [m1 , m2 ],    m4 ∈ [m3 , m2 ]     m5 ∈ [m3 , m4 ]     m6 ∈ [m4 , m5 ], . . .
+
+                                           23
+equivalently m1 ≤ m3 ≤ · · · ≤ m ≤ · · · ≤ m4 ≤ m2 .
+
+Proof Write {a, . . . , b} = fµ−1
+                                + ({0}) for some integers a ≤ b. By the definition
+
+of a median of an interval, m1 = a+b    2
+                                           and fµ+ (bm1 c) = 0.
+    Extending an interval to the right (left) by l elements increases (decreases)
+                                                                  k
+its median by 2l . So for k ≥ 2 we have mk = mk−1 + (−1)        2
+                                                                    µ+ ({(−1)k b k2 c}).
+As mk − m1 is a sum of a sequence with monotone non-increasing absolute
+values and alternating signs, the claim about nestedness follows.
+    For m2 we have m2 = a+b  2
+                                + 12 µ+ ({1}) ≤ b+ 21 since by definition µ+ ({1}) ≤
+µ ({0}) = b − a + 1. So fµ+ (bm2 c) = 0.
+  +
+
+    By the nestedness property and monotonicity of f we have f (bmj c) = 0
+for all j, and since mj = m for suﬀiciently large j the same is true for m. □
+    Now we will use Lemma 2.20 to prove our main tool in this section. Given
+a random variable X and an event A with P(A) > 0 let L(X|A) denote the
+conditional distribution of X given A.
+Lemma 2.21. Let µ and µ′ be probability measures with rational probabilities
+and finite supports on Z.
+   Assume that µ′ is symmetric and unimodal and µ ≼ϵ µ′ for some ϵ ≥ 0.
+   Then there is a coupling of Z ∼ µ+ and X ′ ∼ µ′ and an event A with
+P(A) ≥ 1+ϵ1
+             such that L(Z|A) = µ+ and
+
+              0 ≤ X ′ ≤ Z or Z − 1 ≤ X ′ ≤ 0         conditioned on A
+
+Furthermore, if P(Ā) > 0 then L(Z|Ā) = µ+ and
+
+                 Z and X ′ are independent conditioned on Ā.
+
+Proof Since µ′ and µ have rational probabilities and finite supports, we can
+assume without loss of generality that ϵ is rational. Thus we can express
+each mass of µ, (1 + ϵ)−1 µ and Rµ′ as rational numbers Nk where N is a fixed
+positive even integer. Thus N (1 + ϵ)−1 dµ = K for some integer K ≤ N ,
+we can also assume K is even.
+   Fix a function f = fN (1+ϵ)−1 µ+ as in (9) from {− K2 + 1, . . . , K2 } to Z.
+   Similarly fix a non-decreasing function f ′ = fN µ′ (note here the notation
+has nothing to do with derivatives) from {− N2 + 1, . . . , N2 } to Z such that
+N µ′ ({j}) = |{i : f ′ (i) = j}| for each j.
+   Let U be uniformly distributed on {− N2 + 1, . . . , N2 }. Define X ′ := f ′ (U )
+and note that f ′ (U ) ∼ µ′ . Let A be the event that U ∈ {− K2 + 1, . . . , K2 }.
+
+                                          24
+Let Z equal to f (U ) if A occurs and let Z be a (conditionally) independent
+random variable (given U ) distributed as µ+ if Ā occurs. Then Z ∼ µ+ both
+conditioned on A, and on Ā (if P(Ā) > 0), and therefore also unconditionally.
+Let us prove that the coupling (Z, X ′ ) has the stated “stochastic domination”
+type property.
+     We imagine the elements of the domain of f and f ′ as ‘balls’ placed on
+Z. The position of i under f will be just f (i) and similarly for f ′ . Let
+m, m1 , m2 , . . . be the medians as in Lemma 2.20 defined for the function f .
+     Let i, i ∈ {1, . . . , K2 }. Since f is non-decreasing and m = 12 , f (i) ≥
+f (bmc) = 0. Let the odd integer j be defined by f (i) = j−1           2
+                                                                         . Thus, with
+respect to f , the ball i sits on the right boundary of the symmetric interval
+Ij .
+     By Lemma 2.20, mj ≤ m = 12 . Thus f −1 (Ij ) has at least as many balls i′
+with i′ ≤ 0 than balls i′ with i′ ≥ 1. So −i + 1 ∈ f −1 (Ij ). Now (f ′ )−1 (Ij ) is
+symmetric around 21 and by the assumption of the lemma 2i ≤ |f −1 (Ij )| =
+N (1 + ϵ)−1 µ+ (Ij ) ≤ |(f ′ )−1 (Ij )| = N µ′ (Ij ). Hence −i + 1, i ∈ (f ′ )−1 (Ij ) and
+
+                                              j−1
+                              0 ≤ f ′ (i) ≤       = f (i).
+                                               2
+    Let us now consider a ball −i + 1 with i ∈ {1, . . . , K2 }. Its position under
+f is − j−1
+         2
+             for some positive odd j.
+    Again by Lemma 2.20, the median mj of f −1 (Ij ) is at most 12 while
+the median mj+1 of f −1 (Ij+1 ) is at least 12 . Hence −i + 1, i ∈ f −1 (Ij+1 ) ⊆
+f −1 (Ij+2 ). By a similar argument as for a ball with a positive index it follows
+that −i + 1, i ∈ (f ′ )−1 (Ij+2 ). So
+
+                                          j−1
+                   f (−i + 1) − 1 = −         − 1 ≤ f ′ (−i) ≤ 0.
+                                           2
+                                                                        □
+   We now need two lemmas on using the relation ≼ϵ for individual terms to
+bound the concentration function of their sum. Some assumptions in them
+such as log-concavity and (10) could potentially be relaxed.
+
+Lemma 2.22. Let m ∈ {0, 1, . . . } and let X ∼ µX , Y1 , . . . , Ym , Yi ∼ µYi and
+Z ∼ µZ be independent random variables on integers, such that a symmetric
+decreasing rearrangement Yi∗ exists for 1 ≤ i ≤ m.
+
+
+
+                                              25
+    Suppose further Z and Y1∗ , . . . , Ym∗ are log-concave and Z is symmetric.
+If µX ≼ϵ µZ for some ϵ ∈ (0, 1) and
+                                     X           65536 · 2
+                                                             2
+                                                             3
+                    min(Var Z, Var       Yi∗ ) ≥     4
+                                                                 .          (10)
+                                                     ϵ
+Then
+                 X + Y1 + · · · + Ym ≼4ϵ Z + Y1∗ + · · · + Ym∗ .
+Proof Using standard arguments we may assume, without loss of generality,
+that X, Z, Y1 , . . . , Ym have rational probabilities and finite supports.
+     Let k be any positive integer. Let Uk+ be a uniform random variable on
+Ik , independent from all other random variables. By Theorem 2.16
+
+       Qk (X + Y1 + · · · + Ym ) ≤ kQ(+ X + Y1∗ + · · · + Ym∗ + Uk+ )
+                                 = kP(+ X + Y1∗ + · · · + Ym∗ + Uk+ = 0).
+
+Write Y = Y1∗ + · · · + Ym∗ . Using [16], Y , Z and Y + Uk+ are all (strongly)
+unimodal and log-concave. Furthermore, 0 is a mode for each of them.
+     Consider a coupling between X + and Z as in Lemma 2.21, and let A be
+the event defined in that lemma.
+     Write pj = P(Y + Uk = −j). Let j1 , j2 , . . . be the increasing sequence of
+all integer j ≥ 0 which satisfy pj+1 ≤ (1 + ϵ)−1 pj . Let JB = {−jk }.
+     According to Lemma 2.21, X + satisfies on the event A
+
+                        X + − 1 ≤ Z ≤ 0 or 0 ≤ Z ≤ X + .
+
+Since + X ∼ −X + we can assume X + is defined so that + X = −X + , so
+                    +
+                        X ≤ −Z ≤ 0 or 0 ≤ −Z ≤ + X + 1.                     (11)
+
+Whenever A occurs and + X = j with j < 0, we have j ≤ −Z ≤ 0. Thus,
+for any possible realization j ′ of −Z on this event, we have j ≤ j ′ ≤ 0, and
+because of unimodality of Y + Uk+
+
+                    P(Y + Uk+ = −j ′ ) ≥ P(Y + Uk+ = −j).
+
+Similarly if A occurs then for any realization (j, j ′ ) of + X and −Z if j ≥ 0
+then 0 ≤ j ′ ≤ j + 1 and
+
+P(Y + Uk+ = −j ′ ) ≥ P(Y + Uk+ = −j − 1) ≥ (1 + ϵ)−1 P(Y + Uk+ = −j)1j̸∈JB .
+
+                                       26
+Expanding over the possible values (j, j ′ ) that the coupled pair (+ X, Z) can
+take while satisfying (11) and applying our bounds above we get
+          P(+ X + Y + Uk+ = 0 ∩ A ∩ B̄)
+             X
+          =     P(+ X = j ∩ −Z = j ′ |A)P(Y + Uk = −j)1j̸∈JB
+             (j,j ′ )
+                        X
+          ≤ (1 + ϵ)                P(+ X = j ∩ −Z = j ′ |A)P(Y + Uk = −j ′ )1j̸∈JB
+                        (j,j ′ )
+
+          ≤ (1 + ϵ)P(−Z + Y + Uk+ = 0 ∩ A ∩ B̄).
+From this we get
+          P(+ X + Y + Uk+ = 0) − P(+ X + Y + Uk+ = 0 ∩ Ā)
+          − P(+ X + Y + Uk+ = 0 ∩ B) ≤ (1 + ϵ)P(−Z + Y + Uk+ = 0).
+What is the probability that the event B occurs? Since Y + Uk is unimodal
+with a mode at 0 we have pjk ≤ pj1 (1 + ϵ)−(k−1) ≤ q(1 + ϵ)−(k−1) where
+q = Q(Y + Uk+ ). Thus
+                                            q          (1 + ϵ)q
+                        P(B) ≤                       =          ≤ 2ϵ−1 q.            (12)
+                                      1 − (1 + ϵ) −1      ϵ
+     So
+P(+ X + Y + Uk+ = 0 ∩ B) ≤ P(+ X + Y + Uk+ = 0|B)P(B) ≤ 2ϵ−1 Q(+ X)q.
+We also have by Lemma 2.21 that P(Ā) ≤ 1+ϵϵ
+                                              and conditioned on Ā, + X
+retains the same distribution. So
+                                       ϵ
+          P(+ X + Y + Uk+ = 0 ∩ Ā) ≤     P(+ X + Y + Uk+ = 0)
+                                      1+ϵ
+Hence
+                                    ϵ
+           P(+ X + Y + Uk+ = 0)(1 −     ) − 2ϵ−1 Q(+ X)Q(Y + Uk+ )
+                                   1+ϵ
+           ≤ (1 + ϵ)P(−Z + Y + Uk+ = 0)
+or
+          P(+ X + Y + Uk+ = 0) ≤ (1 + ϵ)2 P(−Z + Y + Uk+ = 0)
+          + 2(1 + ϵ)ϵ−1 Q(+ X)Q(Y + Uk+ )
+          ≤ (1 + 3ϵ)P(−Z + Y + Uk+ = 0) + 4ϵ−1 Q(+ X)Q(Y + Uk+ ).
+
+                                                  27
+Using unimodality and Lemma 2.8 for a random variable R where R = Z or
+                                                 1 √
+R = Y + Uk+ there is an interval I of at least 243 Var R integers containing
+a mode of R such that for any i ∈ I
+                                    2
+                                          !
+                                  2 3 |I|      1        1
+        P(R = i) ≥ Q(R) 1 − √               ≥ Q(R) = P(R = 0).
+                                  Var R        2        2
+
+Aligning the intervals for each of the random variables Z and Y + Uk and
+using the condition (10) we see that
+
+         Q(−Z + Y + Uk+ )
+               1  q
+           1 23 2
+         ≥ ( ) min(Var (Z), Var (Y + Uk+ ))Q(Z)Q(Y + Uk+ )
+           4 4
+         ≥ 8ϵ−2 Q(Z)Q(Y + Uk+ ).
+
+Thus
+
+4ϵ−1 Q(+ X)Q(Y + Uk+ ) ≤ 4ϵ−1 (1 + ϵ)Q(Z)Q(Y + Uk+ ) ≤ ϵQ(−Z + Y + Uk+ )
+
+and
+
+          P(+ X + Y + Uk+ = 0) ≤ (1 + 4ϵ)P(−Z + Y + Uk+ = 0).
+
+                                                                     □
+   The next lemma allows to approximate the sum of two random variables
+by the sum of the respective ϵ-dominating random variables.
+                                                              1
+Lemma 2.23. Let ϵ ∈ (0, 12 ) and define V0 = V0 (ϵ) := 320·2
+                                                         ϵ2
+                                                             3
+                                                               . Let X ∼ µX ,
+Y ∼ µY be indepedent random variables on integers. Let X ′ ∼ µ′X and
+Y ′ ∼ µ′Y be independent symmetric log-concave integer random variables. If
+
+        µX ≼ϵ µ′X ,    µY ≼ϵ µ′Y ,   Var X ′ ≥ V0   and   Var Y ′ ≥ V0
+
+then
+                      Q(X + Y ) ≤ (1 + 20ϵ)Q(X ′ + Y ′ ).
+
+Proof Using standard arguments we may assume, without loss of generality,
+that µX , µY , µ′X , µ′Y have rational probabilities and finite supports.
+
+
+                                       28
+      We again apply the HLP rearrangement inequality, Theorem 2.16, and
+get
+               Q(X + Y ) ≤ Q(+ X + Y + ) = P(+ X + Y + = 0).
+We apply Lemma 2.21 to couple (Y + , Y ′ ) and denote by AY the event A from
+that lemma. Note that + X is unimodal with a mode at 0 – we will use this
+fact multiple times. Define the set BX = {i ∈ Z : i ≥ 0, P(+ X = i + 1) <
+(1 + ϵ)−1 P(+ X = i)} and the event BY = {Y + ∈ −BX }.
+    Let us split the probability space into a few cases. To avoid technical
+trivialities, for two events C and D we define P(C|D) := 0 whenever P(D) = 0
+in this proof.
+    Case 1: AY holds. We define the following events and use Lemma 2.21
+and the definition of BX and BY to make some observations.
+
+  • A> := AY ∩ {Y + > 0} ∩ {0 ≤ Y ′ ≤ Y + }. Note that on this event
+    Y ′ ≤ Y + and so by the unimodality of + X we have P(+ X + Y + =
+    0|A> ) ≤ P(+ X + Y ′ = 0|A> ).
+
+  • A≤ := AY ∩ {Y + ≤ Y ′ ≤ 0}. Again by the unimodality of + X P(+ X +
+    Y + = 0|A≤ ) ≤ P(+ X + Y ′ = 0|A≤ ).
+
+  • AB̄Y := AY ∩ {Y ′ < 0} ∩ {Y ′ = Y + − 1} ∩ B̄Y . We have P(+ X + Y + =
+    0|AB̄Y ) ≤ (1 + ϵ)P(+ X + Y ′ = 0|AB̄Y ).
+
+  • ABY := AY ∩ {Y ′ < 0} ∩ {Y ′ = Y + − 1} ∩ BY . We can bound
+    P({+ X + Y + = 0} ∩ ABY ) ≤ P(+ X + Y + = 0|+ X ∈ BX )P(+ X ∈ BX ) ≤
+    Q(Y + )P(+ X ∈ BX ) ≤ ϵ−1 Q(Y + )Q(+ X) ≤ 2ϵ−1 (1 + ϵ)2 Q(X ′ )Q(Y ′ ).
+    Here to get the second to last inequality we used an analogous argu-
+    ment as in (12) while in the last inequality we used the condition of
+    the lemma.
+
+Note that these events are disjoint and
+
+                       AY = A> ∪ A≤ ∪ AB̄Y ∪ ABY .
+
+    Case 2: ĀY holds. By Lemma 2.21 P(ĀY ) ≤ 1 − 1+ϵ1     ϵ
+                                                         = 1+ϵ ≤ ϵ. Further-
+more that lemma says that the event ĀY does not affect the distribution of
+Y + . So P(+ X + Y + = 0|ĀY )P(ĀY ) ≤ ϵP(+ X + Y + = 0).
+
+
+
+
+                                    29
+     For Case 1 we get:
+
+        P({+ X + Y + = 0} ∩ AY ) = P(+ X + Y + = 0|A> )P(A> )
+        + P(+ X + Y + = 0|A≤ )P(A≤ ) + P(+ X + Y + = 0|AB̄Y )P(AB̄Y )
+        + P({+ X + Y + = 0} ∩ ABY )
+        ≤ P(+ X + Y ′ = 0|A> )P(A> ) + P(+ X + Y ′ = 0|A≤ )P(A≤ )
+        + (1 + ϵ)P(+ X + Y ′ = 0|AB̄Y )P(AB̄Y )
+        + P({+ X + Y + = 0} ∩ ABY )
+        ≤ (1 + ϵ)P({+ X + Y ′ = 0} ∩ AY ) + 2ϵ−1 (1 + ϵ)2 Q(X ′ )Q(Y ′ ).
+
+     Combining the bounds in Case 1 and Case 2 we get:
+
+ P(+ X + Y + = 0) = P({+ X + Y + = 0} ∩ AY ) + P({+ X + Y + = 0} ∩ ĀY )
+ ≤ (1 + ϵ)P({+ X + Y ′ = 0} ∩ AY ) + 2ϵ−1 (1 + ϵ)2 Q(Y ′ )Q(X ′ )
+ + ϵP(+ X + Y + = 0).
+
+So
+
+          (1 − ϵ)P(+ X + Y + = 0) ≤ (1 + ϵ)P({+ X + Y ′ = 0} ∩ AY )
+           + 2ϵ−1 (1 + ϵ)2 Q(Y ′ )Q(X ′ )
+           ≤ (1 + ϵ)P(+ X + Y ′ = 0) + 2ϵ−1 (1 + ϵ)2 Q(Y ′ )Q(X ′ ).
+
+and using ϵ ∈ (0, 12 )
+
+                        1+ϵ +                     ϵ−1 (1 + ϵ)2
+     P(+ X + Y + = 0) ≤      P( X + Y ′ = 0) + 2               Q(X ′ )Q(Y ′ ).
+                        1−ϵ                             1−ϵ
+     ≤ (1 + 4ϵ)P(+ X + Y ′ = 0) + 10ϵ−1 Q(X ′ )Q(Y ′ ).
+
+   Let us now bound P(+ X + Y ′ ) = 0. We could apply Lemma 2.22 for this.
+On the other hand + X ∼ −X + so we can use symmetry and apply the first
+part of this proof to + X and get
+
+       P(+ X + Y ′ = 0) ≤ (1 + 4ϵ)P(X ′ + Y ′ = 0) + 10ϵ−1 Q(X ′ )Q(Y ′ ).
+
+Therefore
+
+       P(+ X + Y + = 0) ≤ (1 + 4ϵ)2 P(X ′ + Y ′ = 0) + 40ϵ−1 Q(X ′ )Q(Y ′ )
+       ≤ (1 + 16ϵ)P(X ′ + Y ′ = 0) + 40ϵ−1 Q(X ′ )Q(Y ′ ).
+
+                                       30
+   By Lemma 2.8 and symmetry for a random variable R where R = X ′ or
+                                         1 √
+R = Y ′ if i is an integer with |i| ≤ 243 Var R then
+                                       2
+                                             !
+                                     2 3 |i|    1      1
+         P(R = i) ≥ Q(R) 1 − √                 ≥ Q(R) = P(R = 0).
+                                     Var R      2      2
+                                1
+So if Var X ′ , Var Y ′ ≥ 320·2
+                            ϵ2
+                                3
+                                  then
+
+                      1 2 3 p                       2
+                                    1
+           ′    ′
+       P(X + Y = 0) ≥ 2 ( )2  min(Var X ′ , Var Y ′ ) Q(X ′ )Q(Y ′ )
+                     2 4
+       ≥ 10ϵ Q(X )Q(Y ′ )
+            −2   ′
+
+
+and the claim follows.                                                           □
+
+2.4     Combining the proofs for the balanced case
+To state the next lemma we will use the notation introduced in Definition 2.4.
+The reader should not be scared of an additional parameter K: in our proof
+we only apply this lemma with a particular value of K (which depends on
+δ).
+Lemma 2.24. For each δ ∈ (0, 1) and each positive integer K there is a
+constant Vδ,K such that the following holds.
+   Let 1 ≥ α1 ≥ · · · ≥ αm ≥ K1 > αm+1 ≥ · · · ≥ αn > 0.
+   Assume that
+   • (α1 , . . . , αm ) is strongly balanced;
+
+   • if K1 ≤ αi ≤ 12 then αi = Kji2 , where ji is an integer;
+
+   • if αi < K1 (i.e., i ≥ m + 1) then αi−1 is an odd integer, so (α1 , . . . , αn )
+     is balanced.
+For α ∈ (0, 1], denote by Yα a random variable distributed according to να . If
+                                 X
+                           V :=     Var Yαi > Vδ,K
+                                        i
+
+then
+                     t(α1 , . . . , αn ) ≤ (1 + δ)tbal
+                                                   SE (α1 , . . . , αn ).
+
+
+                                             31
+    Recall that tbal   SE (α1 , . . . , αn ) = P(Y1 + · · · + Yn = 0) where Y1 , . . . , Yn
+is a balanced standard extremal sequence of independent random variables
+for α1 , . . . , αn . The above lemma is precise up to factor 1 + δ because
+t(α1 , . . . , αn ) ≥ tbal
+                       SE (α1 , . . . , αn ) = P(Y1 + · · · + Yn = 0).
+    The proof of this lemma will consist of proving ϵ-dominated results for
+two of the three regimes of αi and combining these results.
+
+Lemma 2.25. For each ϵ ∈ (0, 1) there is a constant Vϵ such that the fol-
+                     sequence α = (α1 , . . . , αn ) is balanced, 1 ≥ α1 ≥ α2 ≥
+lowing holds. If the P
+· · · ≥ αn ≥ 12 and    i Var Yαi > Vϵ then for any sequence X1 , . . . , Xn of
+independent random integer variables where for each i Xi is extremal for αi ,
+we have
+                       X 1 + · · · + X n ≼ ϵ Y1 + · · · + Yn
+where (Y1 , . . . , Yn ) is a standard extremal balanced sequence for α.
+
+Lemma 2.26. For each ϵ ∈ (0, 1) and each integer K there is a constant
+Vϵ,K such that the following holds. Suppose the sequence α = (α1 , . . . , αn )
+is strongly balanced, 21 ≥ α1 ≥ α2 ≥ · · · ≥ αn ≥ K1 , and for each i we have
+αi = KjP
+       i
+        2 , where ji is an integer.
+
+    If     i Var Yαi > Vϵ,K then for any sequence X1 , . . . , Xn of independent
+random integer variables where for each i Xi is extremal for αi , we have
+
+                          X 1 + · · · + X n ≼ ϵ Y1 + · · · + Yn
+
+where (Y1 , . . . , Yn ) is a standard extremal balanced sequence for α.
+
+    Although the two lemmas above look very similar, the proof of Lemma 2.25
+is relatively easy using the tools contained in this paper and is given below
+in this section, while the proof of Lemma 2.26 takes half of our paper and
+requires using several major probability theorems.
+Proof of Lemma 2.24 Let X1 , . . . , Xn be a sequence of independent integer
+random variables such that Q(Xi ) ≤ αi . We want to bound Q(S) for S =
+X1 + · · · + Xn . By a well established argument, see, for example, Lemma 2
+and proof of Theorem 1 in [14], we can assume that Xi is extremal for αi for
+each i.
+    As in the proof of Theorem 1.1 we will group the terms of S, but in this
+proof we will use slightly simpler splits. Let A = {i : αi ≥ 21 } = {1, . . . , a},
+let B = {i : 21 > αi ≥ K1 } = {a + 1, . . . , m} and let C = {i : αi < K −1 } =
+
+                                            32
+{m + 1, . . . , n}. We write SA , SB and SC for sums of the Xi over each index
+set A, B and C, so that S = SA + SB + SC . Let (Y1P     , . . . , Yn ) be a standard
+                                                                              P
+                                                    ′                     ′
+extremal
+      P    balanced   sequence for   α and denote S A =    i∈A    Y i , S B =   i∈B Yi ,
+  ′                     ′    ′     ′     ′
+SC = i∈C Yi and S = SA + SB + SC .
+    To prove the lemma we need to show that there exists Vδ,K such that if
+Var S ′ ≥ Vδ,K then Q(S) ≤ (1 + δ)Q(S ′ ).
+    We note that in a special case when A ∪ B is empty, i.e., C = {1, . . . , n},
+exact domination S ≼ S ′ follows by the rearrangement inequality, Theo-
+rem 2.16.
+    First consider the case when the set C is empty, i.e., A ∪ B = {1, . . . , n}.
+In this case m = n and (αi ) is strongly balanced, so by Lemma 2.17, we have
+an exact inequality, i.e. with δ = 0 and Vδ = 0.
+    Now consider the case when B is empty. Let V δ′ be the constant from
+                                                                   4
+Lemma 2.25 applied with ϵ = 4δ . Let cδ be the constant from the right side of
+                                                               2
+(10) where we substitute 4δ for ϵ, i.e., cδ = 16777216·2
+                                                   δ4
+                                                         3
+                                                           . Let c′δ := max(cδ , V δ′ ).
+                                                                                   4
+First assume that
+                        min(Var SA′ , Var SC′ ) < c′δ .                          (13)
+Consider the case Var SA′ < c′δ . If Var SC′ > (              )−3 c′δ ere c2 = 3·2 9 then by
+                                                      δ                          4
+                                                          4
+                                                   2·3·2 9
+Lemma 2.9 (applied with Y = SA′ , X = SC′ and ϵ = (       δ           ′    ′
+                                                             4 ) ) P(SA + SC =
+                                                                3
+                                                       2·3·2 9
+0) ≥ (1 − 2δ )P(SC′ = 0). Thus Q(S) ≤ Q(SC ) ≤ Q(SC′ ) = P(SC′ = 0) ≤
+(1− 2δ )−1 P(SA′ +SC′ = 0) ≤ (1+δ)P(SA′ +SC′ = 0). Here the second inequality
+follows from Theorem 2.16, as noted above. Thus in this case the claim of
+the lemma holds for Vδ,K ≥ Vδ◦,1 := (1 + ( δ 4 )−3 )c′δ . Analogous reasoning
+                                           2·3·2 9
+                   ◦,1
+shows that Vδ ≥ Vδ suﬀices in the case Var SC′ < c′δ , in this case we use
+inequality Q(SA ) ≤ Q(SA′ ) which follows by Lemma 2.17. Now assume that
+(13) does not hold. Then by Lemma 2.25 we have SA ≼ δ SA′ . Applying
+                                                           4
+Lemma 2.22 with X = SA and Z = SA′ and (Y1 , . . . , Ym ) = (Xm+1 , . . . , Xn )
+we get SA +SC ≼δ SA′ +SC′ and in particular P(SA +SC = 0) ≤ (1+δ)P(SA′ +
+SC′ = 0).
+   Now consider the case when A is empty. In this case by Lemma 2.26
+there is a constant V δ′′,K such that if Var (SB′ ) ≥ V δ′′,K then SB ≼ δ SB′ . Using
+                      4                                  4              4
+the same argument as for the case when B is empty we get that the claim
+                   ◦,2
+holds for Vδ,K ≥ Vδ,K    := (1 + ( δ 4 )−3 ) max(V δ′′,K , cδ ).
+                                  2·3·2 9           4
+   We have proved the claim in the case when at least one of the sets A,
+B or C is empty. And in this particular case we have shown that taking
+
+                                          33
+          ◦
+Vδ,K ≥ Vδ,K  := max(Vδ◦,1 , Vδ,K
+                              ◦,2
+                                  ) is enough. Our next step is to prove the
+claim in the case when the variance of any of the 3 sums SA′ , SB′ or SC′ is
+much smaller than V .
+    So suppose Var SA′ < fδ V for a small fδ ∈ (0, 1) defined below. By the
+already proved part we have that if Var (SB′ + SC′ ) > V δ◦,K , which is implied
+                                                                                 4
+by V > (1 − fδ )−1 V δ◦,K , then
+                              4
+
+
+                                          δ
+                 Q(S) ≤ Q(SB + SC ) ≤ (1 + )P(SB′ + SC′ = 0).
+                                          4
+As Var SA′ ≤ 1−f
+              fδ
+                 δ
+                   Var (SB′ + SC′ ) we have by Lemma 2.9 that
+                                                                 13
+                     ′                                    fδ
+                                                                        )P(SB′ + SC′ = 0).
+                                                4
+               P(S = 0) ≥ (1 − 3 · 2            9
+                                                        1 − fδ
+
+So if we choose fδ such that
+                                                             31
+                                            4         fδ                δ
+                                      3·2   9                       =
+                                                    1 − fδ              4
+                δ3
+(or fδ =                 1   ) then combining the previous two bounds, we have that
+            δ 3 +3456·2 3
+if V   > (1 − fδ )−1 V δ◦,K then
+                          4
+
+
+          δ                      δ    δ
+Q(S) ≤ (1+ )P(SB′ +SC′ = 0) ≤ (1+ )(1− )−1 P(S ′ = 0) ≤ (1+δ)P(S ′ = 0).
+          4                      4    4
+   We can treat the cases Var SB′ < fδ V and Var SC′ < fδ V similarly.
+   So the case where Var SA′ , Var SB′ , Var SC′ ≥ fδ V remains (recall that
+                                                                         δ
+fδ = Θ(δ 3 )). For this case we first apply Lemma 2.25 to SA with ϵ = 80   . It
+                                       ′                 ′             ′
+shows that there exists a constant V δ such that if Var SA ≥ fδ V ≥ V δ , or
+                                                     80                                      80
+
+
+                                            V ≥ fδ−1 V ′δ                                         (14)
+                                                              80
+
+
+then SA ≼ δ SA′ . When this holds we can apply Lemma 2.22 with ϵ = 80       δ
+                                                                              ,
+          80
+               ′
+X = SA , Z = SA and Yj = Xm+j , j ∈ {1, . . . , |C|}. It shows that as long as
+                                                                            2
+                                             2684354560000 · 2              3
+                                  V   ≥ fδ−1         4
+                                                                                                  (15)
+                                                             δ
+                                                      34
+we have
+                                  µSA +SC ≼ δ µSA′ +SC′ .
+                                             20
+                             ′′
+By Lemma 2.26 there is V δ ,K such that if Var SB′ ≥ fδ V ≥ V ′′δ ,K , or
+                            20                                     20
+
+
+                                     V ≥ fδ−1 V ′′δ ,K                        (16)
+                                                  20
+
+
+then SB ≼ δ SB′ . We can now apply Lemma 2.23 to SA + SC and SB with
+            20
+     δ
+ϵ = 20 : if
+                                               1
+                                 −1 128000 · 2
+                                               3
+                          V ≥ fδ                                (17)
+                                        δ2
+then
+               Q(SA + SC + SB ) ≤ (1 + δ)Q(SA′ + SC′ + SB′ ).
+                                                   ◦
+Finally, we can define Vδ,K to be the maximum of Vδ,K and the right sides of
+equations (14), (15), (16) and (17).                                      □
+    An integer random variable X with support {x1 , . . . , xN } and proba-
+bilities {p1 , . . . , pN } is called #-log-concave if the “squeezed version of X”,
+the random variable with support {−b N 2−1 c, . . . , d N 2−1 e} and probabilities
+{p1 , . . . , pN } is log-concave, see [21]. We denote the latter random variable
+by X # .
+
+Theorem 2.27 (Theorem 1.4 of [21]). Let X1 , . . . , Xn be independent integer
+#-log-concave random variables. Then
+
+                     X1 + · · · + Xn ≼ X1# + · · · + Xn# .
+                                   P                    P
+Proof of Lemma 2.25 Let S = ni=1 Xi and S ′ = ni=1 Yi . It suﬀices to
+show that there exists Vϵ such that if Var S ′ ≥ Vϵ then for each non-negative
+integer k
+
+                 sup Q(S + Uk = 0) ≤ (1 + ϵ)P(S ′ + Uk′ = 0),                 (18)
+                  Uk
+
+
+where the supremum is taken over all uniform distributions on k atoms in Z
+and Uk′ is the uniform distribution on the interval Ik , and Ik is “the maximally
+centered integer interval of length k” defined in Section 2.3; alternatively Uk′
+can be defined as Uk′ ∼ Uk+ . Note that since each αi ≥ 21 and (αi ) is balanced,
+it must be strongly balanced.
+
+                                            35
+   By Lemma 2.9, if Var Uk′ ≤ cϵ Var S ′ where
+                                              3
+                                         ϵ
+                            cϵ :=            4                           (19)
+                                    2 · 3 · 29
+then
+                                                    ϵ
+             P(S ′ + Uk′ = 0) = Q(S ′ + Uk′ ) ≥ (1 − )P(S ′ = 0).
+                                                    2
+Thus in this case
+                                  ϵ
+Q(S+Uk ) ≤ Q(S) ≤ Q(S ′ ) ≤ (1− )−1 P(S ′ +Uk′ = 0) ≤ (1+ϵ)P(S ′ +Uk′ = 0).
+                                  2
+Here the second equation is obtained by the “balancing lemma”, Lemma 2.17,
+which also proves the claim with ϵ = 0 in the case k = 1.
+    We can apply a similar reasoning in the case where V := Var S ′ ≤
+cϵ Var Uk′ .
+    Thus it remains to prove that there is Vϵ such that if V ≥ Vϵ , k ≥ 2 and
+
+                              cϵ V ≤ Var Uk′ ≤ c−1
+                                                ϵ V
+
+then (18) holds.
+   Recall that Var Uk′ = k 12−1 . For k ≥ 2 we have k24 ≤ Var Uk′ ≤ k12 .
+                           2                            2                   2
+
+
+Returning from (18) to the original definition of ≼ϵ and recalling that S ′ is
+symmetric and unimodal, we need to prove that there exists a constant Vϵ
+such that whenever V ≥ Vϵ we have
+
+                       sup      P(S ∈ A) ≤ (1 + ϵ)P(S ′ ∈ Ik )           (20)
+                   A⊂Z, |A|=k
+
+for each k such that         p            p
+                              12cϵ V ≤ k ≤ 24c−1
+                                              ϵ V.                       (21)
+For this case we will use Theorem 2.27 and a central limit theorem (Berry–
+Esseen). By the first theorem, since X1 , . . . , Xn and Uk are #-log-concave
+
+            Q(X1 + · · · + Xn + Uk ) ≤ Q(X1# + · · · + Xn# + Uk# ).
+
+Therefore we can assume further that (X1 , . . . , Xn ) is a standard extremal
+sequence and Uk = Uk′ . With this assumption either Xi − bi or −Xi + bi for
+some constant bi is distributed as Yi , so Var S = Var S ′ = V .
+   Each Xi has support on two subsequent integers. By shifting if necessary
+we can assume a largest atom is at 0 and the other atom is either 1 or −1.
+
+                                         36
+     Let                          X
+                           m3 =       E|Xi − EXi |3 .
+The Berry–Esseen theorem states that if
+                                                3
+                                m3 ≤ δ(Var S) 2
+then
+                             S − ES
+                         |P( √       ≤ z) − Φ(z)| ≤ δ.                       (22)
+                               Var S
+As (with our assumption) |Xi − EXi | ≤ 1 we have E|Xi − EXi |3 ≤ Var Xi ,
+so m3 ≤ V = Var S and
+                                   m3     1
+                                     3 ≤ √
+                                   V2       V
+so (22) holds with any δ such that δ ≥ √V ; we will assume this is the case.
+                                          1
+
+    With our assumptions S is log-concave and unimodal, so on the left side
+of (20) it is enough to take the supremum over intervals A. In this case it is
+also easy to see that the maximum exists. Let A0 = {a, . . . , b}, b − a = k − 1,
+be an interval that achieves the maximum.
+    Let η be the standard normal measure. From (22) and the symmetry and
+unimodality of η we have
+                                     b − ES         a − 1 − ES
+              P(S ∈ [a, b]) ≤ 2δ + Φ( √      ) − Φ(    √       ).
+                                         V                V
+                               b−a+1
+              ≤ sup η([x, x + √         ]) + 2δ
+                  x                V
+                        k      k
+              ≤ η([− √ , √ ]) + 2δ.
+                     2 V 2 V
+Similarly
+                                       k    1 k
+                    P(S ′ ∈ Ik ) ≥ η([− V − 2 , V − 2 ]) − 2δ.
+                                                    1
+                                                                            (23)
+                                       2       2
+So
+                        P(S ∈ [a, b]) ≤ P(S ′ ∈ Ik ) + 4δ.                  (24)
+   The first inequality of (21) and η([−x, x]) ≥ 2x √12π exp(−x2 /2) also imply
+that
+                                                        √
+        k −1 k −1                1√        1√             12cϵ
+    η([− V 2 , V 2 ]) ≥ η([−        12cϵ ,    12cϵ ]) ≥ √      exp(−3cϵ /2).
+         2       2               2         2               2π
+
+                                       37
+As ϵ ≤ 1, by the definition (19) we have exp(−3cϵ /2) ≥ 12 , so
+                                             √
+                             k −1 k −1         12cϵ
+                        η([− V 2 , V 2 ]) ≥ √ .
+                             2      2         2 2π
+Assume that                              √
+                                       ϵ   12cϵ
+                                     δ≤ · √ .                                          (25)
+                                       8 2 2π
+Then, since (1 − 4ϵ )−1 ≤ 2, (23) implies
+
+                                           ϵ     k    1 k
+                        P(S ′ ∈ Ik ) ≥ (1 − )η([− V − 2 , V − 2 ])
+                                                              1
+
+                                           4     2       2
+and
+                       ϵ               ϵ        ϵ
+                  δ ≤ P(S ′ ∈ Ik )(1 − )−1 ≤ P(S ′ ∈ Ik ).
+                      8                4        4
+Putting this into (24) completes the proof if all of the used assumptions can
+be satisfied.
+   The assumption (25) and the assuption δ ≥ √1V can both be satisfied if
+                                          √
+                                     1  ϵ   12c
+                                    √ ≤ · √ ϵ
+                                      V 8 2 2π
+or                                                                     √      −2
+                    ′                   −5        2 −2 2π            ϵ    12cϵ
+       V = Var S ≥ Vϵ := 72957ϵ              ≥ 16 ϵ          =         · √         .
+                                                      12cϵ           8 2 2π
+                                                                                         □
+
+2.5     Entry point: Proof of Theorem 1.1
+As mentioned above, we complete the proof of Lemma 2.24 by proving
+Lemma 2.26 in Part II (Section 3). In this section we show how Theorem 1.1
+follows from the results stated above.
+    Given a sequence x = (x1 , . . . , xn ) and a set of indices I ⊆ {1, . . . , n},
+I = {i1 , . . . , im }, i1 < · · · < im , we define a sequence xI = (xi1 , . . . , xim ).
+Proof of Theorem 1.1 Using Lemma 2.11 we can assume that we have
+random integer variables X1 , . . . , Xn with Q(X1 ) = α1 , . . . , Q(Xn ) = αn .
+   Using our notation, it suﬀices to prove the following: for each δ ∈ (0, 41 )
+there exists V0 = V0 (δ) such that if (Y1 , . . . , Yn ) is a standard extremal
+
+                                             38
+    Pn of independent random variables for (α1 , . . . , αn ) ∈ (0, 1] and
+                                                                      n
+sequence
+Var i=1 Yn ≥ V0 then
+                         tSE (α) ≤ t(α) ≤ tSE (α)(1 + δ).                        (26)
+    We will assume that 1 ≥ α1 ≥ · · · ≥ αn > 0. Fix a large enough positive
+integer K, K ≥ Kδ , where Kδ will be specified later. Define ϵgrid = K −2 and
+ϵ1 = K −1 .
+    For each n we will define sequences β ′ and β ′′ of length n such that β ′ ≤
+α ≤ β ′′ (the comparison is coordinate-wise). At the same time we will define
+a set I = {i1 , . . . , in′ } ⊆ {1, . . . , n} of all but at most a constant number of
+indices. Our β ′ and β ′′ will be “almost” balanced: the sequences α′ = βI′
+and α′′ = βI′′ will be balanced and |I| = n′ = n − Oδ (1) will be satisfied.
+Furthermore both α′ and α′′ will satisfy the conditions of Lemma 2.24 with
+the integer K.
+    Below we will prove that with our construction the following holds.
+   • If Var Sn′ ≥ 140K for the sum Sn′ of a sequence of standard extremal
+                         4
+                    δ3
+     random variables for α then with our choice of I
+                                                  δ
+                           tSE (α) ≥ tSE (αI )(1 − ).                 (27)
+                                                  5
+   • If K ≥ 1.49 · 1016 δ −6 then1
+                                 ′′    δ          ′
+                            SE (α )(1 − ) ≤ tSE (α ).
+                                             bal
+                           tbal                                      (28)
+                                       5
+                                          P
+   • For a sequence γ ∈ (0, 1]r let Vγ := ri=1 Var Yγi be the variance of
+     the sum of a standard extremal sequence of random variables for γ. If
+     Var Sn′ = Vα ≥ 2K 5 then
+                                                    10
+                                   Vα′′ ≥ Vα (1 −      ).                        (29)
+                                                    K
+Using (27), Lemma 2.12 and (28)
+                ′′      δ     δ          ′   δ          ′     δ
+           SE (α )(1 − )(1 − ) ≤ tSE (α )(1 − ) ≤ tSE (α )(1 − )
+                                     bal
+          tbal
+                        5     5              5                5
+                          δ
+           ≤ tSE (αI )(1 − ) ≤ tSE (α).
+                          5
+  1
+   We used sympy for automatic calculation of constants, so some of them may be for-
+matted in a slightly unusual way.
+
+
+                                         39
+We can now apply Lemma 2.24 with 5δ and Kδ , defined as the smallest integer
+K such that (28) is satisfied. This lemma shows that if Vα′′ ≥ V δ ,Kδ then
+                                                                   5
+t(α′′ ) ≤ (1 + 5δ )tbal
+                    SE  (α ′′
+                              ).
+    Combining the last condition with the conditions of (27) and (28), and
+using Lemma 2.11 and (29) we finally get that if
+                                                                
+                      ′                  Kδ          6.89 · 1066
+              Var Sn ≥ V0 (δ) := max          Vδ ,
+                                       Kδ − 10 5 ,Kδ    δ 27
+
+then
+                                          (1 + 5δ )
+        t(α) ≤ t(β ′′ ) ≤ t(α′′ ) ≤                      tSE (α) ≤ tSE (α)(1 + δ).
+                                      (1 − 5δ )(1 − 5δ )
+
+   It remains to define the sequences β ′ and β ′′ and prove (27), (28) and
+(29). For a start we shall assume that K > 2 so that ϵgrid < 14 .
+   The indices j ∈ {1, . . . , a} =: A will be all those indices where αj ≥
+1 − ϵ1 . The indices j ∈ {a + 1, . . . , a + b} =: B will be those indices where
+1 − ϵ1 > αj ≥ ϵ1 . Finally, the indices j ∈ {a + b + 1, . . . , n} =: C will be
+those where αj < ϵ1 . Any of thePsets A, B or C can be empty. We write
+Sn = SA + SB + SC where SA = i∈A Xi , and similarly for SB and SC .
+   We first define a sequence β ′′ , β ′′ = (βi′′ , i ∈ {1, . . . , n}) with 1 ≥ βi′′ ≥ αi .
+
+   • For i ∈ A, if i is odd then βi′′ = αi , while if i is even then βi′′ = αi−1 .
+
+   • For i ∈ B, we will round αi to the nearest level above on the ϵgrid -grid:
+     βi′′ := d ϵgrid
+                αi
+                     eϵgrid .
+
+   • For i ∈ C we do the following. Let ddxee denote the smallest odd
+     integer greater or equal to x. We set βi′′ = (ddαi−1 ee − 2)−1 .
+
+    The sequence (βi′ , i ∈ {1, . . . , n}) dominated by (αi ), i.e. with 0 < βi′ ≤ αi
+for each i, will be defined as follows:
+
+   • For i ∈ A if i is odd and i < a then βi′ = αi+1 , otherwise, let βi′ = αi .
+
+   • For i ∈ B, we will round αi to the nearest level below on the ϵgrid -grid:
+     βi′ := b ϵgrid
+               αi
+                    cϵgrid .
+
+   • For i ∈ C we set βi′ = ddαi−1 ee−1 .
+
+                                            40
+    Let us now see how to convert β ′ and β ′′ into balanced sequences by
+dropping a constant number of elements. If |A| is odd, drop the element with
+the highest index from A, and if any level set in B, {i ∈ B : βi′′ = jϵgrid },
+j ∈ Z, has an odd size, we likewise drop the element with the highest index
+from that level. Let I = {i1 , . . . , in′ } ⊆ {1, . . . , n}, i1 < · · · < in′ be the
+indices of non-dropped elements. As there at most ϵ−1       grid levels {jϵgrid : j ∈ Z}
+an element αi with i ∈ B can be rounded to, the total number of dropped
+                                               −1
+elements is at most ϵ−1              ′
+                     grid + 1, so n ≥ n − ϵgrid − 1.
+
+Proof of (27) Let Y1 , . . . , YP n be a sequence of standard extremal random
+variables for α such that Q( i∈I Yi ) = tSE (αI ).
+    By our construction, each αi for i ∈ {1, . . . , n}\I satisfies αi ≥ ϵ1 = K −1 .
+                    . , n} \ I| ≤ ϵ−1
+Recall that |{1, . .P                      = K 2 + 1.
+                                   grid + 1P
+                                     ′
+                                             i∈I Yi . By Lemma 2.10 if Var S ≥
+                        n
+    Denote S =          i=1 Yi and SI =
+VK 2 +1,K, δ then Q(S)(1 − 5 ) ≥ Q(SI′ ). As
+                               δ
+         5
+
+
+                                       70 2            140K 4
+                      VK 2 +1,K, δ =      (K + 1)K 2
+                                                     ≤        ,
+                                 5     δ3                δ3
+it suﬀices that Var S is at least the right side of the above inequality.
+                                                                                   □
+Proof of (28) Partition {1, . . . , n′ } into sets AI , BI and CI depending on
+which of the sets A, B and C the jth element of α′′ (or α′ ) originally belonged
+to: let I¯ := {i1 , i2 , . . . , in′ } andlet AI := {j : ij ∈ A}, BI := {j : ij ∈ B}
+and CI := {j : ij ∈ C}. Let a = |AI | and b = |AI | + |BI |. Note that by our
+                ′                    ′′
+construction αA   I ∪BI
+                           and αA       I ∪BI
+                                              are strongly balanced.
+    We will use respectively Lemma 2.13, Lemma 2.14 and Lemma 2.15 for
+each part. We can apply each lemma to one of the parts AI , BI or CI at a
+time, replacing each coeﬀicent αi′ in that part to the coeﬀicient αi′′ , while the
+other two parts are held fixed. Let us fix one particular permutation of these
+applications that leads from α′ to α′′ , for example
+
+                Lemma 2.13      Lemma 2.14      Lemma 2.15
+             α′ −−−−−−−−−→ α(1) −−−−−−−−−→ α(2) −−−−−−−−−→ α′′ .
+
+    Specifically, if AI 6= ∅, by Lemma 2.13
+
+                  tbal  ′′            ′′  ′              ′
+                   SE (α1 , . . . , αa , αa+1 , . . . , αn′ )
+                                                                 Y
+                                    ′         ′
+                                                              ≤     (1 + 8hi )
+                           tbal
+                            SE (α1 , . . . , αn′ )              i∈A
+                                                                 I
+
+
+
+
+                                              41
+where hi = αi′′ − αi′ and we assume AI = {1, . . . , a}. As 1 ≥ α1′ ≥ · · · ≥ αa′ ≥
+1 − ϵ1 and by the definition for i ∈ AI
+                                     (
+                                         αi − αi+1 , if i is odd
+                        αi′′ − αi′ =
+                                         αi−1 − αi , if i is even,
+         P
+wePhave i∈AI hi = (α1 − α2 ) + (α1 − α2 ) + (α3 − α4 ) + (α3 − α4 ) + · · · ≤
+2 i∈{1,...,|AI |−1} (αi+1 − αi ) = 2(α1 − αa ) ≤ 2ϵ1 .
+                                       1
+   Since clearly K > 32 or ϵ1 < 32       , we get using simple bounds
+
+tbal  ′′            ′′  ′              ′
+ SE (α1 , . . . , αa , αa+1 , . . . , αn′ )
+                                               Y
+                  ′         ′
+                                            ≤     (1 + 8hi )
+         tbal
+          SE (α1 , . . . , αn′ )              i∈AI
+                                                 ∑
+                                       ≤e    8       i∈AI hi
+                                                               ≤ e16ϵ1 ≤ 1 + 32ϵ1 ≤ (1 − 32ϵ1 )−1 .
+   If BI 6= ∅, we can assume BI = {a + 1, . . . , b}. By Lemma 2.14 as long
+as K > 396
+              ′′           ′′   ′              ′
+        tbal
+         SE (α1 , . . . , αb , αb+1 , . . . , αn′ )
+                                                                                  1
+                                                    ≤ (1 − 39K − 6 )−1 = (1 − 39ϵ16 )−1 .
+                                                                 1
+
+         bal  ′′           ′′   ′              ′
+        tSE (α1 , . . . , αa , αa+1 , . . . , αn′ )
+   Finally, if CI 6= ∅ we can assume CI = {b + 1, . . . , n′ }. For i ∈ CI we
+have αi′′ ≤ K−1
+             1
+                (≤ K1 if K is odd). Recal that sums of balanced sequences of
+standard extremal random variables are symmetric and log-concave, therefore
+they are unimodal. Applying Lemma 2.15, since clearly K > 285 we get
+                       ′′        ′′
+             tbal
+              SE (α1 , . . . , αn′ )                              − 15 −1
+                                                                                     1
+                                                                                     5 −1
+           ′′             ′′ ′              ′
+                                                 ≤ (1 − 14(K − 1)     )   ≤ (1 − 28ϵ 1 ) .
+     tbal
+      SE (α1 , . . . , αb , αb+1 , . . . , αn′ )
+
+     Multiplying the 3 inequalities, we obtain
+                            ′′
+                      tbal
+                       SE (α )                  1
+                       bal   ′
+                               ≤                    1           1
+                      tSE (α )   (1 − 32ϵ )(1 − 39ϵ 6 )(1 − 28ϵ 5 )
+                                                     1             1         1
+or
+                                     ′
+                            tbal
+                             SE (α )
+                                                           1       1
+
+                                    ′′ )
+                                         ≥ 1 − 32ϵ 1 − 39ϵ 6
+                                                           1 − 28ϵ 5
+                                                                   1
+                            tbal
+                             SE  (α
+                                         1
+                            ≥ 1 − 99ϵ16
+                                  δ
+                            ≥1− .
+                                  5
+
+                                                     42
+                                                                              1
+The last inequality holds, since K ≥ 1.49 · 1016 δ −6 implies that 99ϵ16 ≤ 5δ . □
+Proof of (29) Let ki = bαi−1 c. By Lemma 2.6 we have
+
+                                                ki2 − 1
+                                   Var Yαi ≥            .
+                                                   12
+By the properties shown in Lemma 2.6 we get that f (x) = Var Yx for Yx ∼ νx
+satisfies ∂+ f (x) ≥ − ki (ki +1)(k
+                               6
+                                    i +2)
+                                          for any x ∈ [αi , 1) and since f is continuous
+and piecewise differentiable, Var Yαi +h ≥ Var Yαi − hki (ki +1)(k   6
+                                                                        i +2)
+                                                                              for any h ∈
+[0, 1 − αi ]. For i ∈ B we have ki ≤ K, so if ki ≥ 2 we have
+                                       ϵgrid ki (ki + 1)(ki + 2)
+                 Var Yβi′′ ≥ Var Yαi −
+                                                    6
+                                12ϵgrid ki (ki + 1)(ki + 2)
+                 ≥ Var Yαi (1 −                              )
+                                         6(ki2 − 1)
+                                2ki (ki + 2)                     8
+                 ≥ Var Yαi (1 − 2             ) ≥ Var Yαi (1 − ).
+                                K (ki − 1)                       K
+Similarly if i ∈ B and ki = 1 then by Lemma 2.6 ∂+ f (αi ) ≥ −1, Var Yαi ≥
+1
+  ϵ (1 − ϵ1 ) ≥ 18 ϵ1 and
+4 1
+
+                                                       8ϵgrid                 8
+     Var Yβi′′ ≥ Var Yαi − ϵgrid ≥ Var Yαi (1 −               ) = Var Yαi (1 − ).
+                                                         ϵ1                   K
+If i ∈ A then αi ≥ 12 and writing hi = βi′′ − αi we have
+                               1
+          Var Yαi − Var Yβi′′ = (αi (1 − αi ) − (αi + hi )(1 − αi − hi ))
+                               4
+               2αi − 1 h2i      hi
+          = hi        +       ≤ .
+                  4       4     2
+Therefore using the definition of β ′′
+                X                 X              1 X          ϵ1
+                      Var Yαi −       Var Yβi′′ ≤ (    hi ) ≤    ≤ ϵ1 .
+                i∈A               i∈A
+                                                 2 i∈A        2
+
+Finally, if i ∈ C then for some odd ti , ti ≥ K
+           Var Yβi′′   (ti − 2)2 − 1   ti − 3        4      4
+                     ≥               =        =1−        ≥1− .
+           Var Yαi         ti − 1
+                            2
+                                       ti + 1     ti + 1    K
+
+                                           43
+                                          Pn
+Applying the above bounds to Vβ ′′ =           i=1 Var Yβi
+                                                            ′′   we get
+
+                                               8
+                             Vβ ′′ ≥ Vα (1 −     ) − ϵ1 .
+                                               K
+Similarly as in the proof of (27), since |{1, . . . , n} \ I| ≤ K 2 + 1 and for i ∈ I
+we have Var Xi ≤ K 2 , we get Vβ ′′ − Vα′′ ≤ 2K 4 . Thus, as long as 2K 4 ≤ K1 Vα
+or Vα ≥ 2K 5 ,
+                                          8                        10
+          Vα′′ ≥ Vβ ′′ − 2K 4 ≥ Vα (1 −     ) − ϵ1 − 2K 4 ≥ Vα (1 − ).
+                                          K                        K
+                                                                                   □
+                                                                                   □
+
+Proof of Corollary 1.2. In the proof of his Lemma 3, Ushakov [30] shows
+the following.
+    Let H be a separable Hilbert space (over the reals). Let X1 , . . . , Xn be
+independent random elements taking values in H. Then there exist inde-
+pendent integer random variables Z1 , . . . , Zn such that Q(Z1 ) = Q(Xi ) for
+i ∈ {1, . . . , n} and Q(X1 + · · · + Xn ) ≤ Q(Z1 + · · · + Zn ).
+    We note that the statement of Lemma 3 in [30] includes a uniform
+bound assumption Q(X1 ), . . . , Q(Xn ) ≤ α ∈ (0, 1], however, the actually
+proved claim mentioned above allows to replace it with a weaker assumption
+Q(Xi ) ≤ αi ∈ (0, 1] for each i.
+    Combining this with Theorem 1.1 completes the proof.                     □
+
+
+3    Part II: Proving Lemma 2.26
+In this part we prove Lemma 2.26 stated in Section 2.4 of Part I. Recall that
+the notation that is used to state the lemma is defined in Section 2.1 and
+Section 2.3.
+    For a matrix A, A ∈ Rm×n we will denote by σ1 (A), . . . , σmin(m,n) (A) its
+singular values sorted in the non-increasing order. If m = n, we will denote
+by λ1 (A), . . . , λn (A) the eigenvalues of A, ordered non-increasingly by their
+magnitude.
+    By a±b we will mean the interval [a−b, a+b]. For x ∈ R, x rounded to the
+nearest integer will be denoted by [x]. More precisely, we define [x] = bx+ 21 c.
+If z ∈ Rd we define [z] = ([z1 ] , . . . , [zd ]). We use bold capital letters like X
+
+                                          44
+to denote random vectors in Rd with d ≥ 2, while single-dimensional random
+variables are denoted by regular letters like X.
+    In Sections 3.1–3.4 we introduce the main results that will be used, and
+in Section 3.5 we provide the proof of Lemma 2.26.
+
+3.1    Approximation by discretized multivariate normal
+       distribution
+Recall that the total variation distance dT V (X, Y) between two random vec-
+tors in Rd is defined as supA |P(X ∈ A) − P(Y ∈ A)|, where A ranges
+               Psets 1of R . If X and Y are discrete with values in S, then
+                          d
+over the Borel
+dT V (X, Y) = x∈S 2 |P(X = x) − P(Y = x)|.
+    In this section we state a result which says that the distribution of a sum
+of bounded iid random vectors with values in Zd tends in total variation to
+what one would expect from the Central Limit Theorem: an appropriate
+discretized multivariate normal random distribution.
+    Even though this type of CLT seems to be quite a fundamental property of
+lattice random vectors and the topic has more than a solid body of literature
+from various schools, an accessible theorem is surprisingly diﬀicult to locate.
+    Our first attempt to do this was using the book of Bhattacharya and
+Ranga Rao [4], see Corollary 22.3 on p. 237 which is loosely based on a
+multivariate local limit theorem by Bikelis [5] proved using the so-called
+Edgeworth expansion method. While these results give extremely precise
+asymptotics, their statement is a bit technical and the edge case that concerns
+convergence in total variation with rate o(1) is included only in [4] without
+a full proof.
+    Therefore we will use the following much more recent result proved using
+Stein’s method, which we restate here in a bit more self-contained form and
+a slightly adapted notation.
+
+Theorem 3.1 (Theorem 4.2 of Barbour, Luczak and Xia [3]). Let Yi , 1 ≤ i ≤
+               PmZ -valued vectors
+                     d
+m be independent                    Pmwith means µi and covariance3 matrices
+Σi . Let µ =     i=1 µi and Σ =         i=1 Σi . Let γi = EkYi − µi k . Define
+ui = min1≤j≤d {1 − dT V (Yi , Yi + e )}, where e(j) ∈ Zd is the jth coordinate
+                                    (j)
+
+vector. Let Sm = Y1 + · · · + Ym , let X ∼ N (µ, Σ) and let [X] be X rounded
+to the nearest integer vector, that is, for any x ∈ Zd , P([X] = x) = P(X ∈
+
+
+
+
+                                      45
+x + [− 12 , 12 )d ). Then
+                                                                           r
+                                             7      d 1                            m
+                     dT V (Sm , [X]) ≤ Cd ln m(L + ( ) 2 )
+                                             2
+                                                    m                             s̃m
+where
+                                                 m− 2 χ
+                                                       1
+
+                                      L=                    3   ,
+                                            Tr( m2 Σ) 2
+                                                      X
+                                                      m
+                     χ = Ekξk3 ,           s̃m =            ui −      max ui ,
+                                                                    i∈{1,...,m}
+                                                      i=1
+
+ξ = Y′K − YK        for Y′i
+                       an independent copy of Yi for 1 ≤ i ≤ m, K is a
+uniformly random element of {1, . . . , m} such that Y1 , . . . , Ym , Y′1 , . . . , Y′m , K
+are independent and we assume that s̃m > 0. Furthermore, C depends only
+on λmin (m−1 Σ), λmax (m−1 Σ) and d−1 Tr(m−1 Σ).
+    While it is not stated explicitly in [3], we can see that the quantities in
+this theorem are well defined only when s̃m > 0 and the rank of Σ is d.
+
+3.2      Projections of a smooth multivariate distribution
+Another result that we will need in the proof of Lemma 2.26 is the following.
+Lemma 3.2. For any integer d, d ≥ 2 and a positive γ there are positive
+reals δ0 = δ0 (d, γ), R1 = R1 (d, γ) and an integer L0 = L0 (d, γ) such that the
+following holds.
+     Let X be a random vector in Rd and let [X] be obtained by rounding each
+component of X to the nearest integer.
+     Let q = supe:∥e∥=1 Q(he, Xi, 1), that is q is the supremum of the mass of
+X concentrated (strictly) between any two hyperplanes at distance one from
+each other.
+     Let R0 > 0 and suppose that in the open ball {x : kxk < R0 } the random
+vector
+R        X has a positive and differentiable density f (that is P(X ∈ A) =
+  A
+    f (x)dx1 . . . dxd > 0 for any Borel set A ⊆ {x : kxk < R0 }) such that
+                                   sup k∇ ln f (x)k ≤ δ0                                (30)
+                                  ∥x∥<R0
+
+Then for any vector a ∈ Rd either
+        Q(ha, [X]i) = max P(ha, [X]i = x) ≤ γq + P (kXk ≥ R0 − R1 )                     (31)
+                            x∈Z
+
+
+                                                 46
+or there is κ ∈ R, κ 6= 0 such that κa ∈ {−L0 , . . . , L0 }d .
+Proof Fix a ∈ Rd . Define I = {i : ai 6= 0} and d′ := |I|. It suﬀices
+to consider the case d′ ≥ 2, as the second alternative in the conclusion is
+trivially true in the case d′ = 0 or d′ = 1.
+    Assume x0 ∈ R maximizes the left side of the inequality in (31). We first
+use an argument2 from [8] to bound the density of solutions x ∈ Zd to
+
+                                        ha, xi = x0 .                                   (32)
+
+Let ϵ be a positive small constant that depends just on γ and d to be specified
+                                                                               ′            ′
+later. Let N0 be the smallest odd integer that N0 ≥ 8d and N0d −2 ≤ ϵN0d −1
+(equivalently, N0 ≥ 1ϵ ).
+     For z ∈ Zd define a hypercube Az = z + {− N02−1 , . . . , N02−1 }d . Suppose
+Az has more than ϵN0d−1 solutions to (32).
+     For x ∈ Rd , k ∈ {1, . . . , d} and A = {a1 , . . . , ak } ⊆ {1, . . . , d}, a1 < · · · <
+ak let xA denote the vector (xa1 , . . . , xak ). For A = ∅ let xA be the empty
+vector.
+     Consider the set SI : {xI : x ∈ Az and x is a solution of (32)}. We have
+             ′
+|SI | > ϵN0d −1 , otherwise the total number of solutions would be at most
+     ′        ′
+ϵN0d −1 N0d−d ≤ ϵN0d−1 .
+                                                                                  ′
+     Fix distinct i, j ∈ I. Write Iij = I \ {i, j}. Clearly |SIi,j | ≤ |N0d −2 |. Com-
+                                 ′       ′
+bining this with |SI | > ϵN0d −1 ≥ N0d −2 and using the pigeonhole principle we
+get that there are two solutions x′ , x′′ ∈ Az such that x′Iij = x′′Iij and x′I 6= x′′I .
+     Putting them into (32) and subtracting we get ai (x′i −x′′i )+aj (x′j −x′′j ) = 0.
+Using also that ai , aj 6= 0 we get x′i −x′′i , x′j −x′′j ∈ {−N0 +1, . . . , N0 −1}\{0}.
+     Fixing i0 ∈ I and applying this for each pair (i0 , j), j ∈ I, j 6= i0 , we
+                                                                 q
+get that each coeﬀicient aj , j ∈ I \ i0 satisfies aj = pjj ai0 , pj , qj ∈ {−N0 +
+                                                                                0 −1)
+1, . . . , N0 − 1} \ {0}, thus each coeﬀicient aj multiplied by κ = lcm(2,...,N
+                                                                          ai 0
+is an integer with absolute value at most (N0 − 1)!. Alternatively one could
+use                                                              N
+                                                                           O(   0   )
+                                           |{p∈{2,...,N0 }:p prime}|
+              lcm(2, . . . , N0 − 1) ≤ N0                              = N0 ln N0
+to show that L0 can be chosen of order eO(N0 ) .
+    It remains to consider the case where each hypercube Az has at most
+   d−1
+ϵN0 solutions to (32).
+   2
+    This argument can also be seen as a simple inverse Littlewood–Offord result for fixed
+length sequences.
+
+
+                                             47
+      Recall the rounding notation [z] for z ∈ Rd means that [zi ] = b zi2+1 c,
+i ∈ {1, . . . , d}. Fix an orthonormal basis e′1 , . . . , e′d−1 of the linear subspace
+associated with the hyperplane (32). Fix some solution t0 ∈ Rd to (32), for
+                    ax0
+example t0 = ∥a∥       2 . Consider the tiling T of the hyperplane with hypercubes of
+               √                                                              √ P
+side length d and aligned to e′1 , . . . , e′d−1 with centers xC = t0 + d d−1               ′
+                                                                                    j=1 ij ej
+where i1 , . . . , id−1 ∈ Z. Note that xC belongs to the hyperplane in Rd defined
+also by (32) but without restricting the coordinates of x to integers. Define
+a new tiling T ′ in Rd by taking the Cartesian√product of√ each hypercube in
+T with the orthogonal segment s = {xe′d : − 2d ≤ x ≤ 2d } where e′d = ∥a∥                a
+                                                                                            .
+                                                                         ′
+We call the (continuous, closed) hypercubes of           √
+                                                            this tiling
+                                                                    √
+                                                                        T -cubes. Let T be
+their union, i.e., T = {x ∈ R , ha, xi ∈ [x0 − 2 , x0 + 2 ]}.
+                                     d                     d          d
+
+      We will now construct a map Zd ∩ T → T ′ . Let xC be the center of a
+T ′ -cube C. We will first map the point [xC ] ∈ Zd to C for each C ∈ T ′ . This
+                          √ distance of two points that round to′ the same z ∈ Z
+                                                                                            d
+is well defined: the
+must
+√      be less than d while the centers of          √ two different T -cubes are at least
+   d apart. Also note that kx − [x] k ≤ 2d so [xC ] ∈ C. For any C ∈ T ′ we
+will also map each interior point of C with integer coordinates to C: there
+is no ambiguity as the T ′ -cubes have pairwise disjoint interiors. Finally we
+map any other point of Zd ∩ T falling on the exterior of one or more T ′ -cubes
+to one of these T ′ -cubes arbitrarily.
+      We can partition the T ′ -cubes to internally disjoint hyper-rectangles,
+which we call T ′ -boxes, of side lengths
+                                   √               √     √
+                                      dN0 , . . . , dN0 , d
+
+aligned to e′1 , . . . , e′d−1 and ∥a∥
+                                    a
+                                       respectively. That is, each T ′ -box is formed
+from a hyperrectangle of N0d−1 T ′ -cubes which has only one “layer” in the
+direction a.
+    Now consider the tiling of Zd by Az , z = (N0 i1 , . . . , N0 id )T , i1 , . . . , id ∈ Z.
+Let us call the elements (discrete hypercubes) of this tiling A-cubes. Assume
+first that at least one T ′ -box contained in the interior of the closed ball
+BR0 − √d exists, and consider a particular such T ′ -box B. We denote the set
+       2
+of all points in B ∩ Zd mapped to a T ′ -cube in B by SB .
+    Since for each center x of a T ′ -cube belonging to B we have that [x] ∈ SB
+and [x] is mapped to a unique T ′ -cube of B,
+
+                                      |SB | ≥ N0d−1 .
+
+                                             48
+Let us upper bound the number
+                          q        of (integer) solutions of (32) that belong to
+                                      √            √       p
+SB . The diameter of B is (d − 1)( dN0 )2 + ( d)2 = (d(d − 1)N02 + d <
+dN0 . Thus a circumscribed ball around B is contained in a hypercube in Rd
+of side length < dN0 aligned to the standard coordinate axes. This hypercube
+touches at most (d + 1)d A-cubes. By our assumption thus SB contains at
+most
+                                ϵ (d + 1)d N0d−1
+integer solutions to (32). Let qB = P([X] ∈ SB ) and let pB = P({[X] ∈
+SB } ∩ {[X] is a solution}). Then qB > 0 since f is positive in B and
+          pB    maxx∈SB P([X] = x) |{x ∈ SB } ∩ {x is a solution}|
+             ≤                      ×
+          qB    minx∈SB P([X] = x)              |SB |
+                       maxx∈SB P([X] = x)
+          ≤ ϵ (d + 1)d                    .
+                       minx∈SB P([X] = x)
+We will bound the last ratio using our “log-Lipschitz continuity” condition
+(30). By the mean value theorem for a function g, differentiable in an open
+set containing the path {x + th : t ∈ [0, 1]} we have
+
+                 |g(x + h) − g(x)| ≤ khk           max            k∇g(z)k.            (33)
+                                              z∈{x+th: t∈[0,1]}
+
+Applying this for g(x) = ln f (x) and using our condition we get f (x′′ ) ≤
+f (x′ ) exp(δ0 kx′′ − x′ k) for any points x′ , x′′ in B + [− 12 , 21 ]d . The diameter of
+                                     √
+the last set is at most dN0 + d ≤ d(N0 + 1).
+     It follows that for any z ′ , z ′′ ∈ SB , by integrating over z ′ + [− 12 , 12 ]d and
+z ′′ + [− 12 , 12 ]d respectively, and using (30) and (33) we have
+
+                          P([X] = z ′′ )
+                                         ≤ exp(δ0 d(N0 + 1))
+                          P([X] = z ′ )
+so
+                         pB
+                            ≤ ϵ (d + 1)d exp(δ0 d(N0 + 1)).
+                         qB
+Let us now set ϵ = e(d+1)γd ⌈2√d⌉ , N0 = ddmax(8d, ϵ−1 )ee (here we used the
+notation ddxee for the least odd integer at least x, which is also used on p.
+40) and δ0 = d(N10 +1) . With these parameters we get pB ≤ ⌈2γq√Bd⌉ .
+   Let B be the set of all T ′ -boxes contained in the interior of BR0 − √d . Let
+                                                                                  2
+S be the set of integer solutions to (32). A T ′ -box B that contains a point
+
+                                           49
+                              √
+of distance at least R0√− 2d from the origin
+                                           √
+                                                has all points of distance at
+least R0 − diam(B) − 2 ≥ R0 − N0 d − 2 from the origin. Note that for
+                         d                    d
+
+a 1-dimensional random variable Y we have Q(Y,  √
+                                                    t) ≤ dteQ(Y, 1). All the
+  ′
+T -boxes are contained in {x : |ha, xi − x0 | ≤ 2 } so any
+                                                  d
+                                                             point    that rounds
+                            ′
+                                                          √
+                                                            d
+                                                                  √
+                                                                    d
+                                                                         √
+to an integer vector in a T -box is at distance at most 2 + 2 = d from
+the hyperplane in Rd defined by (32). Therefore, regardless if B is empty or
+not, we have
+                                                        √
+                      X                                   d
+        P([X] ∈ S) ≤       pB + P(k[X]k ≥ R0 − N0 d −       )
+                      B∈B
+                                                         2
+                                                    √       √
+            X       γ                                 d        d
+         ≤         √ qB + P(kXk ≥ R0 − N0 d −           −        )
+           B:B∈B
+                 d2 de                               2        2
+              γ                     √                                 √
+         ≤ √ P(|ha, Xi − x0 | ≤ d) + P(kXk ≥ R0 − N0 d − d)
+           d2 de
+                                       √
+         ≤ γq + P(kXk ≥ R0 − N0 d − d).
+                          √
+We can set R1 = N0 d +        d. This completes the proof.                      □
+
+3.3    Applying inverse Littlewood–Offord
+In this section we introduce a theorem from the inverse Littlewood–Offord
+theory and use it to derive one of the key lemmas necessary for the proof of
+Lemma 2.26.
+    We adapt the next definition from [29]. Let G be an additive group. A
+symmetric generalized arithmetic progression in G, or a symmetric GAP, is
+a quadruplet A = (A, M, g, r), where the rank rank(A) = r is a non-negative
+integer, the dimensions M = (M1 , . . . , Mr ) are an r-tuple of positive reals,
+the generators (steps) g = (g1 , . . . , gr ) are an r-tuple of elements of G, and
+A ⊆ G is the set
+              ( r                                                           )
+                X
+          A=        ji gi : ji ∈ [−Mi , . . . , Mi ] ∩ Z ∀i ∈ {1, . . . , r} ,
+                 i=1
+
+Like [25, 29] we may abuse notation and write A for A. For any t > 0, also
+following [29], we define the dilate tA of A to be the GAP At := (At , tM, g, r)
+formed by dilating all the dimensions by t. We say that A is proper if all the
+
+                                        50
+elements j1 g1 + · · · + jr gr , ji ∈ {−bM
+                                        Qr i c, . . . , bMi c} ∀i, are distinct. We define
+the volume of A to be vol(A) := i=1 (2bMi c + 1). Note that |A| ≤ vol(A),
+with equality if and only if A is proper.
+   The next claim follows almost directly from the definition. For two sets A
+and B from an additive group G we denote their sumset by A + B = {x + y :
+x ∈ A, y ∈ B}.
+Proposition 3.3. Let A1 and A2 be two symmetric GAPs of rank r1 and r2
+respectively and volume v1 and v2 respectively. Then their sumset A1 + A2
+can be represented by a symmetric GAP of rank r1 + r2 and volume v1 v2 .
+Proof The sumset is exactly the symmetric GAP with generators obtained
+by concatenating the generator tuples of A1 and A2 and dimensions obtained
+by concatenating the dimension tuples of A1 and A2 .                    □
+   We will need the following particular version of the inverse Littlewood–
+Offord theorem:
+Theorem 3.4 (Theorem 2.1 of Nguyen and Vu [25]). Let ε < 1 and C
+be positive constants. Let V = {v1 , . . . , vn } be a multiset from a torsion-
+free group G. Let X1 , . . . , Xn be independent Rademacher random variables
+(P(Xi = 1) = P(Xi = −1) = 21 ). Assume that
+
+                      ρ(V ) := Q(v1 X1 + · · · + vn Xn ) ≥ n−C .
+Then, there exists a proper symmetric GAP A of rank r = OC,ε (1) that
+contains all but at most εn elements of V (counting multiplicity), where
+                              |A| = OC,ε (ρ(V )−1 n− 2 ).
+                                                        r
+
+
+
+
+     In this paper we only use G = R. We will apply the theorem even in a
+simpler case where V ⊂ Z, however the generators of the resulting GAP may
+still be in R in general.
+     The next lemma is our main application.
+Lemma 3.5. Let N be a fixed positive integer, c > 0 and ϵ > 0. Then there
+exist r = r(N, c, ϵ) and v = v(N, c, ϵ) such that the following holds.
+      For any sequence X1 , . . . , Xn of independent random variables on Z such
+                     a                                     a
+that P(Xi = j) = Ni,j where ai,j ∈ Z, Q(Xi ) = maxj Ni,j ≤ 12 and Q(X1 +
+· · · + Xn ) ≥ √cn there exists a symmetric GAP A of rank at most r and
+volume at most v such that all but at most ϵn of random variables Xi have
+their support contained in A.
+
+                                           51
+    We will need the next simple lemma for the proof.
+Lemma 3.6. Let µ be a probability measure with support V = {x1 , . . . , xk } ⊂
+R and probabilities of the form µ({xi }) = aNi , where N, a1 , . . . , ak ∈ {1, 2, . . . }.
+Suppose N is even and Q(µ) ≤ 12 . Then µ can be represented as
+                        X
+                        m
+                                                a′i
+                  µ=          w i µi ;   wi =       > 0;    a′i ∈ {1, 2, . . . }
+                        i=1
+                                                N
+where each µi is a uniform distribution on two distinct points in V and
+furthermore the graph G = (V, E), where E = {supp(µi ), i ∈ {1, . . . , m}}, is
+connected.
+Proof We obtain the decomposition using the idea from Lemma 3.1 of Juške-
+vičius [12] and then show how to modify it so that the corresponding graph
+is connected. More precisely, we think of µ as N units of mass N1 , where
+ai units are placed on the point xi of the real line. Let these units listed
+from left (smallest xi ) to right (largest xi ), ordering the units placed on the
+same point arbitrarily, be o1 , . . . , oN . For i ∈ {1, . . . , N } let oi be placed
+on the point xji , ji ∈ {1, . . . , k}. For i ∈ {1, . . . , N } denote by µ0i the uni-
+form distribution on {xji , xji + N }. Clearly xji 6= xji + N , because otherwise we
+                                    2                         2
+would have more than N2 units placed on a single point which would mean
+                          P N2 0
+Q(µ) > 12 . Also µ = N2 i=1        µi . Collect the weights of the distributions in
+{µi } having the same support sets. We get
+   0
+
+           ′
+         X
+         m
+                                         N        2a′
+   µ=          wi′ µ′i for some m′ ≤       , wi′ = i and a′1 , . . . , a′m′ ∈ {1, 2, . . . }
+         i=1
+                                         2        N
+
+where µ′1 , . . . , µ′m′ are now uniform 2-point distributions with distinct sup-
+ports in V .
+       Now consider the graph G′ = (V, {supp(µ′i ), i ∈ {1, . . . , m′ }}). Let C0 ,
+. . . , Ct−1 be its connected components and for each j ∈ {0, . . . , t − 1} fix an
+edge ej = {yj , zj } in Cj . For i ∈ {1, . . . , m′ } define µi = µ′i and weights
+                        ( 2a′ −1
+                            i
+                                 , if supp(µ′i ) is one of the edges {ej },
+                 wi = 2aN′i
+                           N
+                              ,    otherwise.
+For l ∈ {0, . . . , t − 1} introduce
+                                                                        1
+                      µm′ +l+1 = ν{yl ,z(l+1) mod t } ,    wm′ +l+1 =
+                                                                        N
+                                                52
+where νA denotes the uniform probability measure on the set A. Let m =
+m′ + t. We claim that
+                                 Xm
+                             µ=       w i µi
+                                         i=1
+                                           P                      Pm′ ′ ′
+is a decomposition as required. Indeed ( m   i=1 wi µi )({x}) = (  i=1 wi µi )({x})
+for any x that does not belong to any edge ej . If x ∈ ej for some j then the
+total probability mass at x also does not change as weight N1 is moved from
+an existing edge in G′ incident to x to a newly added edge connecting x with
+a vertex in another component.
+    The weights {wi , i ∈ {1, . . . , m}} are as required by construction. As
+wi ≥ N1 > 0 for all i, each distribution corresponding to an edge of G′ remains
+in the final decomposition. The edges supp(µm′ +l+1 ), l ∈ {0, . . . , t − 1} make
+up a cycle that visits each component in {Cj }, so the resulting graph G is
+connected.                                                                       □
+Proof of Lemma 3.5 Let S = X1 + · · · + Xn . Suppose first that ai,0 > 0
+for i ∈ {1, . . . , n}.
+     For each i ∈ {1, . . . , n} fix a decomposition of the distribution
+                                                                     P i µiti,jof Xi
+obtained by Lemma 3.6; let the resulting decomposition be µi = kj=1                µ ,
+                                                                               2N i,j
+ti,j ∈ Z, ti,j > 0. Here, in order to apply the lemma, we represented all
+                  a     2a
+probabilities Ni,j as 2Ni,j to ensure that the denominator is even.
+     We call a tuple of n integers ω a configuration
+                                            Q              if ωi ∈ {1, . . . , ki } for
+each i ∈ {1, . . . , n}. Write pω = (2N )−n ni=1 ti,ωi . Denote by Sω the sum of
+independent random variables Y1 , . . . , Yn where for each i we have Yi ∼ µi,ωi .
+     Define a random variable SW as follows.
+   1. Draw a random configuration W according to the distribution {pω }.
+   2. Given W = ω, draw a value distributed as Sω .
+We have SW ∼ S. Denote q(ω) := Q(Sω ) = maxx P(Sω = x). Let GW be the
+event that q(W ) ≥ 3√c n . Let x0 ∈ Z satisfy P(S = x0 ) = Q(S). Then
+
+        Q(S) = EE(ISW =x0 |W ) ≤ Eq(W ) = Eq(W )IGW + Eq(W )IḠW
+                                   c     P(GW )    c
+             ≤ P(GW ) sup q(ω) + √ ≤ √          + √ .                             (34)
+                       ω          3 n       n     3 n
+The last inequality is obtained as follows. By the well-known result of Erdős,
+                        (⌊ nn2 ⌋)                                          n
+see, e.g. [14], q(ω) ≤ 2n . A simple proof of an upper bound 2n     n
+                                                                        ≤ √4πn
+
+                                          53
+for any positive
+         √
+                 integer n is found, e.g., in [10]. Thus for even n we have
+q(ω) ≤ √πn ≤ n 2 . Using Pascal’s identity we can easily see that q(ω) ≤ n− 2
+                −
+           2      1                                                         1
+
+
+also for odd n.
+    So from the assumption of the Lemma Q(S) ≥ √cn and (34) we get
+
+                                                2c
+                                 P(GW ) ≥          .                        (35)
+                                                3
+Note, see also [12], that since Q(Xi ) ≤ 21 we have Q(S) ≤ supω q(ω) ≤ n− 2 .
+                                                                               1
+
+
+Thus the assumption of the lemma Q(S) > √cn can only be satisfied with
+c ≤ 1.
+    Consider the distributions µi,j in the decomposition of µi . As the mixing
+                          1
+weights are multiples of 2N  , there are at most 2N components in this decom-
+position. Furthermore, by Lemma 3.6, the supports of 2-point distributions
+µi,j in the decomposition of µi form a connected graph Gi on supp(µi ). For
+each i fix a spanning tree Ti of Gi . So V (Ti ) = V (Gi ) = supp(Xi ), so by the
+assumption of the lemma |V (Ti )| ≤ N .
+    By the assumption of the lemma 0 ∈ supp(µi ) for each i. Suppose we can
+prove that there is a set A = {A1 , . . . , At } of symmetric GAPs of volume at
+most v1 , rank at most r1 and integer dimensions which satisfies the following:
+for a subset I of at least 1 − ϵn indices i, for every edge ab ∈ Ti with i ∈ I
+we have that b − a belongs to some GAP in A. (Notice that if a symmetric
+GAP contains a − b then it also contains b − a.) Then for each index i ∈ I
+all the points in the support of µi belong to the set
+                 (N − 1)A1 + (N − 1)A2 + · · · + (N − 1)At .                (36)
+To see this, consider the path P = x1 . . . xm on Ti from 0 to any x ∈ supp(µi ),
+so that x1 = 0 and xm =Px. Recall that by the assumptions of the lemma
+0 ∈ supp(µi ). Then x = m    j=1 (xj − xj−1 ), i.e. x is a sum of at most N − 1
+elements each from a symmetric GAP in A. Since our dimensions are integer,
+the underlying set of the dilate (N − 1)Ai is the iterated sumset:
+                                Ai + · · · + Ai .
+                                |    {z       }
+                                   N −1 times
+
+Also (N − 1)Ai has the same rank as Ai and volume at most (N − 1)r1 v1 .
+Using Proposition 3.3, the set (36) can be represented by a symmetric (but
+not necessarily proper) GAP A of rank at most r1 t and volume at most
+(N − 1)r1 t v1t .
+
+                                       54
+     Let us prove that such a set A with constant-sized r1 , v1 and t exists.
+                                                                     2
+     We describe a sequential process to pick t, t ≤ t0 := 16N     ϵ
+                                                                       configurations
+ω1 , . . . , ωt and GAPs A1 , . . . , At with the required property. We use a simple
+“probabilistic method” argument.
+     Let l be a positive integer. Suppose we have already chosen configurations
+ω1 , . . . , ωl−1 and GAPs A1 , . . . , Al−1 . At step l we need to choose the lth
+configuration ωl and GAP Al .
+     For i ∈ {1, . . . , n} we will call an edge e = ab ∈ Ti open before step l, if
+b − a is not contained in any GAP in A1 , . . . , Al−1 . Let ol−1 be the number
+of indices i ∈ {1, . . . , n} such that Ti has any open edge before step l. Of
+course, o0 = n. Assume that Ti has at least one open edge before step l.
+Take a random configuration W according to {pω }. The probability that
+                                                                           ti,j
+supp(µi,Wi ) is an open edge in Ti before step l is at least minj 2N            ≥ 2N
+                                                                                   1
+                                                                                     .
+Let Zl = Zl (W ) be the random number of indices i where an open edge
+of Ti is sampled (i.e. supp(µi,Wi ) is open in Ti before step l). Suppose
+ol−1 ≥ ϵn. Then by a Chernoff-type bound, see, Theorem 2.3(c) of [23],
+P(Zl ≥ 4N     ϵn
+                 ) ≥ 1 − exp(− 16N ϵn
+                                       ). Thus the probability that GW holds and
+Zl ≥ 4N is at least 3 − exp(− 16N
+          ϵn             2c             ϵn
+                                           ) and, assuming
+                                                                3
+                              n > n0 (N, c, ϵ) := 16N ϵ−1 ln      ,                          (37)
+                                                              2c
+this probability is positive and a configuration ωl on which both of the events
+hold exists.
+    Let us fix a particular such ωl = (ωl,1 , . . . , ωl,n ). For i ∈ {1, . . . , n} denote
+by {ai , bi }, where ai , bi ∈ Z, ai =Pai (l), bi = biP
+                                                      (l), the support of the two-point
+                                                             bi −ai
+distribution µi,ωl,i . Then Sωl = ni=1 ai +b    2
+                                                  i
+                                                    +   n
+                                                        i=1     2
+                                                                     τi where τ1 , . . . , τn are
+                                                                    ′
+independent Rademacher random variables. Define n := d 9n                 c2
+                                                                             e. Fix a small
+ϵ′ ∈ (0, 1). Since GW holds on W = ωl we have Q(Sωl ) = q(ωl ) ≥ 3√c n ≥
+(n′ )− 2 . Pad the sequence ( bi −a   τi , i ∈ {1, . . . , n}) with n′ −n new independent
+       1
+                                    i
+                                 2
+Rademacher random variables, each with multiplier 0, to get a sequence of
+length n′ .
+     Applying Theorem 3.4 to the sum of the padded sequence with ε = ϵ′ , C =
+1
+2
+  and n = n′ we get that all but at most ϵ′ n′ elements ( b1 −a      2
+                                                                        1
+                                                                          , . . . , bn −a
+                                                                                       2
+                                                                                          n
+                                                                                            , 0, . . . 0)
+(equivalently, of the same sequence multiplied by 2) belong to a symmetric
+GAP of a bounded rank and size at most r1 = r1 (ϵ′ ). It is easy to see that
+such a GAP is contained in a symmetric GAP Al of rank r1 , all dimensions
+1, and volume v1 = v1 (ϵ′ ) = 3r1 . (If n is large enough we have even r1 = 1
+by the theorem, however we will not use this here.)
+
+                                                  55
+     We choose ϵ′ small enough such that ϵ′ n′ ≤ 8N     ϵn
+                                                           for all n (since, as we
+noted above, it must be c ≤ 1, using (37) we can take ϵ′ = 144N     ϵc2
+                                                                        ). Then we
+                             ϵn
+get that among at least 4N indices i with an open edge ai bi in Ti before step
+l we can find at least 4N ϵn
+                              − ϵ′ n′ ≥ 8N
+                                        ϵn
+                                           ones where bi − ai belongs to Al .
+     Initially there are in total at most 2nN open edges over all i ∈ {1, . . . , n}.
+                                                                            ϵn
+At each step we reduce the number of total open edges by at least 8N           . So
+after some number t, t ≤ t0 , steps we must have that the total number of
+open edges before step t + 1 is less than ϵn, which implies ot < ϵn as required
+and we can stop.                      P
+     Finally, for n < n0 (N, c, ϵ), ni=1 Xi always belongs to the sumset of n
+sets of size at most N , so it is a subset of a symmetric GAP of rank at most
+r0 = N n0 (N, c, ϵ) and volume at most 3r0 . Setting r(N, c, ϵ) = max(r0 , r1 t0 )
+and v(N, c, ϵ) = max(3r0 , (N −1)r1 t0 v1t0 ) completes the proof in the case when
+ai,0 > 0 for each i.
+     Finally, for the general case let mi = min(supp(Xi )) apply the above
+                    Pn (Xi − mi ) to get a gap A and notice that we can cover
+proof for the sequence
+the
+Pn   translate  A +    i=1 mi of the underlying set A by adding a new generator
+   i=1 mi with dimension 1, thus increasing the rank by at most 1 and the
+volume at most 3 times.
+                                                                                   □
+
+3.4    A theorem of Odlyzko and Richmond
+Here we present the last significant result that we will need in our proof in
+Section 3.5.
+    Let µ be a distribution on integers with |supp(µ)| ≥ 2. We call s ∈ Z its
+maximum span if the support of µ is contained in {i0 + is : i ∈ Z} for some
+i0 ∈ Z and there is no other such (i′0 , s′ ) with s′ > s. Note that if A is the
+support of µ and x ∈ A then s = gcd({z − x : z ∈ A \ {x}}). In the case
+where µ is supported on a single point, define the maximum span to be ∞.
+    Answering an open question initiated by Rényi in 1977, Odlyzko and
+Richmond proved the following result on n-fold convolution of a distribution
+on a finite set of integers with maximum span 1.
+
+Theorem 3.7 (Theorem 2 of Odlyzko and Richmond [26]). If {pj } is a
+discrete distribution with pj = 0 for j < 0 and j > d, while p0 > 0, pd > 0,
+and
+                             gcd{j : pj 6= 0} = 1,
+
+                                         56
+then for any δ > 0 there is an nOR0    = nOR
+                                          0 (δ) such that if ak,n denotes the
+                                     ∗n
+value of the n-fold convolution {pj } at k then for n ≥ nOR
+                                                          0 ,
+
+                              a2k,n ≥ ak−1,n ak+1,n
+
+for δn ≤ k ≤ (d − δ)n.
+
+3.5    Proof of Lemma 2.26
+Proof of Lemma 2.26 For the beginningPof the proof we      Pfollow  the steps of
+the proof of Lemma 2.25. We define S = i=1 Xi , S = i=1 Yi , V = Var S ′
+                                               n         ′    n
+
+and, using an analogous argument as in the proof of Lemma 2.25, conclude
+that it suﬀices to prove that there is a constant Vϵ,K such that whenever
+V ≥ Vϵ,K , (20) holds for each k satisfying (21), where cϵ is defined in (19).
+   So let k be as in (21). Suppose Qk (S) ≥ (1 + ϵ)Qk (S ′ ). Using Lemma 2.7
+and recalling that Var Uk′ = k 12−1 for Uk′ ∼ ν +1 we get
+                              2
+
+                                               k
+
+
+                                                    k
+        Qk (S ′ ) = kP(S ′ + Uk′ = 0) ≥ p
+                                         12(Var S ′ + Var Uk′ ) + 1
+                              k                  k             k 1
+                                                          ≥ cϵ2 V − 2 .
+                                                                    1
+                  ≥p                     ≥p
+                                 −1
+                      12(1 + 2cϵ )V + 1          −1
+                                             36cϵ V + 1        7
+
+Here we used that c−1
+                   ϵ ≥ 1, see (19), and assumed without loss of generality
+that V ≥ 1. Thus
+                                                     √
+                                     ′   k 12 − 1   k 12cϵ
+             kQ(S) ≥ Qk (S) ≥ Qk (S ) ≥ cϵ V    2 ≥    √ .           (38)
+                                         7          7K n
+
+In the last inequality we used V ≤ n maxi Var Yi ≤ n K12−1 ≤ K12n which
+                                                             2        2
+
+
+follows from the assumptions of the lemma and Lemma 2.6. Similarly, since
+                                                                2
+by the assumptions of the lemma it must be K ≥ 2, we have V ≥ K24n . Note
+that these bounds for V and (21) imply
+                         p                p
+                       K 2−1 cϵ n ≤ k ≤ K 2c−1ϵ n.                   (39)
+
+Using (21) and the last two inequalities in (38)
+                                √                    √
+                           ′      12cϵ                 12cϵ
+            Qk (S) ≥ Qk (S ) ≥            and Q(S) ≥    √ .                (40)
+                                  7                  7K n
+
+                                       57
+    As the concentration function is invariant to translations, we can assume
+without loss of generality that 0 ∈ supp(X
+                                      √       i ) for each i. We can now apply
+Lemma 3.5 to S with N = K , c = 7K and ϵ = ϵ′ , where ϵ′ ∈ (0, 1) will be
+                               2        12cϵ
+
+specified below, to get that all but at most ϵ′ random variables in X1 , . . . , Xn
+have their support contained in a symmetric GAP A of rank r and volume
+v, such that
+                          r ≤ rK,ϵ,ϵ′ and v ≤ vK,ϵ,ϵ′                          (41)
+where on the right of each inequality is a constant that depends just on K, ϵ
+and ϵ′ .
+    Let J denote those i for which the support of Xi is contained in A.
+    Given positive integers l and d where l is even, define Cld = {− 2l , . . . , 2l }d ,
+the discrete cube in Zd with side length l centered at 0.
+    Let M = maxi∈{1,...,r} 2Mi , where M1 , . . . , Mr are the dimensions of the
+symmetric GAP A, which we can assume to be integer. Note that M + 1 ≤
+Q
+  (2Mi + 1) = v, so M is bounded by a constant: M ≤ v ≤ vK,ϵ,ϵ′ . (Below
+in the proof there will be a number of bounds with v and/or r on the right.
+In all cases the expressions will be non-decreasing in r and v so we implicitly
+assume that (41) is applied in the last step.)
+    Thus we can represent each distribution Xi with i ∈ J as:
+
+                                     Xi = ha, Xi i
+
+where Xi is a random vector with values in CM    r
+                                                   , a is the vector (r-tuple) of
+generators of the GAP A, and, without loss of generality, a ∈ Rr \ {0}.
+    For each i ∈ J and y ∈ Z if there are several atoms x of Xi such that
+ha, xi = y, then we can put all the mass to one of them. Similarly we can move
+all the mass from atoms x such that ha, xi = 0 to the zero vector 0. After
+this modification we can assume that each Xi has an “extremal distribution”
+inside CM
+        r
+          : there are bαi−1 c atoms in CM
+                                        r
+                                          with mass αi and one different atom
+in the same set with the rest of the mass 1 − bαi−1 cαi and 0 ∈ supp(Xi ).
+    Observe that there is a finite number
+
+                          N = N (ϵ, ϵ′ , K) ≤ (M + 1)rK
+                                                             2
+                                                                                    (42)
+
+of possible distributions on the cube CM    r
+                                              with our quantized masses of the
+       j                            −2
+form K 2 (place K masses of K on one of (M + 1)r points). Denote these
+                     2
+
+distributions µ1 , . . . , µN and suppose
+                                       Pthere  are ki random vectors Xi , i ∈ J
+which have distribution µi , so that i=1 ki = |J| ≥ (1 − ϵ′ )n.
+                                          N
+
+
+
+                                           58
+    We would now like to apply  P the multivariate local limit theorem, Theo-
+rem 3.1 from Section 3.1 to i∈J Xi . However, this theorem works only if
+dT V (Xi , Xi + e(j) ) is bounded away from 1 for each coordinate vector e(j) .
+We need to consider the possibility that the support of Xi belongs to some
+proper subgroup of Zr .
+    To simplify the setup, we will use the following observation: since the
+number N of different possible distributions is constant, it is easy to group
+almost all random vectors in {Xi , i ∈ J} into constant-sized groups (blocks)
+so that the sum of each group has the same distribution.
+    Let us make this more specific. Fix a large integer b, to be specified below.
+Create a single group by taking ai = b bk   i
+                                          |J|
+                                              c of elements with distribution µi
+for each i ∈ {1, . . . , N }. For each distribution µi we can find at least ai b |J|
+                                                                                  b
+                                                                                     c
+                                                       |J|
+indices j ∈ J with Xj ∼ µi . So we can form b b c of groups of indices in
+J, such that each group has a1 indices j with Xj ∼ µ1 , a2 indices j with
+Xj ∼ µ2 , . . . , and aN indices j with Xj ∼ µN .
+    Let b′ be the total number of elements in a single group. We have
+                           X
+                           N XN
+                                  bki XN
+                                            bki
+                    ′
+              b≥b =     ai =     b c≥     (     − 1) = b − N.                     (43)
+                    i=1      i=1
+                                  |J| i=1
+                                            |J|
+
+Let J ′ , J ′ ⊆ J ⊆ {1, . . . , n}, be the set of indices of all the b′ b |J|
+                                                                           b
+                                                                              c grouped
+random variables. We have
+                           |J|                  |J|N           b N
+      |J ′ | ≥ (b − N )(       − 1) ≥ |J| − b −      ≥ |J| − n( + ).              (44)
+                            b                     b            n b
+   Let δ ′ = δ ′ (ϵ, K), δ ′ ∈ (0, 14 ) be a constant to be defined below. We will
+require that the constants ϵ′ , b = b(δ ′ , M, r, N ) and the variance V satisfy
+                            δ′     N   δ′           1
+                    ϵ′ ≤       ,     ≤       and V ≥ K 2 b/δ ′ .                  (45)
+                            3      b   3            4
+In particular, we set
+                                                   
+                               ′   δ′            3N
+                              ϵ :=      and b :=      ,
+                                   3              δ
+so that the first two inequalities
+                          Pn       of (45) are satisfied.
+    Recall that V = Var i=1 Yi ≤ n K12−1 . Thus for any V0 , V ≥ V0 implies
+                                         2
+
+
+
+                                        12     12
+                                   n≥     2
+                                            V ≥ 2 V0 .                            (46)
+                                        K      K
+                                            59
+                                                                          ′
+Thus (46) and the last inequality in (45) imply that b/n ≤ δ3 . Thus by (44)
+and (45)
+                                       N   b
+                 |J ′ | ≥ n − ϵ′ n − n( + ) ≥ n(1 − δ ′ ),              (47)
+                                       b   n
+so the number m of groups satisfies
+
+                         |J ′ |     |J|     n(1 − δ ′ )   n(1 − δ ′ )
+                    m=          = b     c ≥             ≥             .          (48)
+                          b′         b         b′             b
+Also observe that (43) and (45) imply that
+
+                                              b
+                                      b ≥ b′ ≥ .                                 (49)
+                                              2
+                ∗             ∗a
+    Let µ = µ1a1 ∗ · · · ∗ µN N , that is, µ is the distribution of the sum of
+b′ = a1 + · · · + aN random vectors Xj with indices from any fixed group. We
+then have that
+                            X               X
+                                            m
+                                 ha, Xi i =   ha, Zj i
+                              i∈J ′             j=1
+
+where Z1 , . . . , Zm ∼ µ are i.i.d. Importantly, µ is still a distribution on a
+constant discrete cube CbM r
+                               .
+           ′
+     Let L be the integer span (the set of all possible linear combinations
+with integer coeﬀicients) of the support of µ. Let r′ be the dimension of
+the linear span of L′ . Obviously, 1 ≤ r′ ≤ r. We say that µ has minimal
+lattice Zr if L′ = Zr . Suppose this is not the case, that is L′ ⊊ Zr . By
+the lattice basis theorem, see, e.g., Theorem 2.2.2 of [22] or Theorem 21.1 of
+[4], L′ is a lattice generated by linearly independent vectors x1 , . . . , xr′ ∈ L′ ,
+                             ′
+that is L′ = {Bz : z ∈ Zr } for some r × r′ integer matrix B of rank r′ . As
+                                  ′                                   ′
+z 7→ Bz is injective for z ∈ Zr , we can define a measure µ′ on Zr by setting
+                                      ′
+µ′ ({z}) = µ({Bz}) for each z ∈ Zr . So we have Zi ∼ BZ′i where Z′1 , . . . , Z′m
+are i.i.d. with distribution µ′ .
+     Lemma A.2 below shows that the basis B can be chosen so that supp(µ′ )
+                                      r′        r′
+is contained in the discrete cube CM     ′ of Z    with side length
+                                    &     √        2r−1 '
+                                              rbM
+                          M ′ = 2 rr−1                      .                    (50)
+                                               2
+
+We fix such B.
+
+                                           60
+    We can write
+                     X                    X
+                                          m                            X
+                                                                       m
+                             ha, Xi i =         ha, BZ′i i = hB T a,         Z′i i
+                     i∈J ′                i=1                          i=1
+             Pm                                                                      ′
+where now i=1 Z′i is a sum of m i.i.d. bounded random vectors in Zr and
+    ′
+Zr is their minimal lattice.                                                  P        ′
+      Our next main step will be to use Theorem 3.1 to approximate m            i=1 Zi
+by a standard normal random vector. This theorem gives a non-trivial con-
+clusion only if the total variation distance between a single random summand
+and the same summand shifted by any coordinate vector is bounded away
+from 1. To ensure this property, we will group once more.
+      Let A be the r′ × s matrix containing all the s vectors in the support of
+                                                                                     ′
+µ as columns. Let e(i) , i ∈ {1, . . . , r ′ } be the ith coordinate vector of Zr .
+  ′
+                                            ′
+Since the support of µ′ generates Zr , there is at least one solution x ∈ Zs
+to Ax = e(i) and A has rank r′ . Also we must have s > r′ , otherwise,
+since 0 is one of the vectors in the support of µ′ , the subspace generated by
+the support would have dimension less than r′ . The main result of Borosh,
+Flahive, Rubin and Treybig [9] says that in this case there exists a solution
+x with |xi | bounded by the maximum of the absolute values of r′ × r′ minors
+of the augmented matrix (A|e(i) ). In our case, using the Leibniz formula,
+this maximum is at most r!(M ′ )r . Thus for each i ∈ {1, . . . , r ′ }, e(i) belongs
+to the support of the sum of D, D = sr!(M ′ )r ≤ r!(M ′ + 1)2r , independent
+random variables with distribution µ′ .
+      Let µ′′ , µ′′ = µ′∗D , be the D-fold convolution of µ′ , let m′ = b m   D
+                                                                                c and
+       ′′          ′′                             ′′  ′′
+let Z1 , . . . , Zm′ be i.i.d. with distribution µ . µ is contained in the discrete
+          r′
+cube CM      ′′ , where
+
+                                       M ′′ = DM ′ .                              (51)
+Using (48) we have that
+
+                 ′m     n(1 − δ ′ )       n       ′  b′ D
+              m ≥   −1≥             − 1 = ′ (1 − δ −      ).
+                  D       b′ D           bD           n
+Thus, using (49), if we require that
+                               bD
+                                  ≤ δ′          or        n ≥ (δ ′ )−1 bD                (52)
+                                n
+then
+                                                  n
+                                     m′ ≥              (1 − 2δ ′ )                       (53)
+                                                b′ D
+                                                     61
+and the size of the set J ′′ ⊆ J ′ of all the indices of the original random
+vectors Xi that are grouped to the m′ newly formed random vectors satisfies
+|J ′′ | = m′ b′ D ≥ n(1 − 2δ ′ ).
+       Furthermore, since by the assumption of the lemma and our construction
+the minimal non-zero probability of the random variables Xi is at least K −1 ,
+if x belongs to the support of µ′′ then µ′′ ({x}) ≥ K −bD .
+                                                                        P ′ ′′
+       We shall now apply Theorem 3.1 to the sum S′′ defined by S′′ = m    i=1 Zi =
+PDm′ ′                                                                       ′′  ′′
+    i=1 Zi . Let us first consider the quantity u1 = min1≤j≤r ′ {1 − dT V (Z1 , Z1 +
+e(j) )}. By the above assumptions and arguments for any ∈ {1, . . . , r ′ }
+p = P(Z′′1 = e(j) ) ≥ K −bD and q = P(Z′′1 + e(j) = e(j) ) = P(Z′′1 = 0) ≥ K −bD .
+Thus
+
+                                  X 1
+   dT V (Z′′1 , Z′′1 + e(j) ) =                |P(Z′′1 = x) − P(Z′′1 + e(j) = x)|
+                                        r′
+                                           2
+                                  x∈Z
+     1           1          1          max(p, q) − min(p, q) − p − q
+   ≤ (1 − p) + (1 − q) + |p − q| = 1 +
+     2           2          2                       2
+                           −bD
+   = 1 − min(p, q) ≤ 1 − K     .
+Thus u1 from Theorem 3.1 satisfies u1 ≥ K −bD , so that s̃m ≥ (m′ − 1)K −bD .
+Also clearly χ from that theorem satisfies χ ≤ (r 2 M ′′ )3 .
+                                                     1
+
+
+   Let Σ1 be the covariance matrix of Z′′1 . As each entry in Σ1 is bounded
+by (M ′′ )2 , we have
+                          σ1 (Σ1 ) = kΣ1 k ≤ (M ′′ )2 r                 (54)
+Let us derive some lower bound on its smallest eigenvalue. Since the prob-
+abilities of Xi are of the form Ki2 for i ∈ Z, by our construction the proba-
+bilities µ′′ ({x}) and the covariances are of the form K 2bi ′ D for i ∈ Z. Thus
+     ′
+K 2b D Σ√1 is an  integer matrix. Trivially, its column lengths are bounded by
+  2b′ D    ′   ′′ 2
+K        r (M ) . As Σ1 is symmetric and positive definite, its eigenvalues
+equal singular values. So by Lemma A.1 the smallest eigen-/singular value
+satisfies
+                     λr′ (Σ1 ) = σr′ (Σ1 ) ≥ (K 2bD (M ′′ )2 r)−(r−1) .      (55)
+     The trace of Σ1 is equal to the sum of its eigenvalues / singular values.
+Thus it is at least r′ λr′ (Σ1 ), and, trivially, Tr(Σ1 ) ≤ r(M ′′ )2 . But since
+                     ′
+Z′′1 has values in Zr and by the assumptions of the lemma and our con-
+struction Q(Z′′i ) ≤ Q(Xi ) ≤ αi , we have a better lower bound Tr(Σ1 ) =
+
+                                                      62
+  P′
+E ri=1 (Z′′1,i )2 ≥ P(Z′′1 6= 0) ≥ 1 − Q(Z′′1 ) ≥ 1 − max αi ≥ 12 . This implies that
+L in Theorem 3.1 satisfies L ≤ (m′ )− 2 χ.
+                                          1
+
+
+   Let now Z ∼ N (m′ EZ′′1 , m′ Σ1 ) and recall  q the notation [Z] for rounding
+                                                            ′
+coordinatewise. Note that if m′ ≥ 2 then mm′ −1 ≤ 2.
+   Combining these estimates, Theorem 3.1 gives for m′ ≥ 2
+
+                                                   (M ′′ )3 r 2 + r 2
+                                                                3       1
+
+                  dT V (S′′ , [Z]) ≤ 2Cr 2 ln m′
+                                         7                                   bD
+                                                                    1       K 2.    (56)
+                                                        (m′ )       2
+
+
+
+Here by the remark of the theorem, C depends “only” on λr′ (Σ1 ), λ1 (Σ1 ) and
+(r′ )−1 Tr(Σ1 ). We have shown that all of these quantities are bounded above
+and away from zero by constants that depend only on r, M ′′ , K, b and D,
+but ultimately just on K, ϵ, ϵ′ and δ ′ . The remark could be interpreted in
+two ways:
+
+  (1) As a function of smallest, the largest eigenvalue of Σ1 and the trace of
+      (r′ )−1 Σ1 , C is well-behaved, for example, continuous at each positive
+      parameter vector.
+
+  (2) The above assumption does not hold.
+
+Based on the wording of Theorem 1.1 of [3], the interpretation (1) seems to be
+the correct one. In this case we get that (56) holds uniformly for any choice
+of {Xi } satisfying the assumptions of the lemma with a common constant
+that depends just on K, ϵ, ϵ′ and δ ′ .
+     If, however, the correct interpretation is (2), we can still obtain the same
+conclusion and find a constant C that works for each choice of distributions,
+but in a less explicit way. Since by (42) there is a constant number N of
+possible distributions for each Xi with quantized probabilities Ki2 , i ∈ Z in
+the cube CM  r
+               there is also a constant (at most N b ) distributions µ′ that can
+be constructed from a convolution of b′ such distributions. Applying (56)
+to each of those distributions we can take the largest constant C for given
+parameters K, ϵ, ϵ′ and δ ′ .
+     In any case recalling δ ′ ∈ (0, 41 ) for each K, ϵ, ϵ′ , δ ′ we can choose constants
+c′′ and V0 , V0 ≥ 1, such that if V ≥ V0 then (a) (45) is satisfied and (b) (52)
+is satisfied (using (46)) and so m′ ≥ 2, and
+
+                             dT V (S′′ , [Z]) ≤ c′′ n− 2 ln n.
+                                                        1
+                                                                                    (57)
+
+
+                                             63
+   Let A ⊂ R be such that |A| = k and Qk (hB T a, S′′ i) = P(hB T a, S′′ i ∈ A).
+Then (57) implies that if V ≥ V0 then
+
+                                                                    c′′ ln n
+   Qk (hB T a, S′′ i) = P(hB T a, S′′ i ∈ A) = P(hB T a, [Z]i ∈ A) ± √ .       (58)
+                                                                         n
+
+We are now going to apply Lemma 3.2 with X = Z − [EZ], d√= r′ and γ
+defined below. Thus µ0 = EX = EZ − [EZ] satisfies kµ0 k ≤ 21 r′ and the
+distribution of [X] is just a translate of the distribution of [Z] by an integer
+vector − [EZ]. We pick the following γ for Lemma 3.2:
+                             3√
+                           cϵ2 3π
+                     γ := √ √ (K 2bD (M ′′ )2 r)− 2 .
+                                                 r−1
+                                                                               (59)
+                         7 2K bD
+
+Using δ ′ < 14 , (49), (53) and (55), we get the following bound that will be
+used later:                     √        p
+                             1    12cϵ     2πm′ λr′ (Σ1 )
+                         γ≤       p           √           .              (60)
+                             2 7K 2c−1ϵ
+                                                n
+                                                                         ′
+   Since X ∼ N (µ0 , m′ Σ1 ) the density pX of X satisfies for x ∈ Rr
+
+   k∇pX (x)k = k − (m′ )−1 Σ−1                ′ −1        −1
+                            1 (x − µ0 )k ≤ (m ) λr′ (Σ1 ) kx − µ0 k
+                                                   √
+                                                     r′
+                                         ≤ (kxk +       )(m′ )−1 λr′ (Σ1 )−1 .
+                                                    2
+Thus, using (55), (30) is satisfied for f = pX whenever
+                                                            1√
+                    R0 ≤ (K 2bD (M ′′ )2 r)−(r−1) δ0 m′ −      r.              (61)
+                                                            2
+Using Lemma A.3 and r′ ≤ r we get as long as r ≤ 16σ1 (m
+                                                       t
+                                                         ′Σ )
+                                                           1
+
+
+                                                        t
+                    P(kX − µ0 k2 ≥ t) ≤ exp(−                   ).
+                                                   4σ1 (m′ Σ1 )
+          √
+Let R = 21 r + (m′ ) 2 + 2 with c = 21 (any c ∈ (0, 1) would work as well).
+                      1  c
+
+
+Suppose m′ is large enough that
+
+                              (m′ )c ≥ 16r2 (M ′′ )2 .                         (62)
+
+
+                                        64
+Then by (54) and (62) (m′ )1+c ≥ 16rσ1 (m′ Σ1 ), so using Lemma A.3 and (54)
+                                                                                            1√
+   P(kXk ≥ R) ≤ P(kX − µ0 k ≥ R − kµ0 k) ≤ P(kX − µ0 k ≥ R −                                   r) ≤
+                                                                                            2
+                                                (m′ )1+c                (m′ )c
+   P(kX − µ0 k2 ≥ (m′ )1+c ) ≤ exp(−                        ) ≤ exp(−             ).                 (63)
+                                               4σ1 (m′ Σ1 )           4(M ′′ )2 r
+
+    Let us now upper bound the quantity q for our application of Lemma 3.2.
+Recall that q = supe:∥e∥=1 Q(he, Xi, 1).
+    The projection he, Xi is a normal random variable. The concentration of
+he, Xi is maximized by minimizing its variance, and the minimum variance
+is equal to λr′ (m′ Σ1 ) = m′ λr′ (Σ1 ).
+    Thus q = Q(Z, 1) where Z ∼ N (ζ, m′ λr′ (Σ1 )) for some ζ ∈ R, so
+                                 Z ζ+ 1                 (t−ζ)2
+                     1                    2         − 2m′ λ                          1
+         q=p                                  exp          r ′ (Σ1 )   dt ≤ p                    .
+                2πm′ λr′ (Σ1 )    ζ− 12                                         2πm′ λr′ (Σ1 )
+
+   Recalling (39) and (40) and (60) this means
+                                        1
+                                   γkq ≤ Qk (S ′ ).                                                  (64)
+                                        2
+Let R1 = R1 (r′ , γ) be the constant from Lemma 3.2. Set R0 := R + R1 =
+             √
+(m′ ) 4 + 12 r + R1 . Then there is n1 := n1 (K, ϵ, ϵ′ , δ ′ ) such that (61) and (62)
+      3
+
+
+hold for all n ≥ n1 .
+     We now apply Lemma 3.2 with X, r′ , γ, R0 and consider the two possible
+outcomes.
+     If we have Q(ha′ , [X]i) ≤ γq + P(kXk ≥ R0 − R1 ) for a′ = B T a then by
+δ ′ < 41 , (39), (49), (53), (63) and (64) if n ≥ n1 then
+
+       Qk (hB T a, [X]i) ≤ kQ(hB T a, [X]i) ≤ γkq + kP(kXk ≥ R0 − R1 )
+                                                √        
+          1        ′
+                         p                          n
+       ≤ Qk (S ) + K 2cϵ n exp −
+                             −1                      √      .
+          2                               4(M ′′ )2 r 2bD
+
+Recalling (40) and (58) we see that there is n2 = n2 (K, ϵ, ϵ′ , δ ′ ) ≥ n1 such
+that Qk (S) ≤ Qk (hB T a, [X]i) + c′′ n− 2 ln n ≤ 34 Qk (S ′ ) if n ≥ n2 and V ≥ V0 ,
+                                         1
+
+
+which is a contradiction to our initial assumption that Qk (S) ≥ (1+ϵ)Qk (S ′ ).
+   Thus if
+                              n ≥ n2 and V ≥ V0 ,                               (65)
+
+                                                65
+the first alternative of Lemma 3.2 cannot occur and we assume that the
+second must hold, i.e., there is κ ∈ R and a positive integer L0 = L0 (r′ , γ)
+such that
+                                                         ′
+                            κB T a ∈ {−L0 , . . . , L0 }r .
+                    P
+So, writing S ′′′ := i∈J ′′ κXi = hκB T a, S′′ i, we have
+                          Qk (hB T a, S′′ i) = Qk (S ′′′ ).                 (66)
+Until the final paragraph of the proof we will assume (65) holds. Recalling
+the definition of S′′ , and that of its random summands, we note that S ′′′ can
+be viewed
+   • either as a sum of |J ′′ | = b′ m′ D independent random variables κXi ,
+   • or as a sum of m′ D i.i.d. random variables hκB T a, Z′i i contained in a
+     symmetric integer interval of length at most rL0 M ′ ,
+   • or a sum of m′ i.i.d. random variables hκB T a, Z′′i i contained in a sy-
+     metric integer interval of length at most rL0 M ′′ .
+Z′i and κB T a are integer, so their inner product is also integer. By our
+assumption 0 ∈ supp(Xi ) for each Xi , thus if some κXj , j ∈ J ′′ was not
+integer, the random variables hκB T a, Z′i i would not be integer, thus κXj ,
+must be integer (and also an extremal random variable for αi ) for all j ∈ J ′′ .
+    Thus our main achievement resulting from Section 3.1 and Section 3.2
+was the following: we started with a sum of n independent extremal integer
+random variables and we reduced the general case to one where each integer
+random variable has a bounded support, and (after grouping into constant
+size groups) has the same distribution.
+    Let s be the maximum span (see Section 3.4) of U + V , where U and
+V are independent bounded integer random variables with finite maximum
+spans sU and sV . We claim that s = gcd(sU , sV ). Without loss of generality
+we may assume that the smallest value in the support of U and V , and thus
+also of U + V , is 0. Let us first prove s divides both sU and sV . Suppose
+s does not divide sU . Let a = jsU be an element of supp(U ) that is not a
+multiple of s (if every element of the support of U was a multiple of s then
+       s
+sU gcd(s,s U)
+              would be a larger span than sU ). Then both 0 and a are in the
+support of U + V , contradicting the fact that s is a span of U + V . Now
+we can express each value in the support of U and V by integer multiples of
+gcd(sU , sV ), so it must be the maximum span of U + V .
+
+                                         66
+    The above claim implies that the maximum span s is the same for both
+S and each of its m′ D i.i.d. summands. It also implies that each of the
+ ′′′
+
+b′ Dm′ original distributions that make up S ′′′ have maximum spans divisible
+by s (as αi ≤ 12 there are no distributions supported on a single point). Since
+0 ∈ supp(Xi ) for each i ∈ J ′′ , this means that κs Xi is integer, so without loss
+of generality we can further assume that s = 1 (by using κ′ = κs in place of
+κ).
+                                                      P ′
+    Thus Theorem 3.7 can be applied to S ′′′ = Dm                      ′
+                                                         i=1 hκB a, Zi i with n =
+                                                                 T
+    ′       b′                                             ′
+Dm , δ = 4 and an appropriate d, 0 < d ≤ rL0 M , to obtain an integer
+nOR
+  0   such that the conclusion of the theorem holds whenever Dm′ ≥ nOR         0 .
+Namely, after shifting and unshifting if necessary the theorem yields
+
+                   P(S ′′′ = i)2 ≥ P(S ′′′ = i + 1)P(S ′′′ = i − 1)              (67)
+                                         ′                                 ′
+for any i ∈ Z with min supp(S ′′′ ) + b4 Dm′ ≤ i ≤ max supp(S ′′′ ) − b4 Dm′ .
+    Note, however, that nOR   0     may depend on the distribution of hκB T a, Z′1 i.
+    As noted above hκB T a, Z′1 i is contained in a symmetric integer interval I
+of length at most rL0 M ′ . The same holds for each of its b′ random summands
+κXi , as each of them has 0 in the support. Furthermore, κXi have quantized
+probabilities of the form Kj2 , j ∈ Z. Thus similarly as in (42), the number
+of possible different distributions for hκB T a, Z′1 i is constant, for example, it
+does not exceed (rL0 M ′ + 1)bK .
+                                        2
+
+
+    Applying Theorem 3.7 with each such possible distribution that has s = 1
+we can pick as n∗0 = n∗0 (ϵ, ϵ′ , K, δ) the maximum of resulting nOR   0  among the
+applications.
+    While n∗0 can be extremely large, it is still a constant that depends just
+on K, ϵ, ϵ′ and δ ′ and (67) holds whenever (65) holds and Dm′ ≥ n∗0 , or, see
+(43), (53), whenever both (65) and n ≥ 2bn∗0 hold, which we also assume till
+the end of the proof.
+                                                              ′   ′
+    Using a Hoeﬀing bound we get that P(|S ′′′ −ES ′′′ | ≥ b Dm 4
+                                                                    ) ≤ 2 exp(−c′′′ n)
+                          ′′′       ′′′     ′ ′
+for a positive constant c = c (K, ϵ, ϵ , δ ) (more specifically, using (43), (53)
+we can take c′′′ = 32(rLbD
+                         0M )
+                              ′′ 2 ). Note that, as each of independent summand
+
+κXi is integer-valued and satisfies Q(κXi ) = Q(Xi ) ≤ 21 we have
+
+                              b′ Dm′                                b′ Dm′
+        min(supp(S ′′′ )) +          ≤ ES ′′′ ≤ max(supp(S ′′′ )) −        .
+                                 2                                     2
+                                                                ′     ′
+Thus (67) holds for each integer i such that i ∈ ES ′′′ ± b Dm
+                                                            4
+                                                               . So the distri-
+           ′′′
+bution of S is unimodal when restricted to this interval. For any k as in
+
+                                         67
+(39)
+
+                                              k     k
+       Qk (S ′′′ ) ≤      max ′ P(S ′′′ ∈ (x − , x + ]) + 2 exp(−c′′′ n).           (68)
+                       x∈ES ′′′ ± bm4 D       2     2
+
+The random variables |hκB T a, Z′i i| are bounded by rM ′ L0 . So their third
+moments are bounded by (rM ′ L0 )3 . Meanwhile, as κXi are integer and
+Q(κXi ) ≤ 21 we have Var S ′′′ ≥ 14 b′ Dm′ . Therefore we can apply the Berry–
+Esseen theorem to bound
+                                                                              !
+           ′′′           k     k          x − ES ′′′ − k2 x − ES ′′′ + k2
+       P(S ∈ (x − , x + ]) ≤ η ( √                         , √              ]
+                          2    2               Var S ′′′        Var S ′′′
+                                                               
+          2(rM ′ L0 )3 Dm′               −k              k          c′′′′
+        +                   3 ≤ η   (  √         , √          ]   + √     ,     (69)
+               ( 1 b′ Dm′ ) 2
+                  4
+                                      2 Var S ′′′ 2 Var S ′′′          n
+                                                                        1
+                                                                            ′   3
+where η is the standard normal measure and c′′′′ = 2·16·2 (rM       L0 )2
+                                                                 b
+                                                                         , again
+see (43) and (53), and recall that δ ′ < 14 . The first term is maximized
+by minimizing
+       P       Var S ′′′ . With our setup this is achieved precisely by taking
+  ′′′
+S = i∈J ′′ Yi , as by Corollary 1.3 of [2] Yi has minimum variance among
+all extremal random variables for αi for each i ∈ J ′′ . To finish the proof, it
+remains to choose ϵ′ and δ ′ so that the effect of
+                                              X
+                                              n
+                                                            Yi
+                                         i∈{1,...,n}\J ′′
+
+                                                  P
+to the sum of k largest probability masses of ni=1 Yi is negligible. Note that
+V +Var Uk′ ≥ V ≥ n4 and recall (53) which shows that |{1, . . . , n}\J ′′ | ≤ 2δn.
+Set
+                                           ϵ3
+                             δ ′ :=                  .
+                                     2 · 70 · 44 K 2
+This implies
+                             n      70 · 43 ′
+                                 ≥          2δ nK 2 .
+                             4        ϵ3
+Therefore, applying Lemma 2.10 we get
+                                   X
+                                   n
+                                                  ϵ      X
+                            Qk (       Yi ) ≥ (1 − )Qk (        Yi ).
+                                   i=1
+                                                  4      i∈J ′′
+
+
+                                                 68
+By (40) there is a constant n3 , n3 = n3 (K, ϵ, ϵ′ , δ ′ ) such that
+
+              Qk (S ′ )−1 (c′′ n− 2 ln n + 2 exp(−c′′′ n) + c′′′′ n− 2 )
+                                   1                                1
+
+
+
+                     7                                                      ϵ
+                           (c′′ n− 2 ln n + 2 exp(−c′′′ n) + c′′′′ n− 2 ) ≤
+                                   1                                  1
+              ≤√
+                    12cϵ                                                    4
+for all n ≥ n3 . Thus, since ϵ ∈ (0, 1) we get by (58), (66), (68) and (69) that
+if n ≥ max(n2 , n3 , 2bn∗0 ) and V ≥ V0 then
+                          X
+                               Yi ) + c′′ n− 2 ln n + 2 exp(−c′′′ n) + c′′′′ n− 2
+                                             1                                  1
+          Qk (S) ≤ Qk (
+                          i∈J ′′
+                 ϵ
+           ≤ (1 − )−1 Qk (S ′ ) + c′′ n− 2 ln n + 2 exp(−c′′′ n) + c′′′′ n− 2
+                                         1                                  1
+
+                 4
+                 ϵ   ϵ                      3ϵ
+           ≤ 1+ +         Qk (S ′ ) ≤ (1 + )Qk (S ′ )
+                  2 4                          4
+which is a contradiction to the original assumption Qk (S) ≥ (1 + ϵ)Qk (S ′ ).
+Finally, note that (46) implies n ≥ max(n2 , n3 , 2bn∗0 ) when
+                                                                
+                                      K 2 max(n2 , n3 , 2bn∗0 ))
+               V ≥ Vϵ,K := max V0 ,                                .
+                                                 12
+                                                                                □
+    Acknowledgment. I thank Tomas Juškevičius for proposing to work on
+this problem, for the motivation, and for helpful discussions.
+
+
+References
+[1] H. Aravinda, Entropy-variance inequalities for discrete log-concave ran-
+    dom variables via degree of freedom, Discrete Math. 347 (2024), 113683.
+[2] A. Atminas and V. Kurauskas, Rearrangements of distributions on inte-
+    gers that minimize variance, arXiv preprint arXiv:2510.07899.
+[3] A. D. Barbour, M. J. Luczak and A. Xia, Multivariate approximation
+    in total variation II: discrete normal approximation, Ann. Probab. 46
+    (2018), 1405–1440.
+[4] R. N. Bhattacharya and R. R. Rao, Normal approximation and asymptotic
+    expansions, Society for Industrial and Applied Mathematics, Philadel-
+    phia, 2010.
+
+                                            69
+[5] A. Bikelis, Asymptotic expansions of distributions of sums of identically
+    distributed independent lattice random variables, Theory Probab. Appl.
+    14 (1969) 481–489.
+
+[6] S. G. Bobkov, A. Marsiglietti and J. Melbourne, Concentration func-
+    tions and entropy bounds for discrete log-concave distributions, Combin.
+    Probab. Comput. 31 (2022), 54–72.
+
+[7] S. G. Bobkov and G. P. Chistyakov, On Concentration Functions of Ran-
+    dom Variables, J. Theor. Probab. 28 (2015) 976–988.
+
+[8] L. Borisov (https://mathoverflow.net/users/38468/lev-borisov), Number
+    of solutions of linear homogenous Diophantine equation inside a box, URL
+    (version: 2014-02-09): https://mathoverflow.net/q/157159.
+
+[9] I. Borosh, M. Flahive, D. Rubin and B. Treybig, A sharp bound for
+    solutions of linear Diophantine equations, Proc. Amer. Math. Soc. 105
+    (1989), 844–846.
+
+[10] N. D. Elkies (https://mathoverflow.net/users/14830/noam-d-elkies),
+    Upper limit on the central binomial coeﬀicient, URL (version: 2013-06-
+    14): https://mathoverflow.net/q/133752.
+
+[11] G. H. Hardy, J. E. Littlewood and G. Pólya, Inequalities, Cambridge
+    University Press, Cambridge, 1952.
+
+[12] T. Juškevičius, The sharp form of the Kolmogorov–Rogozin inequality
+    and a conjecture of Leader–Radcliffe, Bull. London Math., 56 (2024),
+    3289–3299.
+
+[13] T. Juškevičius, Personal communication, 2023.
+
+[14] T. Juškevičius and V. Kurauskas, On the Littlewood-Offord problem for
+    arbitrary distributions, Random Structures Algorithms 58 (2021) 370–
+    380.
+
+[15] T. Juškevičius, V. Kurauskas, Anticoncentration of random vectors via
+    the strong perfect graph theorem, Combinatorica 45 (2024), 1–36.
+
+[16] J. Keilson and H. Gerber, Some results for discrete unimodality, J.
+    Amer. Statist. Assoc. 66 (1971), 386–389.
+
+
+                                     70
+[17] J. C. Lagarias, H. W. Lenstra and C.-P. Schnorr, Korkin–Zolotarev bases
+    and successive minima of a lattice and its reciprocal lattice, Combinator-
+    ica 10 (1990), 333–348.
+[18] B. Laurent and P. Massart, Adaptive estimation of a quadratic func-
+    tional by model selection, Ann. Statist. 28 1302–1338.
+[19] V. F. Lev, On the Number of Solutions of a Linear Equation over Finite
+    Sets, J. Combin. Theor. Ser. A 83 (1998), 251–267.
+[20] M. Madiman, J. Melbourne and P. Xu, Rogozin’s convolution inequality
+    for locally compact groups, arXiv preprint arXiv:1705.00642.
+[21] M. Madiman, L. Wang and J. O. Woo, Majorization and Rényi Entropy
+    Inequalities via Sperner Theory, Discrete Math. 342 (2019), 2911–2923.
+[22] J. Matousek, Lectures on discrete geometry, Vol. 212, Springer Science
+    & Business Media, 2013.
+[23] C. McDiarmid, Concentration, in Probabilistic Methods for Algorithmic
+    Discrete Math., M. Habib, C. McDiarmid, J. Ramirez-Alfonsin and B.
+    Reed Eds., Springer, New York (1998) 195–248.
+[24] A. L. Mirošnikov and B. A. Rogozin, Inequalities for the concentration
+    function, Teor. Veroyatnost. i Primenen. 25 (1980), 178–183.
+[25] H. Nguyen and V. Vu, Optimal inverse Littlewood–Offord theorems,
+    Adv. Math. 226 (2011), 5298–5319.
+[26] A. M. Odlyzko and L. B. Richmond, On the unimodality of some parti-
+    tion polynomials, European J. Combin. 3 (1982), 69–84.
+[27] S. Regavim, Minkowski bases, Korkin–Zolotarev bases and successive
+    minima, arXiv preprint arXiv:2106.03183.
+[28] M. Singhal, Erdős–Littlewood–Offord problem with arbitrary probabil-
+    ities, Discrete Math. 345 (2022) 113005.
+[29] T. Tao and V. Vu, A sharp inverse Littlewood-Offord theorem, Random
+    Structures Algorithms 37(2010) 525–539.
+[30] N. G. Ushakov, Upper estimates of maximum probability for sums of
+    independent random vectors, Theory Probab. Appl. 30 (1986), 38–49.
+
+
+                                     71
+A     Appendix
+Here we list some auxiliary lemmas.
+   Note that by the Cauchy–Schwarz inequality we have for any x ∈ Rd
+                                        X
+                                        d
+                                                        √
+                             kxk1 =           |xi | ≤       dkxk.          (70)
+                                        i=1
+
+    We will use the next almost trivial lower bound for singular values of an
+integer matrix.
+Lemma A.1. Let A be an m × n integer matrix of full column rank (so
+n ≤ m). Let R > 0. Suppose that kvi k ≤ R for each i ∈ {1, . . . , n}, where vi
+is the ith column vector of A. Then the smallest singular value of A satisfies
+                                      √
+                            σn (A) ≥ ( nR)−(n−1) .
+Proof A basic property of singular value decomposition is that
+                                                 X
+              σ1 (A) = kAk = max kAzk = max k        z i vi k
+                                    ∥z∥=1                ∥z∥=1
+                                                                    i
+                                                    √
+                 ≤ max kvi k max kzk1 ≤                 nR.
+                     i          ∥z∥=1
+                                            P          P
+Here the first inequality follows since k i zi vi k ≤ i |zi |kvi k by the trian-
+gle inequality and√the second one follows by (70). So using the property
+σ1 (A) . . . σn (A) = det AT A we have
+                           √
+                             det AT A       1         √
+                  σn (A) ≥        n−1
+                                      ≥        n−1
+                                                   ≥ ( nR)−(n−1) .
+                           σ1 (A)       σ1 (A)
+                                                                              □
+Lemma A.2. Fix a positive integer r. Let S ⊆ Zr be such that kxk ≤ R for
+all x ∈ S.
+    Let L be the set generated by all finite linear combinations of vectors from
+S with integer coeﬀicients.
+    Suppose 0 ∈ S. Let r′ be the dimension of the subspace of Rr spanned by
+S.
+    Then there is an r × r′ integer matrix A such that
+                                                ′
+                         S ⊆ {Ax : x ∈ Zr , kxk ≤ c(R, r)}
+                     q
+where c(R, r) = R(       r(r+3) 2 r−1
+                            4
+                               R )    ≤ rr−1 R2r−1 .
+
+                                              72
+Proof L is a lattice of rank r′ , see, e.g. [17]. It has a lattice basis consisting
+                   ′
+of r′ vectors in Zr such that L is equal to the set of their linear combinations
+with integer coeﬀicients.
+    It is known in the literature, see, e.g., Theorem 2.1 of [17], that L has a
+so called Korkin–Zolotarev lattice basis v1 , . . . , vr′ which satisfies
+                             r
+                               i+3
+                     kvi k ≤        λi (L)2 , i ∈ {1, . . . , r ′ },
+                                4
+where λi (L) is the ith successive minimum of L, which is defined as the
+infimum among the numbers s such the closed ball B(0, s) in Rr contains i
+linearly independent vectors from L. Since our set S must contain r′ linearly
+independent
+        q     vectors from L, we have λi (L) ≤ R for all i ∈ {1, . . . , r ′ }. So
+           ′
+kvi k ≤ r 4+3 R2 .
+    Let A be an r×r′ matrix with the Korkin–Zolotarev basis vectors v1 , . . . , vr′
+                                           ′
+as columns. Let x ∈ S ⊆ L and let y ∈ Zr be the unique vector such that
+x = Ay. Since A has full column rank, it has a pseudoinverse (AT A)−1 AT .
+Thus
+                             y = (AT A)−1 AT x
+and
+                 kyk ≤ k(AT A)−1 AT kkxk ≤ σ1 ((AT A)−1 AT )R
+A basic property of the pseudoinverse of the matrix A is that it has singular
+                                                                    −1 T
+values which are reciprocals of the singular values of A. Thus k(A
+                                                                √ A) A k =
+                                                                  T
+ −1
+σr′ (A). Another basic fact is that σ1 (A) × · · · × σr′ (A) = det AT A ≥ 1,
+here the inequality is because A has integer values and the matrix A has
+rank r′ .
+    By Lemma A.1
+                                   r
+                                      r′ (r′ + 3) 2 −(r′ −1)
+                       σr′ (A) ≥ (               R )
+                                            4
+so                                                r
+                                                      r(r + 3) 2 r−1
+               kyk ≤ Rσr′ (A)−1 ≤ c(R, r) := R(               R ) .
+                                                          4
+                                                                                 □
+
+
+
+
+                                        73
+Lemma A.3. Let X be a random vector in Rd with normal distribution of
+mean zero and a positive definite covariance matrix Σ. Let σ1 (Σ) be the
+largest singular value of Σ. Then for any t > 0 such that d ≤ 16σ1t (Σ) we have
+
+                                                 t
+                       P(kXk2 ≥ t) ≤ exp(−            ).
+                                              4σ1 (Σ)
+
+Proof A Laurent and Massart bound (Lemma 1 of [18]) says that for a
+standard normal random vector Z in Rd the corresponding χ-squared random
+variable kZk2 satisfies
+                                      √
+                        P(kZk2 − d ≥ 2 dt + 2t) ≤ e−t .
+
+So if d ≤ 4t we have P(kZk2 ≥ 4t) ≤ e−t . Equivalently, if d ≤ 16t then
+
+                             P(kZk2 ≥ t) ≤ e− 4
+                                                t
+                                                                            (71)
+                 1                                  1      1
+We have X ∼ Σ 2 Z so kXk2 = hX, Xi = ZT (Σ 2 )T Σ 2 Z = kZk2 ( ∥Z∥ Z T
+                                                                     ) Σ ∥Z∥Z
+                                                                              .
+                                                          T
+By the properties of singular values, the maximum of x Σx over unit length
+vectors x is exactly the largest singular value σ1 (Σ). So kXk2 ≤ kZk2 σ1 (Σ).
+   So if d ≤ 16σ1t (Σ) , we have by (71)
+
+                                                                  t
+             P(kXk2 ≥ t) ≤ P(kZk2 σ1 (Σ) ≥ t) ≤ exp(−                  ).
+                                                               4σ1 (Σ)
+
+                                                                              □
+
+
+
+
+                                      74
+

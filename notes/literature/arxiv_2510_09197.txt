@@ -1,0 +1,1263 @@
+                                                 On The Roots of Independence Polynomial:
+                                                          Quantifying The Gap
+                                                                       Om Prakash
+                                               The Institute of Mathematical Sciences, HBNI, Chennai, India.
+
+
+
+
+arXiv:2510.09197v1 [math.CO] 10 Oct 2025
+                                                                omprakashphd@outlook.com
+                                                                     Vikram Sharma
+                                               The Institute of Mathematical Sciences, HBNI, Chennai, India.
+                                                                   vikram@imsc.res.in
+                                                                             October 13, 2025
+
+                                                                                  Abstract
+                                                   The independence polynomial of a graph G is the generating polynomial
+                                                corresponding to its independent sets of different sizes. More formally, if ak (G)
+                                                denotes the number of independent sets of G of size k then
+                                                                                   X
+                                                                         I(G, z):=     (−1)k ak (G)z k .
+                                                                                     k
+
+                                                The study of evaluating I(G, z) has several deep connections to problems
+                                                in combinatorics, complexity theory and statistical physics. Consequently,
+                                                the roots of the independence polynomial have been studied in detail. In
+                                                particular, many works have provided regions in the complex plane that are
+                                                devoid of any roots of the polynomial. One of the first such results showed a
+                                                lower bound on the absolute value of the smallest root β(G) of the polynomial.
+                                                Furthermore, when G is connected, Goldwurm and Santini established that
+                                                β(G) is a simple real root of I(G, z) smaller than one. An alternative proof
+                                                was given by Csikvári. Both proofs do not provide a gap from β(G) to the
+                                                smallest absolute value amongst all the other roots of I(G, z). In this paper,
+                                                we quantify this gap.
+
+
+                                           1    Introduction
+                                           Let G = (V, E) be a simple undirected graph, that is, without loops and multiple
+                                           edges, with V representing its set of n vertices and E its set of edges. An inde-
+
+                                                                                         1
+pendent set of G is a subset of vertices of V such that there is no edge between
+any pair of vertices in the subset. Let ak (G) denote the number of independent
+sets of size k in G, where a0 (G):=1. Following the convention in [3], we define the
+independence polynomial
+                                         n
+                                         X
+                             I(G, z):=         (−1)k ak (G)z k .                   (1)
+                                         k=0
+
+Let β(G) denote the smallest real root of I(G, z). It is well known that such a root
+exists and is indeed in the interval (0, 1]. Moreover, it is also known that any other
+root ρ of I(G, z) is strictly greater than β(G) in absolute value [5, 3]. We next
+describe their proofs in brief, but for this we need to introduce some notation.
+    For a vertex v ∈ V , let NG (v) denote the set of neighbors of v and d(v) its
+degree in G; we will also use N (v) if G is clear from the context. The set of closed
+neighbors of v is N [v]:=N (v)∪{v}. Given a subset S ⊂ V , the graph G\S denotes
+the subgraph of G induced by the vertices V \ S. A key recursive property of the
+independence polynomial is the following: For all vertices u ∈ V , we have
+
+                       I(G, z) = I(G \ u, z) − zI(G \ N [u], z).                   (2)
+
+     One of the key tools used in both [5] and [3] is the Taylor series expansion of
+1/I(G, z) around the origin. In [5], the vertices of the graph are treated as symbols
+of an alphabet and the edge relations as congruence relations on the alphabet, that
+is, if two vertices have an edge then the corresponding alphabets can be swapped
+in any string. The congruence relations impose an equivalence relation, called the
+trace monoid, on the set of all finite strings over the alphabet. It is well known that
+the nth coefficient of the power series 1/I(G, z) is the number of traces of length
+n in the monoid. Using the properties of the trace monoid, it is shown that the
+power series can be expressed as a rational function where both the numerator and
+denominator correspond to the characteristic polynomial of two positive matrices.
+Furthermore, the positive matrix that appears in the denominator dominates the
+one in the numerator entry wise. Therefore, its largest eigenvalue is unique (due
+to Perron-Frobenius) and it does not appear as an eigenvalue of the numerator.
+This establishes the uniqueness of the pole, which is also β(G). We do not see an
+immediate way to quantify the proof.
+     In [3] it is shown, using (1), that the coefficients of the power series 1/I(G, z)
+are all positive. Moreover, from Pringsheim’s theorem we know that the radius of
+convergence of this power series is β(G). Now consider the power series 1/I(H, z)
+for any proper subgraph H of G. We can express
+                               1       I(H, z) 1
+                                     =                 .
+                             I(G, z)   I(G, z) I(H, z)
+
+                                               2
+By repeated applications of (1), along with induction, one can argue that the coeffi-
+cients of both I(H, z)/I(G, z) and 1/I(H, z) are positive. Therefore, the coefficients
+of the series on the left-hand side above are greater than the coefficients of 1/I(H, z).
+Hence, β(G) < β(H). By an inductive argument, it is then shown that β(G) is in
+fact a simple root of I(G, z), when G is connected. To show that any other root ρ
+of I(G, z) is strictly greater than β(G) in absolute value, they consider the function
+                                          zI(G \ N [u], z)
+                               fu (z):=                    ,
+                                            I(G \ u, z)
+where u ∈ V . An inductive argument, similar to the one used for 1/I(G, z), shows
+that the coefficients (except the constant coefficient) of this power series are also
+positive. Now if ρ is any other root of I(G, z) with absolute value β(G) then fu (ρ) =
+                                                             iθ
+    √ = 1, that is, fu is periodic on the circle β(G)e , where θ ∈ [0, 2π) and
+fu (|ρ|)
+i:= −1. Using the “Daffodil Lemma” from complex analysis [4, p. 266], this implies
+that the coefficients of fu (z) are a subset of an arithmetic progression. However,
+since the kth coefficient of fu (z) asymptotically is of the form (β(G \ u))−k , it does
+not satisfy an arithmetic progression and this gives us a contradiction that ρ can
+have the same absolute value as β(G). As the proof is by contradiction, it also fails
+to quantify the gap between β(G) and ρ.
+     The insight in this paper builds on the observation that since fu (z) is holomorphic
+for all z such that |z| < β(G\u), from the Maximum Modulus Principle [4, p. 545] we
+know that the largest absolute value of fu (z) on the disc D(0, β(G)eiθ ) is attained on
+its boundary. Moreover, as the coefficients of fu (z) are positive, a simple calculation
+shows that the maximum absolute value is attained on the positive real axis, namely
+at β(G). This gives an alternate proof to the ones given above. To quantify this
+argument, we proceed in two steps: first, we show that the function is univalent
+in a neighborhood of β(G), and second, by constructing a disc around all points
+with absolute value β(G), except in a certain neighborhood of β(G), where fu (z)
+does not take the value one. The two steps should intuitively hold, since in the
+case of the former, as the derivative fu′ (z) does not vanish at β(G) there must be
+a neighborhood of β(G) where the function is injective; the latter case follows from
+the continuity of fu (z). The main challenge is to quantify these two intuitive ideas.
+For this purpose, we need tools, such as, Smale’s γ-function to study the function
+locally, and some simple results from complex analysis on radius of univalence of a
+function, such as fu (z). The main result of the paper is the following:
+Theorem 1.1. Let G be a connected graph on n vertices. Then the disc centered at
+the origin
+                                            O(n) !
+                                        β(G)
+                        D 0, β(G) +
+                                         n
+contains only the smallest root β(G) of I(G, z).
+
+                                             3
+   In the next section, we describe the main results of the paper with intuitive
+details. The proofs of these results are developed in the subsequent sections. The
+necessary preliminary results and definitions from graph theory and complex analysis
+that are needed are provided in the appendix Section A.
+
+
+2     Main Results
+Our focus will be to understand the properties of the following function: For any
+u ∈ V , let
+                                      zI(G \ N [u], z)
+                             fu (z):=                  ,                       (3)
+                                        I(G \ u, z)
+For example, consider the star graph Sn with one central vertex of degree n connected
+to n leaves. It is not hard to verify that its independence polynomial is (1 − z)n − z.
+Now, if u is the “center” vertex in Sn then fu (z) = z/(1 − z)n , but if u is one of the
+leaves in Sn then
+                         fu (z) = z(1 − z)n−1 /((1 − z)n−1 − z).                     (4)
+If N [u] = {u, u1 , . . . , uk }, where k = d(u), then
+                            I(G \ {u, u1 } , z)      I(G \ {u, u1 , . . . , uk } , z)
+               fu (z) = z                       ...                                    .
+                               I(G \ u, z)          I(G \ {u, u1 , . . . , uk−1 } , z)
+By k applications of (2), one can recursively construct functions gj (z), j = 1, . . . , ℓ
+such that
+                                              z
+                       fu (z) =                                 ,                    (5)
+                                (1 − z)d(v)−ℓ ℓj=1 (1 − gj (z))
+                                             Q
+
+where gj (z) is not identity for all j. Again consider Sn with u as one of the leaves
+then the function given in (4) can be re-written as
+                                                       z
+                                      fu (z) =                    .
+                                                 1 − (1−z)z n−1
+
+The depth of fu (z) is one more than the maximum depth of gj (z)’s, where the base
+case
+                                             z
+                                 fu (z) =          ,                           (6)
+                                          (1 − z)ℓ
+for ℓ ≥ 1, has depth one. The example function for Sn with u as a leaf has depth
+two. The reason why we treat powers of (1 − z) in the denominator separately will
+shortly become clearer.
+    Now if ρ is a root of I(G, z), then from Proposition A.1 we know that fu (ρ) = 1.
+As mentioned in Section 1, to quantify the gap between β(G) and the second smallest
+absolute value over the remaining roots of I(G, z), involves two steps.
+
+                                                   4
+   Our first result is to show using Proposition A.2 that I(G, z) is injective in a
+neighborhood of β(G). For this purpose, we define
+
+                                          β(G)dia(G)
+                                  rG :=              ,                            (7)
+                                             2n
+where dia(G) is the diameter of G (see Section A). We show the following:
+
+Theorem 2.1. The polynomial I(G, z) is injective on D(β(G), rG /2), that is, β(G)
+is the unique root of the polynomial in this disc.
+
+
+
+
+                            (b)                          (c)
+
+
+
+
+                                             (a)
+
+
+
+Figure 1: The absolute value function is not always monotone. In (a) we have the
+plot of |z/(1 − z/(1 − z)2 )| in red color, corresponding to S3 as given in (4), where
+z:=βeit , and β ∼ 0.318 is the point where the function takes the value one. The plot
+in blue color shows the corresponding majorizing function. (b) Shows the derivative
+with respect to t of the absolute value in [0, π] and (c) shows the same graph zoomed
+in to highlight an additional root of the derivative besides 0 and π.
+
+   We next need to show that for the points on the circle β(G)eiθ that are outside
+the disc D(β(G), rG /4), there is a disc centered around each of the points such that
+the value |fu (z)| is smaller than one on these discs. The following result makes this
+precise:
+
+                                            5
+Lemma 2.2. If |w − β(G)eiθ | ≤ rG (1 − fu (β(G)eiθ ) ) then |fu (w)| < 1. In other
+words, there is no root of I(G, z) in the disc D(β(G)eiθ , rG (1 − fu (β(G)eiθ ) )), for
+θ > 0.
+
+    Note that the radius of the disc goes to zero as θ approaches zero, but this case
+is already handled in Theorem 2.1. In order to make the bound explicit in terms of
+graph parameters, we need to upper bound fu (βeiθ ) for θ sufficiently far away from
+the origin. Ideally one would expect fu (βeiθ ) to monotonically decrease in θ as it
+varies from 0 to π, but this is not the case, as shown in Figure 1 for the function
+z/(1 − z/(1 − z)2 ).
+    Nevertheless, this is not far away from the truth, since as the depth of fu (z)
+increases it concentrates around the origin and drops sharply as θ increases; we are
+not able to prove this, but our observation is that it has the properties of a “good
+kernel” [11]. Instead, we show that there is a natural function that majorizes |fu (z)|
+on the boundary of the disc D(0, reiθ ), within its domain of holomorphy, and that
+is also monotonically decreasing with θ.
+    A majorant function Gr (θ) for a complex valued function g(reiθ ) satisfies the
+following two properties:
+
+  1. Gr (0) = g(r).
+
+  2. For all θ, |g(reiθ )| ≤ Gr (θ), that is, the function majorizes g on the circle reiθ .
+
+  3. It is a monotone decreasing function, i.e., G′r (θ) ≤ 0; attains its maximum at
+     the origin, i.e., G′r (0) = 0; and it is symmetric about the y-axis, i.e., Gr (θ) =
+     Gr (−θ).
+
+For example, consider the function in the base case z/(1 − z)ℓ . Its absolute value
+on reiθ is r/|1 − reiθ |ℓ , which by a simple calculation turns out to be
+                                                 r
+                            gr (θ) =                           .
+                                       (1 − 2r cos θ + r2 )ℓ/2
+
+In this case it is easier to argue monotonicity because the derivative with respect to
+θ is
+                                        −ℓr2 sin θ
+                                                             ,
+                                 (1 − 2r cos θ + r2 )(ℓ+2)/2
+which is negative for θ ∈ (0, π). However, we use a simpler majorant function that
+upper bounds the absolute value in the base case and behaves similarly. Based on
+the observation that 1 − reiθ ≥ 1 − r cos θ, one such function is
+                                                  r
+                                 gr (θ):=                  .                           (8)
+                                            (1 − r cos θ)ℓ
+
+                                              6
+For r ≤ β(G − u), consider the function
+
+                                                          reiθ
+                            fu (reiθ ) =                 Q                   ,
+                                             (1 − reiθ )ℓ j (1 − gj (reiθ ))
+
+where j varies over some fixed index, and ℓ ≥ 0. A majorant function Fu,r (θ) for
+|fu (reiθ )| is obtained recursively from the majorant functions Gj,r (θ) for gj (reiθ ) ,
+respectively, as follows:
+                                                            r
+                            Fu,r (θ):=                      Q                      .              (9)
+                                           (1 − r cos θ)ℓ       j (1 − Gj,r (θ))
+
+The reason we treat powers of (1 − reiθ ) separately is because if we take the absolute
+value inside, as we will immanently do for the gj ’s, we will get a constant function
+r. So, in principle, we assume that the gj ’s have depth more than one.
+    Let us verify that Fu,r (θ) satisfies all the properties of a majorant function.
+Firstly,
+                                                r
+                          Fu,r (0) =         Q                 .
+                                     (1 − r)k j (1 − Gj,r (0))
+But as Gj,r (0) = gj (r) and the latter is positive it follows that
+                                                      r
+                           Fu,r (0) =                Q                  = fu (r).
+                                          (1 − r)k     j |1 − gj (r)|
+
+Secondly
+                                      r                                 r
+|fu (reiθ )| ≤                  Q                      ≤                Q                  = Fu,r (θ)
+                 |1 − reiθ |k                     iθ
+                                    j (1 − |gj (re )|)   (1 − r cos θ)k
+                                                                          j (1 − Gj,r (θ))
+
+and thirdly, taking the logarithmic derivative with respect to θ of Fu,r (θ) we obtain
+                          ′
+                         Fu,r (θ)       kr sin θ     X    G′j,r (θ)
+                                  =−               +                  .                         (10)
+                         Fu,r (θ)    (1 − r cos θ)   j
+                                                       (1 − Gj,r (θ))
+
+Therefore, the derivative is non-positive since by induction G′j,r (θ) ≤ 0 and Fu,r (θ) >
+0; moreover, it also vanishes at θ = 0, hence, the maximum value is attained at the
+origin which is equal to fu (r) ≤ 1, for r ≤ β(G); the symmetric nature also follows
+by applying induction to (9).
+    The majorant function will be used in Lemma 2.2 instead of fu (βeiθ ) . However,
+we still need a more explicit upper bound on Fu,r (θ). The monotone nature of the
+function comes to rescue, since locally around the origin we will show that the
+function is upper bounded by an inverted parabola, that is, Fu,r (θ) ≤ Fu,r (0) − cθ2
+for θ ≤ θG and some constant c dependent on graph parameters. Therefore, the
+
+                                                      7
+upper bound at θG holds for all Fu,r (θ), for θ > θG . Substituting this upper bound
+at θG in Lemma 2.2 then gives us the desired explicit disc around every point βeiθ
+that is devoid of roots. In order to derive this local upper bound, we need to
+derive an upper bound on a variant of the gamma-function for Fu,r (θ). This is
+done inductively. Define Fu (θ):=Fu,β(G) (θ), that is, Fu,r (θ) with r = β(G), and
+Gj (θ):=Gj,β(G) (θ). Then from (9) it follows that
+
+                                               β(G)
+                    Fu (θ) =                                          .            (11)
+                               (1 − β(G) cos θ)ℓ d(u)−ℓ
+                                                Q
+                                                  j=1   (1 − G j (θ))
+
+   In particular, we show the following result:
+
+Lemma 2.3. For Fu (θ) defined as in (11), and
+
+                                                 (m+1)          1/(m+1)
+                                   d   Gj   (0)
+                           Γ:= max sup
+                               j=1 m≥0 (m + 1)!
+
+
+we have
+                                       (k)       1/k
+                                    Fu (0)                 2dΓ
+                                sup                    ≤        .
+                                k≥0   k!                   β(G)
+
+   As a consequence, we have
+
+Lemma 2.4. If θ ≤ (β(G)/2d)2∆ , where d is the maximum degree of G, and ∆ is
+the depth of Fu (θ), then
+                                           (β(G)θ)2
+                              Fu (θ) ≤ 1 −          .
+                                              4
+To express the bound only in terms of d, we can use Shearer’s bound λS (d) instead
+of β(G).
+
+   Substituting this in Lemma 2.2, we obtain
+
+Corollary 2.5. Define
+                                                     dia(G)
+                                               β(G)
+                                   θG :=                        .                  (12)
+                                                4n
+Then for all θ ≥ θG there is no root of I(G, z) in the disc D(β(G)eiθ , rG (β(G)θ)2 /4),
+
+   Finally, combining this result with Theorem 2.1 gives us Theorem 1.1 as desired.
+   In the next sections, we develop the proofs and details of the results above.
+
+
+
+
+                                                8
+3     Univalence of I(G, z) around β(G)
+Throughout this section, we use β:=β(G), and v ∈ V as a representative vertex.
+The function fv (z) given in (3) can also be expressed as
+
+                                   zI(G \ N [v], z)       I(G, z)
+                    fv (z) =                        =1−             .          (13)
+                                     I(G \ v, z)        I(G \ v, z)
+
+Then fv (β) = 1, fv (0) = 0, and fv′ (0) = 1. The next result gives a lower bound on
+the growth of fv in the vicinity of βG .
+
+Lemma 3.1. At the smallest root β(G) of I(G, z), we have fv′ (βG ) > 1/βG .
+
+Proof. Taking the derivative on both sides of (13), considering the second formula-
+tion, we get that
+                                   ′
+                                          I ′ (G, z)   I(G, z)I ′ (G \ v, z)
+                     
+            ′            I(G, z)
+          fv (z) = −                  =−             +                       .
+                       I(G \ v, z)       I(G \ v, z)      I(G \ v, z)2
+
+Since β is a root of I(G), we get
+
+                                                   I ′ (G, β)
+                                    fv′ (β) = −               .
+                                                  I(G \ v, β)
+
+Substituting (29) for the derivative, we further obtain that
+                             X I(G − N [u], β)
+                 fv′ (β) =
+                             u∈V
+                                     I(G − v, β)
+                             I(G − N [v], β)     X I(G − N [u], β)
+                       =                     +                                 (14)
+                               I(G − v, β)     u∈V,u̸=v
+                                                        I(G − v, β)
+                             1   X I(G − N [u], β)
+                       =       +                    ,
+                             β u∈V,u̸=v I(G − v, β)
+
+where the last step follows from the definition of β. Now observe that the graphs
+G \ N [u], for u ∈ V \ {v} and G \ v are all subgraphs of G. Therefore, from
+Proposition A.1 we know that their smallest root is larger than β and hence the
+corresponding independence polynomials evaluated at β are all positive. This means
+that the terms in the summation above are all positive, which gives us the desired
+lower bound on fv′ (β).
+
+
+    We also have a corresponding upper bound on fv′ (β).
+
+                                                  9
+Lemma 3.2. For all v ∈ V , fv′ (β) ≤ β dia(G)
+                                         n
+                                              , where dia(G) is the diameter of G.
+
+Proof. Let the vertex set of the graph G be V = v, v1 , . . . , vn−1 . Again consider
+(14). We start with a lower bound on the denominator I(G − v, β) as follows. We
+know that I(G − v, β) = βI(G − N [v], β). Let Gv = G − N [v] + v1 where v1 ∈ N [v],
+and βv be the smallest root of I(Gv , z). Now I(G, z) is continuously decreasing on
+the real line starting from the origin down to its smallest root. At the origin we
+have I ′ (G, 0) = |V (G)|. Since Gv is a subgraph of G, we have βv > β. Therefore,
+
+        I(G − v, β) = βI(G − N [v], β) = βI(Gv − v1 , β) ≥ βI(Gv − v1 , βv ).
+
+Repeating the above argument for vertex v1 and so on we obtain I(G − v, β) ≥ β k ,
+where k is the maximum distance of any vertex from the vertex v. Since the diameter
+dia(G) of the graph is the longest shortest path in the graph and β < 1 we have
+
+                                      I(G − v, β) ≥ β dia(G) .                                         (15)
+
+Note that I(G − N [u], β) < 1 for all u ∈ V . Substituting these two bounds in (14)
+we get
+                ′        1    n−1       β dia(G)−1 + n − 1     n
+               fv (β) ≤ + dia(G) =               dia(G)
+                                                           ≤ dia(G) ,
+                         β β                   β             β
+since β ≤ 1, β dia(G) ≤ 1.
+
+
+   We next derive an upper bound on higher-order derivatives of I(G, z), which will
+be useful later.
+
+Lemma 3.3. Let    β be the smallest root of I(G, z), then for all 0 ≤ k ≤ n we have
+I (k) (G, β) ≤ nk ≤ nk . More generally, if H is a subgraph of G, then I (k) (H, β) ≤
+ |H|
+     
+  k
+       ≤ |H|k .
+
+Proof. For a general k, we have
+                              X
+      I (k) (G, z) = (−1)k                              I(G − N [u1 ] − N [u2 ] − · · · N [uk ], z).
+                             u1 ∈V,u2 ∈G−N [u1 ],...,
+                               uk ∈G−∪k−1
+                                        j=1 N [uj ]
+
+
+
+Since the graph G − N [u1 ] − N [u2 ] − · · · N [uk ] is a subgraph of G, its evaluation at
+β is smaller than one. The number of distinct choices of u1 , . . . , uk are at most nk ,
+                                                                                         
+
+which completes the proof.
+
+
+
+
+                                                    10
+   Using the bounds above, we derive an upper bound on γI ′ (G,z) (see (32)), the
+standard gamma-function for the derivative I ′ (G, z) at β. We start with deriving a
+lower bound on I ′ (G, β): Since
+                                          X
+                           I ′ (G, β) = −   I(G − N [u], β)
+                                                       u∈V
+
+and each I(G − N [u], β) has the same sign and by (15) is at least β dia(G) , we obtain
+
+                                          |I ′ (G, β)| ≥ nβ dia(G) .                                         (16)
+
+It is not hard to see from the bound in Lemma 3.3 above and (16) that
+                                                       1/k                            1/k
+                                   I (k+1) (G, β)                         nk+1                     n
+    γ=γ I ′ (G,z)   (β):= max                                ≤ max                          ≤              . (17)
+                         k=1,...,n  k!I ′ (G, β)              k=1,...,n k!nβ dia(G)             β dia(G)
+    In order to apply Proposition A.2 to I(G, z) centered at β, we first need to
+derive an upper bound on |I ′ (G, z)| in a neighborhood of β. Consider the Taylor
+series expansion of the derivative around β
+                                               X I (k+1) (G, β)
+                                I ′ (G, z) =                         (z − β)k .
+                                               k≥0
+                                                             k!
+
+Taking absolute values and pulling out the constant term we get
+                                                       X I (k+1) (G, β)
+                         |I ′ (G, z)| ≤ |I ′ (G, β)|                          |z − β|k .
+                                                       k≥0
+                                                               k!I ′ (G, β)
+
+Substituting the upper bound from (17) in the right-side, we obtain that for z ∈
+D(β, r)
+                                               X            |I ′ (G, β)|
+                   |I ′ (G, z)| ≤ |I ′ (G, β)|     γ k rk =              ,
+                                               k≥0
+                                                             (1   − rγ)
+
+as long as rγ < 1. By (7), we know that, r(G)γ ≤ 1/2. Therefore, for all z ∈
+D(β, rG ), |I ′ (G, z)| ≤ 2 |I ′ (G, β)|. Substituting this upper bound, along with the
+definition of r(G), in Proposition A.2 applied to I(G, z) at β, we get Theorem 2.1.
+
+
+4    Gap around every point on the circle with ra-
+     dius β(G)
+In this section, we prove Lemma 2.2, that is, we show that the gap to unity for every
+θ > θG is governed by the gap of fu (reiθ ) to fu (r) and a constant that depends on
+
+                                                        11
+r. We will do the argument only for r = β(G). For this purpose, we first need an
+                  (k)
+upper bound on fu (β(G)) . Again, for convenience, let β:=β(G).
+   The kth derivative, up to sign, will have the form
+                               (k)            k                                        (j)
+                I(G, z)                         X             k         (k−j)       1
+                                       =                         I(G, z)                         .       (18)
+              I(G − u, z)                                     j                 I(G − u, z)
+                                           j=max{0,k−n}
+
+
+Applying Arbogast’s formula (33) we obtain
+                  (j)                                                             j                im
+                                        (−1)i1 +···+ij      j!(i1 + · · · + ij )! Y I (m) (G − u, z)
+
+        1                   X
+                         =
+    I(G − u, z)            i ,...,i
+                                    I(G − u, z)1+i1 +···+ij      i1 ! . . . ij !  m=1
+                                                                                           m!
+                            1      j
+
+                                                                                                         (19)
+where the sum is over all indices i1 , . . . , ij such that
+
+                                       i1 + 2i2 + 3i3 + · · · + jij = j                                  (20)
+
+Substituting z = β in (18), the term corresponding to j = k disappears in the sum.
+Plugging the upper bound on the derivatives from Lemma 3.3 in (19) above we get
+that
+             k−1                                                                      j 
+ fu (β)(k)                                                     j!(i1 + · · · + ij )! Y nm im
+                                                                                             
+             X       1               X           1
+           ≤                n(k−j) ·                                                           .
+     k!          j!(k − j)!            I(G − u, β)1+i1 +···+ij      i1 ! . . . ij !
+                                                                                     m=1
+                                                                                          m!
+               j=0                           i1 ,...,ij
+                                           P
+From (36), we obtain that n m mim = nj . Moreover, as I(G − u, β) < 1, we can
+upper bound its exponent by k as well to get
+                                              k−1
+                                           k X                                         j     i
+    fu (β)(k)
+                   
+                           n                            1      X j!(i1 + · · · + ij )! Y    1 m
+              ≤                                                                                   .
+        k!             I(G − u, β)             j=0
+                                                   j!(k − j)! i ,...,i i1 ! . . . ij ! m=1
+                                                                                            m!
+                                                                    1   j
+
+
+
+Using (35) the summation over the indices i1 , . . . , ij can be expressed as
+                                                             k−1
+                                                          k X               j
+               fu (β)(k)
+                                 
+                                         n                            1     X
+                         ≤                                                      t!Bj,t (1, . . . , 1),
+                   k!                I(G − u, β)             j=0
+                                                                 j!(k − j)! t=0
+
+
+The last summation over t is the ordered Bell number, B ej (see Section A), which
+gives us
+                                                k−1
+                                             k X
+                  fu (β)(k)
+                               
+                                     n                  B
+                                                        ej
+                            ≤                                  .
+                      k!         I(G − u, β)    j=0
+                                                    j!(k − j)!
+
+
+
+                                                             12
+Furthermore, applying the upper bound from (38) we derive that
+                                                           k−1
+                                                        k X
+                      fu (β)(k)                                      2j
+                                    
+                                              n
+                                ≤                                           .
+                          k!              I(G − u, β)         j=0
+                                                                  (k −  j)!
+
+Notice that the summation
+           k−1                  k                   ∞
+           X       2j          X 1            X 1
+                          = 2k         j
+                                         < 2k
+                                                      j
+                                                        = 2k (e1/2 − 1) ≤ 2k .
+            j=0
+                (k −  j)!      j=1
+                                   j!2        j=1
+                                                  j!2
+
+Therefore, we finally obtain that
+                                                                k
+                             fu (β)(k)
+                                              
+                                                      2n
+                                       ≤                             .
+                                 k!               I(G − u, β)
+
+As a consequence, we get that
+                                        2n         2n       1
+                       γfu (β) ≤                ≤ dia(G) =    .                    (21)
+                                    I(G − u, β)  β         rG
+
+From this bound, we can derive the following estimate, an alternate proof of Theo-
+rem 2.1:
+
+Lemma 4.1. For all z ∈ D(0, β + rG /2), |fu (z)| ≤ 2.
+
+Proof. A straightforward application of the triangle inequality to the Taylor series
+of fu around β yields
+                                        X                         fu (β)
+                    |fu (z)| ≤ fu (β)    (rγfu (β))k =                      .
+                                        k≥0
+                                                               1 − rγfu (β)
+
+Since r ≤ rG /2 it follows that rγfu (β) ≤ 2, whence the upper bound on |fu (z)| in
+D(β, rG /2). Because of the maximum modulus principle, the upper bound holds on
+the whole disc.
+
+
+
+   Let w be a point in the vicinity of β(G)eiθ . Then taking the Taylor expansion
+around β(G)eiθ , we get the following upper bound:
+
+                                              X |fu(k) (βeiθ )|
+                                     iθ
+                 |fu (w)| ≤ fu (βe ) +                            |w − βeiθ |k .
+                                              k≥1
+                                                         k!
+
+
+                                               13
+Since fu is holomorphic with positive coefficients around the origin, from the strong
+                                                  (k)
+maximum modulus principle, the maximum of |fu (βeiθ )| for all θ is attained at the
+origin. Now, using the upper bound for r = β from (21), we obtain that
+
+                                                 X  |w − βeiθ | k
+                                       iθ
+                     |fu (w)| < fu (βe ) +                             .
+                                                 k≥1
+                                                          rG
+
+Define r:=|w − βeiθ |/rG . If r < 1 then using the formula for a geometric series we
+have
+                                                         r
+                             |fu (w)| < fu (βeiθ ) +           .
+                                                       1−r
+Therefore, as long as
+                                   r
+                                       ≤ 1 − fu (βeiθ )
+                                  1−r
+we have |fu (w)| < 1, or equivalently, if
+                                                                 !
+                                                           iθ
+                                             1 −   f u (βe    )
+                          |w − βeiθ | ≤ rG
+                                             2 − |fu (βeiθ )|
+
+the function cannot take the value one in the vicinity of βeiθ . The denominator can
+be simplified to one since the maximum value of fu (βeiθ ) is one at the origin. This
+completes the proof of the following Lemma 2.2.
+
+
+5    Upper bound on the Majorant Function near
+     the origin
+In this section, we give the proofs of Lemma 2.3 and Lemma 2.4. We again use the
+shorthand β:=β(G). The idea is to consider the Taylor series expansion of Fu,r (θ)
+around the origin. More precisely, we have
+                                                           (k)
+                                                        X Fu,r
+                                           ′                   (0)
+                    Fu,r (θ) = Fu,r (0) + Fu,r (0)θ +                 θk .
+                                                        k≥2
+                                                               k!
+
+Since the first derivative vanishes, we have
+                                                     (k)
+                                                  X Fu,r (0)
+                         Fu,r (θ) = Fu,r (0) +                 θk .
+                                                  k≥2
+                                                         k!
+
+
+
+
+                                            14
+In fact, all the odd derivatives vanish and, the second derivative is negative. We
+first verify the latter condition. From (10) it follows that
+                                                          (2)
+                                                                                    !
+   (2)        ′
+                     X     G′j,r (θ)              X     Gj,r (θ)      (G′j,r (θ))2
+ Fu,r (θ) = Fu,r (θ)                   + Fu,r (θ)                  +                  .
+                     j
+                        (1 − Gj,r (θ))            j
+                                                     (1 − Gj,r (θ)) (1 − Gj,r (θ))2
+                                                                                                         (22)
+                                            (2)
+Now inductively, the second derivatives Gj,r (0) are negative (the base case from (8)
+                                                                     (2)
+is −r2 /(1 − r)2 ), all the other terms vanish, which yield us that Fu,r (θ)(0) < 0 as
+desired. This means that locally near the origin Fu,r (θ) ∼ Fu,r (0) − cθ2 . We will
+next show that for θ sufficiently small, half of the second term will dominate the
+                                                                       (2)
+remaining summation in absolute value, and so Fu,r (θ) ≤ Fu,r (0) − Fu,r (0)θ2 /4 for
+θ ≤ θG . For this purpose we need an upper bound on the absolute values of the kth
+derivatives of Fu,r at the origin with r = β, which will be used to derive an upper
+bound on the γ-function for Fu,r . The upper bound will be derived inductively.
+   Let us begin with recalling some definitions: From (11) we have
+
+                                                                 β
+                                    Fu (θ) = Qd(u)                           ,
+                                                      j=1 (1 − Gj (θ))
+
+where we have simplified the denominator to subsume the functions β cos θ in the
+product by appropriate indexing, and Gj (θ):=Gj,β (θ). We next derive a formula for
+the kth derivative of Fu (θ).
+   It can be verified that for k ≥ 1,
+                           k−1    
+                           X    k−1                              X
+             Fu(k) (θ) =                      Fu(k−1−ℓ) (θ)              −(ln(1 − Gj (θ)))(ℓ+1) .        (23)
+                           ℓ=0
+                                     ℓ                               j
+
+
+Using Arbogast’s formula, (33), for the functions ln(1 − Gj (θ)), along with (41), we
+further get that
+         k−1                                                            ℓ                           (m+1)         !im
+                                                                                                    Gj       (θ)
+                  
+ (k)
+         X     k−1  (k−1−ℓ)
+                                X X (ℓ + 1)! (i0 + · · · + iℓ )!         Y
+Fu (θ) =           Fu       (θ)                                                                                          ,
+                ℓ                   i0 ! . . . iℓ ! (1 − Gj (θ)) ℓm=0 im                            (m + 1)!
+                                                                P
+          ℓ=0                             j    i0 ,...,iℓ                                   m=0
+
+where i0 , . . . , iℓ is an (ℓ + 1)-tuple of non-negative integers satisfying the equation
+
+                                 i0 + 2i1 + · · · + (ℓ + 1)iℓ = ℓ + 1.                                   (24)
+
+At this stage, we can inductively argue that if k is odd then the derivative at the
+origin vanishes; this is because one of the indices m will be odd and by induction
+
+
+
+                                                            15
+ (m+1)                                                                                                                  k−1
+                                                                                                                             
+Gj    (0) vanishes. Dividing both sides by k!, simplifying the binomial                                                  ℓ
+                                                                                                                                 term,
+and substituting θ = 0 we obtain that
+        k−1                                                                      ℓ                                       (m+1)
+                                                                                                                                         !i m
+ (k)            (k−1−ℓ)
+Fu (0) X Fu             (0) X X (ℓ + 1)! (i0 + · · · + iℓ )! Y                                                          Gj   (0)
+      =                                                                 Pℓ                                                                      ,
+  k!    ℓ=0
+            k(k  − 1 −   ℓ)!ℓ! j i ,...,i
+                                          i 0 ! . . . iℓ ! (1 − G j (0)) m=0 im
+                                                                                m=0
+                                                                                                                        (m + 1)!
+                                            0       ℓ
+                                                                                                                                  (25)
+Define                                                                              1/(m+1)
+                                                             (m+1)
+                                     d
+                                                          Gj              (0)
+                                Γ:= max sup                                                           ,                         (26)
+                                    j=1 m≥0               (m + 1)!
+
+which implies that
+                                            (m+1)
+                                           Gj             (0)
+                                                                     ≤ Γm+1 .
+                                           (m + 1)!
+Furthermore, we inductively assume that
+                                                   (j)
+                                                                 1/j
+                                    k−1
+                                                Fu (0)                                2dΓ
+                                    max                                     ≤           .
+                                    j=0              j!                                β
+                                   Q
+Since Fu (0) = 1, we also know that j (1 − Gj (0)) = β, which implies that for all
+j, (1 − Gj (0)) ≥ β. Taking the absolute value, applying the triangle inequality,
+and substituting these upper and lower bounds in the right-hand side, we get the
+following
+   (k)                                                                        im
+ Fu (0)         k−1 
+                X     2dΓ
+                          (k−1−ℓ)                                   ℓ 
+                                   1 X X (i0 + · · · + iℓ )!(ℓ + 1)! Y Γ(m+1)
+            ≤
+    k!          ℓ=0
+                        β                 kℓ!   j       i0 ,...,iℓ
+                                                                                      i0 ! . . . iℓ !         m=0
+                                                                                                                         β
+
+                                  im (m+1)
+                                           = Γℓ+1 and hence
+                            Q
+From (24), the term             mΓ
+
+     (k)
+   Fu (0)
+                                                                                                                    P
+                      k−1     (k−1−ℓ)                                                                               m im
+                  k
+                      X     2d          (ℓ + 1)! X X (i0 + · · · + iℓ )! 1
+             ≤Γ
+      k!              ℓ=0
+                                β               kℓ!                 j    i0 ,...,iℓ
+                                                                                            i0 ! . . . iℓ !     β
+                                                                                                                         P
+                      k−1     (k−1−ℓ)                                 ℓ                                                   m im
+                      X     2d          (ℓ + 1) X X (i0 + · · · + iℓ )! Y 1
+             = Γk                                                                                                                    .
+                      ℓ=0
+                                β                k              j       i0 ,...,iℓ
+                                                                                           i0 ! . . . iℓ !    m=0
+                                                                                                                    β
+
+The summation term over j is independent of it, so we can upper bound the sum-
+mation by the degree d. Furthermore, if we define t = i0 + · · · + iℓ , for a fixed t,
+
+
+                                                           16
+then the right-hand side further simplifies to
+            (k)
+           Fu (0)              k−1 
+                               X     2d
+                                        (k−1−ℓ)         ℓ+1
+                                                 (ℓ + 1) X 1                         X                  t!
+                           k
+                     ≤ dΓ
+             k!                ℓ=0
+                                      β                    k        t=1
+                                                                             βt      i0 ,...,iℓ
+                                                                                                  i0 ! . . . iℓ !
+                                                                                  i0 +···+iℓ =t
+                               k−1     (k−1−ℓ)         ℓ+1      
+                           k
+                               X     2d          (ℓ + 1) X 1 ℓ + 1
+                     ≤ dΓ                                                                     ,
+                               ℓ=0
+                                      β                    k        t=1
+                                                                        βt t − 1
+
+where the last step follows from (39). Since β ≤ 1, we can use β −(ℓ+1) instead of
+β −t to get
+                   (k)
+                  Fu (0)           k−1
+                               k X
+                               Γ
+                                                           ℓ+1 
+                                                                 ℓ+1
+                                                                     
+                                           (k−1−ℓ) (ℓ + 1)
+                                                           X
+                           ≤d          (2d)
+                    k!         β   ℓ=0
+                                                      k    t=1
+                                                                 t−1
+                               k Xk−1
+                               2Γ       (ℓ + 1) (k−1−ℓ)
+                           ≤d                  d        ,
+                                β   ℓ=0
+                                           k
+
+where in the last step we upper bound the summation of the binomials by 2ℓ+1 .
+Since d ≥ 2, it can be showed that the new summation term is at most dk−1 , which
+finally yields us the desired claim in Lemma 2.3.
+    In the base case
+                   √Γ is the standard gamma-function for the cosine function, which
+is smaller than 1/ 2 < 1. Therefore, we get
+                                                 1/k
+                                       (k)
+                                     Fu (0)                
+                                                               2d
+                                                                    ∆
+                                                       ≤                 ,
+                                          k!                   β
+
+where ∆ is the depth of fu (z).
+   In order for half of the second term in the Taylor series expansion of Fu (θ) around
+the origin to dominate the sum of the remaining terms, we want
+                                 (2)            2∆ℓ
+                                Fu (0) 2 X 2d
+                                       θ ≥            θ2ℓ .
+                                   4       ℓ≥2
+                                                β
+
+Assuming
+                                          θ2 ≤ (β/2d)∆ /2,                                                          (27)
+the above inequality follows if
+                                                (2)
+                                               Fu (0)  β ∆
+                                     θ2 ≤                                .                                          (28)
+                                                 4             2d
+
+                                                      17
+We next derive an explicit lower bound on the second-derivative.
+   Recall that the first derivatives Fu′ (0) and G′j (0) vanish, and that the second
+             (2)
+derivatives Gj (0) are all negative. Therefore, from (22) we obtain that
+                                              (2)
+                                     X       Gj (0)       X (2)
+                       Fu(2) (0) =                      ≥   Gj (0).
+                                       j
+                                           (1 − Gj (0))   j
+
+              (2)                    (2)
+Therefore, Fu (0) ≥ d min Gj (0) . Inductively, we obtain that
+
+                             Fu(2) (0) ≥ d∆−1 β 2 /(1 − β)d+1 ,
+since the absolute value of the second derivative of the majorant function in the base
+case is dβ 2 /(1 − β)d+1 . Substituting this in (28), we get a slightly weaker constraint
+than (27), namely, θ2 ≤ β ∆+2 /4d. So, in order to simplify, we combine the two
+constraints to obtain Lemma 2.4.
+    In order to combine this lemma with Theorem 2.1, we notice that the disc
+D(β, rG /2) subtends the angle arcsin(rG /2β), which is at least β dia(G) /(4n), at
+the origin. Take θG as a quantity smaller than this bound and the constraint in
+Lemma 2.4, namely as defined in (12). Since the function Fu (θ) is monotonically
+decreasing, we know that for all θ ≥ θG , Fu (θ) ≤ Fu (θG ). Substituting this in
+Lemma 2.2, we obtain that for all θ ≥ θG , the disc
+                                     D(βeiθ , rG (βθG )2 /4)
+is devoid of roots. Since the radius here is smaller than rG /2, we combine this with
+Theorem 2.1 to finally obtain that the disc
+                                          O(dia(G)) !
+                                            β
+                              D 0, β +
+                                            n
+
+contains exactly one root of I(G, z) completing the proof of Theorem 1.1. Note that
+the depth ∆ is smaller than the diameter dia(G), which instead is bounded by n.
+
+
+6     Some Explicit Lower Bounds On The Gap
+In this section, we derive explicit lower bounds on the gap between the smallest
+root β(G) and the root with the second smallest absolute value of the independence
+polynomial of some fundamental graph classes. In particular, we give the explicit
+lower bounds for the Path Graph (Pn ), the Cycle Graph (Cn ) on n vertices and the
+Complete Bipartite Graph (Kn×n ) on 2n vertices. For convenience, let β:=β(G) and
+α:=α(G) be the root with the second smallest absolute value of the independence
+polynomial of graph G in each of the cases.
+
+                                               18
+Path Graph To describe the independence polynomial Pn (z) of the Path Graph
+we need the Fibonacci polynomials [7]: Let F1 (z):=1, F2 (z):=z and recursively de-
+fine Fn+1 (z):=zFn (z) + Fn−1 (z). From the relation (2) for Pn (z) we obtain that
+z n−1 Pn (−1/z 2 ) = Fn+2 (z). The roots of Fn+2 (z) are 2i cos(kπ/(n + 2)), k =
+1, . . . , n + 1. Therefore, the roots of Pn (z) are 1/(4 cos2 (kπ/(n + 2))), for k =
+1, . . . , ⌊ n+1 ⌋. Therefore, β = 4 cos21 π and α = 4 cos21 2π , with m:=n + 2. Using the
+              2                           (m)               (m)
+Taylor series for the cosine function, for large values of m, we get
+                                      π
+                                         
+                                 cos m            3π 2
+                                           =  1 +      + O(m−4 ).
+                                cos 2π
+                                                    2
+                                      m
+                                                  2m
+
+On squaring, we obtain that
+                         π
+                            
+                   cos2 m          3π 2
+                                                       
+              α                            −4          1
+                 =       2π
+                             = 1 + 2 + O(m ) = 1 + Ω     .
+              β    cos2 m          m                   n2
+
+Cycle Graph The independence polynomial Cn (z) of the Cycle Graph can be
+expressed in terms of the Chebyshev polynomial of the first kind Tn (z) [9]:
+                                                 
+                                       n/2     1
+                            Cn (z) = 2z Tn    √     .
+                                             2 z
+                                      1
+Therefore, its roots are                   , k = 0, 1, . . . , ⌊ n−1
+                                      (2k+1)π                     2
+                                                                     ⌋. This implies that β =
+                           4 cos2 (      )
+                                         2n
+     1
+          π   and α = 4 cos21 3π . An argument similar to the one above implies that
+4 cos2 ( 2n )                ( 2n )
+asymptotically we have
+
+                                  2π 2 17π 4
+                                                                       
+                     α                             −6                   1
+                       =1+ 2 +             4
+                                              + O(n ) = 1 + Ω               .
+                     β              n   6n                              n2
+
+Complete Bipartite Graph The independence polynomial Kn×n (z) of the Com-
+plete Bipartite Graph on 2n vertices is Kn×n (z) = 2(1 − z)n − 1. Its roots are
+            1 i2kπ                                                 1                   2π
+zk = 1 − 2− n e n , k = 0, 1, . . . , n − 1. Therefore β = 1 − 2− n and α = 1 − rei n ,
+             1
+where r:=2− n . Since, in this case α is a complex root, we compute ratio of the
+absolute values of the roots:
+      q                            q
+               2 − 2r cos( 2π )
+                                       (1 − r)2 + 4r sin2 (θ/2)
+                                                                 s
+|α|      1 + r              n                                           4r
+    =                           =                               = 1+           sin2 (θ/2).
+ β              1−r                            1−r                   (1 − r2 )
+
+
+
+
+                                                19
+                                             2                                3
+                                                    −3                                −5
+Take b:= ln(2) then, r = e−b/n = 1− nb + 2n
+                                          b
+                                            2 +O(n     ) and sin( πn ) = πn − 6n
+                                                                              π
+                                                                                3 +O(n   ).
+After substituting these estimates and simplifying we get that for large n
+                         s             2            
+                  |α|          4π 2     −π       4π 4 1
+                       = 1+ 2 +                − 2          + O(n−3 )
+                   β            b         3      3b      n2
+                         r
+                               4π 2 π 2 1
+                       = 1+ 2 −             2
+                                              + O(n−3 )
+                                b  6n
+                                      1
+                       ≈ 9.119 − O         .
+                                     n2
+
+7     Concluding Remarks
+This paper provides the first quantitative lower bound on the gap between the small-
+est root of the independence polynomial and the second smallest absolute value. A
+simple proof for the existence of the gap can be based on the maximum modulus
+principle. Quantifying the principle for the special function at hand involves study-
+ing its local behaviour. To the best of our knowledge, this is the first time a result
+is provided for separation between roots of the independence polynomial; earlier re-
+sults always focus on zero-free regions. Our larger hope is to study the algorithmic
+implications of the ratio of β(G) to the second smallest absolute value. Can it be
+used to design algorithms that are efficient for those graphs where this ratio is large,
+for example, the graph classes mentioned in Section 6?
+
+
+References
+ [1] F. Bencs, P. Csikvári, P. Srivastava, and J. Vondrák. On complex roots of the
+     independence polynomial. In N. Bansal and V. Nagarajan, editors, Proceedings
+     of the 2023 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA),
+     pages 675–699, 2023.
+ [2] L. Blum, F. Cucker, M. Shub, and S. Smale. Complexity and Real Computation.
+     Springer-Verlag, New York, 1998.
+ [3] P. Csikvári. Note on the smallest root of the independence polynomial. Com-
+     binatorics, Probability and Computing, 22:1–8, 2012.
+ [4] P. Flajolet and R. Sedgewick. Analytic Combinatorics. Cambridge University
+     Press, USA, 1 edition, 2009.
+ [5] M. Goldwurm and M. Santini. Clique polynomials have a unique root of smallest
+     modulus. Information Processing Letters, 75(3):127–132, 2000.
+
+                                            20
+ [6] L. A. Harris. On the size of balls covered by analytic transformations. Monat-
+     shefte für Mathematik, 83(1):9–23, Mar 1977.
+ [7] V. E. H. Jr. and M. Bicknell. Roots of Fibonacci Polynomials. The Fibonacci
+     Quarterly, 11(3):271–274, 1973.
+ [8] S. G. Krantz and H. R. Parks. A Primer of Real Analytic Functions. Birkhäuser,
+     2012.
+ [9] V. E. Levit and E. Mandrescu. The independence polynomial of a graph–a sur-
+     vey. In Proceedings of the 1st International Conference on Algebraic Informat-
+     ics, volume 233254, pages 231–252. Aristotle Univ. Thessaloniki Thessaloniki,
+     2005.
+[10] J. Shearer. On a problem of Spencer. Combinatorica, 5:241–245, 1985.
+[11] E. M. Stein and R. Shakarchi. Fourier Analysis: An Introduction. Princeton
+     University Press, 2003.
+
+
+A     Basic Results
+Throughout this paper G = (V, E) will be assumed to be a simple undirected graph.
+Let n be the number of vertices in G. For every vertex u ∈ V , let d(u) denote
+its degree, and d:= maxu d(u), for all u; we will assume that d ≥ 2. Let dia(G)
+denote the diameter of G, that is the length of the longest path between any pair
+of vertices in any connected component of G. In the subsequent sections, we will
+need some basic properties of the independence polynomial (see [3, 1] for proofs):
+Proposition A.1. Let G be as above and I(G, z) be its independence polynomial.
+  1. The derivative I ′ (G, z) satisfies
+                                               X
+                              I ′ (G, z) = −         I(G − N [u], z).          (29)
+                                               u∈V
+
+  2. If H is a subgraph of G then β(G) ≤ β(H).
+  3. Shearer [10] showed a lower bound on β(G), namely,
+                                              (d − 1)d−1
+                                 β(G) ≥ λS (d):=          .                 (30)
+                                                   dd
+     Applying the third property with G as the complete graph and H an arbitrary
+     graph with at most n vertices, we also have the following lower bound
+                                                       1
+                                           β(H) ≥        .                     (31)
+                                                       n
+                                            21
+    We will also need variants of Smale’s gamma-function [2]: Given a function
+f : C → C holomorphic at a point z ∈ C, such that f (j) (z) ̸= 0, define
+                                                                              1/(k−j)
+                                                       j!f (k) (z)
+                                        γf,j (z):= sup     (j) (z)
+                                                                                        .                       (32)
+                                                   k>j k!f
+
+The standard gamma-function corresponds to γf,0 (z), and we will simply use γf (z)
+to denote that. Intuitively, the function is related to the inverse of the radius of
+convergence of f (j) (z) at z.
+   We recall Arbogast’s formula (also called the formula of Faà di Bruno) [8] for
+derivatives of composition of functions: For N ∈ Z≥0 , the N th derivative of
+                                                                                          N  (m)  im
+                      (N )
+                                       X               N!           (i1 +···+iN )
+                                                                                         Y   g (z)
+          (f ◦ g)            (z) =                                f               (g(z))               ,        (33)
+                                     i1 ,...,iN
+                                                  i1 ! . . . iN !                        m=1
+                                                                                               m!
+
+where the sum is over all tuples of non-negative integers i1 , . . . , iN such that
+
+                                       i1 + 2i2 + 3i3 + · · · + N iN = N.
+
+Given a K, we can combine the terms corresponding
+                                         P             to i1 + · · · + iN = K and
+simplify the summation
+               P        as follows. Since j jij = N it follows with the additional
+constraint that j (j − 1)ij = N − K. This implies that ij = 0, for j > N − K + 1,
+and so we can express (33) as
+                             N
+                             X X
+   (f ◦ g)   (N )
+                    (z) =                     f (K) (g(z))BN,K (g ′ (z), g (2) (z), . . . , g (N −K+1) (z)),    (34)
+                             K=0 i1 ,...,iN
+
+where BN,K (x1 , . . . , xN −K+1 ) are the partial exponential Bell polynomials:
+                                                                                            −K+1 
+                                                                                           NY
+                                                         X                       N!                xm  i m
+         BN,K (x1 , . . . , xN −K+1 ):=                                                                     ,   (35)
+                                                     i1 ,...,iN −K+1
+                                                                       i1 ! . . . iN −K+1 ! m=1    m!
+
+and i1 , . . . , iN −K+1 satisfy the following two constraints:
+
+              i1 + 2i2 + 3i3 + · · · + (N − K + 1)iN −K+1 = N and
+                                                                               (36)
+                                     i1 + i2 + i3 + · · · + iN −K+1 = K.
+                                 N
+Notice that BN,K (1, . . . , 1) = K   , the Sterling number of second kind, that is
+number of ways to partition an N element set into K non-empty parts, and hence
+                                           N
+                                           X
+                                                   K!BN,K (1, . . . , 1) = B
+                                                                           eN
+                                           K=0
+
+
+                                                               22
+the ordered Bell number, which satisfy the following recurrence:
+                                                N −1     
+                                                X       N e
+                                      B
+                                      eN =                 Bi .                      (37)
+                                                 i=1
+                                                        i
+
+From this, we can derive the following claim inductively:
+                                                     N
+                                          B
+                                          eN      1
+                                             ≤           .                           (38)
+                                          N!     ln 2
+
+   We will also need the following observation:
+                                                                             
+                            X                       K!                 N −1
+                                                               =                     (39)
+                        i1 ,...,iN −K+1
+                                          i1 ! . . . iN −K+1 !         K −1
+
+where the sum is over all tuples (i1 , . . . , iN ) satisfying the conditions in (36). The
+left-hand side counts all partition of N into K blocks where the ordering of distinct
+blocks only matter (distinct blocks correspond to different choices of j). However,
+these are precisely the number of compositions of N into K parts, which is the term
+on the right-hand side.
+    Besides the above, we need the following observations for j ≥ 0
+                                       (j)
+                                       1       (−1)j j!
+                                             =                                       (40)
+                                       x        xj+1
+
+and                                    (j−1)
+                              (j)      1         (−1)j−1 (j − 1)!
+                       (ln x)       =          =                  .                  (41)
+                                       x               xj
+Given α ∈ C and r > 0, we will denote by D(α, r) ⊂ C the open disc centered at α
+with radius r.
+    In addition to the above, we need the following quantified result on the injec-
+tiveness of a function in a neighborhood of a point where the derivative does not
+vanish [6]:
+
+Proposition A.2. Let h : D(α, r) → C be a holomorphic function such that h(α) =
+0 and h′ (α) ̸= 0. Then h is injective on the disc
+                                                          !
+                                            ′
+                                         r|h (α)|
+                             D α,                           .
+                                     supz∈D(α,r) |h′ (z)|
+
+
+
+
+                                                   23
+

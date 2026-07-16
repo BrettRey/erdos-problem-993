@@ -42,15 +42,22 @@ computer-assisted certificate. That is sufficient for the present theorem
 claim. A Lean/Aristotle pass would be an additional audit, especially valuable
 because the endpoint convention and descent indexing are delicate.
 
+A literature audit completed 2026-07-16 found no prior finite bound of this
+form at the first strict descent. The theorem's apparent novelty lies in the
+endpoint-aware propagation, the two-sided modal mass windows, and their
+variance synthesis. The cubic inequalities and max-atom bound used below are
+known inputs and must be cited as such.
+
 ## Why the Proof Works
 
 The successful route is neither perturbative continuity nor an iteration over
 reflected Bernoulli factors.
 
-Hillion--Johnson's cubic inequalities imply that the normalized Turán
-curvature at neighboring indices cannot grow too quickly. If the curvature
-$\delta$ at the first descent were small, those inequalities would force an
-explicit two-sided window of masses comparable to the modal mass.
+[Hillion--Johnson's cubic inequalities](https://arxiv.org/abs/1303.3381),
+Theorem A.2 and Corollary A.3, imply that the normalized Turán curvature at
+neighboring indices cannot grow too quickly. If the curvature $\delta$ at the
+first descent were small, those inequalities would force an explicit
+two-sided window of masses comparable to the modal mass.
 
 Two independent variance bounds then trap the modal mass:
 
@@ -59,6 +66,11 @@ V\ge p_{\max}^2A(\delta),
 \qquad
 V\ge\frac{p_{\max}^{-2}-1}{12}.
 \]
+
+The second inequality is the known max-atom/variance bound of
+[Bobkov--Marsiglietti--Melbourne](https://arxiv.org/abs/2007.11030), Theorem
+1.1 and Corollary 3.2; the proof note retains their short uniform-smoothing
+argument for completeness.
 
 The theorem reduces to the scalar lower bound
 

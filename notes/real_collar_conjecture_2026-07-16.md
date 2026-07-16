@@ -19,6 +19,15 @@ certified computation plus literature placement. No proof claims.
   Boer et al. (arXiv:2111.06451):** zero-locus technology for
   bounded-degree graphs and tree recurrences; zeros are dense in the
   complement of the zero-free region.
+- **Jerrum--Patel (arXiv:2510.01466v2, Lemma 17):** the lemma states
+  positive-axis accumulation for complete binary trees with every edge
+  subdivided an even, fixed number of times. A line audit finds that
+  the proof's appeal to Buys directly produces a slightly broader
+  family of phase-truncated periodic branching words, and appears to
+  shift Buys's (H_\Delta) index by one. The proof-supported family is
+  still maximum-degree~3 and still rules out a universal fixed
+  positive-axis sector; the exact-family formulation merits
+  clarification.
 - **Hibi--Kara--Vien (arXiv:2604.18824, April 2026):** constructs tree
   families (whisker/caterpillar-related) with symmetric AND unimodal
   independence polynomials, engaging the AMSE conjecture from the
@@ -48,26 +57,27 @@ only along the real axis (collision cusps), so near-dominant zeros are
 angularly trivial: their oscillation wavelength (2 pi / phi) vastly
 exceeds any polynomial's degree.
 
-**Conjecture C (positive-axis sector, robust at sampled scale).**
-Non-real zeros of tree independence polynomials keep a sector around
-the positive axis: measured minimum |arg z| = 0.90284 over all 28,998
-certified trees, and a dedicated adversarial run (17,526 mutations,
-n <= 160) failed to move that minimum at all ~-- the most rigid
-invariant found in the entire program. Caveat from known theory: the
-bounded-degree zero-locus results (Peters--Regts; de Boer et al.,
-arXiv:2111.06451) suggest zeros of deep bounded-degree trees approach
-the positive axis near the critical activity, so a FULLY uniform
-sector over all trees is likely false asymptotically. The operative
-conjecture is quantified: sigma = sigma(max degree, modulus window),
-and the unimodality bridge needs the sector only along the saddle
-contour for window-k coefficients. Reading task: extract from
-arXiv:2111.06451 exactly where the tree zero-locus limit meets the
-positive axis, and at what moduli.
+**Refuted as a universal statement: the fixed positive-axis sector.**
+The measured minimum |arg z| = 0.90284 over 28,998 certified trees, and
+its rigidity under 17,526 adversarial mutations with n <= 160, are
+finite-scale observations only. Jerrum--Patel's Lemma 17 supplies the
+decisive asymptotic counterexample class: the phase-truncated balanced
+trees directly produced in the proof have maximum degree~3 and zeros
+accumulating on the positive real axis. Their stronger exact
+uniform-subdivision formulation is the statement of the lemma but is
+not plainly delivered by the cited normal-family step.
+
+**Target C' (quantified saddle-sector profile).** The bridge program
+needs only a sector along the saddle-relevant modulus window, not over
+all roots. A viable replacement is therefore a profile
+sigma = sigma(max degree, modulus window, size), allowed to vanish in
+the Jerrum--Patel regime but still strong enough on the contours used
+for window coefficients. This is a proof target, not a known property.
 
 None of these follow from Csikvari (first zero only) or Prakash--Sharma
 (all-roots gap, no reality or angle information). The tree-specific
-content is the coupling of angle to dominance (B') and the uniform
-sector (C).
+content is the coupling of angle to dominance (B') and the quantified
+sector profile sought in C'.
 
 ## 3. The discriminating control, and a corrected bridge
 
@@ -86,11 +96,12 @@ The corrected program is asymptotic:
   by saddle-point analysis: the oscillation suppressor there is the
   distance of non-real zeros from the positive real axis (the saddle
   contour), not from beta.
-- Bridge target: collar (A) + envelope (B) + a positive-axis sector
-  bound imply no valley for alpha >= alpha_0 effective; exhaustive
-  verification (all trees n <= 29 unimodal) covers small cases. This
-  is a program, not a theorem; the analytic step is Darboux/saddle
-  asymptotics for polynomials with zero sets obeying A/B.
+- Bridge target: the minimum-root isolation, envelope B', and a
+  quantified saddle-sector profile C' imply no valley for
+  alpha >= alpha_0 effective; exhaustive verification (all trees
+  n <= 29 unimodal) covers small cases. This is a program, not a
+  theorem; the analytic step is Darboux/saddle asymptotics for
+  polynomials with those modulus-ranked zero constraints.
 
 ## 4. The tree-DP invariant, concretely (repo issue #1)
 
@@ -109,8 +120,8 @@ spectral statements are reachability statements for this semigroup:
 - Cusp envelope B': for x off the real axis but close to that first
   hit, -1 is NOT reachable unless arg(x) is tiny ~-- reachability
   leaks off the axis only tangentially.
-- Sector C: for x in a sector around the positive axis (quantified by
-  degree via the number of merges), -1 is never reachable.
+- Sector target C': quantify how closely reachability can approach -1
+  in a size- and modulus-dependent sector around the positive axis.
 
 Literature alignment (verified from the abstract of de Boer--Buys--
 Guerini--Peters--Regts, arXiv:2111.06451, 2026-07-16): the zero-free
@@ -134,26 +145,39 @@ Delta (input for the bridge inequality).
 
 Executed 2026-07-16 (`scratch_collar_stress_20260716.py`, 28,998
 certified trees): the mass scan and adversarial minimization KILLED
-the constant collar (see section 2) and left B' and C standing:
-every near-dominant non-real pair found is angularly trivial
-(cusp behavior), and the positive-axis sector minimum stayed at
-0.90284 under both random and adversarial pressure.
+the constant collar (see section 2) and left B' standing. Every
+near-dominant non-real pair found is angularly trivial (cusp behavior).
+The positive-axis sector minimum stayed at 0.90284 under both random
+and adversarial pressure, but Jerrum--Patel show that this finite-size
+invariant cannot be universal.
 
 Kill-tests 1 and 2 executed 2026-07-16, both survived rigidly:
 1. B' attack (maximize angle within modulus band <= 1.2): 25,163
    adversarial mutations, zero improvement over the frontier value
    0.05404 (`results/cusp_attack_20260716.json`).
-2. C attack (minimize |arg z|): 17,526 adversarial mutations, zero
+2. Finite-scale C attack (minimize |arg z|): 17,526 adversarial mutations, zero
    improvement over 0.90284 (`results/sector_attack_20260716.json`).
-Contrast: the refuted collar conjecture moved within seconds under
-identical adversarial pressure. Rigidity under adversarial search is
-separating true invariants from artifacts.
+This records a sampled-scale barrier, not a surviving conjecture.
 
-Remaining kill-test:
-3. Joint attack: minimize |arg z| subject to moderate modulus (the
-   saddle-relevant zeros for window-k coefficients), ideally on
-   high-degree deep trees where the Peters--Regts caveat predicts the
-   sector must eventually narrow.
+Literature-family test 3 executed 2026-07-16
+(`scripts/stress_literature_root_families.py`, 41 cases, exact
+coefficient recurrences plus Arb root intervals):
+
+- For the exact unsplit binary trees at heights 2 through 8, the
+  smallest observed positive-axis angle fell from 2.184 to 1.103
+  radians, but its modulus ratio was already 20.41 at height~8. The
+  positive neutral activity is 4 while the minimum root tends to
+  -4/27, so the asymptotic modulus ratio is 27.
+- For all nine endpoint phases of five (k=1) periods, the smallest
+  positive-axis angle was 1.621 radians and its modulus ratio was
+  118.16. These shallow cases do not yet enter the accumulation regime.
+- Thus the full fixed sector is false on the literature theorem, while
+  the certified finite spectra support the narrower reading that its
+  positive-axis mechanism is remote from the near-dominant cusp. This
+  is evidence for keeping B'/C' separate, not a proof of either.
+
+Full intervals and all threshold classifications are in
+`results/literature_root_stress_20260716.json`.
 
 ## 6. Provenance
 

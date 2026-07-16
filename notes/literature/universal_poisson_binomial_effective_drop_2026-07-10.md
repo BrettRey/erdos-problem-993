@@ -37,6 +37,16 @@ If the largest mode is the upper support endpoint, the next descent has
 \(f_D=0\), so the quotient is undefined. For the raw-reserve application this
 terminal case is immediate: the next ratio is zero and the reserve is one.
 
+## Novelty and provenance status
+
+A literature audit through 2026-07-16 found no prior finite bound of this
+form at the first strict descent. The safe novelty claim is therefore that the
+endpoint-aware propagation, the resulting two-sided modal mass windows, and
+the propagation-to-variance synthesis are new; confidence is moderate--high,
+not a claim of historical priority. Two inputs are known results: the cubic
+coefficient inequalities of Hillion--Johnson and the lattice
+max-atom/variance inequality of Bobkov--Marsiglietti--Melbourne.
+
 ## Signed Corollary
 
 Every signed low-probability law
@@ -145,9 +155,13 @@ example, the normalized weights proportional to
 \(1/10\), but fail the terminal cubic inequality.
 
 The primary source is Hillion--Johnson,
+[Discrete versions of the transport equation and the Shepp--Olkin
+conjecture](https://arxiv.org/abs/1303.3381), Theorem A.2, equation (78),
+and Corollary A.3, equation (79). Their later paper,
 [A proof of the Shepp--Olkin entropy concavity
-conjecture](https://arxiv.org/abs/1503.01570), Appendix A.2, equations
-(A.7)--(A.8).
+conjecture](https://arxiv.org/abs/1503.01570), restates these inequalities
+in Appendix A.2, equations (A.7)--(A.8), and attributes them to the earlier
+article.
 
 ## Explicit Mass Windows
 
@@ -255,15 +269,18 @@ V
 \tag{6}
 \]
 
-There is also a sharp elementary max-atom bound:
+There is also the sharp lattice max-atom bound of
+[Bobkov--Marsiglietti--Melbourne](https://arxiv.org/abs/2007.11030),
+Theorem 1.1 and Corollary 3.2:
 
 \[
 V\ge\frac{p^{-2}-1}{12}.
 \tag{7}
 \]
 
-To prove it, let \(U\sim\operatorname{Unif}[-\tfrac12,\tfrac12]\) be
-independent. The density of \(W+U\) is bounded by \(p\), and
+For completeness, the following repeats their uniform-smoothing proof. Let
+\(U\sim\operatorname{Unif}[-\tfrac12,\tfrac12]\) be independent. The density
+of \(W+U\) is bounded by \(p\), and
 
 \[
 \operatorname{Var}(W+U)=V+\frac1{12}.
@@ -539,10 +556,12 @@ all positive. This completes the analytic range and proves (8).
 ## Proof Boundary
 
 The theorem proves the universal finite Poisson-binomial effective-drop and
-raw-reserve inequalities at the quarter scale. Its only external
-mathematical input is the Hillion--Johnson cubic inequality. The compact
-scalar range is discharged by exact symbolic certificates, not floating-point
-sampling.
+raw-reserve inequalities at the quarter scale. Its external mathematical
+inputs are the Hillion--Johnson cubic inequalities and the
+Bobkov--Marsiglietti--Melbourne max-atom/variance bound. The endpoint-aware
+propagation, mass-window construction, variance synthesis, and compact scalar
+certificates are the new work; the compact range is discharged by exact
+symbolic certificates, not floating-point sampling.
 
 The result does not determine the sharp constant. Sparse Poisson limits still
 suggest \(1/3\) as the true boundary, but the present proof claims only

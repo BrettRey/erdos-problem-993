@@ -1,0 +1,1047 @@
+                                           ZERO-FREE REGIONS FOR THE INDEPENDENCE POLYNOMIAL
+                                                      ON RESTRICTED GRAPH CLASSES
+
+                                                                        MARK JERRUM AND VIRESH PATEL
+
+
+                                                  Abstract. Generalising the Heilman-Lieb Theorem from statistical physics, Chud-
+                                                  novsky and Seymour [J. Combin. Theory Ser. B, 97(3):350–357] showed that the uni-
+                                                  variate independence polynomial of any claw-free graph has all of its zeros on the
+
+
+
+
+arXiv:2510.01466v2 [math.CO] 6 Feb 2026
+                                                  negative real line. In this paper, we show that for any fixed subdivided claw H and
+                                                  any ∆, there is an open set F ⊆ C containing [0, ∞) such that the independence poly-
+                                                  nomial of any H-free graph of maximum degree ∆ has all of its zeros outside of F . We
+                                                  also show that no such result can hold when H is any graph other than a subdivided
+                                                  claw or if we drop the maximum degree condition.
+                                                     We also establish zero-free regions for the multivariate independence polynomial of
+                                                  H-free graphs of bounded degree when H is a subdivided claw. The statements of
+                                                  these results are more subtle, but are again best possible in various senses.
+
+
+
+
+                                                                                  1. Introduction
+                                             The hard-core model, a model for the behaviour of gases in equilibrium, is intensely
+                                          studied across various scientific disciplines, including statistical physics, probability, com-
+                                          binatorics, and theoretical computer science. In the latter two fields, the model is de-
+                                          scribed using the language of independent sets in graphs — the perspective adopted here.
+                                          Central to this study is the model’s partition function, also known as the independence
+                                          polynomial, which captures crucial information about both the model and its underlying
+                                          graph.
+                                             The (multivariate) hard-core model is specified by an underlying graph G = (V, E)
+                                                                                                                                       V
+                                          together with (complex) weights called fugacities on    Q the vertices λ = (λv )v∈V ∈ C .
+                                          For each subset of vertices S ⊆ V , we write λS = v∈S λv and we write I(G) for the
+                                          set of all independent sets in G (i.e., for S ⊆ V , S ∈ I(G) if and only if uv ∈   / E for all
+                                          u, v ∈ S). Then the partition function of the hard-core model with respect to G and
+                                          (λv )v∈V is given by
+                                                                                           X
+                                                                                ZG,λ =          λS .
+                                                                                           S∈I(G)
+                                          We can equivalently think of ZG,λ as a multivariate polynomial in the (complex) variables
+                                          (λv )v∈V called the multivariate independence polynomial of G and if we set all variables
+                                          equal so that λv = λ for all v, we obtain the univariate independence polynomial ZG,λ .
+
+                                            School of Mathematical Sciences, Queen Mary, University of London, Mile End Road,
+                                          London E1 4NS.
+                                            E-mail addresses: m.jerrum@qmul.ac.uk, v.patel@qmul.ac.uk.
+                                            Date: February 9, 2026.
+                                            2020 Mathematics Subject Classification. 05C31, 05C69, 05C75, 82B20.
+                                                                                            1
+2                         A MULTIVARIATE ZERO-FREE REGION. . .
+
+
+
+
+             Figure 1. The claw, S1,1,1 ; the fork, S1,1,2 ; and the E, S1,2,2 .
+
+
+   This paper presents generalisations of the classical Heilmann-Lieb Theorem [21], a
+foundational result in statistical physics concerning the (absence of) zeros of the partition
+function of the monomer-dimer model. The monomer-dimer model is typically described
+in terms of matchings in graphs, but for our purposes, we describe it here equivalently
+as a special case of the hard-core model. Given a graph H = (U, F ), the line graph of H
+is denoted L(H) and is defined by L(H) = (U ′ , F ′ ) where U ′ = F and e, e′ ∈ U ′ = F are
+adjacent in L(H) if e, e′ are incident in H. Note that there is a natural correspondence
+between matchings in H and independent sets in L(H). The Heilmann-Lieb Theorem
+significantly restricts the zeros of the univariate independence polynomial of line graphs.
+Theorem 1 (Heilman-Lieb [21]). If G is a line graph (i.e., G = L(H) for some H) then
+ZG,λ ̸= 0 for all λ ∈ C \ (−∞, 0), i.e., all roots of ZG,λ are negative reals.
+   It is a well-known fact (and easy to check) that if G is a line graph, then it is claw
+free, that is, G does not contain the claw (the first graph depicted in Figure 1) as
+an induced subgraph. The class of claw-free graphs is considerably richer than the
+class of line graphs: indeed there has been considerable effort (see e.g. [17]) to give a
+constructive description of claw-free graphs from line graphs. Chudnovsky and Seymour
+[16] generalised the Heilmann-Lieb Theorem to claw-free graphs.
+Theorem 2 (Chudnovsky-Seymour [16]). If G is a claw-free graph then ZG,λ ̸= 0 for
+all λ ∈ C \ (−∞, 0), i.e., all roots of ZG,λ are negative reals.
+   The results above restrict the location of zeros in a very strong way showing an absence
+of zeros on almost the entire complex plane. An important feature of these zero-freeness
+results is the fact that zeros are restricted away from the positive real line since an
+absence of zeros around the physically relevant positive real values implies an absence
+of various types of phase transition (discontinuities in thermodynamic quantities) in
+the underlying model. In this direction, we completely determine to what extent the
+Heilman-Lieb Theorem and Chudnovsky-Seymour Theorem above can be generalised to
+the setting of H-free graphs for different choices of H.
+   The subdivided claw Si,j,k is the graph obtained from the claw by subdividing the
+three edges i − 1, j − 1, and k − 1 times respectively, so in particular S1,1,1 denotes the
+claw (see Figure 1 for examples). In naming the subdivided claws, we use the convention
+i ≤ j ≤ k. These graphs play a crucial role in the study of independent sets in graph
+theory [1, 14] and also in our results. Note that if G is an Si,j,k -free graph (by which
+we mean that G does not contain an induced copy of Si,j,k ), then G is St,t,t -free for any
+t ≥ max(i, j, k). We show that there is a zero-free region containing [0, ∞) for the class
+of bounded-degree Si,j,k -free graphs (for each fixed choice of i, j, k).
+                              A MULTIVARIATE ZERO-FREE REGION. . .                                  3
+
+
+Theorem 3. Given integers t ≥ 1 and ∆ ≥ 3, there exists an open region F ⊆ C
+containing the positive reals [0, ∞) such that if G is a St,t,t -free graph of maximum
+degree ∆ and λ ∈ F then ZG,λ ̸= 0.
+    Theorem 3 is best possible in two important ways. Firstly, Theorem 3 does not hold
+if we replace Si,j,k with any graph H that is not a subdivided claw. More precisely,
+in Section 6, for each H that is not a subdivided claw (or a path, which might be
+considered as a degenerate subdivided claw), we exhibit a class of H-free graphs of
+maximum degree 3 for which zeros accumulate at some point on the positive real axis.
+Secondly, Theorem 3 does not hold if we drop the condition that G has maximum
+degree ∆. Indeed, in Section 5 we exhibit a class of graphs that are Si,j,k -free for all
+i, j ≥ 1 and k ≥ 2 (but of unbounded degree) and whose zeros are dense on almost
+all of C including on the positive real line. The only previous result in the direction of
+Theorem 3 that we are aware of is due to Bencs [5], who showed that the (univariate)
+independence polynomial of S1,1,2 -free graphs of maximum degree ∆ have a zero-free
+sector given by | arg(z)| ≤ π/∆.
+    Theorem 3 is in fact derived from a stronger result for the multivariate independence
+polynomial. The multivariate setting is more subtle even for line graphs and claw-free
+graphs. For line graphs, Lebowitz, Ruelle, and Speer [28] proved Theorem 4 below using
+the method of Asano contractions.1 Let R(k) ⊆ C be the parabolic region of the complex
+plane defined by               n                   1           1 o
+                       R(k) = z ∈ C : Im(z)2 < Re(z) + 2 .
+                                                   k          4k
+Theorem 4 (Lebowitz-Ruelle-Speer [28]). Suppose G = (V, E) is a line graph whose
+largest clique has size at most k (so the maximum degree of G is at most 2k − 1). If
+λ ∈ R(k 2 /4)V ⊆ CV then ZG,λ ̸= 0. The same holds for line graphs of multigraphs
+(graphs with parallel edges).
+   Notice that Theorem 4 gives an open multivariate zero-free region containing the
+positive real line [0, ∞) for line graphs of bounded degree. We give examples in Section 5
+that show it is not possible to obtain such multivariate zero-free regions for Si,j,k -free
+graphs when j, k ≥ 2; however, we come close by giving open multivariate zero-free
+regions that contain any finite subinterval of [0, ∞).
+Theorem 5. Given λ0 > 0 and integers t ≥ 1 and ∆ ≥ 3, there exists an open re-
+gion F ⊆ C containing the interval [0, λ0 ] such that if G = (V, E) is a St,t,t -free graph of
+maximum degree ∆ and λ ∈ F V then ZG,λ ̸= 0.
+  The proof can be found in Section 3. Of course, the examples for the univariate setting
+mentioned earlier also show that Theorem 5 cannot hold if we replace Si,j,k with any
+graph H that is not a subdivided claw or if we drop the maximum degree condition.
+  For S1,1,k -free graphs, our examples in Section 5 do not preclude the possibility of an
+open multivariate zero-free region containing the entire positive real line [0, ∞). While
+we cannot prove the existence of such a region for claw-free graphs, we obtain a result
+that extends Theorem 4 to a larger class of graphs (that almost includes all claw-free
+   1As Theorem 4 is only implicit in [28], we provide some details of the proof, including an explicit
+description and derivation of the zero-free set, in the Appendix (Section 8).
+4                            A MULTIVARIATE ZERO-FREE REGION. . .
+
+
+graphs) and that also enlarges the multivariate zero-free region in Theorem 4. We need
+some notation to describe the result.
+   A simplicial clique K in a graph G is a clique such that for every vertex v ∈ V (K), the
+neighbours of v outside K induce a clique in G, that is G[∂v \ V (K)] is a clique for all
+v ∈ V (K). Write G Cl-S for set of claw-free graphs for which every connected component
+has a simplicial clique and write GkCl-S for the set of graphs in G Cl-S whose largest clique
+has size at most k. The class G Cl-S has been previously studied, e.g., in [15, 12, 2]. It is
+also worth noting (see Lemma 11) that given any connected claw-free graph of bounded
+degree say ∆, one can delete at most ∆ + 1 vertices2 to obtain a graph in G Cl-S ; thus
+every claw-free graph of bounded degree is very close to a graph in G Cl-S . We prove the
+following in Section 4.
+Theorem 6. For any graph G ∈ GkCl-S if λ ∈ R(k)V ⊆ CV then ZG,λ ̸= 0.
+   Note that any line graph whose largest clique has size at most k belongs to GkCl-S and
+so Theorem 6 extends Theorem 4 to a larger graph class. Furthermore Theorem 6 gives
+a multivariate zero-free region R(k) that matches the R(k 2 /4) in Theorem 4 for k = 4,
+and is larger for k > 4. We give examples in Section 5 showing that essentially any
+multivariate zero-free region for GkCl-S must be contained in R(k/2), so the multivariate
+zero-free region we give cannot be enlarged by much (if at all).
+   We point out that from Theorem 3 it follows using Barvinok’s interpolation method [3]
+together with the results in [30] that there is a deterministic polynomial-time approxima-
+tion algorithm (specifically a fully polynomial-time approximation scheme) to compute
+ZG,λ for any Si,j,k -free graph of maximum degree ∆ and any λ ∈ F with F as given in
+Theorem 3. Similar algorithms follow from Theorem 5 and Theorem 6. Previously, the
+second author [24] gave a randomised approximation algorithm for the same computa-
+tion for positive real values of λ (also in the multivariate setting). This all builds on
+previous work [25, 29, 13] that we do not review here.
+Related results. Leake and Ryder [27] consider a weaker form of multivariate zero-
+freeness called same-phase stability (in which all variables have the same argument) and
+establish that same-phase stability holds for independence polynomials of all claw-free
+graphs. They also establish bounds to the closest (univariate) zero for claw-free graphs
+and graphs in GkCl-S , which Fialho and Procacci [20] recently improved on (in certain
+settings).
+   Besides H-free graphs, there is also considerable interest in the hardcore model on
+lattices since they often arise in nature. Usually, there is no open zero-free region con-
+taining the entire positive real line, but one seeks to bound the zeros in the complex
+plane e.g. for the square lattices of fixed dimension (and their subgraphs) [10, 22] and
+hierarchical lattices [23]. Lattices such as the kagome lattice or the pyrochlore lattice
+are in fact line graphs so that the Heilman-Lieb Theorem already applies.
+   For certain classes of trees, Bencs [4] showed real rootedness of the independence
+polynomial. The class of general trees of bounded degree has received considerable at-
+tention because, as it turns out, the zeros of trees of maximum degree ∆ coincide exactly
+   2Given any claw-free graph G, we claim that removing any vertex v and all its neighbours gives a
+graph G′ in G Cl-S . Indeed, each component C of G′ is adjacent to some neighbour u of v and it is easy
+to check that the neighbours of u in C form a simplicial clique (using that G is claw-free).
+                           A MULTIVARIATE ZERO-FREE REGION. . .                                5
+
+
+with zeros of general graphs of maximum degree ∆ (see e.g. [4]). In this direction, Do-
+brushin [18, 19] and Shearer [32] independently established a zero-free disc for graphs of
+maximum degree ∆ that is centered at zero of radius λs (∆) = (∆ − 1)∆−1 /∆∆ . While
+this zero-free disc cannot be enlarged in the negative direction, in the positive real di-
+rection, Peters and Regts [31] found a zero-free region that contains a neighbourhood of
+the interval [0, λc (∆)), where λc (∆) = (∆ − 1)∆−1 /(∆ − 2)∆ > λs (∆) thus resolving a
+conjecture of Sokal [33]. This began a sequence of works which together show that, for
+graphs of maximum degree ∆, there is a cardioid region C∆ ⊆ C (that intersects R in
+the interval (−λs (∆), λc (∆))) outside of which zeros of the independence polynomial are
+dense [9, 8] but inside of which there are both zeros [11] and zero-free regions [7] suggest-
+ing an exact description might be difficult to give (although there is an understanding
+of the limiting behaviour as ∆ → ∞ [6]).
+
+                                        2. Notation
+   For a graph G = (V, E) and a vertex v ∈ V , we write ∂v for the neighbours of v in
+G. For U ⊆ V , we write ∂U = {v ∈ V \ U : v ∈ ∂u for some u ∈ U } = (∪u∈U ∂u) \ U
+for the boundary of U . We write G[U ] for the graph induced by G on U . We write
+U (≤r) := {S ⊆ U : 1 ≤ |S| ≤ r}.
+   We recall and extend some notation from the Introduction.     Given complex vertex
+                          V
+                                                       Q
+weights λ = (λv )v∈V ∈ C and S ⊆ V , we write λS = v∈S λv . We write I(G) for the
+set of all independent sets in G. Then the (multivariate) independence polynomial of G
+is                                          X
+                                   ZG,λ =        λS .
+                                              S∈I(G)
+
+As the graph G remains fixed most of the time, we generally use the abbreviated forms
+I(U ) = I(G[U ]) and Z(U ) = ZG[U ],λ[U ] , where λ[U ] are the weights inherited from G
+by G[U ].
+   Recall that for 1 ≤ i ≤ j ≤ k, we write Si,j,k for the subdivided claw whose leaves are
+at distance i, j and k from the degree-3 vertex (see Figure 1). Note that the class of
+Si,j,k -free graphs is contained in the class of St,t,t -free graphs, where t = max{i, j, k}, so
+we lose little in what follows by focusing on symmetric subdivided claws.
+
+     3. Zero-free regions for graphs with no induced subdivided claw
+  Given a graph G = (V, E) together with a fixed root vertex u ∈ V , we define admissible
+pairs of vertex subsets recursively as follows. For L, U ⊆ V , we define (L, U ) to be
+admissible (with respect to G, u) if (L, U ) satisfies
+     • (L, U ) = (∅, V ); or
+     • (L, U ) = ({u}, V \ {u}); or
+     • L is an independent set satisfying ∅ ̸= L ∈ I(∂L′ ∩ U ′ ) and U = U ′ \ ∂L′ for
+       some admissible pair (L′ , U ′ ).
+We use the unusual convention that ∂∅ = {u} in order to omit the second item above and
+streamline our inductive argument. It is easy to see that U ∩ L = ∅ for any admissible
+pair (L, U ) and so (L, V ) is admissible if and only if L = ∅; this is a fact we use later.
+6                          A MULTIVARIATE ZERO-FREE REGION. . .
+
+                                                U ′ −→
+
+
+                            G:             L′
+                                                L
+
+                                                      U −→
+
+    Figure 2. A derivation of admissible pair (U, L) from admissible pair (U ′ , L′ ).
+
+See Figure 2 for an illustration of the inductive step (third bullet point above) in the
+definition of admissible pair.
+   The introduction of admissible pairs is motivated by a process used in [24] to sample
+red-blue pairs of random independent sets in G. The union R ∪ B of independent
+sets R and B induces connected components in the graph G. The inductive definition
+of admissible pairs given above mirrors the process of growing the red-blue connected
+component from a distinguished vertex u, presented in [24, Algorithm 1].
+   Our approach to proving non-vanishing of the partition function is an induction over
+pairs (L, U ) of vertex subsets. The admissible pairs arise as the pairs (L, U ) that appear
+in that inductive argument. The usage here may seem quite different to that in [24],
+but the crucial property of St,t,t -free graphs that we rely on is the same, namely that
+|L| remains bounded. (For general graphs with degree-bound ∆ the set L may grow
+unceasingly.) The following is a restatement of Lemma 14 of [24].
+Lemma 7. Let G be a graph of maximum degree ∆ that is St,t,t -free. If (L, U ) is an
+admissible pair then |L| ≤ 2 vol(∆, 2t), where
+                                                      (∆ − 1)t − 1
+                                 vol(∆, t) := 1 + ∆                .
+                                                         ∆−2
+   Our goal is to show that ZG,λ = Z(V ) is non-zero for St,t,t -free graphs G = (V, E) when
+the complex weights λ are close to the positive real line. The first lemma establishes
+invariant regions of the complex plane under complex transformations that arise as
+recursions in our induction proof. Recall that we write R(k) ⊆ C for the parabolic
+region in the complex plane given by
+                               n                   1               1 o
+                        R(k) = z ∈ C : Im(z)2 < Re(z) + 2 .
+                                                   k             4k
+Similarly, write H(t) for the halfplane in C given by
+                                  H(t) = {z ∈ C : Re(z) ≥ t}.
+Lemma 8. Fix a = (a1 , . . . , ak ) ∈ R(k)k and consider the complex function fa : Ck → C
+given by fa (z1 , z2 , . . . , zk ) = 1 + kj=1 aj zj−1 . Then fa (H(1/2)k ) ⊆ H(1/2).
+                                         P
+
+Proof. Given z = (z1 , . . . , zk ) ∈ H(1/2)k , we have for each j that zj−1 lies inside the disc
+centered at 1 of radius 1 and so aj zj−1 lies in the disc centered at aj of radius |aj |. The
+leftmost point of this disc has real part Re(aj ) − |aj | and furthermore, by our choice of
+                             A MULTIVARIATE ZERO-FREE REGION. . .                                         7
+
+
+aj , we have
+         Re(aj ) − |aj | = Re(aj ) − (Re(aj )2 + Im(aj )2 )1/2
+                                                                               1/2
+                          ≥ Re(aj ) − Re(aj )2 + Re(aj )/k + (1/2k)2                  = −1/2k.
+This shows that Re(aj zj−1 ) ≥ −1/2k and so Re(fa (z1 , . . . , zk )) ≥ 1/2, i.e., fa (z) ∈
+H(1/2).                                                                                   □
+Lemma 9. Fix positive integers t, ∆ and let r = 2 vol(∆, 2t). For any St,t,t -free graph
+G = (V, E) of maximum degree ∆, any complex vertex weights λ = (λv )v∈V satisfying
+λS ∈ R(2∆r ) for all S ∈ V (≤r) , any root vertex u ∈ V , and any admissible pair (L, U ),
+we have
+     (i) Z(U ), Z(U \ ∂L) ̸= 0;
+    (ii) Z(U )/Z(U \ ∂L)) ∈ H(1/2).
+In particular ZG,λ ̸= 0 by taking the admissible pair (∅, V ).
+Proof. We prove the lemma by induction on |U | + |V |. For the base case, when (L, U ) =
+(L, ∅), we have Z(U ) = Z(U \ ∂L) = 1 and (i) and (ii) immediately follow.
+   For the induction step, suppose we are given an admissible pair (L, U ) (with respect
+to G, u) with |U | ≥ 1. We have the following recursion:
+                                           X
+(1)              Z(U ) = Z(U \ ∂L) +               λS Z(U \ (∂L ∪ ∂S)).
+                                              ∅̸=S∈I(U ∩∂L)
+
+Note that Z(U \ ∂L) ̸= 0 by induction using (i) by considering the admissible pair
+(∅, U \ ∂L) with respect to the smaller3 graph G[U \ ∂L] and any root vertex u′ ∈ U \ ∂L.
+Therefore, we can divide through by Z(U \ ∂L) to obtain
+                                                                   −1
+                  Z(U )               X               Z(U \ ∂L)
+(2)                         =1+               λS                         .
+                Z(U \ ∂L)                          Z(U \ (∂L ∪ ∂S))
+                                         ∅̸=S∈I(U ∩∂L)
+
+   If U ∩ ∂L = ∅ then U = U \ ∂L and so Z(U ) = Z(U \ ∂L) ̸= 0 (as established above)
+from which (i) and (ii) follow. If U ∩ ∂L ̸= ∅, then for any nonempty S ∈ I(U ∩ ∂L),
+the pair (S, U \ ∂L) is admissible (by definition). Therefore Z(U \ (∂L ∪ ∂S)) ̸= 0 by
+                         \∂L)
+induction (i) and Z(UZ(U
+                      \(∂L∪∂S)) ∈ H(1/2) by induction (ii). Recall from Lemma 7 that
+|L| ≤ r = 2 vol(∆, 2t) and so |∂L| ≤ ∆r; this means the sum above has at most 2∆r
+terms. (This is a loose bound; a better one would follow from noting that |S| ≤ r). By
+our choice of λ and noting |S| ≤ r (by Lemma 7), we have λS ∈ R(2∆r ). Applying
+Lemma 8 to (2) shows (ii). From this (i) follows.                                    □
+   As noted in the Introduction, we cannot obtain a multivariate zero-free region con-
+taining (0, ∞), but we can get such a univariate zero-free region, and also an open
+multivariate zero-free region containing any finite interval of the positive real axis.
+   First, to obtain the univariate zero-free region, we specialise Lemma 9 to the admissible
+pair (∅, V ) and the constant weighting where λv = λ for all v ∈ V .
+  3Note that U \ ∂L must be a strict subset of V since either U is a strict subset of V or (L, U ) = (∅, V )
+(from earlier) in which case ∂L = {u}.
+8                         A MULTIVARIATE ZERO-FREE REGION. . .
+
+
+Proof of Theorem 3. We are given positive integers t, ∆. Set r = 2 vol(∆, 2t). For each
+ℓ ∈ N, let Fℓ = {λ ∈ C : λℓ ∈ R(2∆r )}, which is an open set containing [0, ∞). Let
+                                                                             r
+                                                                             \
+                               ℓ        ∆r
+               F = {λ ∈ C : λ ∈ R(2          ) for all ℓ = 1, . . . , r} =         Fℓ ,
+                                                                             ℓ=1
+
+which is also an open set containing [0, ∞). For any St,t,t -free graph G = (V, E) of
+maximum degree ∆ and any λ ∈ F , setting λv = λ for all v ∈ V , we have λS ∈ R(2∆r )
+for any S ∈ V (≤r) . Thus we can apply Lemma 9 to conclude ZG,λ ̸= 0.              □
+Remark 10. We derive a slightly smaller but more explicit zero-free region. For the set
+F defined in the proof above, we have
+                              n                   r−2
+                                                               o
+                    F ⊇ F ∗ = (x + iy) : |y| ≤ Ax− 2 , x ≥ ∆−1 .
+
+for a suitably small choice of constant A depending only on r and ∆ (recall that r itself
+only depends on ∆ and t). To see this, we must show that for any z = x + iy ∈ F ∗ , we
+have z ℓ ∈ R(2∆r ) for each ℓ = 1, . . . , r. Note first that
+                                        ℓ                   ℓ  
+           ℓ                  ℓ
+                                      X       ℓ      t ℓ−t
+                                                              X  ℓ
+     | Im(z )| = | Im((x + iy) )| =             (iy) x      ≤       |y|xℓ−1 ≤ 2ℓ |y|xℓ−1 ,
+                                              t                  t
+                                    t odd                     t odd
+
+and similarly | Re(z ℓ )| ≥ xℓ − 2ℓ |y|2 xℓ−2 ≥ 12 xℓ , where both inequalities assume that A
+                                           1          1
+is sufficiently small (take e.g. A ≤ 2− 2 (r+1) ∆− 2 r ). Now one can verify that Im(z ℓ )2 ≤
+                                                               1
+2−∆r Re z ℓ for sufficiently small A (take e.g. A ≤ 2− 2 (∆r+2r+1) ) showing that z ℓ ∈
+R(2∆r ).
+  While F ∗ does not contain the origin, we know the disc of radius (∆ − 1)∆−1 /∆∆ ≈
+e/∆ is zero-free (see the Introduction) and this disc intersects F ∗ .
+   Finally, we come to the existence of multivariate zero-free regions including arbitrary
+finite intervals of the positive real axis.
+   Given any region R ⊆ C and positive integer p, we define R×p := { qi=1 zi : 1 ≤ q ≤
+                                                                           Q
+p and z1 , . . . , zq ∈ R}. Also, we write S(ρ, θ) := {z : |z| < ρ and | arg z| < θ} for the
+bounded sector of radius ρ and angle θ and we write B(ρ) := {z : |z| < ρ} for the disc
+of radius ρ centered at 0.
+
+Proof of Theorem 5. First note that for ρ1 ≥ 1, we have S(ρ1 , θ)×p = S(ρp1 , pθ) and for
+ρ2 ≤ 1, we have B(ρ2 )×p = B(ρ2 ). Furthermore, again assuming ρ2 ≤ 1 ≤ ρ1 , it is easily
+checked that (S(ρ1 , θ) ∪ B(ρ2 ))×p ⊆ S(ρp1 , pθ) ∪ B(ρp−1
+                                                       1 ρ2 ).
+   In the statement of Theorem 5, we are given λ0 > 0 and positive integers t, ∆. As
+before, set r = 2 vol(∆, 2t) and without loss of generality, we may assume λ0 ≥ 1. Fix
+ε > 0 and set ρ1 = λ0 + ε. From the discussion in the previous paragraph, we can choose
+θ, ρ2 > 0 sufficiently small such that the set
+                                   F := S(ρ1 , θ) ∪ B(ρ2 )
+satisfies that F ×r ⊆ R(2∆r ). Then, by Lemma 9, F is a multivariate zero-free region
+for ZG,λ for any St,t,t -free graph of maximum degree ∆.                            □
+                          A MULTIVARIATE ZERO-FREE REGION. . .                               9
+
+
+                                  4. Claw-free graphs
+   We begin this section with some structural properties of claw-free graphs. Recall that
+a simplicial clique in a claw-free graph G is a clique K in G such that for every vertex
+v ∈ V (K), G[∂v \ K] is a clique. Recall that G Cl-S is the set of claw-free graphs whose
+every component has a simplicial clique and GkCl-S is the set of graphs in G Cl-S whose
+largest clique has size at most k. We will require the following structural lemma; similar
+results are mentioned in [16, 12].
+Lemma 11. If G ∈ G Cl-S and X ⊆ V (G) then G′ = G[V (G) \ X] ∈ G Cl-S , i.e. G Cl-S is
+a hereditary graph class.
+Proof. It is sufficient to prove the lemma in the case that X = {v} is a single vertex and
+G is connected. Let K be a simplicial clique of G. We distinguish two cases, depending
+on whether or not G′ is connected.
+   Suppose first that removing vertex v separates G into k connected components G1 , . . . ,
+Gk , with k ≥ 2. Then, for all i ∈ {1, . . . , k} the vertex subset U = ∂v ∩ V (Gi ) induces a
+clique. (Suppose u, u′ ∈ U and w ∈ ∂v ∩ V (Gj ) with j ̸= i. Then uu′ must be an edge,
+otherwise {v, u, u′ , w} would induce a claw.) Also, U must be simplicial in Gi . (Suppose
+u ∈ U and w, w′ ∈ ∂u ∩ (V (Gi ) \ U ). Then ww′ is an edge, otherwise {u, v, w, w′ } would
+induce a claw.)
+   The other possibility is that G′ = G − v is connected. If v ∈        / K then the clique
+K remains simplicial. If v ∈ K and |K| ≥ 2 then K − v is a simplicial clique in G′ .
+Finally, if K = {v}, then U = ∂v is a clique (since K is simplicial) and U is simplicial
+in G′ (otherwise there would be vertices u ∈ U and w, w′ ∈ ∂u \ (U ∪ {v}) such that
+{u, v, w, w′ } induces a claw.                                                              □
+  Next we require some notation on paths. Let G be a graph and P be a path in G
+with |V (P )| ≥ 1. Let u and x be the endpoints of P (where we allow u = x when P
+has a single vertex). When working with any path, we specify one of its endpoints to be
+active and we indicate that x is the active vertex by writing P x (and in the case when
+P has one vertex, that vertex is taken to be active). We define
+                             AP x (G) = V (P ) ∪ ∂(V (P ) \ {x})
+and
+                                  UP x (G) = V (G) \ AP x .
+We simply write AP x and UP x when G is clear from context. Given P x in G and
+y ∈ ∂x ∩ UP x , then we write P xy for the path P with vertex y appended to x and where
+y is now the active vertex. All paths we consider have at least one vertex.
+   We give one further piece of notation on simplicial cliques. For a claw-free graph G
+with a simplicial clique K, we write G + uK for the graph obtained from G by adding a
+new vertex uK that is adjacent to every vertex in K. It is easy to check that G + uK is
+claw-free and we call uK the artificial simplicial vertex, which is a natural starting point
+for our paths in the next lemma.
+Lemma 12. For any G = (V, E) ∈ GkCl-S with a simplicial clique K, any path P x in
+G + uK starting at the artificial simplicial vertex uK and ending at x (where we allow
+x = uK ), and any complex vertex weights λ = (λv )v∈V ∈ R(k)V ⊆ CV we have
+10                        A MULTIVARIATE ZERO-FREE REGION. . .
+
+
+      (i) Z(UP x ), Z(UP x \ ∂x) ̸= 0 and
+     (ii) Re(Z(UP x )/Z(UP x \ ∂x)) ≥ 1/2.
+
+  The partition function Z in the lemma above is with respect to the graph G + uK ,
+but note that since our path always includes the vertex uK as a starting point, then UP x
+always excludes uK , so we do not need to specify a weight for uK .
+
+Proof of Lemma 12. We do induction on |UP x | + |V |. If |UP x | = 0 then Z(UP x ) =
+Z(UP x \ ∂x) = 1 and both (i) and (ii) immediately follow.
+   For the induction step first consider the case UP x ∩ ∂x = ∅. We see that (ii) follows
+immediately provided (i) holds. For (i), note that UP x ∩ ∂x = ∅ can only happen if
+|V (P x)| ≥ 2, in which case G′ = G[UP x ] is strictly smaller than G and every component
+of G′ has a simplicial clique by Lemma 11. By applying induction to each of those
+components, we have Z(UP x ) ̸= 0 so (i) follows. Thus we may assume UP x ∩ ∂x ̸= ∅.
+   Now assuming UP x ∩ ∂x ̸= ∅, let us check that UP x ∩ ∂x induces a clique in G. If
+|V (P x)| = 1 then P consists of the single simplicial vertex x = uK , so ∂x induces a
+clique. If |V (P x)| ≥ 2 and a, b ∈ UP x ∩ ∂x are non-adjacent then {x− , x, a, b} induces
+a claw in G where x− is the predecessor of x on P (a contradiction). Hence UP x ∩ ∂x
+induces a clique (of size at most k), and we have
+                                               X
+                 Z(UP x ) = Z(UP x \ ∂x) +            λy Z(UP x \ (∂x ∪ ∂y)).
+                                             y∈UP x ∩∂x
+
+Note that UP x \ ∂x = UP xy for any y adjacent to x and so by induction (using (i)), we
+have Z(UP x \ ∂x) = Z(UP xy ) ̸= 0, so we can divide the recursion above by this quantity
+to obtain
+                                                                        −1
+                  Z(UP x )             X                Z(UP x \ ∂x)
+                             =1+                λy
+               Z(UP x \ ∂x)                          Z(UP x \ (∂x ∪ ∂y))
+                                     y∈UP x ∩∂x
+                                                                  −1
+                                       X               Z(UP xy )
+                             =1+                λy                     .
+                                                     Z(UP xy \ ∂y)
+                                    y∈UP x ∩∂x
+                                                           
+                                              Z(UP xy )
+By induction, we may assume that Re          Z(UP xy \∂y)       ≥ 1/2 and so by our choice of λ,
+                       Z(UP x )
+Lemma 8 says that Re( Z(UP x \∂x)
+                                  ) ≥ 1/2 proving (ii). This also immediately implies (i)
+(the second part of which was established earlier).                                           □
+
+Proof of Theorem 6. This follows from Lemma 12 by taking x = uK , and hence V (P ) =
+{x} and UP x = V (G).                                                              □
+
+
+                                      5. Examples
+   In this section we give examples showing the various ways in which it is not possible
+to extend the results we have presented so far. We will consider examples from larger
+and larger graph classes:
+                          A MULTIVARIATE ZERO-FREE REGION. . .                              11
+
+
+
+
+                  line graph ⊂ line graph of a multigraph
+                             ⊂ claw-free graph with a simplicial clique
+                             ⊂ claw-free graph
+                             ⊂ E-free graph, i.e., S1,2,2 -free.
+
+5.1. Even cycles. Let C2n denote the even cycle with vertex set V (C2n ) = [2n] =
+{0, 1, . . . , 2n − 1} and edge set E(C2n ) = {ij : j = i + 1 (mod 2n)}. Many of our
+examples will be based on (even) cycles so we need to locate some of the multivariate
+zeros of ZC2n ,λ . Since C2n is a line graph, Theorem 4 with k = 2 asserts that R(1) is
+a multivariate zero-free region. We show that this region cannot be extended further.
+Denote by B(z, ε) the disc of radius ε about z.
+Lemma 13. Suppose z0 ∈ ∂R(1) and ε > 0. Then there exist n ∈ N, z ∈ B(z0 , ε) and
+λ : V (C2n ) → {z, z̄} such that ZC2n ,λ = 0.
+Proof. Define λ : V (C2n ) → C by
+                                       (
+                                        λ, if i is even;
+                                  λi =
+                                        µ, if i is odd.
+A convenient way of keeping track of the calculation of ZC2n,λ is using a ‘transfer matrix’.
+Consider a path P2 of length 2 whose vertices, taken in order, have weights 1, µ and λ.
+Define
+                                                                      
+               m00 m01          1 0      1 1      1 0     1 1         µ+1 1
+        M=                 =                                      =                .
+               m10 m11          0 λ      1 0      0 µ     1 0            λ     λ
+Note that ZP2 ,(1,µ,λ) = m00 + m01 + m10 + m11 , and that m00 is the contribution to
+the partition function from independent sets excluding both ends of P2 , that m01 is the
+contribution of independent sets including the left endpoint of P2 and excluding the right,
+and so on. The transfer matrix for a path of length 2n with weights (1, µ, λ, . . . , µ, λ) is
+then simply M n . Finally, the partition function for a cycle of length 2n, being the path
+of length 2n with periodic boundary conditions, is
+                                     ZC2n ,λ = Tr(M n ).
+Write M = P −1 ΛP with Λ diagonal. Then the partition function of the cycle may be
+written as
+                   ZC2n ,λ = Tr(P −1 Λn P ) = Tr(Λn ) = αn + β n ,
+where α, β are the eigenvalues of Λ. Note that to obtain a zero of the partition function
+we require |α| = |β| and that | arg(α) − arg(β)| divides (2k + 1)π for some k ∈ N.
+   For simplicity assume µ = λ̄. The eigenvalues of M are
+        1            p                      1                p                      
+α, β =     λ + µ + 1 ± (λ + µ + 1)2 − 4λµ =         2 Re λ + 1 ± (2 Re λ + 1)2 − 4|λ|2 .
+        2                                        2
+To ensure |α| = |β|, we insist that
+(3)                                4|λ|2 > (2 Re λ + 1)2 ;
+12                        A MULTIVARIATE ZERO-FREE REGION. . .
+
+
+and to ensure αn + β n = 0 we take
+(4)                               arg α = π/2n = − arg β.
+Let λ = a + bi, so that µ = a − bi. Then (3) simplifies to
+(5)                                    4b2 > 4a + 1,
+and (4) to                                      √
+                                      π           4b2 − 4a − 1
+                                tan         =
+                                      2n              2a + 1
+or
+                                              π 2
+(6)                       4b2 = (2a + 1) tan          + 4a + 1.
+                                                2n
+Now, to find a pair of roots close to the parabola R(1) with a desired
+                                                                 q real part a, simply
+fix a and take n large. As n → ∞, the imaginary part b tends to       a + 14 from above.    □
+
+   Summarising, R(1) is a multivariate zero-free region for even length cycles, and is the
+unique maximal such region that is symmetric around the real axis in the following sense:
+for any point z on the boundary of R(1), and ε > 0, the set R(1) ∪ B(z, ε) ∪ B(z̄, ε) is
+not multivariate zero free. Note that there is no reason a priori to suppose that a unique
+maximal zero-free region exists, and indeed we shall encounter counterexamples later.
+5.2. Blow-ups of cycles (dense). Here we generalise the previous example to graphs
+of higher degree (and larger cliques) to show that Theorem 6 gives a zero-free region
+that is close to best possible.
+   By C2n [Ks ] we denote the lexicographic product of a cycle of length 2n and a clique
+of size s ≥ 2. Thus, the vertex set of C2n [Ks ] is [2n] × [s] and each vertex subset
+{i, i + 1} × [s] (with arithmetic modulo 2n) induces a 2s-clique K2s . There are no further
+edges. It is easy to check that C2n [Ks ] is claw free; indeed, G[Ks ] is claw free for any
+claw-free graph G and integer s ≥ 2.
+   Although C2n [Ks ] is not a line graph (of a simple graph), it is the line graph of a
+multigraph and so is amenable to the method of Asano contractions (see Theorem 4
+and appendix). As the cliques that comprise C2n [Ks ] have size 2s, this approach yields
+R(s2 ) as a multivariate zero-free region. (Refer to Theorem 4.) Alternatively, since any
+maximum clique in C2n [Ks ] has size 2s and is simplicial, our Theorem 6 yields R(2s)
+as a zero-free region. The result below shows that Theorem 6 is within a factor of 2 of
+being best possible (i.e. we cannot replace R(k) with R(k ′ ) in the statement if k ′ < k/2).
+Lemma 14. R(s) is a multivariate zero-free region for the graph C2n [Ks ], for all s ≥ 2.
+It is the maximal such region that is symmetric about the real axis.
+
+         Pλ : [2n]×[s] → C be a labelling of the
+Proof. Let                                         vertices of C2n [Ks ]. Define λ′ : [2n] → C
+     ′                                         ′
+by λi = j∈[s] λij , for i ∈ [2n]. We view λ as a labelling of C2n . It is easy to verify
+that ZC2n [Ks ],λ = ZC2n ,λ′ . (Regard two independent sets in C2n [Ks ] as equivalent if
+they intersect the same collection of sets of the form {i} × [s]; now collect together
+contributions to the partition function from equivalent independent sets.) Noting that
+R(1) is a zero-free region for C2n , we see that to establish the first part of the lemma it
+is enough to show that λij ∈ R(s) for all j ∈ [s] implies λ′i ∈ R(1).
+                             A MULTIVARIATE ZERO-FREE REGION. . .                                            13
+
+
+  Fix i ∈ [2n]. Since λij ∈ R(s) for all j ∈ [s] we have
+                                             1          1
+                         (Im λij )2 <          Re λij + 2 ,              for all j ∈ [s].
+                                             s         4s
+Summing over j,
+                                     X                          1         1
+(7)                                      (Im λij )2 <             Re λ′i + .
+                                                                s         4s
+                                     j∈[s]
+
+By Cauchy-Schwarz,
+                                               !2
+                          X                             X            X                    X
+          (Im λ′i )2 =            1 · Im λij        ≤           12       (Im λij )2 = s       (Im λij )2 .
+                          j∈[s]                         j∈[s]        j∈[s]                j∈[s]
+
+Combining this with (7) we see that λ′i ∈ R(1).
+   Optimality of the zero-free region R(s) may be argued as follows. Suppose z0 ∈ ∂R(s)
+and ε > 0. Note that sz0 ∈ ∂R(1). By Lemma 13, there exist z ∈ B(sz0 , sε) and
+λ′ : [2n] → {z, z̄} such that ZC2n ,λ′ = 0. Now let λ = λ′ /s. Then z/s ∈ B(z0 , ε),
+λ : [2n] → {z/s, z̄/s} and ZC2n [Ks ],λ = ZC2n ,λ′ = 0.                              □
+
+5.3. Paths with longer range interactions. The following are examples of graphs
+in G Cl-S that are not line graphs thus showing that Theorem 6 applies to graphs that
+Theorem 4 does not apply to.
+                         (d)
+   For n, d ≥ 1, let Pn denote the path of length n with adjacencies up to distance d.
+          (d)                   (d)
+So V (Pn ) = [n] and E(Pn ) = {ij : i, j ∈ [n] and 1 ≤ j − i ≤ d}. Assume that
+                                                     (d)
+d ≥ 2. Then for n sufficiently large, the graph Pn is not the line graph of a multigraph.
+(As the property is hereditary, we can take n = 3d without loss of generality. Any
+line graph can be covered by cliques in such a way that each vertex is in at most two
+                                         (d)
+cliques. Assume that the edges of P3d could be covered by such cliques. In particular,
+the edge {d, 2d} must be in some such clique K. The vertex d has degree 2d, so to cover
+all its incident edges using two cliques requires K to be of maximum cardinality, i.e.,
+K = {d, d + 1, . . . , 2d}. This in turn forces us to take the cliques {0, . . . , d}, {d, . . . , 2d}
+and {2d, . . . , 3d}. But now it is impossible to cover (say) the edges {1, d + 1} and
+{d + 1, 2d + 1} using a single extra clique.) Thus, this example is not amenable to the
+Asano contraction approach.
+                  (d)
+   However, Pn is claw free and has a simplicial clique, for example, the singleton vertex
+{0}. Its maximum clique size is d + 1, so by Theorem 6 it has R(d + 1) as a multivariate
+zero-free region.
+
+5.4. Blow-ups of cycles (sparse). By C2n [sK1 ] we denote the lexicographic product
+of a cycle of length 2n and an independent set of size s ≥ 2. Thus, the vertex set of
+C2n [sK1 ] is [2n] × [s] and each pair of vertex subsets {i} × [s] and {i + 1} × [s] (with
+arithmetic modulo 2n) induces a complete bipartite graph Ks,s . There are no further
+edges. It is easy to check that C2n [sK1 ] is E-free (and hence Si,j,k -free for i ≥ 1 and
+j, k ≥ 2); indeed, for any E-free graph G and integer s ≥ 2, the graph G[sK1 ] is also
+E-free
+14                        A MULTIVARIATE ZERO-FREE REGION. . .
+
+
+   Since C2n [2K1 ] is E-free, we deduce from Theorem 5 the existence of an open mul-
+tivariate zero-free region containing any finite segment of the positive real axis. We
+cannot, however, deduce the existence of an open zero-free region containing the entire
+real axis. In fact, we now show that no such region exists.
+Lemma 15. Consider the collection C = {C2n [2K1 ] : n ∈ N} of blown-up cycles defined
+above. There is no open multivariate zero-free region for C that contains the positive real
+axis.
+Proof. Given constants ε > 0 and W > 0, define a weighting λε,W : [2n] × [2] → C of
+the vertices of C2n [2K1 ] by
+                              
+                              W,
+                                            if j = 0;
+                       ε,W
+                      λij = wε = 1 + εi, if i is even and j = 1;
+                              
+                               w̄ε = 1 − εi, if i is odd and j = 1.
+                              
+
+As before, by grouping equivalent independent sets, we can write down an equivalent (in
+the sense of preserving the partition function) weighting µε,W of the simple cycle C2n :
+             (
+      ε,W      zε,W := (W + 1)(wε + 1) − 1 = (2W + 1) + (W + 1)εi, if i is even;
+     µi =
+               z̄ε,W := (W + 1)(w̄ε + 1) − 1 = (2W + 1) − (W + 1)εi, if i is odd.
+We then have ZC2n [2K1 ],λε,W = ZC2n ,µε,W .
+   With a view to obtaining a contradiction, assume that S is an open multivariate zero-
+free region for C that contains the positive real axis. Choose δ > 0 such that the interval
+[1 − δi, 1 + δi] is contained in S. We will check that there exists W > 0, ε ∈ (0, δ], and
+n ∈ N such that ZC2n ,µε,W = 0 and hence ZC2n [2K1 ],λε,W giving the contradiction.
+   Consider the set
+     Tδ = {zε,W : ε ∈ (0, δ], W > 0} = {(2W + 1) + (W + 1)εi : ε ∈ (0, δ], W > 0}
+                                      = {x + iy : 0 < y < 21 δ(x + 1), x > 1}.
+It is easy to check that Tδ contains a (unbounded) part of the parabola ∂R(1). Lemma 13
+then implies that there exists zε,W ∈ Tδ and n ∈ N such that alternately weighting the
+vertices of C2n with zε,W and z̄ε,W gives a zero of ZC2n , i.e. ZC2n ,µε,W = 0.      □
+
+5.5. Complete multipartite graphs. In this subsection, we show that we cannot
+drop the bounded degree condition in Theorem 3 and Theorem 5. For a, b, n, m ∈ N, let
+K(a, b; n, m) be the graph that has an + bm vertices which are divided into a sets with
+n vertices and a further b sets of m vertices and where all edges are present between
+vertices in different sets and no edges are present inside any of the sets. So this is
+a complete multipartite graph. Note that K(a, b; n, m) is Si,j,k -free for any choice of
+positive integers i, j, k except for i = j = k = 1, i.e., the graph may contain claws but
+does not contain any other subdivided claw.
+   One can easily verify that the (univariate) independence polynomial of K(a, b; n, m)
+is given by
+ZK(a,b;n,m),λ = a[(1 + λ)n − 1] + b[(1 + λ)m − 1)] + 1 = a(1 + λ)n + b(1 + λ)m + (1 − a − b).
+                          A MULTIVARIATE ZERO-FREE REGION. . .                              15
+
+
+From the following lemma, it immediately follows that the roots of such polynomials
+are dense in the complex plane except possibly inside a disc of radius 1 centered at −1.
+This shows in particular that zeros accumulate on the positive real line and so we cannot
+expect a zero-free region around the positive real line (or any section of it) for the general
+class of Si,j,k -free graphs where i, j ≥ 1 and k ≥ 2.
+Lemma 16. For the set of polynomials of the form ax2n + bxn + (1 − a − b), where
+a, b, n ∈ N, the roots are dense outside the unit disc.
+  Note that there are zeros inside the unit disc, but we do not describe them here.
+
+Proof. First consider quadratics of the form ax2 + bx + (1 − a − b), where a and b are
+positive integers. We claim that the roots of such quadratics are dense in the interval
+(−∞, −1). Indeed, given any positive rational t, we can find a root arbitrarily close to
+−1 − t as follows. Take L to be a very large positive integer so that b = tL is an integer
+and set a = L. Then one of the roots of ax2 + bx + (1 − a − b) is
+                                                     2      !1/2
+           (b2 − 4a(1 − a − b))1/2
+                                             
+      b                                t       t           1
+   − −                             =− −          +1 −             = −t − 1 + O(L−1 ).
+     2a              2a                2       2           L
+
+proving the claim.
+   Next, given any z = reiθ with r > 1 and ε > 0, consider a small neighbourhood of z
+given by
+                                       ′
+                       Nε (z) = {r′ eiθ : |r − r′ | ≤ ε, |θ − θ′ | ≤ ε/r},
+which is easily checked to be contained inside a disc of radius 3ε centered at z. For a
+sufficiently large positive integer N (we can take N ≥ πrε−1 ), the set Nε (z)N (raising
+each element in Nε (z) to the power N ) is an annulus between the circles of radius (r−ε)N
+and (r + ε)N and in particular crosses the interval (−∞, −1) and so contains a root of
+Ax2 +Bx+(1−A−B) for some positive integers A, B. Therefore, some complex number
+within a distance 3ε of z is a root of Ax2N + BxN + (1 − A − B).                         □
+
+         6. The case when H is neither a subdivided claw nor a path
+   Recall that Theorem 3 and Theorem 5 give a zero-free region for the independence
+polynomials of H-free graphs of fixed maximum degree ∆, where H is a fixed subdivided
+claw Si,j,k . Note that similar results hold when H = Pk is a path of some fixed length k
+for the trivial reason that there are only finitely many Pk -free graphs of maximum
+degree ∆. In this section, we show that no similar results can hold for any graph H that
+is not a subdivided claw or a path.
+   Given a graph H which is neither a path nor a subdivided claw, then either H has
+a vertex of degree at least 4 or H has (at least) two vertices of degree 3. In the latter
+case, set k ∈ N to be larger than the distance between these vertices of degree 3 and in
+the former case, set k = 0. Let T = {Td : d ∈ N} be the family of trees, where Td is
+obtained from the complete binary tree of height d by subdividing each edge 2k times
+(so there are 2k intermediate vertices between branch vertices). Refer to Figure 3. By
+our choice of k, all trees in T are H-free.
+16                             A MULTIVARIATE ZERO-FREE REGION. . .
+
+
+                                                                          λ
+                                         λ
+                                                              λ                     λ
+                            λ,2 ↑
+                          (f
+                                    λ         λ                ..                   ..
+                     gλ    fλ,1 ↑                               .                    .
+                                    λ         λ
+                           fλ,1 ↑                        ..          ..        ..        ..
+                                    z         z           .           .         .         .
+                                                        λ           λ         λ           λ
+                                                        z           z         z           z
+
+                          Figure 3. The trees T1 and T2 , when k = 1.
+
+
+Lemma 17. The set of zeros
+                      
+                        λ ∈ C : ZT,λ = 0 for some T ∈ T
+
+has an accumulation point on the positive real axis.
+
+   The lemma shows that, for any choice of H that is not a subdivided claw or a path,
+there can be no zero-free region containing the positive real line for independence poly-
+nomials of H-free graphs of maximum degree 3. Our proof closely follows the treatment
+of Buys [11] and so we give details where our proof differs from [11] and only outline the
+rest.
+
+Proof of Lemma 17. The advantage of working with trees is that we have an inductive
+description of the partition function. A particularly convenient way of managing the
+calculation is through the occupation ratio of the root of a tree: the total weight of
+independent sets that include the root vertex divided by the total weight of independent
+sets that exclude it. The recurrence for the occupation ratio was introduced into this
+area by Weitz [34], and can be found in earlier work, such as Kelly [26]. The derivation
+of the recurrence can be found in Buys [11]. Define
+              λ                  λ                          ◦2k
+fλ,1 (z) =       , fλ,2 (z) =          and gλ (z) = fλ,2 ◦ fλ,1 (z) = fλ,2 ◦ fλ,1 ◦ · · · ◦ fλ,1 (z).
+             1+z              (1 + z)2                                       |      {z         }
+                                                                                              2k copies
+
+The functions fλ,1 and fλ,2 express how the occupation ratio is transformed as we go one
+level up in the tree; fλ,1 (respectively, fλ,2 ) relates to vertices with branching factor 1
+(respectively, 2). Refer to Figure 3. It follows that gλ◦d (λ) is the occupation ratio of the
+root of Td . If gλ◦d (λ) = −1 then the contributions from independent sets that include
+the root and those that exclude it exactly cancel out and we have ZTd ,λ = 0. Following
+Buys, our initial goal is to find a fugacity λ0 ∈ R>0 such that gλ0 has an indifferent fixed
+point zλ0 , that is to say gλ0 (zλ0 ) = zλ0 and |gλ′ 0 (zλ0 )| = 1.
+   Fix λ ∈ R>0 . Observe that fλ,1 and fλ,2 are monotonically decreasing as functions
+on R≥0 , and hence so is gλ , being a composition of an odd number of these. As gλ is
+also non-negative on R≥0 it intersects the identity function at a unique point in R≥0 ;
+call this point zλ . Since g0 is identically zero, we have z0 = 0 and |g0′ (z0 )| = 0 . We will
+                             A MULTIVARIATE ZERO-FREE REGION. . .                                        17
+
+
+show that |gλ′ (zλ )| → 2 as λ → ∞ from which it follows, by continuity,4 that there exists
+at least one λ ∈ R>0 at which |gλ′ (zλ )| = 1. This will give us the sought for indifferent
+fixed point.
+   As k is constant, and we are taking λ to be sufficiently large, we can approximate the
+occupation ratio of the root of T1 — with the two leaves weighted z, and the remaining
+vertices weighted λ — by enumerating just the maximum independent sets. Then the
+occupation ratio of the root is gλ (z) = win /wout , where
+   win = λ2k+1 + O(λ2k ) + 2z kλ2k + O(λ2k−1 ) + z 2 k 2 λ2k−1 + O(λ2k−2 )
+                                                                            
+
+        = λ2k−1 (λ + kz)2 (1 + O(λ−1 )),
+and
+ wout = (k + 1)2 λ2k + O(λ2k−1 ) + 2z (k + 1)λ2k + O(λ2k−1 ) + z 2 λ2k + O(λ2k−1 )
+                                                                                 
+
+        = λ2k (z + k + 1)2 (1 + O(λ−1 )).
+Thus
+                                    (λ + kz)2
+                              gλ (z) =          (1 ± O(λ−1 )).
+                                  λ(z + k + 1)2
+  With a view to verifying that gλ has a fixed point zλ close to λ1/3 , let ε > 0 and define
+ ±
+zλ = (1 ± ε)λ1/3 . Then
+                                           (λ + O(λ1/3 ))2 (1 + O(λ−1 ))
+                             gλ (zλ+ ) =                           2
+                                             λ (1 + ε)λ1/3 + O(1)
+                                                λ2 (1 + O(λ−2/3 ))
+                                       =
+                                           (1 + ε)2 λ5/3 (1 + O(λ−1/3 ))
+                                       = (1 + ε)−2 λ1/3 (1 + O(λ−1/3 )).
+Thus, provided λ ≫ ε−3 , we have zλ+ − gλ (zλ+ ) > 0 and zλ− − gλ (zλ− ) < 0. It follows that
+gλ has a fixed point zλ satisfying zλ− < zλ < zλ+ , at which zλ = λ1/3 (1 + O(λ−1/3 )) =
+λ1/3 + O(1).
+  Letting ∼ denote equality up to a factor (1 ± oλ (1)),
+                                         (
+                              ◦ℓ          λ1/3 , if ℓ is even;
+                            fλ,1 (zλ ) ∼
+                                          λ2/3 , if ℓ is odd.
+By the chain rule,
+                          ◦2k          ′        ◦(2k−1)                    ′                  ′
+       gλ′ (z) = (fλ,2
+                   ′
+                       ◦ fλ,1 (z)) × (fλ,1 ◦ fλ,1         (z)) × · · · × (fλ,1 ◦ fλ,1 (z)) × fλ,1 (z).
+Noting
+                           ′              −λ          ′           −2λ
+                          fλ,1 (z) =           2
+                                                 and fλ,2 (z) =          ,
+                                       (1 + z)                  (1 + z)3
+we have
+             gλ′ (zλ ) ∼ −2 × (−λ−1/3 × −λ1/3 ) × · · · × (−λ−1/3 × −λ1/3 ) = −2.
+                              |                   {z                     }
+                                                     k factors
+
+  4The fixed point z = z
+                         λ is defined by the implicit equation t(λ, z) = 0, where t(λ, z) = gλ (z) − z.
+          ∂t
+Note that ∂z is at most −1 and, in particular is non-zero. Now apply the implicit function theorem.
+18                                 A MULTIVARIATE ZERO-FREE REGION. . .
+
+
+By continuity, there exists λ ∈ R>0 such that |gλ′ (zλ )| = 1. Let this λ be λ0 . Then zλ0
+is an indifferent fixed point of gλ0 .
+   We now employ [11, Lemma 13]. In our application, ∆ = 2, and H∆ = H2 is the
+set of all functions that can be obtained by composing sequences composed of fλ,1 and
+fλ,2 . The lemma asserts that the existence of an indifferent fixed point at λ = λ0 (just
+established) ensures that λ0 is an accumulation point of zeros realised by balanced trees
+with branching factors in {1, 2}. In our application, however, we want to ensure that
+pairs of degree-2 vertices remain separated, by 2k degree-1 vertices. In fact, the trees
+T ∈ H2 referred to in the statement of Buys’ Lemma 13 do have this property. However,
+we have to peek into the proof to see this.
+   The proof of the lemma first establishes that a certain function gλ◦n ◦ hλ is not normal
+about λ = λ0 (or more precisely that the family {λ 7→ gλn ◦ hλ (0)}n≥1 is not normal in
+any neighbourhood of λ0 ). The function gλ and the point λ0 are the same as ours, so
+the issue for us is whether the hλ ∈ H2 has two occurrences of fλ,2 that are too close
+together. Consulting Remark 8, we discover that hλ is in fact an initial segment of
+                          ◦2k , so in fact contains at most one occurrence of f
+the composition fλ,2 ◦ fλ,1                                                     λ,2 . Finally,
+at the end of the proof of Lemma 13, either one or two functions are removed from
+the composition of functions gλ◦n ◦ hλ to yield the desired function g̃λ . Thus, g̃λ is a
+composition of a contiguous subsequence of functions from
+     ◦(n+1)
+ gλ           = (fλ,2 ◦ fλ,1 ◦ · · · ◦ fλ,1 ) ◦ (fλ,2 ◦ fλ,1 ◦ · · · ◦ fλ,1 ) ◦ · · · ◦ (fλ,2 ◦ fλ,1 ◦ · · · ◦ fλ,1 ).
+The corresponding tree has pairs of degree-2 vertices separated by sequences of 2k degree-
+1 vertices, as desired.                                                                 □
+
+                                          7. Concluding Remarks
+   A few natural questions arise from this work. First, in Theorem 3, we establish an
+open, zero-free region F containing [0, ∞) for St,t,t -free graphs of maximum degree ∆.
+Can we in fact take F to be a sector of the complex plane with a suitably small angle
+(depending on ∆ and t)?
+   Secondly, it would be interesting to know whether some form of Theorem 6 can be
+extended to all claw-free graphs of bounded degree (or bounded clique size). A more
+basic question is whether there is an open multivariate zero-free region containing [0, ∞)
+for claw-free graphs of bounded degree (or bounded clique size).
+
+                                              Acknowledgments
+   We thank Guus Regts and Ferenc Bencs for helpful discussions and feedback on an
+earlier draft. We also thank the anonymous referee for their careful reading and valuable
+feedback on this work.
+
+                                                    References
+ [1] Tara Abrishami, Maria Chudnovsky, Cemil Dibek, and Pawel Rza,żewski. Polynomial-time algorithm
+     for maximum independent set in bounded-degree graphs with no long induced claws. In Proceedings
+     of the 2022 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA), pages 1448–1470.
+     [Society for Industrial and Applied Mathematics (SIAM)], Philadelphia, PA, 2022.
+ [2] Nima Amini. Spectrahedrality of hyperbolicity cones of multivariate matching polynomials. J. Al-
+     gebraic Combin., 50(2):165–190, 2019.
+                             A MULTIVARIATE ZERO-FREE REGION. . .                                    19
+
+
+ [3] Alexander Barvinok. Combinatorics and complexity of partition functions, volume 30 of Algorithms
+     and Combinatorics. Springer, Cham, 2016.
+ [4] Ferenc Bencs. On trees with real-rooted independence polynomial. Discret. Math., 341(12):3321–
+     3330, 2018.
+ [5] Ferenc Bencs. Graphs, Groups and Measures. PhD thesis, Central European University, 2019.
+ [6] Ferenc Bencs, Pjotr Buys, and Han Peters. The limit of the zero locus of the independence polyno-
+     mial for bounded degree graphs. Michigan Math. J., 75(2):423–448, 2025.
+ [7] Ferenc Bencs, Péter Csikvári, Piyush Srivastava, and Jan Vondrák. On complex roots of the in-
+     dependence polynomial. In Proceedings of the 2023 Annual ACM-SIAM Symposium on Discrete
+     Algorithms (SODA), pages 675–699. SIAM, Philadelphia, PA, 2023.
+ [8] Ivona Bezáková, Andreas Galanis, Leslie Ann Goldberg, and Daniel Štefankovič. Inapproximability
+     of the independent set polynomial in the complex plane. SIAM J. Comput., 49(5):STOC18–395–
+     STOC18–448, 2020.
+ [9] David de Boer, Pjotr Buys, Lorenzo Guerini, Han Peters, and Guus Regts. Zeros, chaotic ratios
+     and the computational complexity of approximating the independence polynomial. Math. Proc.
+     Cambridge Philos. Soc., 176(2):459–494, 2024.
+[10] David de Boer, Pjotr Buys, Han Peters, and Guus Regts. On boundedness of zeros of the indepen-
+     dence polynomial of tori. arXiv:2306.12934, 2025.
+[11] Pjotr Buys. Cayley trees do not determine the maximal zero-free locus of the independence poly-
+     nomial. Michigan Math. J., 70(3):635–648, 2021.
+[12] Adrian Chapman, Samuel J. Elman, and Ryan L. Mann. A unified graph-theoretic framework for
+     free-fermion solvability. arXiv:2305.15625, 2023.
+[13] Zongchen Chen and Yuzhou Gu. Fast sampling of b-matchings and b-edge covers. In Proceedings of
+     the 2024 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA), pages 4972–4987. SIAM,
+     Philadelphia, PA, 2024.
+[14] Maria Chudnovsky, Marcin Pilipczuk, Michal Pilipczuk, and Stéphan Thomassé. Quasi-Polynomial
+     Time Approximation Schemes for the Maximum Weight Independent Set Problem in H-Free
+     Graphs. SIAM J. Comput., 53(1):47–86, 2024.
+[15] Maria Chudnovsky, Alex Scott, Paul Seymour, and Sophie Spirkl. A note on simplicial cliques.
+     Discrete Math., 344(9):Paper No. 112470, 7, 2021.
+[16] Maria Chudnovsky and Paul Seymour. The roots of the independence polynomial of a clawfree
+     graph. J. Combin. Theory Ser. B, 97(3):350–357, 2007.
+[17] Maria Chudnovsky and Paul D. Seymour. The structure of claw-free graphs. In Bridget S. Webb,
+     editor, Surveys in Combinatorics, 2005: Invited lectures from the Twentieth British Combinatorial
+     Conference, Durham, UK, July 2005, volume 327 of London Mathematical Society Lecture Note
+     Series, pages 153–171. Cambridge University Press, 2005.
+[18] R. L. Dobrushin. Estimates of semi-invariants for the Ising model at low temperatures. In Topics
+     in statistical and theoretical physics, volume 177 of Amer. Math. Soc. Transl. Ser. 2, pages 59–81.
+     Amer. Math. Soc., Providence, RI, 1996.
+[19] R. L. Dobrushin. Perturbation methods of the theory of Gibbsian fields. In Lectures on probabil-
+     ity theory and statistics (Saint-Flour, 1994), volume 1648 of Lecture Notes in Math., pages 1–66.
+     Springer, Berlin, 1996.
+[20] Paula M. S. Fialho and Aldo Procacci. On the independent set polynomial of graphs and claw-free
+     graphs. arXiv:2505.22766, 2025.
+[21] Ole J. Heilmann and Elliott H. Lieb. Theory of monomer-dimer systems. Comm. Math. Phys.,
+     25:190–232, 1972.
+[22] Tyler Helmuth, Will Perkins, and Guus Regts. Algorithmic Pirogov-Sinai theory. Probab. Theory
+     Related Fields, 176(3-4):851–895, 2020.
+[23] Mikhail Hlushchanka and Han Peters. The independence polynomial on recursive sequences of
+     graphs. arXiv:2411.14791, 2024.
+[24] Mark Jerrum. Glauber dynamics for the hard-core model on bounded-degree H-free graphs. Com-
+     binatorics, Probability and Computing, 2025. DOI 10.1017/S0963548325100163.
+20                           A MULTIVARIATE ZERO-FREE REGION. . .
+
+
+[25] Mark Jerrum and Alistair Sinclair. The Markov chain Monte Carlo method: an approach to approx-
+     imate counting and integration. Approximation Algorithms for NP-hard problems, PWS Publishing,
+     1996.
+[26] F. P. Kelly. Stochastic models of computer communication systems. J. Roy. Statist. Soc. Ser. B,
+     47(3):379–395, 415–428, 1985. With discussion.
+[27] Jonathan D. Leake and Nick R. Ryder. Generalizations of the matching polynomial to the multi-
+     variate independence polynomial. Algebr. Comb., 2(5):781–802, 2019.
+[28] Joel L. Lebowitz, David Ruelle, and Eugene R. Speer. Location of the Lee-Yang zeros and absence
+     of phase transitions in some Ising spin systems. J. Math. Phys., 53(9):095211, 13, 2012.
+[29] James Matthews. Markov Chains for Sampling Matchings. PhD thesis, School of Informatics, Uni-
+     versity of Edinburgh, 2008. http://hdl.handle.net/1842/3072.
+[30] Viresh Patel and Guus Regts. Deterministic polynomial-time approximation algorithms for partition
+     functions and graph polynomials. SIAM J. Comput., 46(6):1893–1919, 2017.
+[31] Han Peters and Guus Regts. On a conjecture of Sokal concerning roots of the independence poly-
+     nomial. Michigan Math. J., 68(1):33–55, 2019.
+[32] J. B. Shearer. On a problem of Spencer. Combinatorica, 5(3):241–245, 1985.
+[33] A. D. Sokal. A personal list of unsolved problems concerning lattice gases and antiferromagnetic
+     Potts models. Markov Process. Related Fields, 7(1):21–38, 2001. Inhomogeneous random systems
+     (Cergy-Pontoise, 2000).
+[34] Dror Weitz. Counting independent sets up to the tree threshold. In STOC’06: Proceedings of the
+     38th Annual ACM Symposium on Theory of Computing, pages 140–149. ACM, New York, 2006.
+
+                                           8. Appendix
+    The line graph of a multigraph may be characterised as a graph G for which there
+exist vertex subsets V1 , V2 , . . . Vℓ ⊆ V (G) with the following properties: (i) every induced
+graph G[Vi ] is a clique; (ii) every edge e ∈ E(G) is contained in some clique G[Vi ]; and
+(iii) every vertex v ∈ V (G) is contained in at most two cliques.
+Proof of Theorem 4. Suppose G is a line graph of a multigraph, whose maximum clique
+in the above decomposition has size k0 . We show that R(k02 /4) is a multivariate zero-free
+region for G. Note that k0 is at most the size of the largest clique in G, so this shows a
+little more than claimed in Theorem 4.
+   We use the technique of Asano contractions, as employed in this context by Lebowitz,
+Ruelle and Speer. The proof of our claim is essentially contained in the terse proof of
+their Lemma 2.6 [28]. Here, we sketch the line of proof, specialise it to our specific
+application, and explicitly compute the parabolic region.
+   The independence polynomial of the clique Kk is simply z1 + z2 + · · · zk + 1, and has
+{z : Re z > −k −1 } as a multivariate zero-free region. View the line graph G as being
+constructed from a set of disjoint cliques by sequentially identifying pairs of vertices.
+Each clique individually has the halfspace Φ = {z : Re z > −k0−1 } as a multivariate
+zero-free region. Clearly, the disjoint union of cliques G0 = G[V1 ] ·∪ G[V2 ] ·∪ · · · ·∪ G[Vℓ ]
+also has Φ as a multivariate zero-free region. A halfspace is a special case of a “circular
+region”, so Asano contraction is applicable.
+   Let the independence polynomial of G0 be p(z1 , . . . , zN ). Think of the zero-free region
+as being the cartesian product Φ1 × Φ2 × · × ΦN , where, initially, Φi = Φ for all i. If
+zi ∈ Φi for all i then p(z1 , . . . , zN ) ̸= 0. We can recover G from G0 by repeatedly
+identifying pairs of vertices. Suppose, without loss of generality, that we identify the
+vertices labelled by zN −1 and zN first, and assign variable z to the coalesced vertex.
+The key contraction lemma (see [28, Lemma 2.4]) says that the resulting independence
+                            A MULTIVARIATE ZERO-FREE REGION. . .                                 21
+
+
+polynomial, in variables (z1 , . . . , zN −2 , z), has a zero-free region Φ1 × Φ2 × · × ΦN −2 × Φ′ ,
+where Φ1 , Φ2 . . . , ΦN −2 = Φ and Φ′ is obtained from ΦN −1 and ΦN according to a certain
+rule, namely
+                 Φ′ = −ΦN −1 · ΦN = {−w1 w2 : w1 ∈
+                                                 / ΦN −1 and w2 ∈
+                                                                / ΦN }
+                                      = {−w1 w2 : Re w1 , Re w2 ≤ −k0−1 },
+where overline denotes complement of a set.
+   Then, repeatedly applying Asano contractions we reach the target graph G, and dis-
+cover that it has (Φ′ )n as a zero free set, where n = |V (G)|. (It is here that we crucially
+use the fact that the original graph G is a line graph. As each vertex is contained in at
+most two cliques, we are always replacing two zero-free sets Φ by a single Φ′ . If G is the
+line graph of a multi graph, then G may contain parallel edges, but this is fortunately
+not an issue for the hard-core model.)
+   It only remains to show that Φ′ = R(k02 /4). The set Φ′ is open and we want to
+identify its boundary ∂Φ′ . If either Re w1 < −k0−1 or Re w2 < −k0−1 then by making
+small perturbations of w1 or w2 (note that neither is zero) within Φ we can move in a
+small open region around w1 w2 . So, the boundary of Φ′ must be defined by w1 , w2 lying
+on the boundary of Φ. Let w1 = −k0−1 + y1 i and w2 = −k0−1 + y2 i, with y1 , y2 ∈ R. Then
+                    −w1 w2 = f (y1 , y2 ) = (y1 y2 − k0−2 ) + k0−1 (y1 + y2 ) i.
+Now, ∂f /∂y1 = y2 + k0−1 i and ∂f /∂y2 = y1 + k0−1 i, so unless y1 = y2 we can again move
+in an open set around f (y1 , y2 ), and hence f (y1 , y2 ) cannot be on the boundary of Φ′ .
+Setting y = y1 = y2 we obtain the parametric expression (y 2 − k0−2 ) + 2k0−1 y i for the
+boundary of R(k02 /4) and hence Φ′ = R(k02 /4).                                          □
+

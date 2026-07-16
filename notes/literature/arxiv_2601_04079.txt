@@ -1,0 +1,783 @@
+                                                                    TV HOMOGENIZATION INEQUALITIES
+
+                                                                                     ARYEH KONTOROVICH
+
+
+                                                   Abstract. We study the total variation distance under two information-erasing maps on
+                                                   inhomogeneous Bernoulli product measures: summation and homogenization. While summation
+                                                   is a Markov kernel and hence satisfies the usual data processing inequality, homogenization —
+                                                   which maps each Bernoulli parameter to the cumulative mean — is not. Nevertheless, we prove
+
+
+
+
+arXiv:2601.04079v3 [math.PR] 25 Feb 2026
+                                                   that the homogenization map also reduces the TV distance, up to a universal constant. The
+                                                   argument is based on an explicit two-sided control of the TV distance between Poisson binomials,
+                                                   obtained via a parameter interpolation and a second-moment extraction.
+
+
+
+
+                                                                                       1. Introduction
+                                              For p = (p1 , . . . , pn ) ∈ [0, 1]n , the Poisson–binomial law, introduced by [16]1, is the pushforward
+                                                                                                                                                 P
+                                           of the product measure Ber(p) := Ber(p1 ) ⊗ · · · ⊗ Ber(pnP               ) under the sum map x 7→      i xi .
+                                           Equivalently, if Xi ∼ Ber(pi ) are independent, then Sp := ni=1 Xi is distributed according to
+                                           this law. The sum map is easily seen to be a Markov kernel, and hence the Data Processing
+                                           Inequality [18, Theorem 7.4] applies: TV(Ber(p), Ber(q)) ≥ TV(Sp , Sq ), where TV is the total
+                                           variation distance. Intuitively, since information is lost under the sum map, the distributions can
+                                           only become closer to each other. In this paper, we investigate the behavior of TV under the
+                                           sum map at the parameter           rather than the observation level. The homogenization map replaces
+                                           each pi with p̄ = n i pi , transforming Ber(p) into Ber(p̄)⊗n . Since this operation also erases
+                                                                  1 P
+
+                                           information, we might likewise expect it to decrease the TV distance. One immediate obstruction
+                                           is that the homogenization map cannot be realized by any Markov kernel. Indeed, suppose to the
+                                           contrary that for n ≥ 2, some Markov kernel K maps X ∼ Ber(p) to Y ∼ Ber(p̄)⊗n . Applying
+                                           the sum map to Y yields Z ∼ Bin(n, p̄); thus we have some Markov kernel K̃ : Ber(p) 7→ Bin(n, p̄)
+                                           for all p ∈ [0, 1]n . Consider a p of the form p = (t, 0, 0, . . . , 0) ∈ [0, 1]n . Then the law of X is
+                                           affine in t (it is a t-convex combination of two atoms), as is the pushforward measure under K̃.
+                                                                           2              n−2
+                                           However, P(Z = 2) = n2 nt                 1 − nt      , which is not affine in t.2
+                                              This indicates that the standard information-theoretic argument for proving data processing
+                                           inequalities does not apply, necessitating novel tools. One such tool we propose analyzes the
+                                           behavior of the Poisson binomial Sp under the total variation metric TV. For p, q ∈ [0, 1]n ,
+                                           define the quantities
+                                                                                                                                            
+                                                      n                                         n
+                                                     X                                         X                                       ∆
+                                           (1) ∆ :=      |pi − qi |, σp2 := Var(Sp ) =              pi (1 − pi ), Φ(p, q) := min1, q        .
+                                                                                                                                     σ 2 +1
+                                                     i=1                                       i=1                                     p
+
+
+
+                                             2020 Mathematics Subject Classification. 60E15, 60F05.
+                                             Key words and phrases. total variation; homogenization; Poisson binomial; Bernoulli product measures.
+                                             1See [17] for a modern English translation.
+                                             2For the special case of complementary p, q, meaning that q = 1 − p, it turns out that the homogenization
+                                           operator can be realized as a Markov kernel; see Appendix.
+                                                                                                  1
+2                                          A. KONTOROVICH
+
+We discover a simple analytic approximation of TV(Sp , Sq ) for dominating pairs p, q ∈ [0, 1]n ,
+pi ≥ qi , up to universal multiplicative constants:
+(2)                     TV(Sp , Sq ) ≍ Φ(p, q),      p, q ∈ [0, 1]n , p ≥ q.
+For general p, q ∈ [0, 1]n , only the upper bound TV(Sp , Sq ) ≲ Φ(p, q) holds, which can be
+sharpened to min(Φ(p, q), Φ(q, p)) by symmetry. Unlike TV(Ber(p), Ber(q)), whose exact
+computation is infeasible (see below), TV(Sp , Sq ) is computable exactly in time O(n2 ) via a
+simple recurrence [22, Section 5]. Still, one should not expect any analytically tractable analogue
+of (2) for general p, q due to cancellations and convolutional smoothing. As an application of
+these results, we prove the TV homogenization inequality for all p, q ∈ [0, 1]n :
+(3)        TV(Ber(p), Ber(q)) ≳ TV(Ber(p̄)⊗n , Ber(q̄)⊗n ) = TV(Bin(n, p̄), Bin(n, q̄)).
+
+Notation. We write [n] := {1, . . . , n}. For two distributions P, Q on a finite set Ω, their total
+variation distance is defined by
+                                               1X
+(4)                            TV(P, Q) =            |P (ω) − Q(ω)|.
+                                               2
+                                                  ω∈Ω
+
+If X, Y are random variables with laws P, Q, respectively, then we write TV(X, Y ) := TV(P, Q).
+For p ∈ [0, 1], Ber(p) denotes the Bernoulli measure on {0, 1}: Ber(p)(0) = 1−p and Ber(p)(1) = p.
+For n ∈ N and p ∈ [0, 1]n , Ber(p) denotes the product of n Bernoulli distributions with parameters
+pi : Ber(p) = Ber(p1 )⊗Ber(p2 )⊗. . .⊗Ber(pn ). The Poisson binomial Sp is a sum of n independent
+Ber(pi ) variables. When all of the pi are identical (say, to p̄), this is the binomial distribution
+Bin(n, p̄). The notation in (1) will persist throughout the paper.
+Main results. Our first result implies the upper bound in (2). Let η0 denote the sharp universal
+constant from [2, Theorem 1], and set
+                                              r
+                                                 5
+                                        C0 :=      + η02 .
+                                                 4
+Numerically (see [2, Remark 1]), η0 ≈ 0.4688223555 and hence C0 ≈ 1.2123507747.
+Theorem 1.1. For p, q ∈ [0, 1]n and Φ as in (1),
+                            TV(Sp , Sq ) ≤ 2C0 min(Φ(p, q), Φ(q, p)).
+     L. Mattner [14] has brought to our attention the result of [23], which upper bounds TV(Sp , Sq )
+by
+                                5|ESp − ESq | 12|ESp − ESq |
+                                             +               .
+                                               1 + σp2 + σq2
+                                  q
+                                   σp2 + σq2
+
+This estimate has the attractive property of being topologically equivalent to TV(Sp , Sq ) in the
+sense that the two converge to 0 on precisely the same set of sequence pairs. It is currently an
+open question whether a version of our Φ functional could be made topologically equivalent to
+TV as well.
+  The technical core of the paper is a matching lower bound for dominating pairs:
+Theorem 1.2. For p, q ∈ [0, 1]n satisfying pi ≥ qi , i ∈ [n], and Φ as in (1),
+                                                        1
+                                     TV(Sp , Sq ) ≥       Φ(p, q).
+                                                        9
+                                      TV HOMOGENIZATION INEQUALITIES                                                  3
+
+The assumption p ≥ q is   essential forthe lower  bound, as illustrated by the example              p, q ∈ [0, 1]n ,
+for even n, given by p = 21 , 12 , . . . , 12 , q = 12 + δ, . . . , 12 + δ, 12 − δ, . . . , 21 − δ , with n/2 copies
+                                                                                 √
+of 12 + δ followed by n/2 copies of 12 − δ. The choice δ = 1/ n yields Φ(p, q) = 1, but
+TV(Sp , Sq ) ≍ 1/n. In general, for any p, q ∈ [0, 1]n and any partition I, J of [n], the trivial
+estimate via the partitioned pairs TV(Sp , Sq ) ≤ TV(SpI , SqI ) + TV(SpJ , SqJ ) holds. However,
+this method cannot yield a matching lower bound, as illustrated by the example a, b = 12 ± ε,
+p = (a, a, b, b), q = (a, b, a, b) with the partition I = {1, 2}, J = {3, 4}. Although for general
+p, q, the approach of Theorem 1.2 does not lower-bound TV(Sp , Sq ), it does yield a lower bound
+for the larger quantity TV(Ber(p), Ber(q)):
+Theorem 1.3. For p, q ∈ [0, 1]n , let I = {i ∈ [n] : pi ≥ qi } and J = [n] \ I, with pI , pJ , qI , qJ
+the corresponding subsequences of p, q. Then
+           TV(Ber(p), Ber(q)) ≥ max (TV(Ber(pI ), Ber(qI )), TV(Ber(pJ ), Ber(qJ )))
+                                1
+                              ≥   max(Φ(pI , qI ), Φ(qJ , pJ )).
+                                9
+   The last piece to complete our program is a homogenization result for binomials:
+Lemma 1.4. For n ≥ 1, p, q ∈ [0, 1]n , and ∅ ̸= A ⊂ N := [n], define p̄A = |A|−1 i∈A pi and
+                                                                                  P
+q̄A analogously; put
+                                   δA := TV(Bin(|A|, p̄A ), Bin(|A|, q̄A )).
+If I, J form a partition of N with I, J ̸= ∅, then
+                                                              
+                                                δN ≤ 2 δI + δJ .
+   The homogenization inequality claimed in (3) then follows:
+Theorem 1.5. For all p, q ∈ [0, 1]n , we have
+                           TV(Ber(p), Ber(q)) ≥ c TV(Bin(n, p̄), Bin(n, q̄)),
+            1
+where c ≥ 72C 0
+                ≈ 0.0115 is a universal constant.
+
+                                                                                            1
+Remark. As the remark preceding Theorem 2.1 indicates, a sharpened constant c ≥ 36C           0
+                                                                                                is
+                                                                                1         1
+straightforward to obtain via analogous arguments. The choice p = (1 − 2ε, 2 ), q = (1, 2 + ε),
+ε → 0 demonstrates that it is possible for homogenization to (slightly) increase the TV distance,
+and also that 8/9 is an upper bound on c. We conjecture that this value is in fact optimal, see
+below.
+
+Proof. Partition [n] into I, J as in Theorem 1.3 and ignore the trivial case where one of I, J is
+empty. Then Theorem 1.3 implies
+                                           1
+                          TV(Ber(p), Ber(q)) ≥
+                                             max(Φ(pI , qI ), Φ(qJ , pJ ))
+                                           9
+                                           1
+                                        ≥     (Φ(pI , qI ) + Φ(qJ , pJ )) .
+                                           18
+A simple convexity argument shows that homogenization cannot increase Φ:
+                                         ∆(p, q) ≥ ∆(p̄1, q̄1),
+                                               σp2 ≤ σp̄1
+                                                      2
+                                                          = np̄(1 − p̄),
+4                                           A. KONTOROVICH
+
+where p̄1 = (p̄, p̄, . . . , p̄) is of the same dimension as p. Now homogenize p̄I , p̄J , q̄I , q̄J as in
+Lemma 1.4. Since Bin(|I|, p̄I ) is a special case of Poisson binomial, Theorem 1.1 applies:
+Φ(pI , qI ) + Φ(qJ , pJ ) ≥ Φ(p̄I 1, q̄I 1) + Φ(q̄J 1, p̄J 1)
+                             1
+                          ≥       (TV(Bin(|I|, p̄I ), Bin(|I|, q̄I )) + TV(Bin(|J|, p̄J ), Bin(|J|, q̄J )))
+                            2C0
+                             1
+                          ≥       TV(Bin(n, p̄), Bin(n, q̄)),
+                            4C0
+where the last inequality is by Lemma 1.4. Finally, the identity TV(Ber(p̄)⊗n , Ber(q̄)⊗n ) =
+TV(Bin(n, p̄), Bin(n, q̄)) is a standard consequence of the Neyman–Pearson lemma (the likelihood
+ratio is determined by and monotone in the sum).                                               □
+
+Remark and open problems. Although the homogenization inequality relies on novel structural
+insights into the Poisson binomial, there are compelling reasons to believe that a great deal
+more structure remains to be uncovered, currently out of reach. Indeed, extensive numerical
+experiments suggest that the correct constant in Theorem 1.5 should be c = 8/9 and also that
+the bound in Lemma 1.4 can be sharpened to δN ≤ δI + δJ − δI δJ (the latter, in particular,
+appears deceptively simple, since only binomials are involved). Our present methods do not seem
+to provide any pathway to these conjecturally optimal bounds, which will have to await further
+structural advances.
+Related work. This paper follows a program initiated by [11] to provide simple, analytically
+tractable upper and lower estimates on TV(Ber(p), Ber(q)) in terms of the p, q; the latter’s
+contribution sharpened the trivial lower bound TV(Ber(p), Ber(q)) ≥ ∥p − q∥∞ to ≳ ∥p − q∥2 .
+We note that generally, this result is incomparable with the lower bound TV(Ber(p), Ber(q)) ≳
+Φ(p, q) implied by Theorem 1.2 for p ≥ q. Indeed, the choice qi ≡ 12 for i ∈ [n] and pi = 1/2,
+                                             √
+i > 1 and p1 = 12 + ε yields Φ(p, q) ≍ ε/ n while ∥p − q∥2 = ε. For the other direction, the
+choice q ≡ 0 and p ≡ 1/n yields Φ(p, q) ≍√1 and ∥p − q∥ = n−1/2 . This program is continued
+in [12], where an analytical closed-form O( log n)-factor approximation to TV(Ber(p), Ber(q))
+is obtained.
+   Homogenization inequalities appear not to have been widely studied; one classic result due
+to Hoeffding [10] is that homogenization under a fixed-mean constraint maximizes Eg(Sp ) for
+any convex g. The study of Sp is amply motivated by numerous applications and a venerable
+line of work has considered approximating thisP       distribution
+                                                                P 2by simpler ones [22]; perhaps
+most famous is Le Cam’s inequality TV(Sp , Poi( pi )) ≤            pi [13]. Note, however, that the
+latter yields an additive, rather than multiplicative approximation to TV(Sp , Sq ). Binomial
+approximation bounds in strong metrics (including TV) appear in [7] and refinements based
+on orthogonal-polynomial expansions and asymptotics in [19], then generalized to arbitrary
+laws [20] and also gave an additive homogenization-type estimate. Later, [21] obtained TV
+bounds for approximating general convolutions by compound Poisson laws using Kerstan’s
+method together with novel “smoothness inequalities”. A delicate structural result due to [6]
+(also ultimately yielding an additive estimate) shows that every Poisson binomial admits an ε-
+approximation in TV by a distribution of one of two canonical “compressed” types: either a sparse
+Sp with only O(1/ε3 ) nontrivial summands, or a near-binomial form. Of particular relevance
+to this work is [2, 3], whose structural results we build upon in Theorem 1.1. More generally,
+TV(Ber(p), Ber(q)) admits classic approximations in terms of more analytically tractable proxies
+such as KL-divergence and the Hellinger distance; their properties and limitations are discussed
+in [11]. Regarding the algorithmic aspect, [4] showed that computing TV(Ber(p), Ber(q)) exactly
+for general p, q ∈ [0, 1]n is hard in the #P sense. An efficient randomized algorithm guaranteeing
+                                   TV HOMOGENIZATION INEQUALITIES                                        5
+
+                                                                                       2
+a 1 ± ε multiplicative approximation with confidence 1 − δ, in time O( nε2 log 1δ ) was discovered
+by [8], and later derandomized by [9].
+
+                                                  2. Proofs
+2.1. Proof of Theorem 1.1. We will prove a more general, symmetric bound, which immediately
+implies the one in Theorem 1.1. The constant 2C0 in the latter’s bound could be sharpened by a
+factor of 2 via a direct (asymmetric) proof.
+Theorem 2.1. For p, q ∈ [0, 1]n and Sp , Sq the corresponding Poisson binomials with variances
+σp2 , σq2 , we have
+                                                            2C0 ∆
+                                 TV(Sp , Sq ) ≤       q         q        .
+                                                       σp2 + 1 + σq2 + 1
+Proof. The proof uses three standard ingredients.
+Shift-TV for unimodal pmfs. If Z is integer-valued with unimodal pmf h(k) = P(Z = k), then
+(5)                                      TV(Z, Z + 1) = max h(k),
+                                                                 k
+by a simple telescoping argument.
+Anti-concentration
+     Pm             for Poisson binomials (Barbour-Jensen; Baillon–Cominetti–Vaisman). If
+Z = j=1 Ber(rj ) has variance v = Var(Z), then [2, Theorem 1] proves the sharp bound
+                                               η0
+(6)                            max P(Z = k) ≤ √       (v > 0),
+                                k               v
+where η0 is a universal constant (η0 ≈ 0.4688223555, [2, Remark 1]).3
+   In particular, since maxk P(Z = k) ≤ 1 always, we have for all v ≥ 0
+                                                               
+                                                            η0
+(7)                                 max P(Z = k) ≤ min 1, √       .
+                                     k                        v
+Unimodality of Poisson binomial pmfs. It is a classic consequence of the Aissen-Edrei-Schoenberg-
+Whitney theorem [22, Section 4] that the Poisson binomial has a log-concave, and hence unimodal,
+law. To combine these three ingredients, we begin with the interpolation. For t ∈ [0, 1] define
+                                                    n
+                                                    X
+               ri (t) := (1 − t)qi + tpi ,  S(t) :=    Ber(ri (t)),   t ∈ [0, 1],
+                                                           i=1
+where the Bernoullis are independent; thus, S(0) = Sq and S(1) = Sp in distribution. For A ⊆ Z,
+we write fA (t) := P(S(t) ∈ A). For each i ∈ [n] let Xi (t) ∼ Ber(ri (t)) denote the ith summand
+and set                                                X
+                             Ti (t) := S(t) − Xi (t) =    Ber(rj (t)).
+                                                                 j̸=i
+Then Ti (t) is independent of Xi (t) and S(t) = Ti (t) + Xi (t). Conditioning on Xi (t) gives
+                       fA (t) = ri (t)P(Ti (t) + 1 ∈ A) + (1 − ri (t))P(Ti (t) ∈ A).
+                                                                                             d
+View
+Pn fA′ as a multilinear polynomial in the coordinates (r1 , . . . , rn ). By the chain rule, dt fA (r(t)) =
+  i=1 ri (t) ∂fA /∂ri , and conditioning on Xi (t) yields ∂fA /∂ri = P(Ti (t) + 1 ∈ A) − P(Ti (t) ∈ A).
+Differentiating and using ri′ (t) = pi − qi yields
+                                  n
+                                  X                                              
+                        fA′ (t) =   (pi − qi ) P(Ti (t) + 1 ∈ A) − P(Ti (t) ∈ A) .
+                                  i=1
+
+  3L. Mattner [14] informs us that this result is contained in [3] with a slightly worse constant.
+6                                               A. KONTOROVICH
+
+Hence, by the definition of total variation,
+                                       n
+                                       X
+                           |fA′ (t)| ≤
+                                                                          
+                                          |pi − qi | TV Ti (t) + 1, Ti (t) .
+                                          i=1
+Each Ti (t) is Poisson binomial, hence unimodal, so by (5),
+                                                 
+                            TV Ti (t) + 1, Ti (t) = max P(Ti (t) = k).
+                                                              k
+By (7),                                                   (                      )
+                                                                      η0
+                            max P(Ti (t) = k) ≤ min 1, p                             .
+                             k                          Var(Ti (t))
+Since S(t) = Ti (t) + Xi (t) with independence and Var(Xi (t)) ≤ 14 , we have
+                                                                      1
+                   Var(Ti (t)) = Var(S(t)) − Var(Xi (t)) ≥ Var(S(t)) − .
+                                                                      4
+Let x+ := max{x, 0}. Then
+                                                                    
+                                                         η0         
+                    max P(Ti (t) = k) ≤ min 1, q                       .
+                      k
+                                                     Var(S(t)) − 1 
+                                                                 
+                                                                                 4 +
+                                                                                                    q
+                                                                                                        5    2
+We now upper bound this “singular” expression by a smooth envelope. Set C0 :=                           4 + η0 . Then
+for every x ≥ 0 we have
+                                                 
+                                          η0           C0
+(8)                          min 1,   q             ≤√        .
+                                       (x − 1 )       x+1
+                                                        4 +
+                                                                                         √
+Indeed, if x ≤ 14 + η02 , the left-hand side equals 1 and the right-hand side is C0 / x + 1 ≥
+    q                                                                   q
+C0 / 54 + η02 = 1. If x ≥ 14 + η02 , then the left-hand side equals η0 / x − 14 and squaring shows
+that (8) is equivalent to x ≥ 14 + η02 . Applying (8) with x = Var(S(t)) gives
+                                                           C0
+                             TV Ti (t) + 1, Ti (t) ≤ p                ,
+                                                        Var(S(t)) + 1
+and substituting back,
+                                                      C0 ∆
+(9)                                    |fA′ (t)| ≤ p              .
+                                                    Var(S(t)) + 1
+Since u 7→ u(1 − u) is concave,
+                   ri (t)(1 − ri (t)) ≥ (1 − t) qi (1 − qi ) + t pi (1 − pi ),           i ∈ [n],
+and summing over i yields
+                                      Var(S(t)) ≥ (1 − t)σq2 + tσp2 .
+Combining with (9),
+                                                      C0 ∆
+                                   |fA′ (t)| ≤ q                      .
+                                                (1 − t)σq2 + tσp2 + 1
+Integrating over t gives
+                                                  Z 1
+                                                                     dt
+                     fA (1) − fA (0) ≤ C0 ∆             q                              .
+                                                   0     (1 − t)(σq2 + 1) + t(σp2 + 1)
+                                 TV HOMOGENIZATION INEQUALITIES                                        7
+
+Write (1 − t)(σq2 + 1) + t(σp2 + 1) = b + at with b = σq2 + 1 and a = σp2 − σq2 . If a = 0, the integral
+     √
+is 1/ b. If a ̸= 0, then
+                                          1
+                                 2√
+               Z 1             
+                      dt                              2                    2
+                   √        =       b + at = √             √ =q              q           .
+                0    b + at      a          0     b+a+ b           σp2 + 1 + σq2 + 1
+
+Thus, for every event A,
+                                                       2C0 ∆
+                         P(Sp ∈ A) − P(Sq ∈ A) ≤ q         q        .
+                                                  σp2 + 1 + σq2 + 1
+
+Taking supA proves the claim.                                                                         □
+
+2.2. Proof of Theorem 1.2. We make use of a concentration-variance inequality stated in
+[15, Disp. (18)] and proved therein, which immediately implies the following second-moment
+extraction lemma. We thank L. Mattner [14] for bringing this to our attention and improving
+our original lower bound by a factor of 4/3. We also thank him for the attributional note, “This
+is due to Paul Lévy in a sharper version, and was in essentially the present version apparently
+independently discovered by [5, Corollary 2.2]”.
+Lemma 2.2. For g : Z → [0, ∞) and µ ∈ R, define
+                             X                 X
+                        G :=     g(k)    J :=   (k − µ)2 g(k).
+                                    k∈Z                 k∈Z
+
+If 0 < G, J < ∞, then
+                                                        G3/2
+                                      sup g(k) ≥      √     √ .
+                                      k∈Z             4 J+ G
+Proof. Normalize g to be a probability measure P via P ({k}) = g(k)/G and let X be distributed
+according to P ; then V ar(X) ≤ J/G. By Lévy’s extraction principle, [15, Disp. (18)], for any
+law with variance σ 2 and any h > 0,
+                                                        h
+                              sup P (x, x + h) ≥ √               .
+                              x∈R                     h2 + 12σ 2
+Apply this with h = 1 and σ 2 = Var(X). Since P is supported on Z,
+                                                                1
+                          sup P ((x, x + 1)) = max P ({k}) =      max g(k).
+                          x∈R                   k∈Z             G k∈Z
+Therefore,
+                                 G                G           G3/2
+                max g(k) ≥p               ≥p              =√          .
+                k           1 + 12 Var(X)     1 + 12(J/G)    G + 12J
+              √         √     √                                 3/2
+Finally, since G + 12J ≤ G + 4 J, we conclude maxk∈Z g(k) ≥ 4√GJ+√G , as claimed.                     □
+
+  As above, (p, q) is a dominating pair with pi ≥ qi and associated Poisson binomials Sp , Sq .
+We will apply the pigeonhole lemma to extract a “wedge” event with sufficient separation in
+probability under Sp and Sq to achieve the requisite TV lower bound. To this end, we define the
+G and J functionals — both in terms of the non-negative (by the monotone coupling) measure g
+on Z:
+(10)                         g(k) := P(X ≥ k) − P(Y ≥ k),          k ∈ Z.
+8                                                     A. KONTOROVICH
+            P
+Then G =       k∈Z g(k) has the more familiar form
+                                         G := ∆ = µp − µq = EX − EY,
+where X := Sp , Y := Sq and µp := EX, µq := EY . Moreover, for any k,
+                                |g(k)| = |P(X ≥ k) − P(Y ≥ k)| ≤ TV(Sp , Sq ),
+and so
+(11)                                           TV(Sp , Sq ) ≥ sup g(k).
+                                                                    k∈Z
+
+Finally, J = k∈Z (k − µp )2 g(k) is defined as in Lemma 2.2. The technical core of the argument
+              P
+hinges on upper bounding J:
+Lemma 2.3. Let X, Y, σp2 = Var(X), g, µp , ∆, J be defined as above. Then
+                                    J ≤ 2 ∆ σp2 + 1 + ∆2 .
+                                                          
+                                                P
+Proof. For i ∈ [n], write ∆i := pi − qi ≥ 0 with i ∆i = ∆. For t ∈ [0, 1] set
+                                                                                n
+                                                                                X
+ri (t) := qi + t∆i ,     Xi (t) ∼ Ber(ri (t)) independent,            S(t) :=         Xi (t),   Ti (t) := S(t) − Xi (t).
+                                                                                i=1
+Then S(0) = Y and S(1) = X in distribution. For fixed n, each S(t) has a distribution that is a
+finite polynomial in the parameters {ri (t)}, so for each k and i the function
+                       Fk (t) := P(S(t) ≥ k)
+                               = ri (t) P(Ti (t) ≥ k − 1) + (1 − ri (t)) P(Ti (t) ≥ k).
+is a polynomial in t and hence differentiable on [0, 1]. Differentiating,
+                        ∂
+                           Fk = P(Ti (t) ≥ k − 1) − P(Ti (t) ≥ k) = P(Ti (t) = k − 1).
+                       ∂ri
+By the chain rule and the fact that ri′ (t) = ∆i ,
+                                            n
+                           d                X                    
+                              P(S(t) ≥ k) =   ∆i P Ti (t) = k − 1 ,                     k ∈ Z.
+                           dt
+                                                  i=1
+Integrating from 0 to 1 and using S(0) = Y , S(1) = X in distribution,
+                                          Z 1X n
+                                                                     
+           g(k) = P(X ≥ k) − P(Y ≥ k) =           ∆i P Ti (t) = k − 1 dt,                           k ∈ Z.
+                                                          0   i=1
+
+In this formulation, the functional J = k (k − µp )2 g(k) becomes
+                                        P
+                             Z 1X n     X
+                                          (k − µp )2 P Ti (t) = k − 1 dt.
+                                                                     
+                         J=          ∆i
+                                     0   i=1      k∈Z
+Changing variable j = k − 1,
+                    X
+                       (k − µp )2 P Ti (t) = k − 1 = Et (Ti (t) + 1 − µp )2 ,
+                                                                         
+
+                          k∈Z
+
+where Et denotes expectation under the product law with parameters {rj (t)}j . Hence
+                               Z 1X n
+                                      ∆i Et (Ti (t) + 1 − µp )2 dt.
+                                                              
+(12)                       J=
+                                          0     i=1
+                                       TV HOMOGENIZATION INEQUALITIES                                           9
+
+We bound Et [(Ti (t) + 1 − µp )2 ] uniformly in t, i via the decomposition E[(Z − α)]2 = Var(Z) +
+(EZ −α)2 , where Z = Ti (t)+1 and α = µp . To bound the variance term, note that f (x) = x(1−x)
+is 1-Lipschitz on [0, 1], and so
+                              |f (rj (t)) − f (pj )| ≤ |rj (t) − pj | = (1 − t)∆j .
+Hence
+                X                  X                           X
+Vart (S(t)) =       f (rj (t)) ≤           f (pj ) + (1 − t)       ∆j = σp2 + (1 − t)∆ ≤ σp2 + ∆ ≤ σp2 + 1 + ∆2 .
+                j                  j                           j
+
+Since Ti (t) = S(t) − Xi (t) with Xi (t) Bernoulli,
+(13)                          Vart (Ti (t)) ≤ Vart (S(t)) ≤ σp2 + 1 + ∆2 .
+  To bound the bias term, we have
+                                                    Et [S(t)] = µq + t∆,
+and µp = µq + ∆, so Et [S(t)] − µp = −(1 − t)∆. Also ri (t) = qi + t∆i , so
+                                           Et [Ti (t)] = µq + t∆ − (qi + t∆i ),
+and hence
+                        Mi (t) := Et [Ti (t) + 1 − µp ] = 1 − qi − ∆ + t(∆ − ∆i ).
+It is straightforward to see that |Mi (t)| ≤ max(1, ∆) and thus,
+           Et (Ti (t) + 1 − µp )2 = Vart (Ti (t)) + Mi (t)2
+                                
+
+                                               ≤ (σp2 + 1 + ∆2 ) + (σp2 + 1 + ∆2 ) = 2(σp2 + 1 + ∆2 ).
+Substituting into (12) gives
+                          Z 1X
+                     J≤        ∆i 2(σp2 + 1 + ∆2 ) dt = 2 ∆ (σp2 + 1 + ∆2 ),
+                               0       i
+
+as claimed.                                                                                                    □
+Corollary 2.4 (Proof of Theorem 1.2). Let (p, q) be a dominating pair with laws Sp , Sq , sums
+Sp , Sq , σp2 := Var(Sp ), and ∆ := ESp − ESq . Then
+                                                         ∆      
+                                TV(Sp , Sq ) ≥ c min 1, q          ,
+                                                         σp2 + 1
+
+for some universal constant c ≥ 19 .
+Proof. Recall g(k) := P(Sp ≥ k) − P(Sq ≥ k) ≥ 0 and
+                        X                X
+                    ∆=     g(k),     J=     (k − µp )2 g(k),                      µp = ESp .
+                              k                           k
+
+By (11), TV(Sp , Sq ) ≥ supk∈Z g(k). By Lemma 2.3,
+                                                  J ≤ 2 ∆ (σp2 + 1 + ∆2 ).
+Apply Lemma 2.2 with G = ∆ to obtain
+                                                                  ∆
+                                   sup g(k) ≥             q                     .
+                                           k             4 2(σp2 + 1 + ∆2 ) + 1
+10                                              A. KONTOROVICH
+               q                 q                                          q
+We compare      σp2 + 1 + ∆2 with σp2 + 1 and consider the two cases. If ∆ ≤ σp2 + 1, then
+∆2 ≤ σp2 + 1, so σp2 + 1 + ∆2 ≤ 2(σp2 + 1), and
+                                    ∆                 ∆           ∆
+                TV(Sp , Sq ) ≥ √ q              = q           ≥ q        .
+                                     2
+                              4 2 2(σp + 1) + 1     2
+                                                 8 σp + 1 + 1  9 σp2 + 1
+         q
+If ∆ ≥    σp2 + 1, then ∆2 ≥ σp2 + 1, so σp2 + 1 + ∆2 ≤ 2∆2 , and
+                                           ∆           ∆     1
+                       TV(Sp , Sq ) ≥ √ √          =        ≥ .
+                                       4 2 2∆2 + 1   8∆ + 1  9
+Combining the two cases proves the claim.                                                              □
+
+2.3. Proof of Theorem 1.3. Both inequalities invoke the data processing inequality; the first
+in the form
+                      TV(P ⊗ P ′ , Q ⊗ Q′ ) ≥ max(TV(P, Q), TV(P ′ , Q′ )),
+and the second in the form TV(Ber(p), Ber(q)) ≥ TV(Sp , Sq ). Given these, the claim is an
+immediate consequence of Theorem 1.2.
+
+2.4. Proof of Lemma 1.4.
+Proof. We begin by representing Bin(n, p̄N ) as a mixture. Let M ∼ Bin(n, w) where w = |I|/n.
+Conditionally on M = m, let
+                                Um ∼ Bin(m, p̄I ),      Vm ∼ Bin(n − m, p̄J )
+be independent and set Sm := Um + Vm . We claim that SM ∼ Bin(n, p̄N ). Indeed, for t ∈ R, put
+s := 1 − p̄I + p̄I t and r := 1 − p̄J + p̄J t. Compute the probability generating function conditional
+on M :
+                E[tSM | M ] = E[tUM +VM | M ] = E[tUM | M ] E[tVM | M ] = s M r n−M ,
+so E[tSM ] P= E[sM rn−M ]. Represent M = ni=1 Xi where X1 , . . . , Xn are i.i.d. Ber(w). Then
+                                                  P
+n − M = ni=1 (1 − Xi ) and
+                                          n
+                                          Y                   n
+                                                              Y
+                           sM rn−M =            sXi r1−Xi =
+                                                                                 
+                                                                    r + (s − r)Xi .
+                                          i=1                 i=1
+Taking expectation and using independence,
+                          n
+                          Y                                    n              n
+          E[sM rn−M ] =
+                                          
+                            E r + (s − r)Xi = r + (s − r)E[X1 ] = (1 − w)r + ws .
+                          i=1
+Substituting r = 1 − p̄J + p̄J t and s = 1 − p̄I + p̄I t gives
+                                                                         n
+            E[tSM ] = w(1 − p̄I + p̄I t) + (1 − w)(1 − p̄J + p̄J t)           = (1 − p̄N + p̄N t)n ,
+which is the PGF of Bin(n, p̄N ). Since a distribution with finite support is characterized by its
+                                       ′ ∼ Bin(m, q̄ ) and V ′ ∼ Bin(n − m, q̄ ) are independent
+PGF, SM ∼ Bin(n, p̄N ). Similarly, if Um             I       m                 J
+     ′       ′    ′
+and Sm := Um + Vm , then the same calculation yields SM  ′ ∼ Bin(n, q̄ ). Therefore
+                                                                      N
+                                                          ′
+                                            δN = TV(SM , SM ).
+  For any event A ⊂ {0, 1, . . . , n},
+                ′                              ′                                 ′
+                                                                                      
+P(SM ∈ A)−P(SM    ∈ A) = E P(SM ∈ A | M ) − P(SM ∈ A | M ) ≤ E TV(L(SM | M ), L(SM | M )) ,
+                                  TV HOMOGENIZATION INEQUALITIES                                    11
+
+and taking the supremum over A yields
+                                                                     n
+                                                                     X
+                  ′                         ′                                                ′
+                                                            
+         TV(SM , SM ) ≤ E TV(L(SM | M ), L(SM | M ))             =         P(M = m) TV(Sm , Sm ).
+                                                                     m=0
+
+  Next, the map (u, v) 7→ u + v is a Markov kernel, and so
+                                        ′                      ′
+                                                                 , Vm′ ) .
+                                                                        
+                               TV(Sm , Sm ) ≤ TV (Um , Vm ), (Um
+Moreover, for product measures one has
+(14)                       TV(P × R, Q × S) ≤ TV(P, Q) + TV(R, S),
+whence
+                                     ′              ′
+                            TV(Sm , Sm ) ≤ TV(Um , Um ) + TV(Vm , Vm′ ).
+Define
+         τI (m) := TV(Bin(m, p̄I ), Bin(m, q̄I )),      τJ (k) := TV(Bin(k, p̄J ), Bin(k, q̄J )).
+Then
+                                   δN ≤ E[τI (M )] + E[τJ (n − M )].
+It remains to estimate the two expectations. Fix θ, θ′ ∈ [0, 1] and define f : N → R by
+                                 f (m) := TV(Bin(m, θ), Bin(m, θ′ )).
+We claim that f is nondecreasing and subadditive. To show subadditivity, let X ∼ Bin(m, θ),
+Y ∼ Bin(k, θ) be independent so that X + Y ∼ Bin(m + k, θ), and similarly let X ′ ∼ Bin(m, θ′ ),
+Y ′ ∼ Bin(k, θ′ ) independent so that X ′ + Y ′ ∼ Bin(m + k, θ′ ). Then
+          f (m + k) = TV(X + Y, X ′ + Y ′ ) ≤ TV(X, X ′ ) + TV(Y, Y ′ ) = f (m) + f (k).
+To show monotonicity, observe that the following is a Markov kernel that maps Bin(m + 1, θ) to
+Bin(m, θ): interpret Bin(m + 1, θ) as the number of successes in m + 1 i.i.d. Ber(θ) trials and
+delete one uniformly random trial. Conditional on seeing k successes among m + 1 trials, the
+remaining number of successes equals k with probability m+1−k
+                                                           m+1 (deleted a failure) and equals
+                        k
+k − 1 with probability m+1 (deleted a success). This kernel does not depend on θ, and it sends
+Bin(m + 1, θ) to Bin(m, θ) for every θ. Therefore, by TV contraction under the same kernel,
+f (m) = TV(Tm (Bin(m+1, θ)), Tm (Bin(m+1, θ′ ))) ≤ TV(Bin(m+1, θ), Bin(m+1, θ′ )) = f (m+1).
+  Now let m0 ≥ 1 be an integer. By subadditivity and monotonicity, for every m ≥ 0, writing
+m = km0 + r with 0 ≤ r < m0 ,
+                                                                  
+                                                                m
+                  f (m) ≤ kf (m0 ) + f (r) ≤ (k + 1)f (m0 ) =        f (m0 ).
+                                                                m0
+Hence, for any integer–valued M with EM = m0 , using ⌈x⌉ ≤ x + 1,
+                                                             
+                                         M                  M
+                 E[f (M )] ≤ f (m0 ) E         ≤ f (m0 ) E     + 1 = 2f (m0 ).
+                                         m0                 m0
+  Apply this with f = τI and m0 = |I| (note EM = nw = |I|) to get
+                                      E[τI (M )] ≤ 2τI (|I|) = 2δI ,
+and with f = τJ and m0 = |J| (since E(n − M ) = |J|) to get
+                                   E[τJ (n − M )] ≤ 2τJ (|J|) = 2δJ .
+This completes the proof.                                                                           □
+12                                                A. KONTOROVICH
+
+      Appendix A. Majorization kernels for complementary Bernoulli products
+   Fix n ≥ 2 and write Ω := {0, 1}n . For a parameter vector α = (α1 , . . . , αn ) ∈ [0, 1]n and
+s ∈ {+, −} define the product measures
+                                        n               
+                                  s
+                                       O         1    αi
+                                 µα :=     Ber     +s      .
+                                                 2    2
+                                                    i=1
+
+Thus µα+ and µα− are complementary in the sense that µα− is obtained from µα+ by flipping each
+bit.
+   We show that, in this complementary setting, not only homogenization but any majorization
+of the parameter vector can be realized by a Markov kernel. We write β ≺ α to denote that β is
+majorized by α, i.e., letting α↓ and β ↓ be the vectors obtained by sorting the coordinates of α
+and β in nonincreasing order, we have
+            k             k                                                      n             n
+                  βi↓ ≤         αi↓                                                    βi↓ =         αi↓ .
+            X             X                                                      X             X
+                                       for all k = 1, . . . , n − 1,    and
+            i=1           i=1                                                    i=1           i=1
+(see [1, Ch. 1]). We thank L. Mattner [14] for this suggestion; our original result had proven
+Lemma A.1 only for λ = 12 and Theorem A.2 only for homogenization via a compactness
+argument.
+A two–coordinate kernel for a general T –transform. The basic step is a Markov kernel
+acting on two coordinates which implements the standard T –transform (a convex combination of
+the identity and a transposition).
+Lemma A.1 (Two–coordinate T –transform kernel). Fix a, b ∈ [0, 1] and λ ∈ [0, 1], and define
+                                a′ := λa + (1 − λ)b,            b′ := λb + (1 − λ)a.
+Let
+                                                              2
+                                              λ(1 − λ)(a − b) ,
+                                             
+                                                                       ab < 1,
+                                        η :=      2(1 − ab)
+                                              [1ex]0,                  ab = 1,
+                                             
+
+and consider the row–stochastic 4 × 4 matrix (indexed by 00, 01, 10, 11)
+                                                                      
+                                     1       0            0          0
+                                    η     λ−η       (1 − λ) − η η 
+(15)                  Mλ (a, b) := 
+                                    η (1 − λ) − η
+                                                                       .
+                                                        λ−η         η 
+                                     0       0            0          1
+Then all entries of Mλ (a, b) are nonnegative, and for both s ∈ {+, −},
+                                                               ′
+                                                                                 ′
+                                                                                     
+            Ber 12 + s a2 ⊗ Ber 21 + s 2b Mλ (a, b) = Ber 21 + s a2 ⊗ Ber 12 + s b2 .
+                         
+
+Proof. Row–stochasticity is immediate from (15). For nonnegativity, note that for a, b ∈ [0, 1],
+                                      2(1 − ab) − (a − b)2 = 2 − a2 − b2 ≥ 0,
+hence (a − b)2 ≤ 2(1 − ab) whenever ab < 1. Therefore η ≤ λ(1 − λ) ≤ min{λ, 1 − λ}, which
+implies λ − η ≥ 0 and (1 − λ) − η ≥ 0.
+    To verify the mapping property, write (for s ∈ {+, −}) ps := 12 + s a2 , qs := 12 + s 2b and
+                ′                  ′
+p′s := 12 + s a2 , qs′ := 12 + s b2 . Let xs be the stochastic row vector of the input law Ber(ps ) ⊗ Ber(qs )
+ordered as (00, 01, 10, 11), and similarly let ys be that of Ber(p′s ) ⊗ Ber(qs′ ). A direct (routine)
+calculation using (15) shows that xs Mλ (a, b) = ys for s = + and for s = −.                               □
+                                   TV HOMOGENIZATION INEQUALITIES                                             13
+
+Finite decomposition via majorization. Lemma A.1 supplies the probabilistic implementa-
+tion of a single T –transform. The following theorem is the desired global statement.
+Theorem A.2 (Majorization kernel for complementary products). Fix n ≥ 2 and α, β ∈ [0, 1]n
+with β ≺ α. Then there exists a Markov kernel K : Ω → P(Ω) such that simultaneously, for both
+s ∈ {+, −},
+                                         µαs K = µβs .
+Proof. By the Muirhead–Hardy–Littlewood–Pólya lemma (see [1, Lemma B.1]), there exist
+indices (it , jt ) and parameters λt ∈ [0, 1], t = 1, . . . , m, such that if we define α(0) := α and for
+each t ≥ 1 update only coordinates (it , jt ) via
+                     (t)   (t)     (t−1)              (t−1)        (t−1)             (t−1) 
+                    αit , αjt = λt αit    + (1 − λt )αjt , λt αjt         + (1 − λt )αit      ,
+with all other coordinates unchanged, then α(m) = β.
+   For each step t, let Kt be the Markov kernel on Ω that acts only on coordinates (it , jt ) as
+follows: given x ∈ Ω, sample
+                                                             
+                                                  (t−1) (t−1)
+                            (x′it , x′jt ) ∼ Mλt αit , αjt      (xit , xjt )
+
+(using Lemma A.1), and set x′k = xk for k ̸= it , jt . By independence of coordinates and
+Lemma A.1, for both s ∈ {+, −} we have
+                                             µαs(t−1) Kt = µαs(t) .
+Finally, define the composed kernel K := K1 K2 · · · Km . Iterating the last display yields µαs K = µβs
+for both s ∈ {+, −}.                                                                                 □
+                                                                                                 n
+Corollary A.3 (Homogenization as a special case). Let α ∈ [0, 1]n and put ᾱ := n1 i=1 αi .
+                                                                                              P
+Then there exists a Markov kernel K on Ω such that for both s ∈ {+, −},
+                                                 µαs K = µᾱ1
+                                                           s
+                                                              .
+Proof. It is immediate that ᾱ1 ≺ α. Apply Theorem A.2 with β = ᾱ1.                                          □
+Acknowledgments. Some of the proofs were assisted by ChatGPT Pro. We thank Sébastien
+Bubeck, Mark Sellke and Nikita Zhivotovskiy for pointing out errors in earlier versions. We are
+grateful to Lutz Mattner and Bero Roos for detailed and insightful comments on the manuscript.
+  This research was supported in part by the Israel Science Foundation ISF grant 581/25 and
+the Binational Science Foundation BSF grant 2024243.
+
+                                                References
+ [1] Barry C. Arnold Albert W. Marshall, Ingram Olkin. Inequalities: Theory of Majorization and Its Applications.
+     Springer Science+Business Media, LLC, New York, 2011.
+ [2] Jean-Bernard Baillon, Roberto Cominetti, and José Vaisman. A sharp uniform bound for the distribution of
+     sums of bernoulli trials. Combinatorics, Probability and Computing, 25(3):352–361, 2016.
+ [3] A. D. Barbour and J. L. Jensen. Local and tail approximations near the Poisson limit. Scandinavian Journal
+     of Statistics, 16(1):75–87, 1989.
+ [4] Arnab Bhattacharyya, Sutanu Gayen, Kuldeep S. Meel, Dimitrios Myrisiotis, A. Pavan, and N. V. Vin-
+     odchandran. On approximating total variation distance. In Proceedings of the Thirty-Second International
+     Joint Conference on Artificial Intelligence, IJCAI 2023, 19th-25th August 2023, Macao, SAR, China, pages
+     3479–3487. ijcai.org, 2023.
+ [5] Sergey G. Bobkov and Gennadiy P. Chistyakov. On concentration functions of random variables. Journal of
+     Theoretical Probability, 28(3):976–988, 2015.
+ [6] Constantinos Daskalakis and Christos H. Papadimitriou. Sparse covers for sums of indicators. Probability
+     Theory and Related Fields, 162:679–705, 2015.
+14                                              A. KONTOROVICH
+
+ [7] W. Ehm. Binomial approximation to the Poisson binomial distribution. Statistics & Probability Letters,
+     11(1):7–16, 1991.
+ [8] Weiming Feng, Heng Guo, Mark Jerrum, and Jiaheng Wang. A simple polynomial-time approximation
+     algorithm for the total variation distance between two product distributions, pages 343–347. 2023.
+ [9] Weiming Feng, Liqiang Liu, and Tianren Liu. On Deterministically Approximating Total Variation Distance,
+     pages 1766–1791. 2024.
+[10] Wassily Hoeffding. On the distribution of the number of successes in independent trials. The Annals of
+     Mathematical Statistics, 27(3):713–721, 1956.
+[11] Aryeh Kontorovich. On the tensorization of the variational distance. Electronic Communications in Probability,
+     30(none):1 – 10, 2025.                                                                    √
+[12] Aryeh Kontorovich and Ariel Avital. Total variation over Bernoulli products: an O( log n) approximation, in
+     preparation. 2026.
+[13] Lucien Le Cam. An approximation theorem for the Poisson binomial distribution. Pacific J. Math., 10:1181–
+     1197, 1960.
+[14] Lutz Mattner. Private communication, 2026.
+[15] Lutz Mattner and Jona Schulz. On normal approximations to symmetric hypergeometric laws. Transactions
+     of the American Mathematical Society, 370(1):727–748, 2018.
+[16] Siméon-Denis Poisson. Recherches sur la probabilité des jugements en matière criminelle et en matière civile:
+     précédées des règles générales du calcul des probabilités. Bachelier, Paris, 1837.
+[17] Siméon-Denis Poisson. Researches into the Probabilities of Judgements in Criminal and Civil Cases. arXiv,
+     2019. Translated from the 1837 French original by Oscar Sheynin.
+[18] Yury Polyanskiy and Yihong Wu. Information Theory: From Coding to Learning. Cambridge University Press,
+     2024.
+[19] B. Roos. Binomial approximation to the Poisson binomial distribution: The Krawtchouk expansion. Theory
+     of Probability and Its Applications, 45(2):328–344, 2000.
+[20] Bero Roos. Closeness of convolutions of probability measures. Bernoulli, 16(1):23–50, 2010.
+[21] Bero Roos. Refined total variation bounds in the multivariate and compound Poisson approximation. ALEA,
+     Latin American Journal of Probability and Mathematical Statistics, 14:337–360, 2017.
+[22] W. Tang and F. Tang. The Poisson binomial distribution—old & new. Statistical Science, 38(1):108–119,
+     2023.
+[23] Christoph Tasto. Proximität von Binomial- und Poisson-Verteilungen und Konfidenzintervalle für durchschnit-
+     tliche Erfolgswahrscheinlichkeiten. PhD thesis, Universität Trier, Trier, Germany, 2015. Dissertation.
+
+     Ben-Gurion University of the Negev
+     Email address: karyeh@cs.bgu.ac.il
+

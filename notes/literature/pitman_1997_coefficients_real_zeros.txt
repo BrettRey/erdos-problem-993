@@ -1,0 +1,1347 @@
+PROBABILISTIC BOUNDS ON THE
+COEFFICIENTS OF POLYNOMIALS
+   WITH ONLY REAL ZEROS 
+                                Jim Pitman
+                      Technical Report No. 453
+                      Department of Statistics
+                      University of California
+                       367 Evans Hall # 3860
+                      Berkeley, CA 94720-3860
+                    pitman@stat.berkeley.edu
+
+                     Revised November 12, 1996
+
+                                   Abstract
+       The work of Harper and subsequent authors has shown that nite
+   sequences (a0 ;    ; an) arising from  combinatorial problems are often
+   such that the polynomial A(z ) := nk=0 ak z k has only real zeros. Basic
+                                          P
+
+
+   examples include rows from the arrays of binomial coecients, Stir-
+   ling numbers of the rst and second kinds, and Eulerian numbers.
+   Assuming the ak are non-negative, A(1) > 0 and that A(z ) is not
+   constant, it is known that A(z ) has only real zeros i the normalized
+   sequence (a0 =A(1);    ; an =A(1)) is the probability distribution of the
+ Research supported in part by N.S.F. Grant MCS9404345
+
+
+
+                                        1
+      number of successes in n independent trials for some sequence of suc-
+      cess probabilities. Such sequences (a0;    ; an ) are also known to be
+      characterized by total positivity of the in nite matrix (ai,j ) indexed
+      by non-negative integers i and j . This papers reviews inequalities and
+      approximations for such sequences, called Polya frequency sequences
+      which follow from their probabilistic representation. In combinatorial
+      examples these inequalities yield a number of improvements of known
+      estimates.
+
+1 Introduction
+The work of Harper [58] and subsequent authors [60, 94, 62, 128, 119, 15, 16]
+has shown that nite sequences (a ;    ; an) arising from combinatorial prob-
+                                     0
+lems are often such that the polynomial A(z) := nk ak zk has only real ze-
+                                                      P
+                                                          =0
+ros. Typically ak = ank is the number of elements ! of some nite set n such
+that Sn(!) = k, for some function Sn : n ! f0; 1;    ; ng. The normalized
+sequence (a =A(1);    ; an =A(1)) then describes the probability distribution of
+            0
+Sn(!) for ! picked uniformly at random from n . See Section 4 for examples
+and further references, and [39] for de nition of probabilistic terms.
+    A sequence of real numbers (ak )k2K indexed by a subset K of the non-
+negative integers is called a Polya frequency sequence of order r, abbreviated
+PFr if the in nite matrix M := (ai,j )i;j ; ; ;, where ak = 0 for k 2= K , is
+                                             =0 1 2
+totally positive of order r. That is to say, for each 1  s  r, each s  s
+minor of M has a non-negative determinant. The sequence (ak ) is called a
+Polya frequency (PF ) sequence if it is PFr for every r = 1; 2;   . See Karlin
+[74] and Ando [4] for background on total positivity, and Brenti [16, 17] for
+recent combinatorial developments of this concept.
+Proposition 1 [81, 108] Let (a0;    ; an) be a sequence of non-negative real
+numbers with associated polynomial A(z ) := Pnk=0 ak z k such that A(1) > 0.
+The following conditions are equivalent:
+    (i) the polynomial A(z) is either constant or has only real zeros;
+    (ii) (a0;    ; an) is a PF sequence;
+    (iii) the normalized sequence (a0=A(1);    ; an=A(1)) is the distribution
+of the number Sn of successes in n independent trials with probability pi of
+success on the ith trial, for some sequence of probabilities 0  pi  1. The
+roots of A(z) are then given by ,(1 , pi)=pi for i with pi > 0.
+                                         2
+The equivalence (i) , (ii) is due to Aissen, Schoenberg and Whitney [1, 108].
+This equivalence is a special case of the more general representation of totally
+positive in nite sequences due to Edrei [33], which is recalled in Section 5. See
+also Chapter 8 of Karlin [74], Theorem 1.2 and Corollary 3.1. The equivalence
+(i) , (iii), due to P. Levy [80, 81], follows easily from the interpretation of
+A(z)=A(1) as a probability generating function. Call an array of real numbers
+                     (ank ) = (ank ; 0  k  n; n = 1; 2;   )
+a PF array i (ank ; 0  k  n) is a PF sequence for every n = 1; 2; 3;   .
+Basic examples of PF arrays are provided by the binomial coecients, the
+Stirling numbers of the rst and second kinds, and the Eulerian numbers.
+Harper [58] and others have exploited the implication (i) ) (iii) to deduce
+normal approximations for the nth row of a PF array from the normal ap-
+proximation to the distribution of Sn as in (iii). Normal approximations have
+also been obtained for sequences of combinatorially de ned distributions sat-
+isfying other conditions [20, 40, 41, 46]. But results in the probability and
+statistics literature, reviewed in Section 2, show that PF sequences satisfy
+a number of useful inequalities which do not hold for just any sequence that
+is approximately normal. As shown in Section 4, even for the two Stirling
+arrays which have been extensively studied, the probabilistic bounds yield
+some improvements of known estimates.
+    The notion of a PFr sequence was developed early in this century by
+Fekete, Polya, Schoenberg and others. See [74] for a survey of this develop-
+ment. Polynomials with real coecients and only real zeros were the subject
+of intensive study in the 19th and early 20th century, by Lagrange, Laguerre,
+Polya, and many other authors. Much information about such polynomials
+can be found in [92, 101]. See also [68] and papers cited there. As ob-
+served by Schoenberg [108], a sequence of non-negative reals (ak ) is PF i      2
+it is log-concave (ak  ak, ak ) and has no internal zeros ( i < j < k
+                     2
+                              1   +1
+and aiak > 0 ) aj > 0). Sequences with these properties, and the weaker
+property of unimodality, have been extensively studied in probability and
+statistics[76, 75, 130, 19, 122, 109, 56], and in combinatorics and other elds
+[116]. The PFr property for r  3 is harder to describe intuitively. But see
+Brenti [16] for recent combinatorial interpretations of total positivity.
+    According to Newton's inequality ([57], p. 52), if a polynomial ak zk   P
+
+
+with real coecients has only real roots, and in particular if (a ;    ; an) is a
+                                                                     0
+
+
+
+                                         3
+PF sequence, then
+                                               1 + k1         1 + n ,1 k
+                                                                        
+
+                        ak  ak, ak
+                         2
+                                  1   +1                                                (1)
+which is stronger than the log-concavity implied by the PF condition. Levy         2
+[80, 81] noted that (1) is a constraint on the probabilities ak := P (Sn = k) for
+Sn the number of successes in n independent trials. Levy also observed that
+(1) cannot be improved: given non-negative ak, ; ak ; ak satisfying (1) for
+                                                                  1            +1
+some 1  k  n, there exists a PF sequence (a ;    ; an) with these terms
+                                                                  0
+at places k , 1; k; k + 1. As shown by Samuels [107], further applications
+of Newton's inequality imply that for each r = 1; 2;    the sequence of rth
+order di erences derived from a nite PF sequence has at most r strict sign
+changes.
+
+2 Review of Probabilistic Results.
+Let (a ;    ; an) be a frequency sequence, that is a sequence of non-negative
+       0
+real numbers. Let A0(z) and A00(z) denote the rst two derivatives of the
+polynomial A(z) = i aizi. Abbreviate A = A(1); A0 = A0(1); A00 = A00(1),
+                        P
+
+
+and assume throughout that A(1) > 0. Let P denote the probability distribu-
+tion on f0; 1;    ; ng de ned by normalization of (a ;    ; an ). So for example
+                                                                      0
+P (k) := ak =A and for an interval [b; c]
+                           P [b; c] :=        P (j ) = A1        aj
+                                      X                          X
+                                                                                   (2)
+                                       bj c             bj c
+Let  and  denote the mean and standard deviation of P . That is
+                                   n        0
+                           := A1 kak = AA
+                                               X
+                                                                                        (3)
+                                 k                 =0
+
+
+                            n                  00      0       0
+                   := A1 (k , ) ak = AA + AA , AA
+                                                                                !2
+                             X
+                    2                          2
+                                                                                (4)
+                          k  =0
+
+In probabilistic language, if S is a random variable with distribution P , then
+S has expectation  and variance  . If (a ;    ; an) is a PF sequence then call
+                                           2
+                                                        0
+P a PF distribution. Say a random variable X has Bernoulli(p) distribution
+                                                   4
+if X assumes the values 0 and 1 with probabilities P (X = 1) = p and
+P (X = 0) = 1 , p. According to Proposition 1, a probability distribution
+P on f0; 1;    ; ng is a PF distribution i P is the distribution of a sum
+of independent variables Sn := X +    + Xn, where Xi has Bernoulli(pi)
+                                     1
+distribution. So for a PF distribution P there are the following standard
+probabilistic expressions [39], which can also be checked algebraically using
+the fact that the ,(1 , pi)=pi are the roots of A(z):
+                                             n
+                      =        pi and  =         pi (1 , pi )
+                           X                 X
+                                         2
+                                                                           (5)
+                            i                i=1
+
+History and Terminology. What is called here a PF distribution is called
+in the statistics literature the distribution of the number of successes in in-
+dependent trials. Such trials with two possible outcomes, success and failure,
+and varying probabilities of success, are known as Poisson trials or Poisson-
+binomial trials. The distribution of the number of successes Sn is sometimes
+called a Poisson-binomial distribution, but that term has also acquired other
+meanings. Study of the distribution of Sn dates back to the 1837 monograph
+of Poisson [99]. Chebyshev [24] established bounds for tail probabilities and
+the law of large numbers for the distribution Sn. The work of subsequent
+authors, reviewed below, has provided sharper bounds for tail probabilities,
+precise estimates for location of the mode and median, and error bounds for
+normal and Poisson approximations.
+The binomial(n; p) array. The array of binomial coecients is a PF array
+due to the factorization of the associated polynomials
+                               n n   !
+                            X
+                                     z k = (1 + z )n                   (6)
+                             k  =0
+                                  k
+Replace z by pz=q in (6) and normalize to obtain the polynomial associated
+with the Binomial (n; p) distribution. The corresponding PF array with pa-
+rameter 0  p  1, which describes the distribution of the number of suc-
+cesses in n independent trials with constant success probability p, may be
+presented as follows:
+                Pn;p (k) := nk pk (1 , p)n,k
+                                !
+
+                                                     (0  k  n)       (7)
+
+                                         5
+Hoe ding's Inequalities [64]. Let P be a PF distribution on f0; 1;    ; ng
+and let Pn;p as in (6) denote the binomial(n; p) distribution with the same
+mean as P , that is with p = =n. Then for all integers b and d with
+0  b   , 1 and  + 1  d  n,
+                  P [0; b]  Pn;p[0; b] and P [d; n]  Pn;p[d; n]        (8)
+Also, for every convex function g, there is the inequality
+                          n                      n
+                                g(j )P (j ) 
+                         X                      X
+                                                       g(j )Pn;p (j )               (9)
+                         j =0                   j =0
+These inequalities make very precise sense of the following idea: amongst all
+PF distributions on f0; 1;    ; ng with a given mean , the binomial(n; p)
+distribution for p = =n is the one that is \most spread out". See Gleser [47]
+for re nements, and Marshall-Olkin [84] for a survey of related inequalities.
+Hoe ding showed also that for an arbitrary real-valued function g any PF
+distribution P that maximizes the sum on the left side of (9) over all PF
+distributions on f0; 1;    ; ng is necessarily a shifted binomial distribution.
+That is to say P (k) = Pm;p(k , h) for all h  k  h + m for some integers
+h and m with 0  h  h + m  n and some p with 0  p  1. For
+g(j ) = 1(j  k) this result dates back to Chebychev [24], who combined it
+with bounds on binomial probabilities to obtain a weak law of large numbers.
+Large Deviation Bounds. Good bounds for binomial tail probabilities
+were obtained by Okamoto [93] using the method of Cherno [25]. Com-
+bined with Hoe ding's inequality (8), these bounds show that every PF
+distribution P on f0; 1;    ; ng is subject to
+                 P [b; n]  b nn ,, b
+                                 b       n,b
+                                                  for  + 1  b  n        (10)
+By an obvious reversal, the same function of (; b; n) is an upper bound on
+P [0; b] for 0  b   , 1. Numerous other bounds for binomial probabilities
+are known [39, 83, 112, 66, 14, 86, 69], any of which can be used to bound the
+tails of a PF sequence via (8). Appendix A of [3] derives the following simpler
+bounds for all PF distributions P which are adequate for many purposes.
+For all c > 0,
+     P [0;  , c]  exp , 2c and P [ + c; n]  exp , 2c + 2c
+                                    !                                           !
+                                2                                       2   3
+                                                                           (11)
+                                                                            2
+
+
+
+                                            6
+See [64, 63, 44, 39, 3, 69] for variations, re nements and generalizations of
+these inequalities, and references to earlier results. If both the variance  and       2
+
+the mean  are known or can be bounded, further tail bounds are available
+for a PF distribution which are sharper than either the above estimates or
+Chebychev's inequality [12, 69].
+    Quite a di erent kind of bound, discovered by Nicholas Bernoulli for
+binomial probabilities around 1713, is presented in Section 16.3 of Hald [54].
+This bound generalizes as follows to any PF distribution on the integers,
+                                                 2
+derived as in (2) by normalization of a summable PF sequence (ak ): for
+                                                                   2
+integers b  m  c with am > 0,
+                         P [b; c]  1 , max(ab; ac)=am                                      (12)
+The bound is non-trivial only if both ab and ac are less than am, so the best
+choice of m is a mode of the distribution, as discussed in the next paragraph.
+Note that the bound can be computed without knowing the constant of
+normalization A := k ak when P is de ned via (2). Let [i; j ] = ikj ak .
+                     P                                                 P            P
+
+
+By choosing b; c and m so that max(ab; ac)=am < , the probability outside
+[b; c] is at most . Probabilities P [i; j ] for b  i  j  c are therefore
+approximated from above by [i; j ]= [b; c] with a relative error of at most
+                               P        P
+
+
+.
+Darroch's Rule for the Mode [27]. As a well known consequence of
+Newton's inequality (1), a PF sequence (a ;    ; an) has either a unique index
+                                            0
+m or two consecutive indices m such that am = maxk ak . Darroch showed
+that such a mode m di ers from the mean  by less than 1. This remark-
+able result seems to be quite unknown to combinatorialists, though it has
+numerous combinatorial applications indicated in the next section. To be
+more precise, acording to Theorem 4 of [27], for integer k with 0  k  n
+       m = k if                       k<k+k                 1
+                                                              +2
+
+
+       m = k or k + 1 or both if k + k    k + 1 , n,k
+                                            1
+                                            +2
+                                                                           1
+                                                                               +1
+                                                                                            (13)
+       m = k + 1 if                   k + 1 , n,k <   k + 1
+                                                     1
+                                                         +1
+
+
+Jogdeo-Samuels [70] gave a similar result for the median instead of the mode.
+
+                                       7
+Bounds for Consecutive Ratios. By Newton's inequality, the consecu-
+tive ratios ak =ak derived from a PF sequence are strictly increasing over
+                  +1
+the range where they are well de ned. Useful bounds for these ratios can be
+obtained as follows.
+    Given a frequency sequence (ak ) and  > 0, consider the tilted sequence
+(ak k ) associated with A(z). The mean of the probability distribution ob-
+tained by normalization of the tilted sequence is
+                                             A 0 ( )
+                                   () := A()                           (14)
+and its variance is found from (4) to be
+                             00          0 ()       A0() =  0()
+                () :=  AA(()) + A
+                                                    !2
+                        2
+              2
+                                       A()    ,       A()               (15)
+Let m() be the least m such that am=am  . If (ak ) is a PF sequence,
+                                              +1
+then so is the tilted sequence (ak k ), and m() is a mode of this tilted se-
+quence. So Darroch's rule gives
+                      jm() , ()j < 1                   ( > 0)         (16)
+Asuming both ak > 0 and ak > 0, the more precise version of Daroch's
+                                +1
+rule stated above gives
+                       ak   if ()  k + 1                             (17)
+                      ak
+                       +1                          k+2
+                       ak   if ()  k + 1 , 1                         (18)
+                      ak
+                       +1                               n,k +1
+Let ` be the least k and r the greatest k such that ak > 0. For (ak ) with
+` < r it follows from (15) that 0() > 0, hence that () is continuous and
+strictly increasing from ` to r as  increases from 0 to 1. For 0 < x < 1 let
+            (x) be the unique positive solution of A0()=A() = x.      (19)
+Then (17) and (18) combine to show that if a polynomial A(z) := nk ak zk
+                                                                   P
+                                                                       =0
+with non-negative coecients has only real zeros, then
+                 k + k +1 2  aak   k + 1 , n , 1k + 1
+                                                          
+
+                                                                          (20)
+                                     k
+                                     +1
+
+
+                                          8
+Because (x) is a strictly increasing function of x, (20) implies
+                            (k) < aak <  (k + 1)                        (21)
+                                    k +1
+
+
+
+The Normal Approximation. ([58, 127, 10, 21, 98]). Let
+                           (x) = p1 e, 21 x2                             (22)
+                                     2
+denote the standard normal density function, and let
+                                      Z   z
+                             (z) =           (x)dx                      (23)
+                                       ,1
+Then for every PF distribution P on f0; 1;    ; ng with mean , variance  ,
+                                                                             2
+
+
+
+                                           k ,  < 0:7975
+                                                 !
+
+                    max
+                    kn
+                    0
+                           P  [0 ; k ] ,                                (24)
+and there exists a universal constant C such that
+                               P (k) ,  k ,  < C
+                                                     !
+
+                       max
+                       k  n
+                        0
+                                                                           (25)
+The estimate (24) follows from a re nement of the Berry-Esseen theorem
+[127]. The bound (25) is due to Platonov [98], Theorem 11.2. According to
+Remark 4 of Vatutin and Mikhailov [128], the more general result claimed by
+Platonov is false, but his argument is correct for a PF distribution. See also
+Can eld [21] for a local limit bound of a weaker form with explicit constants
+that applies to more general sequences. An explicit C in (25) can doubtless
+be obtained by a more careful analysis using the Fourier method of [98].
+    As a consequence of the above estimates, if (Sn ) is a sequence of random
+variables such that Sn has a PF distribution with mean n and variance n,   2
+
+the asymptotic distribution of (Sn , n )=n is standard normal i n ! 1
+as n ! 1. Also, as a consequence of the estimate (24) and a standard weak
+convergence result( [13], Theorem 14.2) no other continuous limit distribu-
+tion besides the normal can be obtained as the asymptotic distribution of
+(Sn , bn )=cn for a sequence of random variables (Sn), each with a PF dis-
+tribution with nite range, and sequences of constants (bn) and (cn). Note
+                                          9
+that this result is not true for a sequence of random variables Sn each with
+a PF distribution over the set of positive integers. See Section 5 for further
+discussion.
+    Following the method used by Bender [10] for Stirling numbers, an ap-
+proximation to any individual term ak in a nite PF sequence may be ob-
+tained as follows. Replace (aj ) by the tilted sequence (aj j ) and apply (25)
+to see that for every PF sequence (a ;    ; an)
+                                            0
+
+
+                              ak = p 1 A(k) (1 + k )                     (26)
+                                     2()
+for  = (k) as in (19) and  () as in (15), and where the error term
+                                    2
+
+k = (a ;    ; an; k) is bounded by
+          0
+
+                                    jk j  C=()                          (27)
+for C as in (25). The Edgeworth expansion [38, 96] suggests that in (27) the
+error can be bounded by C= rather than C=. The asymptotic formula
+                                2
+
+(26) is a close relative of Hayman's [61] generalization of Stirling's formula.
+The basic method traces back to Laplace [79].
+    See also Holst [65] for a related probabilistic method applied to occupancy
+problems and [106, 10, 11, 20, 77, 40, 41, 46] for normal approximations to
+various other kinds of combinatorial sequences.
+The Poisson Approximation. From (2) and (4) the mean  and vari-
+ance  of the probability distribution P derived from a PF distribution on
+      2
+
+f0; 1;    ; ng are such that
+                                                n
+                             , =                    pi  0
+                                                X
+                                        2              2
+                                                                           (28)
+                                                i=1
+By formula (1.23) of [9], there is the following bound on the total variation
+distance between P and the Poisson() distribution:
+                     P (k) , e k!  (1 , e,)  , 
+                  X            , k                            2
+                                                                   !
+
+                                                                         (29)
+                  k
+So the Poisson approximation to a PF distribution will be good whenever
+ ,  << . See also Theorems 6.B and 6.H of [9] for other settings in
+      2
+
+which the same bound applies, and Corollary 3.D.1 of [9] which shows that
+the bound (29) cannot be improved by much more than a constant factor.
+                                            10
+Further Inequalities and Approximations. A number of more re ned
+inequalities and approximations for PF sequences can be read from the
+probabilistic literature. Typically these involve third and higher order mo-
+ments of the distribution to obtain sharper approximations. See for instance
+[95, 7, 29, 120].
+
+3 Operations
+The collection of all nite PF sequences is closed under a number of oper-
+ations which arise naturally in combinatorial applications. In particular, if
+(a ;    ; an) is a PF sequence, then so is the sequence (b ;    bn ) obtained by
+  0                                                            0
+each of the following operations. For those operations for which the closure
+property is not obvious, the works cited provide proofs, references to original
+sources, and various related results:
+Reversal: bk = an,k
+Geometric Tilting: bk = k ak for arbitrary  > 0.
+Factorial Tilting: ([100], [15] Th 2.4.1) bk = ak =k!
+Binomial Moments: ([74], Th. 8.6.2) bk =
+                                                              
+                                                       P n i a
+                                                         i=0 k i
+
+Further, if (a ;    ; an) and (b ;    ; bn) are two PF sequences, then so is each
+              0                  0
+of the sequences (c ;    ; cn) de ned by
+                     0
+
+
+
+Convolution: ck =        P k ab .
+                           j =0 j k,j
+
+Product: ([92] Satz 7.4,[15] Th. 4.7.8) ck = ak bk k! and hence also ck = ak bk
+    Closure under the product operations is useful in combinatorial examples,
+but not at all obvious probabilistically. An interpretation of the probability
+distribution derived from (ak bk ) can be given as follows. Let Sn be the
+number of successes in some sequence of n independent trials P (Sn = k) =
+                                          11
+ak =A, and let Tn be the number of successes in some further sequence of n
+independent trials with success probabilities arranged so that P (Tn = k) =
+bk =B . Assuming the two sets of n trials are independent, the conditional
+distribution of Sn given Sn = Tn is the distribution obtained by normalization
+of (ak bk ). But it is not at all apparent probabilistically why this distribution
+is representable as the distribution of the number of successes in some other
+set of n trials.
+
+4 Examples
+Throughout this section, arrays are indexed by n and k with n = 1; 2    and
+0  k  n. Call (ank ) a combinatorial array if the ank are non-negative inte-
+gers. A combinatorial array is usually de ned by letting ank be the number
+of elements ! in some nite set n such that Sn(!) = k for some function
+Sn : n ! f0; 1;    ; ng. Then Sn may be viewed as a random variable de-
+  ned on the combinatorial probability space de ned by n equipped with the
+uniform probability distribution. For example, take n = f0; 1gn and Sn (!)
+to be the number of 1's in the sequence ! to obtain the array of binomial
+                    
+coecients ank = nk .
+    According to Proposition 1, a combinatorial array is a PF array i
+for each n the random variable Sn de ned on an associated combinato-
+rial probability space has the same distribution as S^n = nk Xnk where
+                                                                P
+                                                                    =1
+(Xnk ; 1  k  n) are independent Bernoulli(pnk ) random variables de ned
+on some probability space ^ n for some sequence (pnk ). Given a combinato-
+rial PF array, it may or may not be possible to implement this construction
+of independent Xnk on a combinatorial probability space n equipped with
+uniform distribution. It is easy to do this for the array of binomial coe-
+cients, and for the array of Stirling numbers of the rst kind, as indicated
+below. But such a construction is impossible for the array of Stirling num-
+bers of the second kind. Still, for any PF array, Xnk can be de ned as the
+kth co-ordinate map on ^ n := f0; 1gn equipped with the product measure
+Pn determined by the pnk = Pn (Xnk = 1).
+    Let [n] := f1;    ; ng. The notation for Stirling numbers follows [52].
+
+
+
+                                       12
+The number of cycles of a random permutation of [n]. The array of
+unsigned Stirling numbers of the rst kind [26] is de ned by
+            "    #
+                n = number of permutations of [n] with k cycles         (30)
+                k
+The associated polynomial admits the elementary factorization
+                 n "n#
+                 X
+                        z k = z (z + 1)    (z + n , 1) = ,(n + z )   (31)
+                k=0   k                                       ,(z)
+whose probabilistic interpretation is well known [51, 39]. In this case it is
+easy to construct independent random variables X ;    ; Xn as functions on
+                                                          1
+the set n of all permutations ! of [n] such that the number of cycles of ! is
+X (!) +    + Xn (!) and Xi has Bernoulli (i=n) distribution. For instance,
+ 1
+write ! in standard cycle notation, and let Xi be the indicator that some
+cycle ends at the ith place in the cycle notation [39]. Or see [113, 71] for
+alternatives. Let An (z) denote the polynomial associated with the nth row
+of the array, as displayed in (31). The function (n; ) derived from An(z)
+as in (14) is easily calculated as
+                                                  n
+                 (n; ) = [ (n + ) , ()] =  + j , 1
+                                                    X
+                                                                         (32)
+                                                j    =1
+
+
+where () := ,0 ()=,() is the digamma function. Erdos [35] showed that
+for n  3 the nth row of these Stirling numbers has a unique mode mn.
+According to Darroch's rule, jmn ,(n; 1)j < 1, with more precise evaluations
+for some n. This complements the result of Hammersley [55] that mn =
+log(n)+ O(1). For  > 0 the function (n; ) gives the mean exactly, and the
+mode and median to within 1, for the sequence whose polynomial is An(z).
+This sequence de nes the distribution of the number of parts in a random
+partition of n governed by the Ewens sampling formula with parameter  >
+0. See [36, 32, 5, 8, 37]. Bender [10], Example 5.1 shows how the normal
+approximation (26) in this case yields the leading term of an asymptotic
+expansion for the Stirling numbers of the rst kind due to Moser and Wyman
+[89]. There is no shortage of asymptotic approximations for these Stirling
+numbers [88, 124, 131, 67, 125], but little in the way of easily computable
+
+                                         13
+bounds. Consider for instance the problem of computing the ratio
+                                        "   ,   #"        #
+                                    n   n
+                         r(n; k) := k k + 1
+                                                              1
+
+                                                                        (33)
+for large n and k. According to (20),
+             (n; k) < r(n; k) < (n; k + 1)       (1  k < n)         (34)
+where (n; k) is the unique root  of (n; ) = k. Working in Mathematica,
+the functions r(n; k); (n; ) and (n; k) can each be de ned as follows by
+one line programs:
+          [ ; ] := Abs[StirlingS1[n; k]=StirlingS1[n; k + 1]]==N
+        rn k
+
+
+               [ ; ] := t(PolyGamma[n + t] , PolyGamma[t])==N
+           mu n t
+
+
+
+        [ ; ] := (fr = FindRoot[mu[n; t] == k; t; 1]; fr = fr[[1]]; t=:fr)
+  theta n k
+
+In my implementation of Mathematica the StirlingS1 routine involved in
+direct computation of r(n; k) produces the response \Out of memory. Exit-
+ing" for n > 500. However the routines for computing (n; k) and (n; k) are
+fast and apparently stable even for very large n. To illustrate, for n = 10  10
+
+and k = 10 , the bounds (34) so computed are
+           3
+
+
+
+                       52:4216 < r(10 ; 10 ) < 52:477
+                                            10       3
+                                                                        (35)
+The number of subsets in a random partition of [n] The array of
+Stirling numbers of the second kind, is de ned by
+               (   )
+              n = number of partitions of [n] into k subsets            (36)
+              k
+Let Bn (z) denote the associated polynomial:
+                                n n (       )
+                                             1 e,z z j j n
+                    Bn (z) :=
+                              X
+                                      z k=               X
+                                                                        (37)
+                              k=0
+                                   k       j      j!     =0
+
+
+
+                                            14
+The second equality follows from the well known double generating function
+for the array [26]. For z  0 the in nite sum identi es Bn (z) as the nth
+moment of the Poisson distribution with parameter z, as observed by Riordan
+[104]. Let Bn = Bn(1), the total number of partions of [n], known as the nth
+Bell number. Even B (z) = z (1 + 3z + z ) does not factor over the rationals,
+                      3
+                                              2
+
+so there no way to represent the number of subsets in a random partition of
+N as a sum of 3 independent indicator variables de ned on a combinatorial
+ 3
+probability space with equally likely outcomes. Still, Harper [58] proved
+that the Stirling numbers of the second kind form a PF array by showing
+by induction that the associated sequence of polynomials Bn(z) is a Sturm
+sequence, that is to say they have interlaced simple real zeros. Let mn be the
+mode and n the mean of the distribution de ned by the nth row of Stirling
+numbers of the second kind. It is known [31] that mn is unique. Harper
+used the formula n = Bn =Bn , 1 to read asymptotics for n from those
+                            +1
+for Bn due to Szekeres and Binet [123], and Harper gave a crude bound
+for jmn , nj using the normal approximation. The problem of obtaining
+asymptotics for mn has been discussed by a number of subsequent authors
+(see Menon [87] and papers cited there). Darroch's formula jmn , n j < 1
+shows that asymptotics for either sequence can be simply be read from the
+other.
+    Consecutive ratios of Stirling numbers of the second kind can be estimated
+by the method described above for Stirling numbers of the rst kind, using the
+formula n () = Bn ()=Bn () , 1 and approximating Bn () and Bn ()
+                     +1                                        +1
+either by appropriate truncation of the in nite series expression (37), or by
+the asymptotic methods of [123]. The discussion of the classical occupancy
+problem below provides an even simpler approach to the estimation of these
+ratios for large k. See [53, 106, 45, 6] for further results about uniform random
+partitions of [n], and see [110] for a survey of inequalities and probabilistic
+interpretations of Stirling numbers of both kinds.
+The Hypergeometric Distribution. Suppose a random sample of size
+n is taken without replacement from a population of G good and B bad
+elements. The probability that the sample contains exactly k good elements
+is
+                  Pn;G;B (k) = Gk n B        G+B ,
+                                     !            !     ! 1
+
+                                                                      (38)
+                                      ,k        n
+
+                                         15
+For each xed pair of non-negative integers G and B each 1  n  G + B ,
+this formula de nes a probability distribution Pn;G;B on f0; 1;    ; ng, called
+the hypergeometric distribution with parameters (n; G; B ). The formula (38)
+displays Pn;G;B (k) as the product of a binomial sequence, a shifted binomial
+sequence, and a constant. So it follows from the closure of PF sequences
+under these operations that the hypergeometric distribution is a PF dis-
+tribution for all (n; G; B ). Vatutin-Mikhailov [128] obtained this result by
+showing directly that the generating polynomial has only real zeros. See also
+Kou-Ying [132] for another derivation involving Jacobi polynomials, and a
+statistical application. Many results in the statistics literature concerning
+the hypergeometric distribution, rst obtained by other methods, can be
+read from the general properties of PF distributions described in Section
+2. For example, Hoe ding's inequalities (8) and (9) yield inequalities of
+Hoe ding [63] and Uhlmann [126] comparing the hypergeometric (n; G; B )
+distribution for sampling without replacement with the binomial(n; p) dis-
+tribution for sampling with replacement from the same population, that is
+with p = G=(G + B ). The well known normal and Poisson approximations
+for the hypergeometric distribution follow similarly.
+The Classical Occupancy Problem In the classical occupancy problem
+[28], n labelled balls are thrown independently at random into N boxes. The
+probability distribution of the number of occupied boxes On;N is then given
+by
+               P [On;N = k] = nk Nk Nk!n
+                               (   )    !
+
+                                                    (0  k  n)         (39)
+If balls labelled by [n] are regarded as partitioned by the boxes, this scheme
+induces a particular non-uniform distribution for a random partition of [n]
+into On;N non-empty subsets. Lieb [82] showed that the generating polyno-
+mial has only real zeros for N = n. Harris and Park [60] showed this for all
+N and n. So the distribution of On;N de ned by (39) is a PF distribution
+for every N and n. Since the rst two factors in (39) are PF sequences, and
+the remaining factor is k! times a constant, this result can also be read from
+product rule of Section 3. The approximate normality of the distribution of
+On;N , provided the variance of On;N is suciently large, has been known for
+a long time. Englund [34] obtained the estimate (24) in this case by another
+method, with a constant of 10.4 instead of 0.7975. See also [102] for similar
+
+                                       16
+but weaker bounds in a more general occupancy problem.
+      Another PF distribution was obtained by Park [94] from the variation of
+the classical occupancy problem where each ball falls through its box with
+some constant probability, independent of all other balls. Vatutin-Mikhailov
+[128] obtained a family of PF distributions from the number of occupied
+boxes after the following allocation scheme: rst N balls are placed one per
+                                                      1
+box in each of N boxes picked at random from N boxes, then independently
+                 1
+N balls are placed in N boxes picked at random from the same N boxes, and
+ 2                      2
+so on, for some arbitrary nite sequence of positive integers (N; N ;    ; Nj )
+                                                                      1
+with N  Ni for 1  i  j . The family of PF distributions so de ned
+includes both the clasical occupancy distribution and the hypergeometric
+distibution as special cases. Another special case is the distribution of the
+number of occupied boxes amongst M particular boxes when n balls are
+placed independently at random in N boxes. (Take N = N , M; N =
+                                                            1               2
+   = Nn = 1). As shown in [128], the approach to normal and Poisson
+         +1
+approximations for this family of occupancy distributions via general results
+for PF distributions is a substantial simpli cation of earlier approaches. See
+also [59].
+      Stam [114] describes a way to construct a uniform random partition of
+[n] by suitably randomizing N which relates asymptotics for uniform random
+partitions to those for the classical occupancy scheme. See [97] for further
+discussion of Stam's scheme, and [73] for recent work on large deviation
+bounds in the classical occupancy problem. As observed by Janson [69],
+such bounds follow immediately from the PF representation.
+      It is known [77, (1.1.4)] that the random variable On;N with distribution
+(39) has mean N , N (1 , 1=N )n . From (39), for 1  k  N ,
+                P (On;N = k)=P (On;N = k + 1) = r (n; k)=(N , k)
+                                                  2                         (40)
+where                                (    )(      )  ,
+                                         n
+                            r (n; k) = k k + 1 n      1
+
+                                                                            (41)
+                            2
+
+
+Darroch's rule applied to the PF distribution of On;N yields
+        r (n; k)  N , k if N , N (1 , 1=N )n  k + k +1 2
+          2                                                                 (42)
+
+         r (n; k)  N , k if N , N (1 , 1=N )n  k + 1 , n , 1k + 1
+          2                                                                 (43)
+
+                                         17
+For k  1 let x(n; k) denote the unique real root in [1; 1) of the equation
+x , x(1 , 1=x)n = k. Then (42) and (43) combined yield
+                 bx(n; k)c , k < r (n; k) < dx(n; k + 1)e , k
+                                   2                                       (44)
+To illustrate, for n = 1000 and k = 700 these bounds are
+                          612 < r (1000; 700) < 618
+                                  2                                        (45)
+Laplace's asymptotic formula for Stirling numbers of the second kind ([79,
+28]), which is similar to (26) but much easier to compute, gives
+                          r (1000; 700)  614:938:::
+                           2                                               (46)
+Note that because the bounds in (44) are necessarily integers, these bounds
+will only be tight for k much larger than the mean, that is k >> n= log(n).
+Leaves of a Random Tree. Let n be the set of all nn, trees labelled by
+                                                             2
+
+[n], and for ! 2 n let Ln (!) be the number of leaves of !, that is the number
+of vertices of degree 1. As observed by Renyi [103], the well known Prufer
+coding of random trees implies that the distribution of Ln (!) for ! picked
+uniformly at random from n is identical to the distribution of the number
+of empty boxes when n , 2 balls are thrown independently at random into n
+boxes. That is to say the distribution of Ln is the reversal of the distribution
+of On, ;n for On;N as in the classical occupancy problem. Since On, ;n has a
+      2                                                                2
+PF distribution, so does Ln. Steele [119] uses this example to illustrate in-
+terpretations of the one-parameter exponential family of Gibbs' distributions
+on a nite outcome space , with a real parameter , obtained by tilting the
+uniform distribution by a factor of S ! for an arbitrary function S de ned
+                                       ( )
+
+on and  = e, . If S has a PF distribution with generating function
+A(z)=A(1) when ! is assigned uniform distribution, then under the Gibbs'
+distribution S has the PF distribution with generating function A(z)=A()
+as considered in Section 2.
+Generalized Stirling Numbers. Various generalizations of both kinds of
+Stirling numbers are known to de ne PF arrays. See [18, 23] for background,
+and [15] for the PF results. The Munch numbers also form a PF array [85].
+
+                                       18
+Random Mappings. Let M (n; k) be the number of mappings from [n]
+to [n] whose associated digraph has exactly k components. See [78, 90] for
+background. Brenti [15] obtained the formula
+                                    n       n , 1 nn,i i
+                                                !    "     #
+                                    X
+                       M (n; k) =           i,1        k                  (47)
+                                    i=1
+and used it to show that M (n; k) is a PF array. Asymptotic normality in
+this case is due to Stepanov [121]. See also [40] for another approach, and
+[2] for related asymptotics and further references.
+Matchings. Let G be a graph, with multiple edges allowed, and let ak be
+the number of matchings of size k in G. That is, ak is the number of k-element
+sets M of edges of G, no two edges in M having a common vertex. Heilmann
+and Lieb ([62], theorem 4.2) showed using Sturm sequences that (a ;    ; am)
+                                                                     0
+is a PF sequence. Special cases of this construction include both the binomial
+coecients and the Stirling numbers of the second kind. Other special cases
+include the coecient sequences of rook polynomials [91], and several of
+the classical families of orthogonal polynomials. In this connection, see also
+[50, 48, 129, 116]. The consequent asymptotic normality of various arrays
+associated with sequences of graphs was treated by Godsil [49]. Godsil's
+results have recently been re ned by Kahn [72].
+Partitions of Multisets. Another extension of the PF property of the
+Stirling numbers of the second kind is the following result obtained by Simion
+[111], also using Sturm sequences. Call a sequence of non-negative integers
+n := (n ; n ;   ) with 0 < i ni < 1 a multiset. For a multiset n let a(n; k)
+       1   2
+                           P
+
+
+be the number of sequences of multisets (n ;    ; nk ) such that ki ni = n.
+                                                1
+                                                                 P
+
+
+Then for each multiset n with i ni = n the sequence (a(n; k); 0  k  n) is
+                                                                     =1
+                               P
+
+
+PF . Take n to be the sequence (1; 1;    ; 1) of length n to deduce that the
+      (    )
+
+array nk k! is a PF array. As noted by Simion, this is a stronger result
+                                        (   )
+
+than the PF property of the array nk , due to the general factorial tilting
+rule of Section 3.
+
+
+                                          19
+Eulerian Numbers Let n be the set of permutations of [n]. For  2 n
+let
+                      Dn () = #f1  i < n : i < ig
+                                                 +1
+
+be the number of descents of , and let Ank be the number of  2 n
+such that D() = k. The numbers Ank form the array of Eulerian numbers
+[43, 42]. It was known already to Frobenius that for each n  2 the Eulerian
+polynomial k Ank zk has only real zeros. So the Eulerian numbers form a
+            P
+
+
+PF array. The mean and variance of Dn , viewed as a function of a uniformly
+distributed random permutation , are easily shown to be (n , 1)=2 and
+(n , 1)=12. The asymptotic normality of the distribution of Dn was deduced
+in [22] and [10] from the PF property of Eulerian numbers. There is another
+probabilistic representation of the Eulerian numbers related to the formula
+[26, p. 243]
+                               k
+                       Ank = (,1)i(k , i)n n +i 1 :
+                                                       !
+                              X
+                                                                        (48)
+                              i=0
+Comparison of this formula with the formula of Laplace [79] for the distribu-
+tion of the sum U +    + Un of independent uniform [0; 1] random variables
+                  1
+U ;    ; Un , reviewed in Feller [38] and Diaconis-Efron [30], shows that the
+ 1
+probability that a random permutation of [n] has k descents is
+                  P (Dn = k) = Annk! = P (k , 1  U +    + Un < k)
+                                                 1                           (49)
+This identity allows exceptionally accurate normal approximations for the
+Eulerian numbers to be deduced from corresponding approximations for the
+sum U +    + Un [38]. Stanley [115] gives a geometric proof of (49) without
+      1
+involving the explicit formula (48). A quick probabilistic proof of (49) can
+be given as follows. Let Sn = U +    + Un and let Vn be Sn modulo 1. It is
+                                 1
+easily veri ed that V ;    ; Vn are independent and uniform on [0; 1] and that
+                      1
+
+
+                                Sn = bSnc + Vn where                         (50)
+        bSnc = #f1  i < n : Vi < Vi g = #f1  i < n : i < ig
+                               +1                            +1              (51)
+where i = #f1  j  n : Vj  Vi g, and the possibility of ties among the Vi
+can be ignored as such ties occur with probability zero. Thus bSn c = D()
+with probability one where  is a uniformly distributed random permutation
+of [n], and the formula (49) follows immediately.
+                                       20
+Further Examples. See Brenti [15] for extensive discussion of techniques
+for proving that a sequence is PF and a wealth of further examples. See
+[105, 116, 16, 117, 118] for still more instances of PF arrays, and further
+results regarding log-concave and unimodal sequences.
+
+5 In nite Polya Frequency Sequences
+Associate the sequence (a ; a ;   ) with its generating function
+                           0   1
+
+                                              1
+                                                   aizi
+                                             X
+                                   A(z) :=                               (52)
+                                             i=1
+According to the result of Edrei [33] presented in [74] as Theorem 5.3 of Ch.
+8, a sequence (a ; a ;   ) with a = 1 is a PF sequence i its generating
+                 0   1               0
+function can be expressed as
+                                         1 + z)
+                              A(z) = ez (1     i
+                                         Y
+
+                                             ,                           (53)
+                                        i (1
+                                         =1     iz )
+for some   0; i  0; i  0 where i( i + i) < 1. To interpret this result
+                                         P
+
+
+probabilistically, let the probability distribution of a non-negative integer
+valued random variable X be described either by a sequence of probabilities
+P (X = 0); P (X = 1);    or by the corresponding probability generating
+function i P (X = i)zi. In particular, the probability generating function
+         P
+
+
+of X with Bernoulli (p) distribution on f0; 1g is (1 , p) + pz. Say X has a
+geometric (p) distribution if
+                         P (X = i)zi = pqizi = (1 ,p qz)
+                     X                   X
+                                                                         (54)
+                       i                i
+In the representation (53), write (1 + iz) = (qi + piz)=qi where pi + qi = 1,
+and the apply standard properties of probability generating functions [39],
+to deduce the following proposition. Combined with the representation for-
+mula (53) this result contains the equivalence of conditions (ii) and (iii) in
+Proposition 1 as the special case when the sequence (a ; a ;   ) has only a
+                                                           0   1
+ nite number of non-zero entries.
+
+
+                                         21
+Proposition 2 Let (a ; a ;   ) be a sequence of non-negative real numbers
+                        0   1
+such that 0 < A < 1 where A := i ai . The sequence is a PF sequence i
+                                        P
+
+
+the normalized sequence (a =A; a =A;   ) is the distribution of
+                            0       1
+
+
+                                    Xj +         Yj + Z
+                                X           X
+                                                                             (55)
+                                j            j
+for independent random variables X1 ; X2;   , Y1 ; Y2 ;   , Z , where Xj has
+Bernoulli (pj ) distribution, Yj has geometric ( j ) distribution, and Z has
+Poisson  () distribution, for some 0  pi  1 and 0  i < 1 such that
+P
+  (i pi + i) < 1, and 0   < 1.
+Conditions for asymptotic normality of a sequence of PF sequences can easily
+be deduced from Lindeberg's theorem ([13] Th. 27.2). Note that due to the
+possibility of geometric components, for in nite sequences a large variance
+alone is not enough to ensure a good normal approximation. Because a PF
+sequence is obtained by restriction to a lattice of a Polya frequency function
+de ned on the whole line [74], any probability distribution on (0; 1) whose
+density is a given by such a function, for instance an exponential or gamma
+distribution, may be obtained as a weak limit of some sequence of rescaled PF
+distributions on f0; 1; 2;   g. Theorem 9.5 of Ch 8. of Karlin [74] provides
+the analog of the representation (53) for a PF sequence indexed by the
+set of integers, which for a summable sequence has a similar probabilistic
+interpretation.
+
+6 Acknowledgements
+Thanks to Lucien Le Cam, Charles Stone, Persi Diaconis and Richard Stanley
+for help with the literature. Thanks also to Francesco Brenti, Richard Dudley,
+Svante Janson, Je Kahn, Richard Stanley, Charles Stein and Zhiliang Ying
+for providing preprints.
+
+References
+  [1] M. Aissen, I.J. Schoenberg, and A.M. Whitney. On the generating
+      function of totally positive sequences I. J. d'Anal. Math., 2:93{103,
+      1952.
+                                            22
+ [2] D. Aldous and J. Pitman. Brownian bridge asymptotics for random
+     mappings. Random Structures and Algorithms, 5:487{512, 1994.
+ [3] N. Alon and J.H. Spencer. The Probabilistic Method. Wiley, New York,
+     1992.
+ [4] T. Ando. Totally positive matrices. Linear Algebra and Its Applica-
+     tions, 90:165{219, 1987.
+ [5] R. Arratia, A.D. Barbour, and S. Tavare. Poisson process approxima-
+     tions for the Ewens sampling formula. Ann. Appl. Prob., 2:519{535,
+     1992.
+ [6] R. Arratia and S. Tavare. Independent process approximations for
+     random combinatorial structures. Adv. Math., pages 90{154, 1994.
+ [7] A. D. Barbour. Asymptotic expansions in the Poisson limit theorem.
+     The Annals of Probability, 15:748 { 766, 1987.
+ [8] A. D. Barbour. Re ned approximations for the Ewens sampling for-
+     mula. Rand. Struct. Alg., 3:267{276, 1992.
+ [9] A. D. Barbour, L. Holst, and S. Janson. Poisson approximation.
+     Clarendon Press, 1992.
+[10] E. A. Bender. Central and local limit theorems applied to asymptotic
+     enumeration. J. Combin. Theory Ser. A, 15:91{111, 1973.
+[11] E. A. Bender. Asymptotic methods in enumeration. SIAM Rev.,
+     16:485{515, 1974.
+[12] G. Bennett. Probability inequalities for the sum of independent random
+     variables. J. Amer. Stat. Assoc., 57:33 { 45, 1962.
+[13] P. Billingsley. Probability and Measure. Wiley, New York, 1995. 3rd
+     ed.
+[14] B. Bollabas. Random Graphs. Academic, New York, 1985.
+[15] F. Brenti. Unimodal, Log-Concave, and Polya Frequency Sequences in
+     Combinatorics. Mem. Amer. Math. Soc., 413, 1989.
+                                   23
+[16] F. Brenti. Combinatorics and total positivity. J. Comb. Theory A,
+     71:175{218, 1995.
+[17] F. Brenti. The aplication of total positivity to combinatorics, and
+     conversely. In M. Gasca and C. A. Micchelli, editors, Total Positivity
+     and its Applications, volume 359 of Mathematics and its applications,
+     pages 451{473. Kluwer, 1996.
+[18] Z. Broder. The r-Stirling numbers. Discrete Mathematics, 49:241{259,
+     1984.
+[19] L.D. Brown, I.M. Johnstone, and K. B. MacGibbon. Variation dimin-
+     ishing transformations: A direct approach to total positivity and its
+     statistical applications. J. Amer. Stat. Assoc., 76:824 { 832, 1981.
+[20] E.R. Can eld. Central and local limit theorems for the coecients of
+     polynomials of binomial type. J. Comb. Theory A, 23:275{290, 1977.
+[21] E.R. Can eld. Application of the Berry-Esseen inequality. J. Combin.
+     Theory Ser. A, 28:17{25, 1980.
+[22] L. Carlitz, D. C. Kurtz, R. Scoville, and O. P. Stackelberg. Asymptotic
+     properties of Eulerian numbers. Zeitschrift fur Wahrscheinlichkeitsthe-
+     orie und Verwandte Gebiete, 23:47 { 54, 1972.
+[23] Ch. A. Charalambides and J. Singh. A review of the Stirling numbers,
+     their generalizations and statistical applications. Commun. Statist.-
+     Theory Meth., 17:2533{2595, 1988.
+[24] P.L. Chebyshev. Demonstration elementaire d'une proposition generale
+     de la theorie des probabilites. J. fur die reine und angewandte Math.,
+     33:259{267, 1846. P.L. Tchebychef, Oeuvres,1899,16-26.
+[25] H. Cherno . A measure of the asymptotic eciency for tests of a
+     hypothesis based on the sum of observations. Ann. Math. Stat., 23:493{
+     509, 1952.
+[26] L. Comtet. Advanced Combinatorics. D. Reidel Pub. Co., Boston,
+     1974. (translated from French).
+
+                                     24
+[27] J. N. Darroch. On the distribution of the number of successes in inde-
+     pendent trials. Ann. Math. Stat., 35:1317 { 1321, 1964.
+[28] F.N. David and D.E. Barton. Combinatorial Chance. Grins, London,
+     1962.
+[29] P. Deheuvels, M.L. Puri, and S.S. Ralescu. Asymptotic expansions for
+     sums of nonidentically distributed Bernoulli random variables. Journal
+     of Multivariate Analysis, 28:282 { 303, 1989.
+[30] P. Diaconis and B. Efron. Probabilistic-geometric theorems arising
+     from the analysis of contingency tables. In A.E. Gelfand, editor, Con-
+     tributions to the Theory and Applications of Statistics, pages 103{125.
+     Academic Press, 1987.
+[31] A.J. Dobson. A note on Stirling numbers of the second kind. J. Comb.
+     Theory A., 5:212{214, 1968.
+[32] P. Donnelly, T.G. Kurtz, and S. Tavare. On the functional central limit
+     theorem for the Ewens sampling formula. Ann. Appl. Prob., 1:539{545,
+     1991.
+[33] A. Edrei. Proof of a conjecture of of Schoenberg on the generating
+     function of totally positive sequences. Canad. J. Math. Soc, 5:86{94,
+     1953.
+[34] G. Englund. A remainder term estimate for the normal approximation
+     in classical occupancy. The Annals of Probability, 9:684 { 692, 1981.
+[35] P. Erdos. On a conjecture of Hammersley. J. Lond. Math. Soc., 28:232{
+     236, 1953.
+[36] W.J. Ewens. The sampling theory of selectively neutral alleles. Theor.
+     Popul. Biol., 3:87 { 112, 1972.
+[37] W.J. Ewens and S. Tavare. The Ewens sampling formula. To appear
+     in Multivariate Discrete Distributions edited by N.S. Johnson, S. Kotz,
+     and N. Balakrishnan, 1995.
+[38] W. Feller. An Introduction to Probability Theory and its Applications,
+     Vol 2. Wiley, 1966.
+                                    25
+[39] W. Feller. An Introduction to Probability Theory and its Applications,
+     Vol 1,3rd ed. Wiley, New York, 1968.
+[40] P. Flajolet and M. Soria. Gaussian limiting distributions for the num-
+     ber of components in combinatorial structures. J. Comb. Theory A.,
+     153:165{182, 1990.
+[41] P. Flajolet and M. Soria. General combinatorial schemes: Gaus-
+     sian limit distributions and exponential tails. Discrete Mathematics,
+     114:159{180, 1993.
+[42] D. Foata. Distributions euleriennes et mahoniennes sur le groupe des
+     permutations. In M. Aigner, editor, Higher Combinatorics. Reidel,
+     Dordrecht, 1977.
+[43] D. Foata and M.P. Schutzenberger. Theorie Geometrique des
+     Polyn^omes Euleriens. Springer, Lecture Notes in Math. 138, 1970.
+[44] D. Freedman. Another note on the Borel-Cantelli lemma and the strong
+     law, with the Poisson approximation as a by-product. The Annals of
+     Probability, 1:910 { 925, 1973.
+[45] B. Fristedt. The structure of partitions of large sets. Technical Report
+     86-154, University of Minnesota Mathematics Dept., Minneapolis, Min-
+     nesota, 1987.
+[46] Z. Gao and L.B. Richmond. Central and local limit theorems applied to
+     asymptotic enumeration IV: multivariate generating functions. Journal
+     of Computational and Applied Mathematics, 41:177{186, 1992.
+[47] L. J. Gleser. On the distribution of the number of successes in inde-
+     pendent trials. The Annals of Probability, 3:182 { 188, 1975.
+[48] C.D. Godsil. Hermite polynomials and a duality relation for matching
+     polynomials. Combinatorica, 1:257{262, 1981.
+[49] C.D. Godsil. Matching behaviour is asymptotically normal. Combina-
+     torica, 1:369{376, 1981.
+[50] C.D. Godsil and I. Gutman. On the theory of matching polynomials.
+     J. Graph Theory, 5:137{144, 1981.
+                                    26
+[51] V. Goncharov. On the eld of combinatory analysis. Amer. Math. Soc.
+     Transl., 19:1{46, 1962.
+[52] R. L. Graham, D.E. Knuth, and O. Patashnik. Concrete Mathematics:
+     a foundation for computer science. 2nd ed. Addison-Wesley, Reading,
+     Mass., 1989.
+[53] J. Haigh. Random equivalence relations. Journal of Combinatorial
+     Theory, 13:287{295, 1972.
+[54] A. Hald. A History of Probability and Statistics and their Applications
+     before 1750. Wiley, New York, 1990.
+[55] J. M. Hammersley. The sum of products of the natural numbers. Proc.
+     Lond. Math. Soc. (3), 1:435{452, 1951.
+[56] B. G. Hansen. On log-concave and log-convex in nitely divisible se-
+     quences and densities. The Annals of Probability, 16:1832 { 1839, 1988.
+[57] G.H. Hardy, J.E. Littlewood, and G. Polya. Inequalities, 2nd Ed. Cam-
+     bridge Univ. Press, Cambridge, England, 1952.
+[58] L. H. Harper. Stirling behavior is asymptotically normal. Ann. Math.
+     Stat., 38:410{414, 1966.
+[59] B. Harris, M. Marden, and C.J. Park. The distribution of the number
+     of empty cells in a generalized random allocation scheme. Annals of
+     Discrete Mathematics, 33:77{90, 1987.
+[60] B. Harris and C.J. Park. A note on the asymptotic normality of the
+     distribution of the number of cells in occupancy problems. Ann. Inst.
+     Statist. Math. (Tokyo), 23:507{513, 1971.
+[61] W. Hayman. A generalization of Stirling's formula. Journal fur die
+     reine und angewandte Mathematik, 196:67{95, 1956.
+[62] O.J. Heilmann and E.H. Lieb. Theory of monomer-dimer systems.
+     Commun. Math. Phys., 25:190{232, 1972.
+[63] W. Hoe ding. Probability inequalities for sums of bounded random
+     variables. J. Amer. Stat. Assoc., 58:13 { 30, 1963.
+                                    27
+[64] W. Hoe ding. On the distribution of the number of successes in inde-
+     pendent trials. Ann. Math. Stat., 35:713 { 721, 1964.
+[65] L. Holst. On numbers related to partitions of unlike objects and occu-
+     pancy problems. Europ. J. Combinatorics, 2:231{237, 1981.
+[66] R.J. Holt, R.M. Dudley, D.Y. Gao, and L. Pakula. Handbook and
+     tables of classic probabilities. Unpublished, 1994.
+[67] H-K Hwang. Asymptotic expansions for the Stirling numbers of the
+       rst kind. J. Combin. Theory A, 71:343{351, 1995.
+[68] E.K. Ifantis and P.N. Panagopoulos. On the zeros of a class of polyno-
+     mials de ned by a three term recurrence relation. J. Math. Anal. and
+     Appl., 182:361{370, 1994.
+[69] S. Janson. Large deviation inequalities for sums of indicator variables.
+     Preprint, 1994.
+[70] K. Jogdeo and S. M. Samuels. Monotone convergence of binomial prob-
+     abilities and a generalization of Ramanujan's equation. The Annals of
+     Mathematical Statistics, 39:1191 { 1195, 1968.
+[71] P. Joyce and S. Tavare. Cycles, permutations and the structure of the
+     Yule process with immigration. Stochastic Process. Appl., 25:309{314,
+     1987.
+[72] J. Kahn. A normal law for matchings. Preprint, Dept. Math. and
+     RUTCOR, Rutgers University, 1996.
+[73] A. Kamath, R. Motwani, K. Palem, and P. Spirakis. Tail bounds
+     for occupancy and the satis ability threshhold conjecture. Random
+     Structures and Algorithms, 7:59{80, 1995.
+[74] S. Karlin. Total Positivity. Stanford Univ. Press, Stanford, 1968.
+[75] J. Keilson. A threshold for log-concavity for probability generating
+     functions and associated moment inequalities. The Annals of Mathe-
+     matical Statistics, 43:1702 { 1708, 1972.
+
+
+                                    28
+[76] J. Keilson and H. Gerber. Some results for discrete unimodality. Jour-
+     nal of the American Statistical Association, 66:386 { 389, 1971.
+[77] V. F. Kolchin, B.A. Sevastyanov, and V.P. Christyakov. Random Al-
+     locations. V.H. Winston & Sons, Washington, D. C., 1978.
+[78] V.F. Kolchin. Random Mappings. Optimization Software, New York,
+     1986. (Translation of Russian original).
+[79] P.S. Laplace. Theorie Analytique des Probabilites (2nd Ed.). Paris,
+     1814.
+[80] P Levy. Sur une propriete de la loi de Poisson relative aux petites
+     probabilites. Soc. Math. de France, Comptes rendus des sceances de
+     l'annee 1936, page 29, 1937.
+[81] P. Levy. Theorie de l'Addition des Variables Aleatoires, 2nd ed.
+     Gauthier-Villars, Paris, 1954.
+[82] E.H. Lieb. Concavity properties and a generating function for Stirling
+     numbers. J. Combin. Theory A, 5:203{206, 1968.
+[83] J. E. Littlewood. On the probability in the tail of a binomial distribu-
+     tion. Advances in Applied Probability, 1:43 { 72, 1969.
+[84] A. W. Marshall and I. Olkin. Inequalities { Theory of Majorization
+     and its Applications. Academic Press, 1979.
+[85] J. R. McGregor. Asymptotic normality of the Munch numbers. Scand.
+     J. Statist., 15:299{301, 1988.
+[86] B.D. McKay. On Littlewood's estimate for the binomial distribution.
+     Advances in Applied Probability, 21:475 { 478, 1989.
+[87] V.V. Menon. On the maximum of Stirling numbers of the second kind.
+     J. Comb. Theory A, 15:11{24, 1973.
+[88] P.A.P. Moran. Asymptotic analysis and local lattice central limit the-
+     orems. J. Appl. Prob., 16:541{553, 1979.
+
+
+                                    29
+ [89] L. Moser and M. Wyman. Asymptotic development of the Stirling
+      numbers of the rst kind. Journal London Math. Soc., pages 133{146,
+      1958.
+ [90] L. Mutafciev. Probability distributions and asymptotics for some char-
+      acteristics of random mappings. In W. Grossman et al., editor, Proc.
+      4th Pannonian Symp. on Math. Statist., pages 227{238, 1983.
+ [91] A. Nijenhuis. On permanents and zeros of rook polynomials. J. Com-
+      bin. Theory A, 21:240{244, 1976.
+ [92] N. Obreschkov. Verteilung und Berechnung der Nullstellen reeller Poly-
+      nome. Hochschulbucher fur Mathematik; Bd. 55. Deutscher Verlag der
+      Wissenschaften, Berlin, 1963.
+ [93] M. Okamoto. Some inequalities relating to the partial sum of binomial
+      probabilities. Ann. Inst. Statist. Math. (Tokyo), 10:29{35, 1958.
+ [94] C. J. Park. A note on the classical occupancy problem. The Annals of
+      Mathematical Statistics, 43:1698 { 1701, 1972.
+ [95] O.E. Percus and J.K. Percus. Probability bounds on the sum of inde-
+      pendent nonidentically distributed binomial random variables. SIAM
+      Journal on Applied Mathematics, 45:621 { 640, 1985.
+ [96] V.V. Petrov. Limit Theorems of Probability Theory : Sequences of
+      Independent Random Variables. Oxford : Clarendon Press ; New York
+      : Oxford University Press, 1995.
+ [97] J. Pitman. Some probabilistic aspects of set partitions. Technical
+      Report 452, Dept. Statistics, U.C. Berkeley, 1996. To appear in The
+      American Mathematical Monthly.
+ [98] M.L. Platonov. Combinatorial Numbers of a Class of Mappings and
+      Their Applications (in Russian). Nauka, Moscow, 1980.
+ [99] S.D. Poisson. Recherches sur la probabilite des jugements en matiere
+      criminelle et en matiere civile. Bachelier, Paris, 1837.
+[100] G. Polya and J. Schur. U ber Zwei Arten von Faktorfolgen. J. Reine
+      Angew. Math., 144:89{133, 1914.
+                                    30
+[101] G. Polya and G. Szego. Problems and Theorems in Analysis II.
+      Springer-Verlag, New York, 1976.
+[102] M. P. Quine and J. Robinson. A Berry-Esseen bound for an occupancy
+      problem. The Annals of Probability, 10:663 { 671, 1982.
+[103] A. Renyi. Some remarks on the theory of trees. MTA Mat. Kut. Inst.
+      Kozl., 4:73{85, 1959.
+[104] J. Riordan. Moment recurrence relations for the binomial Poisson and
+      hypergeometric probability distributions. Ann. Math. Stat., 8:103{111,
+      1937.
+                                               
+                                            n
+                                               ,ik c =i! is asymptotically normal.
+[105] A. Rucinski. The behaviour of k;:::;k;n      i
+      Discrete Mathematics, 49:287{290, 1984.
+[106] V. N. Sachkov. Random partitions of sets. Theory Probab. Appl.,
+      19:184{190, 1973.
+[107] S. M. Samuels. On the number of successes in independent trials. The
+      Annals of Mathematical Statistics, 36:1272 { 1278, 1965.
+[108] I.J. Schoenberg. On the zeros of the generating functions of multiply
+      positive sequences and functions. Ann. Math., 62:447{471, 1955.
+[109] M. Shaked and J. G. Shanthikumar. Characterization of some rst
+      passage times using log-concavity and log-convexity as aging notions.
+      Probability in the Engineering and Informational Sciences, 1:279{291,
+      1987.
+[110] M. Sibuya. Log-concavity of Stirling numbers and unimodality of Stir-
+      ling distributions. Ann. Inst. Statist. Math., 40:693{714, 1988.
+[111] R. Simion. A multiindexed Sturm sequence of polynomials and uni-
+      modality of certain combinatorial sequences. J. Combin. Theory A,
+      36:15{22, 1984.
+[112] E. V. Slud. Distribution inequalities for the binomial law. The Annals
+      of Probability, 5:404 { 412, 1977.
+
+
+                                       31
+[113] A.J. Stam. Cycles of random permutations. Ars Combinatorica, 16:43{
+      48, 1983.
+[114] A.J. Stam. Generation of a random partition of a set by an urn model.
+      J. Combin. Theory A, 35:231{240, 1983.
+[115] R. Stanley. Eulerian partitions of a unit hypercube. In M. Aigner,
+      editor, Higher Combinatorics. Reidel, Dordrecht, 1977.
+[116] R. Stanley. Log-concave and unimodal sequences in Algebra, Combi-
+      natorics and Geometry. Ann. New York Acad. Sci., 576:500{534, 1989.
+[117] R. Stanley. Graph colorings and related symmetric functions: ideas
+      and applications. Preprint, Dept. Math. MIT, 1995.
+[118] R. Stanley. A matrix for counting paths with acyclic digraphs. Preprint,
+      Dept. Math. MIT, 1995.
+[119] J. M. Steele. Gibbs' measures on combinatorial objects and the central
+      limit theorem for an exponential family of random trees. Probability in
+      the Engineering and Informational Sciences, 1:47{59, 1987.
+[120] C. Stein. Application of Newton's identities to a generalized birthday
+      problem and to the Poisson Binomial distribution. Technical Report
+      354, Dept. Statistics, Stanford University, 1990.
+[121] V.E. Stepanov. Limit distributions of certain characteristics of random
+      mappings. Theory Probab. Appl., 14:612{626, 1969.
+[122] F. W. Steutel. Log-concave and log-convex distributions. Encyclopedia
+      of Statistical Sciences, 9:247, 1985.
+[123] G. Szekeres and F.E. Binet. On Borel elds over nite sets. Ann. Math.
+      Stat., 28:494{498, 1957.
+[124] N.M. Temme. Asymptotic estimates for Stirling numbers. Studies in
+      Applied Math., 89:233{243, 1993.
+[125] E.G. Tsylova. Probabilistic methods for obtaining asymptotic formulas
+      for generalized Stirling numbers. Journal of Math. Sciences, 75:1607{
+      1614, 1995.
+                                     32
+[126] W. Uhlmann. Vergleich der hypergeometrischen mit der Binomial-
+      Verteilung. Metrika, 10:145{158, 1966.
+[127] P. van Beek. An application of Fourier methods to the problem of
+      sharpening the Berry-Esseen inequality. Z. Wahrsch. Verw. Gebiete,
+      23:187{196, 1972.
+[128] V. A. Vatutin and V. G. Mikhailov. Limit theorems for the number
+      of empty cells in an equiprobable scheme for group allocation of par-
+      ticles. Theory of Probability and its Applications (Transl. of Teorija
+      Verojatnostei i ee Primenenija), 27:734 { 743, 1982.
+[129] G. Viennot. Combinatorial theory for general orthogonal polynomi-
+      als with extensions and applications. In Polyn^omes Orthogonaux et
+      Applications, volume 1171 of Lecture Notes in Math., pages 139{157.
+      Springer, Berlin-New York, 1985.
+[130] D. W. Walkup. Polya sequences, binomial convolution and the union
+      of random sets. Journal of Applied Probability, 13:76 { 85, 1976.
+[131] H. Wilf. The asymptotic behaviour of the Stirling numbers of the rst
+      kind. J. Combin. Theory Ser. A, 64:344{349, 1993.
+[132] S.G. You and Z. Ying. Asymptotics for a 2  2 table with xed margins.
+      Preprint, Dept. Statistics, Rutgers Universtity, 1996.
+
+
+
+
+                                    33
+

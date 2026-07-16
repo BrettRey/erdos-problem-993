@@ -1,0 +1,843 @@
+                                                ANTI-CONCENTRATION INEQUALITIES FOR LOG-CONCAVE
+                                                           VARIABLES ON THE REAL LINE
+
+                                                 TULIO GAXIOLA, JAMES MELBOURNE, VINCENT PIGNO, AND EMMA POLLARD
+
+
+                                                 Abstract. We prove sharp anti-concentration results for log-concave random variables on
+                                                 the real line in both the discrete and continuous setting. Our approach is elementary and
+                                                 uses majorization techniques to recover and extend some recent and not so recent results.
+
+
+
+
+arXiv:2505.05793v1 [math.PR] 9 May 2025
+                                                                                  1. Introduction
+                                             In this article we will derive some sharp inequalities between some statistical functionals
+                                          on the class of log-concave probability distributions on the line. In all cases the inequalities
+                                          provide upper bounds on the amount of mass a density can assign to a small interval of R,
+                                          and in this sense we consider these results anti-concentration inequalities. Our first main
+                                          result is the following bound on the variance of a log-concave random variable on R.
+                                          Theorem 1.1. Given X a random variable with mean µ and log-concave density f and t ∈ R
+                                                                                   1
+                                                                     2Var(X) ≤ 2       + (µ − t)2 .
+                                                                                 f (t)
+                                            Taking t = m a mode of X, we have
+                                                                                           1
+                                                                            2Var(X) ≤           + (µ − m)2 .
+                                                                                         ∥f ∥2∞
+                                          Note that ∥f ∥−2
+                                                         ∞ corresponds to the ∞-Rényi entropy power, sometimes written N∞ (X); see
+                                          [21] for background. When X is symmetric, necessarily µ = m, and this recovers a result of
+                                          Hensley [13], and should be compared to Bobkov [4], who proved that 2Var(X) ≤ N∞ (X)
+                                          holds when the median of X matches µ. Taking t = µ, we have
+                                                                                                1
+                                                                               Var(X)f 2 (µ) ≤ .
+                                                                                                2
+                                          These results follow from a reduction through a stochastic ordering argument (see [22, 29])
+                                          to the asymmetric Laplace distributions, which attain equality in Theorem 1.1. The use of
+                                          majorization in congruence with log-concavity dates back at least to [31], see also [32, 33, 23,
+                                          25] for more recent developments. From here we analyze in detail the asymmetric Laplace
+                                          distributions. Here our work is essentially a reformulation of Fradelizi [10], who considered
+                                          the problem in the context of hyperplane slices of convex bodies. To state our result we will
+                                          use the following definitions and notations. For W a random variable with density f with
+                                          respect to a reference measure, which in this paper will be either the Lebesgue measure on R
+                                          or the counting measure on Z, M (W ) denotes the essential supremum of f with respect to
+                                          said reference measure. For ψ, a Young function, that is ψ strictly increasing, convex, with
+                                          ψ(0) = 0, we define the ψ-Orlicz norm
+                                                                                                        
+                                                                                                |W |
+                                                                     ∥W ∥ψ := inf t > 0 : Eψ           ≤1 .
+                                                                                                  t
+                                            Date: May 24, 2025.
+
+
+
+                                                                                            1
+2          TULIO GAXIOLA, JAMES MELBOURNE, VINCENT PIGNO, AND EMMA POLLARD
+
+
+Theorem 1.2. For X log-concave, U uniform on an interval, and Z exponential with pa-
+rameters determined implicitly by the equality M (U ) = M (X) = M (Z),
+                          ∥U − EU ∥ψ ≤ ∥X − EX∥ψ ≤ ∥Z − EZ∥ψ .
+   See [18, 27] for background on Orlicz spaces. An important example is given by the case
+                                                         1
+ψp (x) = xp for p ≥ 1, in which case ∥W ∥ψp = (E|W |p ) p . In particular from Theorem 1.2 we
+obtain, as Corollary 3.9, sharp upper and lower bounds on M (X) in terms of the p-absolute
+moment, for p ≥ 1, extending Bobkov and Chistyakov’s result in [5] for the variance.
+   In the discrete setting we obtain an analogous result through an analogous reduction
+to a class of extremal distributions with fixed maximum value, analogous to the asymmetric
+Laplace in the continuous setting exists, which we will refer to as discrete asymmetric Laplace
+distributions when there is risk of ambiguity with the continuous setting. We obtain a discrete
+analog of Theorem 1.1.
+Theorem 1.3. For Y a log-concave random variable on Z, and n ∈ Z,
+                                                
+                                        1
+                     2 Var[Y ] ≤              − 1 + (µ − n)2 .
+                                   P2 (Y = n)
+with equality if and only if Y is a discrete asymmetric Laplace with mode n.
+    Taking n = m := mY defined to be a mode of Y , we obtain
+                            2 Var[Y ] ≤ ∆∞ (Y ) + (µ − m)2
+                                                            
+
+where ∆∞ (Y ) := M 21(Y ) −1 as in [20]. Note that if the mean of Y is a mode, this reduces to the
+inequality Var[Y ] ≤ 12 ∆∞ (Y ), which implies the inequality of Bobkov-Marsiglietti-Melbourne
+[6], where the same conclusion is obtained under the assumption that Y is symmetric (which
+implies that µ = m = 0). Note, the classical result of Darroch [8] states that when Y has
+the distribution of an independent Bernoulli sum, at least one of ⌊µ⌋ and ⌈µ⌉ is a mode,
+which yields 2Var[Y ] ≤ ∆∞ (Y ) + 1. We note that the constant 1 can be removed under these
+additional assumptions (see [20]). If we take n = [µ] := arg min{m ∈ Z : |µ − m|} we obtain
+from |µ − [µ]|2 ≤ 41 that
+                                                       1
+                                  P2 (Y = [µ]) ≤ 3             .
+                                                  4 + 2Var[Y ]
+
+In the case that µ ∈ Z this can be improved to P2 (Y = µ) ≤ (1 + 2Var[Y ])−1 .
+   However, we are unable to reach an analog of Theorem 1.2 in the discrete setting. The
+failing stems from the fact that an analog of Lemma 3.5 below does not hold. That is,
+in the continuous setting, all asymmetric Laplace distributions with a fixed maximum are
+equimeasurable, while in the discrete setting this is obviously false. We do however, obtain
+the following.
+Theorem 1.4. For X a log-concave random variable on Z with M (X) := maxn∈Z P(X = n),
+(1)                              M 2 (X)Var(X) + M (X) ≤ 1,
+and
+                M 4 (X) E|X − E[X]|4 + M (X) M 2 (X) − 10M (X) + 18 ≤ 9.
+                                                                   
+(2)
+The equality cases of (1) and (2) are identical, occuring if and only if X is, up to translation
+and reflection, a geometric random variable.
+    ANTI-CONCENTRATION INEQUALITIES FOR LOG-CONCAVE VARIABLES ON THE REAL LINE                    3
+
+
+   Inequality (2) is new, extending (1) which is due to Jakimiuk-Murawski-Nayar-Slobodianiuk
+[14], who improved the asymptotically sharp result of Aravinda [2], whose results improved
+[6]. In all three of the mentioned papers the inequality is used to provide upper bounds
+on the Levy concentration function of a log-concave random variable. Our proofs are con-
+siderably shorter than [2, 14] and avoid the recently developed discrete “localization” or
+“degrees of freedom” machinery, see also [1, 2, 3, 14, 24] for development and recent work.
+See [26, 19, 15, 11, 12, 9, 7, 17] for the development of the analogous technique in continuous
+settings. Moreover, a characterization of equality cases is easily given in the process.
+   Let us outline the contents of the paper. In Section 2 we give definitions and state some
+relevant lemmas. In particular we state a pair of stochastic ordering results related to the
+“crossings” of densities. General results of this style go back at least to [16]. Section 3 contains
+the proofs of the anticoncentration inequalities in the continuous setting, while the discrete
+setting is pursued in Section 4. Finally, we give a general density crossings - majorization
+type result in Section 5. This result is not new and is actually less general than that of [16],
+but our proof is perhaps easier for our reader. At minimum it is included for convenience
+and completeness.
+
+                                         2. Definitions
+  A function f : R → [0, ∞) is log-concave if
+                                f ((1 − t)x + ty) ≥ f 1−t (x)f t (y)
+holds for all x, y ∈ R and t ∈ [0, 1]. For a Borel random variable X and probability measure
+ν we write X ∼ ν to denote that for all Borel A
+                                       ν(A) = P(X ∈ A).
+                                                                                      dν
+We consider a random variable X ∼ ν to be log-concave with respect to a measure µ, if dµ
+exists and there is a log-concave function f (called the density) such that
+                                      dν
+                                  f=         µ-almost surely.
+                                      dµ
+By a slight abuse of notation, for variables with a density function f we will write X ∼ f ,
+                                  dν
+in the case that X ∼ ν and f = dµ    . Recall that for an r.v. X ∼ f we denote the essential
+supremum of its density with repsect to µ by M (X) = ∥f ∥∞ . Throughout this paper we only
+consider the case that µ is the Lebesgue measure on R or the counting measure on Z.
+Definition 2.1. Given a class of functions A mapping from a Borel S ⊆ R to R we write
+X ≺A Z for S-valued random variables X, Z such that
+                                       E[f (X)] ≤ E[f (Z)]
+holds for every f ∈ A.
+   In particular:
+    (1) When A is the class of functions from R to R with non-negative nth derivative, we
+        write ≺n .
+    (2) When A is the class of convex functions, we write ≺cx .
+    (3) When A is the class of all non-decreasing convex functions, we write ≺icx .
+To be more precise, we wish to say that X ≺n Z means that E[f (X)] ≤ E[f (Z)] for any f with
+distributional n-th derivative a non-negative measure. This can be approached classically, by
+saying that f is increasing in the n = 1 case, and that for n ≥ 2, the (n − 2)th (ordinary)
+derivative of f is convex, see [28, page 54]. We direct the interested reader to [22, 29] for
+further background.
+4          TULIO GAXIOLA, JAMES MELBOURNE, VINCENT PIGNO, AND EMMA POLLARD
+
+
+   Let us also collect a pair of elementary observations. The first says that the size of the
+intersection of two intervals gets smaller as the distance between their barycenters gets larger.
+The second is an obvious corollary of the fact that convex functions have convex sub-level
+sets. We use here and throughout the notation |A| to denote the Lebesgue measure of a
+measurable set A. We also use a ∧ b := min{a, b}.
+Lemma 2.2. For a, b > 0, the function f (x) = |[−a, a] ∩ [x − b, x + b]| can be written as
+                               
+                               2 (a ∧ b)
+                                            |x| ≤ |b − a|
+                      f (x) = a + b − |x| |x| ∈ [|b − a|, a + b]
+                               
+                                0            |x| ≥ a + b.
+                               
+
+In particular x 7→ |[−a, a] ∩ [x − b, x + b]| is a non-increasing function of the absolute value of
+x while x 7→ |[−a, a]c ∩ [x − b, x + b]| = 2b − f (x) is non-decreasing function of the absolute
+value of x.
+Lemma 2.3. Given a convex function f : [0, ∞) → R ∪ {∞} such that f (0) = 0, {f ≤ 0} is
+an interval containing 0.
+  Our last results for this section are the density crossing to majorization results for densities.
+Lemma 2.4. Suppose that φ ∈ L1 (R, µ) is such that φdµ = 0 and there exists x′ such that
+                                                         R
+φ(x) ≤ 0 for x ≤ x′ and φ(x) ≥ 0 for x > x′ . Then for f non-decreasing,
+                                           Z
+                                             f φdµ ≥ 0.
+
+Moreover,
+    R     if there exists f strictly increasing (in the sense that f (x) < f (y) for x < y) such
+that f φdµ = 0, then φ = 0 µ-almost surely.
+   We note that when φ = gR2 − g1 is the difference between two probability density functions
+one automatically obtains φdµ = 0. Thus the existence of an x′ above implies that for
+X1 ∼ g1 and X2 ∼ g2 , that X1 ≺1 X2 . Additionally if E[f (X1 )] = E[f (X2 )] for a strictly
+increasing function f (for instance, f (x) = x will be used below) then g1 = g2 µ-almost
+surely.
+Lemma
+R        2.5.
+         R    Suppose that φ ∈ L1 (R, µ) is such that ψ(x) := xφ(x) ∈ L1 (R, µ) and satisfies
+  ψdµ = φdµ = 0, while there exists x0 < x1 such that φ(x) ≤ 0 for x ∈ (x0 , x1 ) and
+φ(x) ≥ 0 for x ∈
+               / [x0 , x1 ]. Then for f convex,
+                                          Z
+                                            f φdµ ≥ 0.
+
+Moreover, if there exists f strictly convex
+                                      R     (in the sense that f ((1−t)x+ty) < (1−t)f (x)+tf (y)
+for t ∈ (0, 1) and x ̸= y) such that f φdµ = 0, then φ = 0 µ-almost surely.
+  Again, when φ = g2 − g1 for densities that “cross-twice” in the sense of the existence of x1
+and x2 as above, then for random variables Xi ∼ gi , if EX1 = EX2 then one has X1 ≺cx X2 .
+Moreover, equality as in Ef (X1 ) = Ef (X2 ) for strictly convex f implies g1 = g2 µ-almost
+surely.
+
+                                    3. Lebesgue measure
+   In this section we consider random variables that are log-concave with respect to the
+Lebesgue measure on R, and derive results for the interaction between their variance and
+mean with their density maximums and mode. Within this section, the term “log-concave
+random variables” will always refer to log-concave random variables with respect to the
+Lebesgue measure. Let us begin by defining asymmetric Laplace densities and deriving
+formulas for their moments.
+      ANTI-CONCENTRATION INEQUALITIES FOR LOG-CONCAVE VARIABLES ON THE REAL LINE                 5
+
+
+Definition 3.1. For λ ∈ [0, ∞)2 −{0} we define a mode-centered asymmetric Laplace density
+by
+                                e−|x|/λ1 1(−∞,0] (x) + e−x/λ2 1(0,∞) (x)
+                       gλ (x) =                                          .
+                                                 λ1 + λ2
+when λi ∈ (0, ∞). We include the Laplace distribution as the special case λ1 = λ2 . For
+λ1 > 0, we define
+                                              e−|x|/λ1 1(−∞,0] (x)
+                               g(λ1 ,0) (x) =                      ,
+                                                       λ1
+and analogously, for λ2 > 0, we define
+                                            e−x/λ2 1[0,∞) (x)
+                                   g(0,λ2 ) (x) :=            .
+                                                   λ2
+   We call a random variable asymmetric Laplace when its density function with respect to
+the Lebesgue measure can be written as x 7→ gλ (x − m) for gλ the mode-centered asymmetric
+Laplace density associated to some λ and m ∈ Z.
+                           1
+  Observe that ∥gλ ∥∞ = λ1 +λ 2
+                                .
+Lemma 3.2. For Xλ an asymmetric Laplace random variable with mode at 0,
+                             1
+         E[etXλ ] =                      = 1 + t(λ2 − λ1 ) + t2 (λ22 − λ1 λ2 + λ21 ) + O(t3 ).
+                    (1 + tλ1 )(1 − tλ2 )
+In particular
+                                            E[Xλ ] = λ2 − λ1
+                                         Var[Xλ ] = λ22 + λ21 .
+Proof. Direct computation.                                                                       □
+  The key technical result is the following.
+Proposition 3.3. Given a point t ∈ R and a log-concave random variable X ∼ f , there
+exists an asymmetric Laplace random variable Xλ ∼ fλ such that
+                              f (t) = fλ (t)         and       X ≺cx Xλ .
+Proof. By the translation invariance of the problem, it suffices to consider t = 0, and so we
+                                                                                      1
+write X ∼ g and Xλ ∼ gλ to match the notation of Definition 3.1. Taking λ2 = g(0)        − λ1
+we have a class of asymmetric Laplace densities that satisfy gλ (0) = g(0). Define convex
+functions fi : [0, ∞) → R ∪ {∞} by
+          f1 (x) := log gλ (x) − log g(x)       and         f2 (x) := log gλ (−x) − log g(−x)
+so that fi (0) = 0. By Lemma 2.3, Ii = {fi ≤ 0} are both intervals containing the origin, and
+hence
+(3)                                    {gλ ≤ g} = I1 ∪ (−I2 ).
+                                   1
+is an interval. Define λ(t) = (t, g(0) − t) and define Φ : [0, 1/g(0)] → R by
+                                                            1
+                                    Φ(t) = EXλ(t) =             − 2t.
+                                                           g(0)
+Note that Φ is continuous; we will show that Φ(0) ≥ E[X] ≥ Φ(1/g(0)) and apply the
+intermediate value theorem.
+   Indeed, gλ(0) = 0 ≤ g on (−∞, 0] and hence
+                                               {gλ(0) ≤ g}
+6          TULIO GAXIOLA, JAMES MELBOURNE, VINCENT PIGNO, AND EMMA POLLARD
+
+
+is an infinite interval containing all negative numbers. It follows from Lemma 2.4 that
+X ≺1 Xλ(0) , and in particular EX ≤ EXλ(0) = Φ(0). Similarly, gλ(g−1 (0)) = 0 on [0, ∞) and
+hence
+                                       {gλ(g−1 (0)) ≤ g}
+is an infinite interval containing containing all positive numbers. Thus, Xλ(g−1 (0)) ≺1 X, and
+Φ(1/g(0)) ≤ E[X]. Thus by the intermediate value theorem there exists t such that
+                                         E[Xλ(t) ] = E[X].
+   As shown in (3), the densities gλ(t) and g can cross at most two times. If they cross exactly
+once (i.e. exactly one of the Ii is infinite), then Lemma 2.4 contradicts the equality of the
+means; hence the densities must either cross twice (i.e. the Ii must both finite) or never cross
+(i.e. I1 = I2 = [0, ∞)). If the densities cross twice, Lemma 2.5 shows that X ≺cx Xλ(t) ; and
+if the densities never cross, then gλ(t) = g and X ≺cx Xλ(t) is trivial.                      □
+    We can now prove Theorem 1.1, which we restate for the convenience of the reader.
+Theorem 3.4. Given X a random variable with mean µ and log-concave density f and t ∈ R
+                                                  1
+                                   2Var(X) ≤              + (µ − t)2
+                                                f 2 (t)
+Proof. It suffices to consider t belonging to the support of f , else f 21(t) = ∞. As the inequality
+is translation invariant, we assume without loss of generality
+                                                                   that  t = 0. Taking Xλ as in
+                                            1    1                    1      1
+Proposition 3.3, we necessarily have λ2 = 2 f (0) + µ and λ1 = 2 f (0)          − µ , fXλ (0) = f (0),
+E[Xλ ] = E[X], and X ≺cx Xλ . In particular
+                                       
+                        1     1
+                                  + µ = λ21 + λ22 = Var(Xλ ) ≥ Var(X),
+                                      2
+                        2 f 2 (0)
+which yields our result.                                                                            □
+  In what follows we pursue inequalities for log-concave random variables that are indepen-
+dent of the position of the mean.
+Lemma 3.5. The t-superlevel set of the density gλ of a mode-centered asymmetric Laplace
+Xλ with , is given by the formula
+                              {gλ > t} = log((λ1 + λ2 )t) · (−λ1 , λ2 ).
+In particular,
+                                            1     t
+                                      |{gλ > t}| =
+                                              log ,
+                                           M      M
+where M = M (Xλ ), and thus asymmetric Laplace densities with φλ,w = gλ ( · − w) with the
+same maximum value are equimeasurable.
+Proof. The computation of the superlevel set is elementary. To see equimeasurability, note
+that translation of gλ does not change the measure of its superlevel sets and that we have
+                                1
+fixed the quantity M (Xλ ) = λ1 +λ 2
+                                     .                                                  □
+    Equimeasurability is the foundation of the following technical lemma.
+Lemma 3.6. Fix constants a, M ≥ 0 and let X ∼ φ be asymmetric Laplace with mean 0
+and M (X) = M . Then, the quantity |[−a, a]c ∩ {φ > t}| depends only on λ2 , is minimized
+                1                                   1
+by taking λ2 = 2M , and is maximized by taking λ2 = M .
+    ANTI-CONCENTRATION INEQUALITIES FOR LOG-CONCAVE VARIABLES ON THE REAL LINE                 7
+
+                                                       1
+                                                                        1
+Proof. We may write X ∼ φ = gw+λ2 ,λ2 ( · − w) for w = M − 2λ2 and λ2 ∈ 0, M  . Indeed, by
+the formulas for mean and maximum of asymmetric Laplace densities, w, λ1 , λ2 must satisfy
+                  1
+λ1 = λ2 + w and M   = λ1 + λ2 . Lemma 3.5 shows that for t < M ,
+                                                              
+                                                       R(t) 1
+                         {φ > t} = λ2 (R(t) − 1) + −       ,     ,
+                                                        M M
+where we have written R(t) = log Mt − 1. Moreover, for t ≤ M e−2 , R(t) − 1 ≥ 0 and
+                                    
+                                                         
+                                1
+                                   = arg max sup{φ > t} ,
+                               M      λ2 ∈[0, 1 ]
+                                               M
+
+
+while for t ≥ M e−2 , R(t) − 1 ≤ 0 and
+                                                       
+                                 1
+                                      = arg min inf{φ > t} .
+                                 M      λ2 ∈[0, 1 ]
+                                               M
+
+                                 1
+Lemma 2.2 now shows that λ2 = M     (or λ2 = 0) maximizes the objective function.
+                     1
+  Also, taking λ2 = 2M yields the symmetric interval
+                                                                            
+                                                         R(t) + 1 R(t) + 1
+                    {φ > t} = {g( 1 . 1 ) > t} =       −         ,               .
+                                   2M 2M                   2M       2M
+Another application of Lemma 2.2 now completes the proof.                                      □
+Corollary 3.7. For U uniform on an interval, S Laplace, X asymmetric Laplace, and Z or
+−Z exponential,
+                   |U − EU | ≺1 |S − ES| ≺1 |X − EX| ≺1 |Z − EZ|,
+when 0 < M = M (U ) = M (S) = M (X) = M (Z).
+  Note that |U − EU | ≺1 |X − EX| holds for general X with density bounded by M .
+
+Proof. For the first inequality, note that if X has density f , then |X| has density x 7→
+(f (x) + f (−x))1[0,∞) (x), so that |U − EU | has the density function φ(x) = 2M 1[0,1/2M ] (x).
+For X with density bounded by M , |X| has density (f (x) + f (−x))1[0,∞) (x) bounded by
+                               1                                    1
+2M , φ = 2M ≥ f on [0, 2M        ], while trivially φ ≤ f on ( 2M     , ∞). Thus by Theorem 5.3
+|U − EU | ≺1 |S − ES| holds.
+   For the remaining cases we note that for ψ non-decreasing and X a random variable with
+density f
+                 Z                    Z ∞ Z ∞ Z                                         
+      Eψ(|X|) =     ψ(|x|)f (x)dx =                   1{w:ψ(|w|)>t} (x)1{w:f (w)>s} (x)dx dtds
+                  R                     0    0      R
+                                      Z ∞Z ∞
+                                    =            {|w| ∈ ψ −1 (t, ∞)} ∩ {f > s} dtds
+                                      0    0
+Observe that since ψ is non-decreasing
+                {|w| ∈ ψ −1 (t, ∞)} ∩ {f > s} = ((−∞, a] ∪ [a, ∞)) ∩ {f > s}
+for a = inf{x : ψ(x) > t}, and it suffices to prove
+      |[−a, a]c ∩ {φΛ(1/2M ) > t}| ≤ |[−a, a]c ∩ {φΛ(λ) > t}| ≤ |[−a, a]c ∩ {φΛ(1/M ) > t}|.
+This is the content of Lemma 3.6.                                                              □
+
+  Now we give a slightly expanded version of Theorem 1.2 and its proof.
+8           TULIO GAXIOLA, JAMES MELBOURNE, VINCENT PIGNO, AND EMMA POLLARD
+
+
+Theorem 3.8. For X a random variable with M := M (X) < ∞,
+                                          U ≺cx X − EX,
+for a uniform distribution U ∼ fU (x) := M 1[−1/2M,1/2M ] (x). Moreover, if X is log-concave,
+                                      |X − EX| ≺icx |Z − EZ|
+for an exponential distribution Z ∼ fZ (x) := M e−M x 1(0,∞) (x).
+    In particular, for ψ a Young function defining the Orlicz norm ∥ · ∥ψ ,
+                           ∥U − EU ∥ψ ≤ ∥X − EX∥ψ ≤ ∥Z − EZ∥ψ .
+                                                                       1    1
+Proof. For the first inequality, observe that fU ≥ M ≥ fX on [− 2M       , 2M ], and trivially
+0 = fU ≤ fX on the complement. Hence by Theorem 5.3 we have U ≺cx X − EX.
+  For the other inequality, Proposition 3.3 shows that given X, there exists asymmetric
+Laplace Xλ with the same mean µ such that X ≺cx Xλ . Hence for a convex increasing
+function ψ : [0, ∞) → [0, ∞) such that ψ(0) = 0, φ(x) = ψ(|x − µ|) is convex, and
+                    Eφ(X) = Eψ(|X − EX|) ≤ Eψ(|Xλ − EXλ |) = Eφ(Xλ ).
+Applying Corollary 3.7, since ψ is increasing we have
+                               Eψ(|Xλ − EXλ |) ≤ Eψ(|Z − EZ|).                                  □
+
+  For a random variable X with finite expectation E[X] and p ≥ 1, denote the p-th absolute
+central moment of X,
+                                σp (X) := E|X − E[X]|p .
+We will also use the following notation for the “subfactorial” of an integer n ≥ 1,
+                                        Z ∞
+                                  !n :=     (x − 1)n e−x dx.
+                                            0
+Combinatorially !n corresponds to the number “derangements” of n elements, that is the
+permutations φ of n elements such that φ(j) ̸= j for all j; see for instance [30].
+Corollary 3.9. For X log-concave and p ≥ 1,
+                                                             Z 1
+                      1                       Γ(1 + p)
+                   p
+                            ≤ M p (X)σp (X) ≤          +             (1 − x)p e−x dx.
+                  2 (p + 1)                      e               0
+where the left hand inequality holds for any random variable X, and with equality when the
+random variable is uniform on an interval, while the right hand side holds with equality for
+an exponential distribution. Moreover for integers n we have
+                                                               
+                             n              n!       n       n!
+                          M (X)σn (X) ≤        + (−1) !n −        .
+                                            e                e
+    Note that for even integers p = 2n, one has the inequality
+                                      M 2n (X)σ2n (X) ≤ !(2n).
+
+Proof. M p (X)σp (X) is affine invariant, so it suffices to prove the inequalities when M (X) = 1,
+in which case the left hand inequality follows from Theorem 3.8 applied to the convex function
+φp (x) = |x|p and the ordering U ≺cx X − EX, where U ∼ fU (x) = 1[−1/2,1/2] (x) so that
+                          1
+                                   = E|U |p ≤ E|X − E[X]|p = M p (X)σp (X).
+                      2p (p + 1)
+    ANTI-CONCENTRATION INEQUALITIES FOR LOG-CONCAVE VARIABLES ON THE REAL LINE                9
+
+
+With fZ (x) = e−x 1[0,∞) (x), and the increasing convex function Φp : [0, ∞) → [0, ∞), Φp (x) =
+xp applying the other majorization result of Theorem 3.8, |X − E[X]| ≺icx |Z − E[Z]|, that
+                          Z ∞                  Z ∞                   Z 1
+          p
+       M (X)σp (X) ≤                  p −x
+                               |x − 1| e dx =              p −x
+                                                    (x − 1) e dx +       (1 − x)p e−x dx,
+                            0                       1                0
+recovering the upper bound after the subsitution u = x − 1 in the first integral. For n an
+integer,
+           Z 1                       Z ∞                 Z ∞                 
+                      n −x         n              n −x                n −x
+               (1 − x) e dx = (−1)        (x − 1) e dx −       (x − 1) e dx
+                                                            1
+            0
+                                      0      
+                                           n!
+                            = (−1)n !n −        .                                        □
+                                            e
+   For example when p = 2, as there is exactly 1 derangement of a set of two elements, we
+recover
+                                   1
+                                     ≤ M 2 (X)Var(X) ≤ 1,
+                                  12
+of Bobkov and Chistyakov [5, Proposition 2.1], which was used to obtain the super-additivity
+properties of the Lévy concentration function of sums of independent random variables (see
+Theorem 1.2 of the same paper).
+
+                                  4. The Counting Measure
+  In this section our reference measure is the counting measure on Z, and a “log-concave”
+random variable in this section will always mean a random variable with a log-concave density
+function with respect to the counting measure on Z.
+Definition 4.1. A mode-centered asymmetric Laplace distribution on Z is a probability dis-
+tribution of the form
+                                       (
+                                        p|n| for integers n ≤ 0,
+                       gp,q (n) = Cp,q
+                                        qn   for integers n ≥ 0
+
+for p, q ∈ [0, 1), with Cp,q = (1−p)(1−q)
+                                  1−pq    .
+   In this section we will only consider integer valued random variables, and for brevity we
+will drop the suffix, “on Z”. As such We consider a random variable Z ∼ φ to be asymmetric
+Laplace if φ(n) = gp,q (n − m) for some m ∈ Z and gp,q a mode-centered asymmetric Laplace
+probability sequence. We take the case p = q = 0 to correspond to a point mass at 0. For
+p = 0 and q > 0 we recover the geometric distribution and with p > 0 and q = 0 the reflection
+of a geometric distribution, both as mode-centered asymmetric Laplace distributions.
+Lemma 4.2. For X := Xp,q ∼ gp,q ,
+                                                 (1 − p)(1 − q)
+                                    E[etX ] =
+                                                (et − p)(e−t − q)
+for |t| sufficiently small. In particular,
+                                               q−p
+                                     E[X] =               ,
+                                           (1 − q)(1 − p)
+                                              p            q
+                                  Var[X] =        2
+                                                    +          .
+                                           (1 − p)    (1 − q)2
+Proof. Direct computation.                                                                   □
+10         TULIO GAXIOLA, JAMES MELBOURNE, VINCENT PIGNO, AND EMMA POLLARD
+
+
+Lemma 4.3. For a log-concave random variable Y ∼ g, there exists X with mode-centered
+asymmetric Laplace probability sequence gp,q such that, gp,q (0) = g(0) and
+                                              Y ≺cx X.
+Moreover, if Var(Y ) = Var(X) then Y ∼ gp,q as well.
+Proof. The proof of the existence of such an X follows as in the proof of Proposition 3.3. Now
+we prove that Y ∼ gp,q if Var(Y ) = Var(X). Note that since Y ≺cx X implies EY = EX,
+Var(Y ) = Var(X) is equivalent to EY 2 = EX 2 . Moreover as in Proposition 3.3, g is identical
+to gp,q or there exists x1 > x2 such that φ :=
+                                  c . This gives
+                                                 R gp,q − g is such that φ(x) < 0 for x ∈ (x2 , x1 )
+and φ(x) ≥    0
+            R 2 for x ∈  [x  ,
+                            2 1x ]                 f φdµ ≥ 0 for f convex, and since we have in
+particular x φ(x)dµ(x) = 0, it follows that Y and X have the same distribution.                  □
+   Note gp,q (0) = g(0) = (1−p)(1−q)
+                             1−pq
+                                                                    q−p
+                                     while µ := E[Y ] = E[X] = (1−q)(1−p) , which can be solved
+for p and q as
+                               1 − y(µ + 1)               1 + y(µ − 1)
+                         p=                  ,     q=                   ,
+                             1 − g(0)(µ − 1)            1 + g(0)(µ + 1)
+thus we have                                                       
+                                               1      1             2
+                         Var[Y ] ≤ Var[X] =                −1 +µ .
+                                               2    g(0)2
+Note that by Lemma 4.3 equality in the above equation implies that Y has an asymmet-
+ric Laplace distribution. Collecting the above we have Theorem 1.3, which we restate for
+convenience below.
+Theorem 4.4. For Y a log-concave random variable on Z, and n ∈ Z,
+                                                     
+                                             1
+                          2 Var[Y ] ≤              − 1  + (µ − n)2 .
+                                        P2 (Y = n)
+with equality if and only if Y has an asymmetric Laplace distribution with mode n.
+   Alternatively, one can consider the problem of maximizing the variance under a fixed
+maximum value M (Y ) = M , without any other constraint. To this end we may without
+loss of generality assume that Y has 0 as a mode, and that EY ≤ 0. By Lemma 4.3, any
+maximizer of the variance is necessarily a asymmetric Laplace distribution X. Thus we
+consider X asymmetric Laplace with mode at 0 and q ≤ p. Note that p = q for fixed
+                         1−M
+maximum M forces q = 1+M     . Thus we wish to maximize Var[Xp,q ] over q ∈ [0, 1−M
+                                                                                1+M ] when
+     1−q−M
+p = 1−q−M q . After algebra,
+                                            1      (1 + q)     2q
+                            Var[Xp,q ] =      2
+                                                −          +         ,
+                                           M      M (1 − q) (1 − q)2
+so it suffices to prove
+                                                
+          d       (1 + q)     2q            2                              
+               −          +       2
+                                     =           3
+                                                     − (1 − M ) + (1 + M )q < 0
+         dq      M (1 − q) (1 − q)      M (1 − q)
+for 0 < q < 1−M
+             1+M , which is immediately verified. Taking q = 0 gives a the unique maximizer
+of the variance for log-concave variables with fixed maximum M , mode at 0, and non-positive
+mean to be the (reflected) geometric distribution. Summarizing, for a log-concave random
+variable with fixed maximum, the geometric distribution, up to translation and reflection, is
+the unique maximizer of variance. Noting that for a geometric distribution Z we have
+                                                1 − M (Z)
+                                     Var[Z] =             ,
+                                                  M 2 (Z)
+we have thus recovered half of Theorem 1.4, which we restate below.
+    ANTI-CONCENTRATION INEQUALITIES FOR LOG-CONCAVE VARIABLES ON THE REAL LINE                   11
+
+
+Theorem 4.5. For X a log-concave random variable on Z,
+                                  M 2 (X)Var(X) + M (X) ≤ 1,
+with equality if and only if X is, up to translation and reflection, a geometric random variable.
+  This approach does work in more generality, however the computations become more diffi-
+cult. For example we obtain the following which constitutes the second half of Theorem 1.4.
+Theorem 4.6. For X a log-concave random variable on Z,
+                     M 4 (X)σ4 (X) + M (X) M 2 (X) − 10M (X) + 18 ≤ 9
+                                                                 
+
+with equality if and only if X is, up to translation and reflection, a geometric random variable.
+  We note that the constant terms in Theorem 4.5 1 = !2 while the constant term in the
+above 9 = !4, in agreement with the constants in the continuous case above in Corollary 3.9.
+Proof. For a fixed maximum M , by h   Lemma 4.3i it suffices to prove the result for asymmetric
+                                           1−M               1−q−M
+Laplace Xp,q , with M (Xp,q ) = M , q ∈ 0, 1+M    and p = 1−q−M    q . It can be computed that,
+
+                             9c0 (q) − 18c1 (q)M + 10c2 (q)M 2 − c3 (q)M 3 + 2qc4 (q)M 4
+         σ4 (X) = σ4 (q) =                                                               ,
+                                                    M 4 (1 − q)4
+with
+                                  c0 (q) = (1 − q)4
+                                  c1 (q) = (1 − q)3 (1 + q)
+                                  c2 (q) = (1 − q)2 (1 + 4q + q 2 )
+                                  c3 (q) = (1 + 22q − 22q 3 − q 4 )
+                                  c4 (q) = (1 + 10q + q 2 )
+The derivative can be computed and simplified to
+                                       −18k0 + 30k1 M − 13k2 M 2 + k3 M 3
+                         σ4′ (q) = 2
+                                                  M 3 (1 − q)5
+where
+                                  k0 (q) = (1 − q)3
+                                  k1 (q) = (1 − q)2 (1 + q)
+                                               33      33
+                                  k2 (q) = 1 + q − q 2 − q 3
+                                               13      13
+                                  k3 (q) = 1 + 23q + 23q 2 + q 3
+Note that σ4 (q) = 0 if and only if −18k0 + 30k1 M − 13k2 M 2 + k3 M 3 = 0. For fixed M ,
+this is a cubic polynomial in q with 2 complex roots, and one real root q = 1−M     1+M . Thus to
+prove that σ4′ (q) < 0 for q ∈ (0, 1+M
+                                   1−M
+                                       ) it suffices to prove that σ4′ (0) < 0, which is equivalent
+to −18 + 30M − 13M 2 + M 3 < 0 for M ∈ (0, 1), which is easily verified. It follows that for
+M (X) = M ,
+                                              9 − 18M + 10M 2 − M 3
+                           σ4 (X) ≤ σ4 (0) =                             .
+                                                         M4
+That the inequality is strict for X that are not asymmetric Laplace follows by Lemma 2.5
+and the strict convexity of f (x) = x4 , as it provides an asymmetric Laplace Xp,q such
+that σ4 (X) < σ4 (Xp,q ). That the inequality is actually strict among asymmetric Laplace
+distributions that are not geometric follows from the strict negativity of σ4′ (q), analogously
+to Theorem 4.5.                                                                                  □
+12           TULIO GAXIOLA, JAMES MELBOURNE, VINCENT PIGNO, AND EMMA POLLARD
+
+
+                               5. Majorization and derivatives
+  The results here and generalizations thereof are classical, see [16], but we include simple
+proofs for completeness. For n ∈ N we will employ the notation [n] = {0, 1, . . . , n}.
+
+Proof of Lemma 2.5. There exists A an affine function such that f˜ := f − A is nonnegative
+outside of [x0 , x1 ] and nonpositive inside of (x0 , x1 ). Then
+                                  Z           Z             Z
+                                     ˜
+                                    f φdµ = f φdµ − Aφdµ
+
+but A(x) = mx + b for constants m and b, so
+                          Z            Z     Z
+                             Aφdµ = m ψdµ + b φdµ = 0.
+
+Thus we have                            Z             Z
+                                            f φdµ =       f˜φdµ
+
+and by construction f˜φ ≥ 0. In the case that there exists equality for f strictly convex,
+then the construction above  of f˜ is strictly convex, and hence is non-zero away from x0 and
+x1 . Since |f φ|dµ = f φdµ = 0, we have that f˜φ = 0 µ-almost surely. But since f˜ is
+             ˜           ˜
+           R           R
+non-zero away from Rthe xi , we have
+                                 R     φ = 0 µ-almost surely away from the xi . However, by
+the assumption 0 = φ(x)dµ = xφ(x)dµ(x), we have Φu = 0 where
+                                                                   
+                               φ(x0 )      φ(x1 )              µ{x0 }
+                      Φ :=                           and u :=           .
+                              x0 φ(x0 ) x1 φ(x1 )              µ{x1 }
+If u = 0, then φ = 0 µ-almost surely and we are done. If u ̸= 0, then the rows of Φ are
+linearly dependent. Since x0 ̸= x1 , this is only possible if at least one of φ(x0 ) and φ(x1 )
+is zero. For concreteness, say φ(x0 ) = 0: then, considering the first entry of Φu we have
+φ(x1 )µ{x1 } = 0. Thus either φ(x1 ) or µ{x1 } = 0; in either case we are done.             □
+
+  We note that the proof of Lemma 2.4 is similar and simpler; taking f˜(x) = f (x) − f (x′ )
+one can proceed analogously to the above.
+
+   Now let us consider a generalization of these ideas to the case of φ with n crossings,
+orthogonal (with respect to µ) to all polynomials of degree k < n. To this end, we denote the
+k-th derivative of a function g by g (k) , with the convention that g (0) = g. We will consider
+the class of functions whose n-th derivative strictly convex. That is, for n ≥ 0,
+                           An := {g : R → R | g (n) is strictly convex }.
+By convention we consider A−1 to be the the class of strictly increasing functions, with
+the heuristic that an anti-derivative of a strictly increasing function will be strictly convex.
+Similarly, we adopt the convention that g (−1) is convex when g is increasing. We will need
+the following elementary lemma.
+Lemma 5.1. For n ≥ 1 and g ∈ An−2 , g has at most n zeros. Moreover, if g has exactly n
+zeros x1 < x2 < · · · < xn , then
+                                              n
+                                              Y
+(4)                                    g(x)       (x − xk ) ≥ 0.
+                                              k=1
+
+     Note that the inequality (4) is necessarily strict for x such that g(x) ̸= 0.
+      ANTI-CONCENTRATION INEQUALITIES FOR LOG-CONCAVE VARIABLES ON THE REAL LINE                    13
+
+
+Proof. The n = 1 case follows trivially. When n = 2, g strictly convex with zeros x1 and x2
+implies
+(5)                                   g((1 − t)x1 + tx2 ) < 0
+for t ∈ (0, 1) while
+(6)                                   g((1 − t)x1 + tx2 ) > 0
+for t ∈ (−∞, 0) ∪ (1, ∞), hence g can have at most two zeros. Moreover, the observations (5)
+and (6) imply that g(x)(x − x1 )(x − x2 ) ≥ 0.
+   Proceeding by induction for n ≥ 3, suppose g (n−2) = (g ′ )(n−3) is convex, so that g ′ has no
+more than n − 1 zeros. By the mean value theorem g has no more than n zeros. In the case
+that g has n distinct zeros x1 < · · · < xn , Rolle’s theorem gives the existence of z1 , . . . , zn−1
+zeros of g ′ interlacing the zeros of g in the sense that
+                                            xi < zi < xi+1 .
+By the already proven first half of this theorem, g ′ has no more than n − 1 zeros, and by
+induction
+                                         n−1
+                                         Y
+                                     ′
+                                   g (x)    (x − zk ) ≥ 0.
+                                              k=1
+In particular, g ′ (x) > 0 for x > zk . By the interlacing of zeros g ′ can be bounded away from
+zero at the zeros of g and hence g necessarily changes sign at its zeros. It follows that
+                                                   n
+                                                   Y
+                                            g(x)       (x − xk )
+                                                   k=1
+is either non-negative or non-positive. To check its sign, take x > xn > zn−1 and observe that
+by the mean value theorem there exists x∗ ∈ [xn , x] such that g(x) = g ′ (x∗ )(x − xn ) + g(xn ).
+The latter is positive and the conclusion follows.                                             □
+Lemma 5.2. Given f ∈ An and real numbers x1 < x2 < · · · < xn , there exists a polynomial
+P (x) = dj=0 pj xj of degree d < n such that
+       P
+
+                                                   n
+                                                   Y
+                                   (f − P )(x)           (x − xk ) ≥ 0.
+                                                   k=1
+
+Proof. Let
+                                            n
+                                            X               Y x − xj
+                                 P (x) :=         f (xk )               .
+                                                             (xk − xj )
+                                            k=1             j̸=k
+
+and observe P (xk ) = f (xk ) for each k, and that P (n−2) is affine since deg(P ) = n − 1. Thus
+(f − P )(n−2) is strictly convex and has exactly n distinct zeros occurring at each of the xk .
+   The result follows by letting g = f − P in Lemma 5.1.                                      □
+Theorem 5.3. Let µ be a Borel measureQon R. Suppose that φ : R → R is such that there
+exists x1 < x2 < · · · < xn such that φ(x) nk=1 (x − xk ) ≥ 0. Suppose that xk φ(x) belongs to
+L1 (µ) for k ≤ n with                 Z
+                                            xk φ(x)dµ(x) = 0
+
+for k ≤ n − 1 and that f (n−2) is convex. Then
+                                        Z
+                                           f φdµ ≥ 0.
+14          TULIO GAXIOLA, JAMES MELBOURNE, VINCENT PIGNO, AND EMMA POLLARD
+
+
+Proof. Applying Lemma 5.2 to fε (x) := f (x) + εxn and the xi we obtain a polynomial P of
+degree n − 1 such that (fε − P )φ ≥ 0. Indeed, (fε − P )(xk ) = 0 by construction, while
+                                n
+                                           !2
+                               Y
+                                  (x − xk ) (fε − P )φ(x) ≥ 0
+                                     k=1
+
+      / {xk }nk=1 . Since P is a degree n − 1 polynomial,
+                                                                     R
+for x ∈                                                                  P φdµ = 0. Thus
+                             Z              Z                    Z
+                                 fε φdµ =       (fε − P )φdµ +           P φdµ ≥ 0.
+
+Taking ε → 0 completes the proof.                                                                           □
+   We do not pursue the minimal hypothesis in the above. Weaker moment conditions can
+be approached by more delicate approximations of f . In the context of log-concave random
+variables the existence of moments of all orders is implied. We conclude with a reformulation
+of the above for random variables.
+Corollary 5.4. Let X1 and X2 be random variables with E|Xi |n < ∞ and densities φ1
+                  Q to a common reference measure µ. Let x1 < x2 < · · · < xn be such
+and φ2 with respect
+that (φ2 − φ1 )(x) nk=1 (xk − x) ≥ 0, and suppose that E[X1k ] = E[X2k ] for all k ≤ n − 1.
+Then X1 ≺n X2 .
+Proof. Apply Theorem 5.3 to φ := φ2 − φ1 .                                                                  □
+
+                                                References
+ [1] Abdulmajeed Alqasem, Heshan Aravinda, Arnaud Marsiglietti, and James Melbourne. On a conjecture of
+     feige for discrete log-concave distributions. SIAM Journal on Discrete Mathematics, 38(1):93–102, 2024.
+ [2] Heshan Aravinda. Entropy-variance inequalities for discrete log-concave random variables via degree of
+     freedom. Discrete Mathematics, 347(1):113683, 2024.
+ [3] Heshan Aravinda, Arnaud Marsiglietti, and James Melbourne. Concentration inequalities for ultra log-
+     concave distributions. Studia Mathematica, 265:111–120, 2022.
+ [4] Sergey G Bobkov. Isoperimetric and analytic inequalities for log-concave probability measures. The Annals
+     of Probability, 27(4):1903–1921, 1999.
+ [5] Sergey G Bobkov and Gennadiy P Chistyakov. On concentration functions of random variables. Journal
+     of Theoretical Probability, 28:976–988, 2015.
+ [6] Sergey G Bobkov, Arnaud Marsiglietti, and James Melbourne. Concentration functions and entropy
+     bounds for discrete log-concave distributions. Combinatorics, Probability and Computing, 31(1):54–72,
+     2022.
+ [7] Sergey G Bobkov and James Melbourne. Hyperbolic measures on infinite dimensional spaces. Probability
+     Surveys, 13:57–88, 2016.
+ [8] John N Darroch. On the distribution of the number of successes in independent trials. The Annals of
+     Mathematical Statistics, 35(3):1317–1321, 1964.
+ [9] Ronen Eldan. Thin shell implies spectral gap up to polylog via a stochastic localization scheme. Geometric
+     and Functional Analysis, 23(2):532–569, 2013.
+[10] Matthieu Fradelizi. Hyperplane sections of convex bodies in isotropic position. Beiträge zur Algebra und
+     Geometrie, 40(1):163–183, 1999.
+[11] Matthieu Fradelizi and Olivier Guédon. The extreme points of subsets of s-concave probabilities and a
+     geometric localization theorem. Discrete & Computational Geometry, 31:327–335, 2004.
+[12] Matthieu Fradelizi and Olivier Guédon. A generalized localization theorem and geometric inequalities for
+     convex bodies. Advances in Mathematics, 204(2):509–529, 2006.
+[13] Douglas Hensley. Slicing convex bodies—bounds for slice area in terms of the body’s covariance. Proceed-
+     ings of the American Mathematical Society, 79(4):619–625, 1980.
+[14] Jacek Jakimiuk, Daniel Murawski, Piotr Nayar, and Semen Slobodianiuk. Log-concavity and discrete
+     degrees of freedom. Discrete Mathematics, 347(6):114020, 2024.
+[15] Ravi Kannan, László Lovász, and Miklós Simonovits. Isoperimetric problems for convex bodies and a
+     localization lemma. Discrete & Computational Geometry, 13:541–559, 1995.
+    ANTI-CONCENTRATION INEQUALITIES FOR LOG-CONCAVE VARIABLES ON THE REAL LINE                            15
+
+
+[16] Samuel Karlin and Albert Novikoff. Generalized convex inequalities. Pacific Journal of Mathematics,
+     13(4):1251–1279, 1963.
+[17] Bo’az Klartag. Needle decompositions in Riemannian geometry. Memoirs of the American Mathematical
+     Society, 249(1180), 2017.
+[18] Christian Léonard. Orlicz spaces. Unpublished notes, 2007. URL: https://leonard.perso.math.cnrs.
+     fr/papers/Leonard-Orlicz%20spaces.pdf.
+[19] László Lovász and Miklós Simonovits. Random walks in a convex body and an improved volume algorithm.
+     Random Structures & Algorithms, 4(4):359–412, 1993.
+[20] Mokshay Madiman, James Melbourne, and Cyril Roberto. Bernoulli sums and Rényi entropy inequalities.
+     Bernoulli, 29(2):1578–1599, 2023.
+[21] Mokshay Madiman, James Melbourne, and Peng Xu. Forward and reverse entropy power inequalities in
+     convex geometry. In E. Carlen, Mokshay Madiman, and E. M. Werner, editors, Convexity and Concen-
+     tration, volume 161 of IMA Volumes in Mathematics and its Applications, pages 427–485. Springer, 2017.
+     Available online at arXiv:1604.04225.
+[22] Albert W Marshall, Ingram Olkin, and Barry C Arnold. Inequalities: Theory of Majorization and Its
+     Applications. Springer Series in Statistics. Springer, 2011.
+[23] Arnaud Marsiglietti and James Melbourne. Moments, concentration, and entropy of log-concave distri-
+     butions. arXiv preprint arXiv:2205.08293, 2022.
+[24] Arnaud Marsiglietti and James Melbourne. Geometric and functional inequalities for log-concave proba-
+     bility sequences. Discrete & Computational Geometry, 71(2):556–586, 2024.
+[25] James Melbourne and Tomasz Tkocz. Reversal of Rényi entropy inequalities under log-concavity. IEEE
+     Transactions on Information Theory, 67(1):45–51, 2020.
+[26] Lawrence E Payne and Hans F Weinberger. An optimal Poincaré inequality for convex domains. Archive
+     for Rational Mechanics and Analysis, 5(1):286–292, 1960.
+[27] Malempati Madhusudana Rao and Zhong Dao Ren. Theory of Orlicz Spaces. Marcel Dekker, 1991.
+[28] Laurent Schwartz. Théorie des Distributions. Hermann, 1966.
+[29] Moshe Shaked and J George Shanthikumar. Stochastic Orders. Springer, 2007.
+[30] Richard P Stanley. Enumerative Combinatorics, Volume 1. Cambridge studies in advanced mathematics.
+     Cambridge University Press, second edition, 2011.
+[31] Ward Whitt. Uniform conditional variability ordering of probability distributions. Journal of Applied
+     Probability, 22(3):619–633, 1985.
+[32] Yaming Yu. On the maximum entropy properties of the binomial distribution. IEEE Transactions on
+     Information Theory, 54(7):3351–3353, 2008.
+[33] Yaming Yu. On the entropy of compound distributions on nonnegative integers. IEEE Transactions on
+     Information Theory, 55(8):3645–3650, 2009.
+

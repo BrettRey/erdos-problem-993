@@ -1,0 +1,1024 @@
+                                                 THE INDEPENDENCE POLYNOMIAL ON RECURSIVE SEQUENCES OF
+                                                                        GRAPHS
+
+
+
+
+arXiv:2411.14791v1 [math.DS] 22 Nov 2024
+                                                                            MIKHAIL HLUSHCHANKA AND HAN PETERS
+
+
+                                                   Abstract. We study the zero sets of the independence polynomial on recursive sequences of graphs. We
+                                                   prove that for a maximally independent starting graph and a stable and expanding recursion algorithm,
+                                                   the zeros of the independence polynomial are uniformly bounded. Each of the recursion algorithms
+                                                   leads to a rational dynamical system whose formula, degree and the dimension of the space it acts upon
+                                                   depend on the specific algorithm. Nevertheless, we demonstrate that the qualitative behavior of the
+                                                   dynamics exhibit universal features that can be exploited to draw conclusions about the zero sets.
+
+
+
+
+                                                                                           1. Introduction
+                                           1.1. Motivation and main result. In statistical physics, one typically considers the normalized limit
+                                           of graph polynomials for a sequence of graphs (Gn )n≥0 that converge in an appropriate sense to an infinite
+                                           limit graph. Examples include the free energy of the partition function for the Ising, hard-core, or Potts
+                                           models on increasing subgraphs of a regular lattice. Besides computing the actual values of these graph
+                                           polynomials, which is often infeasible for large graphs, a primary interest is a qualitative description of the
+                                           limiting free energy, including a characterization of real parameters where the free energy is non-analytic,
+                                           the so-called phase transitions. Obtaining such qualitative information is notoriously difficult for many
+                                           graph polynomials, even for seemingly simple limit graphs such as the square lattice.
+                                              There have been a number of successful studies in the last decade where the authors have considered
+                                           sequences of graphs that do not converge to a regular lattice but are instead recursively defined. Notable
+                                           examples of such studies include the partition function of the Ising model and the chromatic polynomial
+                                           on the diamond hierarchical lattice [BLR17, BLR20, CR21], the hard-core model on Cayley trees [RL19,
+                                           vW23], and the Ising model on Sierpińsky gasket graphs and Schreier graphs [DDN11], and the spectrum
+                                           of the Laplace operator on graphs corresponding to self-similar groups [DGL23]. In all of these studies,
+                                           the recursive nature of the graph sequences leads to an iterative scheme for the corresponding graph
+                                           polynomials. By analyzing such an induced dynamical system, the authors in [BLR17, BLR20, CR21,
+                                           RL19] successfully described the zero sets of the graph polynomials and as a consequence the (non-
+                                           )analyticity of the limiting free energy.
+                                              The zeros of graph polynomials are also essential in understanding the computational complexity of
+                                           the evaluation of graph polynomials, see [PR17]. In particular, such zeros for sequences of recursive
+                                           graphs played a crucial role behind the scenes in the results from [GGŠ17, PR19], which focus on the
+                                           complexity of approximating the independence polynomial values for bounded degree graphs.
+                                              This paper aims to establish a unified framework for describing graph polynomials on sequences of
+                                           recursive graphs. We focus specifically on one type of graph polynomial – the independence polynomial,
+                                           also known as the partition function of the hard-core model. We introduce quite general (recursive)
+                                           algorithms for generating recursive graph sequences and analyze the resulting zero sets.
+                                              Informally, our algorithm works in the following way. Starting with a graph G0 with k marked vertices
+                                           labeled 1, . . . , k, we iteratively construct a sequence of graphs (Gn )n≥0 , each with k marked vertices.
+                                                                                                     1
+2                                MIKHAIL HLUSHCHANKA AND HAN PETERS
+
+
+Namely, at each step we take m copies of the previous graph Gn , connect some of the m · k marked
+vertices with identical labels in these copies, and afterward assign k new marked vertices in the resulting
+graph (in a pre-described manner) to obtain the graph Gn+1 .
+Theorem 1.1 (Main result). The graph recursion R defined by any abstract gluing data (H, Σ, Υ, Φ) with
+                                                          k         k
+parameters m, k ≥ 2 induces a dynamical system F : C(2 ) → C(2 ) given by a homogeneous polynomial
+                                                        k
+map of degree m. The resulting rational map Fb on P(2 −1) leaves invariant a manifold M of dimension
+k; this manifold depends only on the reduced gluing data (H, Φ).
+   Furthermore, if the gluing data is stable and expanding, then there is a submanifold M0 ⊂ M and an
+iterate n such that M0 consists of fixed points for Fbn and it is normally superattracting.
+   As a consequence, the zeros of the independence polynomials of a recursive graph sequence (Gn )n≥0 ,
+Gn+1 = R(Gn ), are bounded for any maximally independent starting graph G0 .
+   The graph recursion with respect to a gluing data will be formally defined later in the introduction,
+along with the notions of stability, expansiveness, and maximally independence.
+1.2. Independence polynomial. In this paper, unless otherwise stated, by a graph G we always mean
+a multi-graph, that is, G is given by a pair (V (G), E(G)), where V (G) is a finite vertex set and E(G) is a
+finite edge multi-set of undordered pairs in V (G). As usual, the vertex degree of v ∈ V (G) is the number
+of adjacent edges, that is, the number of pairs {v, w} ∈ E(G). We call any map σ : V (G) → {0, 1} a
+vertex assignment on G. We say that such σ is independent if σ −1 (1) := σ −1 ({1}) ⊆ V (G) forms an
+independent set in G, that is, if no two vertices in σ −1 (1) form an edge of G.
+   The (univariant) independence polynomial of G is defined as
+                                                     X        −1
+                                          ZG (λ) :=      λ#σ (1) ,
+                                                      σ
+
+where the sum is taken over all independent vertex assignments on G. The independence polynomial
+corresponds to the partition function of the hard-core model, a model from statistical physics commonly
+used to model gasses.
+   The zeros of the independence polynomials ZG (λ) play an important role in both the physical models
+and in questions regarding the computational hardness of estimating the value of ZG (λ) at a given
+parameter λ. Given a sequence of graphs (Gn )n≥0 , we define the limiting free energy by
+                                                      log |ZGn (λ)|
+                                         ρ(λ) = lim                 ,
+                                                n→∞     #V (Gn )
+provided this limit exists. It is said that the graph sequence (Gn )n≥0 exhibits a phase transition at a real
+parameter λ0 > 0 when the real function ρ(λ) is not real analytic at λ0 . We emphasize that formally we
+always consider phase transitions of a sequence of graph rather than that of a limiting object such as an
+infinite graph or a metric space. Results of Lee-Yang [YL52, LY52] showed that for suitable sequences of
+graphs, absence of zeros near λ0 implies the absence of a phase transition.
+   An important topic in theoretical computer science concerns the effective computation of graph poly-
+nomials for large graphs. It turns out that the exact computation of partition functions is almost always
+#P -hard. The question of whether partition functions can be effectively approximated, up to some mul-
+tiplicative error, has received extensive attention in the recent literature, see for example the related
+paper [GGŠ17]. A relationship between the absence of complex zeros and the existence of polynomial
+algorithms for the approximation of partition functions was shown by Patel and Regts [PR17].
+   The computational hardness and the description of the zero sets for the independence polynomial has
+been extensively studied for the set of all graphs whose vertex degrees are bounded by some uniform
+constant ∆ ≥ 2. It was shown by Regts and the second author [PR19] that complex zeros are absent
+                THE INDEPENDENCE POLYNOMIAL ON RECURSIVE SEQUENCES OF GRAPHS                                   3
+
+
+in a neighborhood of the real interval between two critical parameters λ− < 0 < λ+ , which implies the
+existence of a polynomial time algorithm for approximating ZG (λ) for λ ∈ (λ− , λ+ ). On the other hand,
+it was shown by Bezakova et. al. [BGGŠ20, dBBG+ 24] that zeros are dense outside of a bounded domain
+U∆ , which relates to approximation of ZG (λ) being #P -hard outside of U∆ . Both of these results rely
+on understanding the behavior of a dynamical system induced by different sequences of recursive graphs.
+   We end this discussion by mentioning the recent papers [HPR20, dBBPR23] in which the authors
+discuss the boundedness of zeros of the independence polynomial for different sequences of graphs con-
+verging to cubic lattices. These results are closely related to what we prove here for recursive sequences
+of graphs.
+
+1.3. Recursive definition. Let us formally describe an abstract recursive procedure for producing se-
+quences of graphs that we study in this paper. Each graph in such a sequence (Gn )n≥0 will have k ≥ 2
+distinct marked vertices, labeled 1, . . . , k. A recursive step will consist of taking m ≥ 2 copies of the
+previous graph and connecting some of the copied marked vertices according to a specific rule, while also
+marking and labeling k vertices of the resulting graph. This construction will be governed by a gluing
+data (H, Σ, Υ, Φ), where H will specify which marked vertices of the m copies are joined, the pair (Σ, Υ)
+will specify how they are joined, and Φ will specify how the new marked vertices are assigned.
+
+Definition 1.2 (Gluing data (H, Σ, Υ, Φ)). A (formal ) gluing data (with parameters m ≥ 2 and k ≥ 2)
+is a quadruple (H, Σ, Υ, Φ) where each item is specified as follows:
+     • H is a multi-hypergraph with the vertex set V (H) = {w1 , . . . , wm } and edge multi-set E(H).
+       This means that the edges of H are given by non-empty subsets e ⊆ V (H), where a single subset
+       may occur multiple times in E(H). We assume that each vertex of H is contained in exactly k
+       edges, and that each of these edges e has a distinct label ℓ(e) ∈ {1, . . . , k}. In other words, for
+       each j ∈ {1, . . . , k}, the edges of H labeled j specify a partition of V (H) = {w1 , . . . , wm }. We
+       call the labeled multi-graph H the gluing scheme.
+     • Σ = (Σe )e∈E(H) is a collection of (non-empty) connected multi-graphs, which we call connecting
+       graphs. We assume that each Σe contains a “special” marked vertex ve ∈ V (Σe ), which we call
+       the root of Σe .
+     • Υ = (Υe )e∈E(H) is a collection of (not necessarily injective) maps Υe : e → V (Σe ), which we call
+       attaching maps.
+     • Finally, Φ : {1, . . . , k} → E(H) is an injective map, which we call the labeling map.
+We call the pair (H, Φ) as above the reduced gluing data (with parameters m, k).
+
+  We now specify the recursive step governed by formal gluing data.
+
+Definition 1.3 (Graph recursion R). Let (H, Σ, Υ, Φ) be a gluing data with parameters m ≥ 2 and
+k ≥ 2 as above, and suppose that we are given a graph G with k distinct marked vertices v1 , . . . , vk .
+Here and below, we think of each vertex vj as having the label j. We now define a new marked graph
+R(G) = R(H,Σ,Υ,Φ) (G) as follows:
+    (I) First, we take m copies G(1), . . . , G(m) of G, where each copy G(i) is associated to the vertex wi
+        of the gluing scheme H.
+   (II) Then for each edge e = {wi1 , . . . , wis } ∈ E(H) with label ℓ(e) ∈ {1, . . . , k}, we connect together
+        the marked vertices labeled ℓ(e) in the copies G(i1 ), . . . , G(is ) by identifying them with the
+        vertices Υe (wi1 ), . . . , Υe (wis ) in Σe , respectively. We denote the obtained graph R(H,Σ,Υ) (G).
+        We observe that, by construction, the edges of H containing only a single vertex do not lead to
+        connections between vertices of different copies of G.
+4                                 MIKHAIL HLUSHCHANKA AND HAN PETERS
+
+
+  (III) Finally, we assign k marked vertices in the graph R(H,Σ,Υ) (G) according to the labeling map Φ:
+        the label j ∈ {1, . . . , k} is given to the vertex of R(H,Σ,Υ) (G) that corresponds to the root of Σe ,
+        where e = Φ(j) ∈ E(H).
+The resulting marked graph, which we denote R(G) = R(H,Σ,Υ,Φ) (G), is said to be obtained from G
+according to the gluing data (H, Σ, Υ, Φ).
+   In this way, given a gluing data (H, Σ, Υ, Φ) with parameters m, k and an arbitrary starting graph
+G0 with k distinct marked vertices labeled 1, . . . , k, we produce a sequence (Gn )n≥0 of marked graphs
+defined by Gn+1 := R(H,Σ,Υ,Φ) (G0 ), each with k distinct marked vertices labeled 1, . . . , k.
+Remark 1.4. There are several natural canonical choices for the connecting graphs Σe , each depending
+only on the cardinality s = #e. The first option are the s-pods K1,s – the complete (1, s)-bipartite
+graphs. The s-pods are used when defining Cayley trees. The second option are the s-cycles, which are
+used to construct Schreier graphs. Other natural options include the complete graphs Ks or simply the
+singletons K1 . In the latter case, the corresponding marked vertices in the s copies of the original graph
+are identified to a single vertex. This choice is, for example, used to define diamond hierarchical lattices
+or other hierarchical graph systems. Figure 1 illustrates the impact of a specific choice of the graphs Σe .
+The two sequences of graphs in the figure are obtained using the same starting graphs G0 = G       b 0 = K3
+and the same reduced gluing data (H, Φ), but using different canonical choices for the connecting graphs
+Σe : the complete graphs (top row) and the singletons (bottom row). In the former case, one obtains the
+Hanoi graphs, and in the latter case the Sierpiński gasket graphs.
+Definition 1.5 (Dynamics on the label set). A reduced gluing data (H, Φ) with parameters m, k specifies
+a dynamical system Λ = Λ(H,Φ) : {1, . . . , k} → {1, . . . , k} on the labels: namely, we send each label
+j ∈ {1, . . . , k} to Λ(j) = ℓ(Φ(j)). A label j is called periodic if Λp (j) = j for some p ≥ 1. Clearly, every
+label is eventually mapped to a periodic one by Λ.
+   The number #Φ(j) is called the local degree of a label j and the number #Φ(j) − 1 is called the
+multiplicity of j. We say that j is critical if #Φ(j) ≥ 2. Similarly to ramification portraits for rational
+maps, we define the portrait of the reduced gluing data (H, Φ): it is a directed graph with the vertex
+set {1, . . . , k}, where we put a directed edge from every j ∈ {1, . . . , k} to Λ(j) = ℓ(Φ(j)) and label it by
+“#Φ(j) : 1” if #Φ(j) ≥ 2.
+   We can now introduce the technical assumptions on the gluing data that are necessary for our main
+result.
+Definition 1.6 (Non-degenerate, stable, and expanding gluing data). Suppose (H, Σ, Υ, Φ) is a gluing
+data with parameters m, k. We say that it is:
+     • non-degenerate if the induced dynamical system Λ = Λ(H,Φ) has no periodic critical labels;
+     • stable if it is non-degenerate and the connecting graph ΣΦ(j) for each periodic label j ∈ {1, . . . , k}
+        is a singleton;
+     • expanding if there exists n ≥ 1 such that the gluing data (Hn , Σn , Υn , Φn ) of the n-th iterate of
+        the graph recursion R = R(H,Σ,Υ,Φ) satisfies the following condition: the edges Φn (j) and Φn (ℓ)
+        form disjoint subsets of V (Hn ) for all distinct labels j, ℓ ∈ {1, . . . , k}.
+Remark 1.7. Suppose (H, Σ, Υ, Φ) is an arbitrary gluing data with parameters m, k, and (H, Σ′ , Υ′ , Φ)
+is the “simplified” gluing data where each graph Σe , e ∈ E(H), is replaced by a singleton graph Σ′e = K1 .
+Let (Gn )n≥0 be a sequence of marked graphs defined by this “simplified” gluing data, starting with some
+connected graph G0 . Then the following are true:
+     (i) The gluing data (H, Σ, Υ, Φ) is non-degenerate if and only if the vertex degrees of Gn are uniformly
+         bounded.
+              THE INDEPENDENCE POLYNOMIAL ON RECURSIVE SEQUENCES OF GRAPHS                                       5
+
+
+
+
+     Figure 1. Illustration of the recursion for the Hanoi graphs (G b n )n=0,1,2 on top, and the
+     Sierpiński gasket graphs (Gn )n=0,1,2 at the bottom. The thicker black vertices with their
+     bold labels correspond to the marked vertices in each graph, labeled 1, 2, 3. The black
+     vertices all together with their normal font labels correspond to the marked vertices of
+     the copies of the graph from the previous step.
+
+
+(ii) The gluing data (H, Σ, Υ, Φ) is expanding if and only if the marked vertices in Gn get separated as
+     n → ∞. More formally, suppose v1n , . . . , vkn denote the vertices labeled 1, . . . , k in Gn , respectively.
+     We say that the marked vertices get separated in Gn (as n → ∞) if for all distinct labels j, ℓ ∈
+     {1, . . . , k} the graph-distance between vjn and vℓn in Gn goes to ∞ as n → ∞. In particular,
+     expansion is determined just by the reduced gluing data (H, Φ).
+6                                    MIKHAIL HLUSHCHANKA AND HAN PETERS
+
+
+1.4. Maximally independent starting graphs. We now provide the final technical notion needed for
+our main result.
+   Let G be a graph with k marked vertices labeled 1, . . . , k, and let x = (x1 , . . . , xk ) ∈ {0, 1}k be a
+binary k-tuple. We say that an independent set I ⊂ V (G) agrees with x if the following condition is
+satisfies for each j ∈ {1, . . . , k}: the marked vertex labeled j is contained in I if and only if xj = 1.
+Definition 1.8 (Maximally independent graph). A graph G with k marked vertices (labeled 1, . . . , k) is
+said to be maximally independent if for each binary k-tuple x there is among all independent subsets of
+V (G) that agree with x a unique independent subset I(x) of maximal cardinality and if, in addition, the
+following identity holds:
+(1.1)                                     #I(1, . . . , 1) − #I(0, . . . , 0) = k.
+Remark 1.9. The inequality
+                                          #I(1, . . . , 1) − #I(0, . . . , 0) ≤ k.
+is automatically satisfied, simply because the k marked vertices can be removed from the independent
+set I(1, . . . , 1). By applying the same argument twice it follows that condition (1.1) implies
+                                                                                  k
+                                                                                  X
+                                      #I(x1 , . . . , xk ) − #I(0, . . . , 0) =         xj
+                                                                                  j=1
+
+for any binary k-tuple (x1 , . . . , xk ) ∈ {0, 1}k .
+    We close the introduction with another example.
+Example 1.10. Let us define the Chebychev recursion as follows. Starting with a graph G0 with two
+marked vertices labeled 1, 2, we define Gn+1 by first taking two copies of Gn , then identifying the vertices
+with labels 2 in these copies, and afterward assigning the new labels 1 and 2 to the two vertices previously
+labeled 1.
+   If the starting graph G0 is K2 , then Gn is simply a path whose length grows exponentially as 2n .
+None of these paths are maximally independent, and in fact, the zeros of the corresponding independence
+polynomials, which all happen to lie on the negative real axis, are unbounded.
+   On the other hand, if G0 is a tripod K1,3 , with marked vertices at two of the three leaves, then G1
+is maximally independent, and our main result implies that the zeros of the independence polynomials
+ZGn (λ) are uniformly bounded.
+   The Chebychev recursion from above shows that boundedness of the zeros of the independence poly-
+nomials ZGn (λ) for a recursive sequence of graphs (Gn )n≥0 may depend on the starting graph G0 . It also
+shows that our main result is false when the assumption on G0 being maximally independent is removed.
+
+Acknowledgments. The first author was partially supported by the Marie Sklodowska-Curie Post-
+doctoral Fellowship under Grant No. 101068362. The authors would also like to thank Daniel Meyer,
+Nguyen-Bac Dang, Guus Regts, and Palina Salanevich for various valuable discussion and comments.
+
+                            2. Graph recursion leads to rational iteration
+   In this section, we will translate the recursion Gn+1 = R(Gn ) into a rational dynamical system, prove
+the existence of an invariant manifold, and describe the dynamics on the invariant manifold in terms of
+the gluing data.
+                  THE INDEPENDENCE POLYNOMIAL ON RECURSIVE SEQUENCES OF GRAPHS                                   7
+
+
+2.1. Dynamical representation of the independence polynomial. From now on, we fix a gluing
+data (H, Σ, Υ, Φ) with parameters m, k and assume that (Gn )n≥0 is a sequence of marked graphs obtained
+from a starting marked graph G0 according to this gluing data (see Section 1.3). We also assume that
+V (H) = {w1 , . . . , wm }, and denote by Gn (1), . . . , Gn (m) the m copies of Gn that are used to construct
+Gn+1 . Our first goal in this section is to introduce a (polynomial) dynamical system induced by the
+gluing data. First, we set up some notation.
+    Suppose G is a graph with s ≥ 1 marked vertices v1 , . . . , vs . In the following, we will typically
+identify a vertex assignment τ : {v1 , . . . , vs } → {0, 1} to the marked vertices of G with the ordered list
+(τ (v1 ), . . . , τ (vs )) of its values. We will also write
+                                                                                     X    −1
+                                     ZG (λ, τ ) = ZG (λ, τ (v1 ), . . . , τ (vs )) =   λ#σ (1) ,
+                                                                            σ∼τ
+where σ ∼ τ means that we only sum over those independent vertex assignments σ on G whose restriction
+to the marked vertices equals τ . Note that ZG (λ, τ ) = 0 whenever τ assigns 1 to two marked vertices
+that are adjacent in G. We also observe that
+                                                 X
+                                        ZG (λ) =       ZG (λ, τ ),
+                                                           τ
+                                    s
+where the sum is taken over all 2 possible assignments τ to the marked vertices.
+   We denote the k marked vertices of each graph Gn by v1n , . . . , vkn , so that vjn is labeled j for each
+j ∈ {1, . . . , k}. Given any binary sequence (x) = (x1 , . . . , xk ) ∈ {0, 1}k , we will use the notation
+                                 (x)n = (x1 , . . . , xk )n = ZGn (λ, x1 , . . . , xk ),
+so that
+                                                               X
+(2.1)                                       ZGn (λ) =                  (x)n .
+                                                          (x)∈{0,1}k
+
+   Clearly, every (independent) vertex assignment on Gn+1 induces (independent) vertex assignments on
+the copies Gn (1), . . . , Gn (m) of Gn and also on each connecting graph Σe , e ∈ E(H). This allows us to
+write the following recursive formula for (x)n+1 :
+                                                           !                         
+                                      X         Ym               Y ZΣ (λ, Y|e , x|e )
+                                                                        e
+(2.2)              (x)n+1 =                         (y(i))n ·             ∥Y|e ∥
+                                                                                      .
+                                                i=1
+                                                                          λ
+                              Y=(y(1),...,y(m))                        e∈E(H)
+
+In the above equation, we use the following notation:
+      • Each (y(i)) = (y1 (i), . . . , yk (i)), i ∈ {1, . . . , m}, denotes an arbitrary vertex assignment to the
+        marked vertices v1n (i), . . . vkn (i) of Gn (i). That is, we sum up over all binary sequences Y =
+        (y(1), . . . , y(m)) ∈ {0, 1}mk .                                                             
+      • For each e = (wi1 , . . . , wis ) ∈ E(H) with label ℓ = ℓ(e), Y|e = yℓ (i1 ), . . . , yℓ (is ) denotes the
+        assignment to the vertices vℓn (i1 ), . . . vℓn (is ) induced by Y. We also denote by x|e the assignment
+        to the root of Σe induced by (x). The latter assignment is non-empty only when Φ(j) = e for
+        some j ∈ {1, . . . , k}.
+      • For each e ∈ E(H), we define
+                                                                        X       −1
+                                 Ze (λ, Y, x) = ZΣe (λ, Y|e , x|e ) =       λ#σ (1) ,
+                                                                           σ
+          where we sum over all independent vertex assignments σ on Σe that agree with the restrictions
+          imposed by Y and x. Namely, σ should satisfy all of the following conditions:
+           (i) If ℓ = ℓ(e) ∈ {1, . . . , k} is the label of e, then σ(Υe (wi )) = yℓ (i) for each wi ∈ e.
+8                                     MIKHAIL HLUSHCHANKA AND HAN PETERS
+
+
+          (ii) If Φ(j) = e for some j ∈ {1, . . . , k}, then σ(ve ) = xj .
+          Note that, by definition, Ze (λ, Y, x) = 0 whenever these restrictions are inconsistent.
+        • Finally, for each e = (wi1 , . . . , wis ) ∈ E(H) with label ℓ = ℓ(e), we define
+                                                 ∥Y|e ∥ := #V (Y|e = 1),
+          where V (Y|e = 1) denotes the subset of those elements of {vℓn (i1 ), . . . , vℓn (is )} to which Y assigns
+          1. In other words, ∥Y|e ∥ is the 1-norm of Y|e .
+Note that the denominator in the second product in (2.2) compensates for the double counting of vertices
+in V (Y|e = 1).
+                                                                              k       k
+   In this way, we have just obtained a dynamical system F = F(H,Σ,Υ,Φ) : C(2 ) → C(2 ) given by
+
+                                     (x)n , (x) ∈ {0, 1}k 7→ (x)n+1 , (x) ∈ {0, 1}k
+where each of the 2k variables (x)n+1 is given by a homogeneous polynomial of degree m in terms of the
+2k variables (x)n ; for each (x) ∈ {0, 1}k , the respective polynomial is provided by (2.2).
+   To illustrate the derived recursive formula, we give below explicit expressions for Ze (λ, Y, x) for two
+canonical choices of the connecting graphs Σe .
+Example 2.1. Let us assume that each connecting graph Σe , e = (wi1 , . . . , wis ) ∈ E(H), is a singleton,
+so that the vertices labeled ℓ = ℓ(e) in the respective #e = s copies Gn (i1 ), . . . , Gn (is ) of the graph Gn
+are identified together to form a vertex v of the graph Gn+1 . Then Ze (λ, Y, x) equals λ in the following
+two cases (depending on whether the vertex v is marked or not):
+        • if e ̸= Φ(j) for any j ∈ {1, · · · , k} and yi1 (ℓ) = . . . = yis (ℓ) = 1;
+        • if e = Φ(j) for some j ∈ {1, · · · , k} and xj = yi1 (ℓ) = . . . = yis (ℓ) = 1.
+In all other cases, Ze (λ, Y, x) equals 0.
+Example 2.2. We may similarly analyze the situation when each connecting graph Σe , e = (wi1 , . . . , wis ) ∈
+E(H), is an s-pod with the root ve specified to be its “center”. In this setting, the value Ze (λ, Y, x) is
+determined as follows:
+        • if e ̸= Φ(j) for any j ∈ {1, · · · , k} and V (Y|e = 1) ̸= ∅, then Ze (λ, Y, x) = λ∥Y|e ∥ ;
+        • if e ̸= Φ(j) for any j ∈ {1, · · · , k} and V (Y|e = 1) = ∅, then Ze (λ, Y, x) = 1 + λ;
+        • if e = Φ(j) for some j ∈ {1, . . . , k} and xj = 0, then Ze (λ, Y, x) = λ∥Y|e ∥ ;
+        • if e = Φ(j) for some j ∈ {1, . . . , k} and xj = 1, then Ze (λ, Y, x) = λ when yi1 (ℓ) = . . . = yis (ℓ) =
+          0 and Ze (λ, Y, x) = 0 in all other cases.
+2.2. Invariant manifold. In this and subsequent sections, we will use the notation (0) = (0, . . . , 0) for
+the zero vector and (ej ) = (0, . . . , 0, 1, 0, . . . , 0) for the j-th unit vector in Ck , respectively.
+   Our first goal is to prove the following statement.
+Proposition 2.3. Suppose the equalities
+                             (x1 , . . . , xj−1 , 1, xj+1 , . . . , xk )N   (ej )N
+(2.3)                                                                     =        ,    j = 1, . . . k,
+                             (x1 , . . . , xj−1 , 0, xj+1 , . . . , xk )N   (0)N
+hold for a fixed N = n and all tuples
+                                       (x1 , . . . , xj−1 , xj+1 , . . . , xk ) ∈ {0, 1}k−1 .
+                                                                                                   k
+Then the same is also true for N = n + 1. In particular, the manifold in C(2 ) determined by equations
+(2.3) is invariant under the dynamical system induced by the recursion (2.2).
+                           THE INDEPENDENCE POLYNOMIAL ON RECURSIVE SEQUENCES OF GRAPHS                                                           9
+
+
+Remark 2.4. For a fixed N , each of the denominators in equations (2.3) may be equal to 0 only for
+finitely many parameters λ ∈ C. Hence, equation it is well-defined to consider these equations as equalities
+between rational functions in λ.
+
+Proof. Given any assignment (x) := (x1 , . . . xk ) and label j ∈ {1, . . . , k}, we denote by (x1→j ) and (x0→j )
+the assignments obtained from (x) by replacing the j-th entry with 0 and 1, respectively. We will also
+use analogous notations for the assignments y(1), . . . , y(m) to the marked vertices of the copies of Gn .
+   Suppose the equations
+
+                                                               (x1→j )N   (ej )N
+                                                                        =
+                                                               (x0→j )N   (0)N
+
+are true for some N = n and all (x) ∈ {0, 1}k .
+   Fix an arbitrary assignment (x) ∈ {0, 1}k and j ∈ {1, . . . , k}, and suppose that e = Φ(j) ∈ E(H) and
+ℓ = ℓ(e) ∈ {1, . . . , k}. Let us also set I(e) = {i : wi ∈ e}. Given any Y = (y(1), . . . , y(m)) ∈ {0, 1}mk ,
+we can decompose each summand in (2.2) as follows:
+
+                m
+                               !                            
+                Y                     ZΣe′ (λ, Y|e′ , x|e′ )
+                                        Y
+               (y(i))n ·                     ∥Y|e′ ∥
+                                                             
+           i=1               ′
+                                            λ
+                            e ∈E(H)
+                                                                                                                                     
+            Y                Z Σe (λ, Y|e , x|e )     Y                                                Y           ZΣe′ (λ, Y|e′ , x|e′ )
+         =      (y(i))n  ·                      ·         (y(i))n  ·                                                                 .
+                                   λ∥Y|e ∥                                 ′
+                                                                                                                         λ∥Y|e′ ∥
+                i∈I(e)                                               ∈I(e)
+                                                                    i/                             e ∈E(H)\{e}
+
+
+    By the assumption,
+
+                                                                                            (eℓ )n
+                                                     (y1→ℓ (i))n = (y0→ℓ (i))n
+                                                                                            (0)n
+
+for all i ∈ I(e). Hence
+                                                                           ∥Y|e ∥
+                                         Y                         (eℓ )n                  Y
+                                             (y(i))n =                                ·            (y0→ℓ (i))n ,
+                                                                   (0)n
+                                       i∈I(e)                                             i∈I(e)
+
+
+and we may rewrite every summand in (2.2) in the following way:
+
+                                                                                                                                                 
+            ∥Y|e ∥
+    (eℓ )n                 ZΣe (λ, Y|e , x|e )      Y                                Y                               Y        ZΣe′ (λ, Y|e′ , x|e′ )
+                       ·                      ·              (y0→ℓ (i))n  ·                (y(i))n  ·                                             .
+    (0)n                        λ∥Y|e ∥                                                                                              λ∥Y|e′ ∥
+                                                    i∈I(e)                         ∈I(e)
+                                                                                  i/                           e′ ∈E(H)\{e}
+
+
+
+   Nowwe subdivide the sumin (2.2) over all assignments Y by first summing over all possible assignments
+Y′ on vℓn (i) : i ∈
+                  / I(e) ∪ vjn (i) : i ∈ {1, . . . , m}, j ̸= ℓ , and afterward summing over all possible
+                    
+assignments Ye on vℓn (i) : i ∈ I(e) . Using the notation Y = (y(1), . . . , y(m)) for the assignment on
+all the marked vertices of Gn (1), . . . , Gn (m) induced by Y′ and Ye , we then have:
+10                                    MIKHAIL HLUSHCHANKA AND HAN PETERS
+
+
+
+                                                 !                              
+                      XX m
+                         Y                                ZΣe′ (λ, Y|e′ , x|e′ )
+                                                            Y
+            (x)n+1 =              (y(i))n ·                      ∥Y|e′ ∥
+                                                                                 
+                     Ye Y  ′  i=1                 ′
+                                                                 λ
+                                                 e ∈E(H)
+                                                                !
+                                   ∥Ye ∥
+                       X (eℓ )n              ZΣe (λ, Ye , x|e )
+                   =                       ·                      ×
+                       Ye
+                             (0)n                 λ∥Ye ∥
+                                                                                                    
+                      X Y                                                        Y            
+                                                    Y       ZΣe′ (λ, Y|e′ , x|e′ )
+                   ×            (y(i))n ·                           ∥Y|e′ ∥
+                                                                                    ·   (y0→ℓ (i))n  .
+                       Y ′                     ′
+                                                                   λ
+                              ∈I(e)
+                             i/                       e ∈E(H)\{e}                                  i∈I(e)
+
+                                 (x1→j )n+1
+     It follows that the ratio              is given by
+                                 (x0→j )n+1
+                                                                                                    !
+                          (x1→j )n+1             X  (eℓ )n ∥Ye ∥ ZΣ (λ, Ye , x1→j |e )
+                                                                     e
+(2.4)                                =                            ·                                     ×
+                          (x0→j )n+1
+                                                 Ye
+                                                     (0)n                λ∥Ye ∥
+                                                                                                    !−1
+                                                 X  (eℓ )n ∥Ye ∥ ZΣ (λ, Ye , x0→j |e )
+                                                                     e
+                                        ×                         ·                                         .
+                                                 Ye
+                                                     (0)n                λ∥Ye ∥
+
+In particular, this ratio does not depend on the values of x1 , . . . , xj−1 , xj+1 , . . . , xk , which establishes the
+desired identity for N = n + 1.                                                                                       □
+
+                                                                                                                     k
+   We can rewrite the collection of equations (2.3) to obtain a (k + 1)-dimensional manifold in C(2 )
+defined by the following equations:
+                          (x)n     Y (ej )n
+(2.5)                          =               ,  (x) = (x1 , . . . , xk ) ∈ {0, 1}k .
+                          (0)n   j: x =1
+                                         (0) n
+                                             j
+
+                                        k
+Since the recursion (2.2) from C(2 ) to itself is given by a homogeneous polynomial map F = F(H,Σ,Υ,Φ) ,
+we can consider it as a rational self-map
+                                                                  k         k
+                                            Fb = Fb(H,Σ,Υ,Φ) : P(2 −1) → P(2 −1)
+        k
+of P(2 −1) . We recall that this rational map will likely have some indeterminacy points – points that are
+                              k
+mapped to (0, . . . , 0) ∈ C(2 ) .
+                                                      k
+   Now let us consider the coordinate chart in P(2 −1) given by (0) ̸= 0, a chart that is equivalent to
+   k
+C(2 −1) . Points in this coordinate chart can be represented by the variables
+                                                                    (x)n   (x1 , . . . , xk )n
+                                   [x]n = [x1 , . . . , xk ]n :=         =                     .
+                                                                    (0)n    (0, . . . , 0)n
+In these coordinates, the invariant manifold (2.5) is given by the following equations:
+                                             Y
+(2.6)           [x]n = [x1 , . . . , xk ]n =   [ej ]n , (x) = (x1 , . . . , xk ) ∈ {0, 1}k \ (0).
+                                                 j: xj =1
+                                                                                                        k
+Equations (2.6) define a k-dimensional invariant manifold Me , but now in P(2 −1) . We note that this
+manifold is a graph over the k-dimensional subspace spanned by the variables {[ej ]n }j=1,...,k . Moreover,
+it is independent of the gluing data (H, Σ, Υ, Φ).
+                 THE INDEPENDENCE POLYNOMIAL ON RECURSIVE SEQUENCES OF GRAPHS                                   11
+
+
+   We can now use (2.4) to describe the induced dynamics of Fb on the invariant manifold Me in the
+                             k
+chosen coordinate chart in P2 −1 . Namely, we get the following formulas for {[ej ]n+1 }j=1,...,k :
+                                          X                 ZΣe (λ, Ye , ej |e )
+                                             [eℓ ]∥Y
+                                                  n
+                                                     e∥
+                                                         ·
+                                          Ye
+                                                                 λ∥Ye ∥
+(2.7)                          [ej ]n+1 = X                                      .
+                                                            ZΣe (λ, Ye , 0|e )
+                                              [eℓ ]∥Y
+                                                   n
+                                                      e∥
+                                                          ·
+                                           Y
+                                                                 λ∥Ye ∥
+                                                 e
+
+
+Here, e = Φ(j), ℓ = Λ(j) = ℓ(Φ(j)), and the sums are taken over all assignments Ye to the marked
+vertices with label ℓ of those copies of Gn that are joined by the graph Σe .
+Example 2.5. Suppose for some j ∈ {1, . . . , k} the connecting graph ΣΦ(j) is a singleton. Then (2.7)
+simply gives:
+                                                      1
+(2.8)                                 [ej ]n+1 = #Φ(j)−1 [eΛ(j) ]#Φ(j)
+                                                                 n     .
+                                                λ
+In particular, if #Φ(j) = 1, then [ej ]n+1 = [eΛ(j) ]n .
+
+    Equation (2.7) implies that the image Fb(Me ) of the invariant manifold lies within a submanifold of
+Me of dimension #Λ({1, . . . , k}). More precisely, this submanifold is a graph over the subspace spanned
+                     
+by the variables [eℓ ]n : ℓ ∈ Λ({1, . . . , k}) . Hence, for all sufficiently large iterates n, the image Fbn (Me )
+lies within a k0 -dimensional invariant submanifold M0 of Me , where k0 is the number of periodic labels
+ℓ ∈ {1, . . . , k}. Combining this with the discussion in Example 2.5, we get the following corollary.
+Corollary 2.6. Suppose the gluing data (H, Σ, Υ, Φ) is stable. Then, in a finite number of iterations,
+the dynamics of Fb projects the invariant manifold Me , defined by (2.6), onto a submanifold M0 ⊂ Me ,
+which is a graph over a subspace spanned by the subcollection of the variables [eℓ ]n corresponding to the
+periodic labels ℓ ∈ {1, . . . , k}. The dynamics of Fb acts on M0 by permuting these variables, and is
+therefore periodic.
+   We will refer to the submanifold M0 as the periodic submanifold of Fb. When the period is 1 we will
+call M0 the fixed submanifold.
+
+                                         3. The fixed submanifold
+   In this section we will prove that the periodic submanifold is superattracting, under the assumption
+that the gluing data (H, Σ, Υ, Φ), with parameters m, k, is stable and expanding. Then by replacing the
+graph recursion R(H,Σ,Υ,Φ) with its sufficiently high iterate and redefining accordingly the initial gluing
+data (H, Σ, Υ, Φ), we can make the following assumptions (up to renaming the labels):
+(FM1) There exists a (unique) k0 ∈ {1, . . . , k} such that Λ(j) = j for j ≤ k0 , and such that Λ(j) ∈
+        {1, . . . , k0 } for all j > k0 .
+(FM2) All edges Φ(j) with j ∈ {1, . . . , k0 } consist of a single vertex in H.
+(FM3) The connecting graphs ΣΦ(j) with j ∈ {1, . . . , k0 } are all singletons.
+(FM4) For any two distinct labels j, ℓ ∈ {1, . . . , k}, the corresponding edges Φ(j) and Φ(ℓ) in H are
+        disjoint as subsets of V (H), that is, the marked vertices joined by the graphs ΣΦ(j) and ΣΦ(ℓ) lie
+        in two disjoint collections of copies of the current graph (in each step of the recursive procedure).
+                                                          k
+   Let F = Fb(H,Σ,Υ,Φ) be the rational self-map of P(2 −1) induced by the recursion (2.2). Corollary 2.6
+        b
+implies that, under the assumptions above, the invariant manifold Me is k-dimensional, and it is projected
+(by the first iterate of Fb) onto a k0 -dimensional submanifold M0 , which is a graph over the variables
+12                                  MIKHAIL HLUSHCHANKA AND HAN PETERS
+
+
+{[ej ]n }j=1,...,k0 . Moreover, Fb fixes M0 pointwise, hence we refer to M0 as the fixed submanifold (of the
+gluing data (H, Σ, Υ, Φ)). Our goal in this section is to show the following result for M0 .
+Theorem 3.1. Suppose the gluing data is stable and expanding. Then the fixed submanifold M0 ⊂
+   k
+P(2 −1) is normally superattracting for some iterate Fbp , p ∈ N. More precisely, the following three
+statements hold for the Jacobian matrix J = JacFbp (ξ) at any given point ξ ∈ M0 of the fixed submanifold:
+     (i) the spectrum of J equals {0, 1};
+    (ii) the (generalized) eigenspace associated to the eigenvalue 1 is k0 -dimensional, and it is spanned
+         by the tangent vectors to M0 at ξ;
+   (iii) the dimension of the kernel of J is 2k − 1 − k0 .
+   Let us recall the defining equations for the invariant manifold Me :
+                                    Y
+(3.1)                      [x]n =       [ej ]n , [x] = [x1 , . . . , xk ] ∈ {0, 1}k \ [0].
+                                     j: xj =1
+
+We also note that there are exactly 2k − 1 − k binary k-tuples [x] that are unequal to the 0-tuple [0] or
+to a unit vector tuple [ej ], j = 1, . . . , k.
+Proposition 3.2. Suppose the gluing data (H, Σ, Υ, Φ) is expanding and satisfies condition (FM4). If at
+                k
+a point ξ ∈ P(2 −1) the defining equations (3.1) are satisfied up to an additive error of order O(ε), then
+at Fb(ξ) the defining equations are satisfied up to order O(ε2 ).
+Proof of Theorem 3.1 given Proposition 3.2. By passing to an iterate, we may assume that the original
+gluing data satisfies conditions (FM1)–(FM4). Since M0 is fixed by the respective dynamics, the fact that
+the tangent vectors to M0 at ξ are unitary eigenvectors of the Jacobian matrix J = JacFb (ξ) is immediate.
+By passing to even higher iterate, we may assume that the algebraic and geometric multiplicities of the
+eigenvalue 0 coincide. So what remains is to determine the dimension of the kernel of J.
+   Let ξ ∈ M0 , and suppose for the purpose of a contradiction that there exists an eigenvector v of
+the Jacobian matrix J(ξ) that is not a tangent vector to M0 at ξ, and with corresponding eigenvalue λ
+unequal to 0. Then clearly v cannot be a tangent vector to Me either, since the invariant manifold is
+                                                                             k
+projected onto the fixed manifold. By identifying the tangent space with C2 −1 we obtain
+                                    Fb(ξ + ε · v) = ξ + ελ · v + O(ε2 ).
+Since v is not a tangent vector to Me and λ ̸= 0, this contradicts Proposition 3.2.                       □
+   In the proof of Proposition 3.2, we will follow the notation used in Section 2.2. In particular, we
+assume that V (H) = {w1 , . . . , wm } and set I(e) = {i : wi ∈ e} for a given e ∈ E(H). We also set
+                                                                          [
+                          E := {Φ(j) : j = 1, . . . , k} and I(E) :=         I(e).
+                                                                               e∈E
+
+Furthermore, given a non-zero tuple [x] = [x1 , . . . , xk ] ∈ {0, 1}k , we denote by χx the unit vector in
+   k
+C(2 −1) whose [x]n -coordinate equals 1.
+Proof of Proposition 3.2. We consider one of the defining equations in (3.1), and we wish to prove that its
+partial derivatives with respect to any of the variables [u]n vanish. We first claim that this is equivalent
+to the statement that the vector
+                                     X         1                    1
+                             vx =                   · χej − Q                  · χx .
+                                   j: x =1
+                                           [ej ]n+1          j: xj =1 [ej ]n+1
+                                         j
+
+
+is a left-eigenvector of the Jacobian matrix J = J(ξ), which is what we will prove.
+                 THE INDEPENDENCE POLYNOMIAL ON RECURSIVE SEQUENCES OF GRAPHS                                   13
+
+
+   To see the equivalence, note that the vector vx is a left-eigenvector of J if and only if the product
+of vx with any column vector of the Jacobian matrix J is zero. A column of the Jacobian matrix J is
+obtained by taking the derivative of each coordinate function [y]n+1 (with [y] ̸= [0]) with respect to a
+fixed coordinate, which we denote by [u]n = [u1 , . . . , uk ]n . We therefore need to show that
+            X          1         ∂                      1                ∂
+(3.2)                        ·       [ej ]n+1 − Q                    ·        [x]n+1 = 0       for all [u] ̸= [0],
+          j: xj =1
+                   [ej ] n+1   ∂[u]n             j: xj =1 [e j ] n+1   ∂[u] n
+                                                                           Q
+when evaluated at the point ξ ∈ M0 . When we multiply with j: xj =1 [ej ]n+1 we obtain that the partial
+derivative with respect to [u]n of the defining equation for the variable [x]n+1 vanishes, which is indeed
+what we needed to prove.
+   Let us recall that
+                                                                     !                          
+                                                X Y    m                      Y Ze (λ, Y, x)
+                                                           (y(i))n ·                            
+                                                                                     λ∥Y|e ∥
+                                     (x)n+1     Y     i=1                  e∈E(H)
+                          [x]n+1 =            =                      !                          
+                                     (0)n+1     X Y    m                      Y Ze (λ, Y, 0)
+                                                           (y(i))n ·                   ∥Y|e ∥
+                                                                                                 
+                                                Y     i=1
+                                                                                     λ
+                                                                           e∈E(H)
+                                                                    !                          
+                                                X m   Y                      Y Ze (λ, Y, x)
+                                                           [y(i)]n ·                  ∥Y|e ∥
+                                                                                                
+                                                Y     i=1
+                                                                                     λ
+                                                                          e∈E(H)
+                                              =                      !                         ,
+                                                X Y    m                     Y Ze (λ, Y, 0)
+                                                           [y(i)]n ·                           
+                                                Y     i=1
+                                                                                     λ∥Y|e ∥
+                                                                    e∈E(H)
+
+where [0]n is set to be 1. For convenience, we denote the expressions in the enumerator and denominator
+of the last fraction by ⟨x⟩n+1 and ⟨0⟩n+1 , respectively; that is, we have [x]n+1 = ⟨x⟩ n+1
+                                                                                    ⟨0⟩n+1 . Note that then
+                                                                    Y
+                             ⟨x⟩n+1 = ⟨0⟩n+1 · [x]n+1 = ⟨0⟩n+1 ·        [ej ]n+1
+                                                                      j: xj =1
+
+since ξ is on the fixed submanifold M0 . We also have
+                            ⟨ej ⟩n+1 = ⟨0⟩n+1 · [ej ]n+1      for each j = 1, . . . , k.
+   Now we simply compute the partial derivatives with respect to [u]n in (3.2) using the quotient rule,
+and collect all the items under the common denominator ⟨0⟩2n+1 . After setting the respective numerator
+to be equal to zero (and using the two equations above for ⟨x⟩n+1 and ⟨ej ⟩n+1 ), we get the following
+equivalent identity (after dividing by the common factor ⟨0⟩n+1 ):
+                              X           1        ∂                      ∂
+                                               ·       ⟨ej ⟩n+1 − ∥x∥ ·       ⟨0⟩n+1 =
+                            j: xj =1
+                                      [ej ]n+1 ∂[u]n                    ∂[u]n
+(3.3)
+                                       1             ∂               ∂
+                           Q                     ·       ⟨x⟩n+1 −        ⟨0⟩n+1 .
+                               j: xj =1 [ej ]n+1 ∂[u]n             ∂[u]n
+   Thus we need to compare the partial derivatives of ⟨ej ⟩n+1 , ⟨x⟩n+1 , and ⟨0⟩n+1 with respect to [u]n
+(at the point ξ ∈ M0 ). These have the following form
+                                        m
+                                                  !                       
+                              ∂   X    Y                Y    Ze (λ, Y, z) 
+(3.4)                                      [y(i)]n ·                        ,
+                            ∂[u]n
+                                  Y    i=1
+                                                                 λ∥Y|e ∥
+                                                           e∈E(H)
+14                                    MIKHAIL HLUSHCHANKA AND HAN PETERS
+
+
+where z is either ej , x, or 0, respectively. We note that the three respective sums run over all possible
+assignments Y = (y(1), . . . , y(m)) on the marked vertices of the copies G1 (n), . . . , Gm (n). We subdivide
+each such sum by first summing over all assignments YE on the vertex set
+                                      n
+                                      vΛ(ℓ) (i) : i ∈ I(e), e = Φ(ℓ) ∈ E ,
+
+which correspond to the marked vertices joined by the connecting graphs Σe with e = Φ(ℓ) for some
+ℓ ∈ {1, . . . , k}, and afterward summing over all assignments Y′ on the remaining marked vertices in the
+copies. It suffices to check the desired identity for one assignment Y′ at a time. The use of the product
+                                    ∂
+rule for the partial derivative ∂[u]  n
+                                        of each of the respective summands results in a sum of m terms
+                                                                     
+                                     Y    Ze (λ, Y, z)  Y                   ∂
+                                                       ·       [y(s)]n  ·       [y(i)]n ,
+                                            λ∥Y|e ∥        s̸=i
+                                                                            ∂[u]n
+                                 e∈E(H)
+
+                                                                                                  ∂
+one for each i = 1, . . . , m. Now we observe that the partial derivative ∂[u]                      n
+                                                                                                      [y(i)]n equals 0 unless
+[y(i)]n = [u]n , in which case the derivative is 1. Hence, to check (3.3) it is enough to show the following
+identity for each i ∈ {1, . . . , m} and all assignments Y = Y′ ∪ YE that satisfy [y(i)]n = [u]n :
+                                                                                                    
+                                                    Y                                             
+                         X             1         X           Ze (λ, Y, ej )          Y
+                                              ·                             ·             [y(s)]n 
+                       j: xj =1
+                                  [e   ]
+                                      j n+1
+                                                 YE     e∈E
+                                                                λ∥Y|e ∥
+                                                                                s̸=i,s∈I(E)
+                                                                                          
+                                             
+                                        X Y Ze (λ, Y, 0)                 Y               
+                       − ∥x∥ ·                                   ·              [y(s)]n  =
+                                        YE     e∈E
+                                                      λ∥Y|e ∥
+                                                                    s̸=i,s∈I(E)
+                                                                                                     
+                                                       Y                                           
+                                   1               X          Ze (λ, Y, x)            Y
+                                               ·                              ·            [y(s)]n 
+                                                                 λ∥Y|e ∥
+                       Q
+                          j: xj =1   [e j ]n+1
+                                                   YE     e∈E                    s̸=i,s∈I(E)
+                                                                                     
+                              X  Y Ze (λ, Y, 0)                 Y                 
+                       −                                  ·              [y(s)]n  .
+                              Y          e∈E
+                                                λ∥Y|e ∥
+                                 E                        s̸=i,s∈I(E)
+
+Let us subdivide each sum over YE above into k sums, each summing over all assignments Ye with
+e = Φ(ℓ), ℓ = 1, . . . , k. By assumption (FM4), we can rewrite the above identity as follows:
+                                                                                                     
+                                                                                                   
+                            X            1         Y  X     Ze (λ, Ye , ej )         Y
+                                                ·                            ·              [y(s)]n 
+                          j: xj =1
+                                    [e   ]
+                                        j n+1
+                                                  e∈E Ye
+                                                                 λ∥Ye ∥
+                                                                                 s̸=i,s∈I(e)
+                                                                                           
+                                                  
+                                           Y X Ze (λ, Ye , 0)            Y                
+                          − ∥x∥ ·                                 ·             [y(s)]n  =
+                                          e∈E Ye
+                                                        λ∥Ye ∥
+                                                                     s̸=i,s∈I(e)
+(3.5)                                                                                                 
+                                                                                                    
+                                     1              Y    X     Ze (λ, Ye , x)         Y
+                                                 ·                             ·             [y(s)]n 
+                                                                   λ∥Ye ∥
+                          Q
+                             j: xj =1  [e j ]n+1
+                                                    e∈E Ye                        s̸=i,s∈I(e)
+                                                                                     
+                                              
+                                 Y X Ze (λ, Ye , 0)              Y                  
+                          −                                ·             [y(s)]n  .
+                                 e∈E Y
+                                                  λ∥Ye ∥
+                                      e                    s̸=i,s∈I(e)
+                THE INDEPENDENCE POLYNOMIAL ON RECURSIVE SEQUENCES OF GRAPHS                                      15
+
+
+  We now decompose E as the disjoint union E0 ⊔ E1 , where
+
+                           E0 := {Φ(ℓ) : xℓ = 0}                  and E1 := {Φ(ℓ) : xℓ = 1}.
+
+Then each of the products in (3.5) has the following common factor:
+
+                                      Y X  Ze (λ, Ye , 0)                      Y                   
+                                                                         ·                [y(s)]n .
+                                  e∈E0 Ye
+                                                           λ∥Ye ∥
+                                                                             s̸=i,s∈I(e)
+
+
+After canceling it out, we arrive to the following identity:
+                                                                                               
+                       X            1         Y X  Ze (λ, Ye , ej )            Y             
+                                         ·                   ∥Ye ∥
+                                                                         ·             [y(s)]n 
+                     j: xj =1
+                               [e j ]n+1                    λ
+                                             e∈E1 Ye                        s̸=i,s∈I(e)
+                                                                                      
+                                              
+                                      Y X Ze (λ, Ye , 0)            Y                
+                     − ∥x∥ ·                         ∥Ye ∥
+                                                              ·             [y(s)]n  =
+                                     e∈E1 Ye
+                                                    λ
+                                                                s̸=i,s∈I(e)
+(3.6)                                                                                          
+                                                                                              
+                                1               Y X Ze (λ, Ye , x)               Y
+                     Q                     ·                   ∥Ye ∥
+                                                                           ·            [y(s)]n 
+                        j: xj =1 [ej ]n+1      e∈E1 Ye
+                                                             λ
+                                                                             s̸=i,s∈I(e)
+                                                                                
+                                        
+                             Y X Ze (λ, Ye , 0)             Y                  
+                     −                        ∥Ye ∥
+                                                         ·           [y(s)]n  .
+                            e∈E Y
+                                             λ
+                              1       e                           s̸=i,s∈I(e)
+
+
+  Using (2.7) and the fact that ξ ∈ M0 , we have that the following is true for each j:
+
+                                              X             ∥Y      ∥    ZΦ(j) (λ, YΦ(j) , ej )
+                                                      [eΛ(j) ]n Φ(j) ·
+                                              YΦ(j)
+                                                                                  λ∥YΦ(j) ∥
+                         [ej ]n+1 = X
+                                                             ∥Y     ∥        ZΦ(j) (λ, YΦ(j) , 0)
+                                                      [eΛ(j) ]n Φ(j) ·
+                                              YΦ(j)
+                                                                                  λ∥YΦ(j) ∥
+(3.7)                                         X  ZΦ(j) (λ, YΦ(j) , ej )                   Y                  
+                                                                                    ·               [y(s)]n
+                                              YΦ(j)
+                                                              λ∥YΦ(j) ∥                 s∈I(Φ(j))
+                                      = X                                                                .
+                                            ZΦ(j) (λ, YΦ(j) , 0)                           Y
+                                                                                   ·            [y(s)]n
+                                              YΦ(j)
+                                                              λ∥YΦ(j) ∥                 s∈I(Φ(j))
+
+
+It follows that when i ∈
+                       / I(Φ(j)) for j with xj = 1, then:
+                                                                                  
+                             1       Y X  Ze (λ, Ye , ej )        Y             
+                                  ·                ∥Ye ∥
+                                                            ·             [y(s)]n 
+                         [ej ]n+1                 λ
+                                    e∈E1 Ye                    s̸=i,s∈I(e)
+                              Y X  Ze (λ, Ye , 0)      Y               
+                         −                         ·          [y(s)]  n   =0
+                            e∈E Y
+                                         λ∥Ye ∥
+                                  1       e                         s̸=i,s∈I(e)
+16                                    MIKHAIL HLUSHCHANKA AND HAN PETERS
+
+
+and
+                              1      X  ZΦ(j) (λ, YΦ(j) , x)             Y                
+                                   ·                              ·                [y(s)]n
+                          [ej ]n+1
+                                     YΦ(j)
+                                                 λ∥YΦ(j) ∥          s̸=i,s∈I(Φ(j))
+                               X  ZΦ(j) (λ, YΦ(j) , 0)          Y                 
+                          −                              ·                 [y(s)]n    = 0.
+                             Y
+                                           λ∥YΦ(j) ∥       s̸=i,s∈I(Φ(j))
+                               Φ(j)
+
+The desired equality (3.6) now immediately follows since i ∈ I(Φ(j0 )) for at most one j0 ∈ {1, . . . , k} by
+assumption (FM4).                                                                                           □
+
+                                           4. Boundedness of zeros
+     We now finish the proof our main result.
+Proposition 4.1. Let (H, Σ, Υ, Φ) be a stable and expanding gluing data with parameters m, k, let R =
+                                                                            k         k
+R(H,Σ,Υ,Φ) be the respective graph recursion, and let Fb = Fb(H,Σ,Υ,Φ) : P(2 −1) → P(2 −1) be the dynamical
+system on projective space induced by the recursion (2.2). Suppose also that G0 is a maximally independent
+                                                                                        k
+starting graph (with k marked vertices labeled 1, . . . , k), and let z0 = z0 (λ) ∈ P(2 −1) be the induced
+starting value.
+   Given any ε > 0, there is C(ε) > 0 such that the following hols: If |λ| > C(ε), then the Fb-orbit (zn )n≥0
+converges to a periodic orbit on the periodic submanifold M0 that is ε-close to the point [0 : . . . : 0 : 1] ∈
+   k
+P(2 −1) .
+Proof. Without loss of generality, we may replace Fb with a sufficiently high iterate so that all periodic
+labels become fixed under the induced dynamics. By Theorem 3.1, we may further assume that the fixed
+submanifold M0 is normally superattracting.
+   Next, we introduce new coordinates:
+                                Lx1 , . . . , xk Mn := λ−(x1 +···+xk ) · (x1 , . . . , xk )n .
+It is easy to see that the recursion (2.2) may then be rewritten in the following way:
+                                                      m
+                                                               !                               
+                                           X         Y                 Y
+(4.1)       LxMn+1 = λ−(x1 +···+xk ) ·                  Ly(i)Mn ·           ZΣe (λ, Y|e , x|e ) .
+                                        Y=(y(1),...,y(m))      i=1                  e∈E(H)
+
+Indeed, in the new coordinates, the marked vertices in the copies joined by each connecting graph are no
+longer double counted, since they are ignored in the variables Ly(i)Mn .
+    Let F
+        b : P(2k −1) → P(2k −1) be the map Fb in these new coordinates. Note that the defining equations for
+the induced fixed manifold of F   b remain the same. It follows that M0 remains normally superattracting
+with respect to F . b
+    Since G0 is maximally independent, the starting value z0 (λ) converges in the new coordinates to the
+                           k
+point [1 : . . . : 1] ∈ P(2 −1) as λ converges to infinity. Note that the point [1 : . . . : 1] lies on the fixed
+                                                                                                             k
+manifold M0 . It follows that, for any ε′ > 0, there exists a δ(ε′ )-neighborhood of [1 : . . . : 1] in P(2 −1)
+that is contracted under F   b to the ε′ -neighborhood of [1 : . . . : 1] in the fixed manifold M0 . Hence, for
+|λ| > C(ε ), the starting value z0 (λ) is in the δ(ε′ )-neighborhood of [1 : . . . : 1], and thus the F
+           ′                                                                                           b -orbit of
+                                                  ′
+z0 (λ) converges to a fixed point within the ε - neighborhood of [1 : . . . : 1] in the fixed manifold M0 .
+After changing back to the original coordinates we obtain the desired statement.                                □
+
+     Our final claim in the main result is now an immediate consequence.
+                   THE INDEPENDENCE POLYNOMIAL ON RECURSIVE SEQUENCES OF GRAPHS                                          17
+
+
+Corollary 4.2. Let (H, Σ, Υ, Φ) be a stable and expanding gluing data with parameters m, k, R =
+R(H,Σ,Υ,Φ) be the respective graph recursion, and (Gn )n≥0 be the sequence of marked graphs defined
+by R starting with a maximally independent graph G0 . Then the zeros of the independence polynomials
+ZGn (λ) are uniformly bounded.
+                                                        k
+Proof. Let z0 = z0 (λ) be the initial value in P(2 −1) , and (zn )n≥0 be the respective Fb-orbit. Recall that
+                                                                               
+                                        X                            X (x)n
+                          ZGn (λ) =             (x)n = (1)n · 1 +              ,
+                                              k
+                                                                           (1)n
+                                          (x)∈{0,1}                         (x)̸=(1)
+
+where (1) = (1, . . . , 1).
+    By Proposition 4.1, the points zn converge to a periodic orbit that lies arbitrarily close to [0 : . . . : 0 :
+         k
+1] ∈ P(2 −1) for λ near infinity. In fact, it follows from the proof of Proposition 4.1 that the entire orbit
+lies arbitrarily close to this periodic orbit for sufficiently large λ. It follows that ZGn (λ) cannot be zero
+for |λ| sufficiently large, which completes the proof.                                                          □
+
+                                                      References
+[BGGŠ20]  I. Bezáková, A. Galanis, L.A. Goldberg, and D. Štefankovič. Inapproximability of the independent set polyno-
+           mial in the complex plane. SIAM J. Comput., 49(5):STOC18–395–STOC18–448, 2020.
+[BLR17]    P. Bleher, M. Lyubich, and R. Roeder. Lee-Yang zeros for the DHL and 2D rational dynamics, I. Foliation of
+           the physical cylinder. J. Math. Pures Appl. (9), 107(5):491–590, 2017.
+[BLR20]    P. Bleher, M. Lyubich, and R. Roeder. Lee-Yang-Fisher zeros for the DHL and 2D rational dynamics, II. Global
+           pluripotential interpretation. J. Geom. Anal., 30(1):777–833, 2020.
+[CR21]     I. Chio and R. Roeder. Chromatic zeros on hierarchical lattices and equidistribution on parameter space. Ann.
+           Inst. Henri Poincaré D, 8(4):491–536, 2021.
+[dBBG+ 24] D. de Boer, P. Buys, L. Guerini, H. Peters, and G. Regts. Zeros, chaotic ratios and the computational complexity
+           of approximating the independence polynomial. Math. Proc. Cambridge Philos. Soc., 176(2):459–494, 2024.
+[dBBPR23] D. de Boer, P. Buys, H. Peters, and G. Regts. On boundedness of zeros of the independence polynomial of tor.
+           Preprint arXiv:2306.12934, 2023.
+[DDN11]    D. D’Angeli, A. Donno, and T. Nagnibeda. Partition functions of the Ising model on some self-similar
+           Schreier graphs. In Random walks, boundaries and spectra, volume 64 of Progr. Probab., pages 277–304.
+           Birkhäuser/Springer Basel AG, Basel, 2011.
+[DGL23]    N.-B. Dang, R. Grigorchuk, and M. Lyubich. Self-similar groups and holomorphic dynamics: renormalization,
+           integrability, and spectrum. Arnold Math. J., 9(4):505–597, 2023.
+[GGŠ17]   A. Galanis, L.A. Goldberg, and D. Štefankovič. Inapproximability of the independent set polynomial below the
+           Shearer threshold. In 44th International Colloquium on Automata, Languages, and Programming, volume 80
+           of LIPIcs. Leibniz Int. Proc. Inform., pages Art. No. 28, 13. Schloss Dagstuhl. Leibniz-Zent. Inform., Wadern,
+           2017.
+[HPR20]    T. Helmuth, W. Perkins, and G. Regts. Algorithmic Pirogov-Sinai theory. Probab. Theory Related Fields,
+           176(3-4):851–895, 2020.
+[LY52]     T.D. Lee and C.N. Yang. Statistical theory of equations of state and phase transitions. II. Lattice gas and Ising
+           model. Phys. Rev. (2), 87:410–419, 1952.
+[PR17]     V. Patel and G. Regts. Deterministic polynomial-time approximation algorithms for partition functions and
+           graph polynomials. SIAM J. Comput., 46(6):1893–1919, 2017.
+[PR19]     H. Peters and G. Regts. On a conjecture of Sokal concerning roots of the independence polynomial. Michigan
+           Math. J., 68(1):33–55, 2019.
+[RL19]     J. Rivera-Letelier. Complex dynamics and the neighbor exclusion model on the Cayley tree. http://www.
+           fields.utoronto.ca/talks/Complex-dynamics-and-neighbor-exclusion-model-Cayley-tree, 2019. Fields
+           Center, Toronto.
+[vW23]     J. van Willigen. The hard-core model on infinite trees. Master Thesis, available at https://scripties.uba.
+           uva.nl/search?id=record_53670, University of Amsterdam, 2023.
+[YL52]     C.N. Yang and T.D. Lee. Statistical theory of equations of state and phase transitions. I. Theory of condensa-
+           tion. Phys. Rev. (2), 87:404–409, 1952.
+18                             MIKHAIL HLUSHCHANKA AND HAN PETERS
+
+
+  Korteweg-de Vries Instituut voor Wiskunde, Universiteit van Amsterdam, 1090 GE
+Amsterdam, The Netherlands
+  Email address: mikhail.hlushchanka@gmail.com
+
+  Korteweg-de Vries Instituut voor Wiskunde, Universiteit van Amsterdam, 1090 GE
+Amsterdam, The Netherlands
+  Email address: h.peters@uva.nl
+

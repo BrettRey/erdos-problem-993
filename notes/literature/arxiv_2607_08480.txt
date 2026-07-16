@@ -1,0 +1,1499 @@
+                                                    MULTIPLICITY OF NEGATIVE ONE OF INDEPENDENCE
+                                                               POLYNOMIALS OF GRAPHS
+
+
+                                                    OM PRAKASH BHARDWAJ, TRUNG CHAU, SAYEED IKRAM, GARGI LATHER,
+                                                            VASUDEVA NANJANGUD, AND CHITRA VENUGOPAL
+
+
+                                                  Abstract. We initiate the study of the multiplicity of negative one of independence poly-
+                                                  nomials of graphs. In this article, we simply refer to this as the multiplicity of a graph. As
+                                                  applications, we provide a graph-theoretic description of trees whose independence complexes
+                                                  are contractible, give a new sufficient condition for independence polynomials of graphs to be
+                                                  log-concave, and finally, determine possible pairs (mult−1 PG , α(G)), where PG denotes the
+                                                  independence polynomial of G, and α(G) the independence number. The study of the pairs
+                                                  (mult−1 PG , α(G)) is equivalent to finding all pairs of the numerator degree and denominator
+
+
+
+
+arXiv:2607.08480v1 [math.CO] 9 Jul 2026
+                                                  degree of the Hilbert series of the edge ideal of G. We also use spectral graph theory to obtain
+                                                  results on the multiplicity of line graphs of forests. Finally, we give some translations and
+                                                  applications in combinatorial commutative algebra.
+
+
+
+
+                                                                                      1. Introduction
+
+                                             All graphs in this article are assumed to be finite and simple. For a graph G, let PG (x)
+                                          denote the independence polynomial of G, i.e.,
+                                                                                          ∞
+                                                                                          X
+                                                                                 PG (x) =    gi xi
+                                                                                                     i=0
+                                          where g0 = 1, and gi denotes the number of independent sets of G of size i, for each i > 0.
+                                          Independence polynomials are ubiquitous in the literature of graph theory. We refer to [32] for
+                                          a comprehensive survey. These polynomials are also known in statistical physics as partition
+                                          functions of hard-core lattice gas [38]. The evaluation PG (−1) is sometimes referred to as the
+                                          modularity of G [18]. The values of PG (−1), and in particular, when one has |PG (−1)| ≤ 1,
+                                          have been studied extensively in different contexts [3, 10, 12, 17, 27, 35].
+                                              The independent sets of a graph G form a simplicial complex, called the independence complex
+                                          of G, denoted by Ind(G). Modularity has subtly appeared in the study of independence complex,
+                                          as we have PG (−1) = −χ̃(Ind(G)), where χ̃(Ind(G)) denotes the reduced Euler characteristic
+                                          of Ind(G). Recall that a ternary graph is one that does not have any induced cycle of length
+                                          divisible by 3. It was a conjecture by Galai and Meshulam, now proven by Chudnovsky, Scott,
+                                          Seymour, and Spirkl [10], that
+                                                    G is a ternary graph ⇐⇒ |PH (−1)| ≤ 1 for any induced subgraph H of G.
+                                          Kim [30] provided a different characterization for ternary graphs, confirming Engström’s con-
+                                          jecture [13]:
+
+                                            G is a ternary graph ⇐⇒ Ind(H) is either contractible or homotopy equivalent to a sphere,
+                                                                                                               for any induced subgraph H of G.
+                                          These two characterizations are directly related since for any graph G, Ind(G) being contractible
+                                          implies that PG (−1) = 0, and Ind(G) being homotopy equivalent to a sphere implies that
+                                                                                                 1
+2
+
+
+PG (−1) = ±1. Therefore, providing that G is ternary, we have an equivalent statement: Ind(G)
+is contractible if and only if PG (−1) = 0. A homological/topological characterization for this
+was obtained recently by Faridi and Holleben [16].
+    In this article, we provide a graph-theoretic description of trees T that satisfy PT (−1) = 0,
+or equivalently, have a contractible independence complex. This is our first main result.
+Theorem 1.1 (Theorem 3.10). Let T be a tree. Then the independence complex Ind(T ) is
+contractible if and only if there exists a tree T ′ and a family of rooted trees C such that T is
+isomorphic to G(T ′ , C) as graphs.
+     We refer to Section 3 for the exact definition of the grafting operation G. As a preview, we
+present an example of what such trees look like. Let T ′ be the path on three vertices. We replace
+every edge of T ′ with a path on four vertices. We call the resulting graph the 3-subdivision of
+T ′ . There are four new vertices compared to T ′ , and we name them v1 , v2 , v3 , v4 . Next, let
+C = {(T1 , u1 ), (T2 , u2 ), (T3 , u3 ), (T4 , u4 )} be a family of rooted trees. By a rooted tree, we mean
+a tree together with a fixed vertex of the tree. The grafting of T ′ and C, denoted by G(T ′ , C), is
+defined to be the graph obtained by identifying ui with vi for each i = 1, 2, 3, 4. We provide a
+picture below.
+                                                        v1     v2              v3    v4
+
+
+
+                                         T2                    T3
+                           v1 = u1                                     v4 = u4
+                                      v2 = u2                v3 = u3
+                              T1                                          T4
+
+
+                Figure 1. A tree T ′ , its 3-subdivision, and the grafting G(T ′ , C).
+
+    We remark that determining PT (−1) for a tree T has been studied before in different areas
+of mathematics [16, 28, 36]. However, the known results are based on the output after inputting
+T into an algorithm, while Theorem 1.1 provides the explicit graph-theoretic description of such
+trees. In this line of attack, we also provide an algorithmic method to determine PT (−1), for
+a larger class of graphs: pseudo-forests (Theorem 3.4). Our result is closest to [36], with the
+difference in the output: a tree reduces to a union of isolated vertices via our process, but it
+reduces to a path via their process.
+    Next, we initiate the study of the multiplicity of x = −1 of the independence polynomial
+PG (x), which we denote by mult−1 PG . Throughout this article, we will simply refer to this
+as the multiplicity of a graph. Let α(G) denote the independence number of a graph G, i.e.,
+α(G) = deg PG . Recall that a polynomial
+                                         a0 + a1 x + · · · + an xn
+with positive coefficients is called log-concave if a2i ≥ ai−1 ai+1 for any 1 ≤ i ≤ n − 1. A log-
+concave polynomial is always unimodal. It is a problem of great interest in graph theory to
+determine which graphs have log-concave/unimodal independence polynomials [11, 20, 26, 31,
+33, 37, 39]. Our next main result gives a new such class of graphs.
+Theorem 1.2 (Theorem 4.1). If mult−1 (G) ≥ α(G) − 2, then PG is log-concave.
+   Determining all pairs of (mult−1 PG , α(G)) is the same as determining all pairs of dimensions
+and degrees of the h-polynomial of edge ideals, which are all pairs of degrees of the numerator
+                                                                                                  3
+
+
+and denominator of the corresponding Hilbert series written as a rational function (see Section 7
+for definitions). To that end, our final goal is to determine the following sets:
+             MI(n) := {(mult−1 PG , α(G)) | G is a graph on n vertices},
+            MI c (n) := {(mult−1 PG , α(G)) | G is a connected graph on n vertices},
+                         ∞
+                         [                               ∞
+                                                         [
+                MI :=          MI(n),    and   MI c :=         MI c (n),
+                         n=1                             n=1
+                                  c
+for each n ≥ 1. Except for MI (n), we have a complete description.
+Theorem 1.3 (Theorems 5.13 and 5.15). We have
+            MI(n) = {(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n − 1} ∪ {(n, n)} for each n ≥ 1,
+                MI = {(a, b) ∈ Z2≥0 | 0 ≤ a ≤ b} \ {(0, 0)},
+               MI c = {(a, b) ∈ Z2≥0 | 0 ≤ a < b} ∪ {(1, 1)}.
+
+   The set MI c (n) is harder to determine, as the requirement that the graph be connected
+imposes additional restrictions on its invariants. We obtain bounds for MI c (n) together with
+many realizable points on the boundary. The following is proved throughout Section 5.
+Theorem 1.4 (Lemma 5.1 and Theorem 5.7). Let n ≥ 2. We have
+                  MI c (n) ⊆ {(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n − 2} ∪ {(0, n − 1)}.
+Moreover, if n is odd, then
+{(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n−2 and a ≤ ⌈n/2⌉−1}\{(⌈n/2⌉−1, n−2)}∪{(0, n−1)} ⊆ MI c (n),
+and if n is even, then
+         {(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n − 2 and a ≤ n/2 − 1} ∪ {(0, n − 1)} ⊆ MI c (n).
+
+    In fact, the lower bound for MI c (n) in Theorem 1.4 is exactly the set MI c (n) itself for
+2 ≤ n ≤ 8. Whether this holds for larger n reduces to Question 5.8 and remains open.
+    Spectral theory is the study of eigenvalues of a matrix, i.e., the roots of the characteristic
+polynomial of a matrix. Spectral graph theory studies graph properties and invariants via the
+use of spectral theory. It is thus no surprise that techniques in spectral graph theory can produce
+interesting information on the multiplicity of graphs. In Section 6, we translate some results in
+spectral graph theory into our context, giving multiplicity of the line graph of forests.
+    Finally, we remark that mult−1 PG is exactly negative one multiplied with the a-invariant of
+the edge ideal of G [1]. In other words, every result we obtain in this article has an equivalent
+statement in combinatorial commutative algebra. We provide the translations for some, together
+with some applications, in Section 7. In particular, we obtain many results regarding possible
+pairs of a-invariants and dimension of edge ideals of graphs. These results align with the large
+(and growing) literature on constructing graphs with given parameters [4, 8, 9, 12, 14], and of
+finding tuples of invariants of edge ideals [15, 21, 22, 23, 24].
+
+                                        Acknowledgements
+
+    We thank Priyavrat Deshpande, Takayuki Hibi, Do Trong Hoang, Thiago Holleben, and
+Adam van Tuyl for helpful feedback on an earlier version of this article. The first named author
+is supported by ANRF National Postdoctoral Fellowship. The first, second, fourth, and sixth
+named authors are supported by the Infosys Foundation.
+4
+
+
+                                       2. Graph theory
+
+    Let G = (V (G), E(G)) be a finite simple graph. For a vertex v ∈ V (G), a vertex that forms
+an edge with v in G is called its neighbor in G. The set of all neighbors of v is denoted by
+NG (v), and NG [v] := NG (v) ∪ {v} is called the closed neighborhood of v. A vertex v ∈ V (G)
+is called a pendant vertex of G if |NG (v)| = 1. The unique neighbor of a pendant vertex is
+called a support vertex. Equivalently, a support vertex is a vertex whose neighborhood contains
+a pendant vertex. When G is well understood from the context, we will drop the subscripts.
+For a set of vertices U ⊆ V (G), let G \ U denote the induced subgraph of G with the vertex set
+V (G) \ U .
+    We recall the following classical result on computing independence polynomials.
+Lemma 2.1 ([25]). Let G be a finite simple graph and u ∈ V (G). Then
+                               PG (x) = PG\{u} (x) + xPG\N [u] (x).
+
+   We recall a common construction: cone over a set. Let G be a finite simple graph on [n] and
+U ⊆ V (G) be a set of vertices of G. The cone of G over V (G) \ U , denoted by cone(G, U ), is
+the graph on [n + 1] with
+                          E(cone(G, U )) = E(G) ∪ {{i, n + 1} | i ∈
+                                                                  / U }.
+It is straightforward to obtain the independence polynomial of cone(G, U ) when U is an inde-
+pendent set.
+Lemma 2.2. Let G be a finite simple graph and U an independent set of G. Then
+                              Pcone(G,U ) (x) = PG (x) + x(1 + x)|U | .
+Consequently, we have the following:
+    (1) if mult−1 PG < |U | < α(G), then
+                 mult−1 Pcone(G,U ) = mult−1 PG        and    α(cone(G, U )) = α(G);
+    (2) if |U | < mult−1 PG , then
+                     mult−1 Pcone(G,U ) = |U |   and    α(cone(G, U )) = α(G);
+    (3) if |U | = α(G) and G has an edge, then
+               mult−1 Pcone(G,U ) = mult−1 PG     and        α(cone(G, U )) = α(G) + 1.
+
+Proof. Assume that V (cone(G, U )) = V (G) ∪ {u}. Then the independence polynomial formula
+follows from Lemma 2.1, remarking that cone(G, U ) \ Ncone(G,U ) [u] = U is an independent set
+of size |U |. The second statement then follows straightforwardly.                          □
+
+   For two graphs G and H, their union, denoted by G ⊔ H, is the graph obtained by merging
+the vertex and edge sets, i.e.,
+                 V (G ⊔ H) = V (G) ⊔ V (H)       and    E(G ⊔ H) = E(G) ⊔ E(H).
+Here we use disjoint unions in the definition to emphasize that V (G) and V (H) are considered
+disjoint in this construction. The following result is standard, hence we do not provide a proof.
+Lemma 2.3. Let G and H be two finite simple graphs. Then PG⊔H (x) = PG (x)PH (x). In
+particular, we have
+          mult−1 PG⊔H = mult−1 PG + mult−1 PH            and     α(G ⊔ H) = α(G) + α(H).
+                                                                                                         5
+
+
+   We recall some common graphs. Let n ≥ 1 be an integer. The star graph and complete graph
+on [n], denoted by Sn and Kn , respectively, are the graphs with the edge sets:
+            E(Sn ) = {{i, n} : 1 ≤ i ≤ n − 1}     and      E(Kn ) = {{i, j} : 1 ≤ i < j ≤ n}.
+These two graphs, together with the graph of n isolated vertices, can be fully characterized using
+independence polynomials. The next three results are standard, and we leave them as exercises
+to interested readers.
+Lemma 2.4. Let G be a graph on n ≥ 1 vertices. The following are equivalent:
+    (1) G is ⊔nk=1 K1 , the graph of n isolated vertices;
+    (2) α(G) = n;
+    (3) mult−1 PG = α(G).
+Lemma 2.5. Let G be a graph on n ≥ 1 vertices. The following are equivalent:
+    (1) G is Kn , the complete graph on n vertices;
+    (2) α(G) = 1;
+    (3) PG (x) = 1 + nx.
+Lemma 2.6. Let G be a connected graph on n ≥ 2 vertices. The following are equivalent:
+    (1) G is Sn , the star graph on n vertices;
+    (2) α(G) = n − 1;
+    (3) PG (x) = (1 + x)n−1 + x.
+
+                        3. Pseudo-forests with positive multiplicity
+
+   The goal of this section is twofold. The first is to establish an algorithmic method to deter-
+mine the value of PG (−1), where G is a pseudo-forest. The second objective is to provide an
+explicit description of trees T with PT (−1) = 0. We start with a key lemma.
+Lemma 3.1 ([35, Lemma 2.1]). Let G be a finite simple graph and v be a support vertex of
+G. Then
+                            PG (−1) = (−1)PG\N [v] (−1).
+Definition 3.2. For a finite simple graph G, a support sequence of G is a sequence of vertices
+v1 , . . . , vt such that vi is a support vertex of G \ ∪i−1
+                                                         j=1 N [vj ] for any i ∈ [t].
+
+    By definition, a support sequence v1 , . . . , vt of G is maximal if and only if G \ ∪ti=1 NG [vi ] has
+no support vertex if and only if G \ ∪ti=1 NG [vi ] has no pendant vertex. It is noteworthy that two
+maximal support sequences may have different lengths, and the resulting graph G \ ∪ti=1 NG [vi ]
+is dependent on the sequence.
+Example 3.3. Let G be the following tree.
+
+                                                      v6
+
+
+                                     v1     v2      v3      v4     v5
+
+         Figure 2. A graph G with two maximal support sequences of different lengths.
+
+It is straightforward that v3 and v2 , v4 are both maximal support sequences of G. Moreover, we
+have G \ NG [v3 ] = K1 ⊔ K1 and G \ (NG [v2 ] ∪ NG [v4 ]) = K1 .
+6
+
+
+  Recall that a pseudo-forest is a graph G such that any connected component of G has at
+most one cycle. We shall compute the value of PG (−1) for any pseudo-forest G.
+Theorem 3.4. Let G be a pseudo-forest and v1 , . . . , vt a maximal support sequence of G for
+some integer t. Then G \ ∪ti=1 NG [vi ] is a union of cycles and isolated vertices, and
+                                 PG (−1) = (−1)t PG\∪ti=1 NG [vi ] (−1).
+Moreover, set H = G \ ∪ti=1 NG [vi ], and
+                           a := #k-cycles of H where k = 0 (mod 6),
+                            b := #k-cycles of H where k = 2, 4 (mod 6),
+                            c := #k-cycles of H where k = 3 (mod 6),
+                           d := #isolated vertices of H.
+Then                                      ®
+                                              0                  if d > 0,
+                              PG (−1) =
+                                              (−1)t+b+c (2)a+c   if d = 0.
+
+Proof. Since G is a pseudo-forest, the only subgraphs of G that do not have any pendant vertex
+are unions of cycles and isolated vertices. The first statement then follows from the fact that
+G \ ∪ti=1 NG [vi ] has no pendant vertex, and Lemma 3.1. The second statement comes from
+Lemma 2.3, and the formula
+                              
+                              
+                               2   if n = 0 (mod 6)
+                              
+                              1    if n = 1, 5 (mod 6)
+                   PCn (−1) =                                          ([18, Lemma 3.2.2]). □
+                              
+                              
+                               −1  if n = 2, 4 (mod 6)
+                                −2 if n = 3 (mod 6)
+                              
+
+
+    We obtain a quick corollary about the independence complex of G where G is a special class
+of pseudo-forests.
+Corollary 3.5. Let G be a ternary pseudo-forest, i.e., a pseudo-forest that does not have any
+cycle of length divisible by 3. Then the independence complex of G is contractible if and only if
+for any maximal support sequence v1 , . . . , vt of G, the graph G\∪ti=1 NG [vi ] has an isolated vertex.
+
+    Next, we characterize trees whose independence polynomial vanishes at −1. For this, we
+introduce some terminology.
+Definition 3.6. Let T be a tree. The 3-subdivision of T , denoted by T ∗ , is the tree obtained
+from T by replacing each edge e = {u, v} with a path of length 3. More precisely, for each edge
+e = {u, v}, introduce two new vertices wu,e and wv,e , and replace e with the edges {u, wu,e },
+{wu,e , wv,e }, and {wv,e , v}.
+
+    We present an example in Figure 3 to illuminate the concept.
+    Let T = (V, E) be a tree. For each edge e ∈ E and each vertex u ∈ e, let
+                                   C = {(Tu,e , ru,e ) : e ∈ E, u ∈ e}
+denote an indexed family of rooted graphs, where Tu,e = (Vu,e , Eu,e ) is a graph and ru,e ∈ Vu,e
+is a fixed vertex in Vu,e . We call such a C a family of rooted graphs corresponding to T . Here by
+a rooted graph, we mean a pair of a graph and a vertex of its.
+                                                                                                                                7
+
+
+                         1                                                             1
+                                                                                           w1,(1,2)
+
+                                                                                           w2,(1,2)
+                             2
+                                                                                   2
+                                                                      w2,(2,3)                 w2,(2,4)
+                                                                w3,(2,3)                              w4,(2,4)
+                                       4
+           3                                                      3                                       4
+                                                                                       w4,(4,5)                  w4,(4,6)
+                                                                                 w5,(4,5)                            w6,(4,6)
+
+                                                   6                                                                        6
+                         5                                                             5
+
+                                 Figure 3. A tree T and its 3-subdivision T ∗ .
+
+
+
+
+Definition 3.7. For a tree T = (V, E) and a family of rooted graphs C corresponding to T , the
+grafting of C on T , denoted by G(T, C), is defined as the graph obtained from T ∗ by identifying
+the root ru,e of Tu,e to the vertex wu,e of T ∗ for every pair (u, e) with u ∈ e and e ∈ E.
+   Formally,
+
+
+                                                       Ö                         è
+                                                                   G                   .
+                                     G(T, C) =             T∗ ⊔          Tu,e               ∼,
+                                                                  e∈E
+                                                                  u∈e
+
+
+
+
+where the relation ∼ identifies the root ru,e of each Tu,e with the vertex wu,e in T ∗ .
+
+
+Remark 3.8. As can be seen later (the proof of Theorem 3.10), when we study G(T, C), the
+structure of the graphs in C plays a minimal role. When there are no specific restriction on C,
+we will refer to G(T, C) as simply a grafting on T .
+
+
+Example 3.9. Let T be the tree as in Figure 3. The edge set E = {(1, 2), (2, 3), (2, 4), (4, 5), (4, 6)}.
+Consider the following family of rooted trees
+
+
+
+         C = {(T1,(1,2) , r1,(1,2) ), (T2,(1,2) , r2,(1,2) ), . . . , (T4,(4,6) , r4,(4,6) ), (T6,(4,6) , r6,(4,6) )}.
+
+
+
+The grafting G(T, C) of C on T will look like the following tree
+8
+
+
+                                                    1
+
+                                         T1,(1,2)
+
+
+                                                        T2,(1,2)
+
+
+
+
+                                                2           T2,(2,4)
+                              T3,(2,3)
+
+
+                                         T2,(2,3)                             4      T4,(4,6)
+                          3                                    T4,(2,4)
+
+
+
+                                                                          T4,(4,5)
+                                                             T5,(4,5)                  T6,(4,6)   6
+
+
+
+                                                                   5
+
+Theorem 3.10. A tree T satisfies PT (−1) = 0 if and only if there exist a tree T ′ and a family
+of rooted trees C such that T ∼
+                              = G(T ′ , C).
+
+Proof. We prove the forward implication by induction on the number of vertices in T .
+    If |V (T )| = 1, then T consists of a single vertex. In this case PT (−1) = 0, and we may take
+T ′ = T and C = ∅. Hence the statement holds.
+    Assume the statement holds for all trees with fewer than n vertices, and let T be a tree with
+|V (T )| = n such that PT (−1) = 0. Since T is a tree, it has a pendant vertex. Let u be a pendant
+vertex and let v be its unique neighbor. By Lemma 3.1, PT (−1) = (−1) · PT \N [v] (−1). Since
+PT (−1) = 0, it follows that PT \N [v] (−1) = 0. Clearly T \ N [v] is a forest. Let its connected
+                                                      Qk
+components be T1 , . . . , Tk . Then PT \N [v] (−1) = i=1 PTi (−1) = 0, so there exists at least one
+component, say Ti , such that PTi (−1) = 0. By the induction hypothesis, there exist a tree Ti′
+and a family Ci such that
+                                             Ti ∼= G(Ti′ , Ci ).
+    Since Ti arises from removing N [v], there exist vertices ui ∈ V (Ti ) and vi ∈ N (v) such that
+{ui , vi } ∈ E(T ).
+    We now reconstruct T from Ti , for which we consider the following two cases.
+Case 1: Suppose that ui ∈ V (Ti′ ). We define a tree T ′ and an indexed family C as follows. Let
+                        V (T ′ ) = V (Ti′ ) ∪ {u},                 E(T ′ ) = E(Ti′ ) ∪ {{u, ui }}.
+For the pair (u, {u, ui }), set wu,{u,ui } = ru,{u,ui } = v, and let Tu,{u,ui } be the subtree of T
+rooted at v obtained after deleting u and vi . Similarly, for the pair (ui , {u, ui }), set wui ,{u,ui } =
+rui ,{u,ui } = vi , and let Tui ,{u,ui } be the subtree of T rooted at vi obtained after deleting v and
+ui . Finally, define
+                         C = Ci ∪ {(Tu,{u,ui } , ru,{u,ui } ), (Tui ,{u,ui } , rui ,{u,ui } )}.
+Then, T ∼= G(T ′ , C), as required.
+Case 2: Suppose, ui lies in one of the trees Tu′ ,e′ of Ci , say ui ∈ V (Tu′ ,e′ ) for some (Tu′ ,e′ , ru′ ,e′ ) ∈
+Ci . We define T ′ and C as follows.
+                                                                                                          9
+
+
+   Set T ′ = Ti′ . Let T ′′ be the subtree of T rooted at ui obtained by deleting Ti \ {ui } from T ,
+and define
+                                         Tu′ ′ ,e′ = Tu′ ,e′ ∪ T ′′ .
+Now define
+                             C = Ci \ {(Tu′ ,e′ , ru′ ,e′ )} ∪ {(Tu′ ′ ,e′ , ru′ ,e′ )},
+                                                            
+
+where (Tu′ ′ ,e′ , ru′ ,e′ ) is indexed by the same pair (u′ , e′ ) as (Tu′ ,e′ , ru′ ,e′ ).
+  In this case as well, we obtain T ∼        = G(T ′ , C), as desired
+    For the converse, we need to prove that for any tree T and any indexed family C of rooted
+trees indexed by pairs of vertices and edges (u, e) of T , where the vertex u is an adjacent vertex
+of edge e, PG(T,C) (−1) = 0. Let u be a pendant vertex of G(T, C) which is also a pendant vertex
+of T , and v be the unique neighborhood of u. Thus, by Lemma 3.1, we have
+                                     PG(T,C) (−1) = (−1)PG(T,C)\N [v] (−1).
+Now, observe that G(T, C) \ N [v] is the disjoint union of G(T \ {v}, C \ {Tu,e , Tv,e }), Tu,e \ N [ru,e ],
+and Tv,e \ {rv,e }. Therefore, by Lemma 2.3, we get
+          PG(T,C) (−1) = (−1)PG(T \{v},C\{Tu,e ,Tv,e }) (−1)PTu,e \N [ru,e ] (−1)PTv,e \{rv,e } (−1).
+Now, consider the graph G(T \ {v}, C \ {Tu,e , Tv,e }) and repeat the same process by choosing a
+pendant vertex. Continuing this process and using Lemmas 3.1, 2.3 iteratively, we get
+                                                 Y
+         PG(T,C) (−1) = (−1)|V (T )−1| PK1 (−1)        PTu,e \N [ru,e ] (−1)PTv,e \{rv,e } (−1).
+                                                            e∈E
+                                                           u,v∈e
+
+Since PK1 (−1) = 0, we get PG(T,C) (−1) = 0. This completes the proof.                                   □
+Remark 3.11. A closer look at the proof of Theorem 3.10 reveals that in fact if T is a tree
+and C a family of rooted graphs corresponding to T , then PG(T,C) (−1) = 0. Thus the grafting
+operation gives more graphs G such that PG (−1) = 0. It is straightforward to see that if G is
+a connected graph with at least one edge, then the whiskered graph W(G) (see Definition 4.6)
+is a grafting on the path graph on two vertices, K2 . On the other side of the spectrum, not
+all graphs G with PG (−1) = 0 can be obtained by grafting. We present a smallest example (in
+terms of number of vertices) of such a connected graph below.
+
+
+
+
+           Figure 4. A graph with positive multiplicity that is not a grafting of a tree.
+
+
+                                    4. Graphs with high multiplicity
+
+   In this section we study graphs G with high values of mult−1 PG . The main result of this
+section is the following.
+Theorem 4.1. Let G be a finite simple graph on n ≥ 1 vertices. If mult−1 PG ≥ α(G) − 2, then
+PG is log-concave.
+                                                                                               α(G)
+   It is clear that mult−1 PG ≤ α(G), and equality occurs exactly when G is ⊔k=1 K1 (Lemma 2.4).
+For the rest of the section, if n ≥ 2, we assume that G has at least one edge. Then mult−1 PG ≤
+α(G) − 1. We analyze when the equality occurs in this case.
+10
+
+
+Lemma 4.2. Let G be a finite simple graph on n ≥ 1 vertices. Then mult−1 PG = α(G) − 1 if
+and only if
+                         PG (x) = (1 + x)α(G)−1 (1 + (n − α(G) + 1)x) ,
+and G ̸= ⊔nk=1 K1 . In particular, in this case, |E(G)| = n−α(G)+1
+                                                                   
+                                                             2       .
+
+Proof. Since PG is a polynomial of degree α(G), we have mult−1 PG = α(G) − 1 if and only if
+PG (x) = (1 + x)α(G)−1 (1 + cx) for some constant c such that 1 − c ̸= 0. Moreover, we know
+that the coefficient of x in PG (x) is n, which forces c = n − α + 1 in this case. Also, 1 − c ̸= 0 is
+equivalent to n ̸= α, which occurs if and only if G ̸= ⊔nk=1 K1 by Lemma 2.4. The first statement
+then follows.
+   For the second statement, note that the coefficient of x2 in PG (x) is exactly the number of
+non-edges of G. Therefore we have
+                                  Ç           å Ç             å Ç å
+                                    α(G) − 1        α(G) − 1        n
+                  (n − α(G) + 1)                +               =        − |E(G)|.
+                                    α(G) − 2             2           2
+The result then follows.                                                                            □
+
+     Next we investigate the condition mult−1 PG = α(G) − 2.
+Lemma 4.3. Let G be a finite simple graph on n ≥ 1 vertices. Then mult−1 PG = α(G) − 2 if
+and only if
+                              Ç                      ÇÇ            å         å å
+                       α(G)−2                          n − α(G) + 2
+      PG (x) = (1 + x)         1 + (n − α(G) + 2)x +                 − |E(G)| x2
+                                                             2
+and                                           Ç          å
+                                            n − α(G) + 1
+                                  |E(G)| ̸=               .
+                                                 2
+Moreover, in this case, we have |E(G)| < n−α(G)+2
+                                                  
+                                             2      .
+
+Proof. Since PG is a polynomial of degree α(G), we have mult−1 PG = α(G) − 2 if and only if
+PG (x) = (1 + x)α(G)−2 1 + ax + bx2 for some constants a, b with 1 − a + b ̸= 0. In this case,
+                                     
+we have
+                                                        ÇÇ å            å
+                α(G)−2            2                         n
+                                                               − |E(G)| x2 + · · · .
+                                    
+        (1 + x)        1 + ax + bx = PG (x) = 1 + nx +
+                                                            2
+By matching the first three coefficients, we obtain the system of equations
+                        ®
+                          a                  = n − α(G) + 2
+                                                                     .
+                          (α(G) − 2)a + b = n2 − |E(G)| − α(G)−2
+                                                 
+                                                                  2
+
+The first statement then straightforwardly follows from solving this system. For the second
+statement, observe that by matching the leading coefficients, we have
+            Ç              å
+              n − α(G) + 2
+                             − |E(G)| = b = #independent sets of G of size α(G),
+                    2
+which is positive by definition of α(G). This concludes the proof.                                  □
+
+     We are now ready to prove the main result of this section
+                                                                                                11
+
+
+Proof of Theorem 4.1. It is known that the product of two log-concave polynomials is log-
+concave [29]. Thus the result follows if mult−1 PG ≥ α(G) − 1, since PG factors into linear
+forms then. In the case mult−1 PG = α(G) − 2, by Lemma 4.3, we have
+                              Ç                       ÇÇ             å         å å
+                       α(G)−2                            n − α(G) + 2
+      PG (x) = (1 + x)         1 + (n − α(G) + 2)x +                   − |E(G)| x2
+                                                              2
+with n−α(G)+2
+               
+          2      − |E(G)| > 0. In other words, the polynomial
+                                          ÇÇ               å         å
+                                             n − α(G) + 2
+                    1 + (n − α(G) + 2)x +                    − |E(G)| x2
+                                                    2
+has positive coefficients, and since
+                                    Ç                  å     Ç            å
+                              2         n − α(G) + 2          n − α(G) + 2
+               (n − α(G) + 2) >                            ≥                − |E(G)|,
+                                             2                     2
+it is log-concave. The result then follows.                                                     □
+Remark 4.4. It is tempting to obtain an analog for the next case mult−1 PG = α(G) − 3, which
+implies that
+                             PG (x) = (1 + x)α(G)−3 (1 + ax + bx2 + cx3 )
+for some integers a, b, c. It is straightfroward that
+     a = n − α(G) + 3,
+         Ç             å
+           n − α(G) + 3
+     b=                  − |E(G)|,
+                2
+                            Ç            å Ç å
+                             n − α(G) + 3   n
+     c = (α(G) − 3)|E(G)| +               −    + #independent sets of G of size 3.
+                                   3        3
+It is unclear whether we have b > 0. If this is true, then we know at least that PG is unimodal by
+similar arguments as in the proof of Theorem 4.1, and the fact that the product of a log-concave
+polynomial and a unimodal one is unimodal [29].
+   We end this section with a natural question.
+Question 4.5. Which graphs G satisfy mult−1 PG = α(G) − 1 (or mult−1 PG = α(G) − 2)?
+   Despite the restrictive conditions that mult−1 PG ∈ {α(G) − 2, α(G) − 1} imposes on the
+graph G, there are surprisingly many graphs with either value for mult−1 PG . We shall recall a
+method to obtain either class.
+Definition 4.6. For a graph G on [n], let W(G) denote the graph on [2n] with
+                            E(W(G)) = E(G) ∪ {{i, i + n} | i ∈ [n]}.
+   Pictorially, W(G) is exactly G with a new pendant vertex each attached to vertices of G.
+The graph W(G) is sometimes called the whiskered graph of G, and can also be obtained by the
+operation of corona product. We give the example of K4 and W(K4 ) below as an illustration.
+
+
+
+
+                                  Figure 5. K4 and W(K4 ).
+
+   The independence polynomial of W(G) is well understood.
+12
+
+
+Lemma 4.7 ([34, Theorem 2.3]). Let G be a finite simple graph with at least one edge. Then
+                   mult−1 PW(G) = |V (G)| − α(G)       and   α(W(G)) = |V (G)|.
+
+    For example, G = W(Kn ) satisfies mult−1 PG = n − 1 = α(G) − 1. In fact we also have
+mult−1 PKn = 0 = α(Kn ) − 1. We remark that there are more graphs with this property, even
+in small number of vertices, and it poses a challenging problem to characterize them all.
+
+                    5. Pairs of multiplicity and independence number
+
+   The goal of this section is to provide bounds for MI c (n), together with lattice points in Z2≥0
+that can be realized on its boundary. It is clear that MI c (1) = {(1, 1)}. We note down the sets
+MI c (n) for 2 ≤ n ≤ 8 for an illustration.
+   For the rest of this section, we assume that n ≥ 2. We start with a straightforward upper
+bound for MI c (n).
+Lemma 5.1. Let G be a connected graph on n ≥ 2 vertices. Then 0 ≤ mult−1 PG < α(G) ≤
+n − 1. In other words,
+                       MI c (n) ⊆ {(a, b) | 0 ≤ a < b ≤ n − 2} ∪ {(0, n − 1)}.
+
+Proof. It is straightforward that
+                                    0 ≤ mult−1 PG ≤ α(G) ≤ n.
+However, either α(G) = n or mult−1 PG = α(G) would imply that G is the graph of n ≥ 2
+isolated vertices (Lemma 2.4), a contradiction. On the other hand, by Lemma 2.6, we have
+α(G) = n − 1 if and only if G is the star graph Sn , which in turn implies that mult−1 PG = 0.
+The result then follows.                                                                    □
+
+   The next goal is to present a lower bound for MI c (n). To do so, it is necessary to present
+graph operations where we can control both the multiplicity and independence number of a
+graph. The cone operation is one such operation. The following is a direct translation of
+Lemma 2.2. Thus we do not provide a proof.
+Lemma 5.2. Let n ≥ 1 be an integer and (a, b) ∈ MI c (n). Then we have the following:
+     (1) (a, b + 1) ∈ MI c (n + 1);
+     (2) (a, b) ∈ MI c (n + 1) if a + 2 ≤ b;
+     (3) (a′ , b) ∈ MI c (n + 1) for any 0 ≤ a′ < a.
+
+  A shortcoming of the above lemma is that it does not address the points (a, a+1) ∈ MI c (n).
+We give a positive answer to this in the next result.
+Lemma 5.3. Let n ≥ 2 be an integer and (a, a + 1) ∈ MI c (n) for some a ≥ 0. Then
+(a, a + 1) ∈ MI c (n + 1).
+
+Proof. Since (0, 1) is realized by the complete graph Kn (Lemma 2.5) for any n ≥ 2, we have
+(0, 1) ∈ MI c (n) for any n ≥ 2. Thus for the rest of the proof we can assume that a ≥ 1.
+    Let G be a connected graph on n vertices with mult−1 PG = a and α(G) = a + 1. The
+existence of G is guaranteed by the hypothesis (a, a + 1) ∈ MI c (n). Then by Lemma 4.2, we
+have
+                                 PG (x) = (1 + x)a (1 + (n − a)x).
+                                                                                                                      13
+
+
+        α                                   α                                     α
+
+    3               n=2                 3                  n=3                3                       n=4
+    2                                   2                                     2
+    1                                   1                                     1
+
+                                mult                                 mult                                      mult
+            1   2    3                           1     2     3                            1       2       3
+        α                                                     α
+
+    5                                  n=5                   5                                    n=6
+    4                                                        4
+    3                                                        3
+    2                                                        2
+    1                                                        1
+
+                                                mult                                                          mult
+            1   2    3      4     5     6                            1    2   3       4       5       6
+        α                                                        α
+
+    7                                                        7
+    6                                  n=7                   6                                    n=8
+    5                                                        5
+    4                                                        4
+    3                                                        3
+    2                                                        2
+    1                                                        1
+
+                                                mult                                                          mult
+            1   2    3      4     5     6                            1    2   3       4       5       6
+
+                         Figure 6. The set MI c (n) for n = 2, 3, 4, 5, 6, 7, 8.
+
+
+Since we have α(G) = a + 1, there exists an independent set U of G such that |U | = a. By
+Lemma 2.2, we have
+                Pcone(G,U ) (x) = PG (x) + x(1 + x)a = (1 + x)a (1 + (n − a + 1)x).
+Remark that 1 + (n − a + 1)(−1) = α(G) − n − 1 ≤ −1. Thus
+                     mult−1 Pcone(G,U ) = a            and       α(cone(G, U )) = a + 1.
+Finally, due to a ≥ 1, the graph cone(G, U ) is connected on n + 1 vertices. Thus (a, a + 1) ∈
+MI c (n + 1), as desired.                                                                    □
+14
+
+
+      As a consequence, we show that the set MI c (n) does become larger as n grows.
+Theorem 5.4. For any n ≥ 2, we have
+                                         MI c (n) ⊆ MI c (n + 1).
+
+Proof. Let (a, b) ∈ MI c (n). By Lemma 5.1, we have a < b. If a + 2 ≤ b, then the result follows
+from Lemma 5.2 (2). On the other hand, if b = a + 1, then the result follows from Lemma 5.3.
+This concludes the proof.                                                                     □
+
+      We shall construct graphs on the line mult−1 PG = ⌈n/2⌉ − 1.
+      For each r, s ≥ 1, let Tr,s and Tr denote the graphs where the vertex sets are
+                             V (Tr,s ) = [r + s + 2]   and   V (Tr ) = [2r + 5]
+and the edges sets are
+
+     E(Tr,s ) = {{1, 2}, {1, i}, {2, j + r} | 3 ≤ i ≤ r + 2 and 3 ≤ j ≤ s + 2}      and
+                            E(Tr ) = {{1, 2}, {2, 3}, {3, 4}, {3, 5}, {3, i}, {5, i + r} | 6 ≤ i ≤ r + 5}.
+
+   Pictorially, Tr,s is a tree of diameter 3, while Tr is a tree of diameter 4. We illustrate these
+graphs with some pictures below.
+
+
+
+
+                            Figure 7. The graphs T3,3 , T4,3 , T1 , and T2 .
+
+    A formula for the independence polynomial for a tree of diameter at most 4 has been obtained
+in [1, Proposition 5.5], and thus both the multiplicity and independence number of such a graph
+are known. We record the formulae for our specially constructed graphs below.
+Lemma 5.5 ([1, Remark 5.5 and Lemma 5.7]). For each r, s ≥ 1, we have
+                           mult−1 PTr,s = min{r, s}      and    α(Tr,s ) = r + s,
+and
+                              mult−1 PTr = r + 2       and   α(Tr ) = 2r + 2.
+
+      We will also need the following lemma.
+Lemma 5.6. Let n ≥ 2 be an integer and (a, b) ∈ MI c (n) for some a ≥ 0. Then (a + 1, b + 1) ∈
+MI c (n + 2).
+
+Proof. Let G be a connected graph with n vertices that realizes the pair (a, b), i.e., mult−1 PG =
+a and α(G) = b. The latter implies that there exists an independent set U of G of size b. Note
+                                                                                                       15
+
+
+that U is also an independent set of G ⊔ K1 . We then consider the graph cone(G ⊔ K1 , U ), a
+connected graph with n + 2 vertices by construction. It now suffices to show that
+                mult−1 Pcone(G⊔K1 ,U ) = a + 1     and   α(cone(G ⊔ K1 , U )) = b + 1.             (1)
+
+   Assume that b ≥ a + 2. Then by Lemma 2.3, we have
+                         mult−1 PG⊔K1 = a + 1 < b < b + 1 = α(G ⊔ K1 ).
+Thus (1) follows from Lemma 2.2.
+   Now we can assume that b = a + 1 since b > a by Lemma 5.1. By Lemmas 2.3 and 4.2, we
+have
+                          PG⊔K1 (x) = (1 + x)b (1 + (n − b + 1)x).
+Thus by Lemma 2.2, we obtain
+    Pcone(G⊔K1 ,U ) (x) = (1 + x)b (1 + (n − b + 1)x) + x(1 + x)b = (1 + x)b (1 + (n − b + 2)x),
+which implies α(cone(G ⊔ K1 , U )) = b + 1. On the other hand, since
+                             1 + (n − b + 2)(−1) = α(G) − n − 1 ≤ −1,
+we have mult−1 Pcone(G⊔K1 ,U ) = b = a + 1. Thus (1) holds, as desired.                                □
+
+   We are now ready to give a lower bound for MI c (n).
+Theorem 5.7. Let n ≥ 2 be an integer. If n is odd, then
+{(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n−2 and a ≤ ⌈n/2⌉−1}\{(⌈n/2⌉−1, n−2)}∪{(0, n−1)} ⊆ MI c (n),
+                                                                                      (2)
+and if n is even, then
+          {(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n − 2 and a ≤ n/2 − 1} ∪ {(0, n − 1)} ⊆ MI c (n).           (3)
+
+Proof. Note that the results follow from Figure 6 if n ≤ 8. We now proceed by induction on n.
+   Assume that n ≥ 8 is even. By induction, (3) holds for n − 2:
+   {(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n − 4 and a ≤ ⌈(n − 2)/2⌉ − 1} ∪ {(0, n − 3)} ⊆ MI c (n − 2).
+Note that ⌈(n − 2)/2⌉ = n/2 − 1 since n is even. We can then rewrite the above as follows:
+       {(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n − 4 and a ≤ n/2 − 2} ∪ {(0, n − 3)} ⊆ MI c (n − 2).
+By Lemmas 5.2 (1) and 5.6 and Theorem 5.4, we have
+MI c (n) ⊇ {(a, b), (a, b + 1), (a, b + 2), (a + 1, b + 1) ∈ Z2≥0 | (a, b) ∈ MI c (n − 2)}
+         ⊇ {(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n − 2 and a ≤ n/2 − 1} ∪ {(0, n − 1)} \ {(n/2 − 1, n − 2)}.
+On the other hand, the pair (n/2 − 1, n − 2) can be realized by the graph Tn/2−1,n/2−1 , a tree
+with n vertices, by Lemma 5.5. Thus (3) holds, as desired.
+   Now we can assume that n ≥ 9 is odd. By induction, (2) holds for n − 2:
+
+  {(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n − 4 and a ≤ ⌈(n − 2)/2⌉ − 1} \ {(⌈(n − 2)/2⌉ − 1, n − 4)}
+                                                                      ∪ {(0, n − 3)} ⊆ MI c (n − 2)
+Note that ⌈(n − 2)/2⌉ = (n − 1)/2 since n is odd. We can then rewrite the above as follows:
+
+  {(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n − 4 and a ≤ (n − 3)/2} \ {((n − 3)/2, n − 4)}
+                                                                      ∪ {(0, n − 3)} ⊆ MI c (n − 2).
+16
+
+
+Note that we have ((n − 3)/2, n − 5) ∈ MI c (n − 2) since n ≥ 9. By Lemmas 5.2 (1) and 5.6
+and Theorem 5.4, we then have
+       MI c (n) ⊇ {(a, b), (a, b + 1), (a, b + 2), (a + 1, b + 1) ∈ Z2≥0 | (a, b) ∈ MI c (n − 2)}
+                ⊇ {(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n − 2 and a ≤ (n − 1)/2} ∪ {(0, n − 1)}
+                             \ {((n − 1)/2, n − 2), ((n − 3)/2, n − 2), ((n − 1)/2, n − 3)}.
+On the other hand, the pairs ((n − 3)/2, n − 2) and ((n − 1)/2, n − 3) can be realized by the
+trees T(n−3)/2,(n−1)/2 and T(n−5)/2 , respectively, with both on n vertices, by Lemma 5.5. Thus
+(2) holds, as desired.                                                                       □
+
+    In fact, the lower bound in Theorem 5.7 is indeed the whole set MI c (n) for 2 ≤ n ≤ 8. We
+believe this to be always the case. It is straightforward to see that the equality reduces to the
+following question.
+Question 5.8. Given a connected graph G on n ≥ 2 vertices. Is it true that mult−1 PG ≤
+⌈n/2⌉ − 1?
+
+    We fell short of determining MI c (n). Instead we will determine the realizable points along
+its boundary, which according to Lemma 5.1 is determined by the three lines a = 0, b = n − 2,
+and b = a + 1 in the plane Z2≥0 . We start with the horizontal line b = n − 2.
+Theorem 5.9. Let n ≥ 2 be an integer. Then
+            MI c (n) ∩ {(a, n − 2) ∈ Z2≥0 } = {(a, n − 2) ∈ Z2≥0 | 0 ≤ a ≤ ⌊n/2⌋ − 1}.
+
+Proof. (⊆) : Let G be a graph n vertices with α(G) = n − 2. We can then set V (G) = [n] such
+that [n − 2] is an independent set of G. We want to show that mult−1 PG ≤ ⌊n/2⌋ − 1. Set
+      r = |{i ∈ [n − 2] | i is adjacent to n − 1, but not n}|          = |NG (n − 1) \ NG (n)|,
+      s = |{i ∈ [n − 2] | i is adjacent to n, but not n − 1}|          = |NG (n) \ NG (n − 1)|,
+      t = |{i ∈ [n − 2] | i is adjacent to n − 1 and n}|               = |NG (n − 1) ∩ NG (n)|.
+In particular we have r + s + t = n − 2. Applying Lemma 2.1, we have
+                                PG (x) = PG\{n} (x) + xPG\N [n] (x).                                (4)
+We have two cases.
+   Case 1: Assume that {n − 1, n} ∈    / E(G). Then G \ {n} is the disjoint union of the star
+graph Sr+t+1 with s isolated vertices, and that G \ N [n] is the star graph Sr+1 . Thus (4) gives
+PG (x) = (1 + x)s (1 + x)r+t + x + x ((1 + x)r + x) = (1 + x)n−2 + x(1 + x)r + x(1 + x)s + x2 .
+                                
+
+Note that n ≥ 3, as n = 2 would imply that G is the graph of two isolated vertices, a contra-
+diction to the hypothesis that G is connected. Thus
+                                  ®
+                                    0 if r = s = 0 or r, s > 0,
+                    mult−1 PG =
+                                    1 if exactly one between r and s is 0.
+If n = 3, then G being connected forces r = s = 0 and t = 1. Then mult−1 PG = mult−1 PS3 =
+0 ≤ ⌊3/2⌋ − 1, as desired. On the other hand, if n ≥ 4, then mult−1 PG ≤ 1 ≤ ⌊n/2⌋ − 1,
+as desired.
+    Case 2: Assume that {n − 1, n} ∈ E(G). Then G \ {n} is the disjoint union of the star
+graph Sr+t+1 with s isolated vertices, and that G \ N [n] is the graph of r isolated vertices. Thus
+(4) gives
+      PG (x) = (1 + x)s (1 + x)r+t + x + x(1 + x)r = (1 + x)n−2 + x(1 + x)r + x(1 + x)s .
+                                       
+                                                                                                  17
+
+
+Thus
+                                                     n−2
+                                                    õ      û j k
+                                                                n
+                         mult−1 PG = min{r, s} ≤            =       − 1,
+                                                       2        2
+as desired, where the inequality is due to the condition r + s + t = n − 2.
+   (⊇) : This follows from Theorem 5.7.                                                           □
+
+   All the possible points on the vertical line a = 0 can be realized.
+Corollary 5.10. Let n ≥ 2 be an integer. Then
+                   MI c (n) ∩ {(0, b) ∈ Z2≥0 } = {(0, b) ∈ Z2≥0 | 0 < b ≤ n − 1}.
+
+Proof. The inclusion (⊆) is from Theorem 5.1, while (⊇) follows from Theorem 5.7.                 □
+
+   The line b = a + 1 is a lot trickier. Intuitively, the points (a, a + 1) with low values of a can
+be realized. This is supported by Theorem 5.7. The question becomes how large a can be, in
+terms of a function in n, provided that (a, a + 1) can be realized in MI c (n).
+Proposition 5.11. For any n ≥ 2, if (a, a + 1) can be realized in MI c (n) for some integer a,
+then                                               √
+                                              1 + 8n − 7
+                                     a≤n−                    ,
+                                                     2
+with equality implying that the graph that realizes (a, a + 1) is a tree.
+
+Proof. Let G be a connected graph on n vertices with mult−1 PG = a and α(G) = a + 1. Since
+G is connected, it has at least n − 1 edges. By Lemma 4.2, we have
+                                   Ç               å
+                                      n − α(G) + 1
+                                                     ≥ n − 1.
+                                           2
+Solving this inequality, we obtain
+                                       √                                 √
+                              2n + 1 + 8n − 7                   2n + 1 − 8n − 7
+              either   α(G) ≥                       or   α(G) ≤                 .
+                                      2                                 2
+                                                                      √
+The former is not possible since it would imply that α(G) ≥ 2n+1+2 8n−7 > n. We thus obtain
+                                                    √
+                                           2n + 1 − 8n − 7
+                                   α(G) ≤                  .
+                                                   2
+Substituting α(G) = a + 1, we obtain the desired result.                                  □
+                                                                                     √
+Remark 5.12. Unfortunately, not all lattice points (a, a + 1) with a ≤ n − 1+ 28n−7 can be
+                               2
+realized in MI c (n). Let n = k 8+7 where k is an odd positive integer. We then have
+                                        √
+                                    1 + 8n − 7      k 2 − 4k + 3
+                                n−                =              .
+                                         2                2
+Consider the point                   Å 2
+                                      k − 4k + 3 k 2 − 4k + 5
+                                                                ã
+                              Ak =                ,                .
+                                           2             2
+                                                          2
+By Proposition 5.11, if a connected graph on n = k 8+7 vertices realizes Ak , it must be a
+tree. Experiments show that A3 , A5 , A7 can be realized, while A1 , A9 , A11 cannot, a somewhat
+surprising observation.
+
+   All pairs that can be realized by connected graphs, without the restriction on the number of
+vertices, can be determined easily.
+18
+
+
+
+
+                                         2
+            Figure 8. Trees on n = k 8+7 vertices that realize Ak for k = 3, 5, 7.
+
+
+Corollary 5.13. We have
+                      ∞
+                      [
+                           MI c (n) = {(a, b) ∈ Z2≥0 | 0 ≤ a < b} ∪ {(1, 1)}.
+                     n=1
+
+
+Proof. The containment (⊆) follows from Lemma 5.1 and the fact that MI c (1) = {(1, 1)}, while
+(⊇) follows from Theorem 5.7.                                                               □
+
+   Finally, we compute MI(n) for any n ≥ 1. Allowing disconnected graphs essentially means
+that the union operation can be used in graph construction.
+Lemma 5.14. If (a, b) ∈ MI(n) for some integers a, b, n, then (a + 1, b + 1) ∈ MI(n + 1).
+
+Proof. If G is a graph on n vertices with mult−1 PG = a and α(G) = b, then mult−1 PG⊔K1 =
+a + 1 and α(G ⊔ K1 ) = b + 1 by Lemma 2.3. The result then follows.                     □
+
+Theorem 5.15. Let n ≥ 1 be an integer. We have
+                   MI(n) = {(a, b) ∈ Z2≥0 | 0 ≤ a < b ≤ n − 1} ∪ {(n, n)}.
+
+Proof. (⊆) : It is clear that 0 ≤ mult−1 PG ≤ α(G) ≤ n for any graph G on n vertices. However,
+note that either mult−1 PG = α(G) or α(G) = n implies that mult−1 PG = α(G) = n by
+Lemma 2.4. The inclusion (⊆) then follows.
+   (⊇) : It is straightforward that MI(1) = {(1, 1)} and MI(2) = {(0, 1), (2, 2)}. These settle
+the result in the cases n ∈ {1, 2}. By induction, we assume that
+                 MI(n − 1) = {(a, b) | 0 ≤ a < b ≤ n − 2} ∪ {(n − 1, n − 1)}
+for some n ≥ 3. Then by Lemma 5.14, we have
+                       {(a, b) | 1 ≤ a < b ≤ n − 1} ∪ {(n, n)} ⊆ MI(n).
+It now suffices to realize the pairs (0, b) where 1 ≤ b ≤ n − 1 with graphs on n vertices. If
+b = 1, then the complete graph Kn realizes (0, b) = (0, 1) by Lemma 2.5. If b = n − 1, then
+the star graph Sn realizes the pair (0, b) = (0, n − 1) by Lemma 2.6. Now we can assume that
+2 ≤ b ≤ n − 2. Equivalently, we have b ≥ 2 and n − b ≥ 2. Then it is straightforward that
+the pair (0, b) is realized by the graph Sb ⊔ Kn−b by Lemmas 2.3, 2.5, and 2.6. This concludes
+the proof.                                                                                  □
+
+
+      6. From spectral graph theory: multiplicity of line graph of forests
+
+    In this section, we examine the relationship between the independence polynomial of the
+line graph of a forest and two other polynomials associated to graphs, namely, characteristic
+polynomial and matching polynomial. We use these connections to investigate when −1 is a
+root of the independence polynomial, beginning with some preliminary definitions.
+                                                                                                      19
+
+
+   Let G be a simple graph on the vertex set {1, . . . , n}. The adjacency matrix of G is the n × n
+symmetric matrix A(G) = [aij ] where
+                               ®
+                                 1 if vertices i and j are adjacent,
+                         aij =
+                                 0 otherwise.
+By definition, aii = 0 for all i ∈ {1, . . . , n}, and aij = aji for all 1 ≤ i, j ≤ n. The characteristic
+polynomial of G is the polynomial ϕG (x) = det (xI − A(G)), and its roots are the eigenvalues
+of G.
+    A matching M in a graph G is a set of edges such that no two share a vertex in common.
+If |M | = k, then M is called a k-matching. Let mk (G) denote the number of k-matchings in
+G, with the convention that m0 (G) = 1. The matching number of G, denoted by νG , is the
+maximum k such that mk (G) ̸= 0. The matching polynomial is defined by
+                                               νG
+                                               X
+                                    µG (x) =         (−1)k mk (G) xn−2k .
+                                               k=0
+
+    The line graph L(G) of a graph G is the graph whose vertices are the edges of G, and where
+two vertices of L(G) are adjacent if and only if the corresponding edges in G share a common
+vertex. We denote by ei,j the vertex in L(G) corresponding to the edge between vertices i and
+j in G. It is easy to see that L(Pn ) = Pn−1 and L(Cn ) = Cn .
+
+                                                                          e1,2
+
+                        1                 2
+
+
+                                                                           e1,3
+                                                        e1,4                         e2,3
+
+
+                                                                                  L(G)
+                        4                 3
+                                G                                         e3,4
+
+
+                    Figure 9. The diamond graph G and its line graph L(G)
+
+   Line graphs of trees have a particularly simple structure. The following lemma provides a
+characterization of line graphs of trees in terms of block graphs.
+Lemma 6.1 ([7]). A graph is the line graph of a tree if and only if it is a connected block graph
+in which every cutpoint belongs to exactly two blocks.
+
+   The following classical result establishes a bridge between matchings in G and independent
+sets in L(G). For the sake of completion, we provide a self-contained proof.
+Theorem 6.2. For any graph G,
+                                                        X
+                                       PL(G) (x) =            mk (G) xk
+                                                        k≥0
+
+Proof. By definition, an independent set of size k in L(G) is a set of k vertices of L(G) with no
+two of which are adjacent. Since the vertices of L(G) correspond to the edges of G, two vertices
+in L(G) are adjacent if and only if the corresponding edges in G share an endpoint. Therefore,
+an independent set of size k in L(G) corresponds precisely to a matching of size k in G. This
+completes the proof.                                                                           □
+20
+
+                                             k                                        n       −2
+                             P
+Remark 6.3. Let QG (x) :=        k≥0 mk (G) x . Then it is easy to see that µG (x) = x QG (−x    ).
+Thus,
+                                     µG (x) = xn PL(G) (−x−2 ).                                   (5)
+
+   The matching polynomial of a graph encodes information about its matchings, while the
+characteristic polynomial of a graph captures its spectral properties. For general graphs these
+polynomials differ, but they coincide precisely when the graph has no cycles.
+Theorem 6.4 ([19]). For a graph G, ϕG (x) = µG (x) if and only if G is a forest.
+
+     By Remark 6.3 and Theorem 6.4, it follows that for any forest F on n vertices,
+                                     ϕF (x) = xn PL(F ) (−x−2 ).                                  (6)
+Putting x = 1 and x = −1 in (6), we see that if either 1 or −1 is an eigenvalue of F , then
+PL(F ) (−1) = 0. Hence, −1 is a root of the independence polynomial of L(F ). We now compare
+the corresponding multiplicities. Since F is a forest, it is bipartite, and therefore its nonzero
+eigenvalues occur in pairs ±λ with the same multiplicity. In particular, the multiplicities of
+1 and −1 as eigenvalues of F are equal. Moreover, the factor xn in (6) is nonzero at x = 1
+and at x = −1. The change of variable t = −x−2 is locally invertible at both points, since
+        −2
+ d
+dx (−x     ) = 2x−3 , is nonzero at x = 1 and at x = −1. Therefore, the order of vanishing of
+PL(F ) (t) at t = −1 is equal to the order of vanishing of ϕF (x) at x = 1, and also to the order of
+vanishing of ϕF (x) at x = −1. Consequently, the multiplicity of −1 as a root of PL(F ) is equal
+to the common multiplicity of 1 and −1 as eigenvalues of F .
+    Let the connected components of F be the trees T1 , . . . , Tr . Since the characteristic polyno-
+mial of a disjoint
+                 Qr union is the product of the characteristic polynomials of its components, we
+have ϕF (x) = i=1 ϕTi (x). Thus, ±1 is a root of ϕF (x) if and only if it is a root of ϕTi (x) for
+some 1 ≤ i ≤ r.
+    Similarly, the connected components of L(F ) are exactly the Q     line graphs of the components
+                                                                         r
+of F , namely L(T1 ), . . . , L(Tr ). It then follows that PL(F ) (x) = i=1 PL(Ti ) (x). Consequently,
+±1 is a root of PL(F ) (x) if and only if ±1 is a root of PL(Ti ) (x) for some 1 ≤ i ≤ r.
+    Our goal is to study the case when −1 is a root of the independence polynomial of the line
+graph of a forest F . By the preceding discussion, it suffices to consider the case where F is a
+tree and −1 is its eigenvalue.
+    For trees, two characterizations of the multiplicity of −1 as an eigenvalue are known in terms
+of the number of pendant vertices. Using these characterizations, we determine line graphs
+whose independence polynomials have −1 as a root of a given multiplicity. Before proceeding,
+we introduce some terminology.
+    Let T be a tree on n vertices with p pendant vertices. A major vertex in T is a vertex that is
+adjacent to at least three other vertices. For any two vertices x and y in T , the distance d(x, y)
+is defined as the length of the unique path between them.
+    In [42], Wang et. al. established an upper bound for multλ ϕT in terms of the number of
+pendant vertices as follows.
+Theorem 6.5 ([42, Corollary 2.10]). Let T be a tree with p pendant vertices. Then
+                                         multλ ϕT ≤ p − 1.
+
+   In [43], the authors provide a complete characterization of the trees that attain this upper
+bound for λ = −1.
+Theorem 6.6 ([43, Theorem 2.9]). Let T be a tree with p ≥ 2 pendant vertices.                   Then
+mult−1 ϕT = p − 1 if and only if one of the following conditions holds.
+                                                                                                   21
+
+
+    (i) T ∼
+          = Pn with n ≡ 2 (mod 3);
+   (ii) d(v, u) ≡ 2 (mod 3) for every pendant vertex v and major vertex u of T .
+
+
+                                    15                                               13
+
+
+                                    14                                               12
+
+                             3
+                                                                                     9
+                  1     2                4       5         6      7         8
+
+                                    16                                               10
+
+
+                                    17                                               11
+
+                                                       T
+                                    18
+
+
+                                    19
+
+
+                                    20
+
+
+
+
+                            e2,3         e3,4   e4,5       e5,6   e6,7      e7,8   e8,9
+                 e1,2
+
+
+
+
+               e14,15                        e3,16                 e9,12                  e9,10
+                            e3,14
+
+                                             e16,17                e12,13                 e10,11
+
+
+                                             e17,18
+
+
+                                             e18,19               L(T )
+
+                                             e19,20
+
+
+                         Figure 10. A tree T and its line graph L(T )
+
+   We elucidate this through an example.
+Example 6.7. Consider the tree T illustrated in Figure 10. This tree has five pendant vertices
+{1, 11, 13, 15, 20} and two major vertices {3, 9}. Since T satisfies condition (ii) of Theorem 6.6,
+the multiplicity of the eigenvalue −1 is mult−1 ϕT = 4. Furthermore, Equation (6) implies that
+−1 is also a root of the independence polynomial PL(T ) (x) with multiplicity four.
+    Direct computation yields the characteristic polynomial of T :
+          ϕT (x) = (x − 1)4 (x + 1)4 (x12 − 15x10 + 83x8 − 204x6 + 202x4 − 39x2 + 1),
+22
+
+
+and the independence polynomial of the line graph L(T ):
+                  PL(T ) (x) = (x + 1)4 (x6 + 39x5 + 202x4 + 204x3 + 83x2 + 15x + 1).
+
+It is easily verified that these polynomials satisfy the relationship ϕT (x) = x20 PL(T ) (−x−2 ).
+
+   In [6], the authors characterize trees that have an eigenvalue λ with multiplicity two less
+than the number of pendant vertices. To provide this characterization, they recursively define
+two families of trees, {Γi (λ)}i≥0 and {Γ2i (λ)}i≥0 . We define these families for the particular
+case λ = −1, and for the sake of simplicity, we write Γi (−1) as Γi and Γ2i (−1) as Γ2i . The first
+family {Γj }j≥0 of trees is defined as follows.
+       • Γ0 := {Pn : n ≡ 2 (mod 3)}.
+       • Γ1 denotes the set of trees T containing a unique major vertex w1 such that the forest
+         T − w1 , obtained by deleting w1 , is the union of at least three components from Γ0 ,
+         where the neighbor of w1 in each component is a pendant vertex of that component.
+       • For j ≥ 2, Γj consists of all trees T satisfying:
+          (1) T has exactly j major vertices;
+          (2) there exists a major vertex wj of T such that T − wj has exactly one component
+              from Γj−1 and all other components belong to Γ0 ;
+          (3) the neighbor of wj in each component of T − wj is a pendant vertex of that com-
+              ponent.
+
+
+
+                                                                     w3
+
+             w1                                 w2
+
+
+
+                                                                     w2
+
+                                                w1
+
+
+
+                                                                     w1
+
+
+
+                              Figure 11. Construction of a tree in Γ3 .
+
+
+     Using the family {Γj }, we now define the second family {Γ2j }j≥0 of trees.
+       • Γ20 := {Pn : n ≡ 1 (mod 3)}.
+       • Γ21 denotes the set of trees T with a unique major vertex w1 satisfying either of the
+         following conditions:
+          (1) T − w1 has exactly three components, all from Γ20 such that the neighbor of w1 in
+               each component is a pendant vertex of that component.
+          (2) T − w1 has exactly one component from Γ20 and all other components from Γ0 such
+               that the neighbor of w1 in each component is a pendant vertex of that component.
+       • Γ22 denotes the set of trees T with exactly two major vertices, and there is a major
+         vertex w2 of T such that either of the following conditions holds:
+          (1) T − w2 has exactly one component from Γ21 and all the other components from
+               Γ0 such that the neighbor of w2 in each component is a pendant vertex of that
+               component.
+                                                                                                                     23
+
+
+       (2) T − w2 has exactly one component, say T1 , from Γ1 and all other components from
+           Γ0 , where the unique neighbor of w2 lying in T1 is not a pendant vertex of T1 ; other
+           neighbors of w2 in each component are pendant vertices of those components.
+
+
+                                    16               20                            22
+
+
+                                    17               21                            23
+
+
+
+
+1       2       3       4       5           6    7          8          9      10        11       12   13   14   15
+
+                                    18                                             24
+
+
+                                    19                                             25
+
+
+                                                            T                      26
+
+
+                                                                                   27
+
+
+                                                                                   28
+
+
+                                            e20,21
+
+
+
+                                    e7,21
+
+
+                        e6,17                                   e8,9       e9,10    e10,23   e22,23
+
+            e16,17                   e6,7            e7,8
+
+
+                 e5,6                e6,18                      e10,24                  e10,11
+
+
+                 e4,5                e18,19                     e24,25                  e11,12
+
+
+                 e3,4                                           e25,26                  e12,13
+
+
+                 e2,3                    L(T )                  e26,27                  e13,14
+
+
+                 e1,2                                           e27,28                  e14,15
+
+
+                        Figure 12. A tree T ∈ Γ23 and its line graph L(T )
+
+
+    • For j ≥ 3, Γ2j consists of all trees T with exactly j major vertices, and there is a major
+      vertex wj such that one of the following conditions holds:
+       (1) T −wj has exactly one component from Γ2j−1 and all other components from Γ0 such
+           that the neighbor of wj in each component is a pendant vertex of that component.
+24
+
+
+          (2) T − wj has exactly one component, say T1 , from Γj−1 and all other components
+              from Γ0 , where the unique neighbor of wj lying in T1 is not a pendant vertex of T1 ;
+              other neighbors of wj in each component are pendant vertices of those components.
+          (3) T − wj has exactly one component, say T2 , from Γj−1 ; exactly one component, say
+              T2 from Γ20 and all other components from Γ0 such that the neighbor of wj in each
+              component is a pendant vertex of that component.
+   The following result from [6] provides a characterization of trees that have −1 as an eigenvalue
+with a multiplicity exactly two less than the number of pendant vertices.
+Theorem 6.8 ([6, Theorems 1.4 and 1.5]). Let T be a tree with p ≥ 3 pendant vertices and m
+major vertices, and suppose that −1 is an eigenvalue of T . Then mult−1 ϕT = p − 2 if and only
+if T ∈ Γ2k .
+Example 6.9. Consider the tree T in Figure 12. Observe that T ∈ Γ23 with w3 = 10, and that
+T has seven pendant vertices. By Theorem 6.8, we obtain mult−1 ϕT = 5. By Equation (6), it
+follows that mult−1 PL(T ) = 5.
+    Direct computation yields the characteristic polynomial of T :
+      ϕT (x) = x2 (x − 1)5 (x + 1)5 (x2 − 3)2 (x12 − 16x10 + 93x8 − 237x6 + 249x4 − 70x2 + 5)
+and the independence polynomial of the line graph L(T ):
+          PL(T ) (x) = (3x + 1)2 (x + 1)5 (5x6 + 70x5 + 249x4 + 237x3 + 93x2 + 16x + 1).
+It is easily verified that these polynomials satisfy the relationship ϕT (x) = x28 PL(T ) (−x−2 ).
+
+
+               7. To commutative algebra: a-invariant and regularity
+                             L
+    Let K be a field, and A = i≥0 Ai be a standard graded K-algebra. The Hilbert series of A
+is defined as                              X
+                                  HA (t) =     dimK Ai ti .
+                                               i≥0
+
+Let d be the krull dimension of A, it is known that the Hilbert series of A can be written as a
+rational function
+                                                 hA (t)
+                                       HA (t) =          ,
+                                                (1 − t)d
+for a unique integer polynomial hA (t) with hA (1) ̸= 0. The polynomial hA (t) is known as the
+h-polynomial of A, and the difference between the degree of h-polynomial and the dimension of
+A (i.e. deg hA (t) − dim A) is known to be the a-invariant of A, denoted by a(A).
+    Throughout this section let R = K[x1 , . . . , xn ] denote the standard graded polynomial ring
+in n variables over the field K. Let G be a finite simple graph, then one can associate a quadratic
+square-free monomial ideal I(G) to G, known as the edge ideal of G, as following:
+                                I(G) = (xi xj | {i, j} ∈ E(G)) ⊆ R.
+
+     By [40, Corollary B.4.1], one has
+                 deg hR/I(G) (t) − reg(R/I(G)) ≤ dim(R/I(G)) − depth(R/I(G)).                        (7)
+
+     Since, deg hR/I(G) (t) = a(R/I(G)) + dim(R/I(G)), we have
+                           reg(R/I(G)) ≥ a(R/I(G)) + depth(R/I(G)).
+                                                                                                  25
+
+
+    Furthermore, if I(G) is a Cohen–Macaulay ideal [2, Lemma 3] or I(G) has a pure resolution
+[5, Pg 153], then equality holds in (7). In particular, if I(G) is a Cohen–Macaulay ideal, then
+                           reg(R/I(G)) = a(R/I(G)) + dim(R/I(G))
+   For a graph G, it is known that the independence number α(G) is equal to the Krull dimension
+of R/I(G) (e.g., see [1, Remark 2.11]). Also, by [1, Theorem 4.4], we have
+              a(R/I(G)) + dim(R/I(G)) = deg hR/I(G) (t) = α(G) − mult−1 PG .
+Thus, one can observe that a(R/I(G)) = − mult−1 PG . Using this correspondence, our results
+from previous sections can be translated directly into interesting algebraic results.
+    Our first algebraic result translates Theorem 3.4, concerning the vanishing of the a-invariant
+of the graded algebra R/I(G) associated with pseudo-forests.
+Theorem 7.1. Let G be a pseudo-forest and v1 , . . . , vt a maximal support sequence of G for
+some integer t. Let H = G \ ∪ti=1 NG [vi ]. Then the a-invariant of R/I(G) vanishes if and only
+if H has no isolated vertex.
+
+    The next result translates Theorem 3.10, which provides a structural characterization of trees
+for which the a-invariant vanishes.
+Theorem 7.2. Let T denote a tree. The a-invariant of R/I(T ) is non-zero if and only if T is
+isomorphic to a grafting on some other tree T ′ .
+
+    As a consequence of the previous results, we obtain families of graphs for which the Castelnuovo–
+Mumford regularity of R/I(G) is bounded below by the depth of R/I(G). Note that, in general,
+there is no direct relationship between reg(R/I(G)) and depth(R/I(G)), even when G is a tree.
+In fact, for trees, the depth can exceed the regularity by an arbitrarily large amount.
+    To see this, let Pn denote the path on n vertices and consider the whiskered graph G =
+W(Pn ). By Lemma 4.7, we have
+                                   dim(R/I(G)) = α(G) = n.
+Since the whiskering of any graph is Cohen–Macaulay (see [41]), it follows that
+                              depth(R/I(G)) = dim(R/I(G)) = n.
+On the other hand, by [44, Lemma 21],
+                                                    õû
+                                                 n+1
+                                    reg(R/I(G) =       .
+                                                  2
+Therefore,                                                      õ    û
+                                                                n+1
+                        depth(R/I(G)) − reg(R/I(G)) = n −              ,
+                                                                  2
+which grows arbitrarily large as n increases. Consequently, even within the class of trees, the
+depth of R/I(G) can be substantially larger than its Castelnuovo–Mumford regularity.
+   The following result provides nontrivial families of graphs for which the inequality goes in
+the opposite direction, namely, reg(R/I(G)) ≥ depth(R/I(G)).
+Corollary 7.3. Let G be a graph. Then
+                                  reg(R/I(G)) ≥ depth(R/I(G))
+in each of the following cases:
+   (1) G is a pseudo-forest admitting a maximal support sequence v1 , . . . , vt such that the graph
+       G \ ∪ti=1 NG [vi ] has no isolated vertex;
+26
+
+
+     (2) G is a tree that is not a grafting on another tree.
+
+   The following result provides lower bounds for the a-invariant and the Castelnuovo–Mumford
+regularity of connected graphs whose edge ideals satisfy dim(R/I(G)) = n − 2. These bounds
+are obtained as a consequence of Theorem 5.9 and depend only on the number of vertices of G.
+Theorem 7.4. Let G be a connected graph on n ≥ 2 vertices such that dim(R/I(G)) = n − 2.
+Then                                            jnk
+                                     a(G) ≥ 1 −      ,
+                                                 2
+and if I(G) is Cohen–Macaulay or admits a pure resolution,
+                                                lnm
+                                 reg(R/I(G)) ≥       − 1.
+                                                  2
+  The following result is immediate from the correspondence between the a-invariant and
+multiplicity of graph, dimension and the independence number, and the definitions of the sets
+MI(n) and MI c (n).
+Theorem 7.5. A lattice point p in Z2 can be realized as a pair (a(R/I(G)), dim R/I(G)) for
+some graph G on n vertices if and only if p belongs to the reflection of the set MI(n) along
+ordinate axis, and can be realized as a pair (a(R/I(G)), dim R/I(G)) for some connected graph
+G on n vertices if and only if p belongs to the reflection of the set MI c (n) along ordinate axis.
+
+  Now, from our study of the sets MI(n) and MI c (n), we can classify the lattice points in
+ 2
+Z that can be realized as pairs consisting of the a-invariant and the dimension of the algebra
+R/I(G) for a graph G on n vertices. The following result follows from the Theorem 5.15.
+Theorem 7.6. Let n be a fixed positive integer. Let p be a lattice point in Z2 . Then p =
+(a(R/I(G)), dim R/I(G)) for some graph G on n vertices if and only if
+                      p ∈ {(a, b) ∈ Q2 ∩ Z2 | 0 ≤ −a < b ≤ n − 1} ∪ {(−n, n)},
+where Q2 denotes the upper-left quadrant of the Euclidean plane.
+
+   As we do not know the set MI c (n) completely, we can not completely classify the lattice
+points in Z2 that can be realized as pairs consisting of the a-invariant and the dimension of the
+algebra R/I(G) for a connected graph G on n vertices. However, when we do not have any
+restriction on number of vertices, we can completely classify the lattice points in Z2 that can
+be realized as pairs consisting of the a-invariant and the dimension of the algebra R/I(G) for
+some connected graph G. The following result follows from the Theorems 5.13 and 5.15.
+Theorem 7.7. Let p be a lattice point in Z2 . Then
+     (1) p = (a(R/I(G)), dim R/I(G)) for some graph G if and only if
+                            p ∈ {(a, b) ∈ Q2 ∩ Z2 | 0 ≤ −a ≤ b} \ {(0, 0)}.
+     (2) p = (a(R/I(G)), dim R/I(G)) for some connected graph G if and only if
+                           p ∈ {(a, b) ∈ Q2 ∩ Z2 | 0 ≤ −a < b} ∪ {(−1, 1)}.
+
+                                              References
+ 1. Jennifer Biermann, Trung Chau, Selvi Kara, Augustine O’Keefe, Joseph Skelton, Gabriel Sosa Castillo, and
+    Dalena Vien, Realizable (reg, deg h)-pairs for cover ideals via independence polynomials, 2026. 3, 14, 25
+ 2. Mina Bigdeli and Jürgen Herzog, Betti diagrams with special shape, Homological and computational methods
+    in commutative algebra, Springer INdAM Ser., vol. 20, Springer, Cham, 2017, pp. 33–52. MR 3751877 25
+ 3. Mireille Bousquet-Mélou, Svante Linusson, and Eran Nevo, On the independence complex of square grids, J.
+    Algebraic Combin. 27 (2008), no. 4, 423–450. MR 2393250 1
+                                                                                                            27
+
+
+ 4. Boštjan Brešar, Sandi Klavžar, Douglas F. Rall, and Kirsti Wash, Packing chromatic number versus chro-
+    matic and clique number, Aequationes Math. 92 (2018), no. 3, 497–513. MR 3805868 3
+ 5. Winfried Bruns and Jürgen Herzog, Cohen-Macaulay rings, Cambridge Studies in Advanced Mathematics,
+    vol. 39, Cambridge University Press, Cambridge, 1993. MR 1251956 25
+ 6. Sarula Chang, Jianxi Li, and Yirong Zheng, A characterization on trees t with m(t, λ) = p(t) − 2, 2024. 22,
+    24
+ 7. Gary Chartrand, On hamiltonian line-graphs, Transactions of the American Mathematical Society 134
+    (1968), no. 3, 559–566. 19
+ 8. Xi-Ming Cheng, Gary R. W. Greaves, and Jack H. Koolen, Graphs with three eigenvalues and second largest
+    eigenvalue at most 1, J. Combin. Theory Ser. B 129 (2018), 55–78. MR 3758241 3
+ 9. Eun-Kyung Cho, Jinha Kim, Minki Kim, and Sang-il Oum, Independent domination of graphs with bounded
+    maximum degree, J. Combin. Theory Ser. B 158 (2023), 341–352. MR 4508184 3
+10. Maria Chudnovsky, Alex Scott, Paul Seymour, and Sophie Spirkl, Proof of the Kalai-Meshulam conjecture,
+    Israel J. Math. 238 (2020), no. 2, 639–661. MR 4145813 1
+11. Maria Chudnovsky and Paul Seymour, The roots of the independence polynomial of a clawfree graph, J.
+    Combin. Theory Ser. B 97 (2007), no. 3, 350–357. MR 2305888 2
+12. Jonathan Cutler and Nathan Kahl, A note on the values of independence polynomials at −1, Discrete Math.
+    339 (2016), no. 11, 2723–2726. MR 3518424 1, 3
+13. Alexander Engstrom, On the topological kalai-meshulam conjecture, 2020. 1
+14. Paul Erdős and Tibor Gallai, Graphs with prescribed degrees of vertices, Mat. Lapok 11 (1960), 264–274. 3
+15. Nursel Erey and Takayuki Hibi, The size of Betti tables of edge ideals arising from bipartite graphs, Proc.
+    Amer. Math. Soc. 150 (2022), no. 12, 5073–5083. MR 4494587 3
+16. Sara Faridi and Thiago Holleben, Spherical complexes, 2025. 2
+17. Paul Fendley, Kareljan Schoutens, and Hendrik van Eerten, Hard squares with negative activity, J. Phys. A
+    38 (2005), no. 2, 315–322. MR 2123823 1
+18. Gregory Gauthier, Graphs with no cycle length divisible by three, Princeton, 2017, Thesis (Ph.D.). 1, 6
+19. Christopher D. Godsil and Ivan Gutman, On the matching polynomial of a graph, Algebraic Methods in
+    Graph Theory, Vol. I–II, Colloquia Mathematica Societatis János Bolyai, vol. 25, North-Holland, Amsterdam,
+    1981, Proceedings of the conference held in Szeged, 1978, pp. 241–249. 20
+20. Yahya Ould Hamidoune, On the numbers of independent k-sets in a claw free graph, J. Combin. Theory Ser.
+    B 50 (1990), no. 2, 241–244. MR 1081228 2
+21. Takayuki Hibi, Hiroju Kanno, Kyouko Kimura, Kazunori Matsuda, and Adam Van Tuyl, Homological in-
+    variants of Cameron-Walker graphs, Trans. Amer. Math. Soc. 374 (2021), no. 9, 6559–6582. MR 4302169
+    3
+22. Takayuki Hibi, Kyouko Kimura, Kazunori Matsuda, and Akiyoshi Tsuchiya, Regularity and a-invariant of
+    Cameron-Walker graphs, J. Algebra 584 (2021), 215–242. MR 4270555 3
+23. Takayuki Hibi, Kazunori Matsuda, and Adam Van Tuyl, Regularity and h-polynomials of edge ideals, Elec-
+    tron. J. Combin. 26 (2019), no. 1, Paper No. 1.22, 11. MR 3919621 3
+24. Akihiro Higashitani, Akane Kanno, and Ryota Ueji, Behaviors of pairs of dimensions and depths of edge
+    ideals, Comm. Algebra 51 (2023), no. 8, 3574–3584. MR 4585898 3
+25. Cornelis Hoede and Xue Liang Li, Clique polynomials and independent set polynomials of graphs, vol. 125,
+    1994, 13th British Combinatorial Conference (Guildford, 1991), pp. 219–228. MR 1263751 4
+26. David G. C. Horrocks, The numbers of dependent k-sets in a graph are log concave, J. Combin. Theory Ser.
+    B 84 (2002), no. 1, 180–185. MR 1877907 2
+27. Jakob Jonsson, Hard squares with negative activity and rhombus tilings of the plane, Electron. J. Combin.
+    13 (2006), no. 1, Research Paper 67, 46. MR 2240773 1
+28. Kazuhiro Kawamura, Homotopy types of independence complexes of forests, Contrib. Discrete Math. 5
+    (2010), no. 2, 67–75. MR 2791291 2
+29. Julian Keilson and Hans Gerber, Some results for discrete unimodality, Journal of the American Statistical
+    Association 66 (1971), no. 334, 386–389. 11
+30. Jinha Kim, The homotopy type of the independence complex of graphs with no induced cycles of length
+    divisible by 3, European J. Combin. 104 (2022), Paper No. 103534, 9. MR 4403044 1
+31. Vadim E. Levit and Eugen Mandrescu, Very well-covered graphs with log-concave independence polynomials,
+    Carpathian J. Math. 20 (2004), no. 1, 73–80. MR 2138528 2
+32.         , The independence polynomial of a graph—a survey, Proceedings of the 1st International Conference
+    on Algebraic Informatics, Aristotle Univ. Thessaloniki, Thessaloniki, 2005, pp. 233–254. MR 2186466 1
+33.         , Partial unimodality for independence polynomials of König-Egerváry graphs, Proceedings of the
+    Thirty-Seventh Southeastern International Conference on Combinatorics, Graph Theory and Computing,
+    vol. 179, 2006, pp. 109–119. MR 2311233 2
+28
+
+
+34.         , On the roots of independence polynomials of almost all very well-covered graphs, Discrete Appl.
+    Math. 156 (2008), no. 4, 478–491. MR 2379079 12
+35.         , The cyclomatic number of a graph and its independence polynomial at −1, Graphs Combin. 29
+    (2013), no. 2, 259–273. MR 3027601 1, 5
+36. My Hanh Pham and Thanh Vu, Contractible independence complexes of trees, 2026. 2
+37. Allen J. Schwenk, On unimodal sequences of graphical invariants, J. Combin. Theory Ser. B 30 (1981), no. 2,
+    247–250. MR 615319 2
+38. Alexander D. Scott and Alan D. Sokal, The repulsive lattice gas, the independent-set polynomial, and the
+    Lovász local lemma, J. Stat. Phys. 118 (2005), no. 5-6, 1151–1261. MR 2130890 1
+39. Richard P. Stanley, Log-concave and unimodal sequences in algebra, combinatorics, and geometry, Graph
+    theory and its applications: East and West (Jinan, 1986), Ann. New York Acad. Sci., vol. 576, New York
+    Acad. Sci., New York, 1989, pp. 500–535. MR 1110850 2
+40. Wolmer V. Vasconcelos, Computational methods in commutative algebra and algebraic geometry, Algorithms
+    and Computation in Mathematics, vol. 2, Springer-Verlag, Berlin, 1998, With chapters by David Eisenbud,
+    Daniel R. Grayson, Jürgen Herzog and Michael Stillman. MR 1484973 24
+41. Rafael H. Villarreal, Cohen-Macaulay graphs, Manuscripta Math. 66 (1990), no. 3, 277–293. MR 1031197
+    25
+42. Long Wang, Liangli Wei, and Yongrong Jin, The multiplicity of an arbitrary eigenvalue of a graph in terms of
+    cyclomatic number and number of pendant vertices, Linear Algebra Appl. 584 (2020), 257–266. MR 4011062
+    20
+43. Xinlei Wang, Dein Wong, Liangli Wei, and Fenglei Tian, On the multiplicity of −1 as an eigenvalue of a tree
+    with given number of pendant vertices, Linear Multilinear Algebra 70 (2022), no. 17, 3345–3353. MR 4506593
+    20
+44. Russ Woodroofe, Matchings, coverings, and Castelnuovo-Mumford regularity, J. Commut. Algebra 6 (2014),
+    no. 2, 287–304. MR 3249840 25
+
+      Chennai Mathematical Institute, Siruseri, Tamil Nadu 603103. India
+      Email address: omprakash@cmi.ac.in
+
+      Chennai Mathematical Institute, Siruseri, Tamil Nadu 603103. India
+      Email address: chauchitrung1996@gmail.com
+
+      Chennai Mathematical Institute, Siruseri, Tamil Nadu 603103. India
+      Email address: sayeedikram.ug2024@cmi.ac.in
+
+      Chennai Mathematical Institute, Siruseri, Tamil Nadu 603103. India
+      Email address: gargilather@gmail.com
+
+      Chennai Mathematical Institute, Siruseri, Tamil Nadu 603103. India
+      Email address: vasudevasn.ug2024@cmi.ac.in
+
+      Chennai Mathematical Institute, Siruseri, Tamil Nadu 603103. India
+      Email address: chitrav@cmi.ac.in
+

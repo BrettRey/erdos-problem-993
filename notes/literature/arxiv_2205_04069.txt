@@ -1,0 +1,580 @@
+                                                  LOG-CONCAVITY AND DISCRETE DEGREES OF FREEDOM
+
+                                               JACEK JAKIMIUK, DANIEL MURAWSKI, PIOTR NAYAR, AND SEMEN SLOBODIANIUK
+
+                                                  Abstract. We develop the notion of discrete degrees of freedom of a log-concave sequence
+                                                  and use it to prove that geometric distribution minimises Rényi entropy of order inﬁnity
+
+
+
+
+arXiv:2205.04069v3 [math.PR] 6 May 2023
+                                                  under ﬁxed variance, among all discrete log-concave random variables in Z. We also show
+                                                  that the quantity P(X = EX) is maximised, among all ultra-log-concave random variables
+                                                  with ﬁxed integral mean, for a Poisson distribution.
+
+
+                                          2010 Mathematics Subject Classification. Primary 60E15; Secondary 94A17.
+                                          Key words. log-concavity, ultra-log-concavity, Poisson distribution, Rényi entropy
+
+
+                                                                                      1. Introduction
+                                              Log-concavity is an important notion across many disciplines of mathematics, computer
+                                          science and beyond. In this article we restrict our attention to log-concave functions on the
+                                          real line R or on the set of integers Z. Let A ⊆ R be an interval. A nonnegative function
+                                          f : A → R is called log-concave if f = e−V with V : A → R ∪ {+∞} convex. The set
+                                          of such functions will be denoted by L. Many sharp inequalities for log-concave functions
+                                          can be formulated as the following type of optimisation problems: find the maximum of a
+                                          convex functional
+                                                         R         Φ : L → R under n linear constraints Φi (f ) = mi , i = 1, . . . , n, where
+                                          Φi (f ) = f gi for some function gi . Usually the functionals Φi correspond R          to various moment
+                                          constraints, namely g(x) = |x|p gives the so-called pth moment |x|p f (x)dx. If one wants
+                                          to consider probability densities f with fixed variance, one needs to introduce three linear
+                                          constraints       given by g1 ≡ 1 (fixing f to be a probability density),    g2 (x) = x (fixing the mean
+                                                                           2
+                                          R                                                                   R 2
+                                             xf (x)dx) and g3 (x) = x (fixing the second moment x f (x)dx). When more than one
+                                          or two constraints are present, the above optimisation problem is usually very challenging,
+                                          one of the reasons being the fact that L is not closed under summation. To overcome this
+                                          difficulty Fradelizi and Guédon introduced in [9] a powerful notion of degrees of freedom.
+                                          The function f ∈ L has d degrees of freedom if there exist linearly independent functions
+                                          q1 , . . . , qd and ε > 0 such that fδ = f +δ1 q1 +. . .+δd qd is log-concave for all δ1 , . . . , δd ∈ (−ε, ε).
+                                          Intuitively, f belongs to an affine subspace of dimension d which locally around f is contained
+                                          in L. The set of all fδ will be called the cube around f . Suppose in our optimisation problem
+                                          we are given n constraints. Then if d > n, by a simple linear algebra argument one can
+                                          find within the cube a linear subspace C of dimension d − n such that all functions in this
+                                          subspace satisfy the constraints. Since this is a linear subspace, one can find fδ , f−δ ∈ C ∩ L.
+                                          But f = 21 (fδ + f−δ ) and thus f is not an extreme point of L′ , the subset of functions in
+                                          L satisfying the constraints. On the other hand, due to Krein-Milman theorem it is known
+                                          that the supremum of Φ on L′ is attained on some extremal point. It is therefore enough to
+                                          consider the problem only for function having at most n degrees of freedom. Fradelizi and
+                                          Guédon showed that such functions must be of the form f = e−V with V being the maximum
+                                          of n − 1 affine functions. For such simple functions one can hope to solve the problem by
+                                            P.N. was supported by the National Science Centre, Poland, grant 2018/31/D/ST1/01355.
+                                                                                                 1
+2       JACEK JAKIMIUK, DANIEL MURAWSKI, PIOTR NAYAR, AND SEMEN SLOBODIANIUK
+
+an exact computation. This approach was used in [16, 5] to lower bound entropy and Rényi
+entropy of log-concave random variables in terms of variance. It was also used in [18] by the
+second named author in the context of moment comparison.
+   Let us now deal with log-concave sequences. We fix a nonnegative integer n and let
+[n] = {0, 1, . . . , n}. We say that a sequence (a(k))k∈[n] of nonnegative real numbers is log-
+concave if {k ≥ 0 : a(k) > 0} is a discrete interval and the inequality a(k)2 ≥ a(k+1)a(k−1) is
+satisfied for k = 1, . . . , n−1. This definition can clearly be extended to log-concave sequences
+on Z. ForP a random variable X with probability mass function     Pp thepmean functional is defined
+via p → k kp(k) and the pth moment functional             is p → k |k| p(k). The Rényi entropy
+                                              1
+                                                ln ( k p(k)α ), whereas for α = 1 one recovers in
+                                                    P
+functional of order α 6= 1 is Hα (p) = 1−α
+                                                 P
+the limit the Shannon entropy H(p) = − k p(k) ln p(k), with the convention 0 log 0 = 0.
+One also defines H∞ (p) = − ln M(p), where M(p) = maxz p(z). A random variable X is
+log-concave if its probability mass function p is log-concave.
+   In this article we develop a discrete version of the concept of degrees of freedom and give
+two applications. In a recent work by Aravinda [1], published after the first version of the
+present article appeared online, the author developed the same concept of degrees of freedom
+with slightly different proof (in [1] the continuous case is used as a lemma, whereas here
+we provide a direct argument). Aravinda then uses this tool to prove that for a log-concave
+random variable X one has M(X)2 (1+Var(X)) ≤ 1. The equality is achieved asymptotically
+for a geometric distribution p(k) = θ(1 −θ)k 1{0,1,...} (k) when θ → 0. Here we prove a stronger
+version of this bound for which equality occurs for every geometric distribution.
+Theorem 1. Let X be a log-concave random variable in Z. Then
+                                  M(X)2 Var(X) + M(X) ≤ 1
+  Let us also mention that in [6] the authors proved than any discrete log-concave distribution
+satisfies the inequality
+                                 1                            1
+                         p                 ≤ M(X) ≤ q                 .
+                           1 + 12 Var(X)                  1
+                                                            + Var(X)
+                                                          4
+
+The result of Aravinda replaces the constant 41 with 1. The left inequality becomes equality
+for uniform distributions on discrete intervals and is therefore optimal only for a countable
+set of values of Var(X). In [6] it is also proved that in the class of symmetric log-concave
+distributions one has M(X)2 (1 + 2 Var(X)) ≤ 1, which is optimal for all values of Var(X)
+as the equality occurs for two-sided geometric distributions. The inequality from Theorem 1
+enjoys the same feature of being optimal for all values of Var(X).
+   Our second application concerns the so-called ultra-log-concave discrete random variables.
+A random variable X taking values in the set of nonnegative integers is called ultra-log-
+                                                                n
+concave if µ(n)/Πλ (n) is log-concave, where Πλ (n) = e−λ λn! stands for the probability mass
+function of the Poisson random variable Pois(λ) with parameter λ > 0. Ultra-log-concave
+random variables attracted considerable attention of researchers over last two decades. The
+definition itself is, according to our best knowledge, due to Pemantle [20] who introduced it
+in the context of theory of negative dependence of random variables. Walkup’s theorem (see
+Theorem 1 in [21]) implies that convolution of two independent ultra-log-concave random
+variables is ultra-log-concave, see also [15, 11, 19, 17] for generalisations and different proofs.
+   More recently, Johnson in [13] considered ultra-log-concave random variables in the context
+of Shannon entropy H(X). He proved that the Poisson distribution maximises entropy in
+                                                                                                       3
+
+the class of ultra log–concave distributions under fixed mean. The author uses an interesting
+semigroup technique based on adding Poisson random variable and the operation of thinning.
+Simple proof of this result was given by Yu in [22]. The author proved that if X is ultra-log-
+concave and Z ∼ Pois(EX) so that EX = EZ, then Eφ(X) ≤ Eφ(Z) for any convex function
+φ : R → R. Johnson’s result follows from this statement easily by using Gibbs’ inequality.
+In [22] a generalization of the above results to the so-called compound distributions is also
+discussed, providing generalizations and elementary proofs of the results from [14]. The
+following theorem goes beyond the convex case discussed by Yu in [22].
+Theorem 2. Let X be an ultra-log-concave random variable with integral mean. Then
+                               P (X = EX) ≥ P (Pois(EX) = EX) .
+This theorem is motivated by Theorem 1.1 from [2], where the concentration inequalities for
+ultra-log-concave random variables were derived.
+   This article is organised as follows. In Section 2 we develop the notion of discrete degrees
+of freedom. Section 3 is devoted to the proof of Theorem 1. Finally, in Section 4 we give a
+proof of Theorem 2.
+                              2. Discrete degrees of freedom
+   Suppose p is a log-concave sequence supported in some finite discrete interval which without
+loss of generality can be assumed to be [L] = {0, 1, . . . , L}. We say that p has d degrees of
+freedom if there exist linearly independent sequences q1 , . . . , qd supported in [0, L] and ε > 0
+such that for all δ1 , . . . , δd ∈ (−ε, ε) the sequence
+                                         p + δ1 q1 + . . . + δd qd
+is log-concave in [0, L].
+   We shall prove the following lemma describing sequences with small number of degrees of
+freedom. The proof is a rather straightforward adaptation of the argument presented in [9].
+Lemma 3. Let d ≥ 1. Suppose a positive log-concave sequence supported in [L] has d + 1
+degrees of freedom. Then p = e−V with V = max(l1 , . . . , ld ), where l1 , . . . , ld are arithmetic
+progressions.
+Proof. Since p is strictly positive and log-concave, it can be written in the form p = e−V ,
+where V is convex. The sequence V ′ (n) = V (n + 1) − V (n) is called the slope sequence.
+Clearly the slope sequence is non-decreasing. We prove the lemma by contrapositive. We
+shall assume that V cannot be written as a maximum of d arithmetic progressions. Our goal
+is then to prove that p has at least d + 2 degrees of freedom.
+   Define the sequence n0 , . . . , nk inductively by taking n0 = 0 and ni+1 = min{n > ni :
+V ′ (n) > V ′ (ni )} as long as the set is non-empty. Thus V ′ (n0 ) < V ′ (n1 ) < . . . < V ′ (nk ) with
+k ≥ d, as V is not piecewise linear with at most d pieces.
+   For i = 0, 1, . . . , k let us define the sequence Vi via the expression
+                                      
+                                        V (n)                        n ∈ [0, ni ]
+                             Vi (n) =                                             .
+                                        V (ni ) + V ′ (ni )(n − ni ) n ∈ [ni , L]
+It is not hard to show that Vi are convex. We shall assume that V ′ (n0 ) 6= 0 so that the
+sequence V0 is not constant. If this is not the case it suffices to reflect the picture and use
+V ′ (nk ) instead of V ′ (n0 ).
+4        JACEK JAKIMIUK, DANIEL MURAWSKI, PIOTR NAYAR, AND SEMEN SLOBODIANIUK
+
+Claim 1. There exists ε > 0 such that for all δ, δ0 , . . . , δk ∈ (−ε, ε) the sequence
+                              e−V (1 + δ + δ0 V0 + δ1 V1 + . . . + δk Vk )
+is log-concave.
+Proof of Claim 1. On each of the intervals [ni , ni+1 ], i = 0, . . . , k +1, where we take nk+1 = L,
+the above sequence is given by the expression of the form p(n) = e−V (1 + µ1 W + µ2 V ), where
+W is an arithmetic progression. We first check that for n ∈ (ni , ni+1 ) we have p(n)2 ≥
+p(n + 1)p(n − 1) for µ1 , µ2 sufficiently small. By continuity one can assume that µ2 6= 0. We
+want to prove convexity of
+                                                                                             
+                                                                                       µ1
+   Ṽ (n) = V (n) − log(1 + µ1 W (n) + µ2 V (n)) = V (n) − log 1 + µ2 V (n) + W (n)
+                                                                                       µ2
+                                                                                
+               µ1                  µ1                                     µ1
+          = − W (n) + V (n) + W (n) − log 1 + µ2 V (n) + W (n)
+               µ2                  µ2                                     µ2
+                                                 
+               µ1                        µ1
+          = − W (n) + hµ2 V (n) + W (n) ,
+               µ2                        µ2
+where
+                                      hµ (t) = t − log(1 + µt).
+The first term is affine. For small µ the function hµ (t) is increasing and convex. Since the
+sequence V + µµ21 W is convex, it is enough to show that f (g(n)) is a convex sequence whenever
+f is an increasing convex function and g is convex. This is straightforward since
+                                                   
+                           1              1              1                    1
+            f (g(n)) ≤ f     g(n + 1) + g(n − 1) ≤ f (g(n + 1)) + f (g(n − 1)).
+                           2              2              2                    2
+   Now we are left with checking our inequality in points n = ni . But since then V (n) <
+1
+2
+  V (n + 1) + 12 V (n − 1), the inequality follows by a simple continuity argument.
+                                                                                                   
+Claim 2. The sequences 1, V0 , V1 , . . . , Vk are linearly independent.
+Proof of Claim 2. Let V−1 = 1. Let us consider U−1 = V−1 , U0 = V0 −V−1 , . . . , Uk = Vk −Vk−1 .
+To prove that Vi are linearly independent, it suffices to show that Ui are linearly independent.
+Indeed, suppose that ki=−1 bi Vi ≡ 0. This means that
+                       P
+
+                  b−1 U−1 + b0 (U−1 + U0 ) + . . . + bk (U−1 + U0 + . . . + Uk ) ≡ 0,
+which is
+                     (b−1 + . . . + bk )U0 + (b0 + . . . + bk )U1 + . . . + bk Uk ≡ 0.
+If Ui are linearly independent, it follows that bi + . . . + bk = 0 for i = −1, 0, . . . , k, which
+easily leads to bi = 0 for all i = −1, . . . , k.
+   Now the fact that Ui are linearly independent is easy since Ui for i ≥ 1 is supported
+in [ni + 1, L]. These intervals form a decreasing sequence, so in order to show that every
+combination ki=−1 bi Ui ≡ 0 in fact has zero coefficients it is enough to evaluate this equality
+              P
+first at points n = 0, 1 to conclude that b−1 = b0 = 0 (note that the support of Ui for i ≥ 1
+is contained in [2, L]) and then consecutively at points n1 + 1, n2 + 1, . . . , nk + 1 to conclude
+that b1 = b2 = . . . = bk = 0.                                                                   
+    Combining Claim 1 and Claim 2 finishes the proof.
+                                                                                                   
+                                                                                                      5
+
+  Let us now consider the space LI of all log-concave sequences (pi )i∈I is an interval I. We
+shall identify the sequence p with a vector in R|I| . Suppose we are given vectors v1 , . . . , vd ∈
+R|I| and real numbers a1 , . . . , ad . Let us introduce the polytope
+                         Pd (a, v) = {p : hp, vi i = ai , i = 1, . . . , d} ∩ [0, ∞)|I|.
+We will be assuming that this polytope is bounded, which will be the case in our applications.
+Let us now assume that we are given a convex continuous functional Φ : R|I| → R. The
+following lemma is well known and can be found in the continuous setting in [9].
+Lemma 4. The supremum of a convex continuous functional Φ : R|I| → R on LI ∩ Pd (a, v)
+is attained on some sequence having at most d degrees of freedom.
+Proof. Let A = LI ∩ Pd (a, v). By compactness of A the supremum m of Φ on A is attained.
+By convexity of Φ on K = conv(A) the maximum is the same as the maximum on A and
+is attained in some point x ∈ K. Moreover, as we work in a finite dimensional Euclidean
+space, K is also compact. A baby version of the Krein-Milman     P          theorem shows that x is a
+convex combination of extreme points of K, that is x =              λi xi , where positive numbers λi
+sum up to one. By convexity Φ attains its maximum on K also in all the points xi . Thus,
+the maximum of Φ on K is attained in some extreme point of K. Clearly extreme points of
+K must belong to A. It is therefore enough to show that if p ∈ K has more than d degrees
+of freedom, then p is not an extreme point of K.
+   Suppose p ∈ A with support I ′ ⊆ I and there exist linearly independent sequences q1 , . . . , qk
+supported in I ′ and ε > 0 such that for all δ1 , . . . , δk ∈ (−ε, ε) the sequence
+                                        pδ = p + δ1 q1 + . . . + δk qk
+                     ′
+is log-concave in I and thus also in I. Therefore, it belongs to LI . Note that the set of
+parameters δ = (δ1 , . . . , δk ) for which pδ ∈ Pd (a, v) form a linear subspace of dimension at
+least k − d. If k ≥ d + 1 then this subspace is non-trivial and contains two antipodal points
+δ and −δ. Note that p = 12 pδ + 21 p−δ and thus p is not an extreme point of K as both pδ and
+p−δ belong to K.
+                                                                                               
+
+                                       3. Proof of Theorem 1
+Step 1. We shall follow the strategy described in the introduction to reduce the inequality
+to the case of simple functions. By translation invariance and approximation arguments one
+can assume that X has its support contained in [L]. Let p be the probability mass function of
+X. We shall maximise the convex functional p → maxz∈[L] p(z) under three linear constraints
+gives by vectors v1 = (1, . . . , 1), fixing p to be a probability distribution, v2 = (0, 1, . . . , L),
+fixing EX, and v3 = (02 , 12 , . . . , L2 ), fixing EX 2 . Lemma 4 thus shows that the maximum is
+attained for p having at most 3 degrees of freedom, which by Lemma 3 implies that p = e−V
+where V = max(l1 , l2 ), with l1 , l2 being linear progressions. It is therefore enough to check
+the inequality for sequences of the form
+          p(n) = Ce−β1 (n−N ) 1[0,N ] (n) + Ce−β2 (n−N ) 1[N +1,L] (n),          N ≤ L, β1 ≤ β2 .
+Step 2. As in [1] we prove the inequality for p monotone. We sketch the argument for
+completeness. We can assume that p is non-increasing. In fact we shall not restrict ourselves
+to the above special functions on [L], but consider general functions on Z+ = {0, 1, . . .}.
+Consider geometric distribution Y with parameter θ = (1 + EX)−1 so that EX = EY . The
+6       JACEK JAKIMIUK, DANIEL MURAWSKI, PIOTR NAYAR, AND SEMEN SLOBODIANIUK
+
+probability mass function of Y will be denoted by q. Since q is log-affine and p is log-concave,
+p − q changes sign at most two times. In fact it changes sign precisely two times in points
+k1 , k2 , since in case of one sign change point k1 we would get
+                                    X                    X
+                  0 = EX − EY =         k(p(k) − q(k)) =   (k − k1 )(p(k) − q(k)),
+                                            k                     k
+
+contradiction, as (k − k1 )(p(k) − q(k)) has fixed sign. The sign pattern of p − q is (−, +, −)
+and therefore
+                    M(X) = max p(z) = p(0) ≤ q(0) = max q(z) = M(Y ).
+                                        z                             z
+We claim that also EX ≤ EY . Choose numbers a, b such that k 2 −ak −b = 0 for k = k1 , k2 .
+                            2           2
+
+Then using EX = EY we get
+                        X                     X
+          EX 2 − EY 2 =   k 2 (p(k) − q(k)) =   (k 2 − ak − b)(p(k) − q(k)) ≤ 0,
+                                    k                        k
+                                    2
+since the sign pattern of k − ak − b is (+, −, +) and thus the expression under the sum is
+non-positive. We conclude that
+                    M(X)2 Var(X) + M(X) ≤ M(Y )2 Var(Y ) + M(Y ) = 1.
+Remark. The fact that under EX = EY the pattern (−, +, −) implies Eφ(X) ≤ Eφ(Y )
+for convex φ seems to be due to Barthe and Naor [4]. The proof technique presented here
+appeared in [8] in the context of moment inequalities. See also [7] for another application of
+this technique to moment inequalities and [3] for an application in the context of Shannon
+entropy.
+Step 3. Let us assume that p is not monotone, in which case C = maxz∈[L] p(z). We now
+follow the strategy from [1]. Take p1 = eβ1 , p2 = e−β2 and K = L − N. Define also
+                     N
+                     X                                N
+                                                      X                                      N
+                                                                                             X
+        S(x; N) =           x , n
+                                        S1 (x; N) =          n
+                                                            nx     and         S2 (x; N) =         n2 xn .
+                      n=1                             n=1                                    n=1
+
+We shall also use
+                           Z(x, y; N, K) = 1 + S(x, N) + S(y, K).
+       P
+Then    z∈[L] p(z) = 1 implies
+
+                C(1 + S(p1 ; N) + S(p2 ; K)) = CZ = 1,                    Z = Z(p1 , p2 ; N, K).
+Let us consider X̃ = X − n with its probability mass function
+                       p̃(n) = p(n + N) = Cp−n                n
+                                            1 1[−N,0] (n) + Cp2 1[1,K] (n).
+
+Clearly Var(X) = Var(X̃). We have
+            EX̃ = −CS1 (p1 ; N) + CS1 (p2 ; K),              EX̃ 2 = CS2 (p1 ; N) + CS2 (p2 ; K).
+Therefore
+                                  S2 (x; N) + S2 (y; K) (S1 (x; N) − S1 (y; K))2
+              Var(X) = Var(X̃) =                       −                         .
+                                            Z                      Z2
+Our inequality is thus equivalent to
+              Z 4 − Z 3 − Z(S2 (p1 ; N) + S2 (p2 ; K)) + (S1 (p1 ; N) − S1 (p2 ; K))2 ≥ 0.
+                                                                                                    7
+
+Step 4. Let us define
+P (x, y) = Z 4 − Z 3 − Z(S2 (x; N) + S2 (y; K)) + (S1(x; N) − S1 (y; K))2 ,      Z = Z(x, y; N, K).
+  We shall show that the polynomial inequality P (x, y) ≥ 0 is satisfied for all x, y ≥ 0 by
+showing that P has nonnegative coefficients. We shall need the following lemmas.
+Lemma 5. Let S0 (x; N) = N          n                                                k     l
+                            P
+                              n=0 x . Let sl (k) denote the coefficient in front of x in S0 .
+Then                         k+l−1
+                                l−1 
+                                                     k ∈ [0, N]
+                   sl (k) =    k+l−1      k+l−N −2
+                                                                      .
+                                l−1
+                                      −l     l−1
+                                                     k ∈ [N + 1, 2N]
+Proof. The coefficient is the number of solutions to the equation x1 + . . . + xl = k where
+0 ≤ xi ≤ N, i = 1, . . . , l. If k ≤ N then the condition xi ≤ N is superfluous and thus the
+number of solutions is well know and can be obtained by a standard application of the stars
+and bars method. If k > N then from this expression one needs to subtract the number of
+solutions with at least one number xi greater than N. If k ≤ 2N, there is precisely one such
+number. We can choose its index i in l ways and define x̃i = xi − N − 1 ≥ 0. Then we are left
+with computing the number of solutions to x1 + . . . + xi−1 + x̃i + xi+1 + . . . + xl = k − N − 1,
+where the variables are nonnegative.       Since k − N − 1 ≤ N, from the previous case we get
+                                  −2
+that this equation has k+l−N
+                                    
+                              l−1
+                                      solutions.                                                  
+Lemma 6. Let Si (x) = Si (x; N), i = 0, 1, 2 and let us write S0 (x)S2 (x)−S1 (x)2 = 2N           k
+                                                                                       P
+                                                                                          k=0 ck x .
+Then                                   k+2
+                                ck =      3
+                                         2N −k+2
+                                                  k ∈ [0, N]      .
+                                             3
+                                                   k ∈ [N + 1, 2N]
+Proof. We have
+                                                          N
+                                                  2 1X
+                            S0 (x)S2 (x) − S1 (x) =        (i − j)2 xi xj
+                                                    2 i,j=0
+and thus
+                                              1 X
+                                      ck =            (i − j)2 .
+                                              2 i+j=k
+                                               0≤i,j≤N
+If k ∈ [0, N] then
+                                          k                       
+                                      1X                       k+2
+                                 ck =       (2i − k)2 =             ,
+                                      2 i=0                     3
+where the last equality can be checked by a direct computation. If k ∈ [N + 1, 2N] then
+                      N                2N −k                              
+                  1 X             2  1 X                    2   2N − k + 2
+             ck =         (2i − k) =         (2i − (2N − k)) =               ,
+                  2 i=k−N            2 i=0                            3
+by the previous equality.                                                                          
+                                                                                 P4N P4K           k l
+  In order to prove that P has nonnegative coefficients we write P (x, y) =        k=0   l=0 pk,l x y
+and consider two cases.
+Case 1. Coefficients pk,0 and p0,k . The roles of (x, N) and (y, K) in P (x, y) are symmetric,
+therefore it is enough to consider only pk,0. Note that in this case we deal with coefficients of
+                        P (x, 0) = S04 (x) − S03 (x) − S0 (x)S2 (x) + S12 (x).
+8       JACEK JAKIMIUK, DANIEL MURAWSKI, PIOTR NAYAR, AND SEMEN SLOBODIANIUK
+
+If k > 2N then the only contribution to pk,0 comes from S04 − S03 = S03 (S0 − 1), where both
+factors have nonnegative coefficients, so there is nothing to prove. If k ∈ [0, N] then by
+Lemmas 5 and 6 we get
+                                                        
+                                k+3         k+2         k+2
+                       pk,0 =           −           −          = 0.
+                                   3          2           3
+Finally, if k ∈ [N + 1, 2N] then we get
+                                                                             
+                k+3         k−N +2          k+2         k−N +1            2N − k + 2
+      pk,0 =           −4               −          +3                 −
+                  3              3           2               2                 3
+              1
+            = (k − N) −2k 2 + 4kN − 3k + 4N 2 + 15N + 5 ,
+                                                           
+              6
+where again the last equality can be verified directly. The first factor is positive and thus
+we have to show the positivity of the second factor, which is a concave quadratic function
+in k. Thus it is enough to check only k = N, 2N in which case we get positive expressions
+5 + 12N + 6N 2 and 5 + 9N + 4N 2 .
+Case 2. Coefficients pk,l , where k, l ≥ 1. It is enough to assume 1 ≤ k ≤ N and 1 ≤ l ≤ K
+since otherwise the only contribution comes from Z 4 −Z 3 = Z 3 (Z −1), which has nonnegative
+coefficients. In this case the coefficient in Z(S2 (x; N) + S2 (y; K)) is k 2 + l2 , whereas the
+coefficient in (S1 (x; N) − S1 (y; K))2 is −2kl, which together give contribution −(k + l)2 .
+Since Z − 1 has nonnegative coefficients, the coefficients of Z 3 (Z − 1) are at least as large
+as those of (x + y)Z 3. The coefficients of Z 3 = (1 + S(x; N) + S(y, K))3 are at least as large
+                       2                            2
+as those
+       of l+1
+             3S(x;
+                N) S(y; K) + 3S(x; N)S(y; K) , which according to 3Lemma 5 are equal to
+   k+1
+3 2 + 3 2 . If suffices to observe that the coefficients of (x + y)Z are therefore at least
+                                          
+                     k       l+1        k+1           l
+               3         +          +            +       = 3(k 2 + l2 ) ≥ (k + l)2 .
+                     2        2           2           2
+                                   4. Proof of Theorem 2
+
+Step 1. Let n0 = EX and let µ(n) be the probability mass function of X. Our goal is
+                                              n
+                                             n 0
+to prove the inequality µ(n0 ) ≥ e−n0 n00 ! . By an approximation argument one can assume
+that X has its support contained in [L]. Note that µ(n) = n!1 p(n), where p ∈ L[L] . We
+would like to maximize the linear (and thus convex) functional µ → −µ(n0 ) under the
+constraints given by vectors v1 = ( 0!1 , 1!1 . . . , L!
+                                                      1
+                                                         ) (fixing µ to be a probability distribution)
+               1          1
+and v2 = (0, 0! . . . , (L−1)! ), fixing the mean. Thus Lemma 4 implies that the maximum is
+attained on sequences having at most two degrees of freedom and therefore for µ of the form
+µ(n) = cxn0 1[k,l] (n) for some 0 ≤ k ≤ l. As a consequence, in order to prove the inequality it
+is enough to consider only sequences µ of the form
+                                                                         l
+                                 1    xn                                 X xi
+                     µ(n) =          · 0 1[k,l](n),    where f (x) =  .
+                              f (x0 ) n!                           i!
+                                                               i=k
+                                                                                        ′ (x )
+Step 2. One can assume that f is non-constant. Clearly n0 = EX = li=k i · q(i) = x0 · ff (x
+                                                                 P                          0
+                                                                                            0)
+                                                                                               .
+Our goal is to prove the inequality
+                                      1    xn0   1 nn0
+                                          · 0 ≥ n0 · 0 .
+                                   f (x0 ) n0 ! e    n0 !
+                                                                                                                 9
+
+This simplifies to f (x0 ) ≤ ( ex
+                               n0
+                                  0 n0
+                                   ) which after taking the logarithm reads log f (x0 ) ≤ n0 (1 +
+                                    ′(x0 )
+log( nx00 )). Recall that n0 = x0 ff (x 0)
+                                           . Plugging this in gives the equivalent form
+
+                                                f ′ (x0 )
+                                                                   ′      
+                                                                    f (x0 )
+                             log f (x0 ) ≤ x0              1 − log             .
+                                                f (x0 )             f (x0 )
+It would therefore be enough to show that the function
+                               f ′ (x)     f ′ (x)
+                                                          ′ 
+                                                          f (x)
+                    h(x) = x ·         −x·         · log        − log f (x)
+                               f (x)       f (x)          f (x)
+is nonnegative for all x ≥ 0. Taking x = x0 will then finish the proof.
+Step 3. By a direct computation we have
+                                        ′
+                                      (x)
+                               log ff (x)
+                  h′ (x) = −                · (−x(f ′ (x))2 + xf (x)f ′′ (x) + f (x)f ′ (x)).
+                                f 2 (x)
+Claim 1. For all x ≥ 0 we have −x(f ′ (x))2 + xf (x)f ′′ (x) + f (x)f ′ (x) ≥ 0.
+
+Proof of Claim 1. By Cauchy-Schwarz inequality
+                                 l
+                                       !     l
+                                                                        !          l
+                                                                                              !   l
+                                                                                                                 !
+                                     i              i
+                                X   x      X       x             xi                X xi           X      ixi
+f (x)(xf ′ (x) + x2 f ′′ (x)) =                           +               =
+                                i=k
+                                    i!     i=k
+                                                (i −  1)!   (i  −   2)!            i=k
+                                                                                         i!       i=k
+                                                                                                      (i − 1)!
+                                 l
+                                             !2
+                                X xi
+                              ≥                  = (xf ′ (x))2 .
+                                i=k
+                                    (i − 1)!
+
+The assertion follows by dividing both sides by x.                                                               
+                                      (x)      ′
+Claim 2. The function ψ(x) = − log ff (x) has a unique zero y0 ∈ [0, ∞).
+
+Proof. According to a theorem due to Gurvits [10] (see also [11, 12] for alternative proofs) a
+function of the form ∞          xi
+                       P
+                         i=0 ai i! is log-concave for x ≥ 0 if the sequence (ai )i≥0 is log-concave.
+                                                        ′ (x)
+Thus f (x) is log-concave for x ≥ 0. Equivalently ff (x)        is a decreasing function on [0, ∞) and
+thus ψ is increasing.
+                               ′ (x)                        ′ (x)
+   If f (0) = 0 then limx→0+ ff (x)  = ∞ while limx→∞ ff (x)      = 0. By intermediate value property
+                                               ′
+ψ has a unique zero in [0, ∞). If f (0) = f (0) = 1 then ψ(0) = 0 and 0 is the unique zero of
+ψ.                                                                                                   
+
+   We can now easily finish the proof. By Claims 1 and 2 we see that h′ is nonpositive on
+[0, y0] and nonnegative on [y0 , ∞). Therefore h attains its minimum at x = y0 . It is therefore
+enough to check the inequality h(y0 ) ≥ 0. Clearly ψ(y0 ) = 0 implies that f (y0 ) = f ′ (y0 ).
+Thus h(y0 ) = y0 − log f (y0). The inequality h(y0 ) ≥ 0 is therefore equivalent to ey0 ≥ f (y0 )
+and is obvious as f (y0 ) is a truncated sum defining the exponential function.
+
+Acknowledgments. We would like to thank Ioannis Kontoyiannis and Mokshay Madiman
+for useful discussions.
+10        JACEK JAKIMIUK, DANIEL MURAWSKI, PIOTR NAYAR, AND SEMEN SLOBODIANIUK
+
+                                              References
+ [1] H. Aravinda, Entropy-variance inequalities for discrete log-concave random variables via degree of free-
+     dom, preprint, arXiv:2212.09115
+ [2] H. Aravinda, A. Marsiglietti, J. Melbourne, Concentration Inequalities for Ultra Log-Concave Distribu-
+     tions, 2021, preprint, arXiv:2104.05054
+ [3] M. Bartczak, P. Nayar and S. Zwara, Sharp Variance-Entropy Comparison for Nonnegative Gaussian
+     Quadratic Forms, IEEE Trans. Inform. Theory 67, no. 12 (2021), 7740–7751.
+ [4] F. Barthe, A. Naor, Hyperplane projections of the unit ball of lnp , Discrete Comput. Geom. 27 (2002),
+     no. 2, 215–226.
+ [5] M. Bialobrzeski, P. Nayar, Rényi entropy and variance comparison for symmetric log-concave random
+     variables, 2021, preprint, arXiv:2108.10100
+ [6] Bobkov, S., Marsiglietti, A., Melbourne, J. Concentration functions and entropy bounds for discrete
+     log-concave distributions. Combinatorics, Probability and Computing, 1-19, 2021.
+ [7] Y. Eitan, The centered convex body whose marginals have the heaviest tails, preprint, arXiv:2110.14382
+ [8] A. Eskenazis, P. Nayar, T. Tkocz, Sharp comparison of moments and the log-concave moment problem,
+     Adv. Math. 334 (2018), 389–416.
+ [9] M. Fradelizi and O. Guédon, A generalized localization theorem and geometric inequalities for convex
+     bodies, Adv. Math. 204 no. 2 (2006), 509–529.
+[10] L. Gurvits, On multivariate Newton-like inequalities, Advances in combinatorial mathematics, Springer,
+     Berlin (2009), 61–78.
+[11] L. Gurvits, A short proof, based on mixed volumes, of Liggett’s theorem on the convolution of ultra-
+     logconcave sequences, Electron. J. Combin. 16, Note 5 (2009).
+[12] A. Havrilla, P. Nayar, T. Tkocz, Khinchin-Type Inequalities via Hadamard’s Factorisation, International
+     Mathematics Research Notices, 2021, rnab313, https://doi.org/10.1093/imrn/rnab313
+[13] O. Johnson, Log-concavity and the maximum entropy property of the Poisson distribution, Stoch. Pro-
+     cess. Their Appl. 117, no. 6 (2007), 791–802.
+[14] O. Johnson, I. Kontoyiannis, and M. Madiman, Log-concavity, ultra-log-concavity, and a maximum
+     entropy property of compound Poisson measures, Discrete Applied Mathematics 161 no. 9 (2013), 1232–
+     1250.
+[15] T.M. Liggett, Ultra logconcave sequences and negative dependence, J. Combin. Theory Ser. A 79 no. 2
+     (1997), 315–325.
+[16] M. Madiman, P. Nayar, and T. Tkocz, Sharp moment-entropy inequalities and capacity bounds for
+     log-concave distributions, IEEE Transactions on Information Theory 67, no. 1, 2021, 81–94.
+[17] A. Marsiglietti, J. Melbourne, Geometric and Functional Inequalities for Log-Concave Probability Se-
+     quences, preprint, arXiv:2004.12005
+[18] D. Murawski, Comparing moments of real log-concave random variables, preprint, arXiv:2211.05210
+[19] P. Nayar P, K. Oleszkiewicz, Khinchine type inequalities with optimal constants via ultra log-concavity,
+     Positivity 16 (2012), 359–371.
+[20] R. Pemantle, Towards a theory of negative dependence, J. Math. Phys. 41 no. 3 (2000), 1371–1390.
+[21] D. W. Walkup, Pólya sequences, binomial convolution and the union of random sets, J. Appl. Probab.
+     13 (1976), 76–85.
+[22] Y. Yu, On the Entropy of Compound Distributions on Nonnegative Integers, IEEE Transactions on
+     Information Theory 55 no. 8 (2009), 3645–3650.
+
+     University of Warsaw
+     Email address: j.jakimiuk4@student.uw.edu.pl
+
+     Email address: dk.murawski@student.uw.edu.pl
+
+     Email address: nayar@mimuw.edu.pl
+
+     Email address: ss407112@students.mimuw.edu.pl
+

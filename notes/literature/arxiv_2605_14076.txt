@@ -1,0 +1,873 @@
+                                               The 2-Quasi-Regularizability Conjecture and Independence
+                                                             Polynomials of Wp Graphs
+                                                                                     Kevin Pereyraa
+                                                  a
+                                                      Departamento de Matemática, Universidad Nacional de San Luis, San Luis, Argentina
+
+
+
+
+                                           Abstract
+                                           Hoang, Levit, Mandrescu and Pham asked for structural conditions ensuring that the
+
+
+
+
+arXiv:2605.14076v1 [math.CO] 13 May 2026
+                                           independence polynomial of a Wp graph is log-concave, or at least unimodal, and con-
+                                           jectured that a connected W2 graph is 2-quasi-regularizable if and only if n(G) ≥ 3α(G)
+                                           (2026). We prove the conjecture. The key point is a local expansion theorem: if G is
+                                           connected and belongs to W2 , then every non-maximum independent set A satisfies
+
+                                                                                     |NG (A)| ≥ 2|A|.
+
+                                           Thus the only possible obstruction to 2-quasi-regularizability in a connected W2 graph
+                                           comes from maximum independent sets, where the condition is exactly n(G) − α(G) ≥
+                                           2α(G).
+                                              We also give coefficient criteria for log-concavity and unimodality of independence
+                                           polynomials of Wp graphs. These criteria combine the standard two-sided coefficient
+                                           inequalities, as collected by Hoang–Levit–Mandrescu–Pham, with λ-quasi-regularizability.
+                                           The new p = 2 threshold proved here inserts the missing case into the same framework
+                                           and yields explicit log-concavity and unimodality regions for connected W2 graphs.
+                                           Keywords: well-covered graph; 1-well-covered graph; Wp graph; quasi-regularizable
+                                           graph; independence polynomial; log-concavity; unimodality.
+                                           2020 MSC: 05C69; 05C30; 05C31; 05C35.
+
+
+                                           1. Introduction
+                                              Let G be a finite simple graph. Its independence polynomial, introduced by Gutman
+                                           and Harary [10], is
+                                                                                               α(G)
+                                                                                   I(G; x) =          s k xk ,
+                                                                                               X
+
+                                                                                               k=0
+
+                                           where sk denotes the number of independent sets of cardinality k in G. The sequence
+                                           (s0 , s1 , . . . , sα(G) ) is a natural enumerative invariant of G, but it is far from being con-
+                                           strained in general: Alavi, Malde, Schwenk and Erdos showed that prescribed order
+                                           patterns can occur among its coefficients [1]. Nevertheless, important graph classes do
+                                           force regular behavior. For instance, Heilmann and Lieb’s real-rootedness theorem for
+                                           matching polynomials [11], and Chudnovsky and Seymour’s real-rootedness theorem
+                                           for independence polynomials of claw-free graphs [5], both imply log-concavity in their
+                                           respective settings. Root locations and coefficient questions for independence polynomials
+
+                                               Email address: kdpereyra@unsl.edu.ar (Kevin Pereyra)
+have been studied from several viewpoints; see, for example, Brown–Hickman–Nowakowski
+[3], the survey of Levit–Mandrescu [20], and the later work on trees and clique-cover
+products [36, 37, 17]. The broader role of log-concavity in combinatorics is surveyed by
+Stanley [31], and the modern theory is also influenced by Huh’s work on chromatic and
+matroidal log-concavity [15, 16].
+     This paper concerns the class Wp introduced by Staples [32, 33]. Well-covered graphs
+originate in the work of Plummer [29, 30]; very well-covered graphs were introduced by
+Favaron [7], and structural results for special well-covered families include [8, 34]. A graph
+is in Wp if every p pairwise disjoint independent sets can be enlarged to p pairwise disjoint
+maximum independent sets. The class W1 is precisely the class of well-covered graphs.
+The class W2 is especially important because it coincides, for graphs without isolated
+vertices, with the class of 1-well-covered graphs [33, 25]; related W2 subclasses were
+studied by Pinter [28]. These graph classes also occur naturally in edge-ideal theory and
+Gorenstein graph theory [35, 14]. On the enumerative side, counterexamples, roller-coaster
+phenomena and positive results for very well-covered graphs appear in [27, 21, 24, 23, 4].
+Corona constructions, introduced by Frucht and Harary [9], provide a large source of
+well-covered and Wp examples. In a recent paper, Hoang, Levit, Mandrescu and Pham
+studied quasi-regularizability and log-concavity for Wp graphs and proved the p-quasi-
+regularizability threshold for connected Wp graphs when p ̸= 2 [12]. They left the following
+two questions.
+Problem 4.1 (Hoang–Levit–Mandrescu–Pham). What conditions on the Wp graph G
+guarantee that the independence polynomial I(G; x) is log-concave or at least unimodal?
+Conjecture 4.2 (Hoang–Levit–Mandrescu–Pham). Let G be a connected W2 graph. Then
+G is 2-quasi-regularizable if and only if
+
+                                      n(G) ≥ 3α(G).
+
+   The exclusion of p = 2 in the known threshold is not cosmetic. The cycle C5 belongs
+to W2 but is not 2-quasi-regularizable: if S is a maximum independent set, then |S| = 2
+and |N (S)| = 3 < 4. This is exactly the failure of the inequality n(C5 ) ≥ 3α(C5 ); see
+Figure 1. The main result below proves that this is the only kind of failure.
+
+   Main structural theorem. Let G be a connected graph in W2 . If A is an
+   independent set which is not maximum, then
+
+                                      |NG (A)| ≥ 2|A|.
+
+   Consequently, a connected W2 graph is 2-quasi-regularizable if and only if n(G) ≥
+   3α(G).
+
+    The proof is local. If a smallest counterexample A existed, then |N (A)| = 2|A| − 1.
+Each vertex of A would have a unique private neighbor; all other neighbors would see
+at least two vertices of A; private neighbors would be forced away from the localization
+GA ; every non-private vertex touching GA would be universal on A; and finally a second
+localization would build an augmenting set that contradicts the W2 avoidance property.
+Figures 4–7 show the successive reductions.
+    The local expansion theorem and its application to Conjecture 4.2 are the new structural
+part of the paper. The coefficient criteria in Section 3 are included to make the consequence
+for Problem 4.1 self-contained: they combine known two-sided coefficient inequalities with
+
+                                              2
+                                       v1
+                                                                S = {v1 , v3 } ∈ Ω(C5 )
+                         v5                      v2             N (S) = {v2 , v4 , v5 }
+                                                               α(C5 ) = 2, n(C5 ) = 5
+                                                               |N (S)| = 3 < 2|S| = 4
+                              v4            v3                blue: the independent set S
+                                                              orange: its open neighborhood
+
+
+Figure 1: The graph C5 is a connected W2 graph, but it is not 2-quasi-regularizable. The obstruction is
+a maximum independent set, and 5 < 3 · 2.
+
+
+the quasi-regularizability input, and in the case λ = p recover the same discriminant range
+used in [12, Theorem 3.3].
+   For Problem 4.1 we give a flexible coefficient answer. If G is connected, G ∈ Wp ,
+n = n(G), α = α(G), and G is λ-quasi-regularizable, then the inequalities
+                                                     
+               (k + 1)sk+1 ≤ n − (λ + 1)k sk ,                      p(α − k)sk ≤ (k + 1)sk+1
+lead to explicit log-concavity and unimodality criteria. The new p = 2 threshold supplies
+the missing quasi-regularizability input exactly when n ≥ 3α.
+    The paper is organized as follows. Section 2 fixes the notation and records the standard
+tools on independence polynomials, quasi-regularizability and W2 graphs. Section 3 proves
+the coefficient criteria used to answer Problem 4.1. Section 4 proves the local expansion
+theorem for connected W2 graphs, and Section 5 applies it to Conjecture 4.2. Section 6
+derives the corresponding log-concavity and unimodality consequences, and the last section
+closes with brief remarks.
+
+2. Preliminaries
+    All graphs considered in this paper are finite, undirected, and simple. For undefined
+graph-theoretic terminology we refer the reader to Diestel [6]; for matching terminology
+we refer to Lovász and Plummer [26].
+    We write V (G) and E(G) for the vertex set and the edge set, n(G) = |V (G)|, and α(G)
+for the independence number. The family of independent sets is denoted by Ind(G), and
+the family of maximum independent sets by Ω(G). For A ⊆ V (G), the open neighborhood
+is
+                NG (A) = {v ∈ V (G) − A : uv ∈ E(G) for some u ∈ A},
+with NG [A] = A ∪ NG (A). When A is independent, the localization of G at A is
+                                            GA = G − NG [A].
+For A = {v} we write Gv . Figure 2 illustrates the localization operation.
+Definition 2.1 (Wp graphs). Let p ≥ 1. A graph G belongs to Wp if n(G) ≥ p and,
+for every p pairwise disjoint independent sets A1 , . . . , Ap , there exist p pairwise disjoint
+maximum independent sets S1 , . . . , Sp ∈ Ω(G) such that Ai ⊆ Si for every i.
+Definition 2.2 (Quasi-regularizability). Let λ > 0. A graph G is λ-quasi-regularizable if
+                                             λ|A| ≤ |NG (A)|
+for every independent set A of G. The case λ = 1 is the usual notion of quasi-regularizability
+due to Berge [2].
+
+                                                          3
+                                                              blue: A
+                                           u1                 orange: NG (A)
+                                                              green: vertices of GA
+                             a1                          h1
+                                           u2                    h2
+
+                             a2                          h3    GA
+                                           u3
+
+                        A = {a1 , a2 }          NG (A) = {u1 , u2 , u3 }
+
+Figure 2: Localization at an independent set A. The graph GA is obtained by deleting the closed
+neighborhood NG [A] = A ∪ NG (A) and keeping only the remaining induced subgraph.
+
+
+Definition 2.3 (Independence polynomial, log-concavity, unimodality). Let
+                                  α(G)
+                     I(G; x) =           sk xk = s0 + s1 x + · · · + sα(G) xα(G)
+                                  X
+
+                                  k=0
+
+be the independence polynomial of G, where sk is the number of independent sets of
+cardinality k. Following [12], we say that I(G; x) is
+
+ • log-concave if
+                             s2k ≥ sk−1 sk+1             (1 ≤ k ≤ α(G) − 1),
+
+ • unimodal if there exists an index 0 ≤ t ≤ α(G) such that
+
+                           s0 ≤ · · · ≤ st−1 ≤ st ≥ st+1 ≥ · · · ≥ sα(G) .
+
+Lemma 2.4 (Keilson–Gerber product lemma). Let P (x) and Q(x) have nonnegative
+coefficients and no internal zero coefficients. If P (x) is log-concave and Q(x) is unimodal,
+then P (x)Q(x) is unimodal. If both P (x) and Q(x) are log-concave, then P (x)Q(x) is
+log-concave.
+
+   The lemma is the standard polynomial form of a convolution theorem for nonnegative
+sequences. Keilson and Gerber established the classical strong-unimodality principle
+behind the first assertion [18]; in the present nonnegative setting one must include the
+no-internal-zero condition, as in the corrected formulation of Levit and Mandrescu [19,
+Theorem 1.2 and Corollary 1.3]. The compact independence-polynomial wording also
+appears explicitly in [22, Theorem 1] and is the form quoted by Hoang–Levit–Mandrescu–
+Pham [12, Lemma 1.4]. Since independence polynomials have strictly positive coefficients
+from degree 0 through degree α(G), the hypothesis is automatic in all applications below.
+
+Lemma 2.5 (Standard facts on W2 graphs). Let G ∈ W2 .
+
+  (i) G has no isolated vertices.
+
+ (ii) If A ∈ Ind(G) and |A| < α(G), then GA ∈ W2 and α(GA ) = α(G) − |A|.
+
+ (iii) A graph is in W2 if and only if each of its connected components is in W2 .
+
+ (iv) If A ∈ Ind(G) is not maximum and v ∈
+                                         / A, then there is S ∈ Ω(G) such that A ⊆ S
+      and v ∈
+            / S.
+
+                                                     4
+ (v) If C is connected, C ∈ W2 , and C ̸= K2 , then C has no leaf. In particular, if C is
+     connected, C ∈ W2 , and α(C) > 1, then δ(C) ≥ 2.
+Proof. For (i), if z were isolated, then every maximum independent set would contain z,
+contradicting the existence of two disjoint maximum independent sets in the definition
+of W2 applied to the two empty independent sets. The localization statement (ii) is
+the standard localization theorem for W2 graphs; see [25, Corollary 2.3(i)] and also [12,
+Lemma 2.7(iii)]. The identity for the independence number follows because a maximum
+independent set of GA , together with A, is independent in G, and conversely any maximum
+independent set of G containing A leaves a maximum independent set in GA .
+    For (iii), one may either check the defining extension property component by component,
+or quote [12, Theorem 2.6]. Maximum independent sets in a disjoint union are exactly
+unions of maximum independent sets of the components, and restricting the defining
+property to one component gives the converse.
+   Assertion (iv) is the avoidance characterization [25, Theorem 2.2(vii)]; it also follows
+directly from the definition of W2 : apply it to the two disjoint independent sets A and
+{v}. We obtain disjoint maximum independent sets S, T with A ⊆ S and v ∈ T , hence
+v∈/ S.
+    Finally, (v) is [25, Corollary 2.3(ii)]. For completeness we indicate the short argument.
+Suppose that a connected C ∈ W2 , C ̸= K2 , has a leaf x with unique neighbor y. Since
+C ̸= K2 , the vertex y has another neighbor z. By (iv), applied to the non-maximum
+independent set {z} and the vertex x, there is a maximum independent set S with z ∈ S
+and x ∈/ S. Then y ∈  / S, and hence S ∪ {x} is independent, contradicting the maximality
+of S.
+Lemma 2.6 (Known coefficient inequalities). Let G have order n, independence number
+α, and independence polynomial I(G; x) = αk=0 sk xk .
+                                        P
+
+
+  (i) If G is λ-quasi-regularizable, then
+                                                       
+                      (k + 1)sk+1 ≤ n − (λ + 1)k sk ,             0 ≤ k ≤ α − 1.
+
+     This is due to Levit and Mandrescu [24, Theorem 2.1].
+ (ii) If G is connected and G ∈ Wp , then
+
+                          p(α − k)sk ≤ (k + 1)sk+1 ,          1 ≤ k ≤ α − 1.
+
+     This is due to Hoang, Levit, Mandrescu and Pham [13, Theorem 2.6].
+   These two inequalities are also recorded together as [12, Lemma 3.2]; we quote them
+here because they are the coefficient input for the criteria below.
+Corollary 2.7. Let G be a graph with connected components H1 , . . . , Hq . If each I(Hi ; x)
+is log-concave, then I(G; x) is log-concave. If each I(Hi ; x) is unimodal and all but possibly
+one of them are log-concave, then I(G; x) is unimodal.
+Proof. The independence polynomial is multiplicative over disjoint unions:
+                                               q
+                                   I(G; x) =         I(Hi ; x).
+                                               Y
+
+                                               i=1
+
+The assertions follow from Lemma 2.4.
+
+                                               5
+3. Coefficient criteria for Problem 4.1
+    The following criterion is the coefficient engine behind all log-concavity applications in
+this paper. It separates the enumerative step from the structural question of when a Wp
+graph is λ-quasi-regularizable.
+Theorem 3.1 (General log-concavity criterion). Let G be a connected graph in Wp , with
+n = n(G) and α = α(G). Suppose that G is λ-quasi-regularizable. If
+                                                                                  
+                 Φp,λ,n,α (k) = (k + 1)p(α − k + 1) − k n − (λ + 1)k ≥ 0
+
+for every 1 ≤ k ≤ α − 1, then I(G; x) is log-concave.
+Proof. Apply Lemma 2.6(i) with index k and Lemma 2.6(ii) with index k − 1. For
+1 ≤ k ≤ α − 1,
+                             n − (λ + 1)k                              k
+                    sk+1 ≤                sk ,           sk−1 ≤                sk .
+                                k+1                               p(α − k + 1)
+Multiplying gives                                                 
+                                            k n − (λ + 1)k
+                             sk−1 sk+1 ≤                               s2k .
+                                           (k + 1)p(α − k + 1)
+The hypothesis is exactly the assertion that the rational factor is at most 1.
+Corollary 3.2 (The p-quasi-regularizable specialization). Let G be connected, G ∈ Wp ,
+with n = n(G) and α = α(G). Suppose that G is p-quasi-regularizable. If
+
+                         fp,n,α (k) = k 2 − (n − pα)k + pα + p ≥ 0
+
+for every 1 ≤ k ≤ α − 1, then I(G; x) is log-concave.
+Proof. Put λ = p in Theorem 3.1. The inequality
+
+                        (k + 1)p(α − k + 1) − k(n − (p + 1)k) ≥ 0
+
+is equivalent to the displayed quadratic inequality.
+Theorem 3.3 (Explicit interval form). Let G be connected, G ∈ Wp , with n = n(G)
+and α = α(G) ≥ 2. Suppose that G is p-quasi-regularizable. Then I(G; x) is log-concave
+whenever either
+                                         √                            α2
+                    (p + 1)α ≤ n ≤ pα + 2 pα + p,                           ≤ p,
+                                                                   4(α + 1)
+or
+                   √             (α2 + 1)p + (α − 1)2                          α(α − 1)
+             pα + 2 pα + p < n ≤                      ,                                 ≤ p.
+                                        α−1                                     α+1
+Proof. By Corollary 3.2, it is enough to guarantee
+
+                f (k) = k 2 − (n − pα)k + pα + p ≥ 0                (1 ≤ k ≤ α − 1).
+
+Write r = n − pα and c = pα + p. The discriminant is
+
+                                         ∆ = r2 − 4c.
+
+                                                     6
+If ∆ ≤ 0, then f (k) ≥ 0 for all real k. This is equivalent to
+                                                √
+                                    n ≤ pα + 2 pα + p.
+
+Because p-quasi-regularizability already implies n ≥ (p + 1)α, the first interval is relevant
+exactly when                                      √
+                                (p + 1)α ≤ pα + 2 pα + p,
+which is equivalent to α2 /(4(α + 1)) ≤ p.
+   Assume now that ∆ > 0. Let
+                                       √                    √
+                                  r− ∆                   r+ ∆
+                             ρ1 =          ,        ρ2 =
+                                      2                    2
+be the two real roots. Since f opens upward, f (k) ≥ 0 for every integer 1 ≤ k ≤ α − 1
+whenever α − 1 ≤ ρ1 . This condition is equivalent to
+                                   √
+                                    ∆ ≤ r − 2α + 2,                                (1)
+
+where the right-hand side must be nonnegative. Squaring (1) gives
+
+                              r2 − 4(pα + p) ≤ (r − 2α + 2)2 ,
+
+or, after simplification,
+                                    (α2 + 1)p + (α − 1)2
+                               n≤                        .                           (2)
+                                            α−1
+Conversely, if r − 2α + 2 ≥ 0, then (2) implies (1), and hence f (k) ≥ 0 on the whole
+interval 1 ≤ k ≤ α − 1.
+    It remains only to check that the displayed lower bound in the statement forces the
+needed nonnegativity of r − 2α + 2 in the integral range. The hypothesis
+                                         α(α − 1)
+                                                  ≤p
+                                          α+1
+implies                                √
+                                      2 pα + p ≥ 2α − 2.
+Thus, since n is an integer, the strict inequality
+                                           √
+                                    pα + 2 pα + p < n
+
+forces n ≥ pα + 2α − 1, and therefore r − 2α + 2 ≥ 1. This is precisely the second case.
+The calculation is the same discriminant analysis used in [12, Theorem 3.3], but stated
+here independently of the special threshold theorem for p ̸= 2.
+Theorem 3.4 (Unimodality criterion). Let G be connected, G ∈ Wp , G λ-quasi-
+regularizable, with n = n(G) and α = α(G). Define
+
+                               pα − 1                         n−1
+                                  $        %                     
+                            L=        ,              R=           .
+                                p+1                           λ+2
+Then
+                     s0 ≤ s1 ≤ · · · ≤ sL+1 ,       sR ≥ sR+1 ≥ · · · ≥ sα .
+In particular, if R ≤ L + 1, then I(G; x) is unimodal.
+
+                                                7
+                    If the gap is empty, the coefficient sequence is unimodal.
+                           s0 ≤ · · · ≤ sL+1           sR ≥ · · · ≥ sα
+
+                                                                                        k
+                         0               L+1                  R              α
+                                           central gap
+
+Figure 3: The two-sided coefficient inequalities force an initial increasing segment and a final decreasing
+segment. The overlap condition R ≤ L + 1 yields unimodality.
+
+                                                                         |D| = 2a − 1
+                    A    x1         x2         x3       ···        xa
+
+
+
+                   M    m1          m2      m3          ···       ma
+                                                                         H = GA
+
+                         U      u                   w             ···
+
+
+Figure 4: The normal form forced by a smallest hypothetical violation of |N (A)| ≥ 2|A|. Private neighbors
+mi cannot see the localization H = GA ; any vertex of U that sees H is forced to be universal on A.
+
+
+Proof. Lemma 2.6(ii) gives
+                                           sk+1   p(α − k)
+                                                ≥          .
+                                            sk      k+1
+The right-hand side is at least 1 exactly when k ≤ (pα − 1)/(p + 1); this proves the
+increasing chain. Lemma 2.6(i) gives
+
+                                         sk+1   n − (λ + 1)k
+                                              ≤              .
+                                          sk       k+1
+The right-hand side is at most 1 exactly when k ≥ (n − 1)/(λ + 2); this proves the
+decreasing chain. If the two chains overlap, the sequence has a peak interval and is
+unimodal. Figure 3 shows the mechanism.
+
+
+4. A local expansion theorem for connected W2 graphs
+   This section proves the result that resolves Conjecture 4.2. The proof is organized as
+a minimal-counterexample argument. The forbidden normal form is drawn in Figure 4.
+
+Theorem 4.1 (Local neighborhood expansion). Let G be a connected graph in W2 . If
+A ∈ Ind(G) is not maximum, then
+
+                                           |NG (A)| ≥ 2|A|.
+
+Proof. Assume the theorem is false. Choose a counterexample (G, A) with G connected,
+G ∈ W2 , A ∈ Ind(G) non-maximum, and
+
+                                           |NG (A)| < 2|A|,
+
+
+                                                    8
+so that a = |A| is minimum among all such counterexamples. Put
+
+                  D = NG (A),       H = GA ,       b = α(H) = α(G) − a.
+
+Since A is not maximum, b ≥ 1 and H is nonempty.
+Step 1: the deficiency is exactly one. We first show that
+
+                                       |D| = 2a − 1.
+
+The case a = 1 is impossible: if A = {x}, then degG (x) < 2, while x is not a maximum
+independent set. Lemma 2.5(i) rules out degree 0, and since G ̸= K2 , the leafless property
+in Lemma 2.5(v) rules out degree 1. Hence a ≥ 2.
+    Fix x ∈ A and define the private neighborhood of x with respect to A by
+
+                              Xx = NG (x) − NG (A − {x}).
+
+The set A − {x} is still non-maximum, because any vertex that extends A also extends
+A − {x}. By the minimality of a,
+
+                                 |NG (A − {x})| ≥ 2(a − 1).
+
+In the localization GA−{x} , the vertex x is present. Since GA−{x} ∈ W2 , it has no isolated
+vertices; therefore Xx ̸= ∅. The disjoint union
+
+                                NG (A) = NG (A − {x}) ⊔ Xx
+
+then gives
+                                |D| ≥ 2(a − 1) + 1 = 2a − 1.
+Since |D| < 2a, we have |D| = 2a − 1, and moreover
+
+                              |Xx | = 1     for every x ∈ A.
+
+Let mx be the unique vertex of Xx . Put
+
+                          M = {mx : x ∈ A},         U = D − M.
+
+Then |M | = a, |U | = a − 1, and every vertex of U has at least two neighbors in A.
+Step 2: private neighbors do not see the localization. For each x ∈ A, the vertices
+remaining in GA−{x} include x, its unique neighbor mx in that localization, and H. Thus
+x is a leaf of the component of GA−{x} containing it. By Lemma 2.5(iii) the component is
+in W2 , and by Lemma 2.5(v) it must be K2 . Hence
+
+                            NG (mx ) ∩ V (H) = ∅       (x ∈ A).
+
+Figure 5 illustrates this forced K2 component.
+Step 3: every non-private neighbor that touches H is universal on A. Let u ∈ U
+and assume u has a neighbor in H. Set
+
+                            R = NG (u) ∩ A,        T = A − R.
+
+Since u ∈ U , we have |R| ≥ 2. We prove that R = A.
+
+                                             9
+                                                forbidden
+                                      x        mx         H = GA
+
+                                      in GA−{x} , x is a leaf
+                           a connected W2 component with a leaf is K2
+
+Figure 5: Localizing at A − {x} leaves x with the unique neighbor mx . The leafless property of nontrivial
+connected W2 graphs forces the whole component to be K2 , so mx has no neighbor in H.
+
+
+    Suppose, to the contrary, that T ̸= ∅. Consider the localization GT ; see Figure 6. The
+set R, the vertex u, and the part of H touched by u lie in one connected component C of
+GT . This component belongs to W2 by Lemma 2.5(ii),(iii). The set R is not maximum in
+C, because a neighbor of u lying in H can be added to R.
+    Let
+                           t(R) = {w ∈ U : NG (w) ∩ A ⊆ R} .
+Inside the component C, the neighbors of R are precisely the private vertices mx with
+x ∈ R, together with the t(R) vertices of U not deleted by the localization at T . Therefore
+
+                                          |NC (R)| = |R| + t(R).
+
+If t(R) < |R|, then C would be a connected W2 graph with a non-maximum independent
+set R satisfying |NC (R)| < 2|R|, contradicting the minimality of a because |R| < a. Hence
+
+                                               t(R) ≥ |R|.                                            (1)
+
+    On the other hand, the set T is non-maximum in G, and |T | < a. Minimality gives
+
+                                             |NG (T )| ≥ 2|T |.
+
+The neighborhood of T consists of the |T | private vertices mx with x ∈ T , together with
+the vertices of U that see T . Thus at least |T | vertices of U see T . These are exactly the
+vertices of U not counted by t(R). Since |U | = a − 1, we get
+
+                                  t(R) ≤ (a − 1) − |T | = |R| − 1,
+
+contradicting (1). Therefore R = A, and u is universal on A.
+    Because G is connected, H is nonempty, and no private vertex mx sees H, at least one
+vertex of U must see H. Hence there exists a vertex u ∈ U universal on A and adjacent
+to H.
+Step 4: the universal vertex is unique. Suppose that two distinct vertices u, v ∈ U
+are universal on A. Apply the W2 property to the disjoint independent sets {u} and {v}.
+We obtain two disjoint maximum independent sets Su , Sv with u ∈ Su and v ∈ Sv . Since
+u and v are adjacent to every vertex of A, neither maximum independent set can use any
+vertex of A. Each of them contains at most b vertices in H, so each must contain at least
+a vertices from D = NG (A). The two maximum independent sets are disjoint, so this
+would require at least 2a distinct vertices in D, contradicting |D| = 2a − 1. Thus the
+universal vertex in U is unique. Fix it and call it u, and choose
+
+                                               q ∈ NH (u).
+
+
+                                                    10
+                                            component C of GT
+
+                                              MR
+                                R                             UR
+
+                                                u                           H
+
+
+
+                               T
+                                                UT
+                          In GT , the vertices of T and all their neighbors are deleted.
+                  Only R, its private neighbors, the vertices of U seeing only R, and H remain.
+
+
+Figure 6: The localization GT used in Step 3. If u ∈ U sees H but is not universal on A, then A = R ⊔ T
+with T ̸= ∅. In GT , the component C contains R, the vertex u, the private neighbors of vertices in R,
+the vertices of U whose neighbors in A are contained in R, and the part of H touched by u.
+
+
+Step 5: the final localization. Fix an arbitrary vertex x ∈ A and set R = A − {x}. In
+the localization Gx , the universal vertex u is deleted. By Step 3, every vertex of U − {u}
+has no neighbor in H; by Step 2, the same is true of every private vertex. Hence Gx is
+the disjoint union of H and a graph LR on the remaining vertices outside H:
+
+              V (LR ) = R ∪ {my : y ∈ R} ∪ {w ∈ U − {u} : NG (w) ∩ A ⊆ R}.
+
+Since Gx ∈ W2 , also LR ∈ W2 . Moreover,
+
+                      α(LR ) = α(Gx ) − α(H) = (α(G) − 1) − b = a − 1.
+
+Thus R is a maximum independent set of LR .
+   Apply the definition of W2 in LR to the two disjoint independent sets R and ∅. Since
+R is already maximum, there exists a maximum independent set C of LR disjoint from R.
+Therefore
+                            |C| = a − 1,     C ⊆ D − {u}.
+As C is maximal in LR , it dominates R.
+    We claim that C also dominates every vertex of (D − {u}) − C. It already dominates
+all vertices of LR − C by maximality in LR . Suppose that some vertex
+
+                                        d ∈ (D − {u}) − V (LR )
+
+has no neighbor in C. Then B = C ∪ {d} is independent. The vertices outside LR in
+D −{u} are exactly the non-universal neighbors deleted when localizing at x, together with
+mx ; in particular, d is adjacent to x. Since C dominates R = A − {x}, the independent
+set B sees every vertex of A.
+    Apply W2 in G to the disjoint independent sets {u} and B. A maximum independent
+set containing u cannot contain vertices of A; a maximum independent set containing
+B also cannot contain vertices of A, because B sees all of A. Each of the two disjoint
+maximum independent sets must therefore use at least a vertices of D, again contradicting
+|D| = 2a − 1. This proves that C dominates all of (D − {u}) − C, as claimed.
+    Now C ∪ {q} is independent: vertices of C are either private vertices or non-universal
+vertices of U , and none of these has a neighbor in H. Also |C ∪ {q}| = a < α(G) = a + b,
+
+                                                      11
+                                   C dominates R and D′ − C
+
+                                     R        C        D′ − C      H
+                            x
+                                                         u        q
+                         x∈
+                          /S                          q forbids u
+                      A maximum set containing C ∪ {q} and avoiding x
+                        has no available vertices outside H except C
+
+Figure 7: The final contradiction. After localizing at x, a maximum set C disjoint from R = A − {x}
+dominates all remaining vertices outside H except the universal vertex u, while q ∈ H forbids u.
+
+
+so it is not maximum. By the avoidance property in Lemma 2.5(iv), there is a maximum
+independent set S of G such that
+
+                                   C ∪ {q} ⊆ S,           x∈
+                                                           / S.
+
+This is impossible; see Figure 7. The vertex q forbids u, the set C dominates R and all of
+(D − {u}) − C, and x is explicitly forbidden. Hence outside H the set S can contain no
+vertex except the vertices of C. Inside H it contains at most b vertices. Consequently
+
+                           |S| ≤ |C| + b = (a − 1) + b = α(G) − 1,
+
+contradicting S ∈ Ω(G). This contradiction completes the proof.
+
+
+5. Solution of Conjecture 4.2
+Theorem 5.1 (Conjecture 4.2). Let G be a connected graph in W2 . Then G is 2-quasi-
+regularizable if and only if
+                                 n(G) ≥ 3α(G).
+
+Proof. If G is 2-quasi-regularizable and S ∈ Ω(G), then
+
+                          n(G) − α(G) = |NG (S)| ≥ 2|S| = 2α(G),
+
+so n(G) ≥ 3α(G).
+   Conversely, assume n(G) ≥ 3α(G) and let A ∈ Ind(G). If A is not maximum, then
+Theorem 4.1 gives
+                                |NG (A)| ≥ 2|A|.
+If A is maximum, then
+
+                          |NG (A)| = n(G) − α(G) ≥ 2α(G) = 2|A|.
+
+Thus |NG (A)| ≥ 2|A| for every independent set A, which is precisely 2-quasi-regularizability.
+
+
+Remark 5.2. Theorem 4.1 is stronger than Conjecture 4.2. The global inequality n(G) ≥
+3α(G) is needed only for maximum independent sets. Every non-maximum independent
+set in a connected W2 graph satisfies the 2-quasi-regularizability inequality automatically.
+
+                                                  12
+6. Consequences for Problem 4.1
+     We now insert the solved p = 2 threshold into the coefficient criteria of Section 3.
+
+Corollary 6.1 (Log-concavity for connected W2 graphs). Let G be connected, G ∈ W2 ,
+with n = n(G) and α = α(G). Suppose that n ≥ 3α. If
+
+                     k 2 − (n − 2α)k + 2α + 2 ≥ 0                     (1 ≤ k ≤ α − 1),
+
+then I(G; x) is log-concave.
+
+Proof. By Theorem 5.1, the graph G is 2-quasi-regularizable. Apply Corollary 3.2 with
+p = 2.
+
+Corollary 6.2 (Explicit p = 2 interval form). Let G be connected, G ∈ W2 , with n = n(G)
+and α = α(G) ≥ 2. Suppose that n ≥ 3α. Then I(G; x) is log-concave whenever either
+                                      √                                  α2
+                       3α ≤ n ≤ 2α + 2 2α + 2,                                 ≤ 2,
+                                                                      4(α + 1)
+or
+                    √             2(α2 + 1) + (α − 1)2                         α(α − 1)
+              2α + 2 2α + 2 < n ≤                      ,                                ≤ 2.
+                                         α−1                                    α+1
+Proof. Theorem 5.1 gives 2-quasi-regularizability from n ≥ 3α. The result is Theorem 3.3
+with p = 2.
+
+Corollary 6.3 (Unimodality for connected W2 graphs). Let G be connected, G ∈ W2 ,
+with n = n(G) and α = α(G). Suppose that n ≥ 3α. If
+                                       n−1   2α − 1
+                                                               
+                                           ≤        + 1,
+                                        4      3
+then I(G; x) is unimodal.
+
+Proof. By Theorem 5.1, the graph is 2-quasi-regularizable. Apply Theorem 3.4 with
+p = λ = 2.
+
+Corollary 6.4 (A unified set of sufficient conditions for Problem 4.1). Let G be a connected
+graph in Wp , with n = n(G) and α = α(G).
+
+ (a) If G is λ-quasi-regularizable and
+                                                                               
+                            (k + 1)p(α − k + 1) − k n − (λ + 1)k ≥ 0
+
+       for every 1 ≤ k ≤ α − 1, then I(G; x) is log-concave.
+
+ (b) If G is λ-quasi-regularizable and
+
+                                           n−1   pα − 1
+                                                        $            %
+                                               ≤        + 1,
+                                           λ+2    p+1
+
+       then I(G; x) is unimodal.
+
+
+                                                     13
+ (c) If p ̸= 2, then the theorem of Hoang–Levit–Mandrescu–Pham says that n ≥ (p + 1)α
+     is equivalent to p-quasi-regularizability for connected Wp graphs. Therefore parts (a)
+     and (b) apply with λ = p whenever n ≥ (p + 1)α.
+
+ (d) If p = 2, then Theorem 5.1 says that n ≥ 3α is equivalent to 2-quasi-regularizability
+     for connected W2 graphs. Therefore parts (a) and (b) apply with λ = 2 whenever
+     n ≥ 3α.
+
+Remark 6.5. Part (d) is the missing p = 2 counterpart of the structural input used in [12].
+The coefficient inequalities themselves are uniform in p; the exceptional nature of p = 2
+lies in proving the exact quasi-regularizability threshold.
+
+7. Final remarks
+    The local theorem explains why the case p = 2 was delicate. In a smallest hypothetical
+counterexample, localizing at A − {x} creates a K2 component {x, mx }. Such a component
+is allowed in W2 , whereas higher p arguments usually benefit from stronger local degree
+constraints. The proof above eliminates precisely this obstruction by showing that the
+remaining connection to GA must pass through a unique universal vertex, and then using
+the W2 extension property one final time.
+    For independence polynomials, the conclusion is that the conditions in Problem 4.1 can
+now be applied uniformly at the quasi-regularizability threshold: for p ̸= 2 by the theorem
+of Hoang–Levit–Mandrescu–Pham, and for p = 2 by Theorem 5.1. Componentwise versions
+follow from Lemma 2.4, which is why log-concavity results for connected components
+extend cleanly to disconnected Wp graphs.
+Acknowledgment. The authors thank the referee for the careful reading and helpful
+suggestions.
+
+Declaration of generative AI and AI-assisted technologies in the writing process
+   During the preparation of this work the authors used ChatGPT-3.5 in order to improve
+the grammar of several paragraphs of the text. After using this service, the authors
+reviewed and edited the content as needed and take full responsibility for the content of
+the publication.
+
+Data availability
+   Data sharing is not applicable to this article, as no datasets were generated or analyzed
+during the current study.
+
+Declarations
+Conflict of interest. The authors declare that they have no conflict of interest.
+
+
+
+
+                                            14
+References
+ [1] Y. Alavi, P. J. Malde, A. J. Schwenk, and P. Erdos, The vertex independence sequence
+     of a graph is not constrained, Congressus Numerantium 58 (1987), 15–23.
+
+ [2] C. Berge, Some common properties for regularizable graphs, edge-critical graphs and
+     B-graphs, Annals of Discrete Mathematics 12 (1982), 31–44.
+
+ [3] J. I. Brown, C. A. Hickman, and R. J. Nowakowski, On the location of roots of
+     independence polynomials, Journal of Algebraic Combinatorics 19 (2004), 273–282.
+
+ [4] S.-Y. Chen and H.-J. Wang, Unimodality of very well-covered graphs, Ars Combina-
+     toria 97A (2010), 509–529.
+
+ [5] M. Chudnovsky and P. Seymour, The roots of the independence polynomial of a
+     claw-free graph, Journal of Combinatorial Theory, Series B 97 (2007), 350–357.
+
+ [6] R. Diestel, Graph Theory, fifth ed., Graduate Texts in Mathematics, vol. 173, Springer,
+     Berlin, 2017.
+
+ [7] O. Favaron, Very well-covered graphs, Discrete Mathematics 42 (1982), 177–187.
+
+ [8] A. Finbow, B. Hartnell, and R. Nowakowski, A characterization of well-covered graphs
+     of girth 5 or greater, Journal of Combinatorial Theory, Series B 57 (1993), 44–68.
+
+ [9] R. Frucht and F. Harary, On the corona of two graphs, Aequationes Mathematicae 4
+     (1970), 322–324.
+
+[10] I. Gutman and F. Harary, Generalizations of the matching polynomial, Utilitas
+     Mathematica 24 (1983), 97–106.
+
+[11] O. J. Heilmann and E. H. Lieb, Theory of monomer-dimer systems, Communications
+     in Mathematical Physics 25 (1972), 190–232.
+
+[12] D. T. Hoang, V. E. Levit, E. Mandrescu, and M. H. Pham, Log-concavity of the
+     independence polynomials of Wp graphs, Discrete Mathematics 349 (2026), no. 8,
+     Article 115109; arXiv:2409.00827v2. DOI: 10.1016/j.disc.2026.115109.
+
+[13] D. T. Hoang, V. E. Levit, E. Mandrescu, and M. H. Pham, On the unimodality of
+     the independence polynomial of clique corona graphs, SSRN preprint, available at
+     https://doi.org/10.2139/ssrn.4293649.
+
+[14] D. T. Hoang and T. N. Trung, A characterization of triangle-free Gorenstein graphs
+     and Cohen–Macaulayness of second powers of edge ideals, Journal of Algebraic
+     Combinatorics 43 (2016), 325–338.
+
+[15] J. Huh, Milnor numbers of projective hypersurfaces and the chromatic polynomial of
+     graphs, Journal of the American Mathematical Society 25 (2012), 907–927.
+
+[16] J. Huh and E. Katz, Log-concavity of characteristic polynomials and the Bergman
+     fan of matroids, Mathematische Annalen 354 (2012), 1103–1116.
+
+
+
+
+                                            15
+[17] O. Kadrawi and V. E. Levit, The independence polynomial of trees is not always
+     log-concave starting from order 26, Ars Mathematica Contemporanea 25 (2025),
+     no. 4, Article P4.03. DOI: 10.26493/1855-3974.3207.2ad.
+
+[18] J. Keilson and H. Gerber, Some results for discrete unimodality, Journal of the
+     American Statistical Association 66(334) (1971), 386–389.
+
+[19] V. E. Levit and E. Mandrescu, Some operations preserving log-concavity of nonnegative
+     functions, Mathematical Inequalities & Applications 9 (2006), 63–73.
+
+[20] V. E. Levit and E. Mandrescu, The independence polynomial of a graph – a survey,
+     Proceedings of the 1st International Conference on Algebraic Informatics, Aristotle
+     University of Thessaloniki, Greece (2005), 233–254.
+
+[21] V. E. Levit and E. Mandrescu, Independence polynomials of well-covered graphs:
+     generic counterexamples for the unimodality conjecture, European Journal of Combi-
+     natorics 27 (2006), 931–939.
+
+[22] V. E. Levit and E. Mandrescu, Very well-covered graphs with log-concave in-
+     dependence polynomials, Carpathian Journal of Mathematics 20 (2004), 73–80;
+     arXiv:math/0411239.
+
+[23] V. E. Levit and E. Mandrescu, Independence polynomials and the unimodality con-
+     jecture for very well-covered, quasi-regularizable, and perfect graphs, in Graph Theory
+     in Paris, Trends in Mathematics, Birkhauser, 2007, 243–254.
+
+[24] V. E. Levit and E. Mandrescu, The Roller-Coaster conjecture revisited, Graphs and
+     Combinatorics 33 (2017), 1499–1508.
+
+[25] V. E. Levit and E. Mandrescu, 1-well-covered graphs revisited, European Journal of
+     Combinatorics 80 (2019), 261–272; arXiv:1610.03972.
+
+[26] L. Lovász and M. D. Plummer, Matching Theory, Annals of Discrete Mathematics,
+     vol. 29, North-Holland, Amsterdam, 1986.
+
+[27] T. S. Michael and W. N. Traves, Independence sequences of well-covered graphs:
+     non-unimodality and the Roller-Coaster conjecture, Graphs and Combinatorics 19
+     (2003), 403–411.
+
+[28] M. R. Pinter, W2 graphs and strongly well-covered graphs: two well-covered graph
+     subclasses, Ph.D. thesis, Vanderbilt University, 1991.
+
+[29] M. D. Plummer, Some covering concepts in graphs, Journal of Combinatorial Theory
+     8 (1970), 91–98.
+
+[30] M. D. Plummer, Well-covered graphs: a survey, Quaestiones Mathematicae 16 (1993),
+     253–287.
+
+[31] R. P. Stanley, Log-concave and unimodal sequences in algebra, combinatorics, and
+     geometry, Annals of the New York Academy of Sciences 576 (1989), 500–535.
+
+[32] J. W. Staples, On some subclasses of well-covered graphs, Ph.D. thesis, Vanderbilt
+     University, 1975.
+
+                                            16
+[33] J. W. Staples, On some subclasses of well-covered graphs, Journal of Graph Theory 3
+     (1979), 197–204.
+
+[34] J. Topp and L. Volkmann, On the well-coveredness of products of graphs, Ars Combi-
+     natoria 33 (1992), 199–215.
+
+[35] R. H. Villarreal, Monomial Algebras, Monographs and Textbooks in Pure and Applied
+     Mathematics 238, Marcel Dekker, New York, 2001.
+
+[36] B. X. Zhu, Clique cover products and unimodality of independence polynomials,
+     Discrete Applied Mathematics 206 (2016), 172–180.
+
+[37] B. X. Zhu and Y. Chen, Log-concavity of independence polynomials of some kinds of
+     trees, Applied Mathematics and Computation 342 (2019), 35–44.
+
+
+
+
+                                          17
+

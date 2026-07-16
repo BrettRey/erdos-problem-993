@@ -35,6 +35,41 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
   cross-gap recovery. No witnesses. The disproof-relevant gap to V=1 is
   roughly 11/n at best and widening with size, so no family in the searched
   classes is on a crossing trajectory.
+- **Bridge packet RESOLVED same-day: REFUTED(T3), zero-location
+  hypotheses provably insufficient** Codex (GPT-5.6) returned a
+  refutation within its 60-minute budget:
+  `P_s = ((1+x)^6+20x)(1+x^2)^{2s}` (base = the repo's split-graph
+  control polynomial) satisfies dominance, U_24-avoidance, the 0.9
+  sector, and the cusp envelope, yet has a mid-window valley at
+  b = 2s ~ alpha/2 for every s. Every lemma is hand-checkable (Rouche
+  collar, sine-rule sector, binomial valley algebra) and was
+  independently replayed in exact arithmetic by the parent session
+  (valleys at s = 3, 4, 10, 50; six exact root boxes; s=3 sequence
+  digit-identical). Filed under
+  `gpt_attack/bridge_window_unimodality/outcome_2026-07-16/`.
+  Consequences: (i) the bridge to #993 cannot be proved from zero
+  locations plus positivity alone; the missing input is the tree-DP
+  structure that excludes parity-lacunary factors like (1+x^2)^m;
+  (ii) issue #1's realizability invariant is now provably necessary,
+  not just desirable; (iii) the reformulated bridge target is to prove
+  trees admit no cross-gap rebound (c-b > 1), the empirical law the
+  whole campaign observed without exception. This is the packet
+  discipline working as designed: refutation-as-success redirected the
+  program in one dispatch.
+- **Bridge-lemma packet frozen and dispatched (mode-1 transfer from the
+  AI-Erdos claim wave)** Methods audit of the Chojecki/GPT Erdos claims
+  identified the transferable pattern: cross-domain reframing of a
+  tightly-scoped statement (the #1196 Markov-chain solve), not one-shot
+  problem solving. Applied here as `gpt_attack/bridge_window_unimodality/`:
+  frozen target (effective no-valley theorem in the window
+  k < 2*alpha/3 from zero-geometry hypotheses, graded sub-targets
+  T1 pilot spiders / T2 bounded degree / T3 refutation mode / T4
+  degree-uniform), binding verification rules (theorem-vs-evidence
+  labels, no float roots, effective constants, refutation counts as
+  success), certified data bundle, and the full literature txt set from
+  the 2026-07-16 intake. Dispatched to Codex GPT-5.6 with a strict
+  deliverable format and self-grading bar. Replay discipline unchanged:
+  any returned proof gets hand/exact verification before any claim.
 - **Spectral conjectures distilled, literature-placed, and same-day
   kill-tested; constant collar refuted, cusp envelope and sector survive**
   Following the campaign, the spectral content was stated precisely

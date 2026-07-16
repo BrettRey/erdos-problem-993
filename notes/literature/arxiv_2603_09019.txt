@@ -1,0 +1,550 @@
+                                             ON THE STRUCTURE OF THE POISSON TRINOMIAL DISTRIBUTION
+
+                                                                             MARK BROADIE AND INA PETKOVA
+
+
+                                                 Abstract. We study sums of independent random variables that take values 0, 1/2, or 1. We show
+                                                 that the probability mass function of the sum splits into two interleaved parts: one supported on
+                                                 the integers and the other supported on the half-integers. Each part, when normalized, is a Poisson
+                                                 binomial distribution and hence log-concave with one or two modes. We also prove that each of
+                                                 the two conditional means (conditioning on being an integer or a half-integer) lies within 1/2 of
+
+
+
+
+arXiv:2603.09019v1 [math.PR] 9 Mar 2026
+                                                 the unconditional mean. As a consequence, any two modes of the two conditional distributions are
+                                                 within 5/2 of each other.
+
+
+
+
+                                                                                       1. Introduction
+                                             The Poisson binomial distribution with parameters n and {p1 , . . . , pn } is the distribution of the
+                                          sum of n independent Bernoulli trials each with success probability pi . It is known that for any
+                                          choice of parameters the Poisson binomial distribution is log-concave with one or two modes. The
+                                          closest integer to the mean is always a mode; the next closest integer to the mean may sometimes
+                                          be a mode too. We generalize this to distributions whose support is {0, 1/2, 1}.
+                                             Suppose we have n independent random variables, each taking values in {0, 1/2, 1}. We show
+                                          that the distribution of their sum splits into two interleaved log-concave parts, supported on Z and
+                                          on Z + 12 , with nearby conditional means and modes. To state the full result, we introduce some
+                                          notation.
+                                             Let X1 , . . . , Xn be independent random variables such that, for each i,
+                                                       P(Xi = 12 ) = Ti ,      P(Xi = 1) = Wi ,          P(Xi = 0) = Li := 1 − Ti − Wi ,
+                                                            Pn
+                                          and define X = i=1 Xi . We call the distribution for X a Poisson trinomial distribution with
+                                          parameters n and {(Ti , Wi )}ni=1 .
+                                            Define µ := E[X], and whenever P(X ∈ Z) > 0 and P(X ∈ Z + 12 ) > 0, define
+                                                                                                             h                  i
+                                                                  µeven = E[X | X ∈ Z] ,          µodd := E X | X ∈ Z + 21 .
+                                          The labels “even” and “odd” indicate whether an even or odd number of trials resulted in outcome
+                                          1
+                                          2 , as we make explicit in Section 2.
+                                              Our main result describes the structure of the distribution when both parts are non-trivial:
+                                          Theorem 1. Suppose P(X ∈ Z) > 0 and P(X ∈ Z + 12 ) > 0. Then the distributions for X | (X ∈ Z)
+                                          and X | (X ∈ Z + 12 ) are Poisson binomial, hence log-concave, with one or two modes. In particular,
+                                          if meven and modd are modes for X | (X ∈ Z) and X | (X ∈ Z + 12 ), respectively, then
+                                                                         |meven − µeven | < 1,        |modd − µodd | < 1.
+                                          Moreover,
+                                                                                          1                      1
+                                                                             |µeven − µ| ≤ ,         |µodd − µ| ≤ ,
+                                                                                          2                      2
+                                          and hence |µeven − µodd | ≤ 1.
+                                            Similarly,
+                                                                                          3                      3
+                                                                             |meven − µ| < ,         |modd − µ| < ,
+                                                                                          2                      2
+                                          and hence |meven − modd | ≤ 52 .
+                                                                                                 1
+2                                       M. BROADIE AND I. PETKOVA
+
+
+    We also consider the degenerate case where one of the two parts of the distribution is trivial:
+Theorem 2. Suppose P(X ∈ Z) = 0 or P(X ∈ Z + 12 ) = 0. Then Ti ∈ {0, 1} for i = 1, . . . , n, and
+if k is the number of indices i for which Ti = 0, then the distribution is the Poisson binomial on the
+respective k trials shifted to the right by n−k
+                                             2 .
+   The proof of Theorem 1 proceeds in two stages. In Section 2, we compute the three means
+explicitly and show the bound claimed in Theorem 1. In Section 3, we prove unimodality, and
+in fact log-concavity of the two conditional distributions, and relate the modes to the means, to
+complete the proof of Theorem 1. We discuss the degenerate case in Section 4.
+   The Poisson trinomial distribution arises naturally in several applied settings. Perhaps the most
+direct motivation is team competitions with win-tie-loss formats, such as the Ryder Cup in golf, the
+Davis Cup in tennis, or international soccer tournaments, where each one-on-one match contributes
+1, 12 , or 0 points to the team score and the total score is a sum of independent {0, 12 , 1}-valued random
+variables. A potential source of examples is reliability theory, where systems with three states
+(failed, degraded, fully functioning) and independent components lead to the same distributional
+structure. Another potential source arises in clinical trials with ordered categorical outcomes (worse,
+unchanged, improved), which are naturally coded as 0, 12 , and 1. In each of these settings, the
+results of this paper—in particular the log-concavity and the proximity of the conditional means
+and modes to the unconditional mean—provide useful structural information about the distribution
+of the aggregate outcome. We elaborate on the team competition application in Section 5, deriving
+a couple of optimization results.
+Acknowledgments. We thank Pete Winkler for helpful comments. IP was partially supported by
+NSF CAREER Grant DMS-2145090.
+
+                                                  2. Means
+   In this section, we assume P(X ∈ Z) > 0 and P(X ∈ Z + 12 ) > 0, and we study the means of the
+distributions for X, X | (X ∈ Z), and X | (X ∈ Z + 12 ). We show the following:
+Proposition 1. Each of the conditional means is within 12 of the mean for X:
+                                            1                  1
+                               |µeven − µ| ≤ ,    |µodd − µ| ≤ .
+                                            2                  2
+  To prove Proposition 1, we first make some explicit computations.
+  Define indicator variables and their sum
+                                                                      n
+                                                                      X
+                                     Zi := 1       1 ,         S :=         Zi
+                                             {Xi = 2 }
+                                                                      i=1
+and observe that, in terms of S, the conditional means become
+                           µeven = E[X | S even],           µodd = E[X | S odd].
+Indeed, 2X = ni=1 (2Xi ) is an integer and 2X ≡
+                                                          Pn
+                                                            i=1 Zi = S (mod 2), so X ∈ Z if and only if S
+                P
+
+is even, and X ∈ Z + 21 if and only if S is odd.
+   To facilitate the exposition, also define
+                                  a := E[(−1)S ],         b := E[X(−1)S ].
+Then
+                       "            #                                            "        #
+                      1 + (−1)S           1+a                                 1 + (−1)S           µ+b
+        P(S even) = E                   =     ,          E[X1{S even} ] = E X                 =       ,
+                           2               2                                       2               2
+and hence
+                                                          µ+b
+                                               µeven =        .
+                                                          1+a
+                   ON THE STRUCTURE OF THE POISSON TRINOMIAL DISTRIBUTION                                                3
+
+
+Similarly, we obtain
+                                                  µ−b
+                                                       . µodd =
+                                                  1−a
+The differences of means that we are interested in become
+                                      b − aµ                    b − aµ
+(1)                       µeven − µ =        ,     µodd − µ = −        .
+                                       1+a                       1−a
+  We next compute a, b, and µ explicitly. Since the Zj are independent,
+                                                                  
+                                                   n
+                                                   Y                         n
+                                                                             Y
+                                       a = E          (−1)Zj  =                  E[(−1)Zj ].
+                                                  j=1                       j=1
+
+For each j, Zj ∼ Bernoulli(Tj ), so
+                                 E[(−1)Zj ] = (1 − Tj ) · 1 + Tj · (−1) = 1 − 2Tj .
+Hence
+                                                             n
+                                                             Y
+(2)                                                  a=           (1 − 2Tj ).
+                                                             j=1
+
+Next,
+                                                                                                                  
+                                                   n
+                                                              ! n                       n             n
+                        h             i            X           Y                        X             Y
+                b = E X(−1)S = E                        Xi            (−1)Zj  =             EXi        (−1)Zj 
+                                                   i=1            j=1                   i=1          j=1
+                                                             
+                       n
+                       X                    Y
+                  =          EXi (−1)Zi           (−1)Zj  .
+                       i=1                  j̸=i
+
+By independence across indices, (Xi , Zi ) is independent of {Zj }j̸=i , hence
+                                                            
+                                           Y                            h              iY
+                         EXi (−1)Zi            (−1)Zj  = E Xi (−1)Zi                          E[(−1)Zj ].
+                                           j̸=i                                          j̸=i
+
+We already have E[(−1)Zj ] = 1 − 2Tj . Also,
+                                                                                                            Ti
+                  E[Xi (−1)Zi ] = 1 · Wi · 1 +                1
+                                                              2    · Ti · (−1) + 0 · Li · 1 = Wi −               .
+                                                                                                              2
+Therefore
+                                               n
+                                               X             Ti
+                                                                        Y
+(3)                                       b=             Wi −                  (1 − 2Tj ).
+                                               i=1
+                                                              2             j̸=i
+
+Last,
+                                                      n                      n 
+                                                                                           Ti
+                                                      X                      X                   
+(4)                                 µ = E[X] =               E[Xi ] =               Wi +      .
+                                                       i=1                   i=1
+                                                                                           2
+
+  We can now compute the numerator that appears in (1):
+Lemma 1. For a, b, µ as above, we have
+                              n
+                              X                      Y
+(5)             b − aµ =            Ti (Wi − Li )         (1 − 2Tj ),                where Li = 1 − Ti − Wi .
+                              i=1                    j̸=i
+4                                                   M. BROADIE AND I. PETKOVA
+
+
+Proof. From (2) and (4), we get
+                                                                        
+                                                    n                        n 
+                                                                                        Ti
+                                                    Y                        X                     
+                                      aµ =             (1 − 2Tj )                Wi +
+                                                 j=1                         i=1
+                                                                                        2
+                                                n
+                                                X               Ti
+                                                                             Y
+                                            =           Wi +        (1 − 2Ti ) (1 − 2Tj ).
+                                                i=1
+                                                                 2            j̸=i
+
+Combining with (3), we have
+                                      n 
+                                        "                                                               #
+                                                     Ti                 Ti
+                                      X                                            Y
+                        b − aµ =                Wi −             − Wi +    (1 − 2Ti )     (1 − 2Tj ).
+                                      i=1
+                                                     2                  2             j̸=i
+
+Simplifying results in (5).                                                                                            □
+    Next, we derive a bound on b − aµ:
+Lemma 2. For a, b, µ as above, we have
+                                                                              1 − |a|
+                                                            |b − aµ| ≤                .
+                                                                                 2
+Proof. Let αi := |1 − 2Ti | ∈ [0, 1] and c := ni=1 αi . Note that c = |a|.
+                                                              Q
+
+  Taking absolute values in Equation (5) and using αj = |1 − 2Tj | gives
+                                                                 n
+                                                                 X                        Y
+(6)                                             |b − aµ| ≤             Ti |Wi − Li |             αj .
+                                                                 i=1                      j̸=i
+
+Since Wi , Li ≥ 0, we have |Wi − Li | ≤ Wi + Li = 1 − Ti , so
+                                                                                                            1 − αi
+(7)                         Ti |Wi − Li | ≤ Ti (1 − Ti ) ≤ min(Ti , 1 − Ti ) =                                     .
+                                                                                                              2
+Substituting (7) into (6),
+                                                                     n
+                                                                     X 1 − αi Y
+(8)                                                 |b − aµ| ≤                              αj .
+                                                                     i=1
+                                                                               2     j̸=i
+                                        Qn
+Define partial products rk :=               j=k αj and rn+1 := 1. Then
+                                                      n
+                                                      X                            n
+                                                                                   X
+                                      1 − r1 =            (rk+1 − rk ) =                (1 − αk )rk+1 .
+                                                      k=1                          k=1
+                       Q         
+                         j<k αj rk+1 ≤ rk+1 , hence
+       Q
+Also       j̸=k αj =
+                                                              Y
+                                                (1 − αk )            αj ≤ (1 − αk )rk+1 .
+                                                              j̸=k
+
+Summing,
+                            n
+                            X                    Y               n
+                                                                 X
+                                (1 − αk )              αj ≤          (1 − αk )rk+1 = 1 − r1 = 1 − c.
+                            k=1                 j̸=k          k=1
+Combining with (8), we conclude
+                                                                       1−c   1 − |a|
+                                                    |b − aµ| ≤             =         .                                 □
+                                                                        2       2
+    We can now prove Proposition 1:
+                   ON THE STRUCTURE OF THE POISSON TRINOMIAL DISTRIBUTION                                                5
+
+
+Proof of Proposition 1. Since P(S even) > 0 and P(S odd) > 0, we have 1 + a > 0 and 1 − a > 0,
+and hence 1 + |a| > 0. We also have the inequalities 1 − |a| ≤ 1 + a and 1 − |a| ≤ 1 − a, which follow
+from |a| ≥ ±a, so by Lemma 2 we get
+                                                                            1−|a|
+                                                           |b − aµ|       1
+                                    |µeven − µ| =                   ≤ 2 ≤
+                                                             1+a     1+a  2
+and
+                                                                        1−|a|
+                                                        |b − aµ|      1
+                                    |µodd − µ| =                 ≤ 2 ≤ .                                                 □
+                                                          1−a     1−a 2
+                                     3. Log-concavity and modes
+  In this section, we show that the two parity-conditioned distributions are log-concave (and hence
+unimodal).
+3.1. Generating functions and parity extraction. Define the integer-valued random variable
+H = 2X, and observe that the pgf for H is
+                                                             n
+                                                             Y
+                                  G(w) := E[wH ] =               (Li + Ti w + Wi w2 ).
+                                                             i=1
+Write
+                                            2n
+                                            X
+                              G(w) =               am wm ,           am = P(H = m).
+                                           m=0
+Define the even- and odd-part polynomials p and q by
+                                           G(w) = p(w2 ) + w q(w2 ),
+i.e.
+                                           n
+                                           X                                n−1
+                                                                            X
+                                  p(z) =         a2k z k ,         q(z) =           a2k+1 z k .
+                                           k=0                              k=0
+Normalizing, we obtain the conditional pmfs
+                                           [z k ] p(z)                                                 [z k ] q(z)
+(9)           P(H = 2k | S even) =                     ,           P(H = 2k + 1 | S odd) =                         .
+                                              p(1)                                                        q(1)
+   Recall that a real polynomial f (w) ∈ R[w] is called Hurwitz stable if all its roots lie in the open
+left half-plane {z ∈ C : Re(z) < 0}.
+Lemma 3. If L, T, W > 0, then L + T w + W w2 is Hurwitz stable.
+                          √
+                              2
+Proof. The roots are −T ± 2W
+                           T −4LW
+                                   . If T 2 < 4LW , the roots are complex with real part −T /(2W ) <
+                                                                   √               √
+0. If T 2 ≥ √4LW , the roots are real and√both negative, since T 2 − 4LW ≤ T 2 = T implies
+both −T + T 2 − 4LW ≤ 0 and −T − T 2 − 4LW ≤ 0. In either case all roots lie in the open
+left half-plane, which can also be seen as an instance of the Routh–Hurwitz criterion for degree 2
+polynomials.                                                                                       □
+                                                                                           Qn
+Lemma 4. If f1 , . . . , fn are Hurwitz stable real polynomials, then                        i=1 fi is Hurwitz stable.
+
+Proof. The roots of the product are the multiset union of roots of the factors.                                          □
+                                                                                             Q
+   By Lemmas 3 and 4, G(w) is Hurwitz stable and satisfies G(0) =                                 i Li > 0.
+
+Theorem 3 (cf. [Hol03] Theorem 1). Let f (w) ∈ R[w] be Hurwitz stable and write
+                                            f (w) = g(w2 ) + w h(w2 )
+with g, h ∈ R[w]. If f (0) ̸= 0, then all zeros of g and of h are real and non-positive.
+6                                           M. BROADIE AND I. PETKOVA
+
+
+Proof. This is a version of the Hermite–Biehler Theorem; see [Gan59] or [Hol03].                                         □
+
+    Returning to our conditional distributions:
+Proposition 2. The conditional distributions H | (S even) and H | (S odd) are log-concave (and
+hence unimodal) on their natural lattices. Equivalently, X | (S even) is log-concave on {0, 1, . . . , n}
+and X | (S odd) is log-concave on { 12 , 23 , . . . , n − 12 }.
+Proof. By Theorem 3 applied to f = G, the polynomials p and q have only real, non-positive zeros.
+Since their coefficients are non-negative, for each polynomial they form a log-concave and hence
+unimodal sequence. This is a standard consequence of Newton’s inequalities; see, e.g., [HLP88].
+Normalization by the constants p(1) and q(1) does not affect log-concavity or unimodality.    □
+
+3.2. Poisson binomial representation and mode–mean proximity. Since p is a polynomial
+with positive coefficients and non-positive real roots, it can be written as
+                                                      n
+                                                      Y
+                                        p(z) = p(0)       (βj + z),     βj ≥ 0,
+                                                      j=1
+
+and similarly for q. After normalizing, both p and q are pgfs of sums of independent Bernoulli
+random variables, i.e., Poisson binomial distributions. The same holds for q.
+Theorem 4 (cf. [Dar64] Theorem 2 and Theorem 4). Let B = m
+                                                                                 P
+                                                               j=1 Bj be a sum of independent
+Bernoulli random variables with mean E[B] = µB . If mB is any mode of B (if there are two, they
+are adjacent and either may be chosen), then
+                                                  |mB − µB | < 1.
+Proof. See [Dar64], for example.                                                                                         □
+
+    We now look at the conditional modes. Let
+     meven ∈ arg      max          P(X = k | S even),           modd ∈ arg          max              P(X = k | S odd).
+                   k∈{0,1,...,n}                                                 1 3           1
+                                                                             k∈{ 2 , 2 ,...,n− 2 }
+
+Corollary 1. The conditional distributions X | (S even) and X | (S odd) each have either one
+mode or two adjacent modes, and
+                                    |meven − µeven | < 1,        |modd − µodd | < 1.
+Proof. In the even case, the integer-valued random variable
+                                                            H
+                                              Xeven :=           (S even)
+                                                            2
+has pgf p(z)/p(1) by (9), hence is Poisson–binomial. Theorem 4 gives |meven − E[Xeven ]| < 1. But
+E[Xeven ] = E[X | S even] = µeven .
+  In the odd case, the integer-valued
+                                                        H −1
+                                             Xodd :=               (S odd)
+                                                          2
+has pgf q(z)/q(1) and is Poisson–binomial. Theorem 4 gives |mode(Xodd ) − E[Xodd ]| < 1, which
+translates to |modd − µodd | < 1.                                                            □
+
+   Combining Corollary 1 with Proposition 1, we can put a universal bound on both types of modes,
+in terms of distance to the mean µ:
+                    ON THE STRUCTURE OF THE POISSON TRINOMIAL DISTRIBUTION                            7
+
+
+Proposition 3. If meven and modd are modes of the two conditional distributions X | (S even) and
+X | (S odd), respectively, then
+                                              3                   3
+                                 |meven − µ| < ,      |modd − µ| < .
+                                              2                   2
+In particular, |meven − modd | ≤ 52 .
+Proof. The first part is an immediate consequence of Corollary 1 and Proposition 1. The second
+part follows since the first part implies |meven − modd | < 3, and the two modes live on the integer
+and half-integer lattice.                                                                         □
+Proof of Theorem 1. The theorem is immediate from Proposition 1, Theorem 2, and Proposition 3.
+                                                                                           □
+
+                                        4. The degenerate case
+  For completeness, we also consider the degenerate case where P(X ∈ Z) = 0 or P(X ∈ Z + 12 ) = 0.
+                                                                                                     
+Proof of Theorem 2. Suppose there is some Ti ∈ (0, 1). Since the probabilities P X − Xi ∈ Z + 12
+and P (X − Xi ∈ Z) add up to one, at least one of them is positive. Then
+                                                1
+                                                      
+                   P(X ∈ Z) = Ti P X − Xi ∈ Z +            + (1 − Ti ) P(X − Xi ∈ Z)
+                                                2
+is positive too. Similarly, P(X ∈ Z + 12 ) is positive. This contradicts the assumption. Thus,
+Ti ∈ {0, 1} for all i.
+   By reordering, assume T1 = · · · = Tk = 0 and Tk+1 = · · · = Tn = 1. The distribution for
+X1 + · · · + Xk is Poisson binomial, while Xk+1 + · · · + Xn has a point mass distribution at n−k
+                                                                                               2 . The
+distribution for the sum X = (X1 + · · · + Xk ) + (Xk+1 + · · · + Xn ) is therefore a Poisson binomial
+distribution shifted by n−k2 .                                                                      □
+                                                                   Pk
+   Note that in this degenerate case, the mean is µ = n−k
+                                                       2 +           i=1 Wi , and any mode is within
+distance 1 of µ by [Dar64].
+
+                                            5. Applications
+   In [BP26], we apply Theorem 1 to study optimal player matchups in team competitions with
+win-tie-loss formats. Specifically, we consider series of one-on-one games in which one team enters
+with a score deficit or a big lead and seeks to win the series overall.
+   An example of such an event is the last day of the Ryder Cup competition in golf. Each team
+has 12 players and the competition consists of three days of match play worth 28 points in total.
+The final day features 12 singles matches, where each team member plays one-on-one against an
+opponent from the other team. The team with the most total points wins the cup; in the event of a
+tie, the defending champion retains the cup.
+   Consider, most generally, a match-play competition where team A with players of strengths
+a1 ≥ a2 ≥ · · · ≥ an faces team B with players of strengths b1 ≥ b2 ≥ · · · ≥ bn . An ordering σ assigns
+team B’s players to positions, so player σ(i) on team B faces player i on team A in match i. Denote
+the random number of points (1 point to the winner, or half a point to each team in case of a tie)
+earned by team B in match i by Xσ(i),i . We take the perspective of team B. Suppose team A has
+ordered its players, and suppose team B needs at least k points in the n matches in order to win
+the competition, where k ∈ {0, 0.5, . . ., n − 0.5, n} depends on the number of points accumulated
+in previous events. The goal for team B is to find an ordering σ that maximizes
+(10)                                          P (Xσ ≥ k),
+8                                        M. BROADIE AND I. PETKOVA
+
+
+where
+                                    Xσ = Xσ(1),1 + · · · + Xσ(n),n
+is the total random points earned. Note that Xσ follows a Poisson trinomial distribution.
+   In many scenarios, the probability that a player wins a match against another is best modeled
+by a logistic regression in terms of the difference in strength; tie and loss probabilities are then
+derived using symmetries. When the strength range of the competition pool is not very wide, e.g. in
+professional sports, this model is very well approximated by a linear one. In a linear model, the
+probabilities that a player wins, loses, or ties a match against another are modeled by the linear
+functions
+                                                W (s) = αs + β,
+                                                 L(s) = −αs + β,
+                                                 T (s) = 1 − 2β,
+where s is the strength differential, and α > 0 and β ∈ [0, 1/2] are constants. A necessary assumption
+is that the domain for the three functions, i.e., the set of all possible values of the strength differential,
+is contained in the interval (− αβ , αβ ) ∩ ( β−1 1−β
+                                               α , α ); this ensures 0 ≤ W (s) ≤ 1.
+   Given such a linear model, we solve this optimization problem for almost all values of k.
+   First observe that the expected total score E[Xσ ] is independent of σ:
+Proposition 4. For any ordering σ,
+                                                         n          n
+                                                   n    X          X
+                                       E[Xσ ] =      +α     bi − α     ai .
+                                                   2    i=1        i=1
+
+Proof. Fix an ordering σ. Using linearity of expectation and rearranging indices, we get
+                                       n
+                                       X
+                           E[Xσ ] =          E[Xσ(i),i ]
+                                       i=1
+                                        n 
+                                                                        1
+                                       X                                         
+                                   =            α bσ(i) − ai       + β + (1 − 2β)
+                                       i=0
+                                                                        2
+                                         n          n
+                                    n   X          X
+                                   = +α     bi − α     ai .                                                □
+                                    2   i=1        i=1
+
+   Since E[Xσ ] only depends on the teams A and B but not on the specific ordering, from here on
+we denote this expectation by µ.
+   We show that the tail P (Xσ ≥ k) is maximized by the strong-vs-strong order for sufficiently large
+k and by strong-vs-weak order for sufficiently small k, and that in fact that are at most eight values
+of k ∈ 12 Z for which the tail is maximized by a different order:
+Theorem 5. Assume a linear model with tie probability T (s) = 1 − 2β for β ∈ (0, 12 ). If k ≥ µ + 2.5,
+then P(Xσ ≥ k) is maximized by σ = (1, 2, . . . , n) (strong-vs-strong). If k ≤ µ − 2, then P(Xσ ≥ k)
+is maximized by σ = (n, n − 1, . . . , 1) (strong-vs-weak). For k ∈ (µ − 2, µ + 2.5), the optimal ordering
+may depend on how the teams A and B are chosen.
+Proof. The proof of the theorem relies on an analysis of how a swap of two players in an ordering
+affects the probability of accumulating enough points.
+   Fix an ordering σ, and transposition τ ij = (i, j) with i < j. A direct computation shows that
+                                                                              
+                                                                         if s = 0, 2
+                                                                              ∆
+                                                                              
+                                                                              
+               P(Xσ(i),j + Xσ(j),i = s) − P(Xσ(i),i + Xσ(j),j = s) = −2∆ if s = 1
+                                                                    
+                                                                    0
+                                                                    
+                                                                         otherwise.
+                    ON THE STRUCTURE OF THE POISSON TRINOMIAL DISTRIBUTION                               9
+
+
+where
+                                  ∆ = −α2 (ai − aj )(bσ(i) − bσ(j) ).
+Write Y = Xσ − Xσ(i),i − Xσ(j),j . Another direct computation shows that
+                               P(Xστ ij ≥ k) − P(Xσ ≥ k) = ∆ · f (Y, k),
+where
+          f (Y, k) = (P(Y = k − 2) − P(Y = k − 1)) + (P(Y = k − 1.5) − P(Y = k − 0.5)).
+Thus, the difference P(Xστ ij ≥ k) − P(Xσ ≥ k) is positive if and only σ(i) > σ(j) and f (Y, k) > 0,
+or σ(i) < σ(j) and f (Y, k) < 0.
+   Note that Theorem 1 implies that the distributions for Y | (Y ∈ Z) and Y | (Y ∈ Z + 12 ) are both
+decreasing to the right of E[Y ] + 0.5. Since µ > E[Y ], it follows that P(Y = t) − P(Y = t + 1) > 0
+whenever t ≥ µ + 0.5. In particular, f (Y, k) is positive whenever k ≥ µ + 2.5. Thus, performing
+a swap that eliminates an inversion increases the probability of winning at least k matches, for
+k ≥ µ+2.5. Since we can get from any ordering to (1, 2, . . . , n) by sequentially eliminating inversions,
+σ = (1, 2, . . . , n) maximizes P (Xσ ≥ k).
+   Similarly, P(Y = t) − P(Y = t + 1) < 0 whenever t + 1 ≤ µ − 2.5, so f (Y, k) is negative whenever
+k ≤ µ − 2. Thus, creating a new inversion increases the probability of winning at least k matches,
+hence this probability is maximized for the ordering (n, . . . , 2, 1).                                 □
+  In the degenerate case when there is zero probability of a tie, i.e., β = 12 , we solve the ordering
+problem for all but two integer values of k:
+Theorem 6. Assume a linear model with tie probability T (s) = 0. If k ≥ µ + 2, then P(Xσ ≥ k) is
+maximized by σ = (1, 2, . . . , n). If k ≤ µ − 1, then P(Xσ ≥ k) is maximized by σ = (n, n − 1, . . . , 1).
+For k ∈ (µ − 1, µ + 2), the optimal ordering may depend on how the teams A and B are chosen.
+Proof. The proof is a simpler analogue of the proof of Theorem 5.                                       □
+
+                                              References
+   [BP26] Mark Broadie and Ina Petkova, Ryder cup singles ordering, 2026, Working paper.
+  [Dar64] J. N. Darroch, On the distribution of the number of successes in independent trials, The
+          Annals of Mathematical Statistics 35 (1964), no. 3, 1317–1321.
+ [Gan59] F. R. Gantmacher, The theory of matrices, Clelsea, NY, 1959.
+[HLP88] G. H. Hardy, John E. Littlewood, and George Pólya, Inequalities, Cambridge University
+          Press, Cambridge, 1988.
+  [Hol03] Olga Holtz, Hermite–biehler, routh–hurwitz, and total positivity, Linear Algebra and its
+          Applications 372 (2003), 105–110.
+  Graduate School of Business, Columbia University, New York, NY 10027
+  Email address: mnb2@columbia.edu
+  URL: https://business.columbia.edu/faculty/people/mark-broadie
+
+  Department of Mathematics, Dartmouth College, Hanover, NH 03755
+  Email address: ina.petkova@dartmouth.edu
+  URL: https://math.dartmouth.edu/~ina/
+

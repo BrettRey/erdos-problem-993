@@ -1,0 +1,488 @@
+                                               SYMMETRIC AND UNIMODAL INDEPENDENCE POLYNOMIALS
+                                                                  OF TREES
+
+                                                                   TAKAYUKI HIBI, SELVI KARA, AND DALENA VIEN
+
+
+                                                   Abstract. Given n ≥ 1, we study the existence of a tree on n vertices whose independence
+                                                   polynomial is symmetric and unimodal as well as the existence of a symmetric and unimodal
+
+
+
+
+arXiv:2604.18824v1 [math.CO] 20 Apr 2026
+                                                   independence polynomial of degree n of a tree.
+
+
+
+
+                                                                                       Introduction
+                                           Every graph considered in this paper is finite and simple. For a graph G, let gi (G) denote
+                                           the number of independent sets of G of cardinality i. The independence polynomial of G is
+                                                                                        X
+                                                                             PG (x) =      gi (G)xi .
+                                                                                               i≥0
+
+                                           Equivalently, independence polynomials are the face polynomials of independence complexes
+                                           of graphs, and are therefore closely related to the study of face vectors of flag complexes.
+                                           They have been studied extensively from several points of view [4, 6–8, 11] in graph theory.
+                                           In 1987 [1], Alavi, Malde, Schwenk, and Erdős conjectured that the independence polyno-
+                                           mials of trees are unimodal. As of April 2026, the conjecture remains open in general, and
+                                           has been computationally verified for trees on at most 29 vertices [15]. Motivated by this
+                                           problem, we study the existence of trees whose independence polynomials are symmetric and
+                                           unimodal.
+                                           A finite sequence a0 , a1 , . . . , ad of nonnegative integers is called symmetric if ai = ad−i for each
+                                           0 ≤ i ≤ d. A symmetric sequence a0 , a1 , . . . , ad is called unimodal if a0 ≤ a1 ≤ · · · ≤ a⌊d/2⌋ .
+                                           A polynomial P (x) = a0 +a1 x+· · ·+ad xd with ai ∈ Z≥0 is called symmetric (resp. unimodal )
+                                           if its coefficient sequence is symmetric (resp. unimodal).
+                                           More precisely, we address two existence questions. First, for which integers n does there exist
+                                           a tree on n vertices whose independence polynomial is symmetric and unimodal? Second,
+                                           for which integers d does there exist a tree whose independence polynomial is symmetric and
+                                           unimodal of degree d?
+                                           Our method combines two ingredients. The first is a new gluing construction for rooted
+                                           graphs, introduced in the Bridge Lemma (Lemma 1.9). This lemma allows us to construct
+                                           larger rooted trees from smaller ones while preserving the structure needed in our arguments.
+
+                                              2020 Mathematics Subject Classification. 05C30, 05C31.
+                                              Key words and phrases. independence polynomial, tree, symmetric and unimodal polynomial.
+                                              The research for the present paper was initiated while the first author visited Bryn Mawr College, Penn-
+                                           sylvania, February 28 – March 21, 2026.
+                                                                                               1
+2
+
+The second is the γ-positivity viewpoint for symmetric polynomials. If h(x) is symmetric
+with center of symmetry d/2, then it admits a unique expansion
+                                           ⌊d/2⌋
+                                           X
+                                  h(x) =           γi xi (1 + x)d−2i .
+                                           i=0
+
+When all γi are nonnegative, the polynomial h(x) is said to be γ-positive. This viewpoint
+provides a convenient route to unimodality; see [2]. In the body of the paper, we adapt it
+to rooted trees through the notion of γ-admissibility.
+The notion of γ-positivity appeared first in the work of D. Foata and M. Schützenberger [9]
+and it is extremely useful as it directly implies symmetry and unimodality. This application
+of γ-positivity appears widely in combinatorial and geometric contexts (see [3, 5, 12, 14, 16]).
+The main result of the present paper is the following.
+Theorem 0.1. (1) Given n ≥ 1 with n ∈ / {2, 4, 5, 7, 10}, there is a tree on n vertices whose
+independence polynomial is symmetric and unimodal.
+(2) Given d ≥ 1 with d ̸= 3, there is a tree whose independence polynomial is symmetric and
+unimodal of degree d.
+
+                                        1. Bridge Lemma
+In this section, we introduce a new technique to construct symmetric independence polyno-
+mials of trees. Given a graph G and a vertex r ∈ V (G), the rooted graph (G, r) is the graph
+G with vertex r viewed as a root. Each vertex of G can be chosen as a root.
+Definition 1.1. Given two rooted graphs (G, r) and (H, s), the bridging of (G, r) and (H, s),
+denoted by (G, r) ∨ (H, s), is the rooted graph with r its root which is obtained from the
+disjoint union of (G, r) and (H, s) by adding the edge {r, s}.
+Remark 1.2. Bridging is not necessarily associative. Let (A, r), (B, s), and (C, t) be rooted
+graphs given in Figure 1.
+
+
+                  r                           s                                    t
+
+
+
+
+            r2          r1         s1         s2          s3             t1   t2       t3   t4
+
+
+
+            Figure 1. Rooted graphs (A, r), (B, s) and (C, t) from left to right
+
+Notice that ((A, r) ∨ (B, s)) ∨ (C, t) ̸= (A, r) ∨ ((B, s) ∨ (C, t)) as shown in Figure 2.
+
+To obtain symmetric and unimodal independence polynomials, we use γ-positivity (see [2].
+for a survey on γ-positivity). Although γ-positivity is usually introduced for symmetric
+                                                                                                              3
+
+
+             r                                                  r
+
+
+
+
+       r1    r2   s               t                        r1        r2         s              t
+
+
+
+
+             s1   s2   s3   t1    t2   t3      t4               s1        s2    s3    t1       t2   t3   t4
+
+
+
+
+       Figure 2. ((A, r) ∨ (B, s)) ∨ (C, t) (left) and (A, r) ∨ ((B, s) ∨ (C, t)) (right)
+
+polynomials, for our purposes it is convenient to adopt the following equivalent formulation.
+Set
+                                                x
+                                        y=           .
+                                            (1 + x)2
+Definition 1.3. A polynomial h(x) ∈ R[x] is called γ-positive if there exist an integer d ≥ 0
+and nonnegative real numbers γ0 , γ1 , . . . , γ⌊d/2⌋ such that
+                                            ⌊d/2⌋
+                                            X
+                                 h(x) =             γi xi (1 + x)d−2i .
+                                            i=0
+                                                             P⌊d/2⌋
+Equivalently, h(x) = (1 + x)d Γh (y) where Γh (y) =                 i=0    γi y i ∈ R≥0 [y].
+
+The following is well-known in the literature but we include it here for completeness.
+Lemma 1.4. If h(x) is γ-positive, then h(x) is symmetric and unimodal. If, in addition,
+h(0) ̸= 0, then deg h(x) = d.
+
+Proof. Since the substitution x 7→ 1/x leaves y invariant, we have
+                                                      
+              d           d
+                                1 d         1/x
+            x h(1/x) = x 1 +          Γh             2
+                                                         = (1 + x)d Γh (y) = h(x).
+                                 x         (1 + 1/x)
+Thus h(x) is symmetric with center of symmetry d/2.
+Moreover, each polynomial xi (1 + x)d−2i has coefficient sequence obtained from that of (1 +
+x)d−2i by padding with i zeros at the beginning and at the end. Hence each xi (1 + x)d−2i is
+symmetric and unimodal with center of symmetry d/2. Since h(x) is a nonnegative linear
+combination of these polynomials, it follows that h(x) is unimodal.
+Finally, if h(0) ̸= 0, then γ0 = h(0) > 0. Thus the term γ0 (1 + x)d occurs with positive
+coefficient. Therefore deg h(x) = d.                                                   □
+Remark 1.5. Let G be any finite simple graph and H = G ◦ 2K1 be the graph obtained
+by joining each vertex of G to two new vertices. It is known that H has a symmetric
+independence polynomial [10, 17]. Moreover, it was shown in [13] that the independence
+4
+
+polynomial of H is unimodal. It can also be easily verified that PH (x) is γ-positive. This
+follows from observing that
+                                               α(G)
+                                               X
+                                 PH (x) =             gi xi (1 + x)2n−2i
+                                                i=0
+
+where |V (G)| = n and gi is the number of independent sets of size i in G.
+
+We now introduce the notion of γ-admissibility for rooted graphs.
+Definition 1.6. A rooted graph (G, r) is called γ-admissible if there exist an integer d ≥ 0
+and polynomials A(y), B(y) ∈ Z≥0 [y] such that
+                    PG (x) = (1 + x)d A(y),             PG−r (x) = (1 + x)d B(y).
+Example 1.7. Let R3 = P3 be rooted at its middle vertex r. Then (R3 , r) is γ-admissible
+since
+      PR3 (x) = 1 + 3x + x2 = (1 + x)2 (1 + y),              PR3 −r (x) = 1 + 2x + x2 = (1 + x)2
+where A(y) = 1 + y and B(y) = 1 such that A(y) − B(y) = y ∈ Z≥0 [y].
+Remark 1.8. If (G, r) is γ-admissible, one has
+                      xd PG (1/x) = PG (x),            xd PG−r (1/x) = PG−r (x).
+This implies that both PG (x) and PG−r (x) have degree d since independence polynomials
+have constant term 1. Since PG (x) and PG−r (x) are symmetric of degree d, by the stan-
+dard theory of γ-positivity for symmetric polynomials (see [2]), there are unique coefficients
+a0 , . . . , a⌊d/2⌋ ∈ Z≥0 and b0 , . . . , b⌊d/2⌋ ∈ Z≥0 such that
+                                     ⌊d/2⌋                         ⌊d/2⌋
+                                     X                             X
+                                                 i
+                            A(y) =           ai y ,       B(y) =           bi y i .
+                                     i=0                            i=0
+
+Therefore, PG (x) and PG−r (x) are γ-positive. Hence, both are symmetric and unimodal by
+Lemma 1.4.
+
+The following result, which we refer to as Bridge Lemma, is useful in creating symmetric
+and unimodal independence polynomials for larger graphs from smaller ones.
+Lemma 1.9. (Bridge Lemma) Let (T, r) and (U, s) be γ-admissible with
+                     PT (x) = (1 + x)d A(y),            PT −r (x) = (1 + x)d B(y),
+                   PU (x) = (1 + x)e C(y),     PU −s (x) = (1 + x)e D(y),
+where A(y), B(y), C(y), D(y) ∈ Z≥0 [y]. Suppose that A(y) − B(y) ∈ Z≥0 [y].
+If (W, r) = (T, r) ∨ (U, s), then (W, r) is γ-admissible.
+
+Proof. By the standard recursion at the root r, we have
+                              PW (x) = PW −r (x) + xPW −N [r] (x).
+Since W − r = (T − r) ⊔ U and W − N [r] = (T − N [r]) ⊔ (U − s), we obtain
+                       PW (x) = PT −r (x)PU (x) + xPT −N [r] (x)PU −s (x).
+                                                                                                          5
+
+Since xPT −N [r] (x) = PT (x) − PT −r (x), we have
+                                                                  
+                     PW (x) = PT −r (x)PU (x) + PT (x) − PT −r (x) PU −s (x).
+Substituting the γ-admissible expressions gives
+                    PW (x) = (1 + x)d+e B(y)C(y) + (A(y) − B(y))D(y) ,
+                                                                    
+
+and
+                     PW −r (x) = PT −r (x)PU (x) = (1 + x)d+e B(y)C(y).
+Since B(y), C(y), D(y), and A(y) − B(y) all belong to Z≥0 [y], it follows that (W, r) is γ-
+admissible.                                                                              □
+
+                          2. Applications of the Bridge Lemma
+We now apply the Bridge Lemma to rooted trees to construct a tree on n vertices with a
+symmetric and unimodal independence polynomial as well as the existence of a symmetric
+and unimodal independence polynomial of degree d for a tree.
+The present section is devoted for a proof of Theorem 0.1. Theorem 0.1 (1) follows from
+Lemmas 2.1 and 2.3. Theorem 0.1 (2) follows from Lemma 2.4.
+Lemma 2.1. Given n ≥ 19, there is a tree T on n vertices whose independence polynomial
+is symmetric and unimodal.
+
+Proof. Let (R19 , r) be the rooted tree defined as follows. The root r has neighbors a, b, u, v,
+where a and b are leaves. The vertex u is adjacent to a leaf c and to a path p1 p2 p3 through
+the edge up1 . The vertex v is adjacent to four leaves d1 , d2 , d3 , d4 and to two vertices x and
+y, and each of x and y is adjacent to two leaves, labeled e1 , e2 and f1 , f2 respectively.
+
+                                                r
+
+
+
+
+               a         b             u                             v
+
+
+
+
+                                  c        p1       d1   d2     d3       d4        x             y
+
+
+
+
+                                           p2
+                                                                              e1       e2   f1       f2
+
+
+                                           p3
+
+
+
+
+                               Figure 3. The rooted tree (R19 , r)
+A direct computation gives
+         PR19 (x) = 1 + 19x + 153x2 + 701x3 + 2058x4 + 4112x5 + 5772x6
+                        + 5772x7 + 4112x8 + 2058x9 + 701x10 + 153x11 + 19x12 + x13
+                   = (1 + x)13 (1 + 6y + 9y 2 + 4y 3 + y 4 ).
+6
+
+and
+        PR19 −r (x) = 1 + 18x + 139x2 + 616x3 + 1763x4 + 3462x5 + 4817x6
+                        + 4817x7 + 3462x8 + 1763x9 + 616x10 + 139x11 + 18x12 + x13
+                   = (1 + x)13 (1 + 5y + 6y 2 + y 3 ).
+Hence (R19 , r) is γ-admissible.
+Let (R20 , r) be the rooted tree defined as follows. The root r has neighbors a, u, p, where a
+is a leaf. The vertex u is adjacent to a leaf b and to a path u1 u2 u3 through the edge uu1 .
+The vertex p is adjacent to a vertex q. The vertex q is adjacent to two leaves c1 , c2 , to a
+vertex t with two leaves d1 , d2 , and to a vertex s. Finally, the vertex s is adjacent to two
+leaves e1 , e2 and to a vertex z, and z is adjacent to two leaves f1 , f2 .
+
+                                             r
+
+
+
+
+                    a               u                           p
+
+
+
+
+                                b       u1                      q
+
+
+
+
+                                        u2
+                                                 c1   c2            t             s
+
+
+                                        u3
+
+                                                           d1           d2   e1       e2        z
+
+
+
+
+                                                                                           f1       f2
+
+
+
+
+                             Figure 4. The rooted tree (R20 , r)
+
+A direct computation gives
+         PR20 (x) = 1 + 20x + 171x2 + 829x3 + 2548x4 + 5255x5 + 7496x6
+                        + 7496x7 + 5255x8 + 2548x9 + 829x10 + 171x11 + 20x12 + x13
+                  = (1 + x)13 (1 + 7y + 16y 2 + 14y 3 + 4y 4 )
+and
+        PR20 −r (x) = 1 + 19x + 155x2 + 722x3 + 2151x4 + 4343x5 + 6129x6
+                        + 6129x7 + 4343x8 + 2151x9 + 722x10 + 155x11 + 19x12 + x13
+                   = (1 + x)13 (1 + 6y + 11y 2 + 7y 3 + y 4 ).
+Hence (R20 , r) is γ-admissible.
+                                                                                                7
+                                
+                                
+                                 (R3 , r), if n ≡ 0 (mod 3),
+                                
+Now fix n ≥ 19. Set (T0 , ρ0 ) = (R19 , r), if n ≡ 1 (mod 3), .
+                                
+                                
+                                  (R20 , r), if n ≡ 2 (mod 3).
+                                
+
+Then |V (T0 )| ≡ n (mod 3) and n = |V (T0 )| + 3m for some integer m ≥ 0.
+For 1 ≤ j ≤ m, define recursively (Tj , ρj ) = (R3 , r) ∨ (Tj−1 , ρj−1 ). Since (R3 , r) and
+(Tj−1 , ρj−1 ) are γ-admissible and A(y) − B(y) = y ∈ Z≥0 [y] for (R3 , r), repeated applications
+of the Bridge Lemma (Lemma 1.9) show that each (Tj , ρj ) is γ-admissible.
+Each bridging step adds exactly three vertices, so |V (Tm )| = |V (T0 )| + 3m = n. Therefore
+Tm is a tree on n vertices. In each case (n (mod 3)), the resulting tree has symmetric and
+unimodal independence polynomial by Remark 1.8.                                           □
+Remark 2.2. A computer search using Macaulay2 over all nonisomorphic trees on at most
+21 vertices shows the following. The rooted path R3 = P3 , rooted at its middle vertex,
+is the smallest γ-admissible rooted tree. Repeated applications of Lemma 1.9 to R3 yield
+γ-admissible rooted trees on 6, 9, 12, 15, and 18 vertices. On the other hand, among orders
+not divisible by 3, there are no γ-admissible rooted trees for 4 ≤ n ≤ 18.
+At n = 19, there is, up to isomorphism, a unique γ-admissible tree. Moreover, among
+the 317, 955 nonisomorphic trees on 19 vertices, exactly 6 have symmetric and unimodal
+independence polynomial. Likewise, at n = 20, there is, up to isomorphism, a unique γ-
+admissible tree. Among the 823, 065 nonisomorphic trees on 20 vertices, exactly 14 have
+symmetric and unimodal independence polynomial. Among the 2,144,505 nonisomorphic
+trees on 21 vertices, exactly 22 have symmetric and unimodal independence polynomial, of
+which 14 are γ-admissible.
+      n # of non-isomorphic trees # of symmetric trees # of γ-admissible trees
+       3             1                     1                     1
+       4             2                     0                     0
+       5             3                     0                     0
+       6             6                     1                     1
+       7            11                     0                     0
+       8            23                     1                     0
+       9            47                     1                     1
+      10           106                     0                     0
+      11           235                     2                     0
+      12           551                     3                     2
+      13          1301                     3                     0
+      14          3159                     1                     0
+      15          7741                     4                     3
+      16          19320                    2                     0
+      17          48629                    4                     0
+      18         123867                   15                     6
+      19         317955                    6                     1
+      20         823065                   14                     1
+      21        2144505                   22                    14
+8
+
+Given nonnegative integers a1 , . . . , am , we introduce the graph
+                                             C(a1 , . . . , am )
+which is obtained from a path v1 · · · vm by attaching ai leaves to vi for each i.
+
+
+
+
+                   v1            v2          v3              v4            v5           v6
+
+
+
+                        Figure 5. The graph C(0, 1, 3, 0, 2, 0) = C(2, 3, 0, 3)
+
+Lemma 2.3. Let n ∈ [1, 18]. There is a tree T on n vertices such that PT (x) is symmetric
+and unimodal when n ∈/ {2, 4, 5, 7, 10}. When n ∈ {2, 4, 5, 7, 10}, there is no tree with a
+symmetric independence polynomial.
+
+Proof. For n = 2, the only tree is P2 where PP2 (x) = 1 + 2x is not symmetric.
+For n ∈ {4, 5, 7, 10}, it was verified by a finite computer check using Macaulay2 that for each
+tree T on n vertices PT (x) is never symmetric.
+For n = 1, take G = K1 . Then PG (x) = 1 + x, which is symmetric and unimodal.
+For n = 3, take G = P3 . Then PG (x) = 1 + 3x + x2 , which is symmetric and unimodal.
+For n = 6, 9, 12, 15, 18, repeated applications of the Bridge Lemma (Lemma 1.9) to the
+rooted path (R3 , r) with its middle vertex r as root yield trees with symmetric and unimodal
+independence polynomials.
+For the remaining n, one may take
+          G8 := C(1, 0, 0, 0, 2),     G11 := C(1, 0, 1, 2, 0, 1),       G13 := C(1, 0, 1, 4, 0, 1),
+G14 := C(2, 1, 0, 0, 0, 2, 2),   G16 := C(2, 1, 0, 1, 0, 1, 1, 0, 1),     G17 := C(1, 0, 0, 0, 2, 3, 1, 0, 1).
+A direct computation of the independence polynomials (given below) of the above caterpillars
+gives symmetric and unimodal independence polynomials.
+       PG8 (x) = 1 + 8x + 21x2 + 21x3 + 8x4 + x5 ,
+      PG11 (x) = 1 + 11x + 45x2 + 88x3 + 88x4 + 45x5 + 11x6 + x7 ,
+      PG13 (x) = 1 + 13x + 66x2 + 176x3 + 279x4 + 279x5 + 176x6 + 66x7 + 13x8 + x9 ,
+      PG14 (x) = 1 + 14x + 78x2 + 226x3 + 377x4 + 377x5 + 226x6 + 78x7 + 14x8 + x9 ,
+      PG16 (x) = 1 + 16x + 105x2 + 369x3 + 764x4 + 970x5
+                                                  + 764x6 + 369x7 + 105x8 + 16x9 + x10 ,
+      PG17 (x) = 1 + 17x + 120x2 + 465x3 + 1101x4 + 1676x5 + 1676x6
+                                                  + 1101x7 + 465x8 + 120x9 + 17x10 + x11 .                  □
+                                                                                            9
+
+Lastly, we fix the degree of an independence polynomial and construct trees with symmetric
+and unimodal independence polynomial of given degree.
+Lemma 2.4. Given d ≥ 1 with d ̸= 3, there is a tree T such that PT (x) is symmetric and
+unimodal with deg PT (x) = d.
+
+Proof. We first show that degree 3 is impossible. Suppose that T is a tree on n vertices such
+that PT (x) is symmetric and deg PT (x) = 3. Then
+                                   PT (x) = 1 + nx + g2 x2 + x3 .
+Since PT (x) is symmetric, we must have g2 = n. On the other hand, a tree on n vertices has
+exactly n − 1 edges. So the number of independent sets of cardinality 2 is
+                                       
+                                       n
+                                g2 =       − (n − 1) = n,
+                                        2
+that is, n2 − 5n + 2 = 0, which has no integer solution. Thus there is no tree T such that
+PT (x) is symmetric and deg PT (x) = 3.
+For d = 1, take T = K1 . Then PT (x) = 1 + x. Now let d ≥ 2 with d ̸= 3.
+If d is even, write d = 2k with k ≥ 1. Starting from (R3 , r) and applying Lemma 1.9
+using k-copies of (R3 , r), we obtain a tree whose independence polynomial is symmetric and
+unimodal of degree 2k = d.
+If d ∈ {5, 7, 9, 11}, one may take G8 , G11 , G14 , G17 , respectively.
+Finally, let d ≥ 13 be odd. Write d = 13 + 2m with m ≥ 0. Starting from (R19 , r)
+and repeatedly bridging m copies of (R3 , r) on the left, Lemma 1.9 yields a tree whose
+independence polynomial is symmetric and unimodal of degree 13 + 2m = d.             □
+
+                                        Closing Remarks
+A supplementary catalogue accompanying this paper records the finite computations behind
+the small-order counts. It lists every nonisomorphic tree on at most 21 vertices whose
+independence polynomial is symmetric (and unimodal), together with the corresponding
+independence polynomial. It also records, for each γ-admissible tree, the factorization
+                                                                            x
+          PT (x) = (1 + x)d A(y),    PT −r (x) = (1 + x)d B(y),    y=            ,
+                                                                        (1 + x)2
+for every admissible root.
+
+                                           References
+ [1] Y. Alavi, P. J. Malde, A. J. Schwenk, and P. Erdős. The vertex independence sequence
+     of a graph is not constrained. volume 58, pages 15–23. 1987. Eighteenth Southeast-
+     ern International Conference on Combinatorics, Graph Theory, and Computing (Boca
+     Raton, Fla., 1987).
+ [2] C. A. Athanasiadis. Gamma-positivity in combinatorics and geometry. Sém. Lothar.
+     Combin., 77:Art. B77i, 64, 2016–2018.
+ [3] C. A. Athanasiadis. Binomial Eulerian polynomials for colored permutations. J. Combin.
+     Theory Ser. A, 173:105214, 38, 2020.
+10
+
+ [4] F. Bencs, P. Csikvári, P. Srivastava, and J. Vondrák. On complex roots of the inde-
+     pendence polynomial. In Proceedings of the 2023 Annual ACM-SIAM Symposium on
+     Discrete Algorithms (SODA), pages 675–699. SIAM, Philadelphia, PA, 2023.
+ [5] P. Brändén. Actions on permutations and unimodality of descent polynomials. European
+     J. Combin., 29(2):514–531, 2008.
+ [6] J. I. Brown and B. Cameron. On the unimodality of independence polynomials of very
+     well-covered graphs. Discrete Math., 341(4):1138–1143, 2018.
+ [7] J. I. Brown, C. A. Hickman, and R. J. Nowakowski. On the location of roots of inde-
+     pendence polynomials. J. Algebraic Combin., 19(3):273–282, 2004.
+ [8] M. Chudnovsky and P. Seymour. The roots of the independence polynomial of a clawfree
+     graph. J. Combin. Theory Ser. B, 97(3):350–357, 2007.
+ [9] D. Foata and M.-P. Schützenberger. Théorie géométrique des polynômes eulériens,
+     volume Vol. 138 of Lecture Notes in Mathematics. Springer-Verlag, Berlin-New York,
+     1970.
+[10] T. Hibi, S. Kara, and D. Vien. Independence polynomials of graphs, 2026.
+[11] V. E. Levit and E. Mandrescu. The cyclomatic number of a graph and its independence
+     polynomial at −1. Graphs Combin., 29(2):259–273, 2013.
+[12] Z. Lin and J. Zeng. The γ-positivity of basic Eulerian polynomials via group actions.
+     J. Combin. Theory Ser. A, 135:112–129, 2015.
+[13] E. Mandrescu. Unimodality of some independence polynomials via their palindromicity.
+     Australas. J. Combin., 53:77–82, 2012.
+[14] A. Postnikov, V. Reiner, and L. Williams. Faces of generalized permutohedra. Doc.
+     Math., 13:207–273, 2008.
+[15] B. Reynolds. Mean bounds, structural reductions, and exhaustive verification for tree
+     independence polynomial unimodality, Mar. 2026. Preprint, Zenodo, version v3.
+[16] J. Shareshian and M. L. Wachs. Gamma-positivity of variations of Eulerian polynomials.
+     J. Comb., 11(1):1–33, 2020.
+[17] D. Stevanović. Graphs with palindromic independence polynomial. volume 34, pages
+     31–36. 1998. New York Graph Theory Day, 34 (1997).
+
+(T. Hibi) Department of Pure and Applied Mathematics, Graduate School of Information
+Science and Technology, Osaka University, Suita, Osaka 565–0871, Japan
+Email address: hibi@math.sci.osaka-u.ac.jp
+
+(S. Kara) Department of Mathematics, Bryn Mawr College, Bryn Mawr, PA 19010
+Email address: skara@brynmawr.edu
+
+(D. Vien) Department of Mathematics, Bryn Mawr College, Bryn Mawr, PA 19010
+Email address: dvien@brynmawr.edu
+

@@ -1,0 +1,271 @@
+                                               Rearrangements of distributions on integers that
+                                                            minimize variance
+
+
+
+
+arXiv:2510.07899v2 [math.CO] 17 Jan 2026
+                                                              Aistis Atminas ∗               Valentas Kurauskas †
+
+                                                                               January 21, 2026
+
+
+
+                                                                                    Abstract
+                                                      Which permutations of a probability distribution on integers min-
+                                                   imize variance?
+                                                      Let X be a random variable on a set of integers {x1 , . . . , xN } such
+                                                   that P(Xi = xi ) = pi , i ∈ {1, . . . , N }. Let (p(1) , . . . , p(N ) ) be the
+                                                   sequence (p1 , . . . , pN ) ordered non-increasingly. Let X + be the random
+                                                   variable defined by P(X + = 0) = p(1) , P(X + = 1) = p(2) , P(X + =
+                                                   −1) = p(3) , . . . , P(X + = (−1)N ⌊ N2 ⌋) = p(N ) . In this short note we
+                                                   generalize and prove the inequality Var X + ≤ Var X.
+
+
+                                           1       Introduction
+                                           Rearrangement inequalities, classically covered in Chapter X of Hardy, Lit-
+                                           tlewood and Pólya [1] have been applied to derive many other results,
+                                           including isoperimetric inequalities, see, e.g., [7], and concentration func-
+                                           tion inequalities / variations of the Littlewood–Offord problem, see, e.g.,
+                                           [2, 3, 4, 5]. Many of the latter results have a form similar to the follow-
+                                           ing one. Let X1 , . . . , Xn be independent random variables supported on
+                                           finite sets of integers, and let X1+ , . . . , Xn+ be independent random variables
+                                           with the corresponding rearranged distribution functions. Then there exist
+                                           a1 , . . . , an ∈ {−1, 1} such that
+
+                                                   max P(X1 + · · · + Xn = x) ≤ max P(a1 X1+ + · · · + an Xn+ = x).                  (1)
+                                                    x∈Z                                  x∈Z
+                                               ∗
+                                                Xi’an Jiaotong-Liverpool University, 111 Ren’ai Road, Suzhou 215123, China. Email:
+                                           Aistis.Atminas@xjtlu.edu.cn
+                                              †
+                                                Faculty of Mathematics and Informatics, Vilnius University, Naugarduko 24, LT-03225
+                                           Vilnius, Lithuania. Email: valentas.kurauskas@mif.vu.lt
+
+
+                                                                                         1
+For example, Theorem 371 of [1] implies that (1) holds (with a1 = 1, a2 = −1
+and a3 = a4 = · · · = 1) in the case when Xi+ are symmetric for all i ≥ 3 and
+the main result of [4] is that (1) holds when Xi is distributed uniformly on
+a finite subset of Z (in this case the signs ai are not important).
+    Consider another particular case where X1 , X2 , . . . are i.i.d. copies of
+an integer random variable X with a finite support, and assume that the
+support of X − k is not contained in sZ for some integers k and s, s > 1. In
+this case the local limit theorem, see, e.g., Theorem 1 in Chapter VII of [6],
+implies that
+                                                    1 + o(1)
+                  max P(X1 + · · · + Xn = x) = √
+                   x∈Z                              2πnVar X
+and so (1) holds for n large enough (with a1 = · · · = an = 1) if
+                              Var X + ≤ Var X                              (2)
+and if the equality in (2) is only achieved in the obvious cases when X − k ∼
+X + or X − k ∼ −X + for some integer k.
+    The question whether (2) always holds arose while applying a similar
+argument in [3]. In the present short note we provide a straightforward
+proof of (2) as we were not able to find it mentioned in the literature. A
+special case of the present result is used, along with many other ideas, in
+the proof of a much more general result of [3].
+    Let f be the density function of an absolutely continuous random vari-
+able. f can be transformed, see Chapter 10.12 of [1], to obtain a density f ∗
+called the symmetric decreasing rearrangement of f which satisfies for any
+Borel set B and the Lebesgue measure λ
+                           Z                  Z
+                                       ∗
+                                      f dλ ≥     f dλ.                     (3)
+                             |B| |B|
+                           [− 2 , 2 ]         B
+                                                    R∞
+As for any non-negative randomRvariable E X = t=0 P(X > t)dt, for any
+                                   ∞
+p ≥ 1 we have E |X − E X|p = t=0 ptp−1 P(|X − E X| > t)dt. If random
+variables X and X ∗ have densities f and f ∗ respectively, (3) implies that
+P(|X ∗ | > t) ≤ P(|X − E X| > t) for any t ≥ 0, so E |X ∗ |p ≤ E |X − E X|p .
+Thus, a ‘continuous’ variant of (2), as opposed to the integer variant that
+we consider here, follows rather easily, and has been noted in the literature,
+see, e.g. [8].
+    We will use the next definition.
+Definition 1.1 Let X be a random variable. Let f : [0, +∞) → [0, +∞) be
+a non-decreasing function. Define a number
+                         Df (X) := inf E f (|X − a|)
+                                        a∈R
+
+
+                                         2
+and, in the case Df (X) < ∞, the set
+
+                  Mf (X) := {a ∈ R : E f (|X − a|) = Df (X)}.
+
+   Thus every f as above gives a measure of dispersion Df and a central
+tendency Mf . These statistics can also be generalized to the d-dimensional
+Euclidean space or other normed spaces.
+
+Theorem 1.2 Let X be a random variable supported on a finite set of in-
+tegers. Assume that f : [0, +∞) → [0, +∞) is non-decreasing and Df (X) <
+∞. Then
+                             Df (X + ) ≤ Df (X).                     (4)
+Furthermore, suppose that f is continuous with a positive derivative for
+x > 0 and a right derivative at 0 such that f ′ (0+) = 0. Then (4) is strict
+unless X − k is distributed as X + or −X + for some integer k.
+
+Recall that m is a median of X if P(X ≥ m) ≥ 12 and P(X ≤ m) ≥ 12 .
+Corollary 1.3 Let X and f be as in Theorem 1.2.
+    1) If f (x) = x for x ≥ 0 then each value m ∈ Mf (X) is a median of X
+       and Df (X) = MADmedian (X) = E |X − m|, i.e., Df (X) is the mean
+       absolute deviation of X around the median.
+
+    2) If f (x) = x2 for x ≥ 0 then Mf (X) = {E X} and Df (X) = Var X.
+Thus MADmedian (X + ) ≤ MADmedian (X) and Var X + ≤ Var X. Further-
+more Var X + = Var X if and only if X − k ∼ X + or X − k ∼ −X + for
+some integer k.
+
+
+2     Proofs
+Proof of Theorem 1.2 Let x1 , . . . , xN be the support of X listed in such
+a way that the corresponding probabilities p(1) , . . . , p(N ) , given by p(i) =
+P(X = xi ), are non-increasing.
+   It can be checked that Mf (X) is non-empty when f is continuous. First
+assume that Mf (X) ̸= ∅. Let a ∈ Mf (X). We denote Df (X) = p · v where
+p = (p(1) , p(2) , . . . , p(N ) ) and
+
+                v = (f (|x1 − a|), f (|x2 − a|), . . . , f (|xN − a|)).
+
+     Let v′ = (f (|x(1) − a|), f (|x(2) − a|), . . . , f (|x(N ) − a|)) be the sequence
+(f (|x1 − a|), f (|x2 − a|), . . . , f (|xN − a|)) ordered non-decreasingly. Then, a
+
+                                          3
+classical result about the rearrangements of two sequences (e.g. Theorem 368
+of [1]) implies that
+                                 p · v ≥ p · v′ .
+Set a′ = min(a − ⌊a⌋, ⌊a⌋ + 1 − a). In other words, the number a′ ∈ [0, 12 ]
+represents the distance between the number a and its nearest integer. Set
+                                                                         N
+w = (f (a′ ), f (1−a′ ), f (1+a′ ), f (2−a′ ), f (2+a′ ), . . . , f (⌊     ⌋+(−1)N −1 a′ )).
+                                                                         2
+Clearly, w is ordered non-decreasingly. Further, recalling that {x(1) , . . . , x(N ) }
+is a set of N distinct integers and f is non-decreasing, it is not hard to see
+that every component of the vector v′ −w is non-negative. Hence, we obtain
+that
+                                p · v′ ≥ p · w.
+Adding all the ingredients together we conclude that
+
+                               Df (X) = p · v
+                                        ≥ p · v′
+                                        ≥p·w                                            (5)
+                                                    +      ′
+                                        = E f (|X − a |)                                (6)
+                                                   +
+                                        ≥ Df (X ).
+
+This finishes the proof of (4) when Mf (X) ̸= ∅. For the general case, by
+definition, for any ϵ > 0 we can find a = a(ϵ) such that E f (|X − a|) ≤
+Df (X) + ϵ. The same argument as above shows that Df (X) ≥ Df (X + ) − ϵ.
+Since ϵ > 0 is arbitrary, we conclude that Df (X) ≥ Df (X + ).
+     Assume now the additional properties of f stated in the second part
+of the theorem. Now f is continuous, so Mf (X) ̸= ∅. Assume Df (X) =
+Df (X + ), but X is not a translation of X + or −X + . We will follow the proof
+of (4) and obtain a contradiction.
+     Since translating by a constant does not change Df (X), we can assume
+without loss of generality that ⌊a⌋ = 0, equivalently, a ∈ [0, 1).
+     When defining v and x1 , . . . , xN we may additionally assume that (P(X =
+x1 ), −f (|x1 −a|)), . . . , (P(X = xN ), −f (|xN −a|)) is ordered non-increasingly
+in lexicographic order.
+     We claim that
+                                     v = v′ = w.                                (7)
+To see the first equality, assume there exist i and j such that i < j and
+vi > vj . Then due to to the ordering of (xi ), it must be p(i) > p(j) . This
+
+                                             4
+implies that p(i) vj +p(j) vi < p(i) vi +p(j) vj , so exchanging the atoms at i and j
+gives a random variable X ′ , with Df (X ′ ) < Df (X), which is a contradiction
+to (4).
+    To see the second equality of (7), notice that since both of these vectors
+are ordered non-decreasingly, if they are not equal, we must have that some
+component of v′ −w is positive, and hence (5) is strict, again a contradiction
+to (4).
+    Suppose first that a′ ̸∈ {0, 21 }. Then, since f is strictly increasing for
+x > 0, identity is the unique permutation that orders the components of v
+non-decreasingly. When a ∈ (0, 12 ) this corresponds to placing the probabil-
+ities p(1) , . . . , p(N ) on 0, 1, −1, . . . respectively as in the distribution of X + .
+Similarly, when a ∈ ( 12 , 1), this corresponds to placing them on 1, 0, 2, −1, . . .
+respectively as in the distribution of 1 − X + .
+    So we can assume that a′ ∈ {0, 12 }. Then, if a′ = 0 we have |x2k | = |x2k+1 |
+for k ∈ {1, 2, . . . }, and if a′ = 12 we have |x2k−1 − a′ | = |x2k − a′ | for
+k ∈ {1, 2, . . . }. It cannot be that for a′ = 0 we have
+                           p(2k) = p(2k+1) for k ∈ {1, 2, . . . }                     (8)
+or for a′ = 21 we have
+
+                           p(2k−1) = p(2k) for k ∈ {1, 2, . . . }                     (9)
+since in these cases (7) implies that X ∼ X + (the distribution is symmetric
+around a′ ).
+    Suppose that a′ = a = 0. By the definition of X + we have P(X + = k) ≥
+P(X + = −k) for all k ∈ {1, 2, . . . }. Since (8) cannot hold, for some k we have
+P(X + = k) > P(X + = −k). Consider the function g(x) = E f (|X + − x|).
+By the assumptions on f ′ of the theorem, we have
+                                            X
+         g ′ (0+) = P(X + = 0)f ′ (0+) −           sgn(k)P(X + = k)f ′ (k)
+                                              k∈Z\{0}
+                  X
+          =−               (P(X   +
+                                      = k) − P(X + = −k))f ′ (k) < 0,
+               k∈{1,2,... }
+
+so Df (X + ) ≤ g(δ) < g(0) ≤ Df (X) for some δ > 0, a contradiction.
+   Finally, suppose that a′ = a = 21 . Note that by the definition of X + ,
+P(X + = 1 − k) ≥ P(X + = k) for k ∈ {1, 2, . . . }. Since (9) cannot hold, for
+some k we have P(X + = 1 − k) > P(X + = k). Similarly as above
+                                                                
+      ′ 1                                                        1
+                  X
+                             +                   +        ′
+    g        =          (P(X = 1 − k) − P(X = k))f k −               > 0,
+         2                                                       2
+                  k∈{1,2,... }
+
+
+                                              5
+so Df (X + ) ≤ g( 12 − δ) < g( 12 ) = E f (|X + − 12 |) ≤ Df (X) for some δ > 0,
+again a contradiction.                                                        □
+
+Proof of Corollary 1.3 1) and 2) are folklore facts in statistics with
+straightforward proofs, see, e. g., Chapter 6 of [9]. The conclusion fol-
+lows by applying Theorem 1.2. Note that in 2) we have f ′ (x) = 2x > 0 for
+x > 0 and f ′ (0+) = 0 as required.                                     □
+
+
+References
+ [1] G. H. Hardy, J. E. Littlewood and G. Pólya, Inequalities, Cambridge
+     University Press, Cambridge, 1952.
+
+ [2] T. Juškevičius, The sharp form of the Kolmogorov–Rogozin inequality
+     and a conjecture of Leader–Radcliffe, Bulletin of London Mathematical
+     Society, 56 (2024), 3289–3299.
+
+ [3] V. Kurauskas, An asymptotically optimal bound for the concentration
+     function of a sum of integer random variables, manuscript, in prepara-
+     tion.
+
+ [4] V. F. Lev, On the Number of Solutions of a Linear Equation over Finite
+     Sets, Journal of Combinatorial Theory, Series A, 83 (1998), 251–267.
+
+ [5] M. Madiman, L. Wang and J. O. Woo, Majorization and Rényi Entropy
+     Inequalities via Sperner Theory, Discrete Mathematics, 342 (2019),
+     2911–2923.
+
+ [6] V. V. Petrov, Sums of independent random variables, Springer-Verlag,
+     Berlin, 1975.
+
+ [7] G. Pólya and G. Szegő, Isoperimetric Inequalities in Mathematical
+     Physics, Annals of Mathematics Studies, Princeton University Press,
+     Princeton, N.J., 1951.
+
+ [8] L. Wang and M. Madiman, Beyond the entropy power inequality, via
+     rearrangements, IEEE Transactions on Information Theory, 60 (2014),
+     5116–5137.
+
+ [9] G. U. Yule and M. G. Kendall, An Introduction to the Theory of Statis-
+     tics, 14th edition, 5th impression, Charles Griffin & Co., London, 1968.
+
+
+
+                                       6
+

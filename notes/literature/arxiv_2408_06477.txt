@@ -1,0 +1,1347 @@
+                                                  Cross Modality of the Extended Binomial Sums
+                                                                                Alexander Gnedin
+
+                                                                     Queen Mary, University of London
+
+
+
+
+arXiv:2408.06477v1 [math.PR] 12 Aug 2024
+                                                                                       Abstract
+                                                For a family of probability functions (or a probability kernel), cross modality occurs
+                                                when every likelihood maximum matches a mode of the distribution. This implies
+                                                existence of simultaneous maxima on the modal ridge of the family. The paper explores
+                                                the property for extended Bernoulli sums, which are random variables representable as
+                                                a sum of independent Poisson and any number (finite or infinite) of Bernoulli random
+                                                variables with variable success probabilities. We show that the cross modality holds for
+                                                many subfamilies of the class, including power series distributions derived from entire
+                                                functions with totally positive series expansion. A central role in the study is played
+                                                by the extended Darroch’s rule [9, 26], which originally localised the mode of Poisson-
+                                                binomial distribution in terms of the mean. We give different proofs and geometric
+                                                interpretation to the extended rule and point at other modal properties of extended
+                                                Bernoulli sums, in particular discuss stability of the mode in the context of a transport
+                                                problem.
+
+
+                                           1    Itroduction
+                                           A starting point for the cross modality phenomenon discussed in this paper is the following
+                                           simple observation on a sequence of independent identical Bernoulli trials. Let Sn be the
+                                           number of successes in the first n trials, and Tk be the index of the kth success. Then, for
+                                           ℓ chosen as the most likely value of Tk+1 − 1, the most likely value of Sℓ will be k. The
+                                           distribution of Tk+1 − 1 is proportionate to the likelihood function of Sn with n regarded as
+                                           unknown parameter. Therefore the pair (k, ℓ) appears as a maximiser for both the probability
+                                           function of the number of successes and the likelihood. In combinatorial terms, viewing
+                                           the binomial probabilities as entries of the normalised Pascal triangle, we have that every
+                                           column maximum is also a row maximum. It is natural to wonder to which extent this kind
+                                           of property is common.
+                                               To put the question in a formal framework and introduce some terminology, let f (x; t)
+                                           be a family of probability functions (continuous or discrete densities, possibly representing
+
+                                                                                           1
+a Markov kernel ‘from t to x’), where x runs over the range R and t is a parameter. We
+call (x0 ; t0 ) a cross mode if the maximum of probability f (x; t0 ) on R is attained at x0 , and
+the maximum of likelihood f (x0 ; t) is attained at t0 . The family is said to be cross modal
+if, for each x0 in R, every maximum point t0 of the likelihood function f (x0 ; t) is such that
+(x0 ; t0 ) is a cross mode. The maxima in these definitions are assumed to exist and meant in
+the absolute sense.
+     We call peak height (or just peak) h(t) the modal probability, that is the maximum
+value of the probability function for fixed parameter t, and denote m(t) the set of modes
+where the maximum is attained. In general m(t) need not be a singleton, in particular
+univariate unimodal distributions may have an interval of modes [12]. Using analogy with a
+mountainous landscape, we call the ‘curve’ M = {(x, t) : x ∈ m(t)} the modal ridge of the
+family. The cross modality means that each x paired with any of its associated likelihood
+maximisers belongs to the modal ridge. Denoting ℓ(x) the set of likelihood maximisers for
+given x, the cross modality condition can be expressed as an inversion relation for multivalued
+functions:                                    \
+                                         x∈       m(t).
+                                             t∈ℓ(x)
+
+This simplifies for single-valued m as that t ∈ ℓ(x) implies m(t) = x, and further simplifies
+as m(ℓ(x)) = x if also ℓ is single-valued.
+    The cross modality requires the parameter space to be sufficiently rich in order to match,
+by means of the likelihood maximisation, every x0 in R with a mode of some distribution
+from the family. Obvious examples are the location families of the form f (x; t) = g(x − t)
+(with x, t ∈ Rd ), where g is a unimodal probability function. However, for general continuous
+distributions with continuous parameters the property is more of an exception than a rule.
+In particular, when both x and t are one-dimensional, one may expect M to be a planar
+curve which has segments where the peaks are of the same height. For, at each cross mode
+the gradient vanishes hence f has zero derivative in the direction of the modal ridge. With
+regards to genericity this degree of instability under small deformations of the shape is com-
+parable with that for distributions having an interval of modes. In the differential topology,
+such functions having a manifold of critical points belong to the scope of the Morse-Bott
+theory [4]. Guided by this analogy, it is possible to achieve the cross modality within the
+classic multiparameter families of distributions (e.g. gamma, beta or multivariate normal),
+by restricting their parameters to vary along peculiar contours where the peaks are constant.
+See Figure 1 for illustration.
+    For discrete distributions the situation is radically different, since the peak of probability
+function need not be constant exactly, rather has some room to vary along the modal ridge,
+for instance to decay with n as is the case for Sn with binomial distribution, see Figure 2.
+    In this paper we focus on the modal properties of distributions representable as convolu-
+tion of a Poisson distribution and any number (finite or infinite) of Bernoulli distributions
+with success probabilities that vary from trial to trial. Random variables with such distri-
+
+
+                                                2
+                                         6
+
+
+
+
+                                         5
+
+
+
+
+                                         4
+
+
+                              Out[ ]=
+
+
+                                         3
+
+
+
+
+                                         2
+
+
+
+
+                                             2   3       4   5   6
+
+
+
+
+Figure 1: Contours of the peak height in the (a, b)-plain for the beta distribution f (x; a, b) =
+xa−1 (1 − x)b−1 /B(a, b), x ∈ [0, 1]; a, b ≥ 1.
+
+
+
+
+Figure 2: a) The modal ridge of the binomial distribution with p = 1/3 and varying n. Blue
+and black spots mark the leading modes, black spots mark the larger likelihood maximiser.
+b) For this distribution, the bipartite graph of the modal correspondence: e.g. m± (8, 1/3) =
+{2, 3}, ℓ± (2) = {5, 6}.
+
+
+
+                                                     3
+bution will be called here extended Bernoulli sums. This name echoes the term extended
+Poisson-binomial distribution suggested in Broderick et al [5]. In Madiman et al [19] the
+class of extended Bernoulli sums is introduced implicitly as a weak closure of the family of
+Poisson-binomial distributions.
+    The interest to independent Bernoulli trials with varying success probabilities p1 , p2 , . . .
+is rooted deeply in history. This sampling model was introduced by Poisson and was known
+as the Poisson scheme in earlier literature, but later the terminology was abandoned. The
+derived distribution of the number of successes Sn is nowadays commonly called the Poisson-
+binomial distribution [29]. The first systematic study was undertaken in 1846 by Chebyshev
+[7], who established that amongst the Poisson-binomial distributions with given mean the
+expectation E[φ(Sn )] is maximised by a shifted binomial distribution (his main result was
+only stated for the indicators needed to estimate the tail probabilities P[Sn ≤ a] and P[Sn ≥ b]
+but the argument covers the general case). About a century later Hoeffding [11] proved a
+more detailed theorem implying that the extremal property of the binomial distribution
+holds for φ any convex function on integers. Bonferroni’s little known paper [3] was the
+first to observe the logconcavity of Sn , to analyse the behaviour of the peak as n varies and
+to show that the difference between the mode and the mean is always o(n). Apparently
+independentlly, the logconcavity was rediscovered soon thereafter by Lévy [17]. Darroch
+[9] and Samuels [26] found that the mode differs from the mean by no more than 1, with
+the two being equal whenever the mean is an integer. Similar results for the median were
+shown in Jogdeo and Samuels [13]. Pollard [24] presents a detailed exposition of much of this
+development. Pitman [23] connected the results about the mode to bounds on coefficients
+of totally positive polynomials, giving many examples of combinatorial origin. The modal
+properties of Sn were most thoroughly studied for the Karamata-Stirling profile of success
+probabilities pi = θ/(θ + i − 1), especially in the case θ = 1, in connection with Stirling
+numbers, theory of records and random combinatorial structures, see Kabluchko et al [14]
+for recent results and references.
+    In the other direction, the statistical problem of estimating an unknown number of trials
+from the observed number of succeses calls to consider n as a parameter. Assuming the
+success probabilities known, the unimodality of likelihood was first shown for pi = 1/i by
+Moreno-Rebollo et al [21] and Cramer [8] then in general by Moreno-Rebollo et al [22]. In
+disguise, the fact also appeared in Bruss and Paindaveine [6] and Tamaki [28] in connection
+with versions of the famous secretary problem of optimal stopping.
+    The plan for the rest of the paper is the following. In Section 2 we give a thorough
+review of basic modal features of the Poisson and binomial distributions. In Section 3 we
+show that for the logconcave power series families the cross modality amounts to Darroch’s
+mean-mode rule. In Section 4 we introduce techniques to work with extended Bernoulli sums
+and apply these to the analysis of the peak height. Section 5 is devoted to the geometry of
+likelihood contours in the parameter space and presents an extension of Samuels [26] version
+of Darroch’s rule. In section 6 we prove the cross modality for certain monotonic (directed)
+families of extended Bernoulli sums, and give yet another proof of extended Darroch’s rule
+
+                                                4
+by deriving it from the the cross modality. In the last section 7 we address aspects of a mass
+transport problem for the extended Bernoulli sums, with the objective to shift the mode.
+   In the sequel we will be dealing with families of discrete distributions, with context-
+dependent range R of a family being either {0, 1, . . . , n} or {0, 1, . . .}.
+
+
+2     The binomial and Poisson distributions
+In this section we revise under the angle of cross modality the well known properties of
+the binomial and the Poisson distributions, also using this occasion to introduce notation
+and terminology. The connection between modes of the binomial and negative binomial
+distributions might have not been noticed in the literature.
+    For independent Bernoulli trials B1 , B2 , . . . with the same success probability 0 < p < 1,
+let Sn = B1 + · · · + Bn , S0 = 0. The binomial distribution of Sn has the probability function
+                                                 
+                                                 n k
+                                  f (k; n, p) =      p (1 − p)n−k ,                           (1)
+                                                 k
+which we extend by zero outside the support {0, 1, . . . , n}. The mode of this distribution
+is either a single integer or two adjacent integers (twins). The bifurcation of the mode can
+be neatly described by means of two functions m− (n, p) ≤ m+ (n, p), where m+ (n, p) is the
+leading mode determined as the unique integer k satisfying the inequalities
+                          f (k − 1; n, p) ≤ f (k; n, p) > f (k + 1; n, p).                   (2)
+The second function m− (n, p) is defined by setting m− (n, p) = m+ (n, p) unless the first
+relation in (2) is equality in which case we set m− (n, p) = m+ (n, p) − 1. With this notation,
+the mode of the binomial distribution is m(n, p) = [m− (n, p), m+ (n, p)], either singleton or
+two-point integer interval. From the general perspective, the way of finding the mode via
+(2) relies on the logconcavity of distribution.
+    Explicitly from (1) and (2), m+ (n, p) is the unique integer k satisfying the inequalities
+                                     k ≤ (n + 1)p < k + 1.                                   (3)
+If (n + 1)p is not integer then m± (n, p) = ⌊(n + 1)p⌋ is a sole mode of the distribution, and
+if (n + 1)p is a positive integer then the mode is twin m(n, p) = [(n + 1)p − 1, (n + 1)p].
+    To achieve solvability of the unconstrained likelihood maximisation problem we close the
+family of binomial distributions by allowing p ∈ {0, 1}, and extend the definition of modal
+functions as m± (n, 0) = 0, m± (n, 1) = n. With the range of the family being R = {0, 1, . . .},
+the modal ridge can be identified as the set of triples (k, n, p) where k ∈ m(n, p), n ∈
+{0, 1, . . .} and p ∈ [0, 1]. The closed family is trivially cross modal, since for given k the
+unique unconstrained likelihood maximiser is (n, p) = (k, 1) with f (k; k, 1) = 1.
+    We procede with discussing the cross modality for two standard subfamilies of binomial
+distributions, where the likelihood maximisers are genuine distributions.
+
+                                                 5
+2.1    The binomial-n family
+Suppose first that 0 < p < 1 is fixed while n varies, thus the likelihood becomes a function
+of the active parameter n. Let Tk be the index of the kth success (with T0 = 0). By the
+elementary identity
+                              P[Tk+1 = n + 1] = p P[Sn = k],
+the likelihood function f (k; ·, p) is just a multiple of the probability function of the ran-
+dom variable Tk+1 − 1, which has a Pascal distribution. The distribution of Tk is the kth
+convolution power of the geometric distribution for T1 hence logconcave with one or two
+modes. Similarly to (2) maximising the likelihood amounts to finding ℓ+ (n) as the unique k
+satisfying
+                         f (k; n − 1, p) ≤ f (k; n, p) > f (k; n + 1, p),                  (4)
+then setting ℓ− (n) = ℓ+ (n) if the first relation in (4) is strict and ℓ− (n) = ℓ+ (n) − 1 in
+the case of equality. This leads to identifying ℓ+ (k) as the unique integer n satisfying the
+inequalities
+                                             k
+                                        n≤ <n+1                                            (5)
+                                             p
+similar to (3). Explicitly, if kp is not a positive integer we have ℓ+ (n) = ℓ− (n) = ⌊ kp ⌋, and if
+k
+p
+  is a positive integer then ℓ+ (n) = kp and ℓ− (n) = kp − 1.
+    With the above explicit formulas in hand, it is now easy to verify the crossmodality of
+the binomial sum Sn relative to parameter n, in the form
+
+                                  n ∈ {ℓ± (k)} ⇒ k ∈ {m± (n)},                                  (6)
+
+meaning that if n is a likelihood maximiser for some k, then (k, n) is a cross mode.
+    Indeed, suppose first that kp is not integer, thus the inequalities for n in (5) are strict:
+then n = ℓ± (k) and noting that (5) gives k < (n + 1)p = np + p < np + 1 < k + 1 we obtain
+(3), whence k = m± (n, p). In the case k = 0 we trivially have m± (0, p) = ℓ± (n) = 0. In
+the remaining case of integer n = kp, we have that n = kp < n + 1 implies ℓ+ (k) = n and
+ℓ− (k) = n = 1, that k = np < k + 1 implies m+ (n − 1, p) = k, and m− (n − 1, p) = k = 1,
+and finally that k < (n + 1)p < k + 1 implies m± (n, p) = k as above. We conclude that
+m− (ℓ− (k), p) = k − 1 only holds if kp is a positive integer, while m± (ℓ± (k), p) = k holds in
+all other cases. See Figure 2.
+    Equivalently, if np < k < (n + 1)p the pattern of relations about the cross mode (k, n) is
+
+                                          f (k; n − 1, p)
+                                                 >                                              (7)
+                      f (k − 1; n, p) <      f (k; n, p)    > f (k + 1; n, p)
+                                                 <
+                                          f (k; n + 1, p)
+
+
+                                                 6
+and if k = (n + 1)p the mode bifurcates and the pattern becomes
+
+                                            f (k; n − 1, p)
+                                                   >                                          (8)
+                      f (k − 1; n, p) =       f (k; n, p)     > f (k + 1; n, p)
+                                                   =
+                                            f (k; n + 1, p)
+If p is irrational number the mode does not bifurcate, hence only the strict pattern (7)
+occurs. If p is rational, we may write p = ab with mutually prime integers a < b, and the
+triple equality in (7) simplifies as the elementary identity for binomial coefficients,
+                                                        
+                         cb − 1                cb − 1        cb
+                                 b(b − a) =           ab =       a(b − a).
+                         ca − 1                  ca          ca
+   Explicit formulas we used obscur the mechanics of cross modality, which becomes trans-
+parent by turning to the recursion
+
+                      f (k; n + 1, p) = pf (k − 1; n, p) + (1 − p)f (k; n, p),                (9)
+
+that obtains by either conditioning Sn+1 on the outcome of one trial or, what is equivalent,
+by noting that adding to Sn an independent Bernoulli variable yields Sn+1 . Geometri-
+cally, the recursion means that the probability function of Sn+1 is a convex combination
+of the probability functions of Sn and Sn + 1, see Figure. If m− (n, p) = m+ (n, p), the
+shapes of distributions of Sn and Sn+1 have discordant directions of strict monotonicity only
+within [m+ (n, p), m+ (n, p) + 1], and if m− (n, p) < m+ (n, p) then disagreement occurs within
+[m+ (n, p) − 1, m+ (n, p) + 1] where one of the shapes is flat. It follows that the unimodality of
+Sn implies that Sn+1 is unimodal with a lower peak, unless the mode of Sn is twin in which
+case the peak remains the same and the new mode becomes m± (n + 1, p) = m+ (n, p) >
+m− (n, p). This way we connect the maximisers as
+
+                                   ℓ− (k) = min{n : m+ (n, p) = k},                          (10)
+
+and observe that f (k; n, p) strictly increases in n as long as the leading mode does not hit
+k, then after possibly staying flat one step strictly decreases.
+    For the modal ridge we have therefore dual representations via the n- and k-sections as
+                           ∞
+                           [                       ∞
+                                                   [
+                M(·,p) =         m(n, p) × {n} =       {k} × [ℓ− (k), ℓ+ (k + 1) − 1].
+                           n=0                     k=0
+
+
+2.2    The binomial-p family
+The second, more common setting, is where n > 0 is fixed and p varies. Let ℓ◦ denote
+the likelihood maximiser relative to the ‘unknown p’ family of the binomial distributions.
+
+                                                   7
+Equating the derivative
+                                                    k − np
+                                ∂p f (k; n, p) =            f (k; n, p)
+                                                   p(1 − p)
+to zero we find that the maximiser is single-valued and given by the textbook formula
+ℓ◦ (k) = nk . The cross modality follows from the identity
+                                           
+                                          k
+                                 m± n,        = k, 0 ≤ k ≤ n,
+                                          n
+which is trivial for k ∈ {0, n} and for 0 < k < n is a specialisation of (3) as
+                                                      k
+                                      k < (n + 1)       < k + 1.
+                                                      n
+                                                                                  k
+    The function m+ (n, p) is right-continuous, having unit jumps at points pk = n+1 that
+satisfy
+                           f (k − 1; n, p) = f (k; n, p), 0 ≤ k ≤ n,
+and can be also characterised as maximisers of f (k + 1; n, p) as is seen from the formula
+
+                          ∂p f (k; n + 1, p) = f (k − 1; n, p) − f (k; n, p),                   (11)
+
+derived from (9). For pk with 0 < k < n the mode is twin. Note the interlacing pattern of
+pivot points
+
+            0 = p0 = ℓ◦ (0) < p1 < ℓ◦ (1) < p2 < · · · < ℓ◦ (n − 1) < pn < ℓ◦ (n) = 1.
+
+    The cross modality comes forward as the following pattern: the likelihood function
+f (k; p, n) increases in p on [0, pk ] until k becomes a mode, then keeps growing until reaching
+the maximum at ℓ◦ (k), then decays with the modal status lost at pk+1 . The modal ridge
+becomes (with pn+1 := 1)
+                                               [n
+                                     M(n,·) =     {k} × [pk , pk+1 ],
+                                             k=0
+
+
+2.3    The Poisson distribution
+For the Poisson distribution
+                                             tk
+                                     f (k; t) = e−t
+                                                , k ≥ 0,
+                                             k!
+with parameter t ≥ 0 the modal properties are similar to that of both binomial families.
+The pivotal values of the parameter are nonnegative integers tk = k, whose role is twofold:
+
+  (i) f (k; tk ) = f (k − 1; tk ), k ≥ 1, hence the mode bifurcates, that is m+ (tk ) = m− (tk ) + 1,
+      while m+ (t) = m− (t) = ⌊t⌋ for t not a positive integer,
+
+                                                   8
+Figure 3: a) The mean and the mode curves for the Poisson distribution. b) Same for the
+binomial distribution with n = 5 and parameter t = p/(1 − p).
+
+ (ii) f (k; t) as the likelihood function coincides with the density of the Erlang distribution
+      with shape parameter k + 1, attaining its unique maximum at tk .
+
+The likelihood maximisers coincide with the bifurcation points, forcing the mean curve to
+cross the graph of the leading mode in the northwest corner points, see the plot in Figure 3.
+                                    k
+    The peak height f (k; k) = e−k kk! is decreasing to 0 with k.
+
+
+3     Power series distributions
+Every distribution on nonnegative integers can be included in one-parameter discrete expo-
+nential family, which can be conveniently represented by a power series with nonnegative
+coefficients. A nice feature of such a family is that the likelihood maximisation amounts
+to matching the mean with the observed value k. In the unimodal case this allows one to
+express the cross modality in a simple way described in this section.
+   Let a0 , a1 , . . . be a positive sequence such that the quotients of adjacent terms satisfy
+                                        ak+1
+                                             ↓ 0 as k → ∞,
+                                         ak
+where the decrease is strict. By the ratio convergence test, the power series
+                                                    ∞
+                                                    X
+                                          F (t) =         ak t k
+                                                    k=0
+
+defines an entire function. The associated power series distribution has the form
+
+                                                ak tk
+                                   f (k; t) =         ,      k ≥ 0,                       (12)
+                                                F (t)
+
+                                                    9
+where t ≥ 0 appears as a parameter. The probability generating function of (12) is
+                                         ∞
+                                         X                     F (tz)
+                                  z 7→         f (k; t)z k =          .
+                                         k=0
+                                                               F (t)
+
+    The assumption on coefficients implies strict logconcavity a2k > ak−1 ak+1 for k ≥ 1, hence
+the distribution is unimodal and has all moments [16]. The general power seriesP distribution
+strictly increases with t in the stochastic order, because the tail probability ∞ j=1 f (k + j; t)
+increases in consequence of the fact that in the formula for the reciprocal
+                                                        k
+                       1               F (t)           X         ai
+                P∞                = P∞         k+j
+                                                   =1+     P∞         k+j−i
+                 j=1 f (k + j; t)    j=1 ak+j t        i=0  j=1 ak+j t
+
+
+the terms of the external sum are decreasing to 0. Therefore the limit distribution is the
+delta mass at ∞ as t → ∞, and the mean
+
+                                         µ(t) = t ∂t log F (t)
+
+is a smooth, strictly increasing function with µ(0) = 0 and µ(t) ↑ ∞.
+    The likelihood quotient
+                                     f (k; t)    ak t
+                                               =      , k ≥ 1,
+                                  f (k − 1; t)   ak−1
+is increasing in both k and t, and equals 1 at point
+                                               ak−1
+                                      tk :=         ,    k ≥ 1,
+                                                ak
+which is a unique solution to f (k − 1; t) = f (k, t). It is readily seen that tk ↑ ∞ (strictly,
+with t0 := 0), and that the leading mode m+ (t) is right-continuous, nondecreasing, takes
+value k on the interval [tk−1 , tk ] and bifurcates at the point tk , where it has a unit jump for
+k > 0 (that is, m− (tk ) = k − 1)).
+    We assert that for each k the likelihood has a single maximum point ℓ(k), which coincides
+with the (unique) solution to the equation µ(t) = k. Indeed, the likelihood is zero at
+t ∈ {0, ∞}, and the loglikelihood satisfies t ∂t log f (t; k) = k − µ(t) by easy calculus.
+
+Proposition 1 The family of logconcave power series distributions (12) is cross modal if
+and only if whenever µ(t) is integer it coincides with a mode. This condition is equivalent
+to any of the following three conditions:
+
+  (i) tk ≤ ℓ(k) ≤ tk+1 , k ≥ 1,
+
+ (ii) k − 1 ≤ µ(tk ) ≤ k, k ≥ 1,
+
+
+                                                   10
+                         Out[ ]=
+
+
+
+
+Figure 4: The
+            √ mean and the mode functions for the power series distribution derived from
+F (t) = cosh t.
+
+(iii) sup |µ(t) − m+ (t)| ≤ 1.
+
+Proof. For cross modality k must be a mode of f (·; ℓ(k)), which is (i) since k is a mode for
+t ∈ [tk−1 , tk ]. The rest of proposition follows from the identification of ℓ(k) as the root of
+µ(t) = k, combined with the continuity and monotonicity properties of m+ (t) and µ(t). □
+
+   Explicitly, condition (ii) becomes
+                         ∞                    j       ∞                     j        ∞                    j
+                         X              ak−1            X               ak−1             X              ak−1
+               (k − 1)         aj                   ≤         jaj                   ≤k         aj                   .   (13)
+                         j=0
+                                         ak             j=1
+                                                                         ak              j=0
+                                                                                                         ak
+
+Since the Poisson distribution is the edge case, with ℓ(tk ) = µ(tk ) = tk = k and the second
+relation in (13) being equality, one can hope that the ultra logconcavity
+                                                 ak    1     ak−1 1
+                                                           ≥
+                                                ak+1 k + 1    ak k
+would be sufficient for the cross modality. Unfortunately, this does not materialise. For,
+denote the right-hand side bk := ak−1 /(kak ); these parameters are now only constrained by
+the monotonicity 0 < b1 ≤ b2 ≤ . . . Manipulating the second inequality in (13) we reduce it
+to the condition                ∞
+                                      bjk k j
+                                                         
+                              X                       bk
+                                                  1−        ≥ 0.
+                                   b · · · bj j!
+                               j=0 1
+                                                     bj+1
+
+But for k > 1 and any given bk , bk+1 , . . . we may choose b1 < . . . < bk−1 sufficiently small to
+have the whole infinite sum negative.
+   A finite positive sequence a0 , . . . , an seen as coefficients of the polynomial F (t) = nk=1 ak tk
+                                                                                            P
+induces a family of distributions supported by {0, 1, . . . , n}. The definitions and findings of
+
+                                                              11
+this section are easily adjusted to the polynomial case. In this framework the largest bifurca-
+tion point is tn = an−1 /an for polynomial of degree n, and the mean satisfies µ(t) ↑ n, so it is
+logical to set ℓ(n) = ∞. The binomial-p family fits in the scheme by the re-parametrisation
+t = p/(1 − p), see Figure 3. Pitman [23] argues in the direction opposite to ours, observing
+that the mean-mode relations imply bounds on the quotients ak−1 /ak .
+
+
+4     Extended binomial sums
+4.1    Definitions and construction
+Given λ ≥ 0 and a profile of success probabilities p = (p1 , p2 , . . .) with ∞
+                                                                             P
+                                                                              i=1 pi < ∞, the
+                                                            P∞                   d
+extended Bernoulli sum is a random variable S = X + i=1 Bi , where X = Poisson(λ)
+          d
+and Bi = Bernoulli(pi ) are jointly independent. The probability function of S, written as
+f (k; λ, p), k ≥ 0, depends symmetrically on the pi ’s, so the uniqueness of parametrisation
+is achieved by relating each distribution to a point of the infinite-dimensional convex set
+∇ := {(λ, p) : λ ≥ 0 and 1 ≥ p1 ≥ p2 ≥ . . . ≥ 0), which has the natural component-wise
+partial order. The mean of S will be denoted
+                                           ∞
+                                           X                            ∞
+                                                                        X
+                             µ(λ, p) :=          kf (k; λ, p) = λ +           pi .
+                                           k=0                          i=1
+
+Note that µ(λ, p) is the l1 -norm, and whenever (λ1 , p1 ) ≥ (λ2 , p2 ) the difference µ(λ1 , p1 ) −
+µ(λ2 , p2 ) equals the l1 -distance between the vectors (λ1 , p1 ) and (λ2 , p2 ).
+    We endow ∇ with the topology in which convergence amounts to the convergence in
+distribution of the corresponding extended Bernoulli sums (that is, pointwise convergence
+of the f (·; λ, p)’s). Explicitly, convergence of a sequence {(λj , pj )} ⊂ ∇ in this topology
+amounts to the componentwise convergence of pj ’s and convergence of the mean values
+µ(λj , pj ), with the behaviour of λj ’s being subordinate to these rules. In particular, the
+familiar convergence of Bernoulli convolutions to a Poisson distribution in terms of the
+parameters is equivalent to (0, pj ) → (λ, 0), which holds when pj → 0 (this is equivalent to
+the convergence of the largest term to 0) and µ(0, pj ) → λ. To illustrate, convergence of the
+binomial distribution to Poisson corresponds to the relation
+                            (0, λ/n, . . . , λ/n, 0, 0, . . .) → (λ, 0, 0, . . .).
+                                |     {z       }
+                                    n times
+
+P∞By the alternative parametrisation by µ and ordered and ordered p satisfying µ ≥
+   i=1 pi , the adopted
+                   P topology becomes the product topology. Broderick et al [5] use discrete
+measures λδ0 + ∞     i=1 pi δpi to encode the parameters, but the vector representation has the
+advantage that the Bernoulli terms get naturally labelled. The uniqueness of parametrisa-
+tion by ∇ is a part of a more general result on totally positive sequences [15]. See [5] for a
+more probabilistic proof.
+
+                                                     12
+    The finitary Poisson-binomial distributions with n Bernoulli terms (some of which could
+be 0) correspond to a compact face ∇n ⊂ ∇ with points of the form (0, p1 , . . . , pn , 0, 0, . . .).
+The union ∪n ∇n is dense in ∇, therefore many structural properties of the extended Poisson-
+binomial distribution can be concluded from their finitary counterparts but we prefer to avoid
+such way of reason, giving direct proofs whenever possible.
+    A simple randomisation device allows one to organise all extended Bernoulli sums in a
+infinite-parameter counting process (S(λ, p), (λ, p) ∈ R+ × [0, 1]), where we do not restrict
+p to have the components pi nondecreasing. To that end, let (N (λ), λ ≥ 0) be a unit rate
+Poisson process, independent of i.i.d. random variables U1 , U2 , . . . with uniform distribution
+on [0, 1]; this data can be regarded
+                            P∞        as a point process on the ground space R+ ∪ (∪∞   i=1 [0, 1]).
+Setting S(λ, p) = N (λ) + i=1 1(Ui ≤ pi ) we obtain an integer-valued process with desired
+marginal distributions and paths nondecreasing in (λ, p). Then S(λ, p) is almost surely finite
+if µ(λ, p) < ∞.
+    In the sequel, unless explicitly required, we will not restrict pi ’s to be nondecreasing.
+This freedom is needed to avoid re-labelling while allowing a particular success probability
+parameter to vary within the full range [0, 1.
+    Sometimes it is convenient to use a parallel set of parameters r = (r1 , r2 , . . .) for the
+Bernoulli variables with the largest p1 < 1, where ri is interpreted as odds in favour of
+success, and the connection is
+                                          pi               ri
+                                 ri :=         ⇐⇒ pi =          .
+                                        1 − pi           1 + ri
+          P                           P
+Clearly, i ri < ∞ is equivalent to i pi < ∞ if p1 < 1.
+    The probability generating function of S is an entire function with only negative zeros,
+                   ∞                              ∞                 ∞
+                   Y
+                     λz                        −λ
+                                                  Y
+                                                                 −λ
+                                                                    Y                   1
+     G(z) = G(0) e   (1 + ri z), where G(0) = e     (1 − pi ) = e                            .   (14)
+                          i=1                               i=1                   i=1
+                                                                                      1 + ri
+
+For k = 0, 1, . . . consider the elementary symmetric functions in the odds
+                                                 X
+                                    Ek (0, r) :=    ri1 · · · rik ,
+                                               i1 <···<ik
+
+and let us introduce their extended counterparts
+                                              k
+                                             X     λk−j
+                                Ek (λ, r) :=              Ej (0, r).
+                                             j=0
+                                                 (k − j)!
+
+The convergence of the multiple series is ensured by the summability of ri ’s and can be
+concluded byPexpressing the elementary symmetric functions as polynomials in Newton’s
+power sums i rin . In this notation, the probability function of S becomes
+                      f (0; λ, p) = S(0),   f (k; λ, p) = f (0; λ, p)Ek (λ, r).
+
+                                                 13
+We extend this by zero, setting f (−k; λ, p) = E(−k; λ, p) = 0 for k > 0.
+    Throughout f (k; λ, p\pi ) will denote the probability of k successes with the ith Bernoulli
+trial ignored (this is the probability function of S − Bi ), and Ek (λ, r \ ri ) will denote the
+symmetric function with variable ri set to zero. Reciprocally, the convolution with yet
+another independent Bernoulli(p) variable is denoted f (k; λ, p ∪ p). Similar notation will
+apply to the operations of removing or adding two or more independent Bernoulli variables.
+The operator ∆ will act in the variable k as forward difference ∆f (k) = f (k + 1) − f (k).
+    The following lemma summarises some of the properties of the probability function.
+
+Lemma 1 The probability function of the extended Bernoulli sum satisfies:
+
+  (i) f (k; λ, p) = pi f (k − 1; λ, p \ pi ) + (1 − pi )f (k; λ, p \ pi ),
+
+  (ii) (ultra log-concavity) for k ≥ 1
+
+                               kf 2 (k; λ, p) ≥ (k + 1)f (k − 1; λ, p)f (k + 1; λ, p),
+       where the inequality is strict unless p = 0, or λ = 0 and there are less than k positive
+       pi ’s (when both sides are zero),
+
+ (iii) (linearity in pi )
+                                            ∂pi f (k; λ, p) = −∆f (k − 1; λ, p \ pi ),
+
+ (iv) ∂λ f (k; λ, p) = −∆f (k − 1; λ, p),
+
+  (v) (monotone likelihood ratio)
+
+                                        f (k + 1; λ, p)                f (k + 1; λ, p)
+                                 ∂p i                   > 0,      ∂λ                   > 0,
+                                           f (k; λ, p)                    f (k; λ, p)
+                       P∞
+ (vi) kf (k; λ, p) =        i=1 pi f (k; λ, p \ pi ) + λf (k − 1; λ, p).
+
+(vii) (concave likelihood ratio)
+                                                         f (k + 1; λ, p)
+                                                            f (k; λ, p)
+       is concave in (λ, p), and strictly concave for k > 0.
+
+(viii) for d ≥ 1 and pairwise distinct i1 , . . . , id
+
+                            ∂pdi1 ,...,pi f (k; λ, p) = (−∆)d f (k − d; λ, p \ pi1 , . . . , pid ).
+                                        d
+
+
+
+
+                                                            14
+Proof. Assertion (i) follows by the total probability rule, which in terms of the symmetric
+functions becomes the recursion
+                         Ek (λ, r) = ri Ek−1 (λ, r \ ri ) + Ek (λ, r \ ri ).
+Formula (iii) follows straight from (i).
+     Part (ii) for p = 0 is an easy factorial identity. For some number n ≥ k of nonzero
+pi ’s, matching powers of λ and applying Newton’s inequality yields a stronger inequality.
+The case with infinitely many positive pi ’s is treated by induction in k using (i). The claim
+also follows by checking the property for Poisson and Bernoulli distributions, and applying
+Liggett’s theorem [18] which asserts that the ultra log-concavity is preserved by convolution,
+Saumard and Wellner [30] give a detailed discussion, including the interpretation of ultra-
+logconcavity as the log-concavity relative to the Poisson distribution.
+     Part (iv) is straight from ∂λ f (0; λ, p) = −f (0; λ, p) and ∂λ Ek (λ, r) = Ek−1 (λ, r).
+     For (v), using ∂pi ri > 0 we are reduced to checking the analogue in terms of the odds,
+which is the inequality ∂ri [Ek+1 (λ, r)/Ek (λ, r)] > 0. Differentiating the quotient, after sim-
+plification of the numerator the inequality follows from log-concavity.
+     The identity (vi) was stated in [26] for the finitary case without proof. To show (vi),
+write the desired identity in terms of the odds,
+                                       ∞
+                                       X
+                        kEk (λ, r) =         ri Ek (λ, r \ ri ) + λEk−1 (λ, r).
+                                       i=1
+
+The formula is proved by differentiating the homogeneity identity Ek (zλ, zr) = z k Ek (λ, r)
+in z > 0, using the above formulas for partial derivatives, and setting z = 1.
+    (vii) Passing to the quotient of Ek (λ, r)’s this is shown as in [20], p. 116.
+    (viii) Obtained by iterating (i) or (iii).
+                                                                                           □
+
+A number of other classical inequalities for symmetric polynomials [20] that do not restrict
+the number of variables have their extended analogues and can be interpreted as features of
+the probability function f (k; λ, p).
+   By the log-concavity we can define the leading mode m+ (λ, p) to be the unique integer
+k satisfying
+                         f (k − 1, λ, p) ≤ f (k, λ, p) > f (k + 1, λ, p),
+and define m− (λ, p) as in the case of the binomial distribution. The probability function
+strictly increases for k < m− (λ, p) and strictly decreases for k ≥ m+ (λ, p) (unless turning
+zero in the finitary case). If m− (λ, p) = m+ (λ, p) the mode is singleton, and if m− (λ, p)+1 =
+m+ (λ, p) the mode is twin. Thus, the mode is identified by the equivalences
+                       f (k − 1; λ, p) < f (k; λ, p) ⇐⇒ m− (λ, p) ≥ k,                      (15)
+                       f (k; λ, p) > f (k + 1; λ, p) ⇐⇒ m+ (λ, p) ≤ k.                      (16)
+
+                                                   15
+ Figure 5: a) Evolution of single mode by adding a Bernoulli variable. b) Same for twin.
+The peak height of the distribution h(λ, p) := maxk f (k; λ, p) is attained at both m+ (λ, p)
+and m− (λ, p) even when they are distinct, but only the leading mode m+ (λ, p) is stable
+under small increase of the parameters.
+
+4.2    The peak height
+The peak height is a decreasing function of λ, that is ∂λ h(λ, p) ≤ 0 where 0 only occurs if
+the mode at (λ, p) is twin. We move on to revealing a more involved dependence of the peak
+on the pi ’s.
+    To start with, recall the discussion around (9) for the binomial distribution. Similarly
+to that, we may conclude on the unimodality of S straight from the recursion (i) in Lemma
+1, first using induction in the number of Bernoulli components for finitary distributions,
+then passing to limit. The key step is the following. Fix (λ, p), and suppose yet another
+independent Bernoulli variable B is added to S. Thus we have as in (9)
+                      f (k; λ, p ∪ p) = p f (k − 1; λ, p) + (1 − p)f (k; λ, p),           (17)
+where the right-hand side is to be understood as a convex combination of probability function
+and its unit shift. The shapes in Figure 5 should convince the reader that the unimodality
+of f (k; λ, p ∪ p) follows from that of f (k; λ, p).
+    A quick look at Figure 5 shows that the shapes of (linearly interpolated) probability
+functions in (17) have a sole crossing point, which does not depend on p. Write for shorthand
+m+ for the leading mode, and f (m+ − 1), f (m+ ), f (m+ + 1) for the values of f (·; λ, p) at
+these positions. The height of the crossing point is computed as
+                                f 2 (m+ ) − f (m+ − 1)f (m+ + 1)
+                                                                 .
+                               2f (m+ ) − f (m+ − 1) − f m+ + 1)
+The peak height of f (· ; λ, p ∪ p) will be at this level if p is equal to the quantity
+                                                    −∆f (m+ )
+                                   γ ∗ (λ, p) :=                 ,
+                                                   ∆2 f (m+ − 1)
+
+                                                   16
+which we will call the peak skewness (not to be confused with distribution skewness). A
+similar characteristic of the peak called ‘ratio’ was introduced in Baker and Handelman [2].
+The leading mode of S + B is m+ if p < γ ∗ (λ, p) and switches to m+ if p ≥ γ ∗ (λ, p). Peak
+skewness 1 only occurs if the mode of S is twin, while peak skewness 1/2 means that the
+distribution is symmetric near the mode. The peak height of S + B obtains as
+                             
+                                                                      ∗
+                             (1 − p)f (m+ ) + pf (m+ + 1), if p > γ (λ, p),
+                             
+              h(λ, p ∪ p) = (1 − p)f (m+ ) + pf (m+ − 1), if p < γ ∗ (λ, p),
+                             
+                               f (m+ ), if p = γ ∗ (λ, p).
+                             
+
+If the mode of S is twin, the peak height of S + B is the same as for S regardless of p.
+    The above analysis of the effect from adding a Bernoulli variable readily tells us what
+happens when a variable gets removed from the extended Bernoulli sum.
+Theorem 1 Both m+ (λ, p) and m− (λ, p) are nondecreasing functions of the parameters,
+with the following connection to the monotonicity of the peak. The peak height function is
+differentiable in λ and every pi and for k = m+ (λ, p) we have
+    (i) ∂pi h(λ, p) > 0 iff m+ (λ, p \ pi ) = m− (λ, p \ pi ) = k − 1, in which case replacing pi in
+        p by any larger value pi + δ cannot switch the leading mode to k + 1,
+ (ii) ∂pi h(λ, p) < 0 iff m+ (λ, p \ pi ) = m− (λ, p \ pi ) = k, in which case replacing pi in p by
+      certain larger value pi + δ will switch the leading mode to k + 1,
+(iii) ∂pi h(λ, p) = 0 iff m+ (λ, p \ pi ) = m− (λ, p \ pi ) + 1 = k, in which case replacing pi in
+      p by any larger value pi + δ will leave the single mode at k.
+(iv) ∂λ h(λ, p) ≤ 0.
+Proof. We have seen that manipulating pi alone results in two possibilities for the mode,
+depending on how pi compares to the peak skewness of f (·; λ, p \ pi ). For instance, in case
+(i) replacing pi by 0 moves the mode to k = 1, hence k + 1 cannot be achieved by replacing
+pi with pi + δ. The sign of ∂pi h(λ, p) reads from Lemma 1(iii) specialised for k the modal
+value. Part (iv) follows from Lemma 1 (iv).                                                □
+
+Whenever different monotonicity directions in (i) and (ii) occur the peak heaight function
+has a saddle point.
+
+
+5      Geometry of the Darroch rule
+5.1      The Poisson-binomial case
+Darroch’s [9] rule localises the mode of the Poisson-binomial distribution in terms of the
+mean µ. The rule states that whenever the mean is integer it coincides with a single mode,
+
+                                                 17
+and if the mean is not a positive integer then the mode could be singleton ⌊µ⌋ or ⌈µ⌉ ,
+or twin {⌊µ⌋, ⌈µ⌉}. Samuels [26] has noticed that the probability function is increasing for
+k ≤ µ and decreasing for k ≥ µ.
+    A loose intuition suggesting that the mode and the mean are not far away from one
+another appears by looking at two extremes. If a Bernoulli variable with success probability
+zero or one is added to S the mean and the mode both increment by zero or one, respectively.
+It will take some effort to make this idea work.
+    We give a geometric interpretation to the rule first in the finitary case. Consider the n-
+dimensional simplex ∇n ⊂ ∇ whose points are the vectors of parameters (0, p1 , . . . , pn , 0, 0, . . .),
+where 1 ≥ p1 ≥ . . . ≥ pn ≥ 0. (The first zero in this notation stays for λ = 0.) The apex of
+∇n is at (0, 0) and the simplex itself is a cap of a lattice cone. Let
+
+                 Fk,n = {(0, p) ∈ ∇n : f (k − 1; 0, p) = f (k; 0, p)}, k ≥ 0,
+                 Mx,n = {(0, p) ∈ ∇n : µ(0, p) = x}, x ≥ 0.
+
+For 0 < k ≤ n, Fk,n is a (n − 1)-dimensional algebraic manifold (with boundary) which can
+be regarded as a section splitting ∇n in two connected components. For 0 < x < n, Mx,n is
+a section of ∇n by a hyperplane. For integer 0 < k < n the set Mk,n is a (n − 1) dimensional
+simplex, for instance M2,3 is a triangle with extreme points
+
+                      (0, 1, 1, 0, 0, . . .), (0, 1, 21 , 21 , 0, . . .), (0, 23 , 32 , 32 , 0, 0, . . .).
+
+The Fk,n ’s for 0 ≤ k ≤ n are pairwise disjoint in accord with the fact that no three positive
+values of the Poisson-binomial probability function can be equal.
+   By Darroch’s rule the manifolds arranged in the interlacing sequence
+
+                                    F1,n , M1,n , F2,n , . . . , Mn−1,n , Fn,n
+
+are pairwise disjoint, as they are separated in terms of the l1 -norm µ(0, p), see Figure 6. For
+two neighbours in the sequence we may identify pairs of their points most close and most
+distant in the l1 -metric. Explicitly, the unique pair
+                                       1         1
+                   (0, 1, . . . , 1,     ,...,       , 0, 0, . . .) ∈ Fk,n ,
+                       | {z } n − k + 2        n−k+2
+                          k−1        |    {z       }
+                                                     n−k+1
+                                       1         1
+                   (0, 1, . . . , 1,     ,...,       , 0, 0, . . .) ∈ Mk,n
+                       | {z } n − k + 1        n−k+1
+                          k−1        |    {z       }
+                                                     n−k+1
+
+
+realises the largest l1 -distance between the sets, which is equal to 1 − n−k+1
+                                                                          n−k+2
+                                                                                . Likewise, the
+
+
+
+                                                              18
+unique pair
+                                     k        k
+                            (0,         ,...,      , 0, 0, . . .) ∈ Fk,n ,
+                                  |k + 1 {z k + 1}
+                                          k
+                                        (0, 1, . . . , 1, 0, 0, . . .) ∈ Mk,n
+                                            | {z }
+                                               k
+
+                                                                              1
+realises the smallest l1 -distance between the sets, which is equal to 1 − k+1   . This can be
+verified using Chebyshev’s [7] device that the extreme values of f (k; 0, p) − f (k − 1; 0, p) on
+Mx,n are attained at some shifted binomial probability functions. An alternative approach is
+to reduce to a nonlinear programming problem with concave functions f (k)/f (k−1) (Lemma
+1 (vii)) and concave µ all expressed in the odds variables. It follows that for 0 < k ≤ n and
+x in the bounds
+                        1                                          1
+              k−1+         = min µ(0, p) < x < max µ(0, p) = k −       ,                    (18)
+                       k+1   Fk,n              Fk,n              n−k+2
+
+for p ∈ Mx,n the mode could be any of k, k − 1, {k − 1, k} and each possibility materialises.
+This leaves us for 0 ≤ k ≤ n with the definite region
+                     1                      1
+              k−         < µ(0, p) < k +      =⇒ m(0, p) = {k},
+                   n−k+2                  k+2
+                                          1
+                       µ(0, p) = k −          =⇒ m(0, p) = {k − 1, k},
+                                      n−k+2
+                                            1
+                            µ(0, p) = k +     =⇒ m(0, p) = {k, k + 1},                      (19)
+                                          k+2
+which together with the assertion of ambiguity for the complementary region (18) constute
+a more detailed version of Darroch’s rule.
+
+5.2    The extended binomial sums
+We turn next to the extended binomial sums. Introduce
+
+                   Fk = {(λ, p) ∈ ∇ : f (k − 1; λ, p) = f (k; λ, p)}, k ≥ 0,
+                   Mx = {(λ, p) ∈ ∇ : µ(λ, p) = x}, x ≥ 0.
+
+Similarly to the finitary case, the Fk ’s, k ≥ 0, are pairwise disjoint closed sets (‘algebraic
+manifolds of codimension one’), and the Mx ’s, x ≥ 0, are pairwise disjoint convex closed
+sets. By the definition we have
+
+                             Fk,n = Fk ∩ ∇n ,        Mk,n = Mk ∩ ∇n ,
+
+                                                   19
+Figure 6: For n = 3 surfaces f (0) = f (1), µ = 1, f (1) = f (2), µ = 2 and f (2) = f (3) in a)
+simplex ∇3 , and b) cube [0, 1]3 . Shorthand notation: f (k) = f (k; 0, p1 , p2 , p3 , 0, 0, . . .), same
+for µ.
+which suggests that an infinite counterpart of Darroch’s rule could be obtained by an approx-
+imation argument. This is true and not hard to pursue for the main part of Darroch’s rule,
+thus showing that |µ(λ, p) − m± (λ, p)| ≤ 1 holds in consequence of the chain of inequalities
+                                                    1
+                  . . . < min µ(λ, p) = k − 1 +        < k = max µ(λ, p) < . . .
+                          Fk                       k+1        Fk
+
+In particular, we obtain maxFk µ(λ, p) = k by sending n → 0 in (19) and (18). But this
+implies existence of bifurcation points on Mk that need to be explicitly found. Indeed, from
+the Poisson(k) case we know that (k, 0) ∈ Mk ∩ Fk is one such point.
+   To complete the picture we procede on shoulders of Samuels [26] by generalising his
+Theorem 1.
+
+Theorem 2 If k < µ(λ, p) < k + 1 for some integer k ≥ 0 then
+
+                    m+ (λ, p \ max pi ) ≤ k ≤ m− (λ, p) ≤ m+ (λ, p) ≤ k + 1.
+
+If µ(λ, p) = k then also m+ (λ, p) = m− (λ, p) = k, unless (λ, p) = (k − a, 1, . . . , 1, 0, 0, . . .)
+                                                                            | {z }
+                                                                                         a
+(for some 0 ≤ a < k, k ≥ 1) in which case the distribution is shifted Poisson on {a, a+1, . . .}
+with the twin mode {k − 1, k}.
+
+                                                   20
+                                    let k ≥ 1, and suppose in the first instance that p1 < 1
+Proof. The case k = 0 being trivial,P
+(hence pi < 1 for all i). Suppose i pi + λ > k. To keep the balance in the identity of
+Lemma 1 (vi) we should have either
+
+                                     f (k − 1; λ, p) < f (k; λ, p)                                 (20)
+
+or f (k − 1; λ, p \ pi ) < f (k; λ, p) for some i. The second option is necessary if λ = 0, and
+if it holds the recursion (i) of Lemma 1 implies f (k − 1; λ, p \ pi ) < f (k; λ, p \ pi ), which
+is equivalent to k ≤ m− (λ, p \ pi ). In the latter case the monotone likelihood property in
+Lemma 1 (vi)   Pstill leads to (20), whence k ≤ m− (λ, p) holds in any case.
+     Suppose i pi + λ < k + 1. By the same balance identity either f (k; λ, p) > f (k + 1; λ, p)
+(then m+ (λ, p) ≤ k) or f (k; λ, p \ pi ) > f (k + 1; λ, p) for some i. In the second case we
+find as above that f (k; λ, p \ pi ) > f (k + 1; λ, p \ pi ), whence by the monotone likelihood
+applied in the opposite direction f (k; λ, p \ max pi ) > f (k + 1; λ, p \ max pi ). Thus in any
+case m+ (λ, p \ max pi ) ≤ k,P   which in turn yields m+ (λ, p) ≤ k + 1.
+     Now consider the case i pi + λ = k ≥ 1 and p ̸= 0. Suppose first that f (k; λ, p) >
+f (k + 1; λ, p), then k ≤ m− (λ, p) and there exists i such that f (k; λ, p) ≤ f (k − 1; λ, p \ pi ).
+Therefore f (k; λ, p \ pi ) ≤ f (k − 1; λ, p \ pi ), which gives k − 1 ≥ m− (λ, p \ pi ). Hence
+k ≥ m+ (λ, p) and putting things together m+ (λ, p) = m− (λ, p) = k.
+     Suppose f (k; λ, p) ≤ f (k − 1; λ, p). Regardless of λ there exists i such that f (k; λ, p) ≥
+f (k − 1; λ, p \ pi ). But then f (k; λ, p \ pi ) ≥ f (k − 1; λ, p \ pi ) and by the monotone likelihood
+f (k; λ, p) > f (k − 1; λ, p), which contradicts the assumption. Thus this case is excluded.
+     The case p = (k; 0) is purely Poisson, with the mode {k − 1, k}.
+     Finally, we lift the restriction on parameters to allow some number a of 1’s among the
+pi ’s, 1 ≤ a < k. The above conclusions are readily adjusted by reducing to the shifted
+probability function f (k − a; λ, p).                                                                  □
+
+In the finitary case the first part of the argument applied to the profile p ∪ min pi yields a
+slightly stronger implication
+
+                             µ(λ, p) + min pi > k =⇒ m− (λ, p) ≥ k,
+
+which is similar to Equation (15) of [26].
+   For k ≥ 0 let
+
+           [Fk , Fk+1 ] := {(λ, p) ∈ ∇ : f (k − 1; λ, p) ≤ f (k; λ, p) ≥ f (k + 1; λ, p)},
+
+which is the ‘interval’ of parameters satisfying k ∈ m(λ, p).
+
+Corollary 1 The only common points of some of the sets F0 , M0 , F1 , M1 , F2 , M2 , . . . are
+the points of Mk ∩ Fk which correspond to shifted Poisson distributions with mean k. Ev-
+ery domain [Fk , Fk+1 ] is a connected compact, which is further divided in two connected
+components by the convex compact Mk .
+
+                                                  21
+Proof. Every point (λ, p) in the said domain can be connected to Mk by a segment of the
+ray through the point. In more detail, if (λ, p) satisfies f (k − 1; λ, p) < f (k; λ, p) and
+µ(λ, p) < k, then there exists z > 1 such that the first inequality holds for (zλ, zp) and
+µ(zλ, zp) = k. If µ(λ, p) < k we choose deformation with 0 < z < 1. Furthermore, any two
+points in Mk can be connected by a linear segment because the set is convex. Thus any two
+points in the domain can be connected by a path with three contiguous segments.
+   The set [Fk , Fk+1 ] is compact as being a closed subset of a part of ∇ defined by a
+constraint of the form a ≤ λ ≤ b.                                                          □
+
+   A brief remark concerning the median. Samuels and Jogdeo [13] showed for the finitary
+case that if the mean is k then the median is also k. This generalises by approximation to
+extended Bernoulli sums, since the median k ∗ is defined by the condition that each of the
+events S ≤ k ∗ and S ≥ k ∗ have probability at least 1/2.
+
+
+6      Cross modal families
+With the above splitting of ∇ in ‘intervals’, the modal ridge for the family of all extended
+binomial sums is                       ∞
+                                      [
+                                M=       {k} × [Fk , Fk+1 ].
+                                           k=0
+
+A family of extended Bernoulli sums corresponds to some set of parameters P ⊂ ∇, whose
+modal ridge is just the slice-wise intersection
+                                    ∞
+                                    [
+                                        {k} × (P ∩ [Fk , Fk+1 ]).
+                                    k=0
+
+    For ease of exposition we shall consider families with the infinite range R = {0, 1, . . .},
+leaving to the reader the case of a finite integer interval. With this convention in mind,
+the family P is cross modal if for every k ≥ 0 the maximum of likelihood f (k; ·) in P is
+attained within P ∩ [Fk , Fk+1 ]. As an immediate consequence of the extended Darroch’s rule
+in Theorem 2 we have a result concerning the mean-matching families.
+
+Proposition 2 If for every k ≥ 0 the maximum max{f (k; λ, p) : (λ, p) ∈ P} is attained on
+P ∩ Mk then the family P is cross modal.
+
+     In more detail, the cross modality imposes the following three conditions on P:
+
+    (i) the family is unperforated, that is P ∩ [Fk , Fk+1 ] ̸= ∅,
+
+ (ii) in P ∩ [Fk , Fk+1 ] the maximum of h(λ, p) = f (k; λ, p) is attained at some point,
+
+
+                                                 22
+Figure 7: For n = 3, contour f (2) = 4/9 (red colour) comprised of two branches meeting
+at p1 = p2 = p2 = 2/3 and crossing both F2,3 and F3,3 , and contour f (2) = 1/2 inside
+[F2,3 , F3,3 ].
+
+(iii) the maximum peak height in (ii) is the overall largest value of f (k; λ, p) for (λ, p) ∈ P.
+Note that by this definition the sequence of Poisson distributions with λ = 0, 2, 4, . . . is
+unperforated, though odd integers do not appear in the role of a leading mode.
+    Conditions (i) and (ii) are self-evident and will be implied by other properties of P or
+taken in the sequel for granted. In particular, an obvious sufficient condition for (ii) is that
+P is closed.
+    Condition (iii) requires much care, because nonmodal likelihood under some distribu-
+tion may be larger than the peak height of distribution with a larger mode, for instance
+f (2; 1.6, 0) > f (2; 2.5, 0). A major complication for continuous-parameter families comes
+from the fact that Fk is not a contour of the likelihood function. To the opposite, the
+contours of f (k; ·) may cross Fk , or have branches separated by Fk or lie completely inside
+[Fk , Fk+1 ], see Figure 7. Even more weird, in the n = 3 finitary case there are curves travers-
+ing [F2,3 , F3,3 ] with increasing µ and max f (2; ·) lower than the maximum of this function in
+neighbouring ‘intervals’.
+    The contours f (k; λ, p) = z with z ≥ 1/2 are enclosed in [Fk , Fk+1 ], thus offering an
+elementary sufficient condition for the case of ‘big’ peak heights.
+
+Proposition 3 If a closed family P for every k ≥ 0 satisfies
+                                                                      1
+                         max{h(λ, p) : (λ, p) ∈ P ∩ [Fk , Fk+1 ]} ≥
+                                                                      2
+                                               23
+then the family is cross modal.
+Proof. The inequality f (k; λ, p) ≥ 1/2 implies that k is a mode, and that the likelihood
+maximum is attained in P ∩ [Fk , Fk+1 ].                                                □
+
+    We take advantage of the natural order structure on ∇ to introduce a reasonably large
+class of unperforated families P ⊂ ∇. Define P to be directed if (0, 0) ∈ P and the following
+conditions hold for k ≥ 0:
+ (a) for (λ, p) ∈ P with m+ (λ, p) = k there exists (λ′ , p′ ) ∈ P such that
+             (λ′ , p′ ) ≥ (λ, p), m+ (λ′ , p′ ) = k + 1 and f (k + 1; λ′ , p′ ) > f (k + 1; λ, p),
+
+ (b) for (λ, p) ∈ P with m− (λ, p) = k + 1 there exists (λ′ , p′ ) ∈ ∩P such that
+                   (λ, p) ≥ (λ′ , p′ ), m− (λ′ , p′ ) = k and f (k; λ, p) < f (k; λ′ , p′ ).
+
+Condition (0, 0) ∈ P can always be fulfilled by including zero in the family if needed. The
+rationale behind the concept of directed family relates to the next property.
+Lemma 2 If (λ′ , p′ ) ≥ (λ, p) for two distinct elements of ∇, then k > m+ (λ′ , p′ ) implies
+f (k; λ′ , p′ ) > f (k; λ, p) provided λ′ + p′k > 0.
+Proof. The last condition is needed to ensure f (k; λ′ , p′ ) > 0. We may pass from (λ, p)
+to (λ′ , p′ ) by successively increasing one of the components. In the course of such possibly
+infinitely many transitions the leading mode of intermediate vectors stays less than k, there-
+fore Lemma 1 (iii), (iv) ensures that the likelihood function f (k; ·) strictly increases on some
+steps, whence eventually f (k; λ′ , p′ ) > f (k; λ, p).                                         □
+
+Theorem 3 Every closed directed family P ⊂ ∇ is cross modal.
+Proof. Condition (0, 0) ∈ P provides the base for induction to show that directed P is
+unperforated in a strong sense, meaning that every possible value of m+ and m− is taken.
+Trivially f (0; 0, 0) = 1 is the absolute maximum of f (0; ·).
+    For k > ℓ ≥ 0 let (λ, p) ∈ P have m+ (λ, p) = ℓ. By induction and the assumption there
+exists a increasing chain in P of distinct elements
+                                 (λ, p) ≤ . . . ≤ (λ′ , p′ ) ≤ (λ′′ , p′′ ),
+where the last two terms are chosen so that m+ (λ′ , p′ ) = k − 1, m+ (λ′′ , p′′ ) = k and
+f (k; λ′ , p′ ) < f (k; λ′′ , p′′ ). The likelihood function f (k; ·) is increasing strictly along the
+chain, as the increase holds within the last two terms by the construction and for the re-
+maining part of the chain by Lemma 2.
+    For ℓ > k a similar chain along which the likelihood decreases is constructed backwards
+from (λ, p) ∈ P ∩ [Fℓ , Fℓ+1 ]. It follows that the absolute maximum of f (k; ·) can only be
+found in P ∩ [Fk , Fk+1 ]} and it exists since P is closed.                                         □
+
+                                                    24
+6.1     Sequences
+The work of previous authors [6, 8, 21, 22, 28] observed the cross-modality of the Bernoulli
+sums Sn = B1 + . . . + Bn for B1 , B2 , . . . with given success probabilities, where n was treated
+as a parameter. Bonferroni [3] was apparently the first to provide extended analysis of the
+peak height for the Bernoulli sums.
+    To embed this class of distributions in the general framework, one may consider a sequence
+P = {(0, 0), (λ1 , p1 ), (λ2 , p2 ), . . .} ⊂ ∇ such that (λn+1 , pn+1 ) is derived from its predecessor
+(λn , pn ) by one of the following operations:
+
+(o1) replacing one of the success probabilities pi by a larger value p′i > pi ,
+
+(o2) extending the vector by including a new component p′ ,
+
+(o3) incrementing the Poisson parameter by a quantity not exceeding γ ∗ (λn , pn ),
+
+where the parameters of extension i, p′i or p′ may depend on n. Obviously, (o1), (o3) corre-
+spond to convolution with a Bernoulli or Poisson variable, respectively. The operation (o2) is
+a special case of (o1) ‘replacing zero by a Bernoulli variable’. The constraint in (o3) is needed
+to avoid decreasing likelihood. The increments of the mean satisfy µ(λ, pn+1 ) − µ(λ, pn ) ≤ 1,
+whence by Theorem 2 P is unperforated. Applying Lemma 1 (iii) we see that P is directed,
+hence cross modal. If µ(λ, pn ) → ∞ as n → ∞, the family has infinite range.
+    A well-known example is the Karamata-Stirling distribution, which we record with two
+parameters
+                                          h n i tk
+                            f (k; n, t) =          , t > 0, 1 ≤ k ≤ n.                       (21)
+                                            k (t)n
+This is a Poisson-binomial distribution with the success probabilities pi = t/(t + i − 1), i ≥ 1
+(note: p1 = 1). The t = 1 case relates to the random records model, and the general t > 0 case
+plays a major role in the study of permutations, partitions and other combinatorial structures
+[1]. With the aid of asymptotic expansion of the distribution, Kabluchko et al [14] have found
+approximation for the peak height and showed that for large enough n the mode is unique
+and coincides with ⌊u(n, t) − 1/2⌋ or ⌈u(n, t) − 1/2⌉}, where u(n, t) := t (log n + ∂t log Γ(t)),
+with the exact formula m± (n, t) = ⌊u(n, t)⌋ being valid for a set of n’s of asymptotic density
+1 (though not for all n). As has been noticed in [23], Darroch’s rule applied to this instance
+gives bounds for all n
+                                                                       n
+                                                                       X       t
+                 ⌊µ(n, t)⌋ ≤ m± (n, t) ≤ ⌈µ(n, t)⌉ for µ(n, t) =                     ,
+                                                                       i=1
+                                                                           t + i − 1
+
+and essentially reduces the localisation to the asymptotic expansion of the shifted harmonic
+numbers, for which we refer to µ(n, t)/t [10]. The uniqueness of the mode in case of irrational
+t is also immediate. A new twist we wish to add is that the maxima of (21) in n are those
+
+                                                  25
+values where the mode increases, that is the likelihood maximiser is the inverse function
+to the mode, like in the binomial scheme in Figure 2. We leave for now the interpretation
+through waiting times open.
+    There are many examples of row-wise totally positive triangular arrays of combinatorial
+numbers [23, 24], leading to Bernoulli sums with parameters pn not explicitly known and
+not following the simple patterns (o1) or (o2). Stochastic monotonicity of the associated
+sums Sn is a necessary but not sufficient condition for Theorem 3 to work. A numerical
+evidence suggests that the array of normalised Stirling numbers of the second kind is cross
+modal. See Rukhin et al [25] for a related study of the likelihood ratios for a convolution of
+two binomial distributions.
+
+6.2    Power series and other continuous-parameter families
+                          P
+For a0 > 0, ri > 0 with       i ri < ∞ consider the entire function of the form
+
+                                          ∞
+                                          X                      ∞
+                                                                 Y
+                                F (t) =         ak tk = a0 eλt     (1 + ri t),            (22)
+                                          k=0                    i=1
+
+which defines a power series family of logconcave distributions with parameter t ≥ 0.
+   The distribution with parameter t = 1 is the law of an extended Bernoulli sum S(λ, p)
+with Poisson parameter λ and success probabilities pi = ri /(1 + ri ), as in (14). For the
+generic t ≥ 0 the distribution has probability generating function
+                                                    ∞
+                                  F (tz)    a0 λtz Y
+                                         =       e     (1 + ri tz),
+                                  F (t)    F (t)   i=1
+
+corresponding to the extended Bernoulli sum with Poisson parameter tλ and odds tri . This
+family of power series distributions is cross modal by Proposition 2 which in turn followed
+from the extended Darroch’s rule in Theorem 2. The theorem also implies that the criterion
+in Proposition 1holds with strict inequalities tk < ℓ(k) < tk+1 and k − 1 < µ(tk ) < k (last
+for k ≥ 1) Compare with µ(tk ) = k in the pure Poisson case.
+    Taking a geometric view will lead to a surprising conclusion, essentially matching the
+initial intuition that ‘the mean and the mode grow at about the same pace’ was correct.
+Note that in the parametrisation by odds the power series family corresponds to a ray. In
+terms of the success probabilities the family has parameters (λ(t), p(t)), where
+                                                                     tpi
+                               λ(t) = λt, and pi (t) =                                    (23)
+                                                                 1 − pi + tpi
+
+are increasing functions. Geometrically, (λ(t), p(t)), t ≥ 0, is a continuous curve in ∇, which
+is increasing (in the partial order) and unperforated since µ(λ(t), p(t)) ↑ ∞. The family
+
+
+                                                      26
+is directed. Indeed, interpret tk and tk+1 as the ‘time’ when the curve enters into, respec-
+tively, exits from [Fk , Fk+1 ]. Lemma 2 tells us that f (k; λ(t), p(t)) strictly increases for
+t ≤ tk and strictly decreases for t ≥ tk+1 thus the likelihood attains its absolute maxi-
+mum inside [Fℓ , Fℓ+1 ]. Moreover by Lemma 1 (iii), we have ∂t f (k; λ(tk ), p(tk )) > 0 and
+∂t f (k; λ(tk+1 ), p(tk+1 )) < 0, understood as transversal crossing the contours of the likelihood
+function. It again follows that the family of extended Bernloulli sums defined by the totally
+positive power series (22) is cross modal. But neither general criterion for logconcave families
+in Proposition 1 (iii) nor the proof of Theorem 3 rely on the Darroch’s rule, therefore the
+rule becomes a consequence. So to summarise:
+since every extended Bernoulli sum is a member of a power series family (23), the cross
+modality of the family implies the extended Darroch’s rule.
+Scrutinising this way of reason, three ingredients have been used: matching the mean by the
+likelihood maximisation for power series families, including distribution in such a family and
+the elemenrary recursion in Lemma 1 (i) observed long ago by the pioneers [3, 7].
+    The roots of some totally positive entire functions (22) are known√ explicitly. For the
+example in Figure 4 the Weierstrass product formula applied to cosh t gives the parameters
+of extended Bernoulli sum as λ = 0 and
+                                             4
+                                 pi =                   , i ≥ 1.
+                                      4 + (1 − 2i)2 π 2
+Karamata-Stirling family of distributions (21) relates to a totally positive polynomial, for
+which we conclude on the cross modality now in the variable t.
+
+
+7     Breaking the mode
+The value of Darroch’s rule for localising the mode lies in the simplicity of the mean as
+compared to the whole multiparameter profile (λ, p), which may not be known explicitly.
+Bur even with (λ, p) given, it looks hard to control the mode under the (o2)-deformations
+of the profile. From Theorem 1 we only infer that increasing a particular pi will break the
+mode if the success probability is smaller than a certain bound depending on (λ, p).
+    The peak skewness is an alternative characteristic of stability of the mode. Recall that
+  ∗
+γ (λ, p) is the minimal parameter of Bernoulli variable needed to transport the mode to
+larger position. The monotonicity properties of γ ∗ (λ, p) agree with its interpretation as a
+size of effort to break the mode, that is
+                               ∂pi γ ∗ (λ, p) < 0,    ∂λ γ ∗ (λ, p) < 0
+in consequence of monotonicity of the likelihood ratio and the formula
+                                                   f (m−1) !−1
+                                               1 −   f (m)
+                            γ ∗ (λ, p) = 1 +       f (m+1)
+                                                               ,
+                                               1 − f (m)
+
+                                                 27
+where for shorthand m = m+ (λ, p). Curiosly, there is some connection with the mean. In
+particular, if (λ, p) ∈ Mk one needs to increase the mean by at least 1/(k + 2) to increment
+the leading mode by one, hence γ ∗ (λ, p) ≥ 1/(k + 2). On the other hand, if (λ, p) ∈ Fk (the
+twin mode case), to increment the leading mode the mean should be increased by at least
+1 − 1/(k + 1) while γ ∗ (λ, p) = 1.
+
+7.1    Two Bernoulli increments versus one
+The above begs a question: how to transport the mode of S by adding independent Bernoulli
+or Poisson variables in the most economic way, as measured by the mean?
+    To that end, suppose S has probability function f (k) with leading mode m, and we add
+an independent variable Z. A minute thought shows that shifting the mode to m+1 amounts
+to a linear programming problem with the balance equation as a constraint
+
+                             P[S + Z = m] = P[S + Z = m + 1],
+
+and the objective functional EZ, where Z can be restricted to have the support within
+{0, 1, . . . , m + 1}. If we only consider Z with a two-point distribution P[Z = s] = δ,
+P[Z = 0] = 1 − δ with given s, then the minimal necessary value of δ is found from the
+balance equation as
+                                             ∆f (m)
+                                   δ=                      ,
+                                       ∆f (m) − ∆f (m − s)
+(generalising γ ∗ (λ, p) in the s = 1 case) which incurs the transportation cost sδ. For con-
+vexity reasons, if no constraint on the distribution of Z is imposed, the optimal distribution
+is two-point, with the range parameter found as the minimiser in
+
+                                             s∆f (m)
+                                  min                       ,                            (24)
+                                   s    ∆f (m) − ∆f (m − s)
+
+and δ = δ(s) determined as above.
+    Within the class of extended Bernoulli sums, for the sake of optimisation it is sufficient
+to consider Z representable as a Bernoulli sum with at most m + 1 terms. In the case m = 0
+the optimal transport involves a Bernoulli variable Z with the success probability γ ∗ (λ, p).
+For m > 0 we are willing to show that this one-term solution might not be optimal. Indeed,
+comparing s = 1 and s = 2 instances of (24), the second will be more less costly if
+
+                              2∆f (m)                ∆f (m)
+                                             <                     ,
+                         ∆f (m) − ∆f (m − 2)   ∆f (m) − ∆f (m − 1)
+
+which is equivalent to
+                                    A := ∆3 f (m − 2) < 0.                               (25)
+
+
+                                               28
+Condition (25) is necessary for a two-term Bernoulli sum with some success probabilities
+α1 , α2 to outperform a single Bernoulli with parameter γ ∗ (λ, p). Lemma 1 (viii) entails the
+expansion
+
+         f (k; λ, p ∪ α1 , α2 ) = f (k; λ, p) − (α1 + α2 )∆f (k; λ, p) + α1 α2 ∆2 f (k; λ, p),   (26)
+
+which allows us to write the balance equation
+
+                          f (m; λ, p ∪ α1 , α2 ) = f (m + 1; λ, p ∪ α1 , α2 )
+
+in the form
+
+         C + (α1 + α2 )B + α1 α2 A = 0,        where C := ∆f (m), B := −∆2 f (m − 1),            (27)
+
+and we have C > 0, B < 0 since m is the mode. In this notation, the peak skewness becomes
+γ ∗ (λ, p) = −C/B, which substituted in the balance equation yields
+
+                          C + (α1 + α2 )B + α1 α2 C = C + γ ∗ (λ, p)B,
+
+and therefore
+                                                         A
+                               α1 + α2 − γ ∗ (λ, p) = −α1 α2< 0,
+                                                         B
+showing that two Bernoulli variables may be better than one. To find the desired parameters
+explicitly, set α := α1 = α2 and solve the balance equation C + 2Bα + Aα2 = 0 as
+                                               √
+                                        −B − B 2 − AC
+                                   α=                     .
+                                                A
+It is readily checked that 2α < −C/B indeed holds and thus 0 < α < 1. In accord with [7]
+the optimum has been found in the class of binomial distributions.
+    Thus condition (25) turns also sufficient. We have found numerically examples of S with
+A < 0, for instance the Binomial(12, 0.385) distribution has m = 5 and A = −0.003, which
+gives a tiny advantage to perturbation of Z by a single term.
+    The form of balance equations with Z being a sum of d ≥ 3 independent Bernoulli
+variables can be guessed from (26) and (27). However, the case of two terms suggests that
+to get some further improvement ∆d f (m − d + 1) should disagree with the sign-alternating
+pattern emerging by the normal approximation.
+
+7.2    Breaking the Poisson mode
+              d                                               d
+Consider S = Poisson(t), m < t < m + 1. Adding Z =Poisson(k + 1 − t) shifts the mode
+to m + 1, but adding a Bernoulli variable with success probability
+                                                  (m + 1)t − t2
+                             γ ∗ (t, 0) =
+                                            2(m + 1)t − t2 − m(m + 1)
+
+                                                  29
+offers a more spare mode transport with γ ∗ (t, p) < m + 1 − t, the inequality holding since
+the cubic polynomial
+
+                ((m + 1)t − t2 ) − [(2(m + 1)t − t2 − m(m + 1))(m + 1 − t)]
+
+is strictly positive in the interval (m, m + 1). From ∆3 f (m − 2) > 0 follows that no two-term
+deformation transporting the mode could have smaller mean.
+
+Acknowledgement The author is indebted to Alex Marynych, Jim Pitman and Michael
+Farber for inspiring discussions, help with terminology and pointers to the literature.
+
+
+References
+ [1] R. Arratia, A.D. Barbour and S. Tavaré, Logarithmic combinatorial structures, EMS,
+     2003.
+ [2] B.M. Baker and D.E. Handelman (1992), Positive polynomials and time dependent
+     integer-valued random variables, Can. J. Math. 44, 3–41.
+ [3] C.E. Bonferroni (1933), Sulla probabilitá massima nello Schema di Poisson, Giorn. Ist.
+     Ital. Attuari 4, 109–115. (review in German in zbMATH Zbl 0007.02302 and JFM
+     59.1157.05)
+ [4] R. Bott (1954), Nondegenerate critical manifolds, Ann. Math. 60, 248–261.
+ [5] T. Broderick, M. Jordan and J. Pitman (2013), Feature allocations, probability func-
+     tions, and paintboxes, Bayesian Analysis 8, 801–836.
+ [6] F.T. Bruss and D. Paindaveine (2000) Selecting a sequence of last successes in indepen-
+     dent trials, J. Appl. Probab. 37, 389–399.
+ [7] P.L. Chebyshev (1846), Démonstation élémentaire d’une proposition générale de la
+     théorie des probabilités, J. Reine und Angew. Math. 33, 259–267.
+ [8] E. Cramer (2000), Asymptotic estimators of the sample size in a record model, Statistical
+     Papers 41, 159–171.
+ [9] J.N. Darroch ( 1964), On the distribution of the number of successes in independent
+     trials, Ann. Math. Stat. 35, 1317–1321.
+[10] P. Flajolet and R. Sedgewick, Analytic combinatorics, CUP, 2009.
+[11] W. Hoeffding (1956), On the distribution of the number of successes in independent
+     trials, Ann. Math. Statist. 27, 713–721.
+[12] S. Dharmadhikari and K. Joag-Dev, Unimodality, convexity, and applications, Academic
+     Press, Boston, 1988.
+[13] K. Jogdeo and S.M. Samuels (1968), Monotone convergence of binomial probabilities
+     and a generalization of Ramanujan’s equation, Ann. Math. Statist. 39, 1191–1195.
+
+                                              30
+[14] Z. Kabluchko, A. Marynych and H. Sulzbach (2016), Mode and Edgeworth expansion
+     for the Ewens distribution and the Stirling numbers, J. Integer Seq. 19, No. 8, Article
+     16.8.8.
+[15] S. Karlin, Total positivity Vol I, Stanford University Press, 1968.
+[16] J. Keilson and H. Gerber (1971), Some results on discrete unimodality, J. Amer. Statist.
+     Assoc. 66, 86–89.
+[17] P. Lévy, Théorie de l’addition des variables aléatoires, Gauthier-Villars, Paris, 1937.
+[18] Liggett, T. M. (1997). Ultra logconcave sequences and negative dependence. J. Combin.
+     Theory Ser. A 79, 315–325.
+[19] M. Madimana, J. Melbourne and C. Roberto (2023), Bernoulli sums and Rényi entropy
+     inequalities, Bernoulli 29, 1578–1599.
+[20] A.W. Marshall, I. Olkin and B.C. Arnold, Inequalities: Theory of majorization and its
+     applications (2nd edition), Springer, 2011.
+[21] J.L. Moreno-Rebollo, I.L. Barranco-Chamorro, F.G. López-Blázquez, T. Gómez-Gómez
+     (1996), On the estimation of the unknown sample size from the number of records.
+     Statist. Probab. Lett. 31, 7–12.
+[22] J.L. Moreno-Rebollo , F.Lopez-Blazquez, I. Barranco-Chamorro and A. Pascual-Acosta
+     (2000), Estimating the unknown sample size, Journal of Statistical Planning and Infer-
+     ence 83, 311–318.
+[23] J. Pitman (1997), Probabilistic bounds on the coefficients of polynomials with only real
+     zeros, J. Combin. Theory, Ser. A 77, 279–303.
+[24] D. Pollard, Probability tools, tricks, and miracles, Chapter 4 of the book draft,
+     http://www.stat.yale.edu/~pollard/
+[25] A. Rukhin, C. E. Priebe and D.M. Healy Jr. (2009), On the monotone likelihood ratio
+     property for the convolution of independent binomial random variables, Discrete Applied
+     Mathematics 157, 2562–2564.
+[26] S.M. Samuels (1965), On the number of successes in independent trials, Ann. Math.
+     Statist. 36, 1272–1278.
+[27] A. Saumard and J. A. Wellner (2014), Log-concavity and strong log-concavity: A review,
+     Statistics Surveys 8, 45–114.
+[28] M. Tamaki (2010), Sum the multiplicative odds to one and stop, J. Appl. Prob. 47,
+     761–777.
+[29] W. Tang and F. Tang (2023), The Poisson Binomial Distribution— Old& New, Statist.
+     Sci. 38, (1) 108–119.
+[30] J. Wellner (2013), Strong log-concavity is preserved by convolution, Progress in Proba-
+     bility 66, 95–102.
+
+
+
+                                              31
+

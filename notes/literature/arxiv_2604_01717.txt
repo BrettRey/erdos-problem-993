@@ -1,0 +1,1338 @@
+                                              On expectations and variances in the hard-core model
+                                                                         Weiyuan Zhang, Kexiang Xu∗
+
+                                                      School of Mathematics, Nanjing University of Aeronautics and Astronautics,
+                                                                          Nanjing, Jiangsu, 210016, PR China
+
+
+
+
+arXiv:2604.01717v2 [math.CO] 5 Jun 2026
+                                                                                       Abstract
+                                                      The hard-core model can be used to understand the number of independent sets in
+                                                  graphs in extremal graph theory. The occupancy fraction, defined as the logarithmic
+                                                  derivative of the independence polynomial of a graph, is a key quantity in hard-core
+                                                  model. Davies et al. (2017) established an upper bound on the occupancy fraction for
+                                                  d-regular graphs, and Perarnau and Perkins (2018) derived a corresponding bound on
+                                                  it for graphs with given girth. Inspired by their work, we provide the tight upper and
+                                                  lower bounds on occupancy fraction in n-vertex graphs with independence number α,
+                                                  extending the classical results on bounds for independence polynomials. We also prove
+                                                  a relevant conjecture posed by Davies et al. (2025) on this topic.
+                                                  Keywords: Independent set; Independence polynomial; Hard-core model;
+                                                  Occupancy fraction.
+                                                  AMS Classification (2020): 05C31, 05C35, 05C69
+
+
+                                          1       Introduction
+                                          Let G be a graph with vertex set V (G) and edge set E(G). The order of G is the number of
+                                          its vertices. For a vertex v ∈ V (G), we define the open neighborhood of v as NG (v) = {u ∈
+                                          V (G) : uv ∈ E(G)} and closed neighborhood of v as NG [v] = NG (v) ∪ {v}. The degree dG (u)
+                                          of vertex u is the cardinality of NG (u). A set S ⊆ V (G) in a graph G is an independent set
+                                          if G[S], the induced subgraph of G by S, consists of |S| isolated vertices. The independence
+                                          number α(G) of G is the cardinality of a maximum independent set of G. A clique of a graph
+                                          G is an induced subgraph of G that is complete. The clique number of G is the cardinality
+                                          of a maximum clique of G.
+                                              The hard-core model is a probability distribution over independent sets in a graph, where
+                                          a set I is chosen with probability proportional to λ|I| for a positive real parameter λ. This is
+                                              ∗
+                                              Corresponding author. Email addresses: weiyuanzhang@nuaa.edu.cn (W. Zhang), kexxu1221@126.com
+                                          (K. Xu). This work is partially supported by NNSF of China (No. 12271251).
+
+
+                                                                                            1
+a widely applicable distribution that generalizes the uniform distribution (corresponding to
+λ = 1) and possesses important properties related to conditional independence and entropy.
+In extremal graph theory, the hard-core model can be used to understand the minimum and
+maximum numbers of independent sets in graphs. Extremal bounds in this context have a
+long history and a few surprising applications, e.g. [1, 4, 21].
+                                                n
+    Kahn [16] states that the disjoint union of 2d copies of complete bipartite graph Kd,d has
+the maximum number of independent sets among all d-regular bipartite graphs on n vertices
+with n divisible by 2d. Zhao [23] extended this result to all d-regular graphs. In 2019, Sah
+et al. [22] determined the maximum number of independent sets in an irregular graph and
+extended their result to an upper bound in weighted form:
+                                                X
+                                      PG (λ) =       λ|I| ,
+                                                I∈I(G)
+
+
+where I(G) is the set of all independent sets of G, including the empty set. Here PG (λ) is
+the partition function of the hard-core model on G (also called the independence polynomial
+of G). Let G be a graph with n vertices. The hard-core model on G is the measure µG,λ :
+I(G) → [0, 1] given by
+                                                       λ|I|
+                                  µG,λ (I) := Pr[I] =        .
+                                                      PG (λ)
+   Borrowing some concepts from physics, Davies et al. [8,12] invented a set of terminologies.
+They defined the free energy density as:
+                                               1
+                                    FG (λ) =     log PG (λ),
+                                               n
+the occupancy fraction
+                                                    ∂
+                                    EG (λ) = λ        FG (λ),
+                                                   ∂λ
+and the variance fraction
+                                                  ∂
+                                    VG (λ) = λ      EG (λ).
+                                                 ∂λ
+We can see that
+                                                           λPG′ (λ)
+                              nEG (λ) = EI∼µG,λ (|I|) =
+                                                            PG (λ)
+is the expected number of vertices of G occupied by a random independent set from the
+hard-core model. Similarly, we know that
+                                                                             2
+                 nVG (λ) = VarI∼µG,λ (|I|) = EI∼µG,λ (|I|2 ) − EI∼µG,λ (|I|)
+
+is the variance of the size of an independent set from the model. Without causing confusion,
+we usually use E to represent EI∼µG,λ , and Var to represent VarI∼µG,λ .
+    Several bounds on the free energy can be obtained from earlier examples of extremal re-
+sults for the hard-core model. If G is a d-regular graph, then FG (λ) ≤ FKd,d (λ) by combining
+
+                                               2
+several celebrated results of Kahn [16] and Zhao [23]. The lower bound FG (λ) ≥ FKd+1 (λ)
+follows from Pa result of Cutler and Radcliffe [6]. If du is the degree of vertex u in G, then
+FG (λ) ≥ n u∈V (G) FKdu +1 (λ) can be derived from a result by Sah et al. [22].
+           1
+
+    It is natural to consider the generalizations of the above results to the bounds on the
+parameters EG (λ) and VG (λ). Davies et al. [8] introduced a novel technique, called the occu-
+pancy method, and used it to prove the tight upper bounds on the independence polynomial
+and the matching polynomial of d-regular graphs. In the subsequent work [9], they consid-
+ered the lower bounds on EG (λ) for triangle-free graphs with a given maximum degree, and
+derived the corresponding lower bounds on the number of independent sets using the prop-
+erties of the occupancy fraction. Cutler and Radcliffe [7] used the same method to obtain
+lower bounds on EG (λ) for d-regular graphs and, as a consequence, a tight lower bound on
+the independence polynomial for this class of graphs. They also obtained a lower bound on
+EG (λ) for d-regular triangle-free graphs. Perarnau and Perkins [19] obtained an upper bound
+on EG (λ) for cubic graphs of girth at least 5 and a lower bound on EG (λ) for triangle-free
+cubic graphs. They used these results to prove a tight upper bound and a lower bound, re-
+spectively, on the independence polynomial for these graph classes. Davies et al. [12] proved
+a lower bound on EG (λ) for (triangle-free) graphs with a given degree sequence, provided
+some bounds on VG (λ) for n-vertex graphs and posed the following conjecture:
+Conjecture 1.1. Let G be an n-vertex graph. Then VG (λ) ≥ VKn (λ) for any λ > 0. If G
+has maximum degree ∆, then the lower bound can be improved to VG (λ) ≥ VK∆+1 (λ).
+     The hard-core model can also be used to provide some bounds on certain off-diagonal
+Ramsey numbers and related quantities [20]; some of these applications yield, asymptotically,
+the best results currently known to us. Its conditional independence properties can be
+exploited in probabilistic and algorithmic methods for graph coloring and related problems
+[3, 5, 10, 11, 13–15, 17, 18, 24].
+     We now introduce a special class of graphs. Let G(n, α) be the set of graphs with n
+vertices and independence number α. Denote by Z(n, α) the n-vertex graph consisting of
+a disjoint union of α cliques of orders as nearly equal as possible. Equivalently, Z(n, α)
+is the complement of the n-vertex, α-partite Turán graph. Let ni be the   Qorder  of the i-th
+component inQgraph Z(n, α)Pfor 1 ≤ i ≤ α. We know that PZ(n,α) (λ) = i=1 (1 + ni λ) and
+                                                                            α
+  ′                                   n
+PZ(n,α)  (λ) = αi=1 (1 + ni λ) αj=1 1+njj λ . So we have
+
+                                              1 X ni λ
+                                                  α
+                                EZ(n,α) (λ) =                .
+                                              n i=1 1 + ni λ
+   In this paper we study the upper bound of EG (λ) for λ > 0 and the lower bound for
+          2
+0 < λ < n−2 among all graphs with a given order and independence number. We also prove
+the aforementioned conjecture of Davies et al.. The main results of the paper are stated
+below.
+Theorem 1.2. Let G ∈ G(n, α). Then, for any λ > 0, we have
+                                                                    
+                                      1   k⌊ αn ⌋λ    (α − k)⌈ αn ⌉λ
+               EG (λ) ≤ EZ(n,α) (λ) =               +                  ,
+                                      n 1 + ⌊ αn ⌋λ     1 + ⌈ αn ⌉λ
+
+                                              3
+where k is the number of components of Z(n, α) of order ⌊ αn ⌋ with 0 < k ≤ α.
+   The graph G ∨ H is obtained by joining every vertex of G to every vertex of H. Then
+Theorem 1.3. Let G ∈ G(n, α). For 0 < λ < n−2
+                                           2
+                                              , we have
+
+                                          1 αλ(1 + λ)α−1 + (n − α)λ
+                     EG (λ) ≥ EG1 (λ) =     ·                       ,
+                                          n   (1 + λ)α + (n − α)λ
+where G1 = Kn−α ∨ αK1 and n ≥ 3.
+   Using Theorems 1.2 and 1.3, we can get the following result.
+Corollary 1.4. Let G ∈ G(n, α). Then, for any λ > 0, we have
+                                           j n k k     l n m α−k
+                 PG (λ) ≤ PZ(n,α) (λ) = 1 +      λ     1+      λ     .
+                                              α             α
+                       2
+Moreover, for 0 < λ < n−2 and n ≥ 3,
+                       PG (λ) ≥ PKn−α ∨αK1 (λ) = (1 + λ)α + (n − α)λ.
+   Zykov [25] established a bound on the number of cliques in graphs with bounded clique
+number. Equivalently, this gives a bound on the number of independent sets for graphs with
+bounded independence number, indeed, this is precisely the special case of Corollary 1.4 with
+λ = 1.
+   Davies et al. [12] provided a lower bound on the occupancy fraction of a graph G of order
+n with given maximum degree ∆ as follows
+                                          1 X
+                                 EG (λ) ≥         EKdu +1 (λ),
+                                          n
+                                            u∈V (G)
+
+where λ ≤ (∆+1)
+             3
+                2 and du is the degree of a vertex u in G. In this paper, we provide a new
+
+lower bound for λ > 0.
+Theorem 1.5. Let G be a graph with maximum degree ∆. Then, for any λ > 0 we have
+                                                            λ
+                            EG (λ) ≥ EK∆+1 (λ) =                   .
+                                                      1 + (∆ + 1)λ
+   The following two results resolve the conjecture of Davies et al. [12].
+Theorem 1.6. Let G be an n-vertex graph. Then, for any λ > 0 we have
+                                                          λ
+                               VG (λ) ≥ VKn (λ) =               .
+                                                      (1 + nλ)2
+Theorem 1.7. Let G be a graph with maximum degree ∆. Then, for any λ > 0 we have
+                                                         λ
+                           VG (λ) ≥ VK∆+1 (λ) =                   .
+                                                  (1 + (∆ + 1)λ)2
+
+                                              4
+2     Proofs on occupancy fraction
+In this section we prove the results on the occupancy fraction for graphs with given order n
+and independence number α.
+
+2.1     Proof of Theorem 1.2
+Let A = (a1 , a2 , · · · , an ) and B = (b1 , b2 , · · · , bn ) be two sequences with a1 ≥ a2 ≥ · · · ≥ an
+and b1 ≥ b2 ≥ · · · ≥ bn . If a1 + a2 + · · · + ai ≥ b1 + b2 + · · · + bi for all i = 1, 2, · · · , n − 1 and
+a1 + · · · + an = b1 + · · · + bn , then we say that A majorizes B, denoted by A ⪰ B.
+Lemma 2.1 (Karamata’s Inequality). Let R be an interval of the real line and f be a
+real-valued and concave function defined on R. If (a1 , a2 , · · · , an ) and (b1 , b2 , · · · , bn ) are
+sequences in R such that (a1 , a2 , · · · , an ) ⪰ (b1 , b2 , · · · , bn ) , then
+
+                    f (a1 ) + f (a2 ) + · · · + f (an ) ≤ f (b1 ) + f (b2 ) + · · · + f (bn ).
+
+If f is a strictly concave function, then the inequality holds with equality if and only if ai = bi
+for all i = 1, 2, · · · , n.
+                        xλ
+Lemma 2.2. Let f (x) = 1+xλ where λ > 0 is a constant and a, b be positive integers. Then
+
+                                          f (a + b) < f (a) + f (b).
+
+Proof. Let c = a + b. Consider the difference f (a) + f (b) − f (c):
+                               λa       λb        λc
+    f (a) + f (b) − f (c) =         +        −
+                             1 + λa 1 + λb 1 + λc
+                             λa(1 + λb)(1 + λc) + λb(1 + λa)(1 + λc) − λc(1 + λa)(1 + λb)
+                           =                                                              .
+                                               (1 + λa)(1 + λb)(1 + λc)
+Simplifying the numerator:
+
+        λa(1 + λb)(1 + λc) + λb(1 + λa)(1 + λc) − λc(1 + λa)(1 + λb) = λ2 ab(2 + λc).
+
+Therefore
+                                                         λ2 ab(2 + λc)
+                        f (a) + f (b) − f (c) =                             > 0.
+                                                   (1 + λa)(1 + λb)(1 + λc)
+Hence, we complete the proof of this lemma.
+    Let G ∈ G(n, α) and H = G be the complement graph of G where ω(H) is the clique
+number of graph H in this section. Then V (H) = V (G) and the independent set I ⊂ V (G)
+is the clique of H. Let                     X
+                               QG (λ) =             λ|K|
+                                                   K is a clique of G
+
+
+                                                        5
+be the clique polynomial of G. Then we have PG (λ) = QH (λ) and α(G) = ω(H).
+   For λ > 0, we define that
+                                              λQ′H (λ)
+                                   β H (λ) :=          ,
+                                               QH (λ)
+                                               1
+                                      βH (λ) :=  β (λ).
+                                               n H
+Since PG (λ) = QH (λ) and PG′ (λ) = Q′H (λ), we have
+
+                                     λQ′H (λ)   λPG′ (λ)
+                                              =          .                                 (1)
+                                      QH (λ)     PG (λ)
+
+Before proving Theorem 1.2, we prove the following result.
+
+Lemma 2.3. Let H be an n-vertex graph with clique number ω. Let G = H ∈ G(n, α) with
+ω = α. For λ > 0, we have
+                                β H (λ) ≤ β Tω (n) (λ),
+where Tω (n) is the Turán graph of order n with clique number ω.
+
+Proof. For any w ∈ V (H), we set wN (w) = {wz | z ∈ N (w)}. Let u, v ∈ V (H) and
+uv ∈
+   / E(H). We define two “symmetrization” graphs:
+
+                                 H1 :=H − uN (u) + uN (v),
+                                 H2 :=H − vN (v) + vN (u).
+
+Clearly, the clique number does not increase after symmetrization. So, if H is Kα+1 -free
+(i.e., ω(H) ≤ α(G)), then both H1 and H2 are also Kα+1 -free.
+     Let J := H − {u, v}. Since u, v are non-adjacent, any clique cannot contain both u and
+v. Then the clique polynomial can be decomposed into three parts: cliques not containing
+u or v, cliques containing u but not v and cliques containing v but not u, i.e.,
+
+                     QH (λ) = QJ (λ) + λQH[NH (u)] (λ) + λQH[NH (v)] (λ).                  (2)
+
+Differentiating (2) with respect to λ and multiplying by λ, we obtain:
+                                                                                      
+ λQ′H (λ) = λQ′J (λ)+λ QH[NH (u)] (λ)+λQ′H[NH (u)] (λ) +λ QH[NH (v)] (λ)+λQ′H[NH (v)] (λ) . (3)
+
+   For simplicity of notation, let
+
+                          Xu :=λQH[NH (u)] (λ),
+                          Xv :=λQH[NH (v)] (λ),
+                                                                   
+                           Yu :=λ QH[NH (u)] (λ) + λQ′H[NH (u)] (λ) ,
+                                                                   
+                           Yv :=λ QH[NH (v)] (λ) + λQ′H[NH (v)] (λ) .
+
+
+                                               6
+Then (2) and (3) become, respectively,
+
+                                   QH (λ) =QJ (λ) + Xu + Xv ,
+
+
+                                  λQ′H (λ) =λQ′J (λ) + Yu + Yv .
+
+So we have
+                                               λQ′J (λ) + Yu + Yv
+                                   β H (λ) =                      .                            (4)
+                                               QJ (λ) + Xu + Xv
+    Now consider the symmetrized graph H1 . The vertices u and v now have the same
+neighborhood as NH (v), so QH1 (λ) = QJ (λ) + 2Xv and λQ′H1 (λ) = λQ′J (λ) + 2Yv . Then
+
+                                                 λQ′J (λ) + 2Yv
+                                    β H1 (λ) =                  .                              (5)
+                                                 QJ (λ) + 2Xv
+Similarly, for graph H2 , we have
+                                                 λQ′J (λ) + 2Yu
+                                    β H2 (λ) =                  .                              (6)
+                                                 QJ (λ) + 2Xu
+
+   Combining (5) and (6), we have
+
+               (QJ (λ) + 2Xu )β H2 (λ) + (QJ (λ) + 2Xv )β H1 (λ)
+                               λQ′J (λ) + 2Yu                    λQ′J (λ) + 2Yv
+              =(QJ (λ) + 2Xu )                + (QJ (λ) + 2Xv )
+                               QJ (λ) + 2Xu                      QJ (λ) + 2Xv
+                   ′                   ′
+              =(λQJ (λ) + 2Yu ) + (λQJ (λ) + 2Yv )
+              =2(λQ′J (λ) + Yu + Yv ).
+
+Then we have a convex combination identity:
+
+                              (QJ (λ) + 2Xu )β H2 (λ) + (QJ (λ) + 2Xv )β H1 (λ)
+                  β H (λ) =                                                     .              (7)
+                                     (QJ (λ) + 2Xu ) + (QJ (λ) + 2Xv )
+
+   By (7), it immediately follows that
+
+           (QJ (λ) + 2Xu ) max{β H1 (λ), β H2 (λ)} + (QJ (λ) + 2Xv ) max{β H1 (λ), β H2 (λ)}
+  β H (λ) ≤
+                                  (QJ (λ) + 2Xu ) + (QJ (λ) + 2Xv )
+         ≤ max{β H1 (λ), β H2 (λ)}.
+
+    Therefore, for any pair of non-adjacent vertices u and v, there exists at least one sym-
+metrization under which β H (λ) is non-decreasing.
+    From the assumption, the graph H is an arbitrary Kα+1 -free graph. If all non-adjacent
+vertices u and v in H have identical neighborhoods, then H is a complete multipartite
+graph. Assume that there exists a pair of non-adjacent vertices u and v in H with distinct
+
+                                                   7
+neighborhoods. By performing the symmetrization operation on graph H multiple times, we
+can eventually obtain a graph in which all non-adjacent pairs of vertices have the same set
+of neighbors. This resulting graph is denoted as H ⊤ . We know that graph H ⊤ is a Kα+1 -free
+complete multipartite graph. Moreover, we have
+
+                                        β H (λ) ≤ β H ⊤ (λ).                                  (8)
+
+   Let H be the set of Kα+1 -free complete multipartite graphs and HH be the set of complete
+multipartite graphs obtained from H through repeated symmetrization operations. Clearly,
+H ⊤ ∈ HH ⊂ H. Let H ∗ ∈ H with
+
+                                    β H ∗ (λ) = max β H0 (λ).                                 (9)
+                                                  H0 ∈H
+
+Since H ∗ is a complete P    multipartite graph, we assume that H ∗ has k parts with respective
+sizes n1 , . . . , nk , where ki=1 ni = n. We have k ≤ α(G), since ω(H ∗ ) ≤ α(G). Then we
+prove the following claim.
+Claim 2.1. k = α(G).
+Proof of Claim 2.1. A clique can take at most one vertex from each part of H ∗ , hence
+
+                                                  Y
+                                                  k
+                                    QH ∗ (λ) =          (1 + ni λ).                          (10)
+                                                  i=1
+
+Therefore,
+                                            Q′H ∗ (λ) X ni λ
+                                                        k
+                              β H ∗ (λ) = λ          =               .                       (11)
+                                            QH ∗ (λ)   i=1
+                                                           1 + n i λ
+Let
+                                          xλ            1
+                                f (x) :=       =1−          .
+                                        1 + xλ       1 + xλ
+Taking the second derivative of f (x), we can obtain
+
+                                                     2λ2
+                                   f ′′ (x) = −             < 0,
+                                                  (1 + xλ)3
+
+so f is strictly concave and increasing on x > 0.
+    If k < α(G), then there exists j such that nj ≥ 2. Without loss of generality, let j = k.
+Let a and b be positive integers such that a + b = nk . Let H ′ be a complete (k + 1)-partite
+                                                                             nk λ     aλ     bλ
+graph, with part sizes n1 , . . . , nk−1 , a, b. Then, by Lemma 2.2, we get 1+n kλ
+                                                                                   < 1+aλ + 1+bλ ,
+which means that
+                  X
+                  k−1
+                        ni λ         nk λ      X
+                                               k−1
+                                                     ni λ         aλ       bλ
+                                 +           <                +        +        .
+                  i=1
+                      1 +  n i λ   1 + n k λ   i=1
+                                                   1 +  n i λ   1 + aλ   1 + bλ
+
+
+                                                   8
+That is,
+                                           β H ∗ (λ) < β H ′ (λ).
+This contradicts the choice of H ∗ . So k = α(G).
+      Rearrange the sequence (n1 , n2 , · · · , nα ) of H ∗ such that n1 ≥ n2 ≥ · · · ≥ nα . We claim
+that the sequence (n1 , n2 , · · · , nα ) satisfies that n1 − nα ≤ 1.
+      Assume that n1 −P         nα ≥ 2. Then let (n′1 , n′2 , · · · , n′α ) be the sequence of H ′ such that
+n′1 ≥ n′2 ≥ · · · ≥ n′α , αi=1 n′i = n and n′1 − n′α ≤ 1. Therefore, we have (n1 , n2 , · · · , nα ) ⪰
+(n′1 , n′2 , · · · , n′α ). And there exists an index j ∈ {1, 2, · · · , α} such that nj ̸= n′j . So, by
+Lemma 2.1, we have
+                                      X
+                                      α
+                                            ni λ     Xα
+                                                           n′i λ
+                                                   <               ,
+                                      i=1
+                                          1 + ni λ   i=1
+                                                         1 + n′i λ
+
+that is
+                                           β H ∗ (λ) < β H ′ (λ).
+This contradicts the choice of H ∗ . So we get n1 − nα ≤ 1, which means that H ∗ is a Turán
+graph.
+   Therefore, by (8) and (9), we know that among all graphs on n vertices with clique
+number ω, the Turán graph is the graph that maximizes β H (λ), that is,
+
+                              β H (λ) ≤ β H ⊤ (λ) ≤ β H ∗ (λ) = β Tω (n) (λ).
+
+
+
+Proof of Theorem 1.2. By (1) and Lemma 2.3, for graph G ∈ G(n, α), we know that EG (λ)
+achieves the maximum when G is Z(n, α), i.e.,
+
+                                                    1 X ni λ
+                                                         α
+                           EG (λ) ≤EZ(n,α) (λ) =
+                                                    n i=1 1 + ni λ
+                                                                           
+                                    1       ⌊ α ⌋λ
+                                              n
+                                                                   ⌈ αn ⌉λ
+                                  =     k             + (α − k)               ,
+                                    n     1 + ⌊ αn ⌋λ           1 + ⌈ αn ⌉λ
+
+where ni is the order of the i-th component of Z(n, α) and k (0 < k ≤ α) is the number of
+components of order ⌊ αn ⌋.
+
+2.2       Proof of Theorem 1.3
+Let I be an independent set of graph G drawn from the hard-core model at fugacity λ. For
+any vertex v in G, consider I0 = I \ N (v) (noting that I0 may include v itself). We say that
+v is uncovered by an independent set I if N (v) ∩ I = ∅ and covered otherwise. We have a
+property of the hard-core model.
+
+Lemma 2.4. [8, 9] Let I be defined as above. Then Pr[v ∈ I|v is uncovered by I] = 1+λ
+                                                                                   λ
+                                                                                      .
+
+                                                     9
+    This follows from the observation that for any realization of I0 under the event that v
+is uncovered, there are exactly two possibilities, I = I0 and I = I0 ∪ {v}, for I since v is
+uncovered and so may be added.
+    Next we prove Theorem 1.3.
+                                     P
+Proof of Theorem 1.3. Let PG (λ) = αk=0 ik (G)λk , where ik (G) is the number of indepen-
+dent sets of size k. If α = 1, then G contains no independent set of size two, and hence
+G = Kn . In this case, G1 = Kn−1 ∨ K1 = Kn , so the equality holds trivially as desired.
+Thus, in what follows, we may assume that α ≥ 2. When no confusion arises we write ik for
+ik (G). Then we prove the following claim.
+Claim 2.2. Pr[v ∈ I] ≤ 1+λ
+                        λ
+                           .
+Proof of Claim 2.2. By Lemma 2.4, we know
+                                               Pr[v ∈ I, v uncovered]    λ
+                   Pr[v ∈ I|v uncovered] =                            =     .
+                                                  Pr[v uncovered]       1+λ
+So we have
+                      Pr[v ∈ I] = Pr[v ∈ I, v uncovered]
+                                = Pr[v ∈ I|v uncovered] · Pr[v uncovered]
+                                   λ
+                                ≤      .
+                                  1+λ
+Then we complete the proof of Claim 2.2.
+   By Claim 2.2, we have
+                                   1 X                λ
+                         EG (λ) =        Pr[v ∈ I] ≤     .
+                                   n                 1+λ
+                                           v∈V (G)
+
+                                                      λ            2
+Considering the monotonicity of the function f (λ) = 1+λ with λ < n−2 , we obtain that
+                                                      2
+                                       λ           2
+                                          < n−22 = .                                             (12)
+                                      1+λ  1 + n−2 n
+
+By (12), we know that
+                                                     2
+                                  E(|I|) = nEG (λ) < n ·= 2.
+                                                     n
+Every subset of an independent set is also independent, so we have a trivial lower bound:
+                                               
+                                               α
+                                         ik ≥     ,                                    (13)
+                                               k
+for each k = 2, 3, · · · , α. Now we view the numbers i2 , · · · , iα as variables x2 , · · · , xα and
+define a function                                            P
+                                                        nλ + αi=2 ixi λi
+                               F (x2 , . . . , xα ) =         P           ,
+                                                      1 + nλ + αi=2 xi λi
+
+                                                 10
+where xk ≥ 0 for each k = 2, 3, · · · , α. Next, we compute the partial derivatives of the
+function F (x2 , · · · , xα ) with respect to all its variables xk , yielding:
+                           ∂
+                               F (x2 , · · · , xα )
+                          ∂xk
+                                                P                    P
+                          λk [k (1 + nλ + αi=2 xi λi ) − (nλ + αi=2 ixi λi )]
+                        =                                 P        2
+                                            (1 + nλ + αi=2 xi λi )
+                          λk (k − F (x2 , . . . , xα ))
+                        =                P              .
+                           1 + nλ + αi=2 xi λi
+
+Thus, whenever F (x2 , . . . , xα ) < 2, we have
+                                          ∂F (x2 , . . . , xα )
+                                                                >0
+                                               ∂xk
+for every k = 2, . . . , α. We now decrease    the variables x2 , . . . , xα one by one from the value
+                                α           α
+(i2 , . . . , iα ) to the value 2 , . . . , α . Since
+
+                                     F (i2 , . . . , iα ) = E(|I|) < 2,
+
+decreasing any one of these variables cannot increase the value of F as long as the current
+value of F is less than 2. After each such decreasing, the value of F is therefore no larger
+than before, and in particular it remains less than 2. Hence the same argument can be
+applied successively to all variables. Using (13), we obtain
+                                                               
+                                                        α         α
+                             F (i2 , . . . , iα ) ≥ F      ,...,      .
+                                                        2         α
+
+Then we get a lower bound of E(|I|):
+
+                                E(|I|) = F (i2 , . . . , iα )
+                                                             
+                                                 α               α
+                                       ≥F               ,··· ,
+                                                  2              α
+                                                    Pα          α
+                                                                  
+                                           nλ + k=2 k k λk
+                                       =                 P          
+                                         1 + nλ + αk=2 αk λk
+                                                            Pα          
+                                         (n − α)λ + k=1             k αk λk
+                                       =                      P        
+                                          (n − α)λ + αk=0 αk λk
+                                         (n − α)λ + αλ(1 + λ)α−1
+                                       =                                    .
+                                            (1 + λ)α + (n − α)λ
+   We claim that this lower bound is tight. Let G1 = Kn−α ∨ αK1 . By direct calculation,
+we can obtain
+                                      (n − α)λ + αλ(1 + λ)α−1
+                          EG1 (|I|) =                         .
+                                        (1 + λ)α + (n − α)λ
+
+                                                     11
+Therefore, we have
+                                     EG (|I|) ≥ EG1 (|I|),
+that is,
+                                      EG (λ) ≥ EG1 (λ).
+
+2.3    Proof of Corollary 1.4.
+Let us prove the upper bound first. By definition, we know that
+                                                                         λ
+                       log PG (λ) = log PG (λ) − log PG (0) = log PG (t)
+                                                                           0
+                                    Z λ
+                                  =      (log PG (t))′ dt
+                                      0
+                                    Z λ
+                                          nEG (t)
+                                  =               dt.
+                                      0      t
+                                                                                      
+   Let m = ⌊ α ⌋. Then we know that EZ(n,α) (λ) = n k 1+mλ + (α − k) 1+(m+1)λ , where k
+              n                                            1     mλ             (m+1)λ
+
+(0 < k ≤ α) is the number of components whose order is ⌊ αn ⌋. By Theorem 1.2, we have
+                                 Z λ
+                                      nEZ(n,α) (t)
+                    log PG (λ) ≤                   dt
+                                  0         t
+                                 Z λ k mt + (α − k) (m+1)t
+                                        1+mt              1+(m+1)t
+                               =                                   dt
+                                  0                 t
+                                 Z λ
+                                            m                    (m + 1) 
+                               =        k         + (α − k)                  dt
+                                  0       1 + mt               1 + (m + 1)t
+                              = log(1 + mλ)k (1 + (m + 1)λ)α−k .
+
+So we have PG (λ) ≤ (1 + mλ)k (1 + (m + 1)λ)α−k = PZ(n,α) (λ).
+                             2
+   Similarly, when 0 < λ < n−2  , by Theorem 1.3, we have
+                                     Z λ               Z λ
+                                          nEG (t)          nEG1 (t)
+                        log PG (λ) =              dt ≥              dt
+                                       0     t          0     t
+                                     Z λ
+                                          α(1 + t)α−1 + (n − α)
+                                   =                            dt
+                                       0   (1 + t)α + (n − α)t
+                                   = log ((1 + λ)α + (n − α)λ) ,
+where G1 = Kn−α ∨ αK1 . So PG (λ) ≥ (1 + λ)α + (n − α)λ = PG1 (λ). This completes the
+proof.
+
+
+3     Proofs on Variance fraction
+In this section we prove the conjecture of Davies et al. [12].
+
+                                              12
+3.1     Proof of Theorem 1.6
+Lemma 3.1. [2, Chapter 9] Let A and B be random variables. Then
+                                                 
+ (1). (Law of Total Expectation) E(A) = E E(A | B) .
+                                                               
+ (2). (Law of Total Variance) Var(A) = Var E(A | B) + E Var(A | B) .
+
+Lemma 3.2. Let X be a random variable, and g(X) be a function of X. Let i and j be
+arbitrary values of the random variable X. Then covariance
+                                X                      
+               2Cov(X, g(X)) =      (i − j) g(i) − g(j) Pr[X = i] Pr[X = j].  (14)
+                                           i,j
+
+
+Proof. For convenience, in this proof we let pi = Pr[X = i] and pj = Pr[X = j]. By the
+definition of covariance, we have
+                                                
+                        Cov(X, g(X)) = E Xg(X) − E(X)E(g(X)).
+
+By the definition of expectation, we have
+                                                                  X
+                                     E(Xg(X)) =                        i g(i) pi , and
+                                                                  i
+                                                              !                      !
+                                             X                        X                      X
+                    E(X)E(g(X)) =                      i pi                g(j) pj       =         i g(j) pi pj .
+                                                 i                     j                     i,j
+        P                            P                        P
+Since       j pj = 1, we can write         i ig(i)pi =                i,j ig(i)pi pj . Therefore,
+                                     X                            X              
+                 Cov(X, g(X)) =              ig(i) − ig(j) pi pj =   jg(j) − jg(i) pi pj .
+                                     i,j                                         i,j
+
+
+Then we get that
+                                                 X                                   
+                     2Cov(X, g(X)) =                     ig(i) − ig(j) − jg(i) + jg(j) pi pj
+                                                 i,j
+                                                 X                        
+                                           =           (i − j) g(i) − g(j) pi pj .
+                                                 i,j
+
+
+This completes the proof.
+                                                                                    λ
+Lemma 3.3. Let Y follow a binomial distribution with parameters n and p, where p = 1+λ .
+For every t = 1, 2, · · · , n, we have
+
+                                Var(Y |Y ≤ t) ≥ Var(Y |Y ≤ t − 1).
+
+                                                                  13
+                                                                           Pt
+Proof. Let br := Pr[Y = r] =          p (1 − p)n−r , Ft := Pr[Y
+                                    n r
+                                    r
+                                                                   ≤ t] =                     br
+                                                                             k=0 bk and hr := Fr   for
+r = 0, 1, · · · , n. Observe that
+                                         F r X bj     X
+                                               r       r
+                                                          br−s
+                                            =       =          .
+                                         br      b
+                                              j=0 r   s=0
+                                                           br
+
+For r = 0, 1, · · · , n − 1 and a fixed s with 0 ≤ s ≤ r, a direct computation gives
+            br+1−s . br−s br+1−s br
+                         =         ·
+             br+1     br    br+1 br−s
+                           Pr[Y = r + 1 − s]         Pr[Y = r]
+                         =                       ·
+                             Pr[Y = r + 1]         Pr[Y = r − s]
+                                   r+1−s                             
+                              n
+                                    p       (1 − p)n−(r+1−s)        n r
+                                                                        p (1 − p)n−r
+                         =  r+1−s
+                                                                  
+                                                             · n r−sr
+                                 n
+                                r+1
+                                      pr+1 (1 − p)n−(r+1)      r−s
+                                                                     p (1 − p)n−(r−s)
+                             r+1          n − (r − s)
+                         =              ·             ≥ 1.
+                           r+1−s             n−r
+
+Hence br+1−s
+       br+1
+             ≥ br−s
+                br
+                    for each s, and summing over s yields Fbr+1
+                                                            r+1
+                                                                ≥ Fbrr , i.e.,
+
+                                               hr+1 ≤ hr .                                     (15)
+
+   Set Wt := Y | Y ≤ t and define γj := hhjt for j = 0, 1, . . . , t. By (15), we have
+
+                               0 ≤ γ0 ≤ γ1 ≤ · · · ≤ γt−1 ≤ γt = 1.
+
+Conditional on Wt−1 = j (for j = 0, 1, . . . , t − 1), let B be a Bernoulli random variable with
+
+                                     Pr[B = 1|Wt−1 = j] = γj ,
+
+and let Z := Wt−1 + B. We claim that Z has the same distribution as Wt .
+   For 0 ≤ j ≤ t − 1, we know that
+
+            Pr[Z ≤ j] = Pr[Wt−1 + B ≤ j] = Pr[Wt−1 ≤ j] − Pr[Wt−1 = j, B = 1].
+
+Since
+                                           Pr[Y ≤ j, Y ≤ t − 1]    Fj
+                      Pr[Wt−1 ≤ j] =                            =      , and
+                                              Pr[Y ≤ t − 1]       Ft−1
+
+                   Pr[Wt−1 = j, B = 1] = Pr[B = 1 | Wt−1 = j] Pr[Wt−1 = j]
+                                       =γj Pr[Y = j | Y ≤ t − 1]
+                                             Pr[Y = j]
+                                       =γj
+                                           Pr[Y ≤ t − 1]
+                                          bj        bj   bt /Ft
+                                       =      γj =     ·
+                                         Ft−1      Ft−1 bj /Fj
+
+                                                   14
+                                              F j bt
+                                         =           ,
+                                             Ft−1 Ft
+it follows that
+                                           Fj   F j bt
+                               Pr[Z ≤ j] =    −
+                                          Ft−1 Ft−1 Ft
+                                          Fj
+                                         = = Pr[Y ≤ j | Y ≤ t].
+                                          Ft
+When Z = t, we have
+
+                  Pr[Z = t] = Pr[Wt−1 + B = t] = Pr[Wt−1 = t − 1, B = 1]
+                            = Pr[Wt−1 = t − 1] Pr[B = 1 | Wt−1 = t − 1]
+                            = Pr[Y = t − 1 | Y ≤ t − 1] Pr[B = 1 | Wt−1 = t − 1]
+                              bt−1
+                            =      γt−1 = ht = Pr[Y = t | Y ≤ t].
+                              Ft−1
+Therefore, it can be seen that Z and Y | Y ≤ t are identically distributed, i.e.,
+                                               d
+                                         Wt = Wt−1 + B.                                  (16)
+
+   By (16) and Lemma 3.1 (2), we have
+
+   Var(Wt ) =Var(Wt−1 + B)
+            =Var(Wt−1 ) + Var(B) + 2Cov(Wt−1 , B)
+            =Var(Wt−1 ) + E (Var(B | Wt−1 )) + Var(E(B | Wt−1 )) + 2Cov(Wt−1 , B).       (17)
+
+By the definition of covariance, we have
+
+                  Cov(Wt−1 , B) =E(Wt−1 B) − E(Wt−1 )E(B)
+                                                    
+                                =E E(Wt−1 B | Wt−1 ) − E(Wt−1 )E(E(B | Wt−1 ))
+                                                    
+                                =E Wt−1 E(B | Wt−1 ) − E(Wt−1 )E(E(B | Wt−1 ))
+                                =Cov(Wt−1 , E(B | Wt−1 )).                               (18)
+
+Note that the last second equality of (18) holds since Wt−1 is constant when the condition
+is given.
+    By the respective definitions of conditional expectation and conditional variance, we have
+
+                                      E(B | Wt−1 = j) = γj ,                             (19)
+
+                                 Var(B | Wt−1 = j) = γj (1 − γj ).                       (20)
+Substituting (18), (19) and (20) into (17), we have
+
+ Var(Wt ) − Var(Wt−1 ) =E(Var(B | Wt−1 )) + Var(E(B | Wt−1 )) + 2Cov(Wt−1 , E(B | Wt−1 ))
+
+                                                   15
+                         =E(γWt−1 (1 − γWt−1 )) + Var(γWt−1 ) + 2Cov(Wt−1 , γWt−1 ).
+
+Clearly, E(γWt−1 (1 − γWt−1 )) ≥ 0 and Var(γWt−1 ) ≥ 0. It remains to show that the covariance
+term is non-negative. Since γ0 ≤ γ1 ≤ · · · ≤ γt−1 for all i, j ∈ {0, 1, . . . , t − 1}, we have
+(i − j)(γi − γj ) ≥ 0. We know that γi is a function of i. Then, by Lemma 3.2,
+
+                                   X
+                                   t−1 X
+                                       t−1
+           2Cov(Wt−1 , γWt−1 ) =             (i − j)(γi − γj ) Pr[Wt−1 = i] Pr[Wt−1 = j] ≥ 0.
+                                   i=0 j=0
+
+
+Consequently, Var(Wt ) ≥ Var(Wt−1 ), i.e.,
+
+                             Var(Y | Y ≤ t) ≥ Var(Y | Y ≤ t − 1).
+
+     Let
+                  Ik (G) = {I ⊆ V (G) : |I| = k, I is an independent set of G}.
+And we let ik (G) = |Ik (G)| and qk = ik (G) . Next, we prove Theorem 1.6.
+                                       (nk)
+
+
+Proof of Theorem 1.6. Let I be a random independent set of G drawn from the hard-core
+model at fugacity λ. Let
+                                    XG = |I| and
+                                                                ik (G)λk
+                             Pr(XG = k) = Pr(|I| = k) =                  .
+                                                                 PG (λ)
+So
+                                        Xn
+                                              ik (G)λk   λPG′ (λ)
+                               E(XG ) =     k          =          .
+                                        k=0
+                                               PG (λ)     PG (λ)
+
+Then we will prove some useful claims.
+
+Claim 3.1. kik (G) ≤ (n − k + 1)ik−1 (G) for 1 ≤ k ≤ n.
+
+Proof of Claim 3.1. Let
+
+                         Ω = {(I, J) : I ∈ Ik (G), J ⊂ I, |J| = k − 1}.
+
+     On one hand, each independent set I of size k contributes exactly k subsets J, so |Ω| =
+k ik . On the other hand, each independent set J of size k − 1 can be extended to I by adding
+any of the remaining n − k + 1 vertices, but the resulting set may fail to be independent.
+Hence |Ω| ≤ (n − k + 1) ik−1 , giving k ik (G) ≤ (n − k + 1) ik−1 (G).
+     By Claim 3.1, we have qk ≤ qk−1 for every k ≥ 1. Let qn+1 = 0. Then
+
+                            0 = qn+1 ≤ qn ≤ · · · ≤ q2 ≤ q1 = q0 = 1.
+
+                                                    16
+         λ
+Let p = 1+λ and Y ∼ Bin(n, p). Then we have
+                                                    
+                                  n k                 n    λk
+                    Pr[Y = k] =      p (1 − p) n−k
+                                                   =             .
+                                  k                   k (1 + λ)n
+                                                                                        P
+Note that qk = ik (G) . We define ck = qk − qk+1 ≥ 0 for k = 0, 1, 2, · · · , n. So qk = nt=k ct =
+Pn               (k )
+                  n
+
+     c 1
+  t=1 t {t≥k} , where   1{t≥k} takes the value 1 when the condition t ≥ k is satisfied, and 0
+otherwise. Let
+                                             ct Pr[Y ≤ t]
+                                    ωt = Pn                  ,
+                                            s=1 cs Pr[Y ≤ s]
+and define a random variable R with Pr[R = t] = ωt for t = 0, 1, . . . , n. Particularly, ω0 = 0.
+   We now decompose the distribution of XG .
+
+                                           ik (G)λk   qk (1 + λ)n Pr[Y = k]
+                          Pr[XG = k] =              =      Pn            j
+                                            PG (λ)           j=0 ij (G)λ
+                                         qk Pr[Y = k]
+                                      = Pn                .
+                                         j=0 qj Pr[Y = j]
+
+We consider the numerator first. By
+             1{t≥k} Pr[Y = k] = Pr[Y = k, Y ≤ t] = Pr[Y = k|Y ≤ t] Pr[Y ≤ t],
+we can get
+                                           X
+                                           n
+                          qk Pr[Y = k] =         ct 1{t≥k} Pr[Y = k]
+                                           t=1
+                                           Xn
+                                      =          ct Pr[Y ≤ t] Pr[Y = k|Y ≤ t].               (21)
+                                           t=1
+
+As for the denominator, by (21), we get
+                   X
+                   n                       X
+                                           n X
+                                             n
+                          qj Pr[Y = j] =             ct Pr[Y ≤ t] Pr[Y = j|Y ≤ t]
+                    j=0                    j=0 t=1
+                                           X
+                                           n                    X
+                                                                n
+                                      =          ct Pr[Y ≤ t]          Pr[Y = j|Y ≤ t]
+                                           t=1                   j=0
+                                           Xn
+                                      =          ct Pr[Y ≤ t].                               (22)
+                                           t=1
+
+Combining with (21) and (22), we get
+                               Pn
+                                     ct Pr[Y ≤ t] Pr[Y = k | Y ≤ t]
+                 Pr[XG = k] = t=1        Pn
+                                           s=1 cs Pr[Y ≤ s]
+
+                                                     17
+                                       X
+                                       n
+                                             c Pr[Y ≤ t]
+                                   =       Pn t               Pr[Y = k | Y ≤ t]
+                                       t=1  s=1 c s Pr[Y ≤ s]
+                                       X
+                                       n
+                                   =         ωt Pr[Y = k | Y ≤ t],                       (23)
+                                       t=1
+
+                     ≤t]        Pn
+where ωt = ∑nct Pr[Y        and  t=1 ωt = 1.
+            s=1 cs Pr[Y ≤s]
+   We now prove the second claim.
+                            P
+Claim 3.2. Var(XG ) ≥ nt=1 ωt Var(Y | Y ≤ t).
+                                                       eG , R) by
+Proof of Claim 3.2. Define a pair of random variables (X
+
+                      Pr[XeG = k, R = t] := ωt Pr[Y = k | Y ≤ t].
+                      P        eG = k, R = t], for each k and t such that ωt > 0, we have
+Since ωt = Pr[R = t] = nk=0 Pr[X
+                                                eG = k, R = t]
+                                             Pr[X
+                   eG = k | R = t] =
+                Pr[X                                           = Pr[Y = k | Y ≤ t].      (24)
+                                                 Pr[R = t]
+Therefore
+                      eG | R = t) = Var(Y | Y ≤ t),
+                  Var(X                                               whenever ωt > 0.   (25)
+
+By Lemma 3.1 (2) and (25),
+                                                     
+                    e           e               e
+                Var(XG ) =E Var(XG | R) + Var E(XG | R)
+                                       Xn
+                                e
+                         ≥E Var(XG | R) =                eG | R = t)
+                                            Pr[R = t]Var(X
+                                                          t=1
+                             X
+                             n
+                         =         ωt Var(Y | Y ≤ t).                                    (26)
+                             t=1
+
+On the other hand, by (23) and (24), we have
+                                       X
+                                       n
+                       eG = k] =
+                    Pr[X                                  eG = k | R = t]
+                                             Pr[R = t] Pr[X
+                                       t=1
+                                       X
+                                       n
+                                   =         ωt Pr[Y = k | Y ≤ t] = Pr[XG = k].
+                                       t=1
+
+       eG = XG . Then, by (26), we have
+Hence, X
+            d
+
+
+                                                       X
+                                                       n
+                                      eG ) ≥
+                       Var(XG ) = Var(X                         ωt Var(Y | Y ≤ t).
+                                                          t=1
+
+
+                                                     18
+   By Claim 3.2 and Lemma 3.3, we obtain that
+                                X
+                                n
+                   Var(XG ) ≥         ωt Var(Y | Y ≤ t) ≥ Var(Y | Y ≤ 1).   (27)
+                                t=1
+
+   Finally, we claim that Var(XKn ) = Var(Y | Y ≤ 1).
+
+Claim 3.3. Var(XKn ) = Var(Y | Y ≤ 1).
+
+Proof of Claim 3.3. Since Y follows a binomial distribution, we have
+
+                        Pr[Y = 0] = (1 − p)n = (1 + λ)−n ,
+                        Pr[Y = 1] = np(1 − p)n−1 = nλ(1 + λ)−n .
+
+Then we get
+                                        Pr[Y = 0]    1
+                                                  =    .
+                                        Pr[Y = 1]   nλ
+So, under the condition Y ≤ 1, we have
+                                                      1
+                                 Pr[Y = 0|Y ≤ 1] =        ,
+                                                   1 + nλ
+                                                     nλ
+                                 Pr[Y = 1|Y ≤ 1] =        .
+                                                   1 + nλ
+   For graph Kn , we have
+                                                       1
+                                      Pr[XKn = 0] =        ,
+                                                    1 + nλ
+                                                      nλ
+                                      Pr[XKn = 1] =        .
+                                                    1 + nλ
+It means that
+                                            d
+                                       XKn = (Y | Y ≤ 1).
+
+   By (27) and Claim 3.3, we get that
+                      1          1                1
+              VG (λ) = Var(XG ) ≥ Var(Y | Y ≤ 1) = VarKn (|I|) = VKn (λ).
+                      n          n                n
+Thus we complete the proof of Theorem 1.6.
+
+
+
+
+                                                19
+3.2     Proof of Theorem 1.5 and Theorem 1.7
+Let G be an n-vertex graph with maximum degree ∆, and let I be an independent set of G
+drawn from the hard-core model at fugacity λ. Define
+
+            Φ(I) = {v ∈
+                      / I : I ∪ {v} ∈ I(G)},            φ(I) = |Φ(I)|,           XG = |I|.
+
+When no confusion arises, we write ik for ik (G), X for XG and φ for φ(I). We set in+1 = 0.
+Since every independent set of size k + 1 arises by adding one vertex to exactly k + 1
+independent sets of size k, we have
+                                 X
+                                    φ(I) = (k + 1) ik+1 (G).                           (28)
+                               |I|=k
+
+
+Then we have
+                                    X                     X              λ|I|
+                        E(φ(I)) =          φ(I) Pr[I] =          φ(I)
+                                       I                     I
+                                                                        PG (λ)
+                                      1      X
+                                             n       X
+                                =              λk            φ(I)
+                                    PG (λ) k=0
+                                                     |I|=k
+
+                                   1         X
+                                             n
+                                =          (k + 1)ik+1 (G)λk
+                                 PG (λ)
+                                 Pn k=0
+                                        mim (G)λm−1      1
+                                = m=1                = E(XG ).                               (29)
+                                        PG (λ)           λ
+
+    Next we give the proof of Theorem 1.5.
+Proof of Theorem 1.5. Each vertex in I has at most ∆ neighbors that cannot be added to
+I. So                            X
+                      φ(I) ≥ n −     dG (u) − |I| ≥ n − (∆ + 1)|I|.
+                                    u∈I
+
+Taking expectations and using (29) yields
+
+                               E(XG )
+                                      ≥ n − (∆ + 1)E(XG ),
+                                 λ
+i.e.,
+                                         nλ          (∆ + 1)λ
+                         E(XG ) ≥                ≥              .                            (30)
+                                    1 + (∆ + 1)λ   1 + (∆ + 1)λ
+Particularly, we know that the independence polynomial of K∆+1 is PK∆+1 (λ) = 1+(∆+1)λ.
+So we have
+                                               (∆ + 1)λ
+                                 E(XK∆+1 ) =              .
+                                             1 + (∆ + 1)λ
+
+                                                20
+Then we know that
+                                                      λ
+                                     EG (λ) ≥                ,
+                                                1 + (∆ + 1)λ
+by (30), that is,
+                                         EG (λ) ≥ EK∆+1 (λ).
+The proof of Theorem 1.5 is completed.
+   Now we give the proof of Theorem 1.7.
+Proof of Theorem 1.7. By (28), we know that
+                              X
+                                  kφ(I) = k(k + 1)ik+1 (G).                                 (31)
+                                |I|=k
+
+
+Using (31), we have
+
+                                    X                          X
+                                                               n X
+                                                                                    λk
+                      E(Xφ(I)) =          Xφ(I) Pr[I] =                    kφ(I)
+                                     I                         k=0 |I|=k
+                                                                                   PG (λ)
+
+                                      1     X
+                                            n         X
+                                =              λk             kφ(I)
+                                    PG (λ) k=0
+                                                      |I|=k
+                                    X
+                                    n
+                                        k(k + 1)ik+1 (G)λk
+                                =                          .                                (32)
+                                    k=0
+                                              PG (λ)
+
+And                                        Pn
+                                             k=1 (k− k)ik λk
+                                                      2
+                        E(X − X) =
+                            2
+                                                P (λ)
+                                               PnG                 m+1
+                                         m=k−1  m=0 m(m + 1)im+1 λ
+                                          =                            .
+                                                       PG (λ)
+Combining the above formula with (32), we have
+                                                  1
+                                E(Xφ(I)) =          E(X(X − 1)).                            (33)
+                                                  λ
+Therefore, by (29) and (33), we have
+
+
+                        Cov(X, φ(I)) =E(Xφ) − E(X)E(φ)
+                                      1                     
+                                     = E(X(X − 1)) − (E(X))2
+                                      λ
+                                      1             
+                                     = Var(X) − E(X) .                                      (34)
+                                      λ
+
+
+
+                                                  21
+   Let qk := E(φ(I) | |I| = k), for k = 1, 2, · · · , n. Particularly, q0 = n and qk = 0 if ik = 0.
+For each index k such that ik > 0, we have
+
+                                 X                                    X     λk
+                                                                          PG (λ)
+                        qk =           φ(I) Pr[I | |I| = k] =       φ(I) i (G)λk
+                                                                          k
+                                  I                           |I|=k       PG (λ)
+                                 X φ(I)
+                             =                                                                        (35)
+                                         ik (G)
+                                 |I|=k
+
+                                 (k + 1)ik+1 (G)
+                             =                   .                                                    (36)
+                                     ik (G)
+
+   Adding a vertex u ∈ Φ(I) to an independent set I can block at most ∆ + 1 vertices from
+Φ(I), hence φ(I ∪ {u}) ≥ φ(I) − (∆ + 1). Summing over all u ∈ Φ(I) and then over all I
+with |I| = k, we have
+                     X X                  X
+                             φ(I ∪ {u}) ≥      φ(I)(φ(I) − (∆ + 1)).                  (37)
+                      |I|=k u∈Φ(I)                      |I|=k
+
+
+The left-hand side sums over all independent sets I of size k and vertices u ∈ Φ(I), computing
+φ(I ∪ {u}). For each independent set J of size k + 1, note that J = I ∪ {u} for some I and
+u. Specifically, for a fixed J, there are exactly k + 1 ways to choose a vertex u ∈ J such that
+I = J \ {u} is an independent set of size k and u ∈ Φ(I). Each such pair (I, u) contributes
+φ(J) to the left-hand side. Thus, φ(J) is counted k + 1 times for each J. So we have
+                            X X                       X
+                                      φ(I ∪ {u}) =        (k + 1)φ(J).                     (38)
+                            |I|=k u∈Φ(I)                      |J|=k+1
+
+
+Substituting (38) into (37), we have
+                      X                  X                 X
+                           (k + 1)φ(J) ≥   φ(I)2 − (∆ + 1)   φ(I).
+                     |J|=k+1                       |I|=k                        |I|=k
+
+
+   Applying the Cauchy–Schwarz inequality:
+                                  2             
+                        X                  X
+                          φ(I) · 1 ≤      φ(I)2  · ik (G),
+                               |I|=k                         |I|=k
+
+
+we obtain
+                                                  P                 2
+                             X                         |I|=k φ(I)                     X
+                  (k + 1)             φ(J) ≥                              − (∆ + 1)           φ(I).   (39)
+                                                        ik (G)
+                            |J|=k+1                                                   |I|=k
+
+
+
+
+                                                        22
+                   P                            P
+By (35), we have       |I|=k φ(I) = ik qk and       |J|=k+1 φ(J) = ik+1 qk+1 . Substituting them into
+(39), we have
+                              (k + 1)ik+1 qk+1 ≥ ik qk2 − (∆ + 1)ik qk .
+If ik = 0, then qk = 0. If qk = 0, then the desired inequality is trivial, since qk+1 ≥ 0 ≥
+qk − (∆ + 1). Thus, we may assume that ik qk ̸= 0. Using (36), dividing on both sides by ik qk
+yields
+                                   qk+1 ≥ qk − (∆ + 1).                                  (40)
+    Write qX = E(φ(I) | X). By Lemma 3.1 (1), we know that
+                               E(φ(I)) = E(E(φ(I) | X)) = E(qX ),
+              E(Xφ(I)) = E(E(Xφ(I) | X)) = E(XE(φ(I) | X)) = E(XqX ).
+So we obtain that
+                                   Cov(X, φ(I)) = Cov(X, qX ).                                  (41)
+   Let ηk := qk + (∆ + 1)k. By (40), ηk is non-decreasing in k. Let X ′ be an independent
+and identically distributed copy of X. So E(X ′ ) = E(X) and E(ηX ′ ) = E(ηX ). Therefore
+        0 ≤ E [(X − X ′ )(ηX − ηX ′ )] = 2 (E(XηX ) − E(X) · E(ηX )) = 2Cov(X, ηX ),
+i.e.,
+                                         Cov(X, ηX ) ≥ 0.
+Expanding the covariance gives
+         Cov(X, ηX ) =Cov(X, qX + (∆ + 1)X) = Cov(X, qX ) + (∆ + 1)Cov(X, X)
+                     =Cov(X, qX ) + (∆ + 1)Var(X) ≥ 0.
+Combined with (41), this yields
+                                Cov(X, φ(I)) ≥ −(∆ + 1)Var(X).                                  (42)
+Substituting (42) into (34), we have
+                          1
+                            (Var(X) − E(X)) ≥ −(∆ + 1)Var(X).
+                          λ
+By (30), we have
+                                      E(XG )            nλ
+                        Var(XG ) ≥              ≥                 .
+                                   1 + (∆ + 1)λ   (1 + (∆ + 1)λ)2
+   Since K∆+1 is the complete graph on ∆ + 1 vertices, its independence polynomial is
+PK∆+1 (λ) = 1 + (∆ + 1)λ. Then
+                                      1                      λ
+                       VK∆+1 (λ) =       Var(XK∆+1 ) =              2 .
+                                     ∆+1               1 + (∆ + 1)λ
+By definition, we conclude
+                                1                  λ
+                    VG (λ) =      Var(XG ) ≥              2 = VK∆+1 (λ).
+                                n            1 + (∆ + 1)λ
+The proof of Theorem 1.7 is completed.
+
+                                                    23
+References
+ [1] N. Alon, Independence numbers of locally sparse graphs and a Ramsey type problem,
+     Random Struct. Algorithms 9 (1996) 271–278.
+
+ [2] J. Blitzstein, J. Hwang, Introduction to Probability (2nd ed.), Chapman & Hall/CRC
+     Texts in Statistical Science, 2019.
+
+ [3] T. Bohman, X. Liu, D. Mubayi, Independent sets in hypergraphs omitting an intersec-
+     tion, Random Struct. Algorithms 61 (2022) 493–519.
+
+ [4] T. Bohman, D. Mubayi, Independence number of graphs with a prescribed number of
+     cliques, Electron. J. Combin. 26(2) (2019) #P2.25.
+
+ [5] M. Bonamy, T. Kelly, P. Nelson, L. Postle, Bounding χ by a fraction of ∆ for graphs
+     without large cliques, J. Combin. Theory Ser. B 157 (2022) 263–282.
+
+ [6] J. Cutler, A. Radcliffe, The maximum number of complete subgraphs in a graph with
+     given maximum degree, J. Combin. Theory Ser. B 104 (2014) 60–71.
+
+ [7] J. Cutler, A. Radcliffe, Minimizing the number of independent sets in triangle-free
+     regular graphs, Discrete Math. 341 (2018) 793–800.
+
+ [8] E. Davies, M. Jenssen, W. Perkins, B. Roberts, Independent sets, matchings, and oc-
+     cupancy fractions, J. Lond. Math. Soc. 96 (2017) 47–66.
+
+ [9] E. Davies, M. Jenssen, W. Perkins, B. Roberts, On the average size of independent sets
+     in triangle-free graphs, Proc. Amer. Math. Soc. 146 (2018) 111–124.
+
+[10] E. Davies, R. de Joannis de Verclos, R. J. Kang, and F. Pirot. Occupancy fraction,
+     fractional colouring, and triangle fraction. J. Graph Theory 97 (2021) 557–568.
+
+[11] E. Davies, W. Perkins, Approximately Counting Independent Sets of a Given Size in
+     Bounded-Degree Graphs, SIAM J. Comput. 52 (2023) 618–640.
+
+[12] E. Davies, J. Sandhu, B. Tan, On expectations and variances in the hard-core model on
+     bounded degree graphs, https://doi.org/10.48550/arXiv.2505.13396
+
+[13] D. Galvin, P. Tetali, Slow mixing of glauber dynamics for the hard-core model on regular
+     bipartite graphs, Random Struct. Algorithms 28 (2006) 427–443.
+
+[14] M. Jenssen, A. Malekshahian, J. Park, A refined graph container lemma and applications
+     to the hard-core model on bipartite expanders, Random Struct. Algorithms 68 (2026)
+     e70041.
+
+[15] M. Jenssen, W. Perkins, A. Potukuchi, Approximately counting independent sets in
+     bipartite graphs via graph containers, Random Struct. Algorithms 63 (2023) 215–241.
+
+
+                                             24
+[16] J. Kahn, An entropy approach to the hard-core model on bipartite graphs, Combin.
+     Probab. Comput. 10 (2001) 219–237.
+
+[17] A. Martinsson, R. Steiner, Random independent sets in triangle-free graphs, Forum
+     Math. Sigma 13 (2025) 1–19.
+
+[18] M. Molloy, The list chromatic number of graphs with small clique number, J. Combin.
+     Theory Ser. B 134 (2019) 264–284.
+
+[19] G. Perarnau, W. Perkins, Counting independent sets in cubic graphs of given girth, J.
+     Combin. Theory Ser. B 133 (2018) 211–242.
+
+[20] J. Shearer, A note on the independence number of triangle-free graphs, Discrete Math.
+     46 (1983) 83–87.
+
+[21] J. Shearer, On the independence number of sparse graphs, Random Struct. Algorithms
+     7 (1995) 269–271.
+
+[22] A. Sah, M. Sawhney, D. Stoner, Y. Zhao, The number of independent sets in an irregular
+     graph, J. Combin. Theory Ser. B 138 (2019) 172–195.
+
+[23] Y. Zhao, The number of independent sets in a regular graph, Combin. Probab. Comput.
+     19 (2010) 315–320.
+
+[24] Y. Zhao, Extremal regular graphs: independent sets and graph homomorphisms, Amer.
+     Math. Monthly 124 (2017) 827–843.
+
+[25] A. Zykov, On some properties of linear complexes, Mat. Sb. N.S. 24 (1949) 163–188.
+
+
+
+
+                                            25
+

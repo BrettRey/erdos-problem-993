@@ -111,7 +111,7 @@ Two follow-up attacks hardened this into a measured frontier:
   ~-- no certified non-real pair within ~10% of dominant modulus was
   ever produced. `R <= 0.957`, `c - b = 1` throughout.
 
-CORRECTION (2026-07-16, later same day): the exclusion zone is a
+CORRECTION 1 (2026-07-16, later same day): the exclusion zone is a
 statement about angularly meaningful pairs, not all non-real pairs.
 Adversarial minimization finds non-real pairs down to ratio 1.018, but
 they emerge from real-root collisions with angle ~2e-5 (harmless
@@ -119,6 +119,24 @@ cusps). The surviving spectral laws are the cusp envelope (angle -> 0
 as ratio -> 1) and a uniform positive-axis sector (|arg z| >= 0.90
 over 28,998 certified trees). See
 notes/real_collar_conjecture_2026-07-16.md.
+
+CORRECTION 2 (2026-07-16, literature audit): the 0.90 sector is only a
+finite-sample law, not a universal candidate. Jerrum--Patel
+(arXiv:2510.01466v2, Lemma 17) state the counterexample with uniformly
+subdivided complete binary trees; their proof directly produces
+phase-truncated periodic balanced trees. The latter still have maximum
+degree~3 and zeros accumulating on the positive real axis, which is
+enough to kill a fixed sector. The cusp envelope remains open because
+these roots need not be close in modulus to the minimum root.
+
+CORRECTION 3 (2026-07-16, certified replay): the 41-case literature
+stress corpus ranked both constructions with Arb intervals. In the
+exact unsplit family through height~8, the minimum positive-axis angle
+fell to 1.103 radians at modulus ratio 20.41; all nine tested endpoint
+phases for (k=1) remained still more remote. These finite depths do
+not witness the asymptotic accumulation, but they confirm that the
+mechanism is not near-dominant at accessible scale. Artifact:
+`results/literature_root_stress_20260716.json`.
 
 ## 5. What would falsify these barriers
 

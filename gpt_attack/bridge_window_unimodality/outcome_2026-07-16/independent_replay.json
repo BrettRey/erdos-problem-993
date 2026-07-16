@@ -1,0 +1,51 @@
+{
+ "verdict": "REFUTED(T3) \u2014 independently replayed",
+ "replayed_by": "parent session, exact sympy, 2026-07-16",
+ "construction": "P_s = ((1+x)^6+20x)(1+x^2)^(2s)",
+ "instances": [
+  {
+   "s": 3,
+   "alpha": 18,
+   "L": 12,
+   "triple": [
+    "516",
+    "336",
+    "856"
+   ],
+   "valley": true
+  },
+  {
+   "s": 4,
+   "alpha": 22,
+   "L": 15,
+   "triple": [
+    "2064",
+    "1338",
+    "3108"
+   ],
+   "valley": true
+  },
+  {
+   "s": 10,
+   "alpha": 46,
+   "L": 31,
+   "triple": [
+    "7351480",
+    "4671226",
+    "8918676"
+   ],
+   "valley": true
+  },
+  {
+   "s": 50,
+   "alpha": 206,
+   "L": 137,
+   "triple": [
+    "4942352256282390625711588040400",
+    "3067099458271496877297876493356",
+    "5160675969191128942026389471256"
+   ],
+   "valley": true
+  }
+ ]
+}

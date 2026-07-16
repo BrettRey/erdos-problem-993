@@ -1,0 +1,1316 @@
+                                          A discrete log-Sobolev inequality under a Bakry-Émery
+                                                              type condition
+
+
+
+
+arXiv:1507.06268v3 [math.PR] 6 Jul 2016
+                                                                                 Oliver Johnson∗
+                                                                                November 6, 2018
+
+
+                                                                                      Abstract
+                                                  We consider probability mass functions V supported on the positive integers using
+                                                  arguments introduced by Caputo, Dai Pra and Posta, based on a Bakry–Émery con-
+                                                  dition for a Markov birth and death operator with invariant measure V . Under this
+                                                  condition, we prove a new modified logarithmic Sobolev inequality, generalizing and
+                                                  strengthening results of Wu, Bobkov and Ledoux, and Caputo, Dai Pra and Posta.
+                                                  We show how this inequality implies results including concentration of measure and
+                                                  hypercontractivity, and discuss how it may extend to higher dimensions.
+
+
+                                          1       Introduction and main results
+                                          In their classic 1985 paper [2], Bakry and Émery introduced the Γ2 operator and showed
+                                          that (assuming the Bakry–Émery condition) it could be used to prove results such as
+                                          Poincaré and log-Sobolev inequalities. The books by Bakry, Gentil and Ledoux [3] and by
+                                          Guionnet and Zegarlinski [16] review this theory. We give a brief overview in Section 2.
+                                              Historically, this analysis was restricted to functions on continuous spaces such as Rd , or
+                                          more generally Riemannian manifolds. However, more recently it was extended to discrete
+                                          spaces by Caputo, Dai Pra and Posta [7], by considering the evolution of a birth and death
+                                          Markov chain. This analysis built on the work of Chen and others (see for example [10]),
+                                          who used properties of birth and death chains to bound the spectral gap. We use a version
+                                          of these methods here; we fix probability mass function V whose support is the whole of
+                                          Z+ and fix the generator LV of a birth and death Markov chain with invariant measure V :
+
+                                             School of Mathematics, University of Bristol, University Walk, Bristol, BS8 1TW, UK. Email
+                                              ∗
+
+                                          maotj@bristol.ac.uk
+
+
+
+
+                                                                                          1
+Definition 1.1. Given a fixed probability mass function V , write LV for the operator acting
+on functions, and L∗V for the adjoint with respect to counting measure by:
+                                             V (x − 1)
+           LV f (x) := (f (x + 1) − f (x)) −            (f (x) − f (x − 1)) ,                 (1)
+                                               V (x)
+                                                   
+            ∗                             V (x − 1)              V (x)
+           LV f (x) := f (x − 1) − 1 +                f (x) +            f (x + 1).           (2)
+                                            V (x)              V (x + 1)
+In Equation (1) and throughout, we use the convention that V (−1) = 0.
+                                                                   (V )      (V )
+    In Section 3 we formally define the resulting operators Γ1 and Γ2 and discuss the
+resulting Bakry–Émery condition (we refer to this as the inegrated BE(c) condition, Condi-
+tion 3). In contrast to the continuous case we require average control, rather than pointwise
+                                                                        (V )
+control of the relevant operators. However (see Remark 4.3), this Γ1 operator does not
+satisfy a product rule, so classical proofs of log-Sobolev inequalities do not carry over.
+    The continuous Bakry-Émery condition relates to log-concavity of the underlying ref-
+erence measure, with the Gaussian playing a distinguished role (see Example 2.2). We use
+a similar condition here, which corresponds to Assumption A of [7] (in the case where the
+upward jump rates of the birth and death chain are all equal to 1):
+Definition 1.2. Given a probability mass function V , write
+                              V (x)2 − V (x − 1)V (x + 1)     V (x)     V (x − 1)
+              E (V ) (x) :=                               =           −           .           (3)
+                                     V (x)V (x + 1)         V (x + 1)     V (x)
+
+Condition 1 (c-log-concavity). If E (V ) (x) ≥ c for all x ∈ Z+ , we say that V is c-log-
+concave.
+    In Proposition 4.2 we show the integrated BE(c) condition is implied by c-log-concavity.
+[7] showed that c-log-concavity follows from the ultra log-concavity (ULC) property of
+Liggett and Pemantle [25, 28]. Hence integrated BE(c) holds for parametric families of
+random variables including Poisson, binomial and Poisson-binomial (Bernoulli sums). For
+the Poisson mass function with mean λ (we write V = Πλ ), the E (V ) (x) ≡ 1/λ, so c-log-
+concavity holds with c = 1/λ, which Lemma 5.3 shows is an extreme value. This helps us
+to understand E (V ) (x) as a discrete curvature term, in the sense dicussed by Chafaı̈ in [8, 9].
+For example, in [8, Section 1.3] it is remarked that the M/M/∞ queue (corresponding to
+V = Πλ ) can be understood to have constant curvature.
+    As in [2] and [7], in Section 6 we prove a new (modified) log-Sobolev inequality, The-
+orem 1.3, which is the main result of this paper. In the continuous case, the log-Sobolev
+inequality holds under the Bakry-Émery condition (see for example Theorem 2.5), whereas
+our result requires the (slightly stronger) c-log-concavity condition.
+    To fix notation, we write ∆f (x) = f (x + 1) − f (x) for the right difference operator, and
+Lf (x) = f (x + 1) − 2f (x)
+                          P∞+ f (x − 1). Given a2probability mass    Pfunction  V and function
+                                                                       ∞
+f , we write VarV (f ) P
+                       = x=0 V (x)(f (x) − µV,f ) , where µV,f = x=0 V (x)f (x). Similarly,
+we write EntV (f ) = ∞    x=0 V (x)f (x) log f (x) − µV,f log µV,f .
+
+
+                                                  2
+   We now state the main result of this paper. As discussed in more detail in Remark 1.4
+below, the form of this inequality is suggested by the fact that it holds for the case where
+V is Poisson, as proved in [32, Theorem 1.1] and [8, Corollary 2.4].
+
+Theorem 1.3 (New modified log-Sobolev inequality). Fix probability mass function V ,
+whose support is the whole of the positive integers Z+ and which satisfies the c-log-concavity
+condition (Condition 1). For any function f with positive values:
+                           ∞                                            
+                        1X                       f (x + 1)          f (x)
+            EntV (f ) ≤       V (x)f (x + 1) log             −1+             .             (4)
+                        c x=0                       f (x)        f (x + 1)
+
+By the well-known bound log 1/u − 1 + u ≥ 0 for all u > 0, the RHS of (4) is positive.
+
+    Previous work on different forms of log-Sobolev inequalities in discrete settings is dis-
+cussed and summarised by Bobkov and Tetali [5]. In particular, [5, Proposition 3.6] gives
+a hierarchy of different constants and discusses the implications between them. One par-
+ticular form of interest is the more standard modified log-Sobolev inequality:
+                            ∞
+                            X
+            EntV (f ) ≤ C         V (x)(f (x + 1) − f (x)) (log f (x + 1) − log f (x)) ,   (5)
+                            x=0
+
+also considered in [6] and discussed in Remark 1.4.7 below.
+
+Remark 1.4. We discuss Theorem 1.3 in detail, to put it in context:
+
+  1. Suppose f (x)P=  p(x)/V (x), for probability mass function p. Using normalizing con-
+                                                 −1
+     stant K = ( x=0 p(x + 1)V (x)/V (x + 1)) , then p# (x) = Kp(x + 1)V (x)/V (x + 1)
+                    ∞
+
+     is a probability mass function
+                                  P acting as a weighted version of p. Then (4) means
+     relative entropy D(pkq) := ∞    x=0 p(x) log(p(x)/q(x)) is bounded by the sum of two
+     positive terms, as
+                                                                   
+                                    1        #            1
+                       D(pkV ) ≤         D(p kp) + log       −1+K       .              (6)
+                                   cK                     K
+
+  2. If V = Πλ and λ is the mean of p, then p# is the size-biased version of p (see for
+     example [12]), c = 1/λ and K = 1. We recover the fact that
+
+                                          D(pkV ) ≤ λD(p# kp),                             (7)
+
+     which is a log-Sobolev inequality of Wu [32, Theorem 1.1], reproved more directly in
+     [33] (see also [8, Corollary 2.4]). The relationship between Theorem 1.3 and (7) is
+     the same as between the Bakry-Émery log-Sobolev inequality (Theorem 2.5) and the
+     original result of Gross [15].
+
+
+
+                                                  3
+3. The RHS of (4) can be understood to be
+                                  ∞
+                                1X
+                                      V (x)AΦ (f (x), f (x + 1) − f (x)),                               (8)
+                                c x=0
+
+   where AΦ (u, v) = Φ(u+v)−Φ(u)−Φ′ (u)v is the A-transform of the function Φ(u) :=
+   u log u, as introduced by Chafaı̈ in [8]. This allows us to understand the fact that
+   Theorem 1.3 reduces to [8, Corollary 2.4] in the case where V = Πλ .
+
+4. Using the bound log (f (x + 1)/f (x)) ≤ f (x + 1)/f (x) − 1 we deduce that if V satisfies
+   the c-log-concavity condition then:
+                                              ∞
+                                    1X          (f (x + 1) − f (x))2
+                        EntV (f ) ≤       V (x)                      ,                                  (9)
+                                    c x=0              f (x)
+
+   Hence taking V = Πλ and c = 1/λ we see Theorem 1.3 generalizes and strengthens
+   the log-Sobolev inequality of Bobkov and Ledoux [4, Corollary 4].
+
+5. In the spirit of [24] the RHS of (9) is a form of scaled Fisher information, equalling
+                 ∞                                    2        ∞                             2
+                                                                              p# (x)
+                                                                         
+               1X               p(x + 1)V (x)                1X
+                     p(x)                     −1           =       p(x)              −1            ,
+               c x=0            p(x)V (x + 1)                c x=0            Kp(x)
+
+   where we may interpret the ratio p# (x)/(Kp(x)) as a scaled score function.
+
+6. Theorem 1.3 is sharp; equality is achieved in (4) when V = Πλ for any value of
+   a in f (x) = exp(ax + b), or equivalently in (6) for p = Πµ . To verify this, note
+   that p(x)/V (x) = exp(λ − µ)(µ/λ)x , so the LHS of (6) becomes λ − µ + µ log(µ/λ).
+   Further, c = 1/λ, p# = p and K = λ/µ, the RHS of (6) is µ(log(µ/λ) − 1 + λ/µ)
+   and equality holds.
+
+7. Further, Theorem 1.3 strengthens the log-Sobolev inequality of Caputo et al [7] who
+   showed that (under the same condition) the modified log-Sobolev inequality in the
+   sense of [5] and Equation (5) holds:
+                                      ∞                                                  
+                             1X                                               f (x + 1)
+                 EntV (f ) ≤       V (x)(f (x + 1) − f (x)) log                               .        (10)
+                             c x=0                                               f (x)
+
+   The expression (10) is a symmetrized version of (4), with its RHS equal to the RHS
+   of (4) plus a similar-looking term (which is again positive, as before), namely
+                        ∞                                        
+                     1X                      f (x)        f (x + 1)
+                           V (x)f (x) log             −1+             .                                (11)
+                     c x=0                f (x + 1)          f (x)
+
+
+                                                  4
+  8. Again, to consider sharpness; [7] shows (10) is sharp, in the weaker sense that the
+     constant cannot be improved in general. However, equality only holds in (10) for
+     f (x) = exp(ax + b) in the limit as a → ∞ (the term (11) vanishes in this limit).
+
+  9. In the case V = Πλ , the RHS of (4) is strongly reminiscent of [4, Corollary 7], though
+     that result is expressed in terms of the modulus of differences of functions and their
+     logarithms, and is only sharp for f (x) = exp(ax + b) where a ≥ 0.
+
+    In Section 8 we discuss some consequences of Theorem 1.3, including concentration of
+measure and hypercontractivity results The assumption that V has support the whole of
+Z+ can be relaxed by a perturbation argument (see Remark 6.2 below). However, making
+this assumption simplifies the exposition of the paper.
+    In a standard way, we consider f = (1 + ǫg),Pand let ǫ → 0 in (4). The LHS behaves
+like (ǫ2 /2)VarV (g), and the RHS like (ǫ2 /2)( 1c ∞             2
+                                                   x=0 V (x)∆g(x) ), so that as expected,
+the log-Sobolev inequality Theorem 1.3 implies a Poincaré inequality (12). This Poincaré
+inequality can be proven independently, and is in fact equivalent to the slightly weaker
+integrated BE(c) assumption, with the same constant (see Section 7).
+
+Theorem 1.5 (Poincaré inequality). Fix probability mass function V , whose support is
+the whole of the positive integers Z+ . Then for any function f :
+                                             ∞
+                                          1X
+                              VarV (f ) ≤       V (x)∆f (x)2 ,                         (12)
+                                          c x=0
+
+if and only if V satisfies the integrated BE(c) condition (Condition 3).
+
+    In the Poisson case where V = Πλ , taking c = 1/λ we recover the Poincaré inequality
+of Klaasen [22]. In general, as discussed in Section 7, Theorem 1.5 is comparable to a
+Poincaré inequality proved under similar conditions by very different methods in [12].
+    When V has finite support, we may adapt the Markov chain, and choose a different
+LV with invariant distribution V . The correct statement of the Poincaré inequality in this
+context may be in the spirit of [18] (where we adapt the form of the derivative operator
+used). This remains a topic for future research.
+    We briefly describe some related work in the literature. The proof of Theorem 1.5
+mirrors the type of argument given for a range of discrete systems, including a class of
+Markov dynamics that includes Kawasaki dynamics, by Boudou, Caputo, Dai Pra and
+Posta [6]. The work of Caputo, Dai Pra and Posta [7] was developed by Fathi and Maas
+[14], building on a Markov chain-based construction of Ricci curvature on a discrete space
+introduced by Erbar and Maas [13] (see also [27]). In particular, [13, Theorem 1.5] showed
+that Poincaré and modified log-Sobolev inequalities (in the form of (5)) hold assuming a
+bound on their form of Ricci curvature. A form of the c-log-concavity condition was used
+by Joulin [21] (along with another form of curvature condition), and was used to derive
+concentration of measure bounds in the context of birth and death processes.
+
+
+
+                                             5
+2     Bakry–Émery calculus for continuous spaces
+We briefly discuss the classical Bakry-Émery calculus for continuous spaces – see [3] for
+a clear and detailed review. Since Theorem 1.3 considers measures supported on Z+ , we
+restrict our description to measures on R, although this theory holds in considerably greater
+generality. The key is a second-order differential operator L, self-adjoint with respect to
+reference measure dµ, which allows the creation of the so-called carré du champ operator
+Γ1 , and the iterated operator Γ2 .
+Definition 2.1. For any functions f and g, write
+                                 1
+                     Γ1 (f, g) =   [L(f g) − f Lg − gLf ]                                          (13)
+                                 2
+                                 1
+                     Γ2 (f, g) =   [L (Γ1 (f, g)) − Γ1 (f, Lg) − Γ1 (g, Lf )]                      (14)
+                                 2
+    The central definition in the theory is the following, which was introduced in [2].
+Condition 2 (Bakry-Émery condition). We say that the Bakry-Émery condition holds
+with constant c if for all functions f :
+
+                                         Γ2 (f, f ) ≥ cΓ1 (f, f ).                                 (15)
+
+    One key example is the following, which motivates the c-log-concavity property, Con-
+dition 1. It simplifies further if U = cx2 /2 and hence µ is Gaussian with variance 1/c.
+Example 2.2 (e.g. [16], Exercise 4.18). For function U(x), take dµ(x) = exp(−U(x))dx/Z.
+Write                                                                   ′
+               Lf (x) = f ′′ (x) − U ′ (x)f ′ (x) = exp(U(x)) f ′ (x) exp(−U(x)) .
+
+It is simple to verify that (for well-behaved U, including those satisfying U ′′ (x) ≥ c, as
+assumed below), L is self-adjoint with respect to µ, that Γ1 (f, g) = f ′ g ′ , and
+
+                            Γ2 (f, g) = f ′′ (x)g ′′ (x) + U ′′ (x)f ′ (x)g ′ (x).                 (16)
+
+If we assume that U ′′ (x) ≥ c then Γ2 (f, f ) = f ′′ (x)2 + U ′′ (x)f ′ (x)2 ≥ cf ′ (x)2 = cΓ1 (f, f ),
+and the Bakry-Émery condition 2 holds with constant c.
+Remark 2.3. As discussed in [16], the Γ1 operator satisfies a product rule of the form:
+
+                                Γ1 (f, gh) = Γ1 (f, g)h + Γ1 (f, h)g.                              (17)
+
+As a result (see for example [16, Lemma 4.12]), for any well-behaved function v, the Γ1
+operator satisfies a chain rule of the form
+
+                                     Γ1 (v(f ), g) = v ′ (f )Γ1 (f, g),                            (18)
+
+which is a key reason that the Bakry-Émery theory applies in the continuous case.
+
+                                                      6
+    We state two results which arise from the Bakry–Émery calculus, as first described in
+[2] and reviewed and extended since by a variety of authors. For example, taking U(t) = t2
+in [2, Proposition 5] we deduce (see also [3, Proposition 4.8.1]):
+
+Theorem 2.4. If the Bakry-Émery condition (Condition 2) holds with constant c then the
+Poincaré inequality holds with constant 1/c; that is for any function f ,
+
+                                          1
+                                            Z
+                              Varµ (f ) ≤     Γ1 (f, f )(x)dµ(x).
+                                          c
+
+    Similarly [2, Theorem 1] (see also [3, Proposition 5.7.1]) gives that:
+
+Theorem 2.5. If the Bakry-Émery condition (Condition 2) holds with constant c then
+the logarithmic Sobolev inequality holds with constant 1/c; that is for any function f with
+positive values:
+                                        1     Γ1 (f, f )(x)
+                                           Z
+                            Entµ (f ) ≤                     dµ(x).
+                                        2c        f (x)
+   If µ is Gaussian with variance σ 2 , since (as discussed in Example                   2
+                                                               R ′ 2 2.2) we take c = 1/σ ,
+and the RHS becomes the standardized Fisher information f (x) /f (x)dµ(x), we recover
+the original log-Sobolev inequality of Gross [15] (see also Stam [30]).
+
+
+3     Birth and death Markov chain
+Fix a probability mass function V supported on the whole of Z+ . As in [7], we construct a
+birth and death Markov chain with invariant distribution V . In [7] more general upwards
+jump rates are considered, but this construction is sufficient for our purposes.
+
+Definition 3.1. Define the birth and death Markov chain with upward jumps rate equal to
+1, and downward jump rate at x equal to V (x−1)/V (x). Equivalently, define the Q-matrix:
+
+                                −1        1            0        0 ...
+                                                                        
+                            V (0)    − VV (1)
+                                           (0)
+                                                −1     1        0 ... 
+                            V (1)
+                      Q :=                                              .                 (19)
+                                                                         
+                                          V (1)      V (1)
+                            0            V (2)
+                                                   − V (2)
+                                                            − 1 1  . . . 
+                                             ..          ..     ..
+                                              .           .      .
+
+We consider evolution of probability mass functions by pt := p exp(tQ), so that for any x:
+                                              
+ ∂                                   V (x − 1)              V (x)
+    pt (x) = pt Q = pt (x − 1) − 1 +             pt (x) +           pt (x + 1) = L∗V pt (x), (20)
+ ∂t                                    V (x)              V (x + 1)
+
+using the notation of Definition 1.1.
+
+
+
+
+                                               7
+Example 3.2. If V is Poisson Πλ , then Equation (20) becomes
+
+                ∂                                  x          (x + 1)
+                   pt (x) = pt Q = pt (x − 1) − 1 +    pt (x) +         pt (x + 1),
+                ∂t                                  λ              λ
+as in [20, Equation (14)], giving the evolution of the M/M/∞ queue. In [20], the action
+of this Markov chain was used to prove the maximum entropy property of the Poisson
+distribution, under the ultra-log-concavity condition (Condition 4 below).
+
+    Writing vector V = (V (0), V (1), V (2), . . .) the VQ = 0, so V is indeed the invariant
+distribution of this Markov chain. Indeed, the Markov chain satisfies the detailed balance
+condition, and hence is reversible. Further, since V is supported on the whole of Z+ ,
+the Markov chain is irreducible, and we deduce that this invariant measure is unique,
+meaning that the probabilities pt (x) → V (x) as t → ∞. Since the rate ofP  upward jumps is
+constant, the chain is non-explosive, since the expected time to reach ∞ is ∞x=0 1/Qx;x+1 =
+P  ∞
+   x=0 1 = ∞.
+    In fact, here it is more useful to consider the evolution of functions.
+
+Definition 3.3. Given a function f , consider the sequence of functions ft evolving as
+exp(tQ)f , so that
+
+   ∂                                           V (x − 1)
+      ft (x) = Qft (x) = ft (x + 1) − ft (x) −           (f (x) − f (x − 1)) = LV ft (x),         (21)
+   ∂t                                            V (x)
+
+where LV is the operator defined in Definition 1.1.
+
+   Next we give a result which allows us to prove the equivalent of Example 2.2 above.
+
+Lemma 3.4. Observe that for any functions f and g, rearrangement gives that LV is
+self-adjoint with respect to V where, writing ∆f (x) = f (x + 1) − f (x),
+         ∞
+         X                            ∞
+                                      X                              ∞
+                                                                     X
+                V (x)f (x)LV g(x) =         V (x)LV f (x)g(x) = −           V (x)∆f (x)∆g(x).     (22)
+          x=0                         x=0                             x=0
+
+Proof. This follows by adjusting the index of summation since
+       ∞
+       X
+             V (x)f (x)LV g(x)
+       x=0
+                ∞                                                      
+                X                           V (x − 1)
+         =     V (x)f (x) g(x + 1) − g(x) −           (g(x) − g(x − 1))
+           x=0
+                                              V (x)
+                ∞
+                X                                      ∞
+                                                       X
+         =            V (x)f (x) (g(x + 1) − g(x)) −         V (x)f (x + 1) (g(x + 1) − g(x)) ,
+                x=0                                    x=0
+
+and the result follows.
+
+                                                   8
+4      Integrated Bakry-Émery condition
+                                                 (V )          (V )
+Given the operator LV , we define the Γ1                and Γ2        operators induced by it in the standard
+way introduced by [2].
+Definition 4.1. For any functions f and g, write
+                (V )       1
+               Γ1 (f, g) =   [LV (f g) − f LV g − gLV f ]                                                 (23)
+                           2
+                (V )       1 h  (V )         
+                                                   (V )      (V )
+                                                                          i
+               Γ2 (f, g) =    LV Γ1 (f, g) − Γ1 (f, LV g) − Γ1 (g, LV f )                                 (24)
+                           2
+    We next introduce the Integrated Bakry-Émery condition; note that in contrast to the
+classical Bakry-Émery condition (Condition 2) we only require control of the average (with
+                   (V )    (V )
+respect to V ) of Γ2 and Γ1 , not pointwise control.
+Condition 3 (Integrated BE(c)). We say that probability mass function V satisfies the
+integrated BE(c) condition if for all functions f :
+                          ∞                                    ∞
+                                       (V )                                 (V )
+                          X                                    X
+                                 V (x)Γ2 (f, f )(x) ≥ c               V (x)Γ1 (f, f )(x)                  (25)
+                           x=0                                 x=0
+
+Proposition 4.2. For any f and g, writing Lf (x) = f (x+1)−2f (x)+f (x−1) we deduce:
+      ∞                                ∞
+                  (V )
+      X                                X
+            V (x)Γ1 (f, g)(x)      =          V (x)(f (x + 1) − f (x))(g(x + 1) − g(x)),                  (26)
+      x=0                              x=0
+       ∞                                ∞
+                  (V )
+      X                                X
+            V (x)Γ2 (f, g)(x) =               V (x)Lf (x + 1)Lg(x + 1)
+      x=0                              x=0
+                                         X∞
+                                       +         V (x)E (V ) (x)(f (x + 1) − f (x))(g(x + 1) − g(x)). (27)
+                                           x=0
+
+Hence, if V is c-log-concave (if E (V ) (x) ≥ c for all x) then the integrated BE(c) condition
+holds.
+Proof. Observe that, the E (V ) term naturally emerges here and defines a curvature term,
+since (28) expresses the difference between two adjacent derivatives:
+                                                                 V (x − 1)
+    LV f (x + 1) − LV f (x) = Lf (x + 1) − Lf (x)                          − E (V ) (x)(f (x + 1) − f (x)).(28)
+                                                                   V (x)
+                                P∞
+Using Lemma 3.4, since            x=0 V (x)LV h(x) = 0 for any function h, we know
+
+                         ∞                                    ∞
+                                     (V )
+                         X                                    X
+                               V (x)Γ1 (f, g)(x) = −                V (x)f (x)LV g(x),                    (29)
+                         x=0                                  x=0
+
+
+                                                          9
+and (26) follows by (22). Multiplying by V (x) and summing, we recover (26) (as suggested
+                                                                (V )
+by Lemma 3.4). Using (26), similarly we know that ∞
+                                                     P
+                                                      x=0 V (x)Γ2 (f, g)(x) equals
+
+           ∞                            ∞
+        1X          (V )             1X          (V )
+    −         V (x)Γ1 (f, LV g)(x) −       V (x)Γ1 (LV f, g)(x)                                        (30)
+        2 x=0                        2 x=0
+                ∞
+                X
+        = −           V (x)(g(x + 1) − g(x)) (LV f (x + 1) − LV f (x)) .                               (31)
+                x=0
+                X∞                                            ∞
+                                                              X
+        = −           V (x)(g(x + 1) − g(x))Lf (x + 1) +            V (x − 1)(g(x + 1) − g(x))Lf (x)
+               x=0                                            x=0
+              ∞
+              X
+                    V (x)E (V ) (x)(g(x + 1) − g(x))(f (x + 1) − f (x))
+              x=0
+              ∞
+              X
+                    V (x) Lf (x + 1)Lg(x + 1) + E (V ) (x)(g(x + 1) − g(x))(f (x + 1) − f (x)) (32)
+                                                                                             
+        =
+              x=0
+
+where (31) follows by (26), since the two terms  in (30) are both equal (as (29) shows that
+as usual, they can both be expressed as 12 ∞
+                                           P
+                                             x=0 (x)LV f (x)LV g(x)). The final result (32)
+                                                 V
+follows on relabelling, having substituted (28) in the second term of (31).
+                                                       (V )
+Remark 4.3. Using (26) we deduce that Γ1 only satisfies a modified form of the product
+rule in (17). That is since g(x + 1)h(x + 1) − g(x)h(x) = h(x + 1)(g(x + 1) − g(x)) +
+g(x)(h(x + 1) − h(x)) we know that
+        ∞                                 ∞
+                    (V )
+        X                                 X
+              V (x)Γ1 (f, gh)(x)      =        V (x)(f (x + 1) − f (x))(g(x + 1) − g(x))h(x + 1)
+        x=0                               x=0
+                                            X∞
+                                          +         V (x)(f (x + 1) − f (x))(h(x + 1) − h(x))g(x)
+                                              x=0
+
+
+
+5       The c-log-concavity condition
+The c-log-concavity property (Condition 1) corresponds to the bound U ′′ (x) ≥ c discussed
+in Example 2.2. Condition 1 was introduced as Assumption A in [7], who showed that it
+is implied by the ultra-log-concavity condition of Pemantle [28] and Liggett [25]:
+Condition 4 (ULC). If a probability mass function V has the property that V /Πλ is a
+log-concave sequence, then we say that V is ultra-log-concave (ULC).
+Lemma 5.1 ([7], Section 3.2). If V is ULC, then it is c-log-concave, with c = V (0)/V (1).
+                                                             (U ⋆ V )(1)   U(1) V (1)
+    Notice that if U and V are probability mass functions then           =     +      ,
+                                                             (U ⋆ V )(0)   U(0) V (0)
+where (U ⋆ V ) represents the convolution. In the light of Lemma 5.1 this suggests the
+
+                                                        10
+conjecture that if U and V are c-log-concave with constants cU and cV respectively, then
+(U ⋆ V ) is c-log-concave with constant ≥ (1/cU + 1/cV )−1 . (Recall that Walkup [31] proved
+a result which implies that if U and V are ULC, then so is (U ⋆ V ).)
+    We discuss probability mass functions V for which Condition 1 is satisfied. While
+Theorem 1.3 requires that V has support the whole of Z+ , it is still instructive to take V
+with finite interval support (see Remark 6.2).
+
+Example 5.2.
+
+  1. If V = Πλ is Poisson, then since V (x)/V (x + 1) = (x + 1)/λ, we know that E (V ) (x) ≡
+     1/λ, so V is c-log-concave (with equality), with c = 1/λ.
+
+  2. By Lemma 5.1, the probability mass function V of the sum of independent
+                                                                         −1   Bernoulli
+                                                        P
+     variables with mean pi , is c-log-concave with c =  j pj /(1 − pj )     .
+
+  3. If V (x) = n+x−1 p (1−p)n is negative binomial, then direct calculation gives E (V ) (x) =
+                      x
+                   x
+            (n − 1)
+                         , which tends to zero as x → ∞. Hence V (x) is only c-log-
+     p(n + x)(n + x − 1)
+     concave with c = 0.
+
+   One final remark is that no mass function with mean EV can be c-log-concave for
+c > 1/(EV ). Hence the value 1/λ found for Πλ in Example 5.2 is an extreme one.
+
+Lemma 5.3. If V is c-log-concave, then c ≤ 1/(EV ).
+
+Proof. Since E (V ) is a finite difference, we sum the collapsing sum to obtain
+                               x                       
+                      V (x)    X    V (y)     V (y − 1)
+                             =              −             ≥ (x + 1)c,
+                    V (x + 1) y=0 V (y + 1)     V (y)
+
+by assumption. Rearranging and summing we obtain that
+                            ∞
+                            X               ∞
+                                            X
+                       1=         V (x) ≥         (x + 1)V (x + 1)c = c(EV ),
+                            x=0             x=0
+
+and the result follows.
+    Note further that in some settings it may be natural to assume that E (V ) (x) is increasing
+in x. Direct substitution shows that this is equivalent to the property that
+
+ V (x)2 V (x − 1) − 2V (x − 1)2 V (x + 1) + V (x + 1)V (x)V (x − 2) ≥ 0,        for all x ≥ 0. (33)
+
+In [17], this property (referred to there as ‘Property C1 (k)’) is shown by induction to hold
+when V is the probability mass function of the sum of independent Bernoulli variables,
+and it is natural to assume that (33) holds in a more general setting than this.
+
+                                                    11
+6     Proof of the log-Sobolev inequality, Theorem 1.3
+Proof
+P∞ of Theorem 1.3. Given a fixed probability mass fucntion V (x) and a function f with
+  x=0 V (x)f (x) = µV,f , we consider function ft evolving as (21), that is with f0 ≡ f and
+
+                                     ∂
+                                        ft (x) = LV ft (x).
+                                     ∂t
+Note that, by ergodicity, limt→∞ ft (x) = ∞
+                                            P
+                                               x=0 V (x)f (x) = µV,f . We consider the function
+
+                                             ∞
+                                             X
+                                    Θ(t) =         V (x)ft (x) log ft (x),                            (34)
+                                             x=0
+
+and obtain that (as in [7]):
+                         ∞                                    ∞
+              ′
+                         X                                    X                      LV ft (x)
+            Θ (t) =           V (x)LV ft (x) log ft (x) +           V (x)ft (x)
+                         x=0                                  x=0
+                                                                                      ft (x)
+                           X∞
+                       = −         V (x) (ft (x + 1) − ft (x)) (log ft (x + 1) − log ft (x)) .        (35)
+                             x=0
+
+This follows by cancellation, since ∞
+                                      P
+                                         x=0 V (x)LV h(x) = 0 for any h, and by taking f = ft
+and g = log ft in (22). Since both terms in brackets in (35) have the same sign, we conclude
+                             (V )
+that Θ′ (t) = − ∞
+                P
+                   x=0 V (x)Γ1 (ft , log ft )(x) ≤ 0 (this is the term arising in (10)). However
+the absence of a chain rule of the type (18) means that we cannot write it in a form where
+Condition 3 can be directly applied. However, we calculate a further derivative by hand.
+   In fact, we consider the derivative of a related term, which we think of as only part of
+the expression for Θ′ (t). That is, we write
+                       ∞                                                     
+                       X                      ft (x + 1)
+            ψ(t) =     V (x) ft (x + 1) log                − ft (x + 1) + ft (x) .
+                   x=0
+                                                 ft (x)
+
+Using the fact that for functions g and h, (g log(g/h) − g)′ = g ′ log(g/h) − gh′/h, by
+relabelling in the usual way we deduce that
+                             ∞                                                                   
+                   ′
+                             X                                                       ft (x + 1)
+                  ψ (t) =          V (x) (LV ft (x + 1) − LV ft (x)) log                              (36)
+                             x=0
+                                                                                        ft (x)
+                                ∞                                                              
+                               X                                ft (x + 1)         ft (x + 1)
+                             +         V (x)LV ft (x) log                        −                    (37)
+                                 x=0
+                                                                   ft (x)             ft (x)
+
+By taking g(x) = log ft (x) and
+                               f (x) =ft (x) in (31), we deal with (36), and by taking
+                               ft (x + 1)    ft (x + 1)
+f (x) = ft (x) and g(x) = log             −             in (22), we deal with (37). Adding
+                                  ft (x)        ft (x)
+
+                                                      12
+the results of these manipulations together, we deduce that
+                           ∞                                                 
+               ′
+                           X
+                                     (V )                          ft (x + 1)
+             ψ (t) = −     V (x)E (x)(ft (x + 1) − ft (x)) log                            (38)
+                       x=0
+                                                                      ft (x)
+                          ∞                                                 
+                         X                      ft (x)ft (x + 2) ft (x)
+                       +     V (x)ft (x + 1)w                   ;              ,          (39)
+                         x=0
+                                                   ft (x + 1)2    ft (x + 1)
+
+where w(U; s) = −(U/s − 1) log U + (1 − U)(1 − 1/s). Lemma 6.1 below gives that the
+term (39) is negative. (Note that this term is zero if ft (x) = exp(ax + b), which contributes
+to the sharpness result discussed in Remark 1.4). Further, by assumption, we bound (38)
+from above on replacing E (V ) (x) by c. In other words, we deduce by comparison with (35)
+                                           1
+that ψ ′ (t) ≤ cΘ′ (t), or that (−Θ′ (t)) ≤ (−ψ ′ (t)). We deduce
+                                           c
+                                                    Z ∞
+                    EntV (f ) = Θ(0) − Θ(∞) =           −Θ′ (t)dt
+                                                     0
+                                                    1 ∞                1
+                                                      Z
+                                              ≤          (−ψ ′ (t))dt = ψ(0)
+                                                    c 0                c
+and the result follows.
+
+Lemma 6.1. The function w(U; s) = −(U/s − 1) log U + (1 − U)(1 − 1/s) ≤ 0 for all
+s, U ≥ 0, with equality if and only if U = 1.
+                                                          ∂
+Proof. For fixed s, we observe that w(1; s) = 0, that       w(U; s) U =1 = 0 and w(U; s) is a
+                                                         ∂U
+                                  ∂2               s+U
+strictly concave function, since     2
+                                       w(U; s) = −        .
+                                 ∂U                 sU 2
+Remark 6.2. If V has support on a finite interval, a version of Theorem 1.3 should still
+hold, at least for a class of functions f . In brief, define Vǫ := V ⋆ Πǫ to be the convolution
+of V with a Poisson mass function of mean ǫ. If V is c-log-concave, then for any given δ,
+the Vǫ will be (c − δ)-log-concave for ǫ sufficiently small. Hence, we can apply Theorem 1.3
+to Vǫ (which is supported on the whole of Z+ as required) to obtain a bound on EntVǫ (f ).
+    Further, by continuity arguments using dominated convergence EntVǫ (f ) will converge
+to EntV (f ) for well-behaved f , and the resulting upper bound will also converge. However,
+we omit further discussion of this and the correct class of f to use for the sake of brevity.
+
+
+7     Proof of the Poincaré inequality, Theorem 1.5
+We show that the Poincaré inequality is equivalent to the integrated BE(c) condition, using
+a standard argument (see for example Proposition 4.8.3 of [3]).
+
+
+
+                                              13
+Proof of Theorem 1.5. First, we assume the integrated BE(c) condition, and write Λ(t) =
+  ∞              2
+P
+  x=0 V (x)ft (x) . By Lemma 3.4 and (26)
+               ∞                                     ∞                                  ∞
+                                                                                                     (V )
+               X                                     X                                  X
+    ′                                                                      2
+  Λ (t) = 2          V (x)ft (x)LV ft (x) = −2             V (x)(∆ft )(x) = −2                V (x)Γ1 (ft , ft )
+               x=0                                   x=0                                x=0
+                 ∂
+Similarly, since ∂t commutes with LV by the form of the Q-matrix in Definition 3.1,
+                                ∞
+                                X                                       ∞
+                                                                        X
+                     ′′
+                 Λ (t) = 2            V (x)LV ft (x)LV ft (x) + 2              V (x)ft (x)L2V ft (x)
+                                x=0                                      x=0
+                                 ∞                                ∞
+                                                                                 (V )
+                                X                                 X
+                          = 4         V (x) (LV ft (x))2 = 4            V (x)Γ2 (ft , ft ).
+                                x=0                               x=0
+
+The integrated BE(c) condition applied to the function ft tells us that Λ′′ (t) ≥ −2cΛ′ (t).
+This tells us that
+                                Z ∞
+   VarV (f ) = Λ(0) − Λ(∞) =        −Λ′ (t)dt
+                                           0
+                                               Z ∞                               ∞
+                                        1                       1             1X
+                                      ≤                 ′′
+                                                      Λ (t)dt =       ′
+                                                                   (−Λ (0)) =       V (x)(∆f )(x)2 ,
+                                        2c      0               2c            c x=0
+and the result follows.
+    Second, if the Poincaré inequality holds, we deduce the integrated
+                                                               P          BE(c) condition,
+since without loss of generality we can consider for any f with x V (x)f (x) = 0, for which
+        ∞                                      ∞
+                    (V )
+        X                                      X
+              V (x)Γ1 (f, f )(x)      = −            V (x)f (x)LV f (x)                                            (40)
+        x=0                                    x=0
+                                        v              v
+                                        u∞             u∞
+                                        uX             uX
+                                      ≤ t            2
+                                           V (x)f (x) t   V (x)LV f (x)2                                           (41)
+                                               x=0                  x=0
+                                        v                         v
+                                        u ∞                       u∞
+                                        u1 X          (V )
+                                                                  uX          (V )
+                                      ≤ t       V (x)Γ1 (f, f )(x)t     V (x)Γ2 (f, f )(x), (42)
+                                          c x=0                     x=0
+
+where (40) follows by (29), (41) follows by Cauchy–Schwarz, and (42) follows since by (12)
+P∞               2                1
+                                    P∞               2   1
+                                                           P∞         (V )
+  x=0 V (x)f (x)   = Var V (f ) ≤ c  x=0 V (x)∆f (x)   = c  x=0 V (x)Γ1 (f, f )(x).
+
+   Theorem 1.5 shows that if V satisfies the integrated BE(c) condition, then the Poincaré
+constant of V is ≤ 1/c. In comparison [12, Corollary 2.4], which was proved using argu-
+ments based on stochastic ordering and size-biasing, shows that if V is ULC then the
+Poincaré constant of V is less than or equal to EV . Lemma 5.1 and Proposition 4.2 show
+ULC implies the integrated BE(c) condition, hence the assumptions of the present paper are
+weaker than in [12]. However, Lemma 5.3 shows that EV ≤ 1/c, so here we prove a weaker
+bound on the Poincaré constant. It would be of interest to know if the two approaches can
+be synthesised, or if the results are each optimal under their own assumptions.
+
+                                                             14
+8     Consequences of Theorem 1.3
+We briefly discuss some results which follow from Theorem 1.3, including a concentration
+of measure inequality, decay of entropy and a form of hypercontractivity.
+
+8.1    Concentration of measure
+We prove a concentration of measure result by adapting the argument used to prove [4,
+Proposition 10], and deduce the following bound:
+
+Proposition 8.1. Fix probability mass function V , and suppose that for all functions f
+with positive values, Equation (4) holds, that is:
+                           ∞                                            
+                        1X                       f (x + 1)          f (x)
+            EntV (f ) ≤       V (x)f (x + 1) log             −1+             .               (43)
+                        c x=0                       f (x)        f (x + 1)
+
+Then, writing h(s) = (1+s) log(1+s)−s, for any function g with supx |g(x+1)−g(x)| ≤ 1:
+                                                                     
+                                                                h(ct)
+                             V ({g ≥ EV g + t}) ≤ exp −                 .                   (44)
+                                                                  c
+                                          P∞           τ g(x)
+Proof. Define the function G(τ ) =           x=0 V (x)e       , and the related function H(τ ) =
+                                 τ g(x)
+(log G(τ )) /τ . Taking f (x) = e       in (43) we deduce that:
+
+       τ 2 G(τ )H ′ (τ ) = τ G′ (τ ) − G(τ ) log G(τ )
+                           X∞
+                         =      V (x)τ g(x)eτ g(x) − G(τ ) log G(τ )
+                           x=0
+                       = EntV (eτ g )
+                            ∞
+                         1X
+                               V (x) τ eτ g(x+1) (g(x + 1) − g(x)) − eτ g(x+1) + eτ g(x)
+                                                                                        
+                       ≤
+                         c x=0
+                               ∞
+                         1X
+                       =       V (x)eτ g(x) ϕ (τ ∆g(x)) ,                                    (45)
+                         c x=0
+
+where ϕ(u) = ueu − eu + 1 ≥ 0 and ∆g(x) = g(x + 1) − g(x).
+   Since ϕ′ (u) = ueu , which has the same sign as u, we know that taking τ ≥ 0 and for
+v ∈ (−τ, τ ), the ϕ(v) ≤ max (ϕ(τ ), ϕ(−τ )) = ϕ(τ ), where this last inequality follows since
+ϕ(v) − ϕ(−v) is increasing on v ≥ 0, and hence is ≥ 0. Using this, we can rewrite (45) in
+the form τ 2 G(τ )H ′ (τ ) ≤ ϕ(τ
+                              c
+                                 )
+                                   G(τ ), which we can integrate to deduce that for any σ ≥ 0:
+
+                                                    1 σ ϕ(τ )
+                                    Z σ
+                                                                     1 eσ − σ − 1
+                                                     Z
+                                           ′
+                H(σ) − H(0) =            H (τ )dτ ≤           dτ  =               .        (46)
+                                     0              c 0 τ2           c     σ
+
+
+                                                15
+This can be rearranged to give an upper bound on G(σ). As in [4, Proposition 10], we
+can use a standard Chernoff bounding argument, based on the fact that H(0) = EV g and
+using Markov’s inequality to deduce that for any σ > 0:
+                                                         σ
+                              EV eσg
+                                                                       
+                                           G(σ)          e −σ−1
+        V ({g ≥ EV g + t}) ≤ σ(E g+t) = σ(E g+t) ≤ exp             − σt .
+                             e V         e V                 c
+
+We make the optimal choice of σ here, that is σ = log(1 + ct), to deduce the result.
+    Note this function h commonly occurs in concentration of measure results in different
+settings, including Bennett’s inequality (see for example [29, Theorem 9]), work of Houdré
+and co-authors based on the ‘covariance method’ (see for example [19, Eq. (1.6)]) and recent
+work on discrete random variables using a tail condition under coupling [11, Theorem 3.3].
+
+Remark 8.2. Proposition 8.1 shows that Theorem 1.3 can provide practical improvements
+to results of the form (9). To be specific, [4, Proposition 10] shows that if (9) holds, then,
+under the same condition on ∆g:
+                                                                
+                                                           k(ct)
+                            V ({g ≥ EV g + t}) ≤ exp −             ,                      (47)
+                                                             c
+
+where k(u) = u log(1 + u)/4. Proposition 8.1 therefore strengthens (47) under the c-log-
+concavity condition, Condition 1, since h(u) ≥ 2k(u) for all u. This strengthening comes
+                                                                                     1
+from the fact that the expression of (46) is significantly smaller than the bound of 2c (e2σ −1)
+which follows by the argument of [4, Proposition 10]. Note that (46) is sharp, in the sense
+that equality holds when taking V = Πλ and g(x) = x, as follows from the sharpness of
+Theorem 1.3 discussed in Remark 1.4.6.
+
+8.2    Decay of entropy and hypercontractivity
+We briefly discuss how the log-Sobolev inequality, Theorem 1.3, implies further results for
+related processes, in a standard way. Motivated by the paper [33], which considered pure
+thinning, we consider probability measures evolving as the ‘death’ part of the birth and
+death process. That is, for fixed V , we consider probability distributions such that:
+                  ∂
+                     Vt (x) = αt (Vt (x) − Vt (x − 1)) ,                                   (48)
+                  ∂t                                                       
+                  ∂                   Vt (x)               Vt (x − 1)
+                     pt (x) = αt              pt (x + 1) −            pt (x) .             (49)
+                  ∂t               Vt (x + 1)                 Vt (x)
+
+Proposition 8.3. If Vt (x) satisfies E (Vt ) (x) ≥ ct for all x then
+                                                      Z t            
+                        D(pt kVt ) ≤ D(pkV ) exp −            αs cs ds .
+                                                           0
+
+
+
+
+                                                16
+                                                                   and p#
+                         P∞                                   −1
+Proof. Writing Kt = (      x=0 pt (x + 1)Vt (x)/Vt (x + 1))             t (x) = Kt pt (x+1)Vt (x)/Vt (x+
+1) relabelling gives:
+∂
+   D(pt kVt )
+∂t
+          ∞                                                            
+         X         Vt (x)                 Vt (x − 1)               pt (x)     Vt (x) − Vt (x − 1)
+  = αt                      pt (x + 1) −              pt (x) log            −                     pt (x)
+         x=0
+                Vt (x + 1)                   Vt (x)                Vt (x)            Vt (x)
+             ∞                                                       !
+            X   Vt (x)pt (x + 1)         pt (x)Vt (x + 1)           1
+  = αt                             log                       −1+
+            x=0
+                    Vt (x + 1)           Vt (x)pt (x + 1)          Kt
+                                                 
+         αt                         1
+  = −          D(p# t kpt ) + log      − 1 + Kt
+        Kt                        Kt
+  ≤ −αt ct D(pt kVt ),
+where the last inequality follows using the form of the log-Sobolev inequality given by
+Equation (6).
+Example 8.4. Taking Vt = Πλ(t) , a Poisson mass function with mean λ(t) = λe−t , then
+(48) holds with αt = λ(t), and we know that ct = 1/λ(t). Hence, Pt becomes the mass
+function P thinned by e−t (see [12] for a discussion of this operation), and we can deduce
+that
+                                 D(pt kVt ) ≤ D(pkV )e−t .                            (50)
+    We also illustrate Theorem 1.3 by using it to prove a form of hypercontractivity, using
+a standard argument (see for example [5, Theorem 11] and [3, Page 246]).
+Proposition 8.5. Consider a sequence of probability measures evolving as in (48) and a
+sequence of functions evolving in a related way:
+                         ∂
+                            Vt (x) = αt (Vt (x) − Vt (x − 1)) ,
+                         ∂t
+                         ∂              Vt (x − 1)
+                            gt (x) = αt            (gt (x) − gt (x − 1)) .                         (51)
+                         ∂t                Vt (x)
+If Vt satisfies the new
+                       modified log-Sobolev
+                                            inequality, Equation (4) with constant ct then
+                        Rt                                         p 1/p
+writing q(t) = p exp − 0 αs cs ds and kf kU,p = ( ∞
+                                                   P
+                                                      x=0 U(x)f (x) )    then
+
+                                  k exp(g)kV,p ≤ k exp(gt )kVt ,q(t) .                             (52)
+(Note that q(t) ≤ p).
+                                                                    P∞
+Proof. As in [3, 5], we consider the functional Λ(q, t) :=             x=0 Vt (x) exp(qgt (x)). The key
+is to express
+                                   ∞
+                     ∂            X
+                        Λ(q, t) =     Vt (x) exp(qgt (x))gt (x)
+                     ∂q           x=0
+                                      1                    1
+                                  =     EntVt (exp(qgt )) + Λ(q, t) log Λ(q, t)
+                                      q                    q
+
+                                                  17
+                                               ∂
+and using (48) and (51) to recognise that ∂t     Λ(q, t) equals
+   "∞                                                                                          #
+    X
+αt      Vt (x + 1) (q exp(qgt (x + 1)) (gt (x + 1) − gt (x)) − exp(qgt (x + 1)) + exp(qgt (x))) .
+    x=0
+
+Taking f = exp(qgt ) in (4) we deduce that
+                                          1                      1
+                   − ∂q log Λ(q, t) +            ∂t log Λ(q, t) + log Λ(q, t) ≥ 0.                   (53)
+                                        αt c t q                 q
+Using this, we can consider the behaviour of u(t) := log Λ(q(t), t)/q(t). Taking a derivative
+with respect to t, using the fact that q ′ (t)/q(t) = −ct αt , we obtain that
+              q ′ (t)                      1                       q ′ (t)
+     u′ (t) =         ∂q log Λ(q(t), t) +      ∂t log Λ(q(t), t) −         log Λ(q(t), t)
+               q(t)                       q(t)                     q(t)2
+                                                                                                
+                                                  1                           1
+            = ct αt −∂q log Λ(q(t), t) +               ∂t log Λ(q(t), t) +        log Λ(q(t), t)
+                                             q(t)ct αt                       q(t)
+            ≥ 0,
+
+where the final inequality follows from (53). Since exp(u(t)) = k exp(gt )kVt ,q(t) , we deduce
+that the q norm is increasing as required.
+    Note that the definition of q(t) involves the same exponential expression as Proposition
+8.3.
+Example 8.6. As in Example 8.4, we can consider Vt = Πλ(t) , a Poisson mass function
+with mean λ(t) = λe−t , and notice that (51) is satisfied by the Poisson-Charlier polynomials
+ck (x; λ(t)). Further, since ct αt = 1, we take q(t) = p exp(−t).
+    We deduce that Proposition 8.5 is sharp, taking gt = (x − λ(t))/λ(t) to be the Poisson–
+Charlier polynomial of degree 1. In this case
+                                 ∞
+                                    exp(−λ(t)λ(t)x
+                                                                        
+                               X                          q(t)(x − λ(t))
+               Λ(q(t), t) =                         exp
+                                x=0
+                                          x!                   λ(t)
+                           = exp(−q(t) − λ(t) + λ(t)eq(t)/λ(t) ) = exp(−q(t)C),
+
+where C = 1 + λ/p − λ/pep/λ , using the fact that λ(t)/q(t) ≡ λ/p. Hence the q(t) norm
+is constant, and Proposition 8.5 is sharp. (This sharpness corresponds to the sharpness of
+the new modified log-Sobolev inequality for functions of the form f (x) = exp(ax + b), as
+discussed in Remark 1.4.6).
+
+
+9     Extension to random variables on Zd+
+It would be of considerable interest to extend this work to the more general setting of
+probability measures on graphs, where curvature and related issues are topics of active
+
+                                                  18
+research. For example, [1] uses the Bakry-Émery Γ-calculus to deduce log-Sobolev inequal-
+ities on the discrete cube, Zd and general graphs of uniformly bounded degree. The paper
+[23] defines curvature for discrete graphs, and shows that controlling this curvature allows
+results including Poincaré and log-Sobolev inequalities to be deduced. Lin and Yau [26]
+compare the two forms of curvature discussed by Joulin [21], in the context of graphs.
+    We briefly describe how the c-log-concavity condition, Condition 1, extends to the
+setting of probability measures on Zd+ . We deduce an integrated Bakry-Émery condition,
+and hence a Poincaré inequality, and explain the issues with proving a modified log-Sobolev
+inequality in the form of Theorem 1.3.
+    Fix a reference measure V (x) which is positive for all x ∈ Zd+ , and write ei for the ith
+unit vector. Further, for all 1 ≤ i, j ≤ d and for a given function f we define
+                   (V )       V (x + ej − ei ) V (x − ei )
+                  Eij (x) =                     −             ,                                 (54)
+                                 V (x + ej )         V (x)
+                  Lij f (x) = f (x + ej ) − f (x + ej − ei ) − f (x) + f (x − ei ).             (55)
+
+Notice that these quantities are not symmetric in i and j, however for each y and each c
+we can define a symmetric matrix by
+
+         (V,c)         V (y − ei )V (y − ej )
+       Eij       (y) :=                       − V (y − ei − ej ) − cI(i = j)V (y − ej ).        (56)
+                              V (y)
+                                                            
+                                     (V )
+                     = V (y − ej ) Eij (y − ej ) − cI(i = j)
+
+writing I(i = j) for the entries of the identity matrix. Consider a process which (for all x
+and all i) jumps from x to x + ei at rate 1 and from x to x − ei at rate V (x − ei )/V (x)
+(where by convention V (y) = 0 if any component of y is −1). This corresponds to defining
+                           d
+                           X                                V (x − ei )
+             LV f (x) =           (f (x + ei ) − f (x)) −               (f (x) − f (x − ei ))   (57)
+                           i=1
+                                                               V (x)
+
+The key is to observe that an analogue of (28) holds, that is direct calculation gives that
+for any j:
+
+LV f (x + ej ) − LV f (x)
+        d                                                                                    
+      X                                 V (x − ei )    (V )
+ =          Lij f (x + ei ) − Lij f (x)             − Eij (x) (f (x + ej ) − f (x + ej − ei )) .(58)
+       i=1
+                                           V (x)
+
+We deduce that:
+Proposition 9.1. If for some c, the matrix E (V,c) (y) of Equation (56) is positive definite
+for all y, then for any function f :
+                       X                          X
+                           V (x)Γ2 (f, f )(x) ≥ c   V (x)Γ1 (f, f )(x).                 (59)
+                          x∈Zd+                          x∈Zd+
+
+
+
+                                                    19
+Proof. First we observe that (by relabelling)
+   X                                        X                 d
+                                                              X
+          V (x)Γ1 (f, g)(x) =                        V (x)           (f (x + ej ) − f (x)) (g(x + ej ) − g(x))
+  x∈Zd+                                    x∈Zd+               j=1
+
+                                           d X
+                                           X
+                                      =                      V (y − ej ) (f (y) − f (y − ej )) (g(y) − g(y − ej )) .(60)
+                                            j=1 y∈Zd
+                                                        +
+
+
+Using this, we can deduce a d-dimensional version of (32), namely
+     X
+          V (x)Γ2 (f, g)(x)
+     x∈Zd+
+
+                  X                d
+                                   X
+          = −             V (x)           (LV f (x + ej ) − LV f (x)) (g(x + ej ) − g(x))
+                  x∈Zd+            j=1
+              X                X
+          =           V (x)           Lij f (x + ei )Lij g(x + ei )
+              x∈Zd+            i,j
+
+                                     d
+                                   d X
+                                                (V )
+                  X                X
+              +           V (x)                Eij (x)(f (x + ej ) − f (x + ej − ei ))(g(x + ej ) − g(x))
+                  x∈Zd+              i=1 j=1
+
+              d X
+                d X
+                                                      (V )
+              X
+          ≥                        V (y − ej )Eij (y − ej )(f (y) − f (y − ei ))(g(y) − g(y − ej )),               (61)
+              i=1 j=1 y∈Zd
+                               +
+
+
+so taking subtracting c times (60) from (61) and taking f = g we obtain that
+            X                          X
+                V (x)Γ2 (f, f )(x) − c   V (x)Γ1 (f, f )(x)
+              x∈Zd+                                     x∈Zd+
+                        " d d                                                                            #
+                                                (V,c)
+                       X X  X
+                  ≥                            Eij      (y)(f (y) − f (y − ej ))(f (y) − f (y − ei )) ,
+                       y∈Zd+       i=1 j=1
+
+
+and the term in square brackets is positive for each y, by positive-definiteness.
+Remark 9.2. If V (x) = dk=1 Vk (xk ) is formed as the product of independent measures
+                            Q
+                            (V,c)
+in each coordinate, then Eij (y) ≡ 0 for i 6= j. Further, if each Vi is c-log-concave then
+               (V,c)                                 
+each entry Eii (y) = Vi (yi − 1) E (Vi ) (yi − 1) − c ≥ 0, so the condition of Proposition
+9.1 is satisfied. This mirrors the tensorization result of [13, Theorem 1.3], which was used
+to prove a sharp bound on the Ricci curvature for the hypercube {0, 1}d.
+    Hence, repeating the proof of Theorem 1.5, we can deduce that the positive definiteness
+of E (V,c) (y) for all y is enough to imply that a d-dimensional Poincaré inequality holds with
+constant ≤ 1/c.
+
+                                                                      20
+   A more detailed argument shows that many of the arguments used in Section 6 to prove
+the new modified log-Sobolev inequality Theorem 1.3 carry over. That is, we consider
+                             ∂
+functionsPft (x) evolving as ∂t ft (x) = LV ft (x), for LV as defined in (57). Again, taking
+Θ(t) := x∈Zd V (x)ft (x) log ft (x), we obtain that
+                   +
+
+
+
+                               X               d
+                                               X
+          ′
+        Θ (t) = −                      V (x)            (ft (x + ej ) − ft (x)) (log ft (x + ej ) − log ft (x)) .   (62)
+                               x∈Zd+              j=1
+
+
+Similarly, writing
+                                   d                                                            
+                       X          X                      log ft (x + ej )
+     ψ(t) :=                V (x)     ft (x + ej ) log                      − ft (x + ej ) + ft (x) , (63)
+                          d       j=1
+                                                              f t (x)
+                    x∈Z+
+
+
+an involved analysis using the expressions above shows that
+
+              X                d
+                               X
+ ′
+ψ (t) =                V (x)           f (x + ej )w (Uij (x), si (x))
+              x∈Zd+            i,j=1
+
+                                  d
+                                           (V )
+                  X               X
+              −           V (x)           Eij (x) (ft (x + ej ) − ft (x + ej − ei )) (log ft (x + ej ) − log ft (x)) .
+                  x∈Zd+           i,j=1
+
+
+where as before w(U; s) = −(U/s − 1) log U + (1 − U)(1 − 1/s) ≥ 0 and we write Uij (x) =
+f (x)f (x + ei + ej )/(f (x + ei )f (x + ej )) and si (x) = f (x)/f (x + ei ). We deduce that
+                          " d d                                                                  #
+                      X X      X (V,c)
+  cΘ′ (t) − ψ ′ (t) =               Eij (y)(ft (y) − ft (y − ej ))(log ft (y) − log ft (y − ei )) .
+                          y∈Zd+     i=1 j=1
+
+                                                                                               (64)
+                                                              (V,c)
+Unfortunately, positive definiteness of E          is not sufficient to guarantee the positivity of
+(64) required to deduce the log-Sobolev inequality. If (as in Remark 9.2) V is the product
+of c-log-concave mass functions, then E (V,c) becomes diagonal with positive entries. The
+positivity of (64) follows from the fact that log is a monotone function, meaning that
+(ft (y) − ft (y − ej )) and (log ft (y) − log ft (y − ej )) have the same sign.
+     It remains an interesting problem to characterize probability mass functions on Zd+ (and
+indeed for general graph settings) for which some form of Theorem 1.3 holds.
+
+
+Acknowledgments
+The author thanks the University of Bristol for funding to attend the conference ‘When
+Dominique Bakry is 60’ at Université Paul Sabatier Toulouse in December 2014. He also
+thanks the Institute for Mathematics and Its Applications for the invitation and funding to
+
+                                                                  21
+speak at the workshop ‘Information Theory and Concentration Phenomena’ in Minneapolis
+in April 2015. Attending talks and having discussions with organisers and fellow partici-
+pants at these meetings greatly helped in understanding the topics discussed here. Many
+calculations in this paper were first performed using Mathematica. The author thanks the
+anonymous referees of this paper for making numerous extremely helpful suggestions.
+
+
+References
+ [1] C. Ané and M. Ledoux. On logarithmic Sobolev inequalities for continuous time
+     random walks on graphs. Probability Theory and Related Fields, 116(4):573–602, 2000.
+
+ [2] D. Bakry and M. Émery. Diffusions hypercontractives. In Séminaire de probabilités,
+     XIX, volume 1123 of Lecture Notes in Math., pages 177–206. Springer, Berlin, 1985.
+
+ [3] D. Bakry, I. Gentil, and M. Ledoux. Analysis and geometry of Markov diffusion
+     operators, volume 348 of Grundlehren der mathematischen Wissenschaften. Springer,
+     2014.
+
+ [4] S. G. Bobkov and M. Ledoux. On modified logarithmic Sobolev inequalities for
+     Bernoulli and Poisson measures. J. Funct. Anal., 156(2):347–365, 1998.
+
+ [5] S. G. Bobkov and P. Tetali. Modified logarithmic Sobolev inequalities in discrete
+     settings. Journal of Theoretical Probability, 19(2):289–336, 2006.
+
+ [6] A.-S. Boudou, P. Caputo, P. Dai Pra, and G. Posta. Spectral gap estimates for inter-
+     acting particle systems via a Bochner-type identity. Journal of Functional Analysis,
+     232(1):222–258, 2006.
+
+ [7] P. Caputo, P. Dai Pra, and G. Posta. Convex entropy decay via the Bochner-Bakry-
+     Emery approach. Ann. Inst. Henri Poincaré Probab. Stat., 45(3):734–753, 2009.
+
+ [8] D. Chafaı̈. Binomial-Poisson entropic inequalities and the M/M/∞ queue. ESAIM
+     Probability and Statistics, 10:317–339, 2006.
+
+ [9] D. Chafaı̈ and A. Joulin. Intertwining and commutation relations for birth–death
+     processes. Bernoulli, 19(5A):1855–1879, 2013.
+
+[10] M. Chen. Estimation of spectral gap for Markov chains. Acta Mathematica Sinica,
+     12(4):337–360, 1996.
+
+[11] N. A. Cook, L. Goldstein, and T. Johnson. Size biased couplings and the spectral gap
+     for random regular graphs. See arXiv:1510.06013, 2015.
+
+[12] F. Daly and O. T. Johnson. Bounds on the Poincaré constant under negative depen-
+     dence. Statistics and Probability Letters, 83:511–518, 2013.
+
+
+                                           22
+[13] M. Erbar and J. Maas. Ricci curvature of finite Markov chains via convexity of the
+     entropy. Archive for Rational Mechanics and Analysis, 206:997–1038, 2012.
+
+[14] M. Fathi and J. Maas. Entropic Ricci curvature bounds for discrete interacting sys-
+     tems. See arXiv:1501.00562, 2015.
+
+[15] L. Gross. Logarithmic Sobolev inequalities. Amer. J. Math., 97(4):1061–1083, 1975.
+
+[16] A. Guionnet and B. Zegarlinski. Lectures on logarithmic Sobolev inequalities. In
+     Séminaire de Probabilités, XXXVI, volume 1801 of Lecture Notes in Math., pages
+     1–134. Springer, Berlin, 2003.
+
+[17] E. Hillion and O. T. Johnson. Discrete versions of the transport equation and the
+     Shepp-Olkin conjecture. Annals of Probability, 44(1):276–306, 2016.
+
+[18] E. Hillion, O. T. Johnson, and Y. Yu. A natural derivative on [0, n] and a binomial
+     Poincaré inequality. ESAIM Probability and Statistics, 16:703–712, 2014.
+
+[19] C. Houdré. Remarks on deviation inequalities for functions of infinitely divisible
+     random vectors. Annals of Probability, 33(3):1223–1237, 2002.
+
+[20] O. T. Johnson. Log-concavity and the maximum entropy property of the Poisson
+     distribution. Stoch. Proc. Appl., 117(6):791–802, 2007.
+
+[21] A. Joulin. Poisson-type deviation inequalities for curved continuous-time Markov
+     chains. Bernoulli, pages 782–798, 2007.
+
+[22] C. Klaassen. On an inequality of Chernoff. Ann. Probab., 13(3):966–974, 1985.
+
+[23] B. Klartag, G. Kozma, P. Ralli, and P. Tetali. Discrete curvature and abelian groups.
+     See arXiv:1501.00516, 2015.
+
+[24] I. Kontoyiannis, P. Harremoës, and O. T. Johnson. Entropy and the law of small
+     numbers. IEEE Trans. Inform. Theory, 51(2):466–472, 2005.
+
+[25] T. M. Liggett. Ultra logconcave sequences and negative dependence. J. Combin.
+     Theory Ser. A, 79(2):315–325, 1997.
+
+[26] Y. Lin and S.-T. Yau. Ricci curvature and eigenvalue estimate on locally finite graphs.
+     Math. Res. Lett, 17(2):343–356, 2010.
+
+[27] A. Mielke. Geodesic convexity of the relative entropy in reversible Markov chains.
+     Calculus of Variations and Partial Differential Equations, 48(1–2):1–31, 2013.
+
+[28] R. Pemantle. Towards a theory of negative dependence. J. Math. Phys., 41(3):1371–
+     1390, 2000.
+
+
+
+                                            23
+[29] M. Raginsky and I. Sason. Concentration of measure inequalities in information the-
+     ory, communications and coding. Foundations and Trends in Communications and
+     Information Theory, 10(1–2):1–246, 2013.
+
+[30] A. J. Stam. Some inequalities satisfied by the quantities of information of Fisher and
+     Shannon. Information and Control, 2:101–112, 1959.
+
+[31] D. W. Walkup. Pólya sequences, binomial convolution and the union of random sets.
+     J. Appl. Probability, 13(1):76–85, 1976.
+
+[32] L. Wu. A new modified logarithmic Sobolev inequality for Poisson point processes
+     and several applications. Probab. Theory Related Fields, 118(3):427–438, 2000.
+
+[33] Y. Yu. Monotonic convergence in an information-theoretic law of small numbers.
+     IEEE Trans. Inform. Theory, 55(12):5412–5422, 2009.
+
+
+
+
+                                            24
+

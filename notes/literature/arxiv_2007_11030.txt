@@ -1,0 +1,1094 @@
+                                                     CONCENTRATION FUNCTIONS AND ENTROPY BOUNDS
+                                                        FOR DISCRETE LOG-CONCAVE DISTRIBUTIONS
+
+
+
+
+arXiv:2007.11030v2 [math.PR] 26 Apr 2021
+                                                      SERGEY G. BOBKOV1 , ARNAUD MARSIGLIETTI2 , AND JAMES MELBOURNE3
+
+
+                                                   Abstract. Two-sided bounds are explored for concentration functions and Rényi entropies
+                                                   in the class of discrete log-concave probability distributions. They are used to derive certain
+                                                   variants of the entropy power inequalities.
+
+
+
+
+                                                                                          1. Introduction
+
+                                           Given a random variable X, its concentration function is defined by
+                                                                      Q(X; λ) = sup P{x ≤ X ≤ x + λ},                  λ ≥ 0.                        (1.1)
+                                                                                      x
+                                           Of a large interest is also the particular value
+                                                                            M (X) = Q(X; 0) = sup P{X = x}.                                          (1.2)
+                                                                                                        x
+                                           These quantities are related to other important characteristics of probability distributions such
+                                           as the Shannon and Rényi entropies. Our original goal was to find effective two-sided bounds
+                                           on Q(X, λ) in the class of discrete log-concave distributions and thus to explore a number of
+                                           similarities with the well studied continuous setting.
+                                              Let us recall that an integer-valued random variable X (also called discrete) is said to
+                                           have a (discrete) log-concave distribution, if its probability function f (k) = P{X = k} has an
+                                           integer supporting interval supp(f ) = {k ∈ Z : f (k) > 0}, and
+                                                                         f (k)2 ≥ f (k − 1)f (k + 1) for all k ∈ Z.                                  (1.3)
+                                           Many classical discrete distributions belong to this class: discrete uniform, Bernoulli, binomial
+                                           and convolutions of Bernoulli distributions with arbitrary parameters, Poisson, geometric,
+                                           negative binomial, etc. (cf. [7] and references therein). It is therefore interesting to know
+                                           how basic characteristics of such distributions are connected with each other: variance, mo-
+                                           ments, concentration function, entropies, in analogy with usual log-concave distributions in
+                                           the continuous setting (for which the densities with respect to the linear Lebesgue measure
+                                           are log-concave). While a number of challenging questions about this class are still open, in
+                                           this paper we develop several techniques (reduction to the continuous setting, rearrangement)
+                                           and describe some of the results in this direction. In particular, we prove:
+
+                                             2010 Mathematics Subject Classification. Primary.
+                                             Key words and phrases. Log-concave distributions, majorization, entropy power inequalities.
+                                             1) School of Mathematics, University of Minnesota, Minneapolis, MN 55455 USA, bobkov@math.umn.edu .
+                                             2) University of Florida, Department of Mathematics, Gainesville, FL 32611 USA, a.marsiglietti@ufl.edu .
+                                             3) Department of Electrical and Computer Engineering, University of Minnesota, Minneapolis, MN 55455
+                                           USA, jamescmelbourne@gmail.com .
+                                                                                                 1
+2             SERGEY G. BOBKOV1 , ARNAUD MARSIGLIETTI2 , AND JAMES MELBOURNE3
+
+    Theorem 1.1. If the random variable X has a discrete log-concave distribution, then
+                              1                           2
+                      p                ≤ M (X) ≤ p                .                   (1.4)
+                         1 + 12 Var(X)              1 + 4 Var(X)
+Moreover, if the distribution of X is symmetric about a point, then the above upper bound
+may be sharpened to
+                                                 1
+                                  M (X) ≤ p              .                           (1.5)
+                                            1 + 2 Var(X)
+
+
+   The inequality (1.5) becomes an equality for two-sided geometric distributions, that is,
+for densities f (k) = cp p|k| , k ∈ Z, with an arbitrary value p ∈ (0, 1), where cp = 1−p
+                                                                                        1+p is a
+normalizing constant. As for the lower bound in (1.4), it does not need any log-concavity
+assumption; here the factor 12 in front of the variance of X is optimal, as can be seen on the
+example of discrete uniform distributions.
+   Relations similar to (1.4)-(1.5) with involved parameter λ may also be stated for the corre-
+sponding concentration functions (see Section 8). Let us however turn to information-theoretic
+applications of Theorem 1.1 such as entropy power inequalities (EPI’s).
+   If the random variable X has an absolutely continuous distribution with density f (x) with
+respect to the Lebesgue measure (the continuous setting), the differential Rényi entropy power
+of a given order α > 0, α 6= 1, is defined by
+                                           Z ∞           − 2
+                                                      α      α−1
+                                  Nα (X) =       f (x) dx        ,                         (1.6)
+                                                −∞
+while the limit case N (X) = limα→1 Nα (X) represents the Shannon differential entropy power.
+As is well-known, this functional is subadditive on convolutions, that is, it satisfies a funda-
+mental EPI
+                               N (Sn ) ≥ N (X1 ) + · · · + N (Xn ),                         (1.7)
+where Sn = X1 + · · · + Xn is the sum of independent continuous random variables. A more
+general relation such as
+                                                                    
+                           Nα (Sn ) ≥ cα Nα (X1 ) + · · · + Nα (Xn )                        (1.8)
+               1
+with cα = α α−1 , α > 1, is also true for Rényi entropy powers. We refer an interested reader
+to [3], cf. also [15], [25], [5], [13], [18], and [14] for other variants and extensions of (1.7).
+    If X takes only integer values with density f (k) with respect to the counting measure, the
+Rényi entropy power is defined similarly to (1.6) as
+                                                        X           − 2
+                                                                       α−1
+                                              2Hα (X)              α
+                                Nα (X) = e            =       f (k)        .                       (1.9)
+                                                       k∈Z
+Here
+                                                 1      X
+                                  Hα (X) = −        log   f (k)α
+                                                α−1
+                                                             k∈Z
+is the classical Rényi entropy, with the limit case
+                                                    X
+                              H1 (X) = H(X) = −       f (k) log f (k).
+                                                      k∈Z
+CONCENTRATION FUNCTIONS AND ENTROPY BOUNDSFOR DISCRETE LOG-CONCAVE DISTRIBUTIONS3
+
+    Both in the discrete and continuous settings, these entropies are monotone in the sense that
+they may only increase when adding an independent summand to a given random variable.
+However, while the EPI (1.7) quantifies this property in the continuous setting, not much is
+known so far about the discrete random variables. The inequality (1.7) has been verified to
+be true in [10] for the family of the (symmetric) binomial distributions (cf. also [8], [17]). In
+the general discrete case, it was shown in [9] that
+                                    1           1                             
+                    H(X1 + X2 ) ≥ H(X1 ) + H(X2 ) + g H(X1 ), H(X2 )
+                                    2           2
+for some positive doubly-increasing function g on R2+ such that g(x1 , x2 ) → 18 as x1 , x2 → ∞.
+    Anyhow, as far as we know, the inequality (1.7) is no longer true in the general discrete case.
+It seems the nature of the discrete entropy power is different, since for example necessarily
+Nα (X) ≥ 1. The functionals
+                                      ∆α (X) = Nα (X) − 1,
+reflecting the size of the variance more accurately (in analogy with the “continuous” entropy
+power), seem to be more appropriate and therefore more suitable from the point of view of
+EPI’s. This can be seen from the following assertion.
+
+   Theorem 1.2. If the independent random variables Xk (1 ≤ k ≤ n) have symmetric
+discrete log-concave distributions, then
+                              n                          n
+                          1 X                            X
+                                ∆α (Xk ) ≤ ∆α (Sn ) ≤ cα   ∆α (Xk )        (1.10)
+                         cα
+                             k=1                            k=1
+
+for any α > 1 with cα = 2(3α−1)
+                          α−1 . Moreover, in the case 1 < α ≤ 2, the symmetry assumption
+may be dropped, while the constant may be improved to the value cα = 3α−1
+                                                                       α−1 .
+
+
+    In this connection, let us mention a recent paper [21] dealing with similar problems. In
+particular, it is shown there that for (not necessarily symmetric) Bernoulli summands Xk and
+all α ≥ 2, the left inequality in (1.10) remains to hold with cα = 6(α−1)α    ≤ 6. It was also
+observed that such a lower bound is no longer true for α = 1 with any fixed positive constant
+in place of cα . It would be interesting to explore whether or not it is possible to remove the
+symmetry assumption in Theorem 1.2 for the whole range of α’s.
+    One may complement these relations with similar ones for the entropy powers in analogy
+with (1.8). To this aim, we involve an additional condition on the variances of the summands.
+
+   Theorem 1.3. If the random variables Xk have discrete log-concave distributions, and
+Var(Xk ) ≥ σ 2 > 0 for all k ≤ n, then for any α ≥ 1,
+                                                    n
+                                               1 X
+                                   Nα (Sn ) ≥      Nα (Xk ),                                (1.11)
+                                              cσ
+                                                  k=1
+                      1
+where cσ = 2πe (1 + 12σ 2 ). In fact, without any condition on the variances, this lower bound
+may be reversed to the form
+                                                          Xn
+                                        πe
+                          Nα (Sn ) ≤ − (3n − 1) + 2πe        Nα (Xk ).                   (1.12)
+                                         6
+                                                           k=1
+4            SERGEY G. BOBKOV1 , ARNAUD MARSIGLIETTI2 , AND JAMES MELBOURNE3
+
+
+
+
+   The paper is organized as follows. We start with general upper bounds for the Rényi entropy
+powers in terms of variance and recall known results in the continuous setting (including an
+important theorem due to Moriguti). Such results are used in Section 3 to derive similar
+upper bounds for discrete random variables. In Section 4 we turn to the notion of discrete
+log-concavity and first recall its relationship with purely algebraic problems. Sections 5-6
+connects discrete log-concave distributions with usual (continuous) log-concave measures on
+the real line. In this way, one may derive a number of interesting relations in the discrete
+setting, although not always with sharp constants. As a sharpening approach, in Section 7 we
+develop rearrangement arguments, which allow to complete the proof of Theorem 1.1. A more
+general form of this theorem is considered in Section 8 in terms of concentration functions.
+Proof of Theorems 1.2-1.3 is postponed to Section 9, and in the last Section 10 we conclude
+the exposition with remarks on Bernoulli sums.
+
+           2. Maximum to Rényi Entropy Subject to Variance Constraint
+
+In the discrete case, the M -functional (1.2) may be viewed as a member in the hierarchy of
+Rényi entropies. More precisely, letting α → ∞, the definition (1.9) leads to the identity
+                                     N∞ (X) = M (X)−2 .                                    (2.1)
+
+
+    Convention. In the continuous case, if a random variable X has density f (x), put
+                                    M (X) = ess supx f (x).
+
+    Thus, we use the same notation for two formally different objects, in analogy with Nα . As
+a consequence, the formula (2.1) remains true both in the continuous and discrete setting, as
+follows from the definition (1.6).
+    First let us state one elementary general relation connecting the M -functional to variance.
+
+   Proposition 2.1. Given a continuous random variable X with a fixed variance, the M -
+functional is minimized for the uniform distribution on a finite interval. Equivalently,
+                                                       1
+                                    M 2 (X) Var(X) ≥      .                                (2.2)
+                                                       12
+The equality here is attained if and only if X has a uniform distribution on a finite interval.
+
+   This relation is well-known, and here we recall a simple argument. One may assume that
+X has a finite second moment with M (X) = 1 (by homogeneity). Then the non-negative
+function u(x) = P{|X − EX| ≥ x} is Lipschitz (therefore absolutely continuous) and satisfies
+u(0) = 1, u′ (x) ≥ −2 a.e., so that u(x) ≥ 1 − 2x for all x ≥ 0. This gives
+                      Z ∞                 Z 1/2              Z 1/2
+                                                                                   1
+         Var(X) = 2         xu(x) dx ≥ 2        xu(x) dx ≥ 2       x(1 − 2x) dx =    .
+                        0                  0                   0                  12
+                                                                                              
+CONCENTRATION FUNCTIONS AND ENTROPY BOUNDSFOR DISCRETE LOG-CONCAVE DISTRIBUTIONS5
+
+   Now, let us restate (2.2) as a homogeneous inequality (with respect to X)
+                                     N∞ (X) ≤ 12 Var(X).                                     (2.3)
+Importantly, this relation may be extended to Rényi entropies of all orders α ≥ 1. The problem
+of maximization of Nα (X) when the variance is fixed was considered and solved by Moriguti
+in 1952 (cf. also [12] and [6] for a multidimensional extension).
+
+    Proposition 2.2 ([22]). Let 1 < α < ∞. Given a continuous random variable X with a
+fixed variance, the Rényi entropy power Nα (X) is maximized for the distribution whose density
+                                                                                1
+fα is supported on the interval (−1, 1) and is proportional there to (1 − x2 ) α−1 . Equivalently,
+                                     Nα (X) ≤ Aα Var(X),                                     (2.4)
+where the constant Aα corresponds to fα .
+
+   The inequality (2.4) is affine invariant, so it is equivalent to the formally weaker relation
+Nα (X) ≤ Aα EX 2 which was actually considered in [22].
+                                                                         1
+   Thus, the extremal density has the form fα (x) = cα (1 − x2 ) α−1 , |x| < 1, in which the
+normalizing constant is given by
+                                                           3α−1
+                                                                 
+                                          1            Γ 2(α−1)
+                                cα =      α         =     α            .                   (2.5)
+                                     B( α−1  , 21 )   Γ( α−1 ) Γ( 21 )
+In this case, as was already noted in [22],
+                                                α−1
+                                       Var(X) =       .                                      (2.6)
+                                               3α − 1
+   Let us compute the constant Aα . Putting β = 2α−1
+                                                  α , we have
+           Z ∞                 Z 1                      Z 1
+                                            α                          1       cα
+                     α
+               fα (x) dx = cαα           2 α−1
+                                   (1 − x )    dx = cαα
+                                                            (1 − x2 ) β−1 dx = α .
+            −∞                  −1                       −1                    cβ
+Hence, according to the definition (1.4) of the Rényi entropy power,
+                  Nα (X)         1     Z ∞              − 2     3α − 1  cβ  α−1
+                                                                                 2
+                                                           α−1
+           Aα =           =                   fα (x)α dx       =                    .        (2.7)
+                  Var(X)      Var(X)      −∞                      α − 1 cαα
+For example, A2 = 1259 ∼ 13.888... Although the expression in (2.7) is rather complicated, one
+can show that Aα → 2πe ∼ 17.079 as α → 1 (by Stirling’s formula), while Aα → 12 as α → ∞,
+so that Proposition 2.2 includes (2.3). This can also be seen by noting that the extremal
+distribution approaches the uniform distribution on the interval (−1, 1) for large values of
+α, while after a linear transformation it approaches the standard normal distribution for α
+approaching 1. In the latter case, we arrive at another well-known relation
+                                     N (X) ≤ 2πe Var(X),                                     (2.8)
+where an equality is attained for all non-degenerate normal laws. Since the function α →
+Nα (X) is non-increasing, we also conclude that Aα is a decreasing function in α. In particular,
+(2.8) yields a slightly weaker variant of (2.4) with a universal constant, namely
+                                     Nα (X) ≤ 2πe Var(X).                                    (2.9)
+It holds for all α ≥ 1, and an equality is attained for α = 1 and all normal laws.
+6            SERGEY G. BOBKOV1 , ARNAUD MARSIGLIETTI2 , AND JAMES MELBOURNE3
+
+              3. Discrete Case: Bounds on Rényi Entropy via Variance
+
+In order to derive similar relations in the discrete case, one may apply (2.4) to the random
+variable Xe = X + U , where U is independent of X and has a uniform distribution on the
+                                                                              e has density
+interval (− 21 , 12 ). In terms of the probability function f (k) = P{X = k}, X
+                                         X
+                                f˜(x) =     f (k) 1(k− 1 , k+ 1 ) (x), x ∈ R.
+                                                 2     2
+                                   k∈Z
+
+It follows that
+                                            Z ∞
+                                     1
+                        hα (X̃) ≡ −     log      f˜(x)α dx
+                                    α−1      −∞
+                                     1      X
+                                = −     log     f (k)α = Hα (X),
+                                    α−1
+                                                 k∈Z
+
+                  e = Nα (X). Since Var(X)
+and therefore Nα (X)                    e = 1 + Var(X), from (2.4) we therefore obtain:
+                                            12
+
+   Proposition 3.1. Let 1 ≤ α ≤ ∞. For any integer valued random variable X having finite
+variance,
+                                             1            
+                               Nα (X) ≤ Aα       + Var(X) ,                         (3.1)
+                                              12
+where the constant Aα is described in (2.5) and (2.7). In particular,
+                                             1             
+                               Nα (X) ≤ 2πe       + Var(X) .
+                                              12
+
+    For α = ∞, we have A∞ = 12, and (3.1) yields:
+
+    Corollary 3.2. For any integer valued random variable X having finite variance,
+                                1 ≤ N∞ (X) ≤ 1 + 12 Var(X).                                (3.2)
+
+
+   In view of (2.1), the above upper bound is exactly the lower bound (1.4) in Theorem 1.1.
+Note that it may also be obtained with a similar argument on the basis of Proposition 2.1,
+thus without referring to Moriguti’s theorem (cf. Proposition 8.2 below).
+   Since in general Nα (X) ≥ 1, while the variance may take any prescribed value, the constant
+ 1
+12 may not be removed from (3.1). Nevertheless, one may ask the following question: Is it
+                     1
+possible to replace 12 in (3.1) with 1/Aα at the expense of an additional factor in front of the
+variance in analogy with (2.4)? The answer is affirmative in some sense for α > 1, if we allow
+the factor depend on α.
+   Indeed, generalizing the previous argument, let us apply (2.4) to random variables of the
+form X̃ = X + U , assuming that U is independent of X and has density g(x) supported on
+the unit interval. Then, X̃ has density
+                                        1          1             1
+                 f˜(x) = f (k) g x − k +    ,     k − < x < k + , k ∈ Z.
+                                         2           2             2
+CONCENTRATION FUNCTIONS AND ENTROPY BOUNDSFOR DISCRETE LOG-CONCAVE DISTRIBUTIONS7
+
+If α > 1, it follows that
+                            Z ∞                 X              Z ∞
+                                  f˜(x)α dx =         f (k)α         g(x)α dx,
+                             −∞                 k∈Z            −∞
+
+and therefore
+                                    Nα (X̃) = Nα (X) Nα (U ).
+Since Var(X̃) = Var(X) + Var(U ), an application of (3.2) yields
+                                                                
+                            Nα (X) Nα (U ) ≤ Aα Var(X) + Var(U ) ,
+that is,
+                                      Aα Var(U )     Aα
+                             Nα (X) ≤             +         Var(X).
+                                       Nα (U )      Nα (U )
+Here, according to Proposition 2.2, the first term on the right-hand side is minimized and is
+equal to 1 when U = 12 Z where Z has density fα . In that case, for the second term we have
+                             Aα         1         4      4(3α − 1)
+                                    =         =        =           ,
+                            Nα (U )   Var(U )   Var(Z)     α−1
+where we recalled the identity (2.6). Thus, we arrive at the following relation, which contains
+(3.2) for α = ∞.
+
+   Proposition 3.3. Let 1 < α ≤ ∞. For any integer valued random variable X having finite
+variance, we have
+                                            4(3α − 1)
+                         1 ≤ Nα (X) ≤ 1 +             Var(X).                       (3.3)
+                                              α−1
+
+
+                                  4. Log-concave Sequences
+
+We now turn to lower bounds for the Rényi entropies. This cannot be performed in terms of
+variances in the entire class of discrete probability distributions, so some extra hypotheses are
+needed. As it turns out, the class of discrete log-concave distributions perfectly fits our aims.
+First, let us recall that a sequence {ak }k∈Z of non-negative numbers is called log-concave, if
+                                         a2k ≥ ak−1 ak+1                                    (4.1)
+for all k ∈ Z. Similarly, a finite sequence {ak }nk=m of non-negative numbers is log-concave, if
+this inequality is fulfilled whenever m + 1 ≤ k ≤ n − 1. Defining ak = 0 for k < m and k > n,
+we then obtain an infinite log-concave sequence.
+    Log-concave sequences appear in a purely algebraic framework. The following classical
+result goes back to Newton.
+                                                          P         
+   Proposition 4.1. Suppose that a polynomial P (z) = nk=0 nk ak z k has only real zeros
+over the field C of complex numbers. Then (4.1) holds true for all 1 ≤ k ≤ n − 1.
+
+    Following [26], one may give a proof based on the following observation of independent
+interest due to Gauss-Lucas: For any polynomial P over C of degree deg(P ) ≥ 1, the zeros of
+its derivative P ′ belong to the convex hull of the zeros of P .
+8            SERGEY G. BOBKOV1 , ARNAUD MARSIGLIETTI2 , AND JAMES MELBOURNE3
+
+   The sequences that produce polynomials with real roots give an interesting subset of the
+class of sequences satisfying a log-concavity inequality. One should note that such sequences
+need not have contiguous support. For example, z 2 − 1 has roots ±1 and corresponds to the
+sequence {1, 0, −1}.
+   Let us now mention the following important theorem due to Hoggar [11].
+
+   Proposition 4.2. If the coefficients of two polynomials are positive and form log-concave
+sequences, then so does their product.
+                            Pn          k and Q(z) =
+                                                          Pm                k of degrees n and m respectively,
+    Note that for P (z) =    k=0 ak z                            k=0 bk z
+                                               n+m
+                                               X                               X
+                    R(z) = P (z)Q(z) =                ck z k ,     ck =                  ak1 bk2 .
+                                                k=0                          k1 +k2 =k
+
+                            n+m
+Here, the coefficients {ck }k=0 appear as the convolution of the sequences {ak }nk=0 and {bk }m
+                                                                                              k=0 .
+Thus, Proposition 4.2 tells us that the class of finite positive log-concave sequences is closed
+under the convolution operation.
+   The assumption about the positivity may not be removed in this conclusion. For a counter-
+example, one may take the polynomials
+                   P (z) = 1 + z,       Q(z) = 1 + z 3 ,         R(z) = 1 + z + z 3 + z 4 ,
+which correspond to the sequences {1, 1}, {1, 0, 0, 1}, {1, 1, 0, 1}. Here, the first two sequences
+are log-concave, while the third one is not. With this in mind, the notion of a log-concave
+discrete distribution on Z should be introduced as in Introduction.
+   Recalling the definition (1.3), as an immediate consequence from Proposition 4.2, we obtain:
+
+  Corollary 4.3. The class of (discrete) log-concave probability distributions on Z is closed
+under the convolution operation.
+
+                5. From Discrete to Continuous Log-concave Measures
+
+Let us turn to basic properties of discrete log-concave distributions. Some of them can be
+obtained by employing known results from the theory of “continuous” log-concave functions.
+To this aim, we describe a simple construction, which allows one to associate with a discrete
+log-concave distribution defined by a probability function a certain log-concave function on
+the real line.
+   Given a random variable X with a discrete log-concave distributions defined by a probability
+function f (k), denote by ∆ the smallest closed interval containing supp(f ). Let us extend the
+function
+                                           V (k) = − log f (k)
+linearly on every segment [k, k + 1] ⊂ ∆, and put V = ∞ outside ∆ (if ∆ is not the whole
+real line). Then V is finite and convex on ∆. To see this, assume that |∆| ≥ 2, and for
+[k − 1, k + 1] ⊂ ∆, rewrite (4.1) as
+                              V (k) − V (k − 1) ≤ V (k + 1) − V (k).
+CONCENTRATION FUNCTIONS AND ENTROPY BOUNDSFOR DISCRETE LOG-CONCAVE DISTRIBUTIONS9
+
+But V (k) − V (k − 1) = V ′ (x) on (k − 1, k), which means that V has a non-decreasing (Radon-
+Nikodym) derivative. As a result, we obtain a log-concave function
+                                    f (x) = e−V (x) ,   x ∈ R,
+which coincides with f (k) on all integers k. Let us call it a log-piecewise linear extension of
+the sequence f (k).
+   In general, f (x) does not need be a probability density on the line. Nevertheless, since
+                    Z k+1
+                          f (x) dx ≤ max{f (k), f (k + 1)} ≤ f (k) + f (k + 1),
+                    k
+after summation over all k ∈ R, we conclude that f is integrable. Let us emphasize this fact
+once more.
+
+   Proposition 5.1. The restrictions of densities of finite (continuous) log-concave measures
+from R to Z describe the whole class of probability functions of discrete log-concave measures.
+
+   Returning to the log-piecewise linear extension of the sequence f (k) and using an additional
+property f (k) ≤ 1, an immediate consequence of the integrability of f is that, with some
+constant c > 0 depending on the distribution of X,
+                                f (k) ≤ 2 e−c|k|   for all k ∈ Z.
+In particular, there is a point of maximum for this sequence, which is called a mode (using a
+probabilistic language). It is also a mode for the function f (x). So, it is a mode of X.
+   Let m ∈ Z be a mode of X. Then necessarily f (k) is non-increasing in k ≥ m and is
+non-decreasing in k ≤ m. Hence
+     Z k+1                                       Z k
+            f (x) dx ≥ f (k + 1) for k ≥ m,           f (x) dx ≥ f (k − 1) for k ≤ m.
+      k                                              k−1
+
+Performing summation over all k, we get
+                                 Z ∞
+                                     f (x) dx ≥ 1 − f (m).
+                                    −∞
+
+Also, since V is linear on each interval [k, k + 1] ⊂ ∆, f (x) is convex, and therefore its graph
+lies below the segment connecting the points (k, f (k)) and (k + 1, f (k + 1)). Hence
+                               Z k+1
+                                                 f (k) + f (k + 1)
+                                     f (x) dx ≤                    .
+                                k                        2
+Performing summation over all k, we arrive at:
+
+   Proposition 5.2. If m is mode of X and |∆| ≥ 2, then
+                                         Z ∞
+                             1 − f (m) ≤     f (x) dx ≤ 1.
+                                                −∞
+
+
+   Similar bounds hold true for the second moment. In particular, one may easily derive:
+10            SERGEY G. BOBKOV1 , ARNAUD MARSIGLIETTI2 , AND JAMES MELBOURNE3
+
+  Proposition 5.3. Let X be a discrete random variable with a log-concave density f with
+mode at m. If f (m) ≤ 12 , then the log-piecewise extension of the density satisfies
+                                     Z ∞
+                   1
+                     E (X − m)2 ≤         (x − m)2 f (x) dx ≤ 3 E (X − m)2 .
+                   3                  −∞
+
+Moreover, the left inequality is also true when f (m) ≥ 21 .
+
+                      6. Second Moment and Maximum of Density
+
+Propositions 5.2-5.3 may be used to extend a number of results about continuous log-concave
+distributions to the discrete setting. Let us remind basic relations for the class of log-concave
+densities on the line in the usual continuous setting. One important feature in this case is that
+the general lower bound as in Proposition 2.1 may be reversed.
+   Keeping X to denote a discrete random variable, let Z be a (continuous) random variable
+with a log-concave density g. It is supported on some closed interval ∆ ⊂ R, finite or not, which
+contains a point of maximum m of g, i.e., the mode of Z (which may be one of the endpoints
+of ∆ when this interval is bounded from the left or from the right). Hence M (Z) = g(m).
+Together with (2.2), it is known that
+                                    1
+                                       ≤ M 2 (Z) Var(Z) ≤ 1,                                 (6.1)
+                                   12
+where an inequality on the right-hand side is achieved for the one-sided exponential distribution
+with density g(x) = e−x 1(0,∞) (x) (cf. Proposition 2.1 in [4]). In fact, if g is symmetric about
+m, the upper bound can be improved to
+                                                         1
+                                      M 2 (Z) Var(Z) ≤     ,                                 (6.2)
+                                                         2
+which is attained for the two-sided exponential distribution with density g(x) = 21 e−|x| .
+  There is a similar assertion about the second moment when Z is centered at the mode.
+
+  Proposition 6.1. If a (continuous) random variable Z has a log-concave density g with
+mode at the point m, then
+                                M 2 (Z) E (Z − m)2 ≤ 2.
+
+
+     Combining this relation with the lower bound in (6.1), we also get
+                                    E (Z − m)2 ≤ 24 Var(Z).
+    Let us now describe an immediate application of Proposition 6.1 to the discrete setting.
+Suppose that we are given an integer-valued random variable X with discrete log-concave
+distribution, and denote by f (x) the log-piecewise linear extension of the probability function
+f (k) = P{X = k}, k ∈ Z. Let R ∞Z be a random variable whose density g is proportional to f ,
+                1
+that is, g(x) = B f (x), B = −∞ f (x) dx. Recall that, by Proposition 5.2, B ≤ 1. Hence, by
+Propositions 6.1 applied to g, we get that
+                                     Z ∞
+                                   2
+                             f (m)       (x − m)2 f (x) dx ≤ 2B 3 .
+                                      −∞
+CONCENTRATION FUNCTIONS AND ENTROPY BOUNDSFOR DISCRETE LOG-CONCAVE DISTRIBUTIONS
+                                                                               11
+
+On the other hand, according to Proposition 5.3, the above integral dominates 31 E (X − m)2 .
+Combining the two inequalities, we arrive at:
+
+  Proposition 6.2. If X is a discrete random variable with a log-concave density f with
+mode at m, then
+                               M 2 (X) E (X − m)2 ≤ 6.
+In particular,
+                                      M 2 (X) Var(X) ≤ 6.                                    (6.3)
+
+
+   Proof of Proposition 6.1. We may assume that m = 0 and g(0) = 1. Moreover, let
+a = P{Z < 0} and b = P{Z > 0} be positive.
+   By the log-concavity, g(x) = exp{−V (x)} for some convex function V : R → [0, ∞] with
+V (0) = 0. Putting g̃(x) = exp{−Ṽ (x)} with Ṽ (x) = x/b for x ≥ 0 and Ṽ (x) = −x/a for
+x ≤ 0, we obtain another log-concave probability density such that
+            Z 0            Z 0                   Z ∞            Z ∞
+                 g(x) dx =      g̃(x) dx = a,        g(x) dx =      g̃(x) dx = b.
+                 −∞           −∞                     0              0
+
+Since Ṽ is linear on [0, ∞) and Ṽ (0) = 0, necessarily V (x) ≤ Ṽ (x) on the interval 0 ≤ x < x0
+and V (x) ≥ Ṽ (x) on the half-axis x > x0 for some x0 > 0. Equivalently, g(x) ≥ g̃(x) for
+0 ≤ x < x0 and g(x) ≤ g̃(x) for x > x0 . Introduce the distribution functions
+                                        Z x                           Z x
+                  G(x) = P{Z ≤ x} =          g(y) dy and G̃(x) =          g̃(y) dy.
+                                          −∞                         −∞
+
+It follows that the function ψ(x) = G(x) − G̃(x) is vanishing at the origin and at infinity, and
+its derivative is non-negative on [0, x0 ) and non-positive on (x0 , ∞). Hence ψ(x) ≥ 0 for all
+x ≥ 0. This implies that
+                    Z ∞               Z ∞                  Z ∞
+                          2                 2
+                        x g(x) dx −        x g̃(x) dx = −2     xψ(x) dx ≤ 0.
+                      0               0                     0
+By the same argument, a similar inequality holds when integrating over the negative half-axis.
+Hence
+                Z ∞                Z ∞
+            2
+         EZ =         2
+                     x g(x) dx ≤         x2 g̃(x) dx = 2 (a3 + b3 ) ≤ 2 (a + b)3 = 2.
+                      −∞               −∞
+                                                                                                
+
+   Remark. In terms of the Rényi entropy powers, the inequalities (6.1)-(6.2) take the form
+                     1                                             1
+                       N∞ (Z) ≤ Var(Z) ≤ N∞ (Z),       Var(Z) ≤ N∞ (Z).                  (6.4)
+                    12                                             2
+Here, the first inequality is general and corresponds to (2.4) in the limit case α = ∞, while
+the upper bounds on the variance hold for log-concave probability measures (symmetric in the
+second case). Similarly to (2.4), these upper bounds may be extended to the whole range of α
+at the expense of certain α-dependent factors. Although the extremal log-concave distributions
+are not known so far, one particular case may easily be settled. Given a random variable Z
+12           SERGEY G. BOBKOV1 , ARNAUD MARSIGLIETTI2 , AND JAMES MELBOURNE3
+
+
+with a log-concave distribution, let us apply the second upper bound in (6.4) to Z̃ = Z − Z ′ ,
+where Z ′ is an independent copy of Z. Since N∞ (Z̃) = N2 (Z), we then obtain that
+                                                  1
+                                        Var(Z) ≤    N2 (Z).
+                                                  4
+Here, we have an equality for the exponential distribution, and thus the conclusion that among
+continuous log-concave variables on the real line, the exponential distribution has minimal 2-
+Rényi entropy, often referred to as collision entropy.
+
+                     7. Sharpenings via Rearrangement Arguments
+
+The inequality (6.3) may be sharpened and generalized by involving more delicate arguments
+based on the so-called rearrangement of densities. Similarly to the continuous setting, these
+arguments allow one to explore an extremal role of a discrete counterpart of the exponential
+distributions. More precisely, when a probability mass function f : Z → [0, ∞) can be written
+as f (k) = Cp|k| for some 0 ≤ p < 1, we will call it a symmetric two-sided geometric distribution.
+Here, the symmetry property refers to the identity f (−k) = f (k).
+    Let us start with basic definitions.
+
+    Definition (Decreasing rearrangement). For a probability function f : Z → [0, ∞), denote
+by f ↓ its decreasing rearrangement. Explicitly, f ↓ is defined on N and satisfies f ↓ (k) ≥ f ↓ (k+1)
+for all k ≥ 0 and there exists a bijection τ : N → Z such that f ↓ (k) = f (τ (k)).
+
+  Definition (Majorization). Given
+                                 P probabilityPfunctions f and g on Z, we say that f
+majorizes g and write f ≻ g, when nk=0 f ↓ (k) ≥ nk=0 g↓ (k) for all n ≥ 0.
+
+   We extend this notion to random variables by writing X ≻ Y when f ≻ g holds for their
+respective probability functions.
+
+   Definition (Schur-Concavity). A functional Φ defined on a given family of probability
+functions on N is called Schur-convex, when f ≻ g implies Φ(f ) ≥ Φ(g). A functional Φ is
+Schur-concave when −Φ is Schur-convex.
+
+   We extend Schur-convexity/concavity to random variables by asking that Schur-convexity/
+concavity hold for the respective probability mass functions.
+
+  Lemma 7.1 ([20]). Any symmetric log-concave probability function f majorizes the sym-
+metric two-sided geometric distribution g with the same maximum as f .
+
+    A more general result was actually first proven in [19]. We include a proof of Lemma 7.1
+for completeness.
+  Proof. Let q ∈ [0, 1]. Define, for k ∈ Z, gq (k) = q |k| f (0) with the convention that 00 = 1.
+Note that
+                              X                    X
+                                  g0 (k) = f (0) ≤      f (k) = 1
+                                 k∈Z                  k∈Z
+CONCENTRATION FUNCTIONS AND ENTROPY BOUNDSFOR DISCRETE LOG-CONCAVE DISTRIBUTIONS
+                                                                               13
+    P                                         P
+and k∈Z g1 (n) = ∞. Since the function q 7→ k∈Z gq (k) is continuous and strictly increasing
+on [0, 1], we deduce by the intermediate value theorem that there exists a unique q ∗ ∈ [0, 1)
+such that                         X            X
+                                     gq∗ (k) =    f (k) = 1.
+                                    k∈Z           k∈Z
+By construction, gq∗ is the probability function of a two-sided geometric distribution. Denote
+by the same letters f and gq the corresponding log-piecewise linear extensions. In particular,
+                           max gq∗ (x) = gq∗ (0) = f (0) = max f (x).
+                           x∈R                                 x∈R
+
+Thus, the function L = − log gq∗ is affine on [0, ∞), while V = − log f is convex, with L(0) =
+V (0). Hence, there must exist l ≥ 0 such that V ≤ L on [0, l] and V ≥ L on [l, ∞), that is,
+                                                              P              P
+f ≥ gq∗ on [0, l] and f ≤ gq∗ on [l, ∞). Hence, for all n ≥ 0, nk=0 f ↓ (k) ≥ nk=0 gq↓∗ (k). 
+
+    Lemma 7.2 (Schur-concavity of moments on symmetric log-concaves). If the function
+u : [0, ∞) → [0, ∞) is non-decreasing, then the functional Φ(f ) = E u(|X|) is Schur concave on
+the set of symmetric discrete log-concave probability functions.
+
+   Proof. By linearity of Φ with respect to u, one may assume that u(x) = 1(λ,∞) (x) for some
+integer λ ≥ 0. Suppose that X and Y are symmetric log-concave variables such that fX ≻ fY .
+By symmetry, unimodality and the assumed majorization, we have
+                                                                      λ
+                                                                      X
+         E u(|X|) = P{|X| > λ} = 1 − P{|X| ≤ λ} = 1 −                       fX (k)
+                                                                     k=−λ
+                            2λ
+                            X                     2λ
+                                                  X
+                    = 1−           ↓
+                                  fX (k)   ≤ 1−         fY↓ (k) = P{|Y | > λ} = E u(|Y |),
+                            k=0                   k=0
+and the result follows.                                                                         
+
+   We are prepared to settle the upper bound of Theorem 1.1 in the symmetric case (and in
+somewhat more general form).
+
+   Proposition 7.3. Let Ψ : [0, ∞) → [0, ∞) be a non-decreasing function. For any symmetric
+discrete log-concave random variable X,
+                                                                   
+                                                  1 − p  2p 
+                      M (X) Ψ(Var(X)) ≤ sup            Ψ              .
+                                          0≤p<1 1 + p      (1 − p)2
+In particular,
+                                M 2 (X) (1 + 2 Var(X)) ≤ 1.                                  (7.1)
+The latter inequality becomes an equality for all two-sided geometric distributions.
+
+   Proof. Given X a symmetric log-concave random variable, let Y be the two sided geometric
+distribution with same maximum (necessarily attained at 0). Then by Lemma 7.1, we have
+X ≻ Y , so that by Lemma 7.2, Var(X) ≤ Var(Y ). Thus
+                           M (X) Ψ(Var(X)) ≤ M (Y ) Ψ(Var(Y )).
+14            SERGEY G. BOBKOV1 , ARNAUD MARSIGLIETTI2 , AND JAMES MELBOURNE3
+
+Note that for a two sided geometric distribution with probability mass function g(k) = Cp|k|,
+0 ≤ p < 1, one has
+                              X         1+p                      1−p
+                       C −1 =   p|k| =       ,    M (Y ) = C =        ,
+                                        1−p                      1+p
+                               k∈Z
+                                                               2p
+                                     Var(Y ) = EY 2 =                .
+                                                            (1 − p)2
+Hence                                                                      
+                                                            1 − p  2p 
+                       M (Y ) Ψ(Var(Y )) ≤ sup                   Ψ            .
+                                              p∈[0,1)       1+p    (1 − p)2
+                              √
+   In particular, for Ψ(x) = 1 + 2x, the function under the above supremum is equal to 1
+for any value of the parameter p, and we obtain (7.1) together with the assertion about the
+extremal role of two-sided geometric distributions.                                      
+
+   While (7.1) is a full analog of the inequality (6.2) from the continuous setting under the
+symmetry hypothesis, the more general inequality (6.1) also extends to the discrete setting.
+The next assertion provides the upper bound of Theorem 1.1 in the non-symmetric case.
+
+     Proposition 7.4. For any discrete log-concave random variable X,
+                                     M 2 (X) (1 + 4 Var(X)) ≤ 4.                            (7.2)
+This bound is asymptotically attained for one-sided geometric distributions. In particular,
+                                        M 2 (X) Var(X) ≤ 1.                                 (7.3)
+
+
+     Proof. We employ another relation,
+                                                 1 
+                        Hα (X) ≤ H∞ (X) + log α α−1 ,                0 < α < ∞,             (7.4)
+which was recently obtained in [20] using the rearrangement arguments. This inequality holds
+for any discrete log-concave random variable X and is asymptotically attained for the geometric
+distributions with probability functions f (k) = (1 − p) pk , k ≥ 0, as p → 1. In particular, for
+α = 2, it takes the form H2 (X) ≤ H∞ (X) + log 2, which is the same as
+                                                 X
+                                     M (X) ≤ 2       f (k)2                                (7.5)
+                                                    k∈Z
+
+in terms of the probability function f (k) of X.
+    Note that, if Y is an independent copy of X, the random variable X − Y will have a
+symmetric discrete log-concave distribution with
+                                                       X
+                           M (X − Y ) = P{X − Y = 0} =   f (k)2 ,                 (7.6)
+                                                                   k∈Z
+
+so that, by (7.5),
+                                  M 2 (X) ≤ 4 M 2 (X − Y ).                              (7.7)
+                                             2
+     On the other hand, by Proposition 7.3, M (X − Y ) (1 + 2 Var(X − Y )) ≤ 1, that is,
+                                M 2 (X − Y ) (1 + 4 Var(X)) ≤ 1.
+CONCENTRATION FUNCTIONS AND ENTROPY BOUNDSFOR DISCRETE LOG-CONCAVE DISTRIBUTIONS
+                                                                               15
+
+It remains to apply this inequality in (7.7).                                                   
+   Note that for the geometric distribution with probability function f (k) = (1 − p) pk , k ≥ 0,
+we have M 2 (X) (1 + 4 Var(X)) = (1 + p)2 . Hence, (7.2) is asymptotically attained for p → 1.
+
+                                8. Concentration Functions
+
+Turning to applications, first let us relate the concentration function to the M -functional.
+
+   Lemma 8.1. For any random variable X,
+                              Q(X; λ) = λM (X + Uλ ),           λ > 0,                      (8.1)
+where the random variable Uλ is independent of X and has a uniform distribution on the
+interval (0, λ). Analogously, in the discrete setting, we have
+                       Q(X; λ) = (λ + 1) M (X + Uλ ),       λ = 0, 1, 2, . . . ,            (8.2)
+assuming that the random variable Uλ is independent of X and has a discrete uniform distri-
+bution on the integer interval {0, 1, . . . , λ}.
+
+   Proof. The first claim follows from the fact that the random variable Xλ = X + Uλ has
+an absolutely continuous distribution with density
+                                       1
+                              fλ (x) =    P{x − λ ≤ X ≤ x}        a.e.
+                                       λ
+According to the definition (1.1), this formula yields
+                                                       1
+                           M (Xλ ) = ess esupx fλ (x) =  Q(X; λ).
+                                                       λ
+   For the second claim, we similarly have that Xλ takes integer values with probabilities
+                                      1
+                          fλ (k) =       P{k − λ ≤ X ≤ k},         k ∈ Z.
+                                     λ+1
+Since the supremum in (1.1) is attained for some integer value x = k, Lemma 8.1 follows.        
+
+    One can now apply the lower bound of Proposition 2.1, cf. (2.2), to the random variables
+Xλ in (8.1). This leads to a corresponding lower bound for the concentration function (which
+is actually known, cf. [4]).
+
+   Proposition 8.2. For any random variable X,
+                                                 λ
+                            Q(X; λ) ≥ p                     ,     λ > 0.                    (8.3)
+                                           λ2 + 12 Var(X)
+
+   As a consequence, applying (8.3) with λ ↑ 1 in the discrete setting, we arrive at the lower
+bound (1.4) in Theorem 1.1. Note that since in general M (X) ≤ 1, while the variance may
+take any prescribed value (already within specific families such as Poisson distributions), the
+constant 1 may not be removed from the square root in (1.4).
+16            SERGEY G. BOBKOV1 , ARNAUD MARSIGLIETTI2 , AND JAMES MELBOURNE3
+
+   More generally, if the random variable X is discrete and λ ≥ 0 is integer, we apply (8.3)
+with λ′ ↑ λ + 1, so that to get in the limit
+                                                    λ+1
+                              Q(X; λ) ≥ p                           .                      (8.4)
+                                             (λ + 1)2 + 12 Var(X)
+    For the upper bound, one may start from the identity (8.2) and apply the upper bounds of
+Theorem 1.1 to the random variables Xλ = X + Uλ in place of X, assuming that the random
+variable Uλ is independent of X and has a discrete uniform distribution on the integer interval
+{0, 1, . . . , λ}. Note that Xλ is symmetric around the point λ/2, if X is symmetric about the
+origin. Since
+                                                  λ(λ + 2)
+                                       Var(Uλ ) =          ,
+                                                     12
+together with (8.4) we are lead to the following statement.
+
+    Proposition 8.3. If the random variable X has a log-concave discrete distribution, then,
+for any integer λ ≥ 0,
+                         λ+1                                2 (λ + 1)
+              p                            ≤ Q(X; λ) ≤ q                 .
+                  1 + λ(λ + 2) + 12 Var(X)                 λ(λ+2)
+                                                        1 + 3 + 4 Var(X)
+
+Moreover, if the distribution of X is symmetric about a point, then the upper bound may be
+sharpened to
+                                                  λ+1
+                             Q(X; λ) ≤ q                        .
+                                          1 + λ(λ+2)
+                                                 6   + 2 Var(X)
+
+
+     Here, the value λ = 0 returns us to the statement of Theorem 1.1.
+
+                               9. Proof of Theorems 1.2-1.3
+
+Let X1 , . . . , Xn be independent discrete random variables, and Sn = X1 + · · · + Xn .
+
+   Proof of Theorem 1.2. First, consider the symmetric case. By Proposition 3.3, for any
+integer valued random variable X having a finite variance,
+                                             4(3α − 1)
+                                 ∆α (X) ≤              Var(X).
+                                               α−1
+On the other hand, if the distribution of X is symmetric about a point and log-concave, the
+inequality (1.5) of Theorem 1.1 yields a lower bound
+                                      ∆∞ (X) ≥ 2 Var(X).                                   (9.1)
+Since the function α → ∆α (X) is non-increasing, the two inequalities give
+                                                   4(3α − 1)
+                           2 Var(X) ≤ ∆α (X) ≤               Var(X).                       (9.2)
+                                                     α−1
+CONCENTRATION FUNCTIONS AND ENTROPY BOUNDSFOR DISCRETE LOG-CONCAVE DISTRIBUTIONS
+                                                                               17
+
+Applying this to Xk ’s, as well as to X = Sn , we then get
+                                          n
+                                          X                            n
+                                                                       X
+                                                               α−1
+              ∆α (Sn ) ≥ 2 Var(Sn ) = 2         Var(Xk ) ≥               ∆α (Xk ).
+                                                             2(3α − 1)
+                                          k=1                         k=1
+
+   In fact, up to an α-dependent constant, this upper bound may be reversed, since, by (9.2),
+we also have
+                            4(3α − 1)
+                ∆α (Sn ) ≤            Var(Sn )
+                              α−1
+                                        n                        n
+                            4(3α − 1) X                2(3α − 1) X
+                         ≤                 Var(Xk ) ≤               ∆α (Xk ).
+                              α−1                        α−1
+                                        k=1                           k=1
+
+This proves the desired relations in (1.10).
+   Now, suppose that 1 < α ≤ 2 and drop the symmetry assumption. If Y is an independent
+copy of X, the random variable X̃ = X − Y will have a symmetric discrete log-concave
+distribution. Hence, (9.1) is applicable to X̃. On the other hand, the identity (7.6) reads as
+N∞ (X̃) = N2 (X), that is, ∆∞ (X̃) = ∆2 (X). Hence, from (9.1) we get that
+                                 ∆α (X) ≥ ∆2 (X) ≥ 4 Var(X).
+Combining this with the upper bound in (9.2), we arrive at its sharpened variant
+                                                   4(3α − 1)
+                          4 Var(X) ≤ ∆α (X) ≤                Var(X).                   (9.3)
+                                                     α−1
+    It remains to apply this to Xk ’s, as well as to X = Sn similarly as above, and then we
+obtain the lower bound as in (1.10) with an improved constant. The proof of the upper bound
+is based on (9.3) and is also similar.                                                    
+
+   Remark. In the case α = ∞, (1.10) takes the form
+                            n                                n
+                         1 X                         X
+                             ∆∞ (Xk ) ≤ ∆∞ (Sn ) ≤ 6   ∆∞ (Xk ).
+                         6
+                           k=1                               k=1
+
+Here, the lower bound reminds the relation
+                                                    n
+                                             1X
+                                  N∞ (Sn ) ≥    N∞ (Xk )
+                                             2
+                                                   k=1
+
+for the continuous setting (without any assumptions on the shape of distributions, cf. [2, 16]).
+Since the functions α → ∆α (X) are non-increasing, it implies that
+                                                   n
+                                                1X
+                                   ∆1 (Sn ) ≥      ∆∞ (Xk ).
+                                                6
+                                                  k=1
+
+However, one cannot estimate ∆∞ (Xk ) in terms of ∆1 (Xk ). This can be seen on the example
+of the two-sided geometric distribution with probability function f (k) = Cp|k|, k ∈ Z, for small
+0 < p < 1. In this case,
+                                                          4p
+                                ∆∞ (X) = 2 Var(X) =             ,
+                                                       (1 − p)2
+18          SERGEY G. BOBKOV1 , ARNAUD MARSIGLIETTI2 , AND JAMES MELBOURNE3
+
+which corresponds to the equality in (1.5), while
+                                                                2p log p
+                     H(X) = − log(1 − p) + log(1 + p) −                     .
+                                                             (1 − p)(1 + p)
+As p → 0, we have H(p) ∼ 2p log(1/p), hence
+           ∆(X) = N (X) − 1 = e2H(X) − 1
+                            ∼ 2H(X) ∼ 4p log(1/p) ∼ 2 Var(X) log(1/p).
+
+    Proof of Theorem 1.3. Suppose that Var(Xk ) ≥ σ 2 for all k ≤ n with some σ > 0.
+    By Proposition 3.1, if X is a discrete random variable with Var(X) ≥ σ 2 , we have
+                                                    1 
+                               Nα (X) ≤ 2πe 1 +           Var(X)
+                                                   12σ 2
+for any α ≥ 1. In addition, according to the upper bound (1.4) of Theorem 1.1,
+                                           1
+                               N∞ (X) ≥ + Var(X) ≥ Var(X).                             (9.4)
+                                           4
+Since α → Nα (X) is a non-increasing function, these bounds imply that
+                                                                 1 
+                  Var(X) ≤ N∞ (X) ≤ Nα (X) ≤ 2πe 1 +                    Var(X).        (9.5)
+                                                                12σ 2
+Being applied first to X = Sn and then to each X = Xk , (9.5) yields
+                                      Xn                                Xn
+                                                              1
+             Nα (Sn ) ≥ Var(Sn ) =        Var(Xk ) ≥               1        Nα (Xk ).
+                                                      2πe  (1 +  12σ 2)
+                                      k=1                               k=1
+This proves the first assertion (1.11) of the theorem.
+   By a similar argument, the resulting bound may be reversed, even without any condition
+on variances, and actually further strengthened. Indeed, applying (9.5) to X = Sn and using
+the first inequality in (9.4) in the weaker form Nα (Xk ) ≥ 41 + Var(Xk ), we have
+                              1             
+           Nα (Sn ) ≤ 2πe          + Var(Sn )
+                                12
+                                                         1                     1 
+                              1     Xn                           n 
+                                                                  X
+                     = 2πe         +    Var(Xk ) ≤ 2πe         +      Nα (Xk ) −      ,
+                                12                         12                    4
+                                  k=1                             k=1
+and (1.12) immediately follows.                                                             
+
+                            10. Remarks on Bernoulli sums
+
+Finally, let us illustrate Theorem 1.1 on the example of the Bernoulli sums
+                                    Sn = X1 + · · · + Xn ,
+where the independent summands Xk take the values 1 and 0 with probabilities pk and qk
+respectively. By Hoggar’s theorem on preservation of log-concavity under convolutions, the
+distribution of Sn is discrete log-concave (Corollary 4.3). This property is not so obvious on
+the basis of the explicit expression for the probability function
+                                      X
+               fn (k) = P{Sn = k} =       pε11 q11−ε1 . . . pεn1 qn1−εn , k = 0, 1, . . . , n,
+CONCENTRATION FUNCTIONS AND ENTROPY BOUNDSFOR DISCRETE LOG-CONCAVE DISTRIBUTIONS
+                                                                               19
+
+where the summation is running over all 0 − 1 sequences ε1 , . . . , εn such that ε1 + · · · + εn = k.
+    One of the challenging problems about Sn has been to how effectively estimate from above
+the maximum M (Sn ) = maxk fn (k) in terms of pk ’s. In this particular model, there exist
+several different approaches to the problem. First let us describe the standard approach in
+Probability Theory which is irrelevant to log-concavity. In general, the concentration function
+of a random variable X may be bounded in terms of the characteristic function v(t) = E eitX
+by virtue of Esseen’s bound
+                                        96 2 Z 1/λ
+                           Q(X; λ) ≤           λ       |v(t)| dt,   λ > 0,                      (10.1)
+                                         95       −1/λ
+                                                                           Q
+cf. e.g. [23], [24]. For the characteristic function of Sn we have v(t) = nk=1 (qk + pk eit ). Since
+          |q + peit |2 = p2 + q 2 + 2pq cos t = 1 − 4pq sin2 (t/2) ≤ exp{−4pq sin2 (t/2)},
+it follows that
+                                 n        n
+                                          X                     o     n                 o
+                  |v(t)| ≤ exp       −2         pk qk sin2 (t/2) = exp − 2σ 2 sin2 (t/2) ,
+                                          k=1
+
+where σ 2 = Var(Sn ) (σ > 0). Using | sin x| ≥ π2 |x| for |x| ≤ π/2 and choosing λ = 1/π in
+(10.1), this bound yields
+                           96 2 1 Z π     n                  o
+              Q(Sn ; 0) ≤               exp − 2σ 2 sin2 (t/2) dt
+                            95    π −π
+                           96 2 1 Z ∞      n 2σ 2 o             96 2 1 √
+                        ≤                exp − 2 t2 dt =                 √    π.
+                            95    π −∞             π               95 σ 2
+That is, simplifying the numerical constant, we arrive at
+                                                                            n
+                                                                            X
+                                       1.28
+                          M (Sn ) ≤ p          ,               Var(Sn ) =         pk q k .
+                                      Var(Sn )                              k=1
+   As we now see, the constant 1.28 in this inequality can be improved by virtue of the upper
+bound (1.4) which yields
+                                            2               1
+                          M (Sn ) ≤ p                 ≤p           .                    (10.2)
+                                       1 + 4Var(Sn )      Var(Sn )
+Moreover, the best universal constant c > 0 in
+                                                              c
+                                            M (Sn ) ≤ p                                        (10.3)
+                                                            Var(Sn )
+is actually better than 1. As was shown in [1], the optimal constant is given by
+                                   
+                                     √         ∞  k 
+                                               X
+                                           −2λ      λ 2
+                          c = max      2λ e                ∼ 0.4688.
+                               λ≥0                  k!
+                                                         k=0
+One should however mention that the first inequality in (10.2) is better than (10.3) for small
+values of Var(Sn ), namely when
+                                                         c2
+                                     Var(Sn ) <                  ∼ 0.0704.
+                                                     4 (1 − c2 )
+20             SERGEY G. BOBKOV1 , ARNAUD MARSIGLIETTI2 , AND JAMES MELBOURNE3
+
+So, it makes sense to consider improvements in the form M (Sn ) ≤ Ψ(Var(Sn )).
+   Note that the upper bound in (1.4) also provides a similar lower bound which may equiv-
+alently be rewritten as
+                                                1
+                                      N∞ (Sn ) ≥ + Var(Sn ).
+                                                4
+In [21] this inequality is sharpened and is extended to all α-entropy powers with α ≥ 2 as
+                                                         1    1
+                             Nα (Sn ) ≥ 1 + 2β Var(Sn ),    + = 1.
+                                                         α β
+
+   Acknowledgments. We would like to thank the referee for careful reading and valuable
+comments. The research of S.B. was supported by the NSF grant DMS-1855575.
+
+
+                                              References
+
+      [1] Baillon, J.-B.; Cominetti, R.; Vaisman, J. A sharp uniform bound for the distribution of sums
+          of Bernoulli trials. Combin. Probab. Comput. 25 (2016), no. 3, 352–361.
+      [2] Bobkov, S. G.; Chistyakov, G. P. Bounds for the maximum of the density of the sum of indepen-
+          dent random variables. (Russian) Zap. Nauchn. Sem. S.-Peterburg. Otdel. Mat. Inst. Steklov.
+          (POMI) 408 (2012), Veroyatnost i Statistika. 18, 62–73, 324; translation in J. Math. Sci. (N.Y.)
+          199 (2014), no. 2, 100–106.
+      [3] Bobkov, S. G.; Chistyakov, G. P. Entropy power inequality for the Rényi entropy. IEEE Trans.
+          Inform. Theory 61 (2015), no. 2, 708–714.
+      [4] Bobkov, S. G.; Chistyakov, G. P. On concentration functions of random variables. J. Theor.
+          Probab. 28 (2015), no. 3, 976–988.
+      [5] Bobkov, S. G.; Marsiglietti, A. Variants of the entropy power inequality. IEEE Trans. Inform.
+          Theory 63 (2017), no. 12, 7747–7752.
+      [6] Costa, J.; Hero, A.; Vignat, C. On solutions to multivariate maximum α-entropy problems.
+          International Workshop on Energy Minimization Methods in Computer Vision and Pattern
+          Recognition. EMMCVPR 2003, pp. 211–226.
+      [7] Johnson, O.; Goldschmidt, C. Preservation of log-concavity on summation. ESAIM Probab.
+          Stat. 10 (2006), 206–215 (electronic).
+      [8] Johnson, O; Yu, Y. Monotonicity, thinning, and discrete versions of the entropy power inequal-
+          ity. IEEE Trans. Inform. Theory 56 (2010), no. 11, 5387–5395.
+      [9] Haghighatshoar, S.; Abbe, E.; Telatar, I. E. A new entropy power inequality for integer-valued
+          random variables. IEEE Trans. Inform. Theory 60 (2014), no. 7, 3787–3796.
+     [10] Harremoës, P.; Vignat, V. An entropy power inequality for the binomial family. J. Inequal. Pure
+          Appl. Math., vol. 4, no. 5, pp. 1–15, 2003.
+     [11] Hoggar, S. G. Chromatic polynomials and logarithmic concavity. J. Combin. Theory Ser. B 16
+          (1974) 248–254.
+     [12] Kapur, J. N. Generalised Cauchy and Student’s distributions as maximum-entropy distributions.
+          Proc. Nat. Acad. Sci. India Sect. A 58 (1988), 235–246.
+     [13] Li, J. Rényi entropy power inequality and a reverse. Studia Math. 242 (2018), no. 3, 303–319.
+CONCENTRATION FUNCTIONS AND ENTROPY BOUNDSFOR DISCRETE LOG-CONCAVE DISTRIBUTIONS
+                                                                               21
+
+  [14] Li, J.; Marsiglietti, A.; Melbourne, J. Further investigations of Rényi entropy power inequali-
+       ties and an entropic characterization of s-concave densities. Geometric Aspects of Functional
+       Analysis: GAFA Israel Seminar (2017-2019), B. Klartag and E. Milman (eds.), Lecture Notes
+       in Mathematics, vol. 2256, Springer, 2020.
+  [15] Madiman, M.; Barron, A. R. Generalized entropy power inequalities and monotonicity proper-
+       ties of information. IEEE Trans. Inform. Theory 53 (2007), no. 7, 2317–2329.
+  [16] Madiman, M., Melbourne, J. and Xu, P., Rogozin’s convolution inequality for locally compact
+       groups. arXiv:1705.00642 (2017).
+  [17] Madiman, M; Wang L.; Woo J. O. Majorization and Rényi Entropy Inequalities via Sperner
+       Theory. Discrete Mathematics (AEGT 2017 Special issue edited by S. Cioaba, R. Coulter, E.
+       Fiorini, Q. Xiang, F. Pfender), vol. 342, no. 10, pp. 2911–2923, October 2019.
+  [18] Marsiglietti, A.; Melbourne, J. On the entropy power inequality for the Rényi entropy of order
+       [0, 1]. IEEE Trans. Inform. Theory 65 (2019), no. 3, 1387–1396.
+  [19] Melbourne, J.; Tkocz, T. On the Rényi entropy of log-concave sequences. June 2020. IEEE Int.
+       Symposium on Info. Theory (ISIT) (pp. 2292-2296).
+  [20] Melbourne, J. and Tkocz, T., 2020. Reversal of Rényi entropy inequalities under log-concavity.
+       IEEE Trans. Inform. Theory, 67 (2020), no. 1, 45–51.
+  [21] Madiman, M.; Melbourne, J.; Roberto, C. Bernoulli sums and Rényi entropy inequalities.
+       Preprint 2020.
+  [22] Moriguti, S. A lower bound for a probability moment of any absolutely continuous distribution
+       with finite variance. Ann. Math. Statistics 23 (1952), 286–289.
+  [23] Petrov, V. V. Sums of independent random variables. Translated from the Russian by A. A.
+       Brown. Ergebnisse der Mathematik und ihrer Grenzgebiete, Band 82. Springer-Verlag, New
+       York-Heidelberg, 1975. x+346 pp. Russian ed.: Moscow, Nauka, 1972, 414 pp.
+  [24] Petrov, V. V. Limit theorems for sums of independent random variables. (Russian) Moscow,
+       Nauka, 1987, 320 pp.
+  [25] Ram, E.; Sason, I. On Rényi Entropy Power Inequalities. IEEE Trans. Inform. Theory 62 (2016),
+       no. 12, 6800–6815.
+  [26] Stanley, R. Log-concave and unimodal sequences in algebra, combinatorics, and geometry. Ann.
+       New York Acad. Sci, vol. 576, 1, 500–535, 1989.
+

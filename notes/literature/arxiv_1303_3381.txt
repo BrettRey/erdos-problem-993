@@ -1,0 +1,1643 @@
+                                          The Annals of Probability
+                                          2016, Vol. 44, No. 1, 276–306
+                                          DOI: 10.1214/14-AOP973
+                                           c Institute of Mathematical Statistics, 2016
+
+
+                                             DISCRETE VERSIONS OF THE TRANSPORT EQUATION AND
+                                                       THE SHEPP–OLKIN CONJECTURE1
+
+
+
+
+arXiv:1303.3381v3 [math.PR] 22 Feb 2016
+                                                                By Erwan Hillion and Oliver Johnson
+                                                           University of Luxembourg and University of Bristol
+                                                           We introduce a framework to consider transport problems for
+                                                       integer-valued random variables. We introduce weighting coefficients
+                                                       which allow us to characterize transport problems in a gradient flow
+                                                       setting, and form the basis of our introduction of a discrete version of
+                                                       the Benamou–Brenier formula. Further, we use these coefficients to
+                                                       state a new form of weighted log-concavity. These results are applied
+                                                       to prove the monotone case of the Shepp–Olkin entropy concavity
+                                                       conjecture.
+
+
+                                             1. Introduction. In recent years, there has been intensive study of rela-
+                                          tionships between entropy and probabilistic inequalities. Since the work of
+                                          Monge in the eighteenth century, it has been understood how one probabil-
+                                          ity measure on R can be smoothly transformed into another along a path
+                                          minimizing an appropriate cost. As described, for example, in [33, 34], use
+                                          of the quadratic cost function induces the quadratic Wasserstein distance
+                                          W2 which, using the Benamou–Brenier formula [5, 6], can be understood in
+                                          terms of velocity fields arising in gradient models of the kind discussed in
+                                          [2, 8, 19]. In such models, concavity of entropy along the geodesic plays a
+                                          central role, giving proofs of inequalities such as HWI, log-Sobolev and trans-
+                                          port inequalities; see, for example, [9]. A key role is played by log-concavity
+                                          of the underlying measures and the Ricci curvature of the underlying metric
+                                          space; see, for example, [22, 31, 32].
+                                             However, this work has almost exclusively focused on continuous random
+                                          variables, taking values in Rd , or more generally on Riemannian manifolds
+                                          satisfying a curvature condition. In this paper, we propose a framework for
+
+                                              Received March 2013; revised September 2014.
+                                             1
+                                               Supported by an EPSRC grant, Information Geometry of Graphs, reference
+                                          EP/I009450/1.
+                                              AMS 2000 subject classifications. Primary 60E15, 60K35; secondary 94A17, 60D99.
+                                              Key words and phrases. Entropy, transportation of measures, Bernoulli sums, concav-
+                                          ity.
+
+                                           This is an electronic reprint of the original article published by the
+                                           Institute of Mathematical Statistics in The Annals of Probability,
+                                           2016, Vol. 44, No. 1, 276–306. This reprint differs from the original in pagination
+                                           and typographic detail.
+                                                                                     1
+2                        E. HILLION AND O. T. JOHNSON
+
+considering similar problems for integer-valued random variables. We show
+how many natural models of transportation of discrete random variables
+can be considered as gradient models and propose a discrete version of the
+Benamou–Brenier formula. As an example of the insights gained by this
+approach, we give a proof of a significant new case of the Shepp–Olkin
+concavity conjecture [30], which has remained unresolved for over 30 years.
+    Shepp and Olkin considered sums of n independent Bernoulli variables
+(referred to as Bernoulli sums throughout this article), with parameters
+p1 , . . . , pn , respectively, where pi ∈ [0, 1], and n remains fixed. This sum has
+a probability distribution (fk )k=0,1,...,n , and Shepp and Olkin conjectured
+[30] that its entropy is a concave function of its parameters.
+
+     Conjecture 1.1 ([30]).       Consider the entropy of (fk )k=0,1,...,n , defined
+by
+                                                   n
+                                                   X
+                        H(p1 , . . . , pn ) := −         fk log(fk ),
+                                                   k=0
+
+where by convention 0 log(0) = 0. If p1 , . . . , pn : [0, 1] → [0, 1] are affine func-
+tions, then
+                   H : [0, 1] → R,        t 7→ H(p1 (t), . . . , pn (t))
+is a concave function in t.
+
+    We emphasize that Conjecture 1.1 refers to concavity of entropy in the
+parameter space. This should be contrasted with concavity in the space of
+mass functions themselves. The result that the entropy of mixtures of mass
+                                 (1)  (2)
+functions fk (α) := (1 − α)fk + αfk is convex in α is standard; see, for
+example, [10], Theorem 2.7.3. Indeed duality between this parameter rep-
+resentation and the distribution space is exploited in information geometry
+(see, e.g., [1]), where the concavity of entropy also plays a central role.
+    Although the Shepp–Olkin Conjecture 1.1 remains open, we briefly de-
+scribe the main cases which had previously been resolved. First, Shepp and
+Olkin’s original paper [30] showed that the entropy is a Schur-concave func-
+tion, stated that Conjecture 1.1 holds for n = 2, 3 and proved it for interpo-
+lation between two binomials, when pi (t) = t for all i.
+    Second, Theorem 2 of Yu and Johnson [37] proves concavity of the entropy
+of H(Tt X + T1−t Y ), for X and Y satisfying the ultra log-concavity property
+(see Definition 3.11 below), where Tt represents Rényi’s thinning operation
+[28]; see equation (36) below. As remarked in [37], Corollary 1, this resolves
+the special case of Conjecture 1.1 where each parameter is either pi (t) =
+pi (0)(1 − t) or pi (t) = pi (1)t.
+        DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                                 3
+
+   Third, Theorem 1.1 of Hillion [14] resolves the case where for each i,
+either pi (t) ≡ pi (0) for all t or pi (t) = t (the translation case of Example 3.10
+below).
+   In this article, given a family of affine functions p1 (t), . . . , pn (t), we con-
+sider the associated Bernoulli sum (fk (t))k=0,1,...,n as a function of the spatial
+variable k and the time variable t. We often omit the explicit dependence of
+fk on t. Throughout this article we restrict our attention to the special case
+that p′i ≥ 0 for every i ∈ {1, . . . , n}, so the random variables fk (t) satisfy a
+stochastic ordering property. We write the left derivative ∇1 fk = fk − fk−1 ,
+and write ∇2 = (∇1 )2 for the map taking ∇2 fk = fk − 2fk−1 + fk−2 .
+   The paper is organized as follows. In Section 2 we review properties of
+continuous gradient flow models and develop a framework to prove con-
+cavity of entropy. We introduce and discuss the Benamou–Brenier formula,
+equation (12).
+   In Section 3 we introduce a formalism to describe interpolation of discrete
+probability mass functions fk , motivated by properties of the binomial mass
+functions. In Definition 3.2, we propose a discrete analogue of the Benamou–
+Brenier formula. A key role is played by our introduction of a family of
+functions αk (t) which are used to generate mixtures of fk and fk+1 . We
+write A for the set of measurable functions α(t) = (α0 (t), α1 (t), . . . , αn (t)),
+where α0 (t) ≡ 0 and αn (t) ≡ 1, and 0 ≤ αk (t) ≤ 1 for all k and t.
+   Our formula of Benamou–Brenier type motivates the following definition:
+
+   Definition 1.2. We say that a family of probability mass functions
+fk (t) supported in {0, . . . , n} is a constant velocity path if for some v and for
+                                                  (α)
+some family of probability mass functions gk (t) supported in {0, . . . , n − 1},
+it satisfies a modified transport equation
+              ∂fk              (α)
+(1)               (t) = −v∇1 (gk (t))            for k = 0, 1, . . . , n,
+               ∂t
+where for some α(t) ∈ A,
+      (α)
+(2) gk (t) = αk+1 (t)fk+1 (t) + (1 − αk (t))fk (t)         for k = 0, 1, . . . , n − 1.
+If fk (t) satisfies a modified transport equation, we write h for the func-
+tion (not necessarily a probability mass function) satisfying a second-order
+modified transport equation
+                 ∂ 2 fk
+(3)                     (t) = v 2 ∇2 (hk ) for k = 0, 1, . . . , n.
+                  ∂t2
+An explicit expression for hk is given in equation (45).
+
+  In Section 3.3 we discuss the constant velocity path property. Lemma 3.5
+shows that any such representation is unique, and we give some examples
+4                       E. HILLION AND O. T. JOHNSON
+
+which lie within this framework. In Section 4, by examining the coefficients
+α ∈ A associated with a constant velocity path fk (t), called optimal coef-
+ficients for fk (t), we give sufficient conditions for the concavity of entropy
+along the interpolation. To be specific, we introduce the following three con-
+ditions:
+
+   Condition 1 (k-MON).         Given t, we say the αk (t) are k-monotone at
+t if
+(4)               αk (t) ≤ αk+1 (t)    for all k = 0, . . . , n − 1.
+
+     Condition 2 (t-MON).       Given t, we say the αk (t) are t-monotone at t
+if
+                      ∂αk
+(5)                       (t) ≥ 0      for all k = 0, . . . , n.
+                       ∂t
+
+  Condition 3 (GLC). We say probability mass function fk supported on
+{0, 1, . . . , n} is α-generalized log-concave at t, denoted GLC(α(t)), if for all
+k = 0, . . . , n − 2,
+(6)                             GLC(α)k (t) ≥ 0,
+where
+                                                     2
+               GLC(α)k (t) := αk+1 (t)(1 − αk+1 (t))fk+1 (t)
+(7)
+                                − αk+2 (t)(1 − αk (t))fk (t)fk+2 (t).
+
+     In Section 4 we prove the following theorem:
+
+   Theorem 1.3. Consider a constant velocity path fk (t) of probability
+mass functions and associated optimal α(t). If Conditions 1, 2 and 3 hold
+for a given t = t∗ , then the entropy H(f (t)) is concave in t at t = t∗ .
+
+   Example 1.4. Theorem 1.3 gives a new perspective on Shepp and Olkin’s
+proof [30] that the entropy of binomial
+                                       Bin(n, t) random variables [with prob-
+ability mass function fk (t) = nk tk (1 − t)n−k for k = 0, . . . , n] is concave in
+t. In this case, Example 3.1 shows that the optimal αk (t) ≡ k/n, so the k-
+monotone and t-monotone conditions, Conditions 1 and 2 are clear. Further,
+αk (t) ≡ k/n means that GLC Condition 3 reduces to the ultra log-concavity
+of order n of Pemantle [27] and Liggett [21] (see Definition 3.11), which
+clearly holds with equality in this case. In fact, in the more general “sym-
+metric case” where p′i does not depend on i, Remark 5.3 shows αk (t) = k/n,
+and a similar argument applies.
+        DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                               5
+
+   Finally, we use this formalism to consider the Shepp–Olkin Conjecture 1.1,
+in the “monotone” setting p′i ≥ 0 for all i. In Section 5, we show that in the
+monotone case, the Shepp–Olkin interpolation is a constant velocity path in
+the sense of Definition 1.2. In Proposition 5.2 we show that the k-monotone
+Condition 1 is automatically satisfied in this case. Similarly Proposition 5.4
+shows that GLC, Condition 3, also holds for all Shepp–Olkin interpolations
+in this context.
+   Unfortunately t-monotonicity, Condition 2, does not hold for all (mono-
+tone) Shepp–Olkin interpolations. However, Theorem 4.4 weakens the as-
+sumptions of Theorem 1.3, by proving that entropy remains concave if we
+replace Condition 2 by Condition 4, which is less restrictive, although less
+transparent in nature. We complete the proof of the monotone Shepp–Olkin
+conjecture by showing in Lemma 6.2 that Condition 4 is satisfied in this
+case. The proof uses properties of Bernoulli sum mass functions, including a
+“cubic” inequality Theorem A.2. In Section 6, we therefore prove the main
+result of this paper:
+
+   Theorem 1.5 (Monotone Shepp–Olkin).                          Consider the entropy of
+(fk )k=0,1,...,n , defined by
+                                                    n
+                                                    X
+                         H(p1 , . . . , pn ) := −         fk log(fk ).
+                                                    k=0
+
+If p1 , . . . , pn : [0, 1] → [0, 1] are affine functions with p′i ≥ 0 for all i, then the
+function
+                    H : [0, 1] → R,        t 7→ H(p1 (t), . . . , pn (t))
+is concave in t.
+
+   2. Geodesics for continuous random variables.
+
+   2.1. General framework for concavity of entropy. In Section 2 we restate
+results concerning entropy and geodesics for random variables on R, using
+the following differential equation framework, where the form of (8) moti-
+vates equations (1) and (3):
+
+   Theorem 2.1. Let (ft (x))t∈[0,1] be a smooth family   R     of positive probabil-
+ity densities on R, such that the entropy H(t) := − R ft (x) log(ft (x)) dx ex-
+ists for all t. Consider the families of functions (gt (x))t∈[0,1] and (ht (x))t∈[0,1]
+which satisfy
+                   ∂ft (x)    ∂gt (x)               ∂ 2 ft (x) ∂ 2 ht (x)
+(8)                        =−         ,                       =           .
+                     ∂t        ∂x                      ∂t2        ∂x2
+6                          E. HILLION AND O. T. JOHNSON
+
+Under technical conditions, such as those listed in Remark 2.2, the entropy
+H(t) satisfies
+                        Z                  
+               ′′                    gt (x)2 ∂ 2
+              H (t) = −     ht (x) −             (log(ft (x))) dx
+                         R           ft (x) ∂x2
+(9)                     Z                   2
+                                    ∂ gt (x)
+                      − ft (x)                    dx.
+                         R         ∂x ft (x)
+
+   Proof. The two conditions listed in part (a) of Remark 2.2 are those
+required under Leibniz’s rule for differentiation under the integral sign, yield-
+ing
+                  Z 2                           Z                  
+          ′′         ∂ ft (x)                         1      ∂ft (x) 2
+        H (t) = −              log(ft (x)) dx −                        dx
+                   R    ∂t2                      R ft (x)      ∂t
+(10)              Z 2                           Z                  
+                     ∂ ht (x)                          1     ∂gt (x) 2
+              =−               log(ft (x)) dx −                        dx.
+                   R    ∂x2                       R ft (x)     ∂x
+Here, by part (b) of Remark 2.2 gt (x) vanishes at x = ±∞, meaning that
+          R
+the term R ∂f∂t t (x)
+                       dx = 0. Using the quotient rule we can write the second
+term in equation (10) as
+        Z                      
+              1        ∂gt (x) 2
+      −                             dx
+         R ft (x)         ∂x
+                 Z              
+                        ∂ft (x) 2 gt (x)2
+           =−
+                   R       ∂x        ft (x)3
+                                                                    2
+                   ∂ft (x) gt (x) ∂ gt (x)                      ∂ gt (x)
+              +               2                        + ft (x)               dx
+                      ∂x        ft (x) ∂x ft (x)                ∂x ft (x)
+                 Z              
+                        ∂ft (x) 2 gt (x)2
+           =−
+                   R       ∂x        ft (x)3
+                                                              2
+                   ∂ 2 ft (x) gt (x) 2                   ∂ gt (x)
+              −                            dx + ft (x)                 dx
+                      ∂x2       ft (x)                  ∂x ft (x)
+since we recognize the term in square brackets as a perfect derivative, and
+integrate by parts. The remaining conditions listed in Remark 2.2(b) justify
+the necessary integrations by parts to prove the theorem. 
+
+   Remark 2.2.        We assume, for example, that the following technical con-
+ditions hold:
+    (a) there exist integrable θA (x), θB (x) such that for all t, x, | ∂g∂x
+                                                                          t (x)
+                                                                                (1 +
+                                2
+log(ft (x)))| ≤ θA (x) and | ∂ ∂x
+                               ht (x)
+                                  2   log(ft (x)) + ( ∂g∂x
+                                                        t (x) 2
+                                                             ) ft 1(x) | ≤ θB (x);
+       DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                           7
+
+  (b) for each t ∈ [0, 1], functions gt (x), ∂h∂x
+                                               t (x)
+                                                     log(ft (x)), hftt(x)
+                                                                      (x) ∂ft (x)
+                                                                            ∂x    and
+       (x) 2 ∂ft (x)
+( fgtt (x) ) ∂x vanish at x = ±∞.
+
+   Section 2 aims to motivate results in the case where all random variables
+have support on a finite set, so the required differentiation formulas are
+automatic. For this reason, we do not discuss the question of verification of
+the technical conditions of Remark 2.2.
+   In some sense, an extreme example for which we can apply Theorem 2.1
+is the following:
+
+    Example 2.3. Consider the translation of probability density f0 , where
+ft (x) := f0 (x − vt) for some constant velocity v > 0. It is then easy to see
+that gt (x) = vft (x) and ht (x) = v 2 ft (x). Theorem 2.1 then confirms shift
+invariance and makes the entropy H(t) of ft constant.
+
+   2.2. Benamou–Brenier formula. The study of geodesics interpolating
+between continuous probability densities exploits properties of the quadratic
+Wasserstein distance W2 , which (see [2, 5, 6]) has a variational characteri-
+sation involving velocity fields, given by the Benamou–Brenier formula (12)
+below.
+
+   Definition 2.4. Consider fixed smooth distribution functions F0 and
+F1 . Write PR (F0 , F1 ) for the set of probability
+                                             Rx      densities ft (x), with corre-
+sponding distribution functions Ft (x) = −∞ ft (y) dy satisfying constraints
+Ft (x)|t=0 = F0 (x) and Ft (x)|t=1 = F1 (x). Then given any sequence ft ∈
+PR (F0 , F1 ), we refer to a function vt as a velocity field if it satisfies
+                         ∂           ∂
+(11)                        ft (x) +    (vt (x)ft (x)) = 0.
+                         ∂t          ∂x
+
+   Ambrosio, Gigli and Savaré [2], Section 8, give a careful analysis of condi-
+tions under which this type of continuity equation holds. They consider (see
+[2], Definition 1.1.1) the class of absolutely continuous curves µt ∈ Pp (X),
+the set of probability measures with finite pth moment on separable Hilbert
+space X. Theorem 8.3.1 of [2] shows that for p > 1, a version of equation
+(11) holds for µt in this class, in fact,
+                                ∂
+                                  µt + ∇ · (vt µt ) = 0,
+                               ∂t
+in the sense of distributions (using the class of smooth cylindrical test func-
+tions).
+   Further, Theorem 8.3.1 of [2] shows that under these conditions the result-
+ing velocity field has Lp (µt ) norm dominated by the metric derivative |µ′ |(t)
+8                          E. HILLION AND O. T. JOHNSON
+
+(as defined in [2], equation (1.1.3)). Using properties of so-called length
+spaces, this allows the following formula, first proved by Benamou and Bre-
+nier [5, 6] for probability measures on X = Rd , to be recovered for separable
+Hilbert spaces X. For comparison purposes, we state this Benamou–Brenier
+formula for the case of X = R:
+
+  Theorem 2.5 ([5, 6]). Using the notation of Definition 2.4 above, the
+quadratic Wasserstein distance is given by
+                                 Z 1 Z ∞                 
+          2                                            2
+(12)    W2 (F0 , F1 ) =   inf              ft (y)vt (y) dy dt
+                           ft ∈PR (F0 ,F1 ) 0   −∞
+                                          Z 1 Z ∞           2          
+                                                       ∂Ft          1
+(13)                   =        inf                        (y)          dy dt.
+                           ft ∈PR (F0 ,F1 ) 0   −∞      ∂t       ft (y)
+
+  Corollary 2.6. If (ft )t∈[0,1] is a solution to the minimization problem
+(12), then assuming the technical conditions of Remark 2.2 hold, we can
+write
+                              Z                 2
+                    ′′                  ∂
+(14)              H (ft ) = − ft (x)       vt (x) dx ≤ 0,
+                               R        ∂x
+                                R∞
+and the inner integral of (12), −∞ ft (x)vt (x)2 dx, is constant in t.
+
+   Proof. It is shown in [5], equation (1.14), that if (ft )t∈[0,1] is a solution
+to the minimization problem (12), then its associated velocity field vt (x) is,
+at least formally, a solution to the equation
+                             ∂vt (x)      ∂vt (x)
+(15)                                 =−           vt (x).
+                               ∂t            ∂x
+Taking a further time derivative of (11) and using (15), we deduce a second-
+order PDE,
+                                                            
+          ∂ 2 ft (x)     ∂ ∂vt                        ∂ft
+                     =−           (x)ft (x) + vt (x)      (x)
+             ∂t2        ∂x ∂t                         ∂t
+                                                                       
+                       ∂ ∂vt (x)                          ∂
+(16)                 =             vt (x)ft (x) + vt (x) (vt (x)ft (x))
+                       ∂x     ∂x                          ∂x
+                       ∂2
+                   =      (vt (x)2 ft (x))
+                      ∂x2
+(assuming the t and x derivatives can be exchanged). In the notation of
+Theorem 2.1, we can rewrite equations (11) and (16) in the form gt (x) =
+vt (x)ft (x) and ht (x) = vt (x)2 ft (x). This makes a clear analogy with the
+translation case, Example 2.3, and equation (14) follows by a straightforward
+        DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                             9
+
+application of Theorem 2.1. Similar calculations using equation (14) show
+      ∂                    ∂
+that ∂t (ft (x)vt (x)2 ) = ∂x (ft (x)vt (x)3 ), and the result follows. 
+
+   This result can be seen as a particular case of results coming from Sturm–
+Lott–Villani theory [22, 31, 32]. This theory establishes links between the
+behavior of the entropy functional along Wasserstein W2 -geodesics on a
+given measured length space and bounds on the Ricci curvature on this
+space. In particular, a Riemannian manifold (M, g) satisfies Ric ≥ 0, where
+Ric is the Ricci curvature tensor, if and only if for every absolutely continu-
+ous Wasserstein
+           R      W2 -geodesic (µt )t∈[0,1] := (ft dvol)t∈[0,1] the entropy function
+H(t) := − M ft log(ft ) dvol is concave in t. This equivalence is used to gen-
+eralize the definition of Ricci curvature bounds from the Riemannian frame-
+work to the framework of measured length spaces; that is, metric spaces
+(X, d) for which the distance d(x, y) is the infimum of lengths of curves
+joining x to y.
+   This theory can be developed to use transportation arguments to prove
+probabilistic inequalities involving entropy, such as log-Sobolev, transport
+and HWI inequalities. For example, Cordero–Erausquin [9], Corollaries 1,
+2 and 3, gives simple proofs of these inequalities, under the condition that
+relative density f /φ1/c is log-concave (in the continuous sense), where φ1/c
+is a normal density with variance 1/c. This log-concavity condition is known
+to imply the Bakry–Émery condition [4] (see, e.g., [3, 9]), which is natural
+in this context. GLC, Condition 3, is introduced as a discrete version of the
+log-concavity condition.
+
+  2.3. Perturbed translations.
+
+   Theorem 2.7. Let (ft (x))t∈[0,1] be a smooth family of positive probabil-
+ity densities on R and (gt (x))t∈[0,1] be defined by equation (8). If there exists
+a constant v and a nondecreasing function α(t) such that
+                                             ∂
+(17)                                           ft (x),
+                          gt (x) = vft (x) + α(t)
+                                            ∂x
+then assuming the technical conditions of Remark 2.2 hold, the entropy H(t)
+of ft is a concave function of t.
+                                                    ∂                        2
+  Proof. Using the facts that ∂t       ∂
+                                         ft (x) = − ∂x gt (x), and hence ∂x∂ ∂t ft (x) =
+  ∂ 2
+− ∂x 2 gt (x), we take a derivative of equation (17) to compute
+                                                        
+             ∂              ∂                    ∂                  ∂
+                gt (x) = −v      vft (x) + α(t) ft (x) + α′ (t) ft (x)
+             ∂t             ∂x                  ∂x                 ∂x
+                                   2
+                                                              
+                                 ∂                    ∂
+                         − α(t) 2 vft (x) + α(t) ft (x) ,
+                                ∂x                   ∂x
+10                       E. HILLION AND O. T. JOHNSON
+
+so the family of functions ht (x) defined by equation (8) is equal to
+                                       ∂               ∂2
+(18)   ht (x) = v 2 ft (x) + 2vα(t)      ft (x) + α(t)2 2 ft (x) − α′ (t)ft (x).
+                                      ∂x               ∂x
+It is then easy to deduce that
+                                        2             
+                  gt (x)2       2       ∂
+(19)     ht (x) −         = α(t) ft (x)     log(ft (x)) − α′ (t)ft (x).
+                  ft (x)                ∂x2
+                      ∂                         ∂ 2
+                                                                2
+Since in this case ∂x   (gt (x)/ft (x)) = α(t) ∂x 2 (log ft (x)) , Theorem 2.1 gives
+that
+                                       Z  2                 2
+                   ′′                2      ∂
+                 H (t) = −2α(t)               2
+                                                log(ft (x)) ft (x)
+                                        R ∂x
+(20)                                  Z                  2
+                                 ′         ∂
+                             − α (t)          log(ft (x)) ft (x),
+                                       R ∂x
+
+which shows the concavity of H(t). 
+
+  Among the consequences of Theorem 2.7 there are the particular cases
+where α(t) ≡ 0, which is the translation case of Example 2.3, and the case
+where v = 0 and α(t) = −c is a constant, in which case f is a solution to the
+                           2 f (x)
+heat equation ∂f∂t
+                t (x)
+                      = c ∂ ∂xt
+                                2 .
+
+  Theorem 2.7 can be used to study the entropy of an approximation of a
+Bernoulli sum by a Gaussian distribution of the same mean and variance.
+This motivates the Shepp–Olkin conjecture, due to the following result:
+
+       Pn 2.8. Let p1 , . . . ,P
+  Theorem                        pn : [0, 1] → [0, 1] be affine functions, and let
+µ(t) := i=1 pi (t) and V (t) := ni=1 pi (t)(1−pi (t)) be the mean and variance
+functions. Define
+                                                            
+                                1               (x − µ(t))2
+(21)               ft (x) := p          exp −                  .
+                               2πV (t)              2V (t)
+Then the entropy H(t) of ft is a concave function of t.
+
+   Proof. Writing v = µ′ (t), since µ′′ (t) = 0, we can use differential prop-
+erties satisfied by Gaussian kernels to compute
+                               V ′ (t) ∂ft (x)                  ∂
+          gt (x) = µ′ (t)ft (x) −              = vft (x) + α(t) ft (x),
+                                 2      ∂x                     ∂x
+                1 ′                         ∂       Pn ′2
+where α(t) := − 2 V (t). Since we have ∂t α(t) = i=1 pi ≥ 0, we apply The-
+orem 2.7 to show that the entropy H(t) of ft is a concave function of t. The
+conditions of Remark 2.2 can all be directly verified in this case; the key
+       DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                        11
+
+is that gt (x)/ft (x) is a linear function of x, and ht (x)/ft (x) is quadratic in
+x. This argument works for any Gaussian densities of the form (21), where
+V ′′ (t) ≤ 0, and µ(t) is an affine function of t. 
+
+   Remark 2.9. It is possible to use the explicit expression for the entropy
+of a Gaussian random variable to prove Theorem 2.8 directly. However, as
+there is no explicit expression for the entropy of a sum of Bernoulli variables,
+it is not possible to adapt such a proof in the discrete Shepp–Olkin case,
+and we require the assumption that all p′i ≥ 0 in that case.
+
+  3. Discrete gradient field models.
+
+   3.1. Motivating example and discrete Benamou–Brenier formula. We now
+show how natural choices of paths connecting probability mass functions on
+the integers can be viewed in the gradient field framework of Section 2. We
+give a new perspective on the time derivative using a series of functions
+αk (t), where k = 0, . . . , n and 0 ≤ t ≤ 1. Recall that we use the left derivative
+map ∇1 defined by ∇1 fk = fk − fk−1 for any function f , and write ∇2 =
+(∇1 )2 for the map taking ∇2 fk = fk − 2fk−1 + fk−2 . Write ∇∗1 , defined by
+∇∗1 fk = fk − fk+1 , for its adjoint (with respect to counting measure). Recall
+A denotes the set of measurable functions α(t) = (α0 (t), α1 (t), . . . , αn (t)),
+where α0 (t) ≡ 0 and αn (t) ≡ 1, and 0 ≤ αk (t) ≤ 1 for all k and t. We first
+give a motivating example, which is a special case of the Shepp–Olkin inter-
+polation.
+                                               
+   Example 3.1. We write Bink (n, p) := nk pk (1 − p)n−k for the probabil-
+ity mass function of a binomial with parameters n and p. For fixed n and
+0 ≤ p < q ≤ 1, define p(t) = p(1 − t) + qt, and write fk (t) = Bink (n, p(t)) for
+the probability mass functions which interpolate in the natural way in the
+parameter space. A simple calculation (see, e.g., [24] and [30]) shows that
+for any k = 0, 1, . . . , n,
+                 ∂fk
+(22)                  (t) = −∇1 (n(q − p) Bink (n − 1, p(t))).
+                  ∂t
+We reformulate equation (22) using an insight of Yu [35], who defined the
+hypergeometric thinning operation, observing in [35], Lemma 2, that for any
+n, p,
+                                                         
+                           (k + 1)                      k
+(23)    Bink (n − 1, p) =          Bink+1 (n, p) + 1 −      Bink (n, p).
+                              n                         n
+This suggests that we rewrite equation (22) in the form, modeled on (11),
+              ∂fk                      (α)
+(24)     0=       (t) + ∇1 ((n(q − p))gk (t))       for k = 0, 1, . . . , n,
+               ∂t
+12                          E. HILLION AND O. T. JOHNSON
+
+for
+        (α)
+(25) gk (t) = αk+1 (t)fk+1 (t) + (1 − αk (t))fk (t)                       for k = 0, 1, . . . , n − 1,
+with αk (t) = k/n for all k and t.
+
+  The form of equations (24) and (25) suggests a version of the Benamou–
+Brenier formula [5, 6] for discrete random variables.
+
+   Definition 3.2. We write PZ (f (0), f (1)) for the set of continuous,
+piecewise differentiable families of probability mass functions fk , given end
+constraints fk (t)|t=0 = fk (0) and fk (t)|t=1 = fk (1). Given α(t) ∈ A, for fk (t) ∈
+                                                       (α)
+PZ (f (0), f (1)) define probability mass function gk (t), velocity field vα,k (t)
+and path length I(f ) by
+        (α)
+(26) gk (t) = αk+1 (t)fk+1 (t) + (1 − αk (t))fk (t)                       for k = 0, 1, . . . , n − 1,
+                   ∂fk                    (α)
+              0=       (t) + ∇1 (vα,k (t)gk (t))
+                    ∂t
+(27)
+                                      t-almost everywhere for k = 0, 1, . . . , n,
+                Z 1 n−1                 !      Z 1
+                    X (α)
+             2                        2
+(28)    I(f ) =         gk (t)vα,k (t) dt =:       β(t) dt.
+                    0     k=0                                  0
+
+Define Vn via
+(29)                    Vn2 (f (0), f (1)) =           inf             I(f )2 ,
+                                               fk ∈PZ (f (0),f (1)),
+                                                    αk (t)∈A
+
+and refer to any path achieving the infimum in (29), if it exists, as a geodesic.
+
+  Proposition 3.3. Vn is a metric on the space of probability measures
+on {0, . . . , n}, Moreover, for any geodesic f we have
+(30)     Vn (f (s), f (t)) = |t − s|Vn (f (0), f (1))              for any 0 ≤ s, t ≤ 1.
+
+   Proof. It is clear that Vn ≥ 0 and that Vn (f, g) = 0 implies f = g. To
+prove Vn is symmetric, we transpose the path f (t) in time fek (t) = fk (1 − t),
+                                        (e
+                                         α)       (α)
+taking αek (t) = αk (1 − t) gives gek (t) = gn−k−1 (1 − t), and vαe,k = −vα,k so
+that Vn2 (f (0), f (1)) = Vn2 (f (1), f (0)).
+   To prove the triangle inequality, we consider three mass functions f (0), f ∗ ,
+f (1). For any paths (f (0) (t))t∈[0,1] ∈ PZ (f (0), f ∗ ) and (f (1) (t))t∈[0,1] ∈ PZ (f ∗ ,
+f (1)) we construct (f (t))t∈[0,1] ∈ PZ (f0 , f1 ) such that I(f ) = I(f (0) )+I(f (1) ),
+as follows:
+         DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                        13
+
+                                                         (0)
+• If t ≤ ρ, we set τ0 (t) := t/ρ and fk (t) = fk (τ0 (t)). We then have αk (t) =
+    (0)                (α)       (0),(α)                             (0)
+  αk (τ0 (t)), with gk (t) = gk          (τ0 (t)) and vα,k (t) = ρ1 vα,k (τ0 (t)).
+                                                                      (1)
+• If t > ρ, we set τ1 (t) := (t − ρ)/(1 − ρ) and fk (t) = fk (τ1 (t)). We have
+             (1)                 (α)       (1),(α)                          1
+  αk (t) = αk (τ1 (t)), with gk (t) = gk           (τ1 (t)) and vα,k (t) = 1−ρ ×
+   (1)
+  vα,k (τ1 (t)).
+The change of variables formula allows us to compute
+                   Z ρ n−1
+                       X (0),(α)          1 (0)
+               2
+          I(f ) =          gk    (τ0 (t)) 2 vα,k (τ0 (t))2 dt
+                    0                    ρ
+                          k=0
+                         Z 1 n−1
+                             X      (1),(α)                 1     (1)
+                     +             gk         (τ1 (t))           v (τ1 (t))2 dt
+                          ρ k=0                          (1 − ρ)2 α,k
+                    1           1
+                   = I(f0 )2 +     I(f1 )2 .
+                    ρ          1−ρ
+                                        I(f )    (0)
+Choosing the optimal ρ = ρ∗ := I(f (0)    )+I(f (1) )
+                                                      gives the result.
+    We can extend the same argument to prove equation (30) above. We first
+prove the case t = 1. Consider any geodesic f and 0 ≤ s ≤ 1. We can take
+f ∗ = f (s) in the argument above and decompose the geodesic into a path
+from f (0) to f (s) of length I(f (0) ) and a path from f (s) to f (1) of length
+I(f (1) ). We know that the optimal ρ∗ is equal to s (otherwise we could reduce
+Vn by taking the path at a different rate, contradicting the fact that f is
+a geodesic). We deduce that I(f (0 ) = s(I(f (0) ) + I(f (1) )) = sVn (f ), or that
+                          Pn−1 (α)
+the inner sum β(t) = k=0        gk (t)vα,k (t)2 is constant almost everywhere in
+t.
+    We can prove the more general form of equation (30) using a similar
+argument. We decompose the path into three parts, f (0) ∈ PZ (f (0), f (s)),
+f (1) ∈ PZ (f (s), f (t)) and f (2) ∈ PZ (f (t), f (1)). Let us consider some 0 <
+ρ0 < ρ1 < 1, and take τ0 (t) := t/ρ0 , τ1 (t) := (t − ρ0 )/(ρ1 − ρ0 ) and τ2 (t) =
+(t − ρ1 )/(1 − ρ1 ). A similar argument shows that unless ρ0 = s and ρ1 = t,
+the length of the path can be reduced in the same way. 
+
+  3.2. Constant velocity paths.
+
+  Lemma 3.4. For any geodesic f (t) between f (0) and f (1), the β(t) is
+constant in t.PFurther, if there exists a geodesic between these, then writing
+mean λ(t) = k kfk (t) the
+                         Vn (f (0), f (1)) ≥ |λ(0) − λ(1)|,
+with equality if and only if vα,k ≡ v for all k and t, for some v.
+14                      E. HILLION AND O. T. JOHNSON
+
+
+p Proof. Proposition 3.3 shows that for any geodesic,    P we know that
+  β(t) ≡ Vn (f (0), f (1)) for almost all t. Since λ(t) = nk=0 kfk (t), differ-
+entiating and using equation (27) gives
+                      X n
+           ∂λ                         (α)
+              (t) = −   k∇1 (vα,k (t)gk (t))
+           ∂t
+                       k=0
+(31)
+                       n
+                       X                                       n
+                                                               X
+                                                    (α)               (α)
+                  =−         ∇∗1 (k)(vα,k (t)gk (t)) =               gl     (t)vα,l (t),
+                       k=0                                     l=0
+
+since −∇∗1 (k) = 1. Using equation (27) and Cauchy–Schwarz, since g(α) (t)
+is a probability mass function, equation (31) gives that for any t, since
+            n
+                              !    n
+                                                    !2          
+          X (α)
+                            2
+                                  X (α)                    ∂λ(t) 2
+(32)          gk (t)vα,k (t) ≥        gk (t)vα,k (t) =              ,
+                                                             ∂t
+           k=0                              k=0
+                  p
+or that | ∂λ(t)
+            ∂t | ≤  β(t) = Vn (f (0), f (1)), and the result follows by integra-
+tion.
+   Observe that equality holds in equation (32) if and only if vα,k (t) = ∂λ   ∂t (t)
+for all k, and equality holds overall if and only if ∂λ
+                                                      ∂t (t) = Vn (f (0), f (1))  for
+all t. 
+
+   Lemma 3.4 focuses attention on interpolations for which velocity field
+vα,k (t) ≡ v for all k and t, for some α(t) ∈ A. Recall that Definition 1.2
+refers to such an interpolation as a “constant velocity path,” and we say
+that f (t) satisfies a modified transport equation.
+
+   Lemma 3.5. If fk (t) can be expressed as a constant velocity path for
+some choice of v and α ∈ A, then this representation is unique (there is no
+other choice of v and α ∈ A for which it is a constant velocity path).
+
+   Proof. Equation (31) shows that if there exists a constant velocity path
+with velocity v, then v = λ(1) − λ(0). Using a similar argument, we can solve
+for α. The key is to observe that, since αn = 1, for any α ∈ A, equation (26)
+means that the sum
+                       n−1
+                       X                    n
+                                            X
+                              (α)
+(33)                         gl     (t) =         fl (t) − αk (t)fk (t).
+                       l=k                  l=k
+                                         P
+Using the distribution function Fl (t) := lk=0 fk (t) and taking vα,l (t) ≡ v,
+we can sum equation (27) over k to obtain
+                                  ∂Fl         (α)
+(34)                                  (t) + vgl (t) = 0.
+                                  ∂t
+       DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                      15
+
+         (α)
+Hence, gl (t) is also fixed by the form of the path fk (t), and on rearranging
+equation (33), we express
+                              Pn              Pn−1 (α)
+                                l=k fl (t) −      l=k gl (t)
+(35)                 αk (t) =                                .
+                                           fk (t)                           
+
+   Equation (35) implies that αk (t) is a smooth function of t in the case
+of constant velocity paths. In particular, it is legitimate to consider the
+            ∂
+derivative ∂t αk (t), as is done, for instance, in the proof of Lemma 4.1. We
+now show that in certain circumstances our distance measure Vn coincides
+with the Wasserstein distance W1 , a metric which is known to have a natural
+relationship to discrete interpolations as described in Section 3.3 below.
+
+   Lemma 3.6. If there exists a constant velocity path between f (0) and
+f (1) with velocity v, then the Wasserstein distance W1 (F (0), F (1)) and
+Vn (f (0), f (1)) coincide and are equal to λ(1) − λ(0).
+
+   Proof. Recall from the proof of Lemma 3.5 that if there exists a con-
+stant velocity path with velocity v, then v = λ(1) − λ(0). Without loss of
+generality we may assume that v ≥ 0. In this case, Vn = v = λ(1) − λ(0).
+   Using equation (34), positivity of v means that Fk (t) is decreasing in
+t for all t and k. This means that F (0) stochastically dominates F (1) in
+the standard sense; see, for example, [29]. Lemma 8.2 and equation (8.1)
+of [7] together showR that for any distribution functions F (0) and F (1), the
+W1 (F (0), F (1)) = |F (1)y − F (0)y | dy, so in this stochastically ordered case
+we deduce that
+                        Z                          Z             Z
+     W1 (F (0), F (1)) = (F (0)y − F (1)y ) dy = y dF (1)y − y dF (0)y
+
+                     = λ(1) − λ(0),
+and the argument is complete. 
+
+  3.3. Binomial interpolation.
+
+   Example 3.7. Comparing equations (24) and (27) shows that, taking
+αk (t) ≡ k/n, the binomial interpolation (Example 3.1) has constant velocity
+vα,k (t) ≡ n(q − p) and hence achieves the lower bound in Lemma 3.4, with
+Vn (Bin(n, p), Bin(n, q)) = n(q − p).
+   Contrast this with the approach of Erbar and Maas [12, 23] (see also
+Mielke [25]), based on Markov chains with a given stationary distribution
+π. In the two-point case, taking as a reference π = (q/(p + q), p/(p + q)),
+Maas [23] write ρβ for a relative density equivalent to the probability mass
+16                      E. HILLION AND O. T. JOHNSON
+
+function f β = (f0β , f1β ) = ((1 − β)/2,
+                                      q (1 + β)/2). Example 2.6 of [23] implies a
+                                  R β
+distance of W(ρα , ρβ ) = √12p α arctanh  r
+                                             r
+                                               dr, in this case, in contrast to the
+|β − α|/2 we obtain.
+
+   Example 3.7 can be generalized considerably as follows. Given a proba-
+bility mass function f , Rényi [28] introduced the thinned probability mass
+function Tt f to be the law of the random sum
+                                    X
+                                    X       (t)
+(36)                                       Bi ,
+                                     i=1
+
+                       (t)
+where X ∼ f and Bi are Bernoulli(t) random variables, independent of
+each other and of X. Thinning interpolates between the original measure
+f = T1 f and a point mass at zero T0 f . This operation was studied in the
+context of entropy of random variables in [17], and was extended by Gozlan
+et al. [13] and by Hillion [15] for probability measures on graphs, implying
+the following definition in the case of random variables supported on Z:
+
+   Definition 3.8. A coupling π of mass functions f (0) and f (1) sup-
+ported onP Z [i.e., a joint distribution
+                                 P       function πx,y whose marginals satisfy
+f (0)x = y πx,y and f (1)y = x πx,y ], induces a path as follows. Section 2.2
+of [13] defines a mass function
+                                      X
+(37)              fk (t) = vkπ (t) :=   πx,y Bink−x (|y − x|, t),
+                                    x,y
+
+                                                              P −X (t)
+which we can understand as the law of the random sum X + Yi=1         Bi ,
+                                    (t)
+where (X, Y ) ∼ π, and as before Bi are Bernoulli(t) random variables,
+independent of each other and of (X, Y ). Here, we use the convention that
+          P       (t)   Pm      (t)
+for m ≥ 0, −mi=1 Bi = −    i=1 Bi .
+
+
+   Proposition 2.7 of [13] gives a partial differential equation showing how
+fk (t) evolves with t, using a mixture of left and right gradients (as in [16]).
+Proposition 2.5 of [13] shows that if π ∗ is an optimal coupling (in Wasserstein
+                        ∗
+distance W1 ), then v π (t) defines a (constant velocity) geodesic for the W1
+distance. We relate this to the discrete Benamou–Brenier framework in the
+stochastically ordered context; see Lemma 3.6.
+
+   Lemma 3.9. If f (0) is stochastically dominated by f (1), then the inter-
+polation (fk (t)) defined by equation (37) gives a constant velocity path.
+       DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                             17
+
+   Proof.
+    P         In this case, x ≤ y for all (x, y) in the support of π. Define
+v = x,y πx,y (y − x) and π   ex,y = πx,y (y − x)/v for another “distance-biased”
+joint distribution function. Direct differentiation of equation (37) gives that
+   ∂fk       X
+       (t) =      πx,y (y − x)(Bink−x−1 (y − x − 1, t) − Bink−x (y − x − 1, t))
+    ∂t        x,y
+
+            = −∇1 (vgk (t)),
+               P
+where gk (t) = x,y π ex,y Bink−x (y − x − 1, t). Since for any x, the convolution
+(1 − t) Binx (m − 1, t) + t Binx−1 (m − 1, t) = Binx (m, t), in equation (37) we
+can express
+              X
+(38) fl (t) =   πx,y ((1 − t) Binl−x (y − x − 1, t) + t Binl−x−1 (y − x − 1, t)),
+             x,y
+
+and substituting in equation (35), we obtain
+                         "
+                 X
+        αk (t) =     πx,y t Bink−x−1 (y − x, t)
+                   x,y
+(39)                                                                  #
+                       n−1
+                       X
+                   +           Binl−x (y − x − 1, t)(1 − (y − x)/v)        fk (t).
+                         l=k                                                         
+
+   In future work, we hope to consider the question of which interpolations
+in the form of equation (37) induce coefficients satisfying 0 ≤ αk (t) ≤ 1.
+
+   Example 3.10 (Translation case). Hillion considered the translation
+case, where f (1)k+m = f (0)k = fk for some m. Theorem 1.1 of [14] proved
+that if f is log-concave (i.e., fk2 ≥ fk−1 fk+1 for all k), the entropy is concave
+in t. This paper generalizes Hillion’s result: the conditions of Theorem 1.3
+can be verified, and the concavity of entropy is reproved.
+   In particular we interpolate by πx,y supported only on {(x, y) : y − x = m},
+so that π e = π, and clearly v = m. Then equation (38) simplifies to give
+fk (t) = (1 − t)gk (t) + tgk−1 (t), and equation (39) becomes
+                                    tgk−1 (t)     (1 − t)gk (t)
+(40)                     αk (t) =             =1−               ,
+                                      fk (t)         fk (t)
+so that clearly αk (t) lies between 0 and 1 for all k and t.
+   Equation (40) shows that GLC, Condition 3, holds with equality in this
+case. Further k-monotonicity, Condition 1, holds as a consequence of log-
+concavity of gk (t) (which follows from log-concavity of f ). The t-monotonicity,
+Condition 2, is less straightforward, but can be verified using direct calcu-
+lation, using the log-concavity of h.
+18                        E. HILLION AND O. T. JOHNSON
+
+   3.4. Generalized log-concavity. Recall from Section 2.2 that probabilistic
+inequalities can be proved for densities f such that f /φ1/c is log-concave.
+For integer-valued random variables the corresponding property of ultra log-
+concavity was introduced by Pemantle [27] and promoted by Liggett [21]:
+
+   Definition 3.11 ([21, 27]). For any n, a probability mass function sup-
+ported on {0, 1, . . . , n} is ultra log-concave of order n, denoted by ULC(n),
+if the ratio fk / Bink (n, t) is a log-concave function. Equivalently we require
+that
+                                          
+k+1          k+1 2             k+2         k
+        1−            fk+1 −            1−     fk fk+2 ≥ 0    for k = 0, . . . , n − 2.
+   n          n                   n        n
+(41)
+We include the possibility that (formally speaking) n = ∞, in which case we
+require that the ratio of fk and a Poisson mass function be log-concave, and
+write ULC(∞).
+
+   This condition was first used to control entropy by Johnson [17], who
+showed that, fixing the mean, the Poisson is maximum entropy in the class
+ULC(∞). A corresponding result was proved by Yu [36], who showed that,
+fixing the mean, the binomial is maximum entropy in the class ULC(n). This
+generalizes the result (see [24] and [30]) that the entropy of Bernoulli sums
+with a given mean is maximized by the binomial, since Newton’s inequalities
+(see, e.g., [26]) show that Bernoulli sums are ULC(n).
+   Our generalized log-concavity, Condition 3, generalizes Definition 3.11,
+with ULC(n) corresponding to GLC(α) for αk = k/n, as in Example 3.1.
+Note that GLC, Condition 3, and k-monotonicity, Condition 1, together
+imply that f is log-concave.
+
+   4. Framework for concavity of discrete entropy. In this section, we prove
+Theorem 1.3, which shows that entropy is concave if Conditions 1, 2 and
+3 are satisfied. In fact, since t-monotonicity (Condition 2) is too restrictive
+for our purposes, we prove a more general result, Theorem 4.4, which gives
+concavity of entropy despite replacing Condition 2 by the weaker Condition
+4. Lemma 4.2 shows that this condition is indeed weaker, and hence together
+with Theorem 4.4 proves Theorem 1.3.
+
+    Condition 4. Consider a constant velocity path, satisfying a modified
+                                        (α)                           ∂ 2 fk
+transport equation ∂f   ∂t (t) = −v∇1 (gk (t)) with some h satisfying ∂t2 (t) =
+                         k
+
+v 2 ∇2 (hk ). If we define
+                          (α) (α)           (α)             (α)
+                        2gk gk+1 fk+1 − (gk )2 fk+2 − (gk+1 )2 fk
+(42)            e
+                hk :=                                             ,
+                                      2
+                                    fk+1 − fk fk+2
+         DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                                    19
+
+then we require that
+(43)                        hk ≤ e
+                                 hk     for k = 0, 1, . . . , n − 2.
+
+   We first observe that the same coefficients (αk )k=0,...,n introduced in equa-
+tion (2) can be used to state a second-order modified transport equation:
+
+  Lemma 4.1. If there exist coefficients α giving rise to an interpolation
+with constant velocity v, then
+                              ∂ 2 fk
+(44)                                 = v 2 ∇2 (hk ),
+                               ∂t2
+where [in a result paralleling (18) in the continuous case above], for k =
+0, . . . , n − 2,
+       hk = (1 − αk )(1 − αk+1 )fk + 2αk+1 (1 − αk+1 )fk+1 + αk+1 αk+2 fk+2
+(45)
+                        1 ∂αk+1
+              − fk+1            .
+                        v ∂t
+  Proof. Recall that we write
+        (α)
+(46) gk       = αk+1 (t)fk+1 (t) + (1 − αk (t))fk (t)          for k = 0, 1, . . . , n − 1.
+Differentiating equation (46) we have
+                (α)
+              ∂gk            ∂αk+1         ∂fk+1              ∂fk      ∂αk
+                      = fk+1       + αk+1         + (1 − αk )     − fk
+               ∂t              ∂t           ∂t                 ∂t       ∂t
+                                                                     
+                              ∂αk+1                 (α)           (α)
+                      = fk+1        − v(1 − αk+1 )gk − vαk+1 gk+1
+                                ∂t
+                                                              
+                              ∂αk               (α)        (α)
+                        − fk       − v(1 − αk )gk−1 − vαk gk
+                               ∂t
+                      = ∇1 [vhk ],
+using the expression from (45), and the proposition follows easily. 
+
+  Lemma 4.2.            If Conditions 1, 2 and 3 hold, then Condition 4 holds.
+
+  Proof. Using e   hk and hk defined in equations (42) and (45), we need to
+                e
+prove that hk ≤ hk for all k. For simplicity, we write
+(47)                        Dk := fk2 − fk−1 fk+1 ≥ 0,
+                                          (α)         (α)
+(48)                         Ak := (fk+1 gk     − fk gk+1 ) ≥ 0,
+                                          (α)            (α)
+(49)                         Bk := (fk+1 gk+1 − fk+2 gk ) ≥ 0.
+20                     E. HILLION AND O. T. JOHNSON
+
+The positivity of Ak and Bk follows from GLC and k-monotonicity since we
+can write
+                                                                 (α)
+            (1 − αk+1 )Ak = GLC(α)k + (αk+1 − αk )fk gk+1 ,
+                                                                       (α)
+                  αk+1 Bk = GLC(α)k + (αk+2 − αk+1 )fk+2 gk .
+The key is to observe that in this notation, by Lemma 4.1,
+                      (α)          (α)
+                     gk+1 Ak + gk Bk
+(50)          e
+              hk =                   ,
+                           Dk+1
+                             (α)                (α)            1 ∂αk+1
+(51)          hk = αk+1 gk+1 + (1 − αk+1 )gk          − fk+1           .
+                                                               v ∂t
+Direct calculation gives
+                            (α)
+(52)                      gk Dk+1 = fk+1 Ak + fk Bk ,
+                            (α)
+(53)                    gk+1 Dk+1 = fk+2 Ak + fk+1 Bk .
+Considering the coefficients of Ak and Bk , we can substitute (52) and (53)
+in equation (51) to obtain
+
+ e         fk+2 (αk+2 − αk+1 )Ak + fk (αk+1 − αk )Bk        1 ∂αk+1
+ hk − hk =                                           + fk+1         ≥ 0,
+                             Dk+1                           v ∂t
+(54)
+                            ∂αk+1
+where the positivity of       ∂t  is assumed in Condition 2.           
+
+   We need one further result, which can be directly verified by differentia-
+tion:
+
+     Lemma 4.3.   Writing θ(v) = 1/(2v) − v/2, we have
+                       0 ≤ − log v ≤ θ(v)         for v ≤ 1.
+
+   Theorem 4.4.      If Conditions 1, 3 and 4 hold, then the entropy of H(f )
+is concave in t.
+                                                  (α)
+   Proof. For simplicity, we write gk for gk . First note that Conditions 1
+and 3 together imply that f is log-concave. In fact, they imply two stronger
+results, that
+                      fk gk+1                   fk+2 gk
+(55)                          ≤1         and             ≤ 1.
+                      fk+1 gk                  fk+1 gk+1
+       DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                        21
+
+This means that, using Lemma 4.3, writing θ(v) = 1/(2v) − v/2, we can write
+                                                                    
+                  fk (t)fk+2 (t)             fk gk+1            fk+2 gk
+      0 ≤ − log                    = − log             − log
+                    fk+1 (t)2                fk+1 gk           fk+1 gk+1
+                                                               
+                                        fk gk+1          fk+2 gk
+(56)                               ≤θ              +θ
+                                        fk+1 gk         fk+1 gk+1
+                                                    2       2  
+                                         Dk+1        gk gk+1
+                                   =                    +         ,
+                                     2fk+1 gk gk+1 fk fk+2
+where the last identity follows by grouping together multiples of gk+1 /gk
+and gk /gk+1 and factorizing. In a standard fashion, we can write the second
+derivative of entropy as
+           Xn                           n
+                                        X         2
+  ′′           ∂ 2 fk                     1 ∂fk
+H (t) = −             (t) log(fk (t)) −         (t)
+                ∂t2                       fk ∂t
+                k=0                            k=0
+                n
+                X                                  n
+                                                   X (∇1 (vgk ))2
+ (57) = −             v 2 ∇2 (hk ) log(fk (t)) −
+                                                               fk
+                k=0                                k=0
+                n
+                X                                          n
+                                                               X
+            2                        fk (t)fk+2 (t)              (∇1 (vgk ))2
+ (58) = v             hk       − log                       −
+                                       fk+1 (t)2                      fk
+                k=0                                            k=0
+          n  
+          X                                   2   2    2              2   
+            2e                     Dk+1       gk gk+1     gk    gk gk+1 gk+1
+ (59) ≤ v    hk                                  +      −    −2        +         ,
+                                2fk+1 gk gk+1 fk fk+2     fk     fk+1    fk+2
+                k=0
+where equation (57) follows using equations (3) and (1), respectively, and
+equation (58) uses the adjoint of ∇2 . Finally equation (59) follows from
+Condition 4 and equation (56), using the fact that both terms are positive.
+  Using equation (50), we can write the first term in the square bracket in
+equation (59) as
+                                               2  
+                     (gk+1 Ak + gk Bk ) gk2 gk+1
+                                            +        .
+                        2fk+1 gk gk+1    fk fk+2
+Further, since we can write
+             2               2   
+             gk     gk gk+1 gk+1          gk          gk+1
+         −      −2         +        =−         Ak −           Bk ,
+             fk      fk+1    fk+2      fk fk+1      fk+1 fk+2
+we can expand equation (59) in terms of Ak and Bk as
+                                                             2 )
+                           (Ak gk+1 − Bk gk )(fk+2 gk2 − fk gk+1
+                       −
+                                   2fk fk+1 fk+2 gk gk+1
+(60)                                                               2
+                                                                2
+                                  fk fk+1 fk+2      gk2        gk+1
+                             =−                           −            .
+                                    2gk gk+1     fk fk+1 fk+1 fk+2
+22                        E. HILLION AND O. T. JOHNSON
+
+Here the final equality follows since the form of Ak and Bk means that the
+two bracketed terms in the first expression in equation (60) are in fact equal.
+
+
+   It would be of interest to understand how this remainder term (60) relates
+to the corresponding term found for continuous interpolations in equation
+(14).
+
+   5. Shepp–Olkin interpolation as a constant velocity path. Recall that in
+Conjecture 1.1 we are given n ≥ 1 affine functions pi : [0, 1] → [0, 1] where for
+each i, pi (t) = pi (0)(1 − t) + pi (1)t. We denote by (fk (t))k=0,1,...,n the dis-
+tribution of the sum of independent Bernoulli random variables of param-
+                                                 (i)
+eters p1 (t), . . . , pn (t). Further we write (fk (t))k=0,...,n−1 for the mass func-
+tion of the ith “leave one out” sum—that is, the distribution of a Bernoulli
+                                                                             (i,j)
+sum with parameters p1 (t), . . . , pi−1 (t), pi+1 (t), . . . , pn (t), and fk (t) for the
+“leave two out” sum, involving all parameters except pi (t) and pj (t). Define
+                               (i)      (i)         (i)        (i)
+(61)                        Dk = (fk )2 − fk−1 fk+1 ,
+                               (i)     (i) (i)           (i)     (i)
+(62)                         Ek = fk fk−1 − fk−2 fk+1 ,
+                                                 (i,j)
+with corresponding notation for Dk , Dk and so on.
+   We now show how the Shepp–Olkin problem can be viewed in the frame-
+work we introduced in Section 3. To be specific, if each derivative p′i is posi-
+tive, the Shepp–Olkin interpolation is a constant velocity path with velocity
+v in the sense of Definition 1.2. That is:
+
+   Proposition 5.1. If all the p′i ≥ 0, then the probability mass function
+defined by the Shepp–Olkin interpolation satisfies a modified transport equa-
+tion,
+                           ∂fk
+(63)                           (t) + ∇1 (vgk ) = 0.
+                 Pn ′ ∂t
+Here we set v := i=1 pi , and write the probability mass function
+(64)                gk (t) := (1 − αk (t))fk (t) + αk+1 (t)fk+1 (t),
+where
+                    Pn     ′        (i)                  Pn     ′              (i)
+                      i=1 pi pi (t)fk−1 (t)                i=1 pi (1 − pi (t))fk (t)
+(65)     αk (t) =                       =1−                             .
+                        vfk (t)                           vfk (t)
+Observe that α0 (t) ≡ 0 and αn (t) ≡ 1, and that if all p′i ≥ 0, then 0 ≤ αk (t) ≤
+1 for all k and t. Further, this interpolation satisfies a second-order modified
+                                   2
+transport equation of the form ∂∂tf2k (t) = v 2 ∇2 (hk ), where
+                                    P       ′ ′ (i,j)
+                                      i6=j pi pj fk
+(66)                          hk =                    .
+                                           v2
+       DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                                                   23
+
+  Proof. Observe that by definition, the fk have probability generating
+function
+               X n           Yn
+                          k
+                   fk (t)s = (1 − pi (t) + spi (t)),
+                              k=0                 i=1
+
+which has derivative with respect to t given by
+                n
+                X                 X        n   Y
+                      ∂fk
+(67)                      (t)sk =   p′i (s − 1) (1 − pj (t) + spj (t)).
+                       ∂t
+                k=0                       i=1                   j6=i
+
+Comparing coefficients of s, we see that ∂f  ∂t + ∇1 (ve
+                                              k
+                                                       gk (t)) = 0, where gek (t) :=
+ 1 P  n    ′  (i)
+ v    i=1 pi fk . Substituting equation (65) in equation (64), we obtain that
+gek (t) = gk (t), and so equation (63) follows.
+                                                                     (i)    (i)
+    The values of α0 (t) and αn (t) follow from the fact that f−1 = fn = 0.
+The positivity of αk (t) and 1 − αk (t) follow from the assumption that p′i ≥ 0,
+meaning that all the terms in both the fractions in equation (65) are positive.
+    The form of hk stated in equation (66) follows by taking a further deriva-
+tive of equation (67) to obtain
+         n
+         X                          n X
+                                    X                                  Y
+           ∂ 2 fk             k
+(68)                 2
+                       (t)s =                   p′i p′j (s − 1)2                (1 − pℓ (t) + spℓ (t)),
+                ∂t
+         k=0                        i=1 j6=i                           ℓ6=i,j
+
+and again the result follows on comparing coefficients of s. 
+
+    For clarity, we now suppress the explicit dependence of αk on t. We first
+verify the k-monotonicity Condition 1 for Shepp–Olkin interpolations with
+p′i ≥ 0.
+
+   Proposition 5.2. For the Shepp–Olkin interpolation described above,
+if p′i ≥ 0 for all i, then the coefficients (αk )k=0,1,...,n satisfy the inequality
+αk ≤ αk+1 ; that is, k-monotonicity (Condition 1) holds.
+
+  Proof. If k is such that fk > 0 and fk+1 > 0, then
+                           Pn ′           (i)      (i)
+                              i=1 pi pi [fk fk − fk−1 fk+1 ]
+              αk+1 − αk =          P                         .
+                                  ( ni=1 p′i )fk fk+1
+Moreover, for i ∈ {1, . . . , n}, we have
+          (i)           (i)
+         fk fk − fk−1 fk+1
+                      (i)                 (i)           (i)            (i)                (i)        (i)
+                = fk [(1 − pi )fk + pi fk−1 ] − fk−1 [(1 − pi )fk+1 + pi fk ]
+                                    (i)           (i)     (i)
+                = (1 − pi )[(fk )2 − fk−1 fk+1 ] ≥ 0,
+24                         E. HILLION AND O. T. JOHNSON
+
+by the log-concavity property of the Bernoulli sum f (i) . The fact that each
+p′i is nonnegative finally proves that αk ≤ αk+1 . 
+
+    Remark 5.3. In the Shepp–Olkin case, αk is a conditional expectation
+of a weighted sum, similarly to the “scaled score function” of [20]. This
+follows since writing Bi for a Bernoulli random variable with parameter
+                                                         (i)
+pi (t), we obtain P(Bi = 1|B1 + · · · + Bn = k) = pi (t)fk−1 (t)/fk (t) so that
+equation (65) can be expressed as
+                                 n           n
+                                                     !
+                                X            X
+(69)                 αk (t) = E       λi B i   Bi = k ,
+                                          i=1            i=1
+                             P
+where weights λi = p′i /( p′i ). Note that in particular, in the “symmetric”
+case where p′i ≡ p′ for all i, then λ′i = 1/n and αk (t) ≡ k/n.
+   This conditional expectation characterization allows us to give an alterna-
+tive proof of the k-monotonicity Proposition 5.2. A result of Efron [11] (see
+also [18], equation (3.1)) shows that if φ(u1 , . . . , un ) is an increasing func-
+tion in each variable and X1 , . . . , Xn are independent log-concave random
+variables, then Φ(k) := E[φ(X1 , . . . , Xn )|X1 + · · P
+                                                       · + Xn = k] is an increasing
+function of k. Applying this to φ(B1 , . . . , Bn ) = λi Bi , the result follows.
+
+  We now prove that in the monotone Shepp–Olkin case the Bernoulli sum
+mass function is GLC(α), for the natural choice of α, and hence Condition
+3 holds.
+
+   Proposition 5.4. For the Shepp–Olkin interpolation, taking α as de-
+fined in equation (65), if all the p′i are positive, then the Bernoulli sum mass
+function (fk )k=0,1,...,n is GLC(α), and Condition 3 holds.
+
+     Proof. Formula (65) shows that GLC(α)k can be written as 1/v 2 times
+               X                X                  
+                     ′      (i)       ′           (i)
+                    pi pi f k    ·   pi (1 − pi )fk+1
+                     i                       i
+(70)                         X                           X             
+                                                   (i)                (i)
+                         −           p′i (1 − pi )fk      ·   p′i pi fk+1 .
+                                 i                             i
+
+Expanding this expression as a quadratic form in p′1 , . . . , p′n , the coefficients
+of p′2
+    i vanish, leaving an expression which simplifies to
+                   X                         (i,j)   (i,j) (i,j)
+                      p′i p′j (pi − pj )2 [(fk )2 − fk−1 fk+1 ].
+                     i<j
+
+The positivity of this expression, and hence the GLC(α) property, follow
+                            (i,j)
+from the log-concavity of (fk )k=0,...,n−2 and positivity of p′i . 
+       DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                                     25
+
+   6. Entropy concavity for monotone Shepp–Olkin regime. We now show
+that entropy is concave in the monotone Shepp–Olkin regime. Having al-
+ready verified Conditions 1 and 3 in Propositions 5.2 and 5.4, Theorem 4.4
+shows that concavity of entropy follows if Condition 4 holds.
+
+   Proposition 6.1. For monotone Shepp–Olkin interpolations, Condi-
+tion 4 holds if
+                X
+                  (p′2                    ′2
+                    i pj (1 − pj )bi,j + pj pi (1 − pi )bj,i
+                    i<j
+(71)
+                               + 2p′i p′j pi (1 − pi )pj (1 − pj )ci,j ) ≥ 0,
+
+where bi,j and ci,j are defined in equations (73) and (74) below.
+
+  Proof. We use the fact that [in the notation of equations (48) and (49)]
+the numerator of e
+                 hk can be written as gk+1 Ak + gk Bk , where
+                                                   1X ′     (i)
+           Ak := (fk+1 gk − fk gk+1 ) =              pi pi Dk ≥ 0,
+                                                   v
+                                                     i
+                                                    1X ′           (i)
+           Bk := (fk+1 gk+1 − fk+2 gk ) =             pi (1 − pi )Dk+1 ≥ 0.
+                                                    v
+                                                          i
+
+This means [using the expression for hk from equation (66) above] that
+Condition 4 is equivalent to the positivity of
+                                     X          (i,j)
+       v 2 (gk+1 Ak + gk Bk ) − Dk+1   p′i p′j fk
+                                            i6=j
+              X          (i)     (i)  (i)         (i)
+(72)        =  (p′i )2 (fk+1 pi Dk + fk (1 − pi )Dk+1 )
+                i
+                    X            (j)      (i)       (j)           (i)           (i,j)
+               +           p′i p′j (fk+1 pi Dk + fk (1 − pi )Dk+1 − Dk+1 fk             ).
+                    i6=j
+
+                                                                                  (i,j)
+We expand the two bracketed terms in equation (72) in terms of fk , using
+Lemma A.1 below, which implies [using the notation of equations (61) and
+(62)] that
+                     (i) (i)
+                               X               (i,j)
+                    fk fk−1 =     pj (1 − pj )Dk−1 ,
+                                         j6=i
+
+                             (i) (i)     1X              (i,j)
+                            fk fk−2 =       pj (1 − pj )Ek−1 .
+                                         2
+                                            j6=i
+26                                      E. HILLION AND O. T. JOHNSON
+
+First observe that
+      (i)         (i)          (i)                  (i)
+     fk+1 pi Dk + fk (1 − pi )Dk+1
+                        (i)   (i) (i)                 (i)         (i)     (i)                      (i)     (i) (i)
+            = pi fk [fk fk+1 ] − pi fk+1 [fk−1 fk+1 ] + (1 − pi )fk+1 [fk fk+1 ]
+                                     (i)    (i) (i)
+              − (1 − pi )fk [fk fk+2 ]
+              X              1      (i) (i,j)  (i)  (i,j)          (i)  (i,j)
+            =    pj (1 − pj ) (2pi fk Dk − pi fk+1 Ek + 2(1 − pi )fk+1 Dk
+                             2
+                 j6=i
+                                                                                                                     (i)   (i,j)
+                                                                                                    − (1 − pi )fk Ek+1 )
+                 X
+            =:           pj (1 − pj )bi,j ,
+                 j6=i
+
+where each term in square brackets is expanded using Lemma A.1. Further
+            (i)           (i,j)   (i,j)
+by writing fk = (1 − pj )fk + pj fk−1 , we can rearrange the expression for
+bi,j as
+                              (i,j) 2 (i,j)    (i,j)   (i,j)  (i,j) (i,j) (i,j)
+ bi,j = 12 pi pj ((fk              ) fk−1 − 2(fk−1 )2 fk+1 + fk−2 fk fk+1 )
+                                                      (i,j) 2 (i,j)    (i,j)   (i,j)  (i,j) (i,j) (i,j)
+             + 21 (1 − pi )(1 − pj )((fk                   ) fk+1 − 2(fk+1 )2 fk−1 + fk+2 fk fk−1 )
+(73)
+                                                (i,j) 3            (i,j) (i,j) (i,j)   (i,j)   (i,j)
+             + 12 (1 − pi )pj (2(fk                 ) − 3fk−1 fk              fk+1 + (fk−1 )2 fk+2 )
+                                                (i,j) 3            (i,j) (i,j) (i,j)   (i,j)   (i,j)
+             + 21 pi (1 − pj )(2(fk                 ) − 3fk−1 fk              fk+1 + (fk+1 )2 fk−2 ).
+Similarly, using simplifications such as the fact that
+                                                            (i)                 (i)                      (i)
+                              Dk = (1 − pi )2 Dk−1 + p2i Dk + pi (1 − pi )Ek
+the second bracket of equation (72) can be written as pi (1 − pi )pj (1 − pj )ci,j ,
+where
+                                        (i,j)     (i,j)           (i,j)    (i,j)         (i,j)   (i,j)
+                         ci,j := (fk+1 Ek                 − fk            Dk          − fk+2 Dk−1 )
+                                           (i,j) 3                (i,j) (i,j) (i,j)   (i,j)   (i,j)
+(74)                           = −(fk             ) + 2fk−1 fk               fk+1 − (fk+1 )2 fk−2
+                                            (i,j)         (i,j)           (i,j) (i,j) (i,j)
+                                     − (fk−1 )2 fk+2 + fk−2 fk                       fk+2 .                                        
+
+   Lemma 6.2. For the monotone Shepp–Olkin interpolation, for each i 6=
+j, the bi,j ≥ 0 and
+                            pi (1 − pj ) + pj (1 − pi )
+(75)                                 bi,j ≥ −           ci,j ,
+                                         2
+and hence Condition 4 is satisfied, and so the entropy is concave.
+       DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                               27
+
+   Proof. To verify the positivity of bi,j , we simply observe that each of
+the brackets in equation (73) is positive, by an application of equations (78),
+(79), (82) and (83) proved in the Appendix below.
+   To verify that bi,j + 12 (pi (1 − pj ) + pj (1 − pi ))ci,j is positive, we consider
+adding the final two terms of equation (73) to the expression given in (74),
+to obtain
+                   (i,j) 3     (i,j) (i,j) (i,j)   (i,j)   (i,j)  (i,j) (i,j) (i,j)
+    (1 − pi )pj ((fk   ) − fk−1 fk        fk+1 − (fk+1 )2 fk−2 + fk−2 fk fk+2 )
+          + pi (1 − pj )
+                   (i,j) 3     (i,j) (i,j) (i,j)   (i,j)   (i,j)  (i,j) (i,j) (i,j)
+            × ((fk     ) − fk−1 fk        fk+1 − (fk−1 )2 fk+2 + fk−2 fk fk+2 ),
+
+where the positivity of the two final terms is guaranteed by equations (80)
+and (81) below.
+    Condition 4 is verified by considering two separate cases. If ci,j ≥ 0, then
+all the terms in equation (71) are positive. Otherwise, if ci,j ≤ 0, then the
+bracketed term in equation (71) has negative discriminant as a function of
+p′i and p′j ,
+
+         4pi (1 − pi )pj (1 − pj )c2i,j − 4bi,j bj,i
+               ≤ c2i,j (4pi (1 − pi )pj (1 − pj ) − (pi (1 − pj ) + pj (1 − pi ))2 )
+               = −c2i,j (pi − pj )2 ≤ 0,
+
+since under this assumption both sides of equation (75) are positive, so it
+can be squared. In either case, we conclude that equation (71) is positive,
+and Condition 4 is satisfied. 
+
+  Since Condition 4 has been verified, the proof of Theorem 1.5 is complete.
+
+   APPENDIX: TECHNICAL RESULTS REGARDING BERNOULLI
+                         SUMS
+   In this section, we prove some technical results regarding the mass func-
+tions of Bernoulli sum random variables, required to prove the monotone
+Shepp–Olkin Theorem 1.5.
+
+  Lemma A.1. Let (fk )k∈Z be the Bernoulli sum of parameters p1 , . . . , pm .
+Then for every k ∈ Z and q ≥ 1, we have the identity
+                             m
+                             X                   (j)   (j)     (j) (j)
+(76)           qfk fk−q =          pj (1 − pj )[fk−1 fk−q − fk fk−q−1 ].
+                             j=1
+28                            E. HILLION AND O. T. JOHNSON
+
+    Proof. We use induction on the number m of parameters, the case
+where m = 1 being obvious. If (fk )k∈Z is the Bernoulli sum of parameters
+p1 , . . . , pm , we set for p ∈ [0, 1]
+                                   f˜k := (1 − p)fk + pfk−1 ,
+and we want to prove, given k ∈ Z and q ≥ 1, that
+                                 m
+                                 X                     (j) (j)       (j) (j)
+                 q f˜k f˜k−q =          pj (1 − pj )[f˜k−1 f˜k−q − f˜k f˜k−q−1 ]
+                                 j=1
+(77)
+                                  + p(1 − p)[fk−1 fk−q − fk fk−q−1 ].
+Expanding each side with the respect to the basis (1− p)2 , 2p(1− p), p2 , using
+                  (j)            (j)  (j)
+the fact that f˜k := (1 − p)fk + pfk−1 , it is easy to show that equation
+(77) is satisfied for some k ∈ Z and q ≥ 1 if (76) holds true for the pairs
+(k, q),(k, q + 1) and (k − 1, q). 
+
+  Next we prove the following technical inequality, which may be of inde-
+pendent interest:
+                                                                                          [m]
+   Theorem A.2. Property(m) holds: that is, for every (gk )k∈Z which is
+the probability mass function of a sum of m independent Bernoulli variables
+               [m]   [m]                [m]      [m]          [m] [m]       [m]
+     C1 (k) := gk−1 (gk )2 − 2(gk−1 )2 gk+1 + gk gk+1 gk−2 ≥ 0                               for all k ∈ Z.
+(78)
+
+  We first show that Property(m) implies a number of related inequalities,
+which are of use elsewhere in the paper:
+
+   Corollary A.3. If Property(m) holds, then for any g [m] , the probabil-
+ity mass function for the sum of m independent Bernoulli random variables,
+for all k ∈ Z,
+                      [m]        [m]            [m]      [m]          [m]     [m] [m]
+(79)     C 1 (k) := (gk )2 gk+1 − 2(gk+1 )2 gk−1 + gk+2 gk gk−1 ≥ 0,
+                      [m]              [m]    [m] [m]          [m]          [m]     [m]     [m] [m]
+(80)      C2 (k) := (gk )3 − gk−1 gk gk+1 − (gk−1 )2 gk+2 + gk−2 gk gk+2 ≥ 0,
+                      [m]              [m]    [m] [m]          [m]          [m]     [m]     [m] [m]
+(81)     C 2 (k) := (gk )3 − gk−1 gk gk+1 − (gk+1 )2 gk−2 + gk−2 gk gk+2 ≥ 0,
+                        [m]              [m]    [m] [m]              [m]      [m]
+(82)      C3 (k) := 2(gk )3 − 3gk−1 gk gk+1 + (gk−1 )2 gk+2 ≥ 0,
+                        [m]              [m]    [m] [m]              [m]      [m]
+(83)     C 3 (k) := 2(gk )3 − 3gk−1 gk gk+1 + (gk+1 )2 gk−2 ≥ 0,
+                        [m]       [m]           [m]     [m]    [m]          [m]   [m] [m]
+(84)     D1 (k) := 2(gk )2 gk−2 − 3gk−2 gk−1 gk+1 + gk+1 gk gk−3 ≥ 0.
+       DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                                  29
+
+   Proof. First note that these inequalities can be paired up by a duality
+argument. That is, if Property(m) holds for every Bernoulli sum g[m] , it is
+                 [m]
+true for g k := gm−k with parameters 1 − p1 , 1 − p2 , . . . , 1 − pm , which implies
+equation (79). Similarly (80) implies (81) and (82) implies (83). We write
+                                [m]         [m]            [m]    [m]
+                               Dk = (gk )2 − gk−1 gk+1 ,
+which is positive because g[m] is a sum of independent Bernoulli random
+variables, and therefore log-concave. In this notation, equations (80), (82)
+and (84) are a consequence of (78), since simple calculations show that
+           [m]                 [m] [m]          [m]     [m]      [m]       [m]
+         gk+1 C2 (k) = 2(gk gk+1 − gk−1 gk+2 )Dk + gk+2 C1 (k) ≥ 0,
+           [m]                  [m]         [m]
+          gk C3 (k) = 2(Dk )2 + gk−1 C 1 (k) ≥ 0,
+          [m]                 [m]                 [m]
+         gk−1 D1 (k) = 2gk−2 C1 (k) + gk+1 C1 (k − 1) ≥ 0.
+                          [m] [m]           [m]     [m]
+Here, positivity of (gk gk+1 − gk−1 gk+2 ) is again a consequence of log-
+concavity of g[m] . 
+
+  In a similar way, we can argue that:
+
+  Proposition A.4. If Property(m) is satisfied, then for every sum of m
+independent Bernoulli variables we have
+            [m]    [m]    [m]       [m]          [m]      [m]
+(85)       gk Dk + gk−2 Dk+1 ≥ 2gk+2 Dk−1                              for every k ∈ Z.
+
+   Proof. We can restate Property(m) as being equivalent to the inequal-
+ity
+                                            [m]
+                                       [m] gk+1 [m]
+                                      Dk ≥ [m] Dk−1 ,
+                                           gk−1
+the iteration of which gives
+                                       [m] [m]
+                                 [m]  gk+2 gk+1 [m]
+                                Dk+1 ≥ [m] [m] Dk−1 ,
+                                      gk gk−1
+so equation (85) holds if we have
+                              [m] [m]            [m]      [m]
+                              gk gk+1           gk−2 gk+1
+                              [m]     [m]
+                                            +     [m] [m]
+                                                                − 2 ≥ 0,
+                          gk−1 gk+2             gk gk−1
+which can be rewritten as
+                                                  [m]
+                 C1 (k + 1)                 (Dk )2                      C1 (k)
+              [m] [m]    [m]
+                             +2         [m]   [m] [m]
+                                                                 +     [m] 2 [m]
+                                                                                 ≥ 0,
+             gk−1 gk+1 gk+2           (gk )2 gk−1 gk+1               (gk ) gk−1
+30                        E. HILLION AND O. T. JOHNSON
+
+which is positive by assumption, which proves the proposition. 
+
+   Proof of Theorem A.2. We prove Property(m) by induction on the
+number of parameters m. It is clear that Property(1) is true. Let us suppose
+Property(m) holds for some m ≥ 1. In order to prove Property(m + 1), it
+suffices to show that, for every k ∈ Z,
+            [m+1]   [m+1] 2      [m+1]     [m+1]     [m+1] [m+1] [m+1]
+(86)       gk−1 (gk      ) − 2(gk−1 )2 gk+1 + gk−2 gk           gk+1 ≥ 0,
+where g[m+1] is the distribution of a sum of m + 1 Bernoulli variables. For p =
+                                   [m+1]            [m]   [m]
+pm+1 ∈ [0, 1], we can write gk           := (1 − p)gk + pgk−1 . To prove that (86)
+is positive, we expand it as a polynomial in p, of order 3, in the basis (1 −
+p)3 , p(1 − p)2 , p2 (1 − p), p3 , and show that the coefficients of each of these
+terms are positive:
+  (1) The coefficient of (1 − p)3 is C1 (k), which is clearly positive, by
+Property(m).
+  (2) The coefficient of p3 is C1 (k −1), which is also positive, by Property(m).
+  (3) The coefficient of p(1−p)2 is D1 (k), which is positive, since Property(m)
+implies equation (84).
+                                                         [m]   [m]    [m]  [m]
+  (4) The coefficient of p2 (1 − p) can be written gk−1 Dk−1 + gk−3 Dk −
+     [m]   [m]
+2gk+1 Dk−2 , which is positive by Proposition A.4.
+Since each coefficient is positive, we deduce that equation (86) is satisfied,
+which shows that Property(m + 1) holds. 
+
+   Acknowledgment. The authors would like to thank an anonymous ref-
+eree for a careful reading of this paper, which has resulted in numerous
+improvements to it.
+
+                                   REFERENCES
+ [1] Amari, S.-i. and Nagaoka, H. (2000). Methods of Information Geometry. Trans-
+          lations of Mathematical Monographs 191. Amer. Math. Soc., Providence, RI.
+          MR1800071
+ [2] Ambrosio, L., Gigli, N. and Savaré, G. (2008). Gradient Flows in Metric Spaces
+          and in the Space of Probability Measures, 2nd ed. Birkhäuser, Basel. MR2401600
+ [3] Ané, C., Blachère, S., Chafaı̈, D., Fougères, P., Gentil, I., Malrieu, F.,
+          Roberto, C. and Scheffer, G. (2000). Sur les Inégalités de Sobolev Logarith-
+          miques. Panoramas et Synthèses 10. Société Mathématique de France, Paris.
+          MR1845806
+ [4] Bakry, D. and Émery, M. (1985). Diffusions hypercontractives. In Séminaire de
+          Probabilités, XIX, 1983/84. Lecture Notes in Math. 1123 177–206. Springer,
+          Berlin. MR0889476
+ [5] Benamou, J.-D. and Brenier, Y. (1999). A numerical method for the optimal time-
+          continuous mass transport problem and related problems. In Monge Ampère
+          Equation: Applications to Geometry and Optimization (Deerfield Beach, FL,
+          1997). Contemp. Math. 226 1–11. Amer. Math. Soc., Providence, RI. MR1660739
+        DISCRETE TRANSPORT AND THE SHEPP–OLKIN CONJECTURE                            31
+
+ [6] Benamou, J.-D. and Brenier, Y. (2000). A computational fluid mechanics solution
+         to the Monge–Kantorovich mass transfer problem. Numer. Math. 84 375–393.
+         MR1738163
+ [7] Bickel, P. J. and Freedman, D. A. (1981). Some asymptotic theory for the boot-
+         strap. Ann. Statist. 9 1196–1217. MR0630103
+ [8] Carlen, E. A. and Gangbo, W. (2003). Constrained steepest descent in the 2-
+         Wasserstein metric. Ann. of Math. (2) 157 807–846. MR1983782
+ [9] Cordero-Erausquin, D. (2002). Some applications of mass transport to Gaussian-
+         type inequalities. Arch. Ration. Mech. Anal. 161 257–269. MR1894593
+[10] Cover, T. M. and Thomas, J. A. (1991). Elements of Information Theory. Wiley,
+         New York. MR1122806
+[11] Efron, B. (1965). Increasing properties of Pólya frequency functions. Ann. Math.
+         Statist. 36 272–279. MR0171335
+[12] Erbar, M. and Maas, J. (2012). Ricci curvature of finite Markov chains via con-
+         vexity of the entropy. Arch. Ration. Mech. Anal. 206 997–1038. MR2989449
+[13] Gozlan, N., Roberto, C., Samson, P.-M. and Tetali, P. (2014). Displacement
+         convexity of entropy and related inequalities on graphs. Probab. Theory Related
+         Fields 160 47–94. MR3256809
+[14] Hillion, E. (2012). Concavity of entropy along binomial convolutions. Electron.
+         Commun. Probab. 17 9. MR2872573
+[15] Hillion, E. (2014). Contraction of Measures on Graphs. Potential Anal. 41 679–698.
+         MR3264815
+[16] Hillion, E., Johnson, O. T. and Yu, Y. (2014). A natural derivative on [0, n] and
+         a binomial Poincaré inequality. ESAIM Probab. Statist. 18 703–712. MR3334010
+[17] Johnson, O. (2007). Log-concavity and the maximum entropy property of the Pois-
+         son distribution. Stochastic Process. Appl. 117 791–802. MR2327839
+[18] Johnson, O. T. and Suhov, Y. M. (2003). The von Neumann entropy and informa-
+         tion rate for integrable quantum Gibbs ensembles 2. Quantum Computers and
+         Computing 4 128–143.
+[19] Jordan, R., Kinderlehrer, D. and Otto, F. (1998). The variational formulation
+         of the Fokker–Planck equation. SIAM J. Math. Anal. 29 1–17. MR1617171
+[20] Kontoyiannis, I., Harremoës, P. and Johnson, O. (2005). Entropy and the law
+         of small numbers. IEEE Trans. Inform. Theory 51 466–472. MR2236061
+[21] Liggett, T. M. (1997). Ultra logconcave sequences and negative dependence. J.
+         Combin. Theory Ser. A 79 315–325. MR1462561
+[22] Lott, J. and Villani, C. (2009). Ricci curvature for metric-measure spaces via
+         optimal transport. Ann. of Math. (2) 169 903–991. MR2480619
+[23] Maas, J. (2011). Gradient flows of the entropy for finite Markov chains. J. Funct.
+         Anal. 261 2250–2292. MR2824578
+[24] Mateev, P. (1978). The entropy of the multinomial distribution. Teor. Verojatnost.
+         i Primenen. 23 196–198. MR0490451
+[25] Mielke, A. (2013). Geodesic convexity of the relative entropy in reversible Markov
+         chains. Calc. Var. Partial Differential Equations 48 1–31. MR3090532
+[26] Niculescu, C. P. (2000). A new look at Newton’s inequalities. JIPAM. J. Inequal.
+         Pure Appl. Math. 1 Article 170. MR1786404
+[27] Pemantle, R. (2000). Towards a theory of negative dependence. J. Math. Phys. 41
+         1371–1390. MR1757964
+[28] Rényi, A. (1957). A characterization of Poisson processes. Magyar Tud. Akad. Mat.
+         Kutató Int. Közl. 1 519–527. MR0094861
+32                       E. HILLION AND O. T. JOHNSON
+
+[29] Shaked, M. and Shanthikumar, J. G. (2007). Stochastic Orders. Springer, New
+         York. MR2265633
+[30] Shepp, L. A. and Olkin, I. (1981). Entropy of the sum of independent Bernoulli
+         random variables and of the multinomial distribution. In Contributions to Prob-
+         ability 201–206. Academic Press, New York. MR0618689
+[31] Sturm, K.-T. (2006). On the geometry of metric measure spaces. I. Acta Math. 196
+         65–131. MR2237206
+[32] Sturm, K.-T. (2006). On the geometry of metric measure spaces. II. Acta Math. 196
+         133–177. MR2237207
+[33] Villani, C. (2003). Topics in Optimal Transportation. Graduate Studies in Mathe-
+         matics 58. Amer. Math. Soc., Providence, RI. MR1964483
+[34] Villani, C. (2009). Optimal Transport: Old and New. Grundlehren der Mathematis-
+         chen Wissenschaften 338. Springer, Berlin. MR2459454
+[35] Yu, Y. (2008). On the maximum entropy properties of the binomial distribution.
+         IEEE Trans. Inform. Theory 54 3351–3353. MR2450793
+[36] Yu, Y. (2009). Monotonic convergence in an information-theoretic law of small num-
+         bers. IEEE Trans. Inform. Theory 55 5412–5422. MR2597172
+[37] Yu, Y. and Johnson, O. T. (2009). Concavity of entropy under thinning. In Pro-
+         ceedings of ISIT 2009, 28th June–3rd July 2009, Seoul 144–148. IEEE, New
+         York.
+
+Institut Matématiques de Marseille—UMR 7373              School of Mathematics
+Technopôle Château-Gombert                              University of Bristol
+39, rue Frédéric Joliot-Curie                           University Walk
+13453 MARSEILLE Cedex 13                                  Bristol BS8 1TW
+France                                                    United Kingdom
+E-mail: erwan.hillion@univ-amu.fr                         E-mail: o.johnson@bristol.ac.uk
+
