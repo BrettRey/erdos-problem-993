@@ -1,0 +1,217 @@
+                                                                    Lonely passengers: a short proof
+                                                                                    John Haslegrave
+
+                                                                                     March 14, 2025
+
+
+                                                                                         Abstract
+
+
+
+
+arXiv:2503.05363v2 [math.PR] 13 Mar 2025
+                                                    A fixed number of passengers independently board one of several buses uniformly at
+                                                random. The lonely passenger problem is to prove that the probability of at least one
+                                                passenger being the only one in their bus is increasing in the number of buses. It was solved
+                                                in a strong form by Imre Péter Tóth, who proved stochastic dominance of the number of
+                                                such passengers as the number of buses increases, but observed that, surprisingly, no short
+                                                proof was known “despite the efforts of several experts”. We give a very short proof of the
+                                                weaker result. The proof of the strong form, using the same idea, is more involved but still
+                                                relatively short.
+
+
+                                           1    Introduction
+                                           Suppose n ≥ 2 passengers board k ≥ 1 buses, with each passenger independently choosing a
+                                           bus uniformly at random. We say that a passenger is lonely if no other passengers board the
+                                           same bus. If we keep n fixed, but increase k, does this make it (strictly) more likely that at
+                                           least one passenger is lonely?
+                                               Intuitively we might expect the answer to be “yes”, and indeed it is trivial that the ex-
+                                           pected number of lonely passengers is strictly increasing in the number of buses. However, this
+                                           problem, originally posed by Imre Péter Tóth in September 2023, to illustrate a key difficulty
+                                           in a conjecture on random walks, remained unsolved for some time, and the proof eventually
+                                           obtained in 2025 [4] is surprisingly long and intricate. Tóth remarked that the problem had
+                                           resisted the efforts of several experts in probability, with multiple incorrect solutions put for-
+                                           ward, and that it was surprising that no short proof of this deceptively simple statement had
+                                           been found.
+                                               In this paper we present a very short proof of the problem as described above. We then
+                                           adapt the method to prove the stronger version actually given by Tóth’s solution, that there is
+                                                                                                             (k)    (k+1)
+                                           stochastic dominance in the number of lonely passengers, i.e. Ln ≺ Ln          , where the random
+                                                       (k)
+                                           variable Ln is the number of lonely passengers when n passengers board k buses. We write
+                                                           (k)
+                                           pn,k,r for P(Ln ≥ r); strict stochastic dominance requires that pn,k,r ≤ pn,k+1,r for each r with
+                                           strict inequality in at least one case (which will be the case r = 1).
+                                               We remark, following [4], that this problem arose from a conjecture of László Márton Tóth,
+                                           which remains open. Consider a simple symmetric random walk of length n on an infinite
+                                           tree T , having all degrees at least 3. A regeneration for this walk is an edge that is crossed
+                                           exactly once. Tóth conjectured that the probability of a regeneration is minimised when T is
+                                           the 3-regular tree, or more generally that the number of regenerations is stochastically minimal
+                                           in the same case. The lonely passenger problem was developed in order to highlight a specific
+                                           obstacle in analysing this problem. This conjecture would have consequences for the theory
+                                           of Ramanujan graphings, introduced by Backhausz, Szegedy and Virág [2] as a graph limit
+                                           analogue of Ramanujan graphs (see [3] for background on graph limits). In particular, it would
+
+                                                                                             1
+imply that Bernoulli graphings of unimodular Galton–Watson trees are Ramanujan. (See [1,
+Section 1] for the construction of unimodular Galton–Watson trees.)
+
+
+2    Proofs
+We first give the short proof that the probability of a lonely passenger is strictly increasing in
+the number of buses. The basic idea is that we can simulate the k-bus case by starting with
+k + 1 buses, and then taking bus k + 1 out of service. We then directly compare the probability
+that there is a lonely passenger before reassignment but not afterwards with the reverse.
+
+Theorem 1. For each n ≥ 2 and k ≥ 1 we have pn,k+1,1 > pn,k,1.
+
+Proof. First assign passengers independently and uniformly to k + 1 buses, and generate a
+list Y1 , . . . , Yn of i.i.d. random variables uniformly distributed on [k], independently of the
+assignment to buses. We say that a configuration is an element of [k + 1]n × [k]n , giving the
+buses to which passengers 1 to n are initially assigned, followed by the values of Y1 to Yn . Note
+that all configurations are equally likely. Then reassign any passengers on bus k + 1 to buses
+Y1 , . . . , Ym , where m is the number of passengers needing reassignment. Note that the allocation
+after reassignment follows the law for k buses.
+     Let X1 , . . . , Xk+1 be the number of passengers initially assigned to each bus, and let X1′ , . . . ,
+Xk′ be the number after reassignment. Consider the events A = {∃i ∈ [k + 1] : Xi = 1} and
+A′ = {∃i ∈ [k] : Xi′ = 1}; clearly it suffices to show that P(A ∩ A′c ) > P(A′ ∩ Ac ).
+     For each m ∈ {2, . . . , n} let Bm be the event that Xk+1 = 1 and XY1 = m − 1, but Xi 6= 1
+for all i 6= Y1 , k + 1. We have Bm ⊆ A ∩ A′c , since Xk+1 P     = 1 but Xi′ = Xi 6= 1 if i 6= Y1 , k + 1
+and XY1 = m > 1. The Bm are disjoint, so P(A ∩ A ) ≥ nm=2 P(Bm ).
+           ′                                                 ′c
+                                              ′ be the event that X
+     Similarly, for m ∈ {2, . . . , n} let Bm                       k+1 = m and Xi 6= 1 for all i ≤ k,
+                                                        ′ ⊇ A′ ∩ Ac ∩ {X
+and XYj = 0 for at least one j ≤ m. Note that Bm                         k+1 = m}, and this inclusion
+is strict for m = n, since if Xk+1 = n and the Yi are all equal then Bn′ holdsPbut A′ doesn’t.
+                                                                                       n          ′
+Consequently (noting that A′ ∩ Ac ∩ {Xk+1 ≤ 1} = ∅) we have P(A′ ∩ A          Sm) < m=2 P(Bm ).
+                                                                                c
+                                               ′                         ′
+     Let Cm,i for i ≤ m be the event Bm ∩ {XYi = 0}. Clearly Bm = i=1 Cm,i , and P(Cm,i )
+does not depend on i, giving P(Bm         ′ ) ≤ mP(C
+                                                       m,1 ). To complete the proof, we observe that
+P(Bm ) = mP(Cm,1 ). Indeed, there is a bijection between configurations where Bm occurs and
+pairs σ, i where σ is a configuration where Cm,1 occurs, and i is one of the m passengers assigned
+to bus k + 1 in σ. In one direction, move all passengers from bus Y1 to bus k + 1; in the other,
+move all but passenger i from bus k + 1 to bus Y1 .
+
+    Next we develop the same method to prove stochastic dominance.
+                                                          (k+1)
+Theorem 2. For each n ≥ 2 and k ≥ 1 we have Ln                    ≻ Ln (k).
+
+Proof. In view of Theorem 1 it is sufficient to prove pn,k+1,r ≥ pn,k,r for every n ≥ r ≥ 2 and
+k ≥ 1. We use the same setup of configurations and reassignment as before. We wish to show
+that P(Ar ∩ A′c          ′
+               r ) ≥ P(Ar ∩ Ar ), where Ar is the event that at least r of X1 , . . . , Xk+1 take value
+                             c
+
+1, and A′r is the corresponding event for X1′ , . . . , Xk′ .
+    For each m ≥ 2 and ℓ ≥ 0 with 0 < r − ℓ ≤ m, let Dm,ℓ     ′ be the event that all the following
+hold:
+
+    • Xk+1 = m;
+    • there are exactly ℓ choices of i ≤ k such that Xi = 1;
+    • there are at least r − ℓ values of s ≤ k such that Xs = 0 and there is a unique j ≤ m with
+      Yj = s; and
+
+                                                     2
+   • if there are exactly r − ℓ such s, then there is no j ≤ m with XYj = 1.
+
+Note that these events are disjoint. We claim their union contains A′r ∩ Acr . Indeed, for any
+configuration σ in A′r ∩ Acr , we must have Xk+1 = m for some m ≥ 2, the number of i ≤ k
+with Xi = 1 must be ℓ for some ℓ < r, and there must be at least r − ℓ choices of s ≤ k such
+that Xs = 0 but Xs′ = 1. Each such s satisfies Yj = s for exactly one j ≤ m, since the number
+of such j is precisely Xs′ − Xs . Furthermore, if there are exactly r − ℓ such s, then for each
+i ≤ k with Xi = 1 we also have Xi′ = 1, i.e. there is no j ≤ m with Yj = i. Thus σ ∈ Dm,ℓ   ′ .
+                                ′                      ′
+(However, configurations in Dm,ℓ might not be in A , since we do not forbid configurations
+that gain a lonely passenger in r − ℓ + 1 buses but lose one in 2 buses.) Consequently, writing
+P = {(m, ℓ) ∈ Z2 : m ≥ 2 and ℓ ≥ 0 and 0 < r − ℓ ≤ m}, we have
+                                                  X
+                                  P(A′r ∩ Acr ) ≤          ′
+                                                      P(Dm,ℓ  ).                             (1)
+                                                  (m,ℓ)∈P
+
+                   [m]                                                                        ′
+   For each S ∈ r−ℓ      (where (m, ℓ) ∈ P is fixed), we define Em,ℓ,S to be the event that Dm,ℓ
+occurs with the elements of S satisfying the third point above. Since each Em,ℓ,S is equiprobable,
+                     ′ , we have
+and their union is Dm,ℓ
+                                                  
+                                   ′             m
+                                P(Dm,ℓ )≤            P(Em,ℓ,[r−ℓ] ).                           (2)
+                                                r−ℓ
+
+    Next we define corresponding events Dm,ℓ ⊆ Ar ∩ A′c    r . For a configuration σ, let J(σ) be
+the minimum j ≥ 1 such that XYJ (σ) 6= 1, if it exists, and set J(σ) = 0 otherwise. Let D be the
+set of configurations σ with the following properties:
+
+  (i) Xk+1 = 1;
+ (ii) the number of i ≤ k with Xi = 1 is either r − 1 or r;
+(iii) J(σ) > 1; and
+(iv) if j, j ′ < J(σ) with j 6= j ′ then Yj 6= Yj ′ .
+
+Note that any such σ is in Ar by (i) and (ii), but since (iii) gives XY1 = 1, we have XY′ 1 = 2 but
+Xi′ = Xi for all other i ≤ k, which together with (ii) gives σ 6∈ A′r . Thus D ⊆ Ar ∩ A′c
+                                                                                        r.
+    Define Dm,ℓ to be the set of σ ∈ D such that one of the following holds:
+
+   • the number of i ≤ k with Xi = 1 is r − 1 and J(σ) + XYJ (σ) = m and r − J(σ) = ℓ; or
+   • the number of i ≤ k with Xi = 1 is r and J(σ) = m and r − J(σ) + 1 = ℓ.
+
+Clearly each σ ∈ D uniquely determines integers m, ℓ with σ ∈ Dm,ℓ . Note that (iii) implies
+m ≥ 2 and (ii), (iii) and (iv) together give 2 ≤ J(σ) ≤ r in the first case and 2 ≤ J(σ) ≤ r + 1
+in the second, which implies ℓ ≥ 0 and 0 < r − ℓ ≤ m. Thus the events (Dm,ℓ )(m,ℓ)∈P partition
+D, giving                                             X
+                              P(Ar ∩ A′c
+                                       r ) ≥ P(D) =        P(Dm,ℓ ).                         (3)
+                                                       (m,ℓ)∈P
+
+Finally we claim that, for each (m, ℓ) ∈ P ,
+                                            m!
+                              P(Dm,ℓ ) ≥             P(Em,ℓ,[r−ℓ]),
+                                        (m + ℓ − r)!
+                                            m!                 m 
+which together with (1), (2) and (3) (and (m+ℓ−r)! = (r − ℓ)! r−ℓ   ) completes the proof.
+                                                                                        m!
+   To prove the claim we first associate each configuration σ ∈ Em,ℓ,[r−ℓ] with the (m+ℓ−r)!
+configurations that can be obtained in the following way: of the m passengers on bus k + 1 in
+
+                                                  3
+σ, leave one there, put one on each bus Yi for i ≤ r − ℓ − 1, and put the remaining m + ℓ − r
+on bus Yr−ℓ . Let τ be some configuration obtained from σ in this way. Suppose m + ℓ − r 6= 1.
+Then, for τ , we have Xk+1 = 1, the number of i ≤ k with Xi = 1 is (r − ℓ − 1) + ℓ = r − 1, and
+J(τ ) = r − ℓ > 1, and for each j < J(σ) there is no other j ′ ≤ m with Yj ′ = Yj by definition
+of Em,ℓ,[r−ℓ] . Furthermore, J(τ ) + XYJ (τ ) = m and r − J(τ ) = ℓ, so τ ∈ Dm,ℓ . Alternatively,
+suppose m + ℓ − r = 1. Then, for τ , we have Xk+1 = 1, XY1 = · · · = XYr−ℓ = 1, and the
+number of i ≤ k with Xi = 1 is (r − ℓ) + ℓ = r. Since r − ℓ + 1 = m, we obtain by definition of
+Em,ℓ,[r−ℓ] that Yr−ℓ+1 is different from Y1 , . . . , Yr−ℓ , and so bus Yr−ℓ+1 has the same number of
+passengers in τ as in σ. That number cannot be 1, since this would contradict the definition of
+Em,ℓ,[r−ℓ]. Thus J(τ ) = r − ℓ + 1 = m. It follows that Y1 , . . . , YJ(τ )−1 are all different, and so
+τ ∈ DJ(τ ),r−J(τ )+1 = Dm,ℓ .
+    It is now immediate that each τ ∈ Dm,ℓ is associated with at most one σ ∈ Em,ℓ,[r−ℓ], since
+the only possible configuration from which τ may be obtained in the above manner is that given
+by moving all passengers on buses Y1 , . . . , Yr−ℓ (in τ ) to bus k + 1. (Note, however, that this
+might fail to be in Em,ℓ,[r−ℓ], since some Yj with j ≤ r − ℓ might coincide with some j ′ with
+r − ℓ < j ′ ≤ m.) This proves the claim, completing the proof.
+
+
+References
+[1] David Aldous and Russell Lyons, Processes on unimodular random networks. Electron. J.
+    Probab. 12 (2007), no. 54, 1454–1508.
+
+[2] Ágnes Backhausz, Balázs Szegedy, and Bálint Virág, Ramanujan graphings and correlation
+    decay in local algorithms. Random Structures Algorithms 47 (2015), no. 3, 424–435.
+
+[3] László Lovász, Large networks and graph limits. American Mathematical Society Colloquium
+    Publications, vol. 60 (2012).
+
+[4] Imre Péter Tóth, Lonely passenger problem: the more buses there are, the more lonely
+    passengers there will be. Preprint, arXiv:2501.05758 (2025).
+
+
+
+
+                                                  4
+

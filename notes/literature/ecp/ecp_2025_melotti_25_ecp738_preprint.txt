@@ -1,0 +1,476 @@
+                                                      Distribution of the roots of Eulerian polynomials
+
+                                                                                          Paul Melotti*
+
+
+
+
+arXiv:2507.15908v2 [math.CO] 13 Nov 2025
+                                                                                             Abstract
+
+                                                  We give a new proof that the empirical measures of the roots of Eulerian polynomials
+                                                  converge to a certain log-Cauchy distribution. To do so, we show that each moment
+                                                  of the roots of a related family of polynomials not only converge, but in fact become
+                                                  ultimately constant. These asymptotic moments are expressed in terms of Cauchy
+                                                  numbers of the second kind.
+
+                                                  Keywords: convergence of measures ; Eulerian polynomials ; root distribution ; Stirling numbers
+                                                  ; Cauchy numbers ; combinatorial probability ; log-Cauchy distribution.
+                                                  MSC2020 subject classifications: Primary 60B10, Secondary 26C10 ; 60C05 ; 11B68 ; 05A15.
+
+
+
+
+                                           1     Introduction
+                                              For 1 ≤ k ≤ n, let A(n, k) denote the Eulerian number, that is the number of
+                                           permutations of size n with exactly k − 1 descents. The Eulerian polynomials are
+                                                                                               n
+                                                                                               X
+                                                                                   An (x) =           A(n, k)xk .
+                                                                                               k=1
+
+                                           It is a classical result that this polynomial has n distinct real roots, see for instance [2,
+                                           Theorem 1.34]. Let us denote these roots by xn,1 < xn,2 < · · · < xn,n = 0. We are
+                                           interested in their empirical measure, for which we consider −xn,k instead, so as to work
+                                           with positive values:
+                                                                                                  n
+                                                                                              1X
+                                                                                      µn =       δ−xn,k .
+                                                                                              n
+                                                                                                  k=1
+
+                                           The asymptotic behaviour of µn was described by Sobolev [12] and Sirazhdinov [11],
+                                           who used analytic methods to get the following theorem. In this paper we give a new,
+                                           combinatorial proof of this result.
+                                           Theorem 1.1 ([12, 11]). As n → ∞, the sequence of measures µn converges weakly to a
+                                           probability measure µ with support [0, ∞). This measure is the distribution of exp(πZ)
+                                           where Z is a standard Cauchy random variable. That is, µ has density
+
+                                                                                              1
+                                                                                                          1t>0 .
+                                                                                      t   π 2 + log2 t
+
+                                               * Université Paris-Saclay E-mail: paul.melotti@universite-paris-saclay.fr
+                          Distribution of the roots of Eulerian polynomials
+
+
+
+
+  Figure 1: Cumulative distribution functions of µ10 , µ100 and the limiting measure µ.
+
+
+    Finding the asymptotic distribution of a family of (random or deterministic) zeros
+is a common problem in random matrix theory, see [1], from which we borrow the
+method of moments and Stieltjes transforms. In a recent series of preprints [6, 7], Jalowy,
+Kabluchko and Marynych develop another method to find the limiting distribution of
+zeros, based on the asymptotic behaviour of coefficients for many families of polynomials,
+of which Eulerian polynomials are an example. Our method differs from theirs in that
+we rely on exact computations of moments, as in Theorem 1.2 below, which we believe
+gives a short and interesting way to prove Theorem 1.1. Asymptotics of coefficients
+have also been used in the case of some Stirling polynomials by Elbert [4], and for some
+orthogonal polynomials by Lubinsky and Sidi [8, 9].
+   The method of moments consists in computing the moments of the sequence of
+measures, proving that they converge towards the moments of the limiting measure,
+and using a unicity argument. However, we cannot apply it directly in our case, as all
+moments diverge1 . This problem can be avoided by studying instead
+
+                                                          1
+                                             un,k =             ∈ (0, 1]
+                                                       1 − xn,k
+
+and by computing the moments of the empirical measure of the un,k instead. These
+moments (appropriately rescaled) happen to have a remarkable, closed expression. To
+state it, we denote by Cp the p-th Cauchy number of the second kind, which can be
+defined as
+                                             Z 1
+                                   Cp =            x(x + 1) . . . (x + p − 1)dx,
+                                              0
+
+see for instance [10, Definition 5.3.1]. The numbers (−1)p Cp are also known as Nörlund
+numbers [5].
+Theorem 1.2. For any 1 ≤ p ≤ n,
+
+                                                        n
+                                               1 X p     Cp
+                                                  un,k =    .
+                                              n+1        p!
+                                                       k=1
+
+  1
+                                        Pn                            n + n + 1, which does not scale like n.
+      This can be seen by noting that    k=1 xn,k = −An,n−1 = −2
+
+
+
+
+                                                       Page 2/7
+                    Distribution of the roots of Eulerian polynomials
+
+
+   We emphasize that the right-hand side does not depend on n. The choice of normaliz-
+ing the moments by n + 1 instead of n comes from this remarkable property. The first
+                                         5 3 251 95
+values of this moment sequence are 12 , 12 , 8 , 720 , 288 , . . .
+Remark 1.3. The numbers un,k are also the opposite of the roots of a related family of
+polynomials, the Fubini polynomials, which count ordered set partitions by number of
+blocks; see [10, Subsection 6.2]. The asymptotic version of Theorem 1.2 can be found
+in [7, Theorem 4.4]. In particular, by the method of moments, Theorem 1.2 implies that
+there is a limiting measure for the empirical measures of roots of Fubini polynomials,
+whose Stieljes transform we also compute in Section 3.
+Remark 1.4. Formal computations suggest that when n is even, Theorem 1.2 also holds
+for p = n + 1. Apart from these, it seems that the identity fails for p > n + 1 in the even
+case, and for p > n in the odd case.
+   In Section 2, we proceed with the proof of Theorem 1.2, which relies on computing
+the symmetric functions of the roots un,k in terms of Stirling numbers of the second kind,
+and a relation between Stirling numbers and Cauchy numbers. In Section 3 we find the
+asymptotic distribution of the un,k via its Stieljes transform, and deduce that of the xn,k ,
+proving Theorem 1.1.
+
+
+2   Symmetric functions and moments of the un,k
+                                                                                  n
+    For 0 ≤ p ≤ n, we denote the elementary symmetric functions of the (un,k )k=1 by
+                                           X
+                             en,p =                     un,i1 · · · un,ip
+                                      1≤i1 <···<ip ≤n
+
+and the convention en,0 = 1.
+   Let S(n, k) denote the Stirling numbers of the second kind, that is the number of set
+partitions of {1, . . . , n} into k blocks.
+Lemma 2.1. For any 0 ≤ p ≤ n,
+
+                                     (n − p)!
+                            en,p =            S(n + 1, n − p + 1).                     (2.1)
+                                        n!
+Proof. Since An has roots at xn,k and is monic,
+                                               n
+                                               Y
+                              An (1 − x) =           (1 − x − xn,k )
+                                               k=1
+                                                n                 
+                                               Y         1
+                                           =                  −x
+                                                       un,k
+                                               k=1
+                                                  n
+                                                  Y
+                                           = n!         (1 − xun,k )
+                                                  k=1
+                                                  Xn
+                                           = n!         (−1)p en,p xp ,
+                                                  p=0
+
+where we used that the constant term is An (1) = n!. On the other hand,
+                                        n X
+                                          k          
+                                        X             k
+                         An (1 − x) =             (−1)p A(n, k)xp
+                                                      p
+                                        k=1 p=0
+                                        Xn          n
+                                                    X k 
+                                                p p
+                                      =     (−1) x         A(n, k)
+                                        p=0
+                                                        p
+                                                         k=p
+
+
+
+
+                                            Page 3/7
+                   Distribution of the roots of Eulerian polynomials
+
+
+The inner sum can be rewritten, using the symmetry A(n, k) = A(n, n + 1 − k), so that it
+becomes
+                                     n+1−p
+                                      X                 
+                                                  n+1−l
+                                                           A(n, l).
+                                                 n+1−p−l
+                                         l=1
+Using the relation between Eulerian numbers and Stirling numbers of the second kind,
+see for instance [2, Theorem 1.18] (which can be applied after using Pascal’s formula),
+this becomes (n + 1 − p)!S(n, n − p + 1) + (n − p)!S(n, n − p). By the standard recursion
+of Stirling numbers, this is also (n − p)!S(n + 1, n − p + 1). Therefore,
+                                         n
+                                         X
+                   An (1 − x) =                (−1)p (n − p)!S(n + 1, n − p + 1)xp .
+                                         p=0
+
+                                 p
+   Identifying the term in x in both expressions yields the lemma.
+
+Remark 2.2. The expression for An (1 − x) in terms of Stirling numbers can also be
+obtained from its connection with Fubini polynomials, see for instance [10, (6.22)].
+   The proof of Theorem 1.2 relies on Newton identities, Lemma 2.1, and a relation
+between Cauchy numbers and Stirling numbers, which we state now. We use the common
+convention C0 = 1.
+Lemma 2.3. For any 1 ≤ p ≤ n,
+                      n−p           
+                      X         p+i−1i                p
+                          (−1)         S(n, p + i)Ci = S(n, p).
+                      i=0
+                                  i                   n
+
+Proof. Let us start with the mixed bivariate generating function of the Stirling numbers
+of the second kind [13, (1.94b)]:
+                            XX                       xn p
+                                           S(n, p)      y = exp (y(ex − 1))            (2.2)
+                                                     n!
+                            p≥0 n≥p
+
+with the convention that S(n, 0) = 0 for n ≥ 1, and S(0, 0) = 1. Differentiating with
+respect to y and then multiplying by y , we get
+                 XX p                         xn
+                                S(n, p)             y p = y(ex − 1) exp (y(ex − 1))    (2.3)
+                            n              (n − 1)!
+                 p≥1 n≥p
+
+which is a mixed generating function of the right-hand side of the lemma. Let us compute
+the same function of the left-hand side, and change index i into j = p + i:
+
+                    X X n−p X         
+                                        p+i−1
+                                               
+                                                                   xn
+                                (−1)i            S(n, p + i)Ci            yp
+                                          i                     (n −  1)!
+                    p≥1 n≥p i=0
+
+                                                                   xn
+                                         
+                    XX                j−1            X
+                  =        (−1)j−p          Cj−p y p    S(n, j)           .
+                                      j−p                       (n − 1)!
+                    p≥1 j≥p                                     n≥j
+
+                                          P      x          n    (ex −1)j
+From (2.2), we can also extract      n≥j S(n, j) n! = j!   , which by differenting x and
+multiplying by x gives the value of the inner sum. Thus the previous expression becomes
+
+                                                       (ex − 1)j−1
+                                                    
+                       x
+                           XX        j−1       j−p
+                   xe         (−1)            Cj−p y p
+                                     j−p                 (j − 1)!
+                      p≥1 j≥p
+                                                                
+                                      x       q    X (y(ex − 1))r
+                         X         (e   −  1)
+                  =xyex  (−1)q Cq                               
+                                        q!                    r!
+                                q≥0                              r≥0
+
+
+
+
+                                                     Page 4/7
+                         Distribution of the roots of Eulerian polynomials
+
+
+where we have set q = j − p and r = p − 1. The exponential generating function of Cauchy
+numbers of the second kind is known to be [10, (5.16)]
+                                   X                tq            t
+                                         (−1)q Cq      =                    .                          (2.4)
+                                                    q!   (1 + t) log(1 + t)
+                                   q≥0
+
+
+Injecting into the previous expression, we get
+
+                               ex − 1
+                        xyex          exp (y(ex − 1)) = y(ex − 1) exp (y(ex − 1))
+                                xex
+which is the same as (2.3).
+
+      We now have all the elements to prove Theorem 1.2.
+
+
+Proof of Theorem 1.2. For any fixed n ≥ 1, we proceed by induction over p. Throughout
+the proof let us drop the n from the subscript notations en,p , un,p etc., and also denote
+      Pn
+mp = k=1 upn,k .
+   For p = 1, first note that the Eulerian numbers satisfy A(n, n + 1 − k) = A(n, k), which
+implies that for any nonzero root xk , x1 is also a root of An . Using this involution, and
+                                         k
+the convention xn,n = 0 so un,n = 1, we get
+
+                                  n−1                    n−1   X −xk        n−1
+                                  X        1       X 1
+                       m1 = 1 +                =1+       1 =1+         .
+                                        1 − xk      1 − xk      1 − xk
+                                  k=1                    k=1                k=1
+
+By summing the second and last expressions together, we obtain 2m1 = n + 1 and
+           1
+therefore n+1 m1 = 12 = C1 .
+   Now for 2 ≤ p ≤ n, suppose that the formula holds for all values 1, . . . , p − 1. By
+Newton’s identities2 , then Lemma 2.1 and the induction hypothesis,
+
+                                     p−1
+                                     X
+              mp =(−1)p−1 pep +            (−1)p−1+i ep−i mi
+                                     i=1
+                            (n − p)!
+                 =(−1)p−1 p          S(n + 1, n − p + 1)                                               (2.5)
+                               n!
+                                      p−1
+                                      X         (n − p + i)!                        Ci
+                   + (−1)p−1 (n + 1)      (−1)i              S(n + 1, n − p + i + 1) .
+                                      i=1
+                                                    n!                              i!
+
+For the last sum, we use Lemma 2.3 with n replaced by n + 1 and p by n − p + 1, which
+gives
+
+        p       
+        X   n−p+i                                                    n−p+1
+                           (−1)i S(n + 1, n − p + i + 1)Ci =               S(n + 1, n − p + 1)
+        i=0
+                   i                                                  n+1
+
+or, removing the two extremal indices,
+
+p−1                                                                              
+X     n−p+i                                       p                                n
+            (−1)i S(n + 1, n − p + i + 1)Ci = −       S(n + 1, n − p + 1) − (−1)p     Cp .
+i=1
+        i                                       n + 1                              p
+
+  2
+    These identities would take a slightly different form for p > n, so we use the hypothesis here. Also note
+that one would need a more subtle version of Lemma 2.3 in the case p > n to take into account the change of
+indices.
+
+
+
+
+                                                     Page 5/7
+                    Distribution of the roots of Eulerian polynomials
+
+
+Injecting this into (2.5), we have
+
+                     (n − p)!
+      mp =(−1)p−1 p           S(n + 1, n − p + 1)
+                        n!                                                  
+                   p−1        (n − p)!       p                            p n
+            + (−1) (n + 1)               −      S(n + 1, n − p + 1) − (−1)    Cp
+                                 n!        n+1                              p
+                   Cp
+          =(n + 1)
+                   p!
+which concludes the induction step.
+
+
+3   Weak convergence and limiting distribution
+    We can now work towards the proof of Theorem 1.1.
+    Let νn be the probability measure
+                                                          n
+                                                     1X
+                                       νn =             δun,k .
+                                                     n
+                                                         k=1
+
+As a direct consequence of Theorem 1.2, for any p ≥ 1 the p-th moments of νn converge
+                     C
+as n → ∞ towards p!p . Since the measures are all supported in the compact set [0, 1],
+they are tight and the only subsequential weak limit is the unique probability measure ν
+with moments                           Z             1
+                                                                       Cp
+                                 ∀p ≥ 1,                 up ν(du) =       .
+                                                 0                     p!
+As a result, νn converges weakly towards this measure ν , see [3, 3.3.5].
+   This allows for other characterizations of ν , for instance via its Stieltjes transform,
+which can be directly computed from (2.4):
+                                           Z 1
+                                                  1                    1
+               ∀t ∈ C \ [0, 1], Sν (t) =             ν(du) =                     .   (3.1)
+                                            0    u−t         t(t − 1) log 1 − 1t
+
+where we use the principal value of the logarithm, which gives an analytic function in
+the domain.
+    Moreover, since −xn,k = u 1 −1, by the continuous mapping theorem we also get that
+                               n,k
+the sequence of measures µn converges weakly towards µ, where µ is the pushforward
+measure of ν by the map u 7→ u1 − 1. We can also find its Stieltjes transform by using
+(3.1), substitution and direct computations, which leads to
+                                                               Z ∞
+                                                                      1
+                        ∀t ∈ C \ [0, ∞), Sµ (t) =                        µ(dx)
+                                                                0    x−t
+                                                               Z 1
+                                                                        1
+                                                          =          1      ν(du)
+                                                                0    u −1−t
+                                                                    1      1
+                                                          =             −      .
+                                                               t log(−t) t + 1
+From there, by the inverse Stieltjes transform procedure, see for instantce [1, Theo-
+rem 2.4.3], we get that for any interval I ⊂ [0, ∞),
+                                                 Z
+                                          1
+                             µ(I) = lim                  ℑ (Sµ (λ + iϵ)) dλ.
+                                      ϵ→0 π          I
+
+For the chosen logarithmic branch, we have log(−λ − iϵ) = log λ − iπ + O(ϵ), from which
+                       log λ + iπ         1
+we get Sµ (λ + iϵ) = λ(log 2 λ + π 2 ) − λ+1 + O(ϵ), with a O constant uniform in λ for λ
+
+
+
+
+                                                Page 6/7
+                       Distribution of the roots of Eulerian polynomials
+
+
+bounded and bounded away from 0. Therefore, for I = [a, b] with 0 < a < b, we may
+switch the limit and the integral, which gives
+                                               Z b
+                                                        1
+                                 µ([a, b]) =               2  2
+                                                                 dλ
+                                                a λ log λ + π
+
+and we can extract the density of µ. The fact that this is also the distribution of exp(πZ),
+where Z is a standard Cauchy random variable, is a direct computation. This concludes
+the proof of Theorem 1.1.
+Acknowledgments. I thank the anonymous referee for many interesting suggestions
+and remarks.
+
+
+References
+ [1] Greg W. Anderson, Alice Guionnet, and Ofer Zeitouni, An introduction to random matrices,
+     Cambridge Studies in Advanced Mathematics, Cambridge University Press, 2009.
+ [2] Miklos Bona, Combinatorics of permutations, CRC Press, 2022.
+ [3] Rick Durrett, Probability: theory and examples, vol. 49, Cambridge university press, 2019.
+ [4] Christian Elbert, Weak asymptotics for the generating polynomials of the Stirling numbers of
+     the second kind, Journal of Approximation Theory 109 (2001), no. 2, 218–228.
+                                         (n)
+ [5] F. T. Howard, Nörlund’s Number Bn , Applications of Fibonacci Numbers: Volume 5 Proceed-
+     ings of ‘The Fifth International Conference on Fibonacci Numbers and Their Applications’,
+     The University of St. Andrews, Scotland, July 20–July 24, 1992, Springer, 1993, pp. 355–366.
+ [6] Jonas Jalowy, Zakhar Kabluchko, and Alexander Marynych, Zeros and exponential profiles of
+     polynomials I: Limit distributions, finite free convolutions and repeated differentiation, 2025.
+ [7]         , Zeros and exponential profiles of polynomials II: Examples, 2025.
+ [8] D Lubinsky and A Sidi, Strong asymptotics for polynomials biorthogonal to powers of log x,
+     Analysis 14 (1994), no. 4, 341–380.
+ [9]           , Zero distribution of composite polynomials and polynomials biorthogonal to exponen-
+       tials., Constructive Approximation 28 (2008), no. 3.
+[10] Istvan Mezo, Combinatorics and number theory of counting sequences, Chapman and
+     Hall/CRC, 2019.
+[11] S. Kh. Sirazhdinov, On the limit distribution of the roots of Euler polynomials, Dokl. Akad.
+     Nauk SSSR 239 (1978), no. 1, 56–59.
+[12] S. L. Sobolev, On the roots of Euler polynomials, Dokl. Akad. Nauk SSSR 235 (1977), no. 2,
+     277–280.
+[13] Richard P. Stanley, Enumerative combinatorics, 2 ed., Cambridge Studies in Advanced
+     Mathematics, Cambridge University Press, 2011.
+
+
+
+
+                                                Page 7/7
+

@@ -1,0 +1,602 @@
+                                                                        Michigan Technological University
+                                                    Digital Commons @ Michigan Tech
+
+Michigan Tech Publications
+
+
+8-2025
+
+Preservation of the Bernstein property for sums of independent
+random variables
+Iosif Pinelis
+Michigan Technological University, ipinelis@mtu.edu
+
+
+
+
+Follow this and additional works at: https://digitalcommons.mtu.edu/michigantech-p2
+
+   Part of the Mathematics Commons
+
+
+
+This work is licensed under a Creative Commons Attribution 4.0 International License.
+
+
+Recommended Citation
+Pinelis, I. (2025). Preservation of the Bernstein property for sums of independent random variables.
+Electronic Communications in Probability, 30. http://doi.org/10.1214/25-ECP712
+Retrieved from: https://digitalcommons.mtu.edu/michigantech-p2/2025
+
+
+
+Follow this and additional works at: https://digitalcommons.mtu.edu/michigantech-p2
+   Part of the Mathematics Commons
+Electron. Commun. Probab. 30 (2025), article no. 59, 1–8.                              ELECTRONIC
+https://doi.org/10.1214/25-ECP712                                                      COMMUNICATIONS
+ISSN: 1083-589X                                                                        in PROBABILITY
+
+
+
+
+          Preservation of the Bernstein property for sums of
+                    independent random variables
+
+                                                 Iosif Pinelis*
+
+
+
+                                                   Abstract
+
+       It is shown that Bernstein-type conditions on independent random variables are
+       preserved by their sum. Some optimality properties of such preservation are proved.
+
+       Keywords: Bernstein conditions; Bernstein inequalities; independent random variables.
+       MSC2020 subject classifications: 60E15.
+       Submitted to ECP on December 18, 2024, final version accepted on July 24, 2025.
+
+
+
+
+1     Introduction, statement of results, and discussion
+   Let X1 , . . . , Xn be independent zero-mean random variables (r.v.’s) satisfying the
+Bernstein condition
+                                              k! 2 k−2
+                                           | E Xik | ≤
+                                                  σ β                                            (1.1)
+                                               2 i i
+for some positive real numbers βi , all i ∈ [n] := {1, . . . , n}, and all k ∈ {2, 3, . . . }, where
+                                             q
+                                       σi := E Xi2 .                                             (1.2)
+
+The conditions i ∈ [n] and k ∈ {2, 3, . . . } will be assumed in what follows by default.
+   Let
+                                   Sn := X1 + · · · + Xn .                               (1.3)
+
+   In a standard manner (cf. e.g. [8, Problem 12, p. 204] or [7, formula (3)]), the
+Bernstein condition implies
+
+                                                                 h2 σ 2
+                                   E ehSn ≤ B(h) := exp                                           (1.4)
+                                                              2(1 − |h|β)
+
+for all h ∈ (−1/β, 1/β), where
+                                  q
+                           σ :=    σ12 + · · · + σn2 ,   β := max(β1 , . . . , βn ).              (1.5)
+
+In fact, (1.4) is already implied by the following weaker, generalized Bernstein condition:
+for all k ∈ {2, 3, . . . },
+                                          X                k! 2 k−2
+                                                 E Xik ≤     σ β    .                             (1.6)
+                                                           2
+                                         i∈[n]
+
+    * Michigan Technological University, USA. E-mail: ipinelis@mtu.edu
+                       Preservation of the Bernstein property for sums
+
+
+Note that the latter condition is imposed on the sums of the moments of the Xi ’s, rather
+than on the moments of each of the Xi ’s; cf. the beginning of the proof of Theorem 9 in
+[4].
+    Writing, as usual,
+                                      P(Sn ≥ x) ≤ e−hx E ehSn
+for any real x and any real h ≥ 0, using (1.4) to bound E ehSn , and finally minimizing in
+h ≥ 0, one gets an upper bound on P(Sn ≥ x), as was done e.g. in the proof of mentioned
+Theorem 9 in [4]. Extensions of these and other results to martingales in 2-smooth
+spaces were obtained in [5]. Note, however, a typo in these bounds on tail probabilities –
+see [6].
+    Bernstein-type conditions on random variables are closely related to the so-called
+sub-exponentiality condition – see e.g. [9, Proposition 2.7.1] or [7, Proposition A]. The
+sub-exponentiality property of the summands Xi is preserved by their sum Sn – say,
+because any Orlicz norm is a norm. So, Bernstein-type properties of the Xi ’s should in
+some form be preserved by their sum Sn .
+    In this note, we specify two forms of such preservation of Bernstein-type conditions
+and demonstrate corresponding optimality properties. The main results here are the
+following two theorems.
+Theorem 1.1. If generalized Bernstein condition (1.6) holds for all k ∈ {2, 3, . . . }, then
+the Bernstein-type condition
+                                                   r               σ β k
+                                                        4
+                            E |Sn |k ≤ Bgen :=            Ck! max    ,                              (1.7)
+                                                        3          c1 c2
+                                                                                           c2
+holds for all k ∈ {2, 3, . . . }, any real c1 > 0, any c2 ∈ (0, 1), and C := exp 2(1−c
+                                                                                    1
+                                                                                       2)
+                                                                                          , with σ
+and β as defined in (1.5).
+Theorem 1.2. If “individualized” Bernstein condition (1.1) holds for all i ∈ [n] and all
+k ∈ {2, 3, . . . }, then the Bernstein condition
+                                                        k! 2   √
+                               | E Snk | ≤ Bspec :=       σ (aM n)k−2                               (1.8)
+                                                        2
+holds for all k ∈ {2, 3, . . . }, where
+
+                                       a := 71/4 /2 = 0.813 . . .                                   (1.9)
+
+and
+                                M := max(σ1 , . . . , σn , β1 , . . . , βn ).                      (1.10)
+The constant a in (1.8) is best possible; more specifically, (1.8) turns into the equality
+for (n, k) = (2, 6) and some i.i.d. r.v.’s X1 , X2 satisfying Bernstein condition (1.1) for all
+k = 2, 3, . . . with σi = βi > 0 for i = 1, 2.
+Remark 1.3. Consider the special case when X1 , . . . , Xn are independent standard
+normal r.v.’s. Then σ 2 = n, and for all m = 1, 2, . . . we have E Xi2m+1 = 0 and E Xi2m =
+1 · 3 · · · · · (2m − 1) ≤ (2m)!
+                             2 . So, for all k = 2, 3, . . . and all i ∈ [n], we have the Bernstein
+condition (1.1) with σi = βi = 1 for i ∈ [n], so that, by (1.10), M = 1.
+   On the other hand, suppose here that
+                                                        k! 2 k−2
+                                          | E Snk | ≤     σ b                                      (1.11)
+                                                        2
+for some real b > 0 and all k = 2, 3, . . . (still assuming that X1 , . . . , Xn are independent
+standard normal r.v.’s). Then for k = 4 we have E Snk = 3n2 , so that (1.11) becomes
+                           √             √
+3n2 ≤ 12nb2 , whence b ≥ 12 n = 12 M n. This means that the dependence of the upper
+                                                     √                                   √
+bound Bspec on n is optimal in the sense that n there cannot be replaced by n/g(n)
+for any function g such that g(n) → ∞ as n → ∞.
+
+
+ECP 30 (2025), paper 59.                                                        https://www.imstat.org/ecp
+                                                Page 2/8
+                       Preservation of the Bernstein property for sums
+
+
+Remark 1.4. The “general” upper bound Bgen on E |Sn |k (and thus on | E Snk |) in (1.7) may
+be much smaller than the “specific” upper bound Bspec on | E Sn |k in (1.8) if (i) the σi ’s
+are of very different magnitudes or (ii) β is large so as to be comparable with σ while n is
+large. The latter condition, (ii), occurs e.g. when 12 (1−P (Xi = 0)) = P (Xi = ±1) = p2  n1
+                                                         2                   2                 1
+for all i = 1, . . . , n, with β = βi = maxm=2,3,... ( (2m)! )1/(2m−2) = ( (2×2)! )1/(2×2−2) = √
+                                                                                            2 3
+                                                                                                 
+1  σ and n → ∞. (As usual, here A  B means that 0 < A ≤ CB ≤ C 2 A for some
+universal real constant C > 0.)
+   Otherwise, the “specific” upper bound Bspec may be better than the “general” upper
+bound Bgen . Also, in contrast with Bgen , the bound Bspec has the optimality properties
+stated in Theorem 1.2 and Remark 1.3.
+   The proof of the “specific” upper bound Bspec is much more intricate than that of
+Bgen . The proof of Bgen is based in part on the first inequality in (2.1), which never
+provides an exact bound – that is, that inequality never turns into an equality. In contrast,
+the proof of Bspec – with the best possible constant factor a – starts with a multinomial
+expansion, followed by careful combinatorial and analytical considerations. The proof
+of the optimality of the constant a in (1.8) also uses, rather implicitly, certain elements
+of (algebraic) field theory. One may also note here that the optimality of the factor a in
+(1.8) stems from the fact that a is the best (that is, the least) constant factor in inequality
+(2.4).
+    Thanks are due to Y. Yakimenko for discussion.
+
+
+2   Proofs
+Proof of Theorem 1.1. As noted in Section 1, Bernstein condition (1.6) implies (1.4) for
+all h ∈ (−1/β, 1/β). So, for such h and m = 1, 2, . . . , in view of the Maclaurin expansion
+for the function cosh,
+
+  h2m                        E ehSn + E e−hSn   B(h) + B(−h)          h2 σ 2
+       E Sn2m ≤ E cosh hSn =                  ≤              = exp             . (2.1)
+ (2m)!                               2                2            2(1 − |h|β)
+
+Taking now any real c1 > 0 and any c2 ∈ (0, 1), and then choosing h = min( cσ1 , cβ2 ), we get
+
+                                                            σ β 2m
+                                 E Sn2m ≤ C(2m)! max          ,      ,
+                                                            c1 c2
+
+                  c2
+with C = exp 2(1−c
+                1
+                  2)
+                     , as defined in Theorem 1.1. Note also that
+
+
+                           (2m)!(2m + 2)!   2m + 2       1      4
+                                          =        =1+        ≤
+                            ((2m + 1)!)2    2m + 1     2m + 1   3
+
+for m = 1, 2, . . . . Using now the Cauchy–Schwarz inequality, for such m we get
+                                      q
+                             2m+1
+                       E |Sn |      ≤ E Sn2m E Sn2m+2
+                                       p                     σ β 2m+1
+                                    ≤ C (2m)!(2m + 2)! max      ,
+                                                              c1 c2
+                                      r                   σ β 2m+1
+                                        4
+                                    ≤     C(2m + 1)! max    ,        .
+                                        3                 c1 c2
+
+So, we have (1.7) for all k ∈ {2, 3, . . . }.
+
+
+ECP 30 (2025), paper 59.                                                 https://www.imstat.org/ecp
+                                                Page 3/8
+                         Preservation of the Bernstein property for sums
+
+
+Proof of Theorem 1.2. In view of (1.1) and (1.10),
+                                            X0     k!
+                              | E Snk | ≤                    | E X1k1 | · · · | E Xnkn |
+                                             k1 ! · · · kn !
+                                             X XJ
+                                        ≤ k!             2−|J| min σj2 M k−2                                   (2.2)
+                                                                       j∈J
+                                               J⊆[n]
+
+                                        ≤ k!M k−2 S(σ12 , . . . , σn2 ),
+
+where
+       P0
+   •      is the sum over all n-tuples (k1 , . . . , kn ) of nonnegative integers such that
+     k1 + · · · + kn = k and kj 6= 1 for all j ∈ [n];
+   • |J| is the cardinality of J ;
+                                             PJ
+   • S(σ12 , . . . , σn
+                      2
+                        ) := J⊆[n] 2−|J| σJ2
+                              P
+                                                1;
+       2        1              2
+                     P
+   • σJ := |J|          j∈J σj ;
+     PJ                                                                        P
+   •      is the sum over all families (kj )j∈J of integers kj ≥ 2 such that     j∈J kj = k ;
+     such a family (kj )j∈J exists only if 1 ≤ |J| ≤ k/2; if the latter condition does not
+                      PJ
+     hold, then            · · · = 0.
+
+    Note that S(σ12 , . . . , σn
+                               2
+                                 ) is a symmetric homogeneous polynomial function of σ12 , . . . , σn2
+of degree 1 in each σj2 . So,
+
+                                                   1 X                                  σ2
+                         S(σ12 , . . . , σn2 ) =                σj2 S(1, . . . , 1) = cn,k ,                   (2.3)
+                                                    n                                     n
+                                                        j∈[n]
+
+where
+                                                                                                 
+          X
+                  −|J|
+                         XJ            X            n −m Xk,m                   X       n −m k − m − 1
+cn,k :=           2           1=                       2      1=                          2             ,
+                                                    m                                   m      m−1
+          J⊆[n]                    1≤m≤k/2                                   1≤m≤k/2
+
+          Pk,m
+where            is the sum over all m-tuples (l1 , . . . , lm ) of positive integers such that
+l1 + · · · + lm = k − m (here, for each family (kj )j∈J of integers kj ≥ 2 such that |J| = m
+                                                                       Pk,m
+                                                                             1 = k−m−1
+     P                                                                                  
+and       j∈J kj = k , we consider lj := kj − 1 for all j ), so that               m−1    is the
+number of compositions of k − m with exactly m parts – see e.g. [1, Theorem 1.3].
+   To complete the proof of Theorem 1.2, we will need the following two propositions.
+Proposition 2.1. For integers n ≥ 2 and k ≥ 3,
+
+                                                                 1 k−2 k/2
+                                          cn,k ≤ bn,k :=           a  n ,                                      (2.4)
+                                                                 2
+with the equality in (2.4) at (n, k) = (2, 6); here a is as defined in (1.9).
+Proposition 2.2. There exists a zero-mean r.v. X such that
+
+                                                     k!
+                                        E Xk =          for k ∈ {2, 3, 4, 6}                                   (2.5)
+                                                     2
+(cf. (1.1)) and
+                                                    k!
+                                    | E Xk| ≤          for all k ∈ {2, 3, . . . },                             (2.6)
+                                                    2
+   Propositions 2.1 and 2.2 will be proved at the end of this section.
+   Theorem 1.2 follows almost immediately from these propositions. Indeed, it follows
+from (2.2), (2.3), and Proposition 2.1 that (1.8) holds for all k ∈ {2, 3, . . . }.
+
+
+ECP 30 (2025), paper 59.                                                                   https://www.imstat.org/ecp
+                                                        Page 4/8
+                      Preservation of the Bernstein property for sums
+
+
+    As for the attainment of an equality in (1.8), take any real γ > 0. Let n = 2 and
+let X1 and X2 be independent copies of the r.v. γX , where X is as in Proposition 2.2.
+Then the i.i.d. r.v.’s X1 and X2 satisfy Bernstein condition (1.1) for all k = 2, 3, . . . with
+σi = βi = γ > 0 for i = 1, 2. Moreover, following the lines of the proof of (1.8) (or by
+direct calculations), we verify that the inequality in (1.8) turns into the equality for
+(n, k) = (2, 6).
+   So, to complete the proof of Theorem 1.1, it remains to prove Propositions 2.1 and
+2.2.
+   In turn, to prove Proposition 2.1, we need the following three lemmas.
+Lemma 2.3. For integers n ≥ 1 and k ≥ 4,
+
+                                    k 2            k(k − 2) k−2
+                 bn,k − bn−1,k ≥      a bn−1,k−2 +         a    (n − 1)(k−4)/2 .             (2.7)
+                                    2                 16
+
+Proof. By Taylor’s theorem for the function n 7→ nk/2 , for some t ∈ (0, 1),
+
+                                     k                1 k k    
+             nk/2 − (n − 1)k/2 −       (n − 1)k/2−1 =        − 1 (n − 1 + t)k/2−2
+                                     2                22 2
+                                                      1 k k    
+                                                    ≥        − 1 (n − 1)k/2−2 ,
+                                                      22 2
+
+                                                k(k−2)
+so that nk/2 − (n − 1)k/2 ≥ k2 (n − 1)k/2−1 +    8   (n − 1)(k−4)/2 . Multiplying both sides of
+the latter inequality by 12 ak−2 and recalling the definition of bn,k in (2.4), we get (2.7).
+
+
+
+Lemma 2.4. For integers n ≥ 3 and k ≥ 8,
+
+                            1 1                 k(k − 2) k−2
+        g(n) := gk (n) :=    + (n − 1)(k − 3) −         a    (n − 1)(k−4)/2 ≤ 0.             (2.8)
+                            2 4                    16
+
+Proof. Actually, (2.8) holds for all real n ≥ 3 and k ≥ 8, and below in this proof n and k
+will be assumed to be such real numbers. For each fixed real k ≥ 8, g(n) is concave in
+n ≥ 3. So, it is enough to check that g(3) ≤ 0 and g 0 (3) ≤ 0 for k ≥ 8, which latter will be
+assumed through the rest of this proof. We have
+
+                           k−2                       k−2
+                g(3) =          (32a2 − 2k/2 ak k) ≤      (32a2 − 28/2 a8 8) < 0.
+                           64a2                      64a2
+
+Next,
+                             g 0 (3)  1 (21/2 a)k (k − 4)(k − 2)k
+                  h(k) :=            = −                          ≤ h(8) < 0.
+                             k−3      4   28 a2        k−3
+
+Thus, indeed g(3) < 0 and g 0 (3) = (k − 3)h(k) < 0.
+
+
+
+Lemma 2.5. For integers n ≥ 3 and k ≥ 8,
+
+                                    k 2            k(k − 2) k−2
+                 cn,k − cn−1,k ≤      a cn−1,k−2 +         a    (n − 1)(k−4)/2 ;             (2.9)
+                                    2                 16
+
+cf. (2.7).
+
+
+ECP 30 (2025), paper 59.                                                 https://www.imstat.org/ecp
+                                             Page 5/8
+                      Preservation of the Bernstein property for sums
+
+
+                             n
+                                   − n−1       n−1
+                                                   
+Proof. Using the identity    m        m    =   m−1       and Lemma 2.4, we have
+
+      cn,k − cn−1,k
+            X n − 1            
+                                   k−m−1
+                                             
+       =                    2−m
+                    m−1              m−1
+         1≤m≤k/2
+                                           
+             X        n − 1 −r 1 k − 2 − r
+       =                     2
+                        r        2       r
+         0≤r≤k/2−1
+                                                                 
+          1 n−1                    X        n − 1 −r 1 k − 2 − r
+       = +           (k − 3) +                     2
+          2     4                             r         2       r
+                               2≤r≤(k−2)/2
+                                                                   
+          1 n−1                    X        n − 1 −r k k − 2 − r − 1 k − 2 − r
+       = +           (k − 3) +                     2
+          2     4                             r         2       r−1       kr
+                               2≤r≤(k−2)/2
+                                                                            
+          k(k − 2) k−2         (k−4)/2
+                                             X         n − 1 −r k k − 2 − r − 1 2
+       ≤           a    (n − 1)        +                      2                  a
+             16                                          r        2    r−1
+                                         2≤r≤(k−2)/2
+                                                                            
+          k(k − 2) k−2                       X         n − 1 −r k k − 2 − r − 1 2
+       ≤           a    (n − 1)(k−4)/2 +                      2                  a
+             16                                          r        2    r−1
+                                          1≤r≤(k−2)/2
+
+           k 2            k(k − 2) k−2
+       =     a cn−1,k−2 +         a    (n − 1)(k−4)/2 .
+           2                 16
+So, we have (2.9).
+
+   Let us now complete the proof of Proposition 2.1.
+
+Proof of Proposition 2.1. This will be done by induction on n = 2, 3, . . . .
+   For n = 2 and k = 3, 4, . . . , it is elementary to check that
+
+                                               k+1
+                              cn,k = c2,k =        ≤ b2,k = bn,k ,
+                                                4
+with cn,k = bn,k for (n, k) = (2, 6).
+    Now take any n ≥ 3 and any k ≥ 8. Then (2.4) follows by induction from the
+“telescoping” Lemmas 2.3 and 2.5.
+    Finally, for each k ∈ {3, 4, 5, 6, 7} the expression dn,k := (cn,k − bn,k )/n is a simple
+                √
+polynomial in n of degree k − 2, which is easily seen to be ≤ 0 for n ≥ 3:
+                                            √
+                                     1 a n
+                              dn,3 = −          ,
+                                     2      2
+                                     1                  3
+                                         1 − 4a2 n + ,
+                                                  
+                              dn,4 =
+                                     8                  8
+                                       1 3 3/2 n 1
+                              dn,5 = − a n + + ,
+                                     2           4      4
+                                        1     a4          5n   1
+                              dn,6 =       −        n2 +     + ,
+                                       48     2           16   6
+                                       1 5 5/2 n2          5n 1
+                              dn,7 = − a n +            +     + .
+                                       2             16    16   8
+So, inequality (2.4) holds for k ∈ {3, 4, 5, 6, 7} as well.
+
+Proof of Proposition 2.2. As follows from the discussion in [2, Subsection 1.5 of Ch. V],
+if a r.v. X with the moments as in (2.5) exists, then such moments can be realized by a
+distribution over a 3-point set.
+
+
+ECP 30 (2025), paper 59.                                                 https://www.imstat.org/ecp
+                                           Page 6/8
+                       Preservation of the Bernstein property for sums
+
+
+    Let us construct such a distribution explicitly. According to the mentioned discussion
+in [2], we may, and will, assume that P(X = xj ) = pj for j = 1, 2, 3, where x1 , x2 , x3 are
+real numbers and p1 , p2 , p3 are nonnegative real numbers such that
+                                                     3
+                                                     X
+                                                           pj xkj = mk                                    (2.10)
+                                                     j=1
+
+for k = 0, 1, 2 and
+                                                      mk := E X k ,
+so that
+                                                (m0 , m1 , m2 ) = (1, 0, 1).                              (2.11)
+
+In view of (2.5), we actually want (2.10) to hold for k = 3, 4, 6 as well, with mk = k!/2
+for these three values of k . Thus, we have a system of 6 polynomial equations (2.10)
+for k = 0, 1, 2, 3, 4, 6 with 6 unknowns x1 , x2 , x3 , p1 , p2 , p3 . Solutions to this system can
+be dealt with efficiently using a computer algebra system such as Mathematica, which
+incorporates elements of (algebraic) field theory – see e.g. [3, Part Two].
+    Below we will use a more elementary approach, allowing one to verify everything by
+hand.
+    Suppose that x1 , x2 , x3 are the roots of the cubic polynomial equation
+
+                                            x3 = R(x) := ax2 + bx + c                                     (2.12)
+
+for some real a, b, c. Multiplying both sides of this equation by xk−3 to get xk = axk−1 +
+bxk−2 + cxk−3 , then replacing x in the latter equation by xj , multiplying both sides of the
+resulting equation by pj , and finally summing in j = 1, 2, 3, we get the recurrence
+
+                                        mk = amk−1 + bmk−2 + cmk−3
+
+for k = 3, 4, . . . , with initial conditions (2.11). So, we can express m3 , m4 , . . . in terms
+of a, b, c, and therefore the equalities in (2.5) for k = 3, 4, 6 can now be respectively
+rewritten as the system
+
+                                                                       [m3 =]a + c = 3!/2,
+                                                                [m4 =]a(a + c) + b = 4!/2                 (2.13)
+                                   4        3         2                        2   2
+                      [m6 =]a + a c + 3a b + 2a(b + 1)c + b + c = 6!/2
+
+of equations for a, b, c. This system is easy to solve, because the first two of its three
+equations are linear in b, c. Thus we find the two solutions of system (2.13):
+                                                          r              r          r 
+                           ±   ±        ±
+                                                             23           23        23
+                      (a , b , c ) =                 ±3          , 12 ∓ 9     ,3 ∓ 3    ,
+                                                              2             2        2
+with the corresponding two feasible versions of polynomial R(x) in (2.12):
+
+                                            R± (x) := a± x2 + b± x + c± .
+
+The roots of the two cubic polynomial equations x3 = R± (x) can of course be expressed
+in radicals; here we omit these bulky expressions. Approximate values of these roots are
+as follows:
+                                       (x+    +    +
+                                         1 , x2 , x3 ) ≈ (7.62, 2.88, −0.327)
+
+for equation x3 = R+ (x) and
+
+                                   (x−    −    −
+                                     1 , x2 , x3 ) ≈ (3.41, −0.290, −13.3)
+
+
+ECP 30 (2025), paper 59.                                                               https://www.imstat.org/ecp
+                                                          Page 7/8
+                        Preservation of the Bernstein property for sums
+
+
+for equation x3 = R− (x). Solving system (2.10) for p1 , p2 , p3 with k = 0, 1, 2 and
+(x±    ±    ±                                                                  ± ± ±
+  1 , x2 , x3 ) in place of (x1 , x2 , x3 ), we find the corresponding values p1 , p2 , p3 , which
+all turn out to be nonnegative, as needed:
+
+     (p+    + +
+       1 , p2 , p3 ) ≈ (0.00155, 0.0980, 0.900),      (p−    − −
+                                                        1 , p2 , p3 ) ≈ (0.0785, 0.921, 0.0000427).
+
+However, with (x1 , x2 , x3 , p1 , p2 , p3 ) = (x−    −    − − − −
+                                                 1 , x2 , x3 , p1 , p2 , p3 ), inequality (2.6) fails to
+hold for k = 5.
+   On the other hand, with (x1 , x2 , x3 , p1 , p2 , p3 ) = (x+         +    + + + +
+                                                                   1 , x2 , x3 , p1 , p2 , p3 ), using suffi-
+ciently precise numerical approximations of the xi ’s and the p+
+                                                             +
+                                                                                i ’s, one can check that
+then we will have E |X k | < k! 2  for   k ∈ {5} ∪ {7} .
+   Moreover, we will have |X| ≤ x+           1 and hence E |X|
+                                                                     k+1
+                                                                            ≤ x+           k
+                                                                                 1 E |X| < 8 E |X| for
+                                                                                                       k
+                                                         k
+k = 0, 1, . . . . So, by induction we will get E |X | < k!/2 for all natural k ≥ 7. Thus, all
+inequalities (2.6) will indeed hold.
+   This completes the proof of Proposition 2.2.
+
+    Thus, the proof of Theorem 1.2 is completed as well.
+
+
+References
+[1] Silvia Heubach and Toufik Mansour, Combinatorics of compositions and words, Discrete
+    Mathematics and its Applications (Boca Raton), CRC Press, Boca Raton, FL, 2010. MR2531482
+[2] M. G. Kreı̆n and A. A. Nudel0 man, The Markov moment problem and extremal problems,
+    American Mathematical Society, Providence, R.I., 1977, Ideas and problems of P. L. Čebyšev
+    and A. A. Markov and their further development, Translated from the Russian by D. Louvish,
+    Translations of Mathematical Monographs, Vol. 50. MR0458081
+[3] Serge Lang, Algebra, Addison-Wesley Publishing Company, Reading, MA, 1967. MR0197234
+[4] I. F. Pinelis and S. A. Utev, Exact exponential estimates for sums of independent random
+    variables, Theory Probab. Appl. 34 (1989), no. 2, 340–346. MR1005745
+[5] Iosif Pinelis, Optimum bounds for the distributions of martingales in Banach spaces, Ann.
+    Probab. 22 (1994), no. 4, 1679–1706. MR1331198
+[6] Iosif Pinelis, Correction: “Optimum bounds for the distributions of martingales in Banach
+    spaces” [Ann. Probab. 22 (1994), no. 4, 1679–1706; MR1331198 (96b:60010)], Ann. Probab.
+    27 (1999), no. 4, 2119, MR1742904.
+[7] Iosif Pinelis, Improved concentration bounds for sums of independent sub-exponential random
+    variables, Statistics and Probability Letters 191 (2022), 109666. MR4473835
+[8] J. V. Uspensky, Introduction to mathematical probability., IX+ 411 p. New York, London,
+    McGraw-Hill Book Co. (1937). 1937.
+[9] Roman Vershynin, High-dimensional probability, Cambridge Series in Statistical and Proba-
+    bilistic Mathematics, vol. 47, Cambridge University Press, Cambridge, 2018, An introduction
+    with applications in data science, With a foreword by Sara van de Geer. MR3837109
+
+
+
+
+ECP 30 (2025), paper 59.                                                         https://www.imstat.org/ecp
+                                                Page 8/8
+

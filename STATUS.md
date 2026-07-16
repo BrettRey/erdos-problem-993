@@ -13,6 +13,7 @@ The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapsho
 
 ### Session notes (user-directed valley-first disproof campaign)
 
+- **Standalone Poisson--binomial ECP draft completed.** Brett approved Electronic Communications in Probability as the first target for *A variance-normalized curvature bound at the first descent of Poisson--binomial laws*. The complete draft is `paper/poisson_binomial/main.tex`: eight ECP pages, with the theorem and venue motivation on page 2, the finite $1/3$ obstruction, signed corollary, exact certificate boundary, data statement, and AI disclosure. Independent agent audits repaired the endpoint/range and signed-scope interfaces, and both exact verifiers replay cleanly. The decision is journal-first and does not require arXiv access. Canonical record: `submission/venue-decision-2026-07-16.md`. Submission remains gated on a human proof/certificate audit, authenticated MathSciNet and expert novelty checks, a durable certificate archive, and Brett's prediction-ledger forecast.
 - **Mandate and outcome.** Brett explicitly requested a disproof attempt,
   overriding the parked posture. Roughly 1.4 million exact evaluations
   across seven mechanism lanes produced zero witnesses and two measured

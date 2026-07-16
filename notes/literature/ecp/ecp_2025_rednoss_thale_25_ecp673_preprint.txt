@@ -1,0 +1,853 @@
+                                           Quantification of the Fourth Moment Theorem
+                                               for Cyclotomic Generating Functions
+
+
+
+
+arXiv:2401.09418v1 [math.PR] 17 Jan 2024
+                                                              Benedikt Rednoßa                      Christoph Thäleb
+
+
+                                                                                         Abstract
+                                                         This paper deals with sequences of random variables Xn only tak-
+                                                     ing values in {0, . . . , n}. The probability generating functions of such
+                                                     random variables are polynomials of degree n. Under the assumption
+                                                     that the roots of these polynomials are either all real or all lie on the
+                                                     unit circle in the complex plane, a quantitative normal approximation
+                                                     bound for Xn is established in a unified way. In the real rooted case the
+                                                     result is classical and only involves the variances of Xn , while in the
+                                                     cyclotomic case the fourth cumulants or moments of Xn appear in ad-
+                                                     dition. The proofs are elementary and based on the Stein–Tikhomirov
+                                                     method.
+
+                                                     Keywords. Berry–Esseen bound, central limit theorem, cyclotomic
+                                                     polynomial, fourth moment theorem, generating function, real rooted
+                                                     polynomial, Stein–Tikhomirov method
+                                                     MSC. 05A15, 60F05
+
+
+                                           1         Introduction and Results
+                                           Let n ∈ N be a natural number and Xn a random variable that only takes
+                                           integer values in {0, . . . , n}. We abbreviate its expectation EXn by µn , its
+                                           variance Var(Xn ) by σn2 and its fourth cumulant Cum4 (Xn ) = EXn4 −3(EXn2 )2
+                                           by κn . In what follows we shall implicitly assume that σn2 > 0 to avoid
+                                           discussion of degenerate cases. Moreover, by gn : C → C we denote the
+                                           (probability) generating function of Xn , that is,
+                                                                                         n
+                                                                                         X
+                                                               gn (z) := E[z   Xn
+                                                                                    ]=         P(Xn = k)z k ,   z ∈ C.
+                                                                                         k=0
+                                               a
+                                                   Ruhr University Bochum, Germany. Email: benedikt.rednoss@rub.de
+                                               b
+                                                   Ruhr University Bochum, Germany. Email: christoph.thaele@rub.de
+
+                                                                                               1
+Clearly, gn is a polynomial of degree less than or equal to n. The complex
+                                     (n)      (n)
+roots of gn will be denoted by ̺1 , . . . , ̺n ∈ C, where we do not necessarily
+assume them to be pairwise distinct.
+    Starting with the seminal work of Harper [6] it has become an active
+and fruitful direction of research to deduce probabilistic limit theorems for
+the sequence of random variables Xn as n → ∞ from information about the
+                       (n)          (n)
+location of the zeros ̺1 , . . . , ̺n of gn . Thereby the following two cases have
+attracted particular interest:
+                                                (n)         (n)
+ (R) gn is real rooted, that is, all roots ̺1 , . . . , ̺n        are non-positive real
+     numbers;
+                                                      (n)         (n)
+ (C) gn is cyclotomic, meaning that all roots ̺1 , . . . , ̺n are located on the
+     unit circle in the complex plane. In this case, one also says that gn is
+     root unitary.
+It is a remarkable observation that a large number of random variables aris-
+ing in problems having their origin in statistical mechanics or in algebraic
+and probabilistic combinatorics fall into these two classes. For example, the
+number of descents or the number of cycles in a uniform random permutation
+in finite Coxeter groups (such as the classical groups of type A, B or D) lead
+to real rooted generating functions. Also, the matching polynomial associ-
+ated with an arbitrary graph is real rooted by the celebrated Heilmann–Lieb
+theorem [8]. As special cases this yields real rootedness of the monomer-
+dimer partition function, the r-Touchard polynomials or the r-Lah number
+polynomials, for example. We also mention that real rootedness of a polyno-
+mial has deep connections with unimodality and log-concavity properties of
+its coefficient sequence. On the other hand, cyclotomic generating functions
+arise in the context of the number of inversions in a uniform random permu-
+tation in finite Coxeter groups and are prevalent in the theory of polynomials
+whose coefficients are quotients of so-called q-integers. Examples include the
+q-Catalan or the q-Narayana numbers, the q-analogues of the Hook length
+formula for standard Young tableaux or the q-analogue of the Weyl dimen-
+sion formula for highest weight modules of semi-simple Lie algebras. Limit
+theorems for sequences of random variables under assumption (R) or (C) can
+be found in [1] or [9], respectively. For more examples, background material
+and further references we refer the reader to the survey articles [2, 3, 12].
+    Under assumption (R) it is a folklore result in probability theory that the
+sequence of random variables Xn satisfies a central limit theorem if and only
+if the variances σn2 satisfy
+
+                            σn2 → ∞          as n → ∞,                              (1)
+
+                                         2
+see [1, 3, 12]. On the other hand, in the framework of set-up (C) it was shown
+in [9] that a necessary and sufficient condition for Xn to satisfy a central limit
+theorem is that the fourth cumulants κn satisfy
+                                  κn
+                                      →0               as n → ∞.                               (2)
+                                  σn4
+The goal of this article is to provide an elementary and unified approach
+to the following Berry-Esseen type quantitative central limit theorem under
+assumption (R) or (C). It is an important observation that the bounds we
+obtain match the necessary and sufficient conditions presented in (1) and (2).
+In what follows we let
+                                Z w
+                             1           2
+                  F (w) := √         e−x /2 dx,     w ∈ R,
+                              2π −∞
+be the distribution function of a standard normal random variable.
+
+Theorem 1. For n ∈ N let Xn be a random variable only taking values in
+{0, . . . , n}. Let µn = EXn , σn2 = Var(Xn ) > 0, κn = Cum4 (Xn ) and gn be
+the generating function of Xn . Then, there are absolute constants c1 > 0 and
+c2 > 0 such that the following assertions are valid.
+
+ (1) If gn is real rooted as defined in (R), it holds that
+                                    X − µ                                     c1
+                                         n         n
+                            sup P                      ≤ w − F (w) ≤               .
+                            w∈R              σn                                 σn
+
+ (2) If gn is cyclotomic as defined in (C), one has that
+                                  X − µ                           |κn | 4
+                                                                                       1
+                                    n         n
+                      sup P                        ≤ w − F (w) ≤ c2         .
+                      w∈R               σn                           σn
+
+    In principle, the result of Theorem 1 is known and can be regarded as
+a special case of the main result of [11]. In that paper, the roots of the
+generating function are assumed to be outside a circle of radius dn ∈ (0, 1)
+around 1 or outside a cone pointed at the origin with central angle δn ∈ (0, π],
+see Figure 1. Under these assumptions, Berry–Essen type bounds of order
+log n/(dn σn ) or 1/(δn σn ), respectively, were derived. Moreover, for random
+variables whose generating functions are of the form
+
+                    f (z)                                   Y 1 − z bj
+         gn (z) =                 with            f (z) =                   ,   aj , bj ∈ N,   (3)
+                    f (1)                                    j
+                                                                 1 − z aj
+
+
+                                                   3
+a quantitative central limit theorem was obtained in [7], among other results,
+by the method of cumulants. In this case, the rate of convergence was shown
+to be of the order Mn /σn , where Mn := max(bj − aj ). Even though it is
+known from [9] that in the cyclotomic case (C) the behaviour of the fourth
+cumulant regulates whether or not a central limit theorem holds, see (2), our
+result is the first to provide a Berry–Esseen type bound including the fourth
+cumulant. We remark in this context that for all examples treated in [2, 7, 9]
+our result leads to a speed of convergence of the same order and differs only
+by an absolute constant. Our computation we present in Section 3.4 below
+can in principle be combined with the main result in [11] to derive a result
+similar to Theorem 1. However, the computations and arguments that are
+carried out in [11] require substantial theoretical and technical background,
+though. For this reason, we believe that a self-contained and elementary
+proof of Theorem 1 is of independent interest.
+Remark 2. Our proof also delivers estimates for the constants c1 and c2 in
+Theorem 1:
+
+                       c1 ≤ 169      and      c2 ≤ 447.
+
+This should be compared to the constants 23261 and 23257 from [11] for√the
+two
+  p already mentioned more general cases, and to the constant 324 2 ·
+         −1
+(π 7/24) ≤ 271 from [7] for the special case satisfying (3).
+    As we already pointed out above, our contribution is an elementary and
+unified route to Theorem 1, which is based on the so-called Stein–Tikhomirov
+method. The classical Stein’s method for normal approximation is based on
+the observation that a real-valued random variable Z is standard normally
+distributed if and only if
+
+                            E[f ′ (Z) − Zf (Z)] = 0                         (4)
+
+for all sufficiently regular functions f : R → R. If Z is not standard normally
+distributed, the expectation E[f ′ (Z) − Zf (Z)] can be used to quantify how
+‘close’ the distribution of Z is to the standard normal distribution. Even-
+tually, this leads to bounds for common probability distances, such as the
+Kolmogorov distance or the Wasserstein distance. For a detailed introduc-
+tion to Stein’s method, see [4]. Tikhomirov [14] combined this core idea of
+Stein’s method with the more traditional theory of characteristic functions.
+Choosing for fixed t ∈ R the function f in (4) as f (x) = eitx , x ∈ R, leads to
+the ordinary differential equation
+
+                             tΨZ (t) + Ψ′Z (t) = 0                          (5)
+
+                                       4
+for all t ∈ R, where ΨZ (t) := E[eitZ ] denotes the characteristic function of
+Z. The differential equation in (5) indeed characterizes the characteristic
+                                                                  1 2
+function of the standard normal distribution, which is e− 2 t , t ∈ R. This
+motivates the idea of evaluating the left-hand side of (5) even if Z is not ex-
+actly standard normally distributed, in order to derive a non-uniform bound
+                                1 2
+for the difference |ΨZ (t) − e− 2 t | of characteristic functions. This bound can
+then be combined with Esseen’s classical smoothing lemma, which states that
+                                          Z                1 2          √
+                                        1 T ΨZ (t) − e− 2 t           12 2
+         sup P(Z ≤ w) − F (w) ≤                                dt + √
+         w∈R                            π −T          t                π3T
+for all T > 0, see [5, Lemma 2 in Chapter XVI.3]. Many important aspects
+of this strategy are carried out rather implicitly in the original paper [14],
+but a lemma summarizing and partly generalizing the essential ingredients
+of this approach is the content of [13, Lemma 2.3]. A version of it can be
+rephrased as follows: Suppose there are continuous functions a, b : R → C and
+non-negative constants A0 , A1 , B0 , B1 , B2 , C ∈ R satisfying A0 < 21 , Ψ′Z (t) =
+−t(1 + a(t))ΨZ (t) + b(t), |a(t)| ≤ A0 + A1 |t|, and |b(t)| ≤ B0 + B1 |t| + B2 t2
+for all t ∈ (−C, C). Then,
+                                       2      4      √
+         sup P(Z ≤ w) − F (w) ≤          A0 + √ A1 + πB0
+         w∈R                           π     3 π
+                                          2                    
+                                       + 1 + 2 max{0, − log 2s} B1
+                                          π
+                                           4     24s
+                                       + B2 + √                                 (6)
+                                          πs    π 2π
+                  2A
+for all s ≥ max 1−2A  1
+                         , 1 . In fact, this follows from Lemma 2.3 in [13] by
+                        0 C
+realizing that the assumptions on a(t) and b(t) in said lemma actually are
+only required to hold in an interval (−C, C) around zero and not necessarily
+for the whole real line.
+    The Berry-Esseen type bound (6) is the starting point of our proof of
+Theorem 1, which in turn is the content of the remaining parts of this paper.
+More precisely, in Section 2 we collect some preliminary computations and
+introduce some further notation. The proof of Theorem 1 is the content of
+the final Section 3.
+
+
+2     Preliminary Computations
+To simplify our presentation, in this section and the next one we fix n ∈ N
+and suppress the index n in what follows. In particular, we write X for a
+
+                                         5
+random variable Xn taking values in {0, . . . , n}, µ for the expectation, σ 2 for
+the variance, κ for the fourth cumulant, g for the generating function of X
+and ̺1 , . . . , ̺n for the (not necessarily distinct) complex roots of g. We also
+put R := {̺1 , . . . , ̺n }.
+   We start by noting that for all z ∈ C,
+                                           n
+                                           X
+                                    X
+                        g(z) = E[z ] =           P(X = k)z k
+                                            k=0
+                                             Yn
+                             = P(X = n)            (z − ̺k ),
+                                               k=0
+
+and
+                                         n Y
+                                         X n
+                         ′
+                        g (z) = P(X = n)     (z − ̺ℓ ).                          (7)
+                                               k=0 ℓ=0
+                                                   ℓ6=k
+
+
+Since all coefficients of g are real-valued and positive or zero, there cannot
+be any root on the positive real axis {z ∈ C : Im(z) = 0, Re(z) > 0} ⊂ C.
+Further, if there is a root with non-zero imaginary part, then its complex
+conjugate is a root as well and it also has the same multiplicity. Excluding
+the case of z being a root of g, we can rewrite (7) as follows:
+                                               n
+                                               X     1
+                             g ′ (z) = g(z)                                      (8)
+                                               k=0
+                                                   z − ̺k
+
+for all z ∈ C \ R.
+    For every k ∈ {1, . . . , n}, let (rk , ϕk ) ∈ [0, ∞) × (−π, π] be the polar
+coordinates of ̺k , i.e. ̺k = rk eiϕk . If 0 ∈ C is a root, we assign to it the polar
+coordinates (0, π). We define the angle set Φ := {ϕ1 , . . . , ϕn } and denote
+δ := minϕ∈Φ |ϕ|. Since 0 6∈ Φ, we have that δ > 0, see Figure 1 for an
+illustration.
+    Let Ψ : R → C be the characteristic function of X given by Ψ(t) :=
+    itX
+E[e ], t ∈ R. In particular, Ψ arises from the generating function g via the
+change of variables t 7→ eit , so that
+
+                                 Ψ(t) = g(eit )
+
+and
+
+                                Ψ′ (t) = ieit g ′ (eit )                         (9)
+
+
+                                           6
+                                                    δ
+
+                                           1
+                                  |z | =
+
+
+
+
+      Figure 1: Roots of the generating function g. The angle parame-
+      ter δ is chosen such that no root (green dots) of g is in the interior
+      of the cone pointed at the origin and having central angle δ (red).
+      Evaluation of g around the unit circle (blue) yields the charac-
+      teristic function Ψ. Note that we currently do not necessarily
+      assume g to be real rooted or cyclotomic as in (R) or (C), respec-
+      tively.
+
+for all t ∈ R. Similar to (8), relation (9) can be rewritten as
+                                           n
+                                           X      eit
+                            ′
+                          Ψ (t) = i             it − ̺
+                                                        g(eit )
+                                           k=0
+                                               e      k
+
+
+for all t ∈ R \ Φ. Therefore, defining the function q : R \ Φ → C by
+                                               n
+                                               X       eit
+                                q(t) := i           it − ̺
+                                                             ,                 (10)
+                                               k=0
+                                                   e       k
+
+
+we arrive at
+
+                         Ψ′ (t) = q(t) g(eit)
+                                = q(t) Ψ(t),
+
+and
+
+                         Ψ′′ (t) = q ′ (t) Ψ(t) + q(t) Ψ′(t)
+                                                     
+                                 = q ′ (t) + (q(t))2 Ψ(t)
+
+for all t ∈ R \ Φ.
+
+
+                                                7
+    In preparation for later calculations, we compute the first three derivatives
+of q. For t ∈ R \ Φ we have
+               n
+               X
+      ′          ieit (eit − ̺k ) − eit ieit
+   q (t) = i
+              k=0
+                         (eit − ̺k )2
+              n
+              X    ̺k eit
+          =
+            k=0
+                (eit − ̺k )2
+            Xn                              2 
+                      −1             −1
+          =               −it
+                              +
+            k=0
+                 1  − ̺ ke        1 − ̺k e−it
+
+and
+              n 
+              X                                                           
+   ′′             (−̺k )(−ie−it )         −1         (−̺k )(−ie−it )
+  q (t) =                        + 2 ·             ·
+                (1 − ̺k e−it )2        1 − ̺k e−it (1 − ̺k e−it )2
+          k=0
+           Xn                                   
+                   ̺k e−it                2
+        =i                      1−                ,                                   (11)
+           k=0
+               (1 − ̺k e−it )2       1 − ̺k e−it
+
+whereas the third derivative satisfies
+           Xn 
+  ′′′           −i̺k e−it (1 − ̺k e−it )2 − ̺k e−it 2(1 − ̺k e−it )i̺k e−it
+ q (t) = i
+           k=0
+                                     (1 − ̺k e−it )4
+                                                                                          
+                          −i̺k e−it (1 − ̺k e−it )3 − ̺k e−it 3(1 − ̺k e−it )2 i̺k e−it
+                     −2
+                                                (1 − ̺k e−it )6
+            Xn                                                 
+                    ̺k e−it               −it     1 + 2̺k e−it
+          =              −it )3
+                                  1 + ̺k e − 2
+            k=0
+                (1 − ̺ ke                          1 − ̺k e−it
+                   −̺k e−it                                
+            Xn
+                                          −it 2         −it
+          =                      (1 + ̺k e ) + 2̺k e          .
+            k=0
+                (1 − ̺k e−it )4
+
+   By definition, the function q is closely related to the cumulants of X. In
+particular, for the first, the second and the fourth cumulant we have that
+
+           µ = E[X] = −iΨ′ (0) = −iq(0) Ψ(0)
+                        Xn
+                               1
+             = −iq(0) =             ,                                                 (12)
+                        k=0
+                            1 −  ̺k
+                                                            
+          σ 2 = Var(X) = −Ψ′′ (0) − µ2 = − (q(0))2 + q ′ (0) + (q(0))2
+                           Xn
+                                  −̺k
+              = −q ′ (0) =                                                            (13)
+                           k=0
+                               (1 − ̺k )2
+
+
+                                               8
+and
+
+         κ = Cum4 (X) = q ′′′ (0)
+              n
+             X −̺k                           
+           =               4
+                             (1 + ̺k )2 + 2̺k .                            (14)
+             k=0
+                 (1 − ̺k )
+
+Regarding the variance in (13), it is interesting to note that for any root
+̺ ∈ R,
+
+                 −̺        −̺ · (1 − ̺¯)2     −̺ + 2|̺|2 − ̺¯|̺|2
+                       =                    =                     .
+              (1 − ̺)2   (1 − ̺)2 (1 − ̺¯)2       |1 − ̺|4
+
+Straightforward calculations lead now to the crucial observation that
+         −̺                                        Re(̺)(Re(̺) − 1)2
+      Re          ≥0         ⇐⇒           Im(̺)2 ≥                     ,   (15)
+         (1 − ̺)2                                       2 − Re(̺)
+         −̺ 
+      Im          =0         ⇐⇒           Im(̺) = 0 or |̺| = 1.            (16)
+         (1 − ̺)2
+                            −̺
+Therefore, the expression (1−̺)2 is real and positive or zero if and only if ̺
+
+is real and negative or zero or ̺ has modulus 1, see Figure 2. These are
+precisely the cases (R) and (C) we consider in Theorem 1.
+
+
+3     Proof of Theorem 1
+3.1    Common Ground
+We use the same notation as in the previous section and let X be a random
+variable taking values in {0, . . . , n} for some n ∈ N, µ and σ 2 > 0 stand for
+its expectation and variance, respectively. Let X   b be the standardization of
+X, that is,
+                                 Xb = 1 (X − µ).
+                                        σ
+We write Ψb for the characteristic function of X. b Then,
+                            t     µ
+                   b
+                   Ψ(t) = Ψ     e−i σ t
+                             σ
+and
+                                                  
+                  b ′ (t) = 1 Ψ′ t e−i σµ t − i µ Ψ t e−i σµ t
+                  Ψ
+                            σ    σ              σ   σ
+
+                                       9
+                                                y
+
+                   −̺
+                                                                            −̺
+                                                                                  
+              Re (1−̺)2   ≥0                                            Re (1−̺)2   <0
+
+
+                 y(|̺| − 1) = 0
+
+                                          1                                              x
+                                  |̺| =
+                        
+                                                                       x=2
+                   −̺
+              Im (1−̺)2   =0
+                                                                   2
+                                                    y 2 = x(x−1)
+                                                            2−x
+
+                                −̺
+     Figure 2: Behaviour of (1−̺)  2 ; x denotes Re(̺), y denotes Im(̺).
+                                              −̺
+     According to (15), the real part of (1−̺)   2 is positive or zero for
+
+     all ̺ in the green area. According to (16), the imaginary part of
+       −̺
+     (1−̺)2
+            is zero for all ̺ on the blue line and the blue circle. The
+     orange curve is the right strophoid of the curve given by x = 2
+     with respect to the pole 0 + 0i and the fixed point 1 + 0i, see
+     page 96 in [10].
+
+for all t ∈ R. Using the function q defined by (10) we find
+
+                          b ′     1  t     
+                                                b
+                          Ψ (t) =    q    − iµ Ψ(t)
+                                  σ    σ
+for t ∈ R \ σΦ with σΦ = {σϕ : ϕ ∈ Φ}.
+    Following the Stein–Tikhomirov method as explained in Section 1, we are
+interested for t ∈ R \ σΦ in the differential expression
+                               t             
+              b ′      b        q σ − iµ         b           b
+              Ψ (t) + tΨ(t) =               + t Ψ(t)  = α(t) Ψ(t)
+                                     σ
+
+with the continuous function
+                                          
+                                      q σt − iµ
+                              α(t) :=           + t.
+                                           σ
+We aim to show that under the assumptions (R) or (C) on the location of
+the roots of g there are constants A > 0 and C > 0 such that
+
+                  |α(t)| ≤ A t2               for all       t ∈ (−C, C).                     (17)
+
+
+                                                10
+We can then apply the Stein–Tikhomirov bound (6) with the functions a(t)
+and b(t) there given by −ta(t) = α(t) and b(t) ≡ 0. This leads
+                                                           to1 A0 = B0 =
+B1 = B2 = 0 and A1 = A and with the choice s = max 2A, C , (6) then
+leads to
+
+                 b                    4         24       n     1o
+          sup |P(X ≤ w) − F (w)| ≤ √ A + √           max 2A,      .   (18)
+          w∈R                       3 π       π 2π             C
+
+    In order to verify (17) we use (12) to write iµ = q(0) and we use (13) to
+see that t = − σ1 · q ′ (0) · σt . Then,
+                                          
+                                      q σt − q(0) − q ′ (0) · σt
+                             α(t) =
+                                                σ
+                   
+for t ∈ − σδ2
+              , σδ
+                2
+                      ⊂ R \ σΦ. This equals the remainder term of a Taylor
+polynomial, which implies that α(t) satisfies the estimate
+
+                     1                      t2   t2
+                                        ′′ s
+           |α(t)| ≤       sup         q      · 2 = 3 sup |q ′′ (s)|         (19)
+                    2σ s∈(− σδ , σδ )      σ  σ   2σ s∈(− δ , δ )
+                             2   2                         2 2
+
+
+
+for all t ∈ (− σδ
+               2
+                  , σδ
+                    2
+                       ).
+                 ′′
+    To bound q (s), we recall from (11) that
+                             n
+                             X                                
+                   ′′             ̺k e−is              2
+                 q (s) = i                      1−
+                           k=0
+                               (1 − ̺k e−is )2     1 − ̺k e−is
+
+for s ∈ (− 2δ , δ2 ). Now, take a root ̺ ∈ R with polar representation ̺ = reiϕ .
+Then,
+
+     (1 − ̺e−is )2 ei(s−ϕ)
+  = ei(s−ϕ) − 2r + r 2 ei(ϕ−s)
+  = (1 + r 2 ) cos(ϕ − s) − 2r − i(1 − r 2 ) sin(ϕ − s)
+        1                          1                    
+  = − (1 + r)2 1 − cos(ϕ − s) + (1 − r)2 1 + cos(ϕ − s)
+        2                             2
+     − i(1 − r 2 ) sin(ϕ − s)
+    1h          p                                     p       i2
+  = (1 + r) 1 − cos(ϕ − s) − i · snϕ−s ·(1 − r) 1 + cos(ϕ − s) ,            (20)
+    2
+
+
+
+
+                                       11
+where snx ∈ {−1, 0, +1} denotes for x ∈ R the sign of sin(x). Therefore,
+                 q
+  |1 − ̺e−is | =     (1 − ̺e−is )2 ei(s−ϕ)
+                 r
+                    1                         1                        
+               =      (1 + r)2 1 − cos(ϕ − s) + (1 − r)2 1 + cos(ϕ − s)
+                    2                          2
+                  1          p
+               ≥ √ (1 + r) 1 − cos(ϕ − s)
+                    2
+                             √
+                  1            2
+               ≥ √ (1 + r)         |ϕ| − |s|
+                    2         π
+                  1
+               ≥     (1 + r)|ϕ|,
+                 2π
+where we used that 1−cos(x) ≥ π22 x2 for x ∈ [−π, π] and that |ϕ|−|s| ≥ |ϕ|  2
+since |s| < 2δ ≤ |ϕ|
+                  2
+                     . Recalling the representation  (11) of q ′′
+                                                                  we can  now
+estimate separately both factors appearing there. The first factor satisfies
+                −̺e−is          4π 2 r             2π 2 r
+                           ≤             ≤                     ,                (21)
+             (1 − ̺e−is )2   (1 + r)2 ϕ2   (1 + r)2 1 − cos(ϕ)
+where we used that 1 − cos(x) ≤ 12 x2 for x ∈ [−π, π]. For the second factor
+we get
+                        2             4π             4π
+               1−         −is
+                              ≤1+             ≤1+           ,
+                    1 − ̺e        (1 + r) |ϕ|     (1 + r) δ
+where we used that δ ≤ |ϕ| by definition of δ. As an intermediate result, we
+get
+                         Xn                                  
+               ′′                ̺k e−is              2
+            |q (s)| = i                −is )2
+                                               1−
+                         k=0
+                             (1 −  ̺ ke           1 − ̺k e−is
+                      X n                                             
+                                      2π 2 rk                  4π
+                    ≤                               1+
+                           (1 + rk )2 1 − cos(ϕk )         (1 + rk ) δ
+                       k=0
+                  
+for s ∈ − 2δ , 2δ . We emphasize that up to here all estimates hold for every
+possible root ̺, regardless of its location. To proceed, we shall now specialize
+to the set-up of (R) or (C).
+
+3.2    Specialization
+If a root ̺ of g is real and negative or zero or if it satisfies |̺| = 1, then
+                                 −̺         −̺
+                                       =          ,
+                              (1 − ̺)2   (1 − ̺)2
+
+                                        12
+compare with (15), (16) and with Figure 2. Further, in this case, (20) for
+s = 0 reduces to
+                                         1                   
+                          (1 − ̺)2 e−iϕ = (1 + r)2 1 − cos(ϕ) .
+                                         2
+Together with (21) this implies
+
+         −̺e−is               2π 2 r            2    −̺        2      −̺
+                    ≤                      = π            = π   ·
+      (1 − ̺e−is )2   (1 + r)2 1 − cos(ϕ)         (1 − ̺)2         (1 − ̺)2
+
+so that
+                                           n
+                                           X                                    
+                     ′′                           ̺k e−is                2
+            sup |q (s)| ≤ sup i                        −is )2
+                                                                1−
+          s∈(− δ2 , 2δ )  s∈(− δ2 , 2δ ) k=0 (1 − ̺k e               1 − ̺k e−is
+                              n
+                              X                                      
+                            2             −̺k                4π
+                         ≤π                         1+
+                                       (1 − ̺k )2       (1 + rk ) · δ
+                                   k=0
+                                     3
+                                   5π
+                            ≤ σ2      .
+                                    δ
+Combining this with (19) yields
+
+                                      t2                  ′′        5π 3 2
+                          |α(t)| ≤          sup        |q    (s)| ≤     t
+                                     2σ 3 s∈(− δ , δ )              2σδ
+                                                2 2
+
+
+
+for all t ∈ (− σδ
+               2
+                  , σδ
+                    2
+                       ). Finally, (18) leads to the bound
+                                                       3      
+               b                     4 5π 3    24       5π 2
+        sup |P(X ≤ w) − F (w)| ≤ √          + √ max        ,
+        w∈R                        3 π 2σδ π 2π         σδ σδ
+                                   c0
+                                 =    ,                             (22)
+                                   σδ
+                                        3    √
+with a constant c0 satisfying c0 := 20π
+                                     √ + 60π 2π < 531. We are now in the
+                                    6 π
+position to complete the proof of Theorem 1.
+
+3.3       Proof of Theorem 1 (1)
+First, we assume the set-up (R) of part (1) of Theorem 1. Then, since all
+roots are real, we have that δ = π. The result
+                                            √ thus follows from (22) with
+                                         2
+the constant c1 given by c1 := cπ0 = 20π
+                                      √ + 60 2π < 169.
+                                     6 π
+
+
+
+
+                                                13
+3.4    Proof of Theorem 1 (2)
+Next, we assume the set-up (C) of part (2) of Theorem 1. In this case, all
+roots ̺ ∈ R satisfy |̺| = 1 and δ is in relation with the fourth cumulant κ of
+X. Namely, in this case we get from (14) that
+                n
+                X −̺k (1 + ̺k )2 − 2̺2        k
+           κ=
+                           (1 − ̺k )4
+                k=0
+                 n                       
+                X   ̺k (1 + ̺k )2 + 2̺2k (1 − ̺¯k )4
+             =−
+                k=0
+                              |1 − ̺k |8
+                 n                                                   
+                X   ̺k + 4̺2k + ̺3k 1 − 4¯  ̺k + 6¯ ̺2k − 4¯
+                                                           ̺3k + ̺¯4k
+             =−
+                k=0
+                                      |1 − ̺k |8
+                  n
+                  X (̺3 + ̺¯3 ) − 9(̺k + ̺¯k ) + 16
+                         k         k
+             =−
+                  k=0
+                                       |1 − ̺k |8
+                  Xn
+                      2 cos(3ϕk ) − 18 cos(ϕk ) + 16
+             =−                                      .
+                  k=0
+                                 |1 − ̺k |8
+                                 √ p
+From (20) we know that |1−̺| = 2 1 − cos(ϕ) for every root ̺ = eiϕ ∈ R.
+Further, we have that cos(3x) = 4 cos(x)3 −3 cos(x) for all x ∈ R. This yields
+                             n
+                             X 8 cos(ϕk )3 − 24 cos(ϕk ) + 16
+                  κ=−
+                             k=0
+                                           24 (1 − cos(ϕk ))4
+                             Xn
+                                 8(2 + cos(ϕk ))(1 − cos(ϕk ))2
+                      =−
+                             k=0
+                                       16(1 − cos(ϕk ))4
+                             n
+                             X     2 + cos(ϕk )
+                      =−                          2
+                                                    .
+                             k=0
+                                 2(1 − cos(ϕ k ))
+
+
+Note that if n is even, this result already appeared as Equation (8) in [9].
+Finally, we use once again the fact that 1 − cos(x) ≤ 12 x2 for x ∈ [−π, π],
+which implies the bound
+                                              n
+                                              X 2           2
+                             |κ| = −κ ≥              4
+                                                       ≥       .
+                                              k=0
+                                                    ϕk      δ4
+
+Regarding the estimate (22), this yields
+
+                        b ≤ w) − F (w)| ≤                c0      |κ|1/4
+                 sup |P(X                                   ≤ c2        ,
+                 w∈R                                     σδ        σ
+
+                                             14
+                                                    3
+                                                3         3   1
+with the constant c2 given by c2 := c01 = 10π
+                                            √ 2 + 60π 2 2 4 < 447. This
+                                           6 π
+                                               4
+
+                                    24
+completes the proof of Theorem 1.
+
+
+Acknowledgment
+BR has been supported by the German Research Foundation (DFG) under
+project number 459731056. CT was supported by the DFG through SPP
+2265 Random Geometric Systems and CRC/TRR 191 Symplectic Structures
+in Algebra, Geometry and Dynamics.
+
+
+References
+  [1] E.A. Bender: Central and local limit theorems applied to asymptotic
+      enumeration. Journal of Combinatorial Theory. Series A 15 (1973),
+      91–111.
+
+  [2] S.C. Billey, J.P. Swanson: Cyclotomic generating functions. arXiv:
+      2305.07620.
+
+  [3] P. Brändén: Unimodality, log-concavity, real–rootedness and beyond.
+      In Handbook of Enumerative Combinatorics. Chapman and Hall/CRC
+      (2015).
+
+  [4] L.H.Y. Chen, L. Goldstein, Q.-M. Shao: Normal Approximation by
+      Stein’s Method. Berlin and Heidelberg: Springer (2011).
+
+  [5] W. Feller: An Introduction to Probability and its Applications, Vol. 2.
+      Wiley (1966).
+
+  [6] L.H. Harper: Stirling behavior is asymptotically normal. Annals of
+      Mathematical Statistics 38 (1967), 410–414.
+
+  [7] N. Heerten, H. Sambale, C. Thäle: Probabilistic limit theorems induced
+      by the zeros of polynomials. To appear in Mathematische Nachrichten
+      (2023+).
+
+  [8] O.J. Heilmann, E.H. Lieb: Theory of monomer-dimer systems. Com-
+      munications in Mathematical Physics, 25 (1972), 190–232.
+
+  [9] H.-K. Hwang, V. Zacharovas: Limit Distribution of the Coefficients of
+      Polynomials With Only Unit Roots. Random Structures & Algorithms
+      46 (2015), 707–738.
+
+                                     15
+[10] E.H. Lockwood: Book of Curves. Cambridge University Press (1961).
+
+[11] M. Michelen, J. Sahasrabudhe: Central limit theorems and the geom-
+     etry of polynomials. arXiv: 1908.09020.
+
+[12] J. Pitman: Probabilistic bounds on the coefficients of polynomials with
+     only real zeros. Journal of Combinatorial Theory. Series A 77 (1997),
+     279–303.
+
+[13] A. Röllin: Kolmogorov bounds for the normal approximation of the
+     number of triangles in the Erdős-Rényi random graph. Probability in
+     the Engineering and Informational Sciences 36 (2022), 747–773.
+
+[14] A.N. Tikhomirov: On the rate of convergence in the central limit theo-
+     rem for weakly dependent random variables. Theory of Probability and
+     Its Applications 25 (1980), 790–809.
+
+
+
+
+                                    16
+

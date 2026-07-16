@@ -27,6 +27,20 @@ paper/*.synctex.gz
 paper/fonts/
 paper/preamble.tex
 paper/arxiv_bundle.tar.gz
+# Generated outputs for manuscripts in nested paper directories.
+paper/**/*.aux
+paper/**/*.bbl
+paper/**/*.bcf
+paper/**/*.blg
+paper/**/*.fdb_latexmk
+paper/**/*.fls
+paper/**/*.log
+paper/**/*.out
+paper/**/*.pdf
+paper/**/*.run.xml
+paper/**/*.synctex.gz
+# Keep the official ECP source package; its PDFs are reproducible locally.
+submission/ecp-template/*.pdf
 Erdos_Problem_993_updated_by_assistant.zip
 erdos_993_gpt_attack_2026-04-24.zip
 gpt_attack/main_v2.pdf

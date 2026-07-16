@@ -1,5 +1,5 @@
 # Decisions Log
-<!-- SUMMARY: Append-only decisions governing proof scope, verification standards, release posture, and bounded AI-assisted work on Erdős #993 · status: active decision log · updated: 2026-07-15 -->
+<!-- SUMMARY: Append-only decisions governing proof scope, verification standards, release posture, and bounded AI-assisted work on Erdős #993 · status: active decision log · updated: 2026-07-16 -->
 
 Append-only record of project decisions. Agents: add an entry whenever a non-trivial decision is made during a session (structural changes, venue choices, theoretical commitments, scope changes, reviewer feedback acted on). Keep entries short.
 
@@ -9,6 +9,7 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
 
 ## 2026-07-16
 
+- **Target Electronic Communications in Probability for the standalone Poisson--binomial theorem** Brett approved ECP as the first venue after a Roughdraft review of the full `venue-selection` record. The journal-reader contract is an intrinsic variance-normalized curvature theorem for finite Bernoulli sums, supported by a current ECP neighborhood in independent-sum inequalities, Bernoulli structure, and real-rooted probability-generating polynomials. Draft in the ECP class and pivot early to CPC if the complete proof does not fit legibly within 12 pages or gains a genuine combinatorial lead theorem. No public preprint is required. Proof/certificate audit, cautious novelty language, the page-fit test, AI disclosure, and Brett's prediction-ledger forecast remain pre-submission gates. Record: `submission/venue-decision-2026-07-16.md`.
 - **Flat-mode contamination found in the raw valley margin; metric corrected**
   Component diagnosis of the top depth-3 scaling ray showed its scoring index
   b coincides with the global mode (no prior descent; root-included component

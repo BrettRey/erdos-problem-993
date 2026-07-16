@@ -1,0 +1,795 @@
+                                           Sharp Decoupling Inequalities for the Variances and
+                                           Second Moments of Sums of Dependent Random
+                                           Variables
+                                           Victor H. de la Pena1 Heyuan Yao12 Demissie Alemayehu13
+
+
+                                           Abstract
+                                              Both complete decoupling and tangent decoupling are classical tools aiming to compare two random
+
+
+
+
+arXiv:2512.19063v1 [math.PR] 22 Dec 2025
+                                           processes where one has a weaker dependence structure. We give a new proof for the complete decoupling
+                                           inequality, which provides a lower bound for the sum of dependent square-integrable nonnegative random
+                                                      n
+                                           variables
+                                                     P
+                                                         di
+                                                     i=1
+                                                                                       n
+                                                                                             !2      n
+                                                                                                          !2
+                                                                                 1    X             X
+                                                                                   E      zi    ≤E      di ,
+                                                                                 2    i=1           i=1
+                                                       L
+                                           where zi = di for all i ≤ n and zi ’s are mutually independent. We will then provide the following sharp
+                                           tangent decoupling inequalities                  !                !
+                                                                                      Xn               Xn
+                                                                                 Var     di ≤ 2Var         ei ,
+                                                                                                  i=1                     i=1
+
+                                           and                                               !2                     !2    "                !#2
+                                                                                  n
+                                                                                  X                      n
+                                                                                                         X                      n
+                                                                                                                                X
+                                                                              E         di        ≤ 2E         ei        − E          ei         ,
+                                                                                  i=1                    i=1                    i=1
+
+                                           where {ei } is the decoupled sequences of {di } and di ’s are not forced to be nonnegative. Applications to
+                                           construct Chebyshev-type inequality and Paley-Zygmund-type inequality, and to bound the second moments
+                                           of randomly stopped sums will be provided.
+
+
+                                           1      Introduction
+                                           1.1      Background of Decoupling Inequalities
+                                              As an important tool in stochastic analysis, decoupling has been studied since the 1980s, which aims to
+                                           compare two random processes, where one has a weaker dependence structure. Such a comparison involves
+                                           decoupling inequalities that bound the quantities of the heavier dependent structure we are interested in,
+                                           such as moments and tail probabilities, via the corresponding quantities of the weakly dependent process.
+                                           The application of the decoupling technique includes martingale transforms ([1]), multilinear forms ([17]),
+                                           U-processes ([4]), and stochastic integrations ([16, 14, 12]). For a comprehensive review of decoupling tools,
+                                           we refer our readers to de la Pena and Giné [7] (2012).
+                                                                                                   n
+                                              In this paper, we consider decoupling the sums         di of dependent random variables {di }. This form
+                                                                                                  P
+                                                                                                           i=1
+                                           involves many processes and statistics one may be interested in, including U-statistics and randomly stopped
+                                           processes. Specifically, two techniques of decoupling are introduced. The most direct way is the complete
+                                           decoupling. As its name suggests, a sequence of mutually independent variables {zi } is constructed, such
+                                               1 Columbia University, United States of America. vhd1@columbia.edu
+                                               2 Current Affiliation: Northwestern University, United States of America. heyunayao2029@u.northwestern.edu
+                                               3 Pfizer, and Columbia University, United States of America. da15@columbia.edu
+
+
+
+
+                                                                                                           1
+that zi has the same distribution as di for all i. We then study if there is a constant c such that
+                                                           n
+                                                                         !2           n
+                                                                                                     !2
+                                                           X                          X
+                                                   cE               zi        ≤E                di        .
+                                                            i=1                       i=1
+
+Note that the lower bound does not exist in the general case. When (d1 , d2 ) takes values with (1, −1) or
+(−1, 1) with probability 1/2, we have E(d1 + d2 )2 = 0 while E(e1 + e2 )2 = 2. However, when we further
+                                                                                                n
+assume that di ’s are non-negative, we are able to find a lower bound given by the moment of      zi . The
+                                                                                               P
+                                                                                                                                                   i=1
+general result for any p-th moment was first proposed in [3] and improved and applied in [15]. To complete
+this article, we provide a new proof for the second moment case where the
+                                                                         nbestconstantcnis 2
+                                                                                              1
+                                                                                                .
+    However, it is not possible to find a satisfactory upper bound C E       zi for E        di . Consider
+                                                                         P               P
+                                                                                                                    i=1                i=1
+                                                                              n                                           n
+                   L
+d1 = ... = dn = Ber(p), for some p ∈ (0, 1), then E(                                di )2 = n2 p while E(                     zi )2 = np(np + 1 − p). By
+                                                                              P                                           P
+                                                                              i=1                                     i=1
+                                         n                      n
+letting n → ∞ and p = o(1/n), E(                  di )2 /E(         zi )2 → ∞. Therefore, the dependence structure needs to be
+                                         P                      P
+                                         i=1                  i=1
+modified. With the development of martingale theory, tangent decoupling becomes useful. By obtaining a
+                                                                                    n
+decoupled version {ei } of {di } (see Definition 1.3), we can bounded the moment of   di using the moment
+                                                                                    P
+                                                                                                                                 i=1
+     n
+of         ei . One of the earliest works was given by de la Pena and Govindarajulu (1992 [8]), who provided
+     P
+     i=1
+sharp inequalities for the second moment of randomly stopped sums of independent variables. This result
+                                                                                            n
+was later enhanced by Hitczenko (1994 [11]), who proved a general bound for the Lp -norm of   di , such
+                                                                                            P
+                                                                                                                                                   i=1
+that
+                                                        n
+                                                        X                             n
+                                                                                      X
+                                                      ∥         di ∥pp ≤ 2p−1 ∥                ei ∥pp ,                                                  (1)
+                                                          i=1                         i=1
+
+where 1 ≤ p < ∞ and di ’s are assumed nonnegative, one application of which can be found in Feng and
+Yang (2019 [10]). In 1994, de la Pena [5] provided the bound for the moment generating function (M.G.F.)
+        n                   n
+of S :=    di using S ′ :=     ei . Given both sums being light-tailed, the following bound for all finite λ
+        P                   P
+             i=1                  i=1
+holds:                                                                                                v "
+                                                                  "               n
+                                                                                               !#     u         n
+                                                                                                                    !#
+                                              1                                   X                   u         X
+                       MS (λ) ≤ (MS ′ (2λ))   2
+                                                     ⇔          E exp λ                   di         ≤ E exp 2λ
+                                                                                                      t           ei .                                   (2)
+                                                                                    i=1                                        i=1
+
+This inequality led to a general class of exponential inequalities for martingales and ratios (de la Pena [6]),
+which further found various applications for constructing confidence regions (e.g., [19, 18, 23, 20]). The above
+three results provide a conjecture, that it is possible to combine the [4] and [11], and construct a tangent
+decoupling inequality having a similar form to (1) and working not only for nonnegative {di }. We notice that
+such a conjecture can be verified from (2) (see Remark 2) when all random variables are assumed to be light-
+tailed. However, whether an upper bound having a (1)-type form requires only Lp -integrability assumption
+                                                                                                   n
+remains unknown. In this work, we will show that when p = 2, a sharp upper bound for E( di )2 can be
+                                                                                                  P
+                                                                                                                                             i=1
+built.
+                                                                         n
+   In section 2, we provide a new proof for the sharp lower bound of Var( di ) via complete decoupling.
+                                                                         P
+                                                                                                                     i=1
+In Section 3, we will demonstrate the main result, Theorem 3.3, which extends Hitczenko’s work [11] in
+L2 -norm such that the nonnegative summand assumption can be removed. Theorem 3.3, Corollaries 3.4 and
+                                                                   n
+3.5, provide sharp upper bounds for the variances and L2 -norms of   di , respectively. These inequalities
+                                                                   P
+                                                                                                              i=1
+also generalize the upper bound in [8] beyond randomly stopped sums of independent variables. In Section
+4, we will use some examples to show the applications of the main results. In the rest of this section, we
+
+
+
+                                                                              2
+introduce the framework of tangent decoupling and some notations.
+
+1.2    Definitions and constructions of decoupled sequences
+    In this subsection, we briefly provide the framework of tangent decoupling. From now on, we use the no-
+tations di ’s and ei ’s to represent the possibly dependent random variables and their corresponding decoupled
+random variables (see Definitions 1.1, 1.2 and 1.3). We denote L(X|F ) as the conditional law (distribution)
+of a random variable X on a σ-algebra F.
+Definition 1.1. Let {di }, {ei } be two sequences of random variables adapted to an increasing sequence of
+σ-algebras {Fi }. Then {di } is said to be tangent to {ei } with respect to {Fi } if for all i, L(di |Fi−1 ) =
+L(ei |Fi−1 ), i.e., the conditional distributions of di given Fi−1 and ei given Fi−1 are the same.
+Definition 1.2. A sequence {ei } of random variables adapted to an increasing sequence of σ-algebra {Fi }
+contained in F is said to be conditionally independent (CI) if there exists a σ-algebra G contained in F
+such that {ei } is conditionally independent given G and L(ei |Fi−1 ) = L(ei |G).
+Definition 1.3. Let {di } be an arbitrary sequence of random variables, then a conditionally independent
+sequence {ei } which is also tangent to {di } will be called a decoupled version of {di }.
+   The following proposition provided by Kwapien and Woiczynski (1989, [13]) guarantees that we can
+always construct a decoupled sequence, with any possibly dependent sequence {di }.
+Proposition 1.4. For any sequence of random variables {di }, one can find a decoupled sequence {ei } (on
+a possibly enlarged probability space) which is tangent to the original sequence and in addition conditionally
+independent given a master σ-algebra G. Frequently G = σ({di }).
+   Specifically, with {di }, a tangent sequence w.r.t. Fi = σ(d1 , ..., di ) can be obtained via the following
+steps:
+   • First, we take d1 and e1 to be two independent copies of the same random mechanism.
+   • With (d1 , .., di−1 ), the i-th pair of variables di and ei comes from i.i.d. copies of the same random
+       mechanism given Fi−1 .
+And ei ’s are conditionally independent w.r.t. G = Fn .
+   An example of constructing tangent sequence can be found in section 4. Here we provide another example
+using (generalized) U-statistic. A generalized U-statistic Un of n independent random variable X1 , ..., Xn ∈ X
+with a class of functions fi,j : X × X → R, 1 ≤ i < j ≤ n, is defined as
+                                                    X
+                                            Un =           fi,j (Xi , Xj ).                                  (3)
+                                                    1≤i<j≤n
+
+
+When fi,j (·, ·) ≡ f (·, ·) := n(n−1)
+                                  2
+                                      h(·, ·) and Xi ’s are i.i.d., Un becomes the U-statistic with kernel f . A classi-
+cal way to handle the variance is Hoeffding decomposition (see e.g., Chapters 11 & 12 [21]), while decoupling
+                                                                                                      j−1
+considers the natural filtration F = {Fi }1≤i≤n , where Fi = σ({X1 , ..., Xi }). With dj :=               fi,j (Xi , Xj ),
+                                                                                                      P
+                                                                                                        i=1
+                      n                                              j−1
+we rewrite Un :=            dj . The decoupled sequence ej :=              fi,j (Xi , X̃j ) is then constructed, with X̃i
+                      P                                              P
+                      j=2                                            i=1
+the independent copy of Xi for each i. As an instance of generalized  U-statistics, the quadratic form
+                                                           P j−1
+                                                           n
+                                                                       
+Qn =         aij Xi Xj has the corresponding decoupled sum        aij Xi X̃j . With the decoupling in-
+        P                                                      P
+       1≤i<j≤n                                                        j=2     i=1
+equalities in Section 3, we can use the variance (or the second moment) of the decoupled sum to bound the
+variance (or the second moment) of Un . Similarly to the technique in section 4, we can also derive an upper
+bound for the variance (or the second moment) of Uτ , for some F-stopping time τ .
+
+
+2     Lower bound via complete decoupling
+    We now provide a new proof for the following theorem, which coincides with the result in [3] and [15].
+
+
+                                                            3
+Theorem 2.1. For any nonnegative dependent square-integrable variables d1 , ...dn , and the mutually inde-
+                                            L
+pendent variables z1 , ..., zn such that zi = di for all i = 1, ..., n, we have the following sharp inequality
+                                                            n
+                                                                       !2           n
+                                                                                               !2
+                                                       1   X                        X
+                                                         E     zi           ≤E            di        .                                                         (4)
+                                                       2   i=1                      i=1
+
+                                  n                n                                                        n                  n
+Proof. We notice that E(                zi ) 2 =         Ezi2 +                 E[zi zj ] and E(                  di )2 =            Ed2i +             E[di dj ].
+                                  P                P                    P                                   P                  P                P
+                                  i=1              i=1               1≤i<j≤n                                i=1                i=1            1≤i<j≤n
+Therefore, since all random variables we consider are nonnegative, we have
+                                                     Xn         n
+                                                                X        n
+                                                                         X
+                                                   E(   di )2 ≥   Ed2i =   Ezi2 ,
+                                                         i=1            i=1             i=1
+
+and by Jensen’s inequality,
+                        n
+                        X              Xn           Xn                            X                                     X
+                   E(         di )2 ≥ (   Edi )2 = (   Ezi )2 ≥                           E[zi ]E[zj ] =                         E[zi zj ].
+                        i=1              i=1                   i=1              1≤i<j≤n                             1≤i<j≤n
+
+By adding the above two inequalities, we claim (4).
+   The sharpness of (4) can be seen in the following example. Consider (d1 , ..., dn ) = uk with probability
+1/n, for k = 1, ..., n, where uk denotes the n-dimensional unit vector with the k-th element being 1. Therefore
+ n          n                                 n                  n
+                    L
+   di ≡ 1,     zi = Bin(n, 1/n). Hence E( di )2 = 1 and E( ei )2 = 2 − 1/n. This suggests that the best
+P           P                                P                  P
+i=1          i=1                                          i=1                          i=1
+constant for this lower bound working for all n is 1/2.
+
+
+3       Upper bound for variance and second moment via tangent de-
+        coupling
+   In this section, we present the main results of the decoupling inequalities for variance and the second
+moment of the sums. We assume that all random variables we consider are square-integrable. Before
+providing the main theorem, we present the following two lemmas.
+Lemma 3.1. Consider a sequence of possibly dependent random variables d1 , .., dn , and a decoupled sequence
+e1 , .., en given a σ-algebra G. Then we have the following equality
+                                  n
+                                             !2        " n               n
+                                                                                       !#2              "         n
+                                                                                                                               !#2
+                                  X                     X                X                                        X
+                              E         ei        =E           ei − E           ei G         +E E                       ei G                                  (5)
+                                  i=1                    i=1             i=1                                      i=1
+
+                                                                                                n                                                   n
+      Intuitively, Lemma 3.1 provides a geometric view such that E(                                     ei G) is the L2 -projection of                     ei on
+                                                                                                P                                                   P
+                                                                                                i=1                                                 i=1
+G. The detailed proof can be found in the literature (e.g., [9]). Lemma 3.2 states that both distances of the
+sum and its L2 -projection have the same second moment.
+                                                                                                                                     L
+Lemma 3.2. With the same assumption as in Lemma 3.1, if we further suppose ei = di , i = 1, ..., n, then
+we have that          " n                 !#2    " n                   !#2
+                       X          Xn              X            Xn
+                    E     di − E     ei G     =E      ei − E      ei G     .                         (6)
+                                    i=1                i=1                        i=1                       i=1
+
+
+
+
+                                                                            4
+Proof of Lemma 3.2. Expanding the square of the L.H.S., we have that
+                         " n                n
+                                                         !#2           " n                        #2
+                          X                 X                           X
+                     E         di − E             ei G         =E               (di − E(ei |G))
+                           i=1              i=1                        i=1
+                            Xn                                         X
+                                                         2
+                         =         E (di − E(ei |G)) + 2                        E [(di − E(ei |G)) (dj − E(ej |G))] .
+                             i=1                                 1≤i<j≤n
+
+
+For each 1 ≤ i < j ≤ n, since L(ei |Fi−1 ) = L(ei |G), E(ei |G) = E(ei |Fj−1 ) is Fj−1 -measurable. Thus
+                                                                                    P-a.e.
+
+
+            E [(di − E(ei |G)) (dj − E(ej |G))] = E{E (di − E(ei |G)) (dj − E(ej |G)) Fj−1 }
+                                                                                           
+
+                                                = E{(di − E(ei |Fj−1 )) E (dj − E(ej |G)) Fj−1 }
+                                                                                             
+
+                                                = E{(di − E(ei |Fj−1 )) E(dj Fj−1 ) − E(ej |Fj−1 ) }
+                                                                                                 
+
+                                                             = 0,
+
+where the last equality is due to E(di |Fi−1 ) = E(ei |Fj−1 ), as L(di |Fi−1 ) = L(ei |Fi−1 ). Therefore, the
+                                                              P-a.e.
+
+intersection terms vanish.
+    A similar approach can be applied to the second moment of the decoupled sum
+                         " n                n
+                                                         !#2
+                          X                 X
+                     E         ei − E             ei G
+                           i=1              i=1
+                            Xn                                         X
+                                                         2
+                         =         E (ei − E(ei |G)) + 2                        E [(ei − E(ei |G)) (ej − E(ej |G))] .
+                             i=1                                 1≤i<j≤n
+
+Since for each 1 ≤ i < j ≤ n, ei and ej are conditionally independent given G, we then have that
+
+          E [(ei − E(ei |G)) (ej − E(ej |G))]
+              = E(ei ej ) − E [ej E(ei |G)] − E [ei E(ej |G)] + E [E(ei |G)E(ej |G)]
+              = E [E(ei ej |G)] − E{E [ej E(ei |G)|G]} − E{E [ei E(ej |G)|G]} + E [E(ei |G)E(ej |G)]
+              = E [E(ei |G)E(ej |G)] − E [E(ei |G)E(ej |G)] − E [E(ei |G)E(ej |G)] + E [E(ei |G)E(ej |G)]
+              = 0.
+
+Hence, the intersection also vanishes.
+   Therefore the difference of L.H.S. and R.H.S. of (6) reduces to
+            n
+            X                                n
+                                             X
+                                        2                                   2
+                  E (di − E(ei |G)) −              E (ei − E(ei |G))
+            i=1                              i=1
+                n
+                X
+              =   {Ed2i − 2E [di E(ei |G)] + E E(ei |G)2 − Ee2i + 2E [ei E(ei |G)] − E E(ei |G)2 }
+                                                                                             
+                   i=1
+                     n
+                     X
+              =2           {E [ei E(ei |G)] − E [di E(ei |G)]}
+                     i=1
+                     Xn
+              =2
+                                                                   
+                           {E E ei E(ei |G) Fi−1 − E E di E(ei |G) Fi−1 }
+                     i=1
+                     n
+                     X
+              =2           {E [E(ei |Fi−1 )E(ei |Fi−1 )] − E [E(di |Fi−1 )E(ei |Fi−1 )]}                                (7)
+                     i=1
+
+
+
+
+                                                                        5
+                    n
+                    X
+               =2         {E E(ei |Fi−1 )2 − E E(ei |Fi−1 )2 }                                                                   (8)
+                                                         
+                    i=1
+               = 0,
+
+where steps (7) and (8) are because that P-a.e. E(di |Fi−1 ) = E(ei |Fi−1 ) = E(ei |G), all of which are Fi−1 -
+measurable.
+   With Lemmas 3.1 and 3.2, we can then show the following sharp inequality for the second moments of
+the summations.
+Theorem 3.3 (Decoupling inequality for the second moment). With the same setting as in Lemma 3.2, we
+have that                                     !2            !2
+                                        Xn            Xn
+                                    E      di    ≤ 2E     ei .                                    (9)
+                                                             i=1                         i=1
+
+Proof of Theorem 3.3. With a similar expansion of the square in the above proof, we have that
+                  n
+                             !2           " n                    n
+                                                                              !           n
+                                                                                                        !#2
+                  X                        X                     X                        X
+              E         di        =E                di − E             ei G        +E            ei G
+                  i=1                         i=1                i=1                       i=1
+                      " n                     n
+                                                           !#2          "         n
+                                                                                               !#2
+                       X                      X                                   X
+               =E            di − E                 ei G         +E E                   ei G
+                      i=1                     i=1                                 i=1
+                                                                    "       n               n
+                                                                                                         !    n
+                                                                                                                           !#
+                                                                            X               X                 X
+                                                            + 2E                  di − E(         ei G) E           ei G
+                                                                            i=1             i=1               i=1
+                      " n                     n
+                                                           !#2          "         n
+                                                                                               !#2
+                       X                      X                                   X
+               ≤E            di − E                 ei G         +E E                   ei G
+                      i=1                     i=1                                 i=1
+                                                              v                   !2 "        !#2
+                                                                 n         n           n
+                                                              u
+                                                              u  X         X           X
+                                                            +2 E
+                                                              t    di − E(   ei G) E E   ei G                                   (10)
+                                                                             i=1               i=1                   i=1
+                 v                                      2
+                   u " n        n
+                                       !#2 vu   n
+                   u  X         X           u X
+               = tE     di − E   ei G    + tE(   ei G)2 
+                                                        
+                              i=1                    i=1                            i=1
+                    "                 !#2               
+                       n
+                       X        n
+                                X               n
+                                                X
+               ≤ 2 E    di − E   ei G     + E(   ei G)2                                                                       (11)
+                             i=1                    i=1                       i=1
+                    "                 !#2               
+                       n
+                       X        n
+                                X               n
+                                                X
+               = 2 E    ei − E   ei G     + E(   ei G)2                                                                       (12)
+                             i=1                    i=1                       i=1
+
+                          n
+                                     !2
+                          X
+               = 2E             ei        ,                                                                                     (13)
+                          i=1
+
+where (10) is due to Hölder’s inequality, (11) is due to the inequality 2(a2 + b2 ) ≥ (a + b)2 , (12) is due to
+Lemma 3.2, and (13) is due to Lemma 3.1.
+   A direct consequence induced by Theorem 3.3 is the decoupling inequality for the variance.
+Corollary 3.4 (Decoupling inequality for the variance). With the same setting as Lemma 3.2, we have that
+                                           n
+                                                !            n
+                                                                 !
+                                          X                X
+                                   Var        di ≤ 2Var        ei .                                 (14)
+                                                              i=1                           i=1
+
+
+                                                                              6
+Proof. For all 1 ≤ i ≤ n, when we center the random variable by letting d′i = di − E(di ), the corresponding
+tangent decoupled variable becomes e′i = ei − E(ei ). Therefore, the inequality for L2 -norms can be extended
+to the inequality for variances.
+                                                                                                                              n
+      With Corollary 3.4, we can then build a refined inequality for Theorem 3.3, by adding E[(                                     di )]2 and
+                                                                                                                              P
+                                                                                                                              i=1
+      n
+          ei )]2 to the two sides respectively.
+      P
+E[(
+   i=1
+
+Corollary 3.5 (Refined decoupling inequality for the second moment). With the same setting as Lemma
+3.2, we have that
+                                n
+                                      !2         n
+                                                      !2 "     n
+                                                                    !#2
+                               X                X             X
+                           E       di    ≤ 2E      ei    − E     ei     .                       (15)
+                                          i=1                    i=1                     i=1
+
+Remark 1 (Sharpness of the three decoupling inequalities). We note that inequalities (9), (14), and (15)
+are all sharp, where we have the equality holds the following extreme case: Consider F0 = {∅, Ω}, F1 = F2 =
+σ{d1 } for some centered, nontrivial, and square-integrable d1 . We have e1 an i.i.d. copy of d1 , and generate
+d2 by letting d2 = d1 P-a.e., and the e2 is then forced to be d1 , in order to be σ{d1 }-measurable. In this case
+the variance of d1 + d2 is Var(2d1 ) = 4Var(d1 ), while the variance of e1 + e2 is Var(e1 + d1 ) = 2Var(d1 ).
+The above two variances are identical to the corresponding second moments, because the sums are centered.
+Remark 2. We note that the cumulant generating function (C.G.T.) bound derived from (2) suggests that
+                                                                       1
+                                                        KS (λ) ≤         KS ′ (2λ),                                                        (16)
+                                                                       2
+                                                             n                  n
+where KS (·) denotes the C.G.T. of S, and S =                      di , S ′ =
+                                                             P                  P
+                                                                                      ei for simplicity.
+                                                             i=1                i=1
+      We note
+                                         n              n
+                                         X            X                           d 1 KS ′ (2λ)
+                          KS′ (0) = E(       di ) = E(     E[di |G]) = KS′ ′ (0) = 2                               .
+                                         i=1           i=1
+                                                                                       dλ
+                                                                                                            λ=0
+
+To make inequality (16) hold in the neighborhood of λ = 0, a necessary condition is that at zero, the second
+                                                                                                                       d2 12 KS ′ (2λ)
+derivative of KS (λ) is not greater than the second derivative of 21 KS ′ (2λ), i.e., K”S (0) ≤                              dλ2               =
+                                                                                                                                         λ=0
+2K”S ′ (0). This is equivalent to inequality (14).
+                                                                                                                         d2 12 MS ′ (2λ)
+      Similarly, in viewing inequality (2), we note that MS (0) =                     MS ′ (0) = 1, and M ”S (0) ≤
+                                                                                 p
+                                                                                                                               dλ2               .
+                                                                                                                                           λ=0
+
+                                          1
+                           d(MS ′ (2λ)) 2               1              1
+                                                    =     2(MS ′ (0))− 2 MS′ ′ (0) = MS′ ′ (0) = MS′ (0).
+                               dλ                       2
+                                              λ=0
+
+With the same argument above, we have
+                                      1
+                       d2 (MS ′ (2λ)) 2                                3                               1
+                                                = −(MS ′ (0))− 2 (MS′ ′ (0))2 + 2(MS ′ (0))− 2 M ”S ′ (0)
+                            dλ2
+                                          λ=0
+                                                = 2M ”S ′ (0) − (MS′ ′ (0))2 ≥ MS” (0),
+
+which also suggests (15) holds. However, our results generalize the consequences of [5] such that the second-
+moment inequality and variance inequality can hold not only for light-tailed sums but also for any heavy-tailed
+sum, as long as the square-integrability is assumed.
+                                                                                                           n
+      Once we have the information for the second moment or the variance of Sn =                                 di , we have Chebyshev’s
+                                                                                                           P
+                                                                                                           i=1
+inequality to bound its deviation probability. In addition, when Sn is nonnegative, the lower bound for
+P(Sn > θ E(Sn )) can be obtained by using Paley-Zygmund inequality. However, when the second moment
+or the variance of Sn has a complicated form or cannot be obtained, we may use the above inequalities to
+
+
+                                                                     7
+                                                                                n
+obtain a weaker bound with the moment information of Sn′ :=                           ei . The following corollary is the direct
+                                                                                P
+                                                                                i=1
+consequence of Corollaries 3.4 and 3.5.
+Corollary 3.6. With the same setting of Lemma 3.2, we have a Chebyshev-type inequality for any t > 0,
+
+                                                                          2Var(Sn′ )
+                                            P (|Sn − ESn | > t) ≤                    .                                          (17)
+                                                                             t2
+If in addition Sn ≥ 0 a.s., we have a Paley-Zygmund-type inequality for any 0 < θ < 1,
+
+                                                            (ESn )2                        1
+                      P(Sn > θ ESn ) ≥ (1 − θ)2                           = (1 − θ)2 2ES ′ 2    .                               (18)
+                                                         2ES n − (ESn )
+                                                            ′ 2
+                                                                                     (ES )2 − 1
+                                                                        2                  n
+                                                                                                    n
+
+
+
+
+4     Bounding the second moment of randomly stopped sums
+   The framework of tangent decoupling may not be intuitive to understand. Therefore, we end this article
+with the randomly stopped processes to show how to use tangent decoupling and the application of the
+inequality (15).
+   The moments of a randomly stopped sum with martingale property can be dated back to Wald [22]
+(1944). In particular, Chow et al (1965, [2]) showed that if Sn is the summation of the i.i.d. centered,
+square-integrable random variables, X1 , ..., Xn , and if the F-stopping time τ satisfies Eτ < ∞, then
+
+                                                         ESτ2 = σ 2 Eτ,
+
+where F = {Fn } is the filtration such that Fn := σ(X1 , ..., Xn ). However, to deal with the second moment
+                                                                                        n
+of the randomly stopping sum with independent non-centered random variables Sn =           Xi , the martingale
+                                                                                        P
+                                                                                                                   i=1
+tools may not succeed. In this case, the decoupling inequality can be of help.
+    For the sake of simplicity, we assumed that X1 , X2 , ... are i.i.d. R-valued random variables with mean
+µ ̸= 0 and variance σ 2 . Suppose the F-stopping time τ is square-integrable. Note that one can drop the
+                                                                                              ∞
+assumption of identical distribution to extend the following result. We notice that Sτ =         di such that
+                                                                                              P
+                                                                                                                         i=1
+di = Xi I{τ ≥i} . Since I{τ ≥i} = 1−I{τ ≤i} is Fi−1 -measurable and therefore independent of Xi , we can construct
+                                                                                           ∞        ∞
+a decoupled sequence ei = Xi′ I{τ ≥i} of di , where Xi′ are the i.i.d. copy of Xi . And       ei =     Xi I{τ ≥i} is
+                                                                                          P         P ′
+                                                                                                               i=1        i=1
+                             ∞
+identically distributed as         Xi I{τ ′ ≥i} =: Sτ ′ for τ ′ an i.i.d copy of τ . Based on this decoupling setting, we
+                             P
+                             i=1
+provide the following theorem, which improves the upper bound given in [8].
+                              n
+Theorem 4.1. Let Sn =
+                              P
+                                    Xi be the summation of n i.i.d. random variables with mean µ and variance
+                             i=1
+σ 2 , and assume an F-stopping time τ is square-integrable, then
+
+                                                 ESτ2 ≤ 2ESτ2′ − (ESτ ′ )2 ,                                                    (19)
+
+where the bound can be explicitly written as (20).
+Proof. The Fatou’s lemma shows that
+
+                                              N
+                                                                 !2                   N
+                                                                                                          !2
+                                              X                                       X
+                        ESτ2 = E      lim           Xi 1{τ ≥i}        ≤ lim inf E            Xi 1{τ ≥i}        .
+                                     N →∞                                N →∞
+                                              i=1                                      i=1
+
+
+
+
+                                                                 8
+Corollary 3.5 further provides the bound such that for any N ∈ N,
+
+                     N
+                                           !2                N
+                                                                                 !2           N
+                                                                                                                 !
+                     X                                       X                                X
+                E          Xi 1{τ ≥i}            ≤ 2E              X̃i 1{τ ≥i}         −E           Xi 1{τ ≥i}
+                     i=1                                     i=1                              i=1
+                                                                        
+                             j−1
+                          N X                                                    N
+                                                                                              !
+                          X                                X                     X
+                    = 2E  (     Xi )Xj I{τ ′ ≥j}  + 2E    Xi2 I{τ ′ ≥i}  − E   Xi 1{τ ≥i}
+                               j=2 i=1                                           i≥1                         i=1
+                            N
+                            X                                                           N
+                                                                                        X
+                    = 2µ2         (j − 1)P(τ ≥ j) + (2µ2 + 2σ 2 − µ)                          P(τ ≥ i),
+                            j=2                                                         i=1
+
+the limit of which, due to the square-integrability of τ , is
+                                                 ∞
+                                                 X
+                                           2µ2         (j − 1)P(τ ≥ j) + (2µ2 + 2σ 2 − µ)Eτ.                                 (20)
+                                                 j=2
+
+
+    We will then show 2ESτ2′ − (ESτ ′ )2 = (20). We note that
+                             
+                                       N
+                                                      !2 
+                                       X
+                   ESτ2′ = E  lim        Xi 1{τ ′ ≥i} 
+                                    N →∞
+                                                  i=1
+                                                                                                           
+                                       XN                                          X
+                            = E  lim    Xi2 1{τ ′ ≥i} + 2                                 Xi Xj 1{τ ′ ≥j} 
+                                    N →∞
+                                                   i=1                           1≤i<j≤N
+                                                                       !                                              
+                                                 N
+                                                 X                                              X
+                            = lim E                    Xi2 1{τ ′ ≥i}       + 2 lim E                    Xi Xj 1{τ ′ ≥j}    (21)
+                                N →∞                                             N →∞
+                                                 i=1                                          1≤i<j≤N
+                                                              j−1
+                                                            ∞ X
+                                                            X
+                            = EX Eτ + 2µ
+                                       2     ′          2
+                                                                     P(τ ′ ≥ j)                                              (22)
+                                                            j=2 i=1
+                                                                X∞
+                            = (µ2 + σ 2 )Eτ + 2µ              2
+                                                                     (j − 1)P(τ ≥ j),
+                                                               j=2
+
+where we obtain the first term in (21) via the monotone    convergence
+                                                                   P theorem, and the second term in (21)
+via the dominated convergence theorem (since | Xi Xj 1τ ′ ≥j | ≤ |Xi ||Xj |1τ ′ ≥j is integrable), and we use
+                                                P
+the mutual independence among Xi , Xj and τ ′ to obtain (22).
+    With the implicit form of ESτ2′ and that ESτ ′ = µEτ ′ , we conclude the bound (20).
+
+
+5     Concluding Remarks
+    This paper is concerned with the application of decoupling inequalities, with a focus on the second
+moments and variances of sums of dependent random variables. By deriving sharp bounds, we present
+a robust framework that generalizes classical results — such as those of de la Pena and Hitczenko — to
+a wider range of dependence structures, notably without requiring the non-negativity assumption for the
+upper bound.
+    Our findings demonstrate that precise upper bounds can be obtained under the minimal condition of
+square integrability. These inequalities not only deepen theoretical understanding but also yield practical
+tools for bounding tail probabilities via Chebyshev- and Paley-Zygmund-type inequalities in the presence of
+dependence.
+    We further highlight the applicability of these decoupling techniques to randomly stopped sums, show-
+casing their effectiveness in settings where traditional martingale methods may be inadequate, particularly
+
+
+                                                                            9
+in the analysis of non-centered or heavy-tailed variables.
+    By synthesizing existing literature and extending foundational inequalities, this work offers a meaningful
+contribution to the study of dependent random variables. Future research may build upon this foundation
+to explore applications in statistical inference and machine learning, where dependence among data points
+is often intrinsic.
+
+
+Acknowledgment
+    The authors would like to appreciate Victor K. de la Pena’s important conversations. The authors would
+like to thank the support from Google DeepMind project number GT009019. In addition, the authors
+acknowledge the assistance of LLMs to improve grammar and readability.
+
+
+References
+ [1] D. L. Burkholder, A geometric condition that implies the existence of certain singular integrals of
+     Banach-space-valued functions, Conference on harmonic analysis in honor of Antoni Zygmund, Vol.
+     I, II (Chicago, Ill., 1981), Wadsworth Math. Ser., Wadsworth, Belmont, CA, 1983, pp. 270–286. MR
+     730072
+ [2] Y. S. Chow, Herbert Robbins, and Henry Teicher, Moments of randomly stopped sums, Ann. Math.
+     Statist. 36 (1965), 789–799. MR 178520
+ [3] Victor H. de la Pena, Bounds on the expectation of functions of martingales and sums of positive RVs
+     in terms of norms of sums of independent random variables, Proc. Amer. Math. Soc. 108 (1990), no. 1,
+     233–239. MR 990432
+ [4] Victor H. de la Pena, Decoupling and Khintchine’s inequalities for U -statistics, Ann. Probab. 20 (1992),
+     no. 4, 1877–1892. MR 1188046
+ [5] Victor H. de la Pena, A bound on the moment generating function of a sum of dependent variables with
+     an application to simple random sampling without replacement, Ann. Inst. H. Poincaré Probab. Statist.
+     30 (1994), no. 2, 197–211. MR 1276997
+ [6] Victor H. de la Pena, A general class of exponential inequalities for martingales and ratios, Ann. Probab.
+     27 (1999), no. 1, 537–564. MR 1681153
+ [7] Vı́ctor H. de la Pena and Evarist Giné, Decoupling, Probability and its Applications (New York),
+     Springer-Verlag, New York, 1999, From dependence to independence, Randomly stopped processes.
+     U -statistics and processes. Martingales and beyond. MR 1666908
+ [8] Victor H. de la Pena and Z. Govindarajulu, A note on second moment of a randomly stopped sum of
+     independent variables, Statist. Probab. Lett. 14 (1992), no. 4, 275–281. MR 1179627
+ [9] Rick Durrett, Probability: theory and examples, fourth ed., Cambridge Series in Statistical and Proba-
+     bilistic Mathematics, vol. 31, Cambridge University Press, Cambridge, 2010. MR 2722836
+[10] Songtao Feng and Jing Yang, Adaptive coding for information freshness in a two-user broadcast erasure
+     channel, 2019 IEEE Global Communications Conference (GLOBECOM), IEEE, 2019, pp. 1–6.
+[11] Pawel Hitczenko, Sharp inequality for randomly stopped sums of independent non-negative random vari-
+     ables, Stochastic Process. Appl. 51 (1994), no. 1, 63–73. MR 1288283
+[12] O. Kallenberg and J. Szulga, Multiple integration with respect to Poisson and Lévy processes, Probab.
+     Theory Related Fields 83 (1989), no. 1-2, 101–134. MR 1012497
+[13] S. Kwapień and W. A. Woyczyński, Tangent sequences of random variables: basic inequalities and their
+     applications, Almost everywhere convergence (Columbus, OH, 1988), Academic Press, Boston, MA,
+     1989, pp. 237–265. MR 1035249
+
+
+                                                      10
+[14] Stanislaw Kwapień and Wojbor A. Woyczyński, Semimartingale integrals via decoupling inequalities and
+     tangent processes, Probab. Math. Statist. 12 (1991), no. 2, 165–200. MR 1199772
+[15] Konstantin Makarychev and Maxim Sviridenko, Solving optimization problems with diseconomies of
+     scale via decoupling, J. ACM 65 (2018), no. 6, Art. 42, 27. MR 3882265
+
+[16] Terry R. McConnell, Decoupling and stochastic integration in UMD Banach spaces, Probab. Math.
+     Statist. 10 (1989), no. 2, 283–295. MR 1057936
+[17] Terry R. McConnell and Murad S. Taqqu, Decoupling inequalities for multilinear forms in independent
+     symmetric random variables, Ann. Probab. 14 (1986), no. 3, 943–954. MR 841595
+[18] Y. Nardi and A. Rinaldo, Autoregressive process modeling via the Lasso procedure, J. Multivariate Anal.
+     102 (2011), no. 3, 528–549. MR 2755014
+[19] Alexander Rakhlin, Ohad Shamir, and Karthik Sridharan, Making gradient descent optimal for strongly
+     convex stochastic optimization, Proceedings of the 29th International Conference on International Con-
+     ference on Machine Learning, 2012, pp. 1571–1578.
+
+[20] Aaditya Ramdas, Johannes Ruf, Martin Larsson, and Wouter Koolen, Admissible anytime-valid sequen-
+     tial inference must rely on nonnegative martingales, arXiv preprint arXiv:2009.03167 (2020).
+[21] A. W. van der Vaart, Asymptotic statistics, Cambridge Series in Statistical and Probabilistic Mathe-
+     matics, vol. 3, Cambridge University Press, Cambridge, 1998. MR 1652247
+[22] Abraham Wald, On cumulative sums of random variables, Ann. Math. Statistics 15 (1944), 283–296.
+     MR 10927
+[23] Yining Wang, Simon Du, Sivaraman Balakrishnan, and Aarti Singh, Stochastic zeroth-order optimiza-
+     tion in high dimensions, International conference on artificial intelligence and statistics, PMLR, 2018,
+     pp. 1356–1365.
+
+
+
+
+                                                     11
+

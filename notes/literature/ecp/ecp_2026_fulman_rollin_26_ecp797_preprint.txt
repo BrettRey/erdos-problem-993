@@ -1,0 +1,448 @@
+                                              STEIN’S METHOD AND THE MODULAR BEHAVIOR OF EULERIAN
+                                                                    NUMBERS
+
+                                                                           JASON FULMAN AND ADRIAN RÖLLIN
+
+
+                                                  Abstract. The Eulerian number A(n, k) counts permutations of {1, . . . , n} with exactly k
+
+
+
+
+arXiv:2603.21464v2 [math.PR] 12 May 2026
+                                                  descents. Motivated by problems in cryptography, several authors have studied the sum
+                                                                                       1    X
+                                                                                                  A(n, k)
+                                                                                      n!
+                                                                                           k≡j (mod b)
+
+                                                  and its convergence to 1/b. We give two proofs of explicit error bounds for this convergence, one
+                                                  using Stein’s method for translated Poisson approximation and one using Fourier analysis. The
+                                                  error bound using Fourier analysis yields exponentially decaying error bounds for fixed b, which
+                                                  generalises the already known case b = 2; however, it makes use of a special representation due
+                                                  to Tanny (1973). In contrast, Stein’s method only yields polynomially decaying error bounds,
+                                                  but we hope it has potential for generalisation beyond the present setting.
+
+
+
+
+                                                                                       1. Introduction
+                                              We say that a permutation π on n symbols has a descent at position i, where 1 ≤ i ≤ n − 1,
+                                           if π(i) > π(i + 1). For example, the permutation 41523 has descents at positions 1 and 3, giving
+                                           a total of 2 descents. The Eulerian number A(n, k) is the number of permutations on n symbols
+                                           with exactly k descents; for instance, A(3, 0) = 1, A(3, 1) = 4, A(3, 2) = 1. We refer to Petersen
+                                           (2015) for a comprehensive treatment of Eulerian numbers, and to Bayer and Diaconis (1992),
+                                           Diaconis and Fulman (2023) and Holte (1997) for their connections to card shuffling and carries
+                                           in addition.
+                                              For b ≥ 2 and 0 ≤ j ≤ b − 1, consider the quantity
+                                                                                  1     X
+                                           (1.1)                                               A(n, k),
+                                                                                  n!
+                                                                                         k≡j (mod b)
+
+                                           which is the probability that the number of descents of a uniform random permutation of
+                                           {1, . . . , n} is congruent to j modulo b. This quantity arises naturally in the cryptography liter-
+                                           ature on carries in addition; see Staffelbach and Meier (1991), Sarkar (2009) and Alquié (2010).
+                                           For b = 2, the well known relation between Eulerian numbers and the Bernoulli numbers Bn
+                                           gives the exact formula
+                                                                                               2n+1 (2n+1 − 1)Bn+1
+                                                                                                                    
+                                                                       1 X              1
+                                                                              A(n, k) =     1+                         ,
+                                                                       n!               2             (n + 1)!
+                                                                        k even
+                                           from which it follows by well known asymptotics of Bernoulli numbers that the convergence
+                                           to 1/2 is at rate O (2/π)n ; see Alquié (2010). Note that if n ≥ 2 is even, Bn+1 = 0 so the
+                                           error term is 0 (which is also obvious from symmetry of the Eulerian numbers). For general
+                                           fixed b, Tanny (1973, p. 721) proved that (1.1) converges to 1/b as n → ∞. Tanny’s argument
+                                           uses the classical fact that (1/n!)A(n, k) equals the probability that the sum of n independent
+
+                                             Date: Version of March 21, 2026.
+                                             Key words and phrases. Stein’s method, Eulerian numbers, cryptography.
+                                                                                                  1
+2                                  JASON FULMAN AND ADRIAN RÖLLIN
+
+Uniform[0, 1] random variables lies in [k, k + 1); the convergence then follows by wrapping this
+sum around a circle of circumference b and applying the central limit theorem.
+   The goal of this note is to provide new explicit error bounds for this convergence. We provide
+two error bounds, one using Stein’s method for translated Poisson approximation and one using
+Fourier analysis. Unlike for Tanny’s original result, b is allowed to grow with n. The proof
+via Stein’s method combines two ingredients: a bound on the modular behavior of the Poisson
+distribution (Theorem 2.2), and a translated Poisson approximation for the number of descents
+via Stein’s method of exchangeable pairs (Theorem 2.5). The number of descents is well known
+to be asymptotically normal, and a proof via Stein’s method was given by Fulman (2004).
+However, since the number of descents is integer valued and we are interested in its residue
+modulo b, normal approximation is not directly useful; instead, we approximate the number of
+descents by the translated Poisson distribution in total variation, which for large variances serves
+as a discrete analogue of the normal distribution, and may be of independent interest. We apply
+Röllin (2007, Theorem 3.1), which provides a framework for translated Poisson approximation
+via exchangeable pairs, building on the exchangeable pair construction of Fulman (2004). We
+refer to Ross (2011) for an introduction into Stein’s method.
+   The second proof is a direct proof via Fourier analysis, but uses a very special representation of
+A(n, r) in terms of independent uniform random variables due to Tanny (1973). The resulting
+bound is exponentially small, and for b = 2, our Corollary 3.2 recovers Alquié’s sharp rate
+O (2/π)n . However this argument uses independence in a crucial way whereas our Stein’s
+method approach does not.
+   We conclude by noting that the cryptography papers cited above are also interested in the
+behavior of the i-th carry for fixed i. The discussion above concerns the i → ∞ limit, in which
+Eulerian numbers arise. Theorem 3.4 of Diaconis and Fulman (2009) shows that if one works
+base b, then slightly more than 21 logb (n) steps suffice for the total variation convergence of
+Holte’s carries Markov chain when n is large. For i this large, the probability that the i-th carry
+is congruent to j modulo b is therefore close to (1.1).
+
+
+
+                             2. An error bound via Stein’s method
+  Since we are working with permutations from the uniform distribution, it is equivalent to
+work with the random variable W (π) which is the number of descents of π −1 . This is equal to
+the number of i (1 ≤ i ≤ n − 1) such that i and i + 1 are out of order in π.
+
+Theorem 2.1. Suppose that n ≥ 6. Let b ≥ 2 and k ∈ {0, 1, . . . , b − 1}. Then
+
+              1         X                    1
+                                 A(n, r) −
+              n!                             b
+                   r≡k (mod b)
+                        r
+                            23     1   24   b−1     n+1              
+                    ≤          ·√    +    +     exp −    1 − cos(2π/b) .
+                             5    n+1 n+1    b        12
+
+The proof of the above result relies on two ingredients. The first is a bound on the modular
+behavior of the Poisson distribution, which is of independent interest. The second is an approx-
+imation of W by a translated Poisson distribution, which we obtain by applying Theorem 3.1
+of Röllin (2007).
+             STEIN’S METHOD AND THE MODULAR BEHAVIOR OF EULERIAN NUMBERS                            3
+
+Theorem 2.2. Let X ∼ Po(λ) and let b ≥ 2. Then for any k ∈ {0, 1, . . . , b − 1},
+                         1
+         P X ≡ k (mod b) −
+                             b
+                       b−1
+                     1X                           b−1                      
+                 ≤         exp −λ(1 − cos(2πj/b)) ≤    exp −λ(1 − cos(2π/b)) .
+                     b                              b
+                      j=1
+
+Proof. We use Fourier analysis on the finite abelian group Z/bZ. For any integer-valued random
+variable X and any k ∈ Z, the indicator of the congruence class {X ≡ k (mod b)} admits the
+Fourier expansion
+                                                b−1                  
+                                          1X            2πij(X − k)
+                       I X ≡ k (mod b) =            exp                .
+                                              b                b
+                                                  j=0
+Indeed, for a fixed integer x,
+                          b−1                  (
+                        1X         2πij(x − k)    1,          x ≡ k (mod b),
+                              exp               =
+                        b               b         0,          x ̸≡ k (mod b),
+                            j=0
+
+by orthogonality of characters of Z/bZ. Taking expectations yields
+                                                b−1
+                                            1X
+                                                    E e2πij(X−k)/b .
+                                                    
+                            P X ≡ k (mod b) =
+                                              b
+                                                    j=0
+
+The term j = 0 equals 1/b. For j ̸= 0, using the characteristic function of the Poisson distribu-
+tion,
+                             E e2πijX/b = exp λ(e2πij/b − 1) .
+                                                               
+
+Taking absolute values gives
+             E e2πij(X−k)/b = exp λ(e2πij/b − 1) e2πijk/b = e−λ(1−cos(2πj/b)) .
+                                                   
+
+Summing over j = 1, . . . , b − 1 yields the first inequality. The second inequality follows by
+bounding the sum by b − 1 times its largest term.                                             □
+Remark 2.3. For b = 2, the above proof gives the exact formula
+                                                1   e−2λ
+                         P[X ≡ k (mod 2)] −       =      ,        k ∈ {0, 1}.
+                                                2    2
+We proceed as Röllin (2007) and introduce the following notion. An integer-valued random
+variable Y is said to have a translated Poisson distribution with parameters µ and σ 2 , written
+                                        L(Y ) = TP(µ, σ 2 )
+if
+                                  L(Y − µ + σ 2 + γ) = Po(σ 2 + γ),
+where γ = ⟨µ − σ 2 ⟩ denotes the fractional part of µ − σ 2 , with ⟨x⟩ = x − ⌊x⌋. In particular,
+TP(σ 2 , σ 2 ) = Po(σ 2 ). Approximating a random variable W by TP(µ, σ 2 ) allows the mean to
+be matched exactly. The variance, however, can only be matched up to an additive error of at
+most 1, where
+                                   σ 2 ≤ VarY = σ 2 + γ ≤ σ 2 + 1.
+This discrepancy causes no difficulty, since for the total variation distance, the resulting error is
+of order O(σ −2 ).
+4                               JASON FULMAN AND ADRIAN RÖLLIN
+
+   The next goal is to approximate W (π), the number of descents of the inverse of π, by a
+translated Poisson distribution. We apply the following result, which is a special case of Theorem
+3.1 of Röllin (2007). Recall that (W, W ′ ) is called an exchangeable pair if (W, W ′ ) has the same
+distribution as (W ′ , W ). We also let
+                                    1X
+                       dTV (P, Q) =      |P (x) − Q(x)| = max|P (A) − Q(A)|
+                                    2                        A⊆X
+                                     x∈X
+
+denote the total variation distance between probability distributions P and Q on a finite set X .
+Theorem 2.4 (See Röllin (2007, Theorem 3.1)). Assume that (W, W ′ ) is an exchangeable pair
+with values in the integers, such that
+     • EW = µ and VarW = σ 2 < ∞,
+     • E[W ′ − µ|W ] = (1 − λ)(W − µ) for some 0 < λ < 1,
+     • W ′ − W ∈ {−1, 0, +1}.
+Then, with S = S(W ) = P[W ′ = W + 1|W ],
+                                                          √
+                                                  2
+                                                         VarS   2
+                             dTV L(W ), TP(µ, σ ) ≤          2
+                                                               + 2.
+                                                          λσ    σ
+As a consequence of Theorem 2.4, we obtain the following result.
+Theorem 2.5. Let W (π) be the number of descents of π −1 where π is chosen uniformly at
+                                                                                         n+1
+random from the set of permutations of {1, 2, · · · , n}. Then for n ≥ 6, µ = n−1     2
+                                                                               2 and σ = 12 ,
+                                                   r
+                                                       23     1       24
+                      dTV L(W ), TP(µ, σ 2 ) ≤
+                                            
+                                                          ·√      +       .
+                                                       5     n+1 n+1
+Proof. We use an exchangeable pair (W, W ′ ) constructed in Fulman (2004). Letting W (π) be
+the number of descents of π −1 , we define W ′ = W ′ (π) as follows. Pick an integer I uniformly
+at random between 1 and n and move the number in position I in the second row of π to the
+end of this second row. This results in a new permutation π ′ , and we define W ′ (π) = W (π ′ ).
+For example, suppose that n = 7 and I = 3. Then the permutation π in two-line form is
+
+
+                                            i= 1234567
+                                       π(i) = 6 4 1 5 3 2 7
+is transformed to
+                                            i= 1234567
+                                        ′
+                                       π (i) = 6 4 5 3 2 7 1.
+Fulman (2004) proved that despite the non-reversibility of the “move random to end” Markov
+chain, the pair (W, W ′ ) is exchangeable. The exchangeability also follows from Lemma 1.1 of
+Rinott and Rotar (1997) and the fact that W ′ − W ∈ {−1, 0, +1}.
+  It is well known that EW = (n−1)/2 and VarW = (n+1)/12. Clearly W ′ −W ∈ {−1, 0, +1}.
+Moreover, Lemma 1 of Fulman (2004) yields
+                                 E[W ′ − µ|W ] = (1 − λ)(W − µ)
+for λ = 2/n. Thus the hypotheses of Theorem 2.4 are satisfied.
+             STEIN’S METHOD AND THE MODULAR BEHAVIOR OF EULERIAN NUMBERS                                         5
+
+  To apply Theorem 2.4 with λ = 2/n and σ 2 = (n + 1)/12, it remains only to bound VarS.
+Since W is a function of π, it follows from the standard conditional variance decomposition of
+P[W ′ = W + 1|π] and the projection property that
+                                VarS ≤ Var P[W ′ = W + 1|π] .
+                                                             
+
+Clearly,
+                                                1
+                       P[W ′ = W + 1|π] =
+                                                                                    
+                                                  X1 (π) + X2 (π) + · · · + Xn−1 (π) ,
+                                                n
+where                                      (
+                                            1    if 1 and 2 are in order in π,
+                                  X1 (π) =
+                                            0    else,
+and for 2 ≤ i ≤ n − 1,
+                                     (
+                                      1     if i − 1, i, i + 1 are in order in π,
+                            Xi (π) =
+                                      0     else.
+Thus,
+                                                              
+               ′            1                         1 1 n−2     n+1
+           E P[W = W + 1|π] = (EX1 + · · · + EXn−1 ) =     +     =     .
+                             n                         n 2   6      6n
+Now for n ≥ 6, one has that
+                                              1
+                    E P[W ′ = W + 1|π]2 = 2 (T1 + T2 + T3 + T4 + T5 ),
+                     
+                                              n
+where
+                                                                    n+1
+          T1 = E{X12 } + · · · + E{Xn−1
+                                    2
+                                        } = EX1 + · · · + EXn−1 =        ,
+                                                                     6
+          T2 = 2 E{X1 X2 } + 2 E{X1 X3 } + 2 E{X1 X4 } + · · · + 2 E{X1 Xn−1 }
+                2     2   2(n − 4)
+              =    +    +          ,
+                6 24         12
+                  n−2                                                  n−3
+                  X                  2(n − 3)                          X                       2(n − 4)
+           T3 = 2     E{Xi Xi+1 } =           ,             T4 = 2           E{Xi Xi+2 } =              ,
+                                        24                                                       120
+                      i=2                                              i=2
+                      n−4
+                      X n−1                          n−4
+                                                     X n−1
+                          X                      2       X            2 (n − 4)(n − 5)
+           T5 = 2                 E{Xi Xj } =                    1=                    .
+                                                36                    36      2
+                      i=2 j=i+3                      i=2 j=i+3
+
+Thus, straightforward algebraic manipulation yields
+                                                                                         2
+                  ′
+                            1                                                      n+1            23(n + 1)
+        Var P[W = W + 1|π] = 2 (T1 + T2 + T3 + T4 + T5 ) −                                     =             .
+                            n                                                        6n              180n2
+Plugging into Theorem 2.4 completes the proof.                                                                   □
+We can now give the proof of our main Stein’s method result.
+Proof of Theorem 2.1. Since W  is the number of descents of the inverse
+                                                                       of a uniform ran-
+                                                                                     
+dom permutation, P W = r = A(n, r)/n! for each r, and hence P W ≡ k (mod b) =
+ 1 P                                      2                             2
+n!   r≡k (mod b) A(n, r). Let Y ∼ TP(µ, σ ), where µ = (n − 1)/2 and σ = (n + 1)/12. By
+the triangle inequality,
+                             1                                              1
+                                  ≤ dTV L(W ), TP(µ, σ 2 ) + P Y ≡ k (mod b) − .
+                                                            
+          P W ≡ k (mod b) −
+                                b                                             b
+6                                  JASON FULMAN AND ADRIAN RÖLLIN
+
+
+The first term is bounded by 23/5 · (n + 1)−1/2 + 24/(n + 1) by Theorem 2.5. For the second
+                                 p
+
+term, note that Y shifted by µ − σ 2 − γ has distribution Po(σ 2 + γ), where γ = ⟨µ − σ 2 ⟩ ∈ [0, 1)
+and σ 2 ≤ σ 2 + γ < σ 2 + 1, so applying Theorem 2.2 with λ = σ 2 + γ ≥ (n + 1)/12 yields a bound
+of
+                                 b−1       n+1                 
+                                      exp −        1 − cos(2π/b) .
+                                  b           12
+Combining the two bounds completes the proof.                                                     □
+
+                            3. An error bound via Fourier analysis
+   A direct Fourier-analytic argument gives the following sharper bound. It makes, however, use
+of a representation of A(n, r) given by Tanny (1973), and is therefore not robust to generalisation
+and does not give total variation bounds for the distribution of W .
+Theorem 3.1. For n ≥ 1, b ≥ 2, and k ∈ {0, 1, . . . , b − 1},
+                   1     X                 1        1 X b sin(πj/b) n+1
+                                A(n, r) −      ≤                        .
+                   n!                      b         b        πj
+                             r≡k (mod b)                            j̸=0
+                                                                                                           
+Proof. Using the representation appearing in Tanny (1973), we have A(n, r)/n! = P ⌊Sn ⌋ = r ,
+where Sn = U1 + · · · + Un and U1 , . . . , Un are i.i.d. Uniform[0, 1]. Hence, for k ∈ {0, 1, . . . , b − 1},
+                      1     X                                          
+                                     A(n, r) = P ⌊Sn ⌋ ≡ k (mod b) = EJ(Sn ),
+                      n!
+                         r≡k (mod b)
+                                                                         
+where J : R → {0, 1} is defined by J(x) = I x mod b ∈ [k, k + 1) . The function J admits the
+Fourier expansion                                  X
+                                           J(v) =       cj e2πijv/b
+                                                         j∈Z
+with Fourier coefficients
+                                   Z b                                 Z k+1
+                               1                   −2πijv/b        1
+                          cj =           J(v) e               dv =             e−2πijv/b dv.
+                               b    0                              b    k
+A direct computation gives c0 = 1/b and
+                                                   | sin(πj/b)|
+                                         |cj | =                ,       j ̸= 0.
+                                                        π|j|
+Since U ∼ Uniform[0, 1] has characteristic function ϕU (t) = (eit − 1)/(it), the independence of
+U1 , . . . , Un gives
+                                                             b sin(πj/b) n
+                            Ee2πijSn /b = |ϕU (2πj/b)|n =                  .
+                                                                   πj
+The product |cj | · |ϕSn (2πj/b)| = 1b |b sin(πj/b)/(πj)|n+1 is of order O(|j|−(n+1) ) and therefore
+summable. By Fejér’s theorem (the Cesàro means of the Fourier series of J are bounded by
+∥J∥∞ = 1 and converge to J almost everywhere) together with bounded convergence,
+                                                X
+                                    EJ(Sn ) =       cj Ee2πijSn /b .
+                                                        j∈Z
+
+The j = 0 contribution equals 1/b, and the triangle inequality yields
+                          1     X                           1 X b sin(πj/b) n+1
+                EJ(Sn ) −     ≤     |cj | · |ϕSn (2πj/b)| =                     ,
+                          b                                 b        πj
+                                         j̸=0                               j̸=0
+             STEIN’S METHOD AND THE MODULAR BEHAVIOR OF EULERIAN NUMBERS                            7
+
+which is the claimed bound.                                                                        □
+Corollary 3.2. For n ≥ 1, b ≥ 2, and k ∈ {0, 1, . . . , b − 1},
+                         1     X                   1       b−1
+                                      A(n, r) −         ≤       ρ(b)n−1 ,
+                        n!                         b         b
+                               r≡k (mod b)
+
+where ρ(b) := b sin(π/b)/π ∈ (0, 1). Moreover,
+                                                 (n − 1)π 2 
+                                  ρ(b)n−1 ≤ exp −               .
+                                                       8b2
+Proof. The function sin(x)/x is decreasing on (0, π], so |b sin(πj/b)/(πj)| ≤ ρ(b) for 1 ≤ |j| ≤ b.
+For |j| > b, we have |b sin(πj/b)/(πj)| ≤ b/(π|j|) < 1/π ≤ ρ(b). Hence, for n ≥ 1,
+                               b sin(πj/b) n+1               b sin(πj/b) 2
+                                               ≤ ρ(b)n−1                    .
+                                    πj                             πj
+                                                      2      −1 b |J(v)|2 dv = 1/b, so            2
+                                           P                     R                     P
+Parseval’s identity applied to J gives       j∈Z |cj | = b         0                    j̸=0 |cj | =
+(b − 1)/b2 , and since |b sin(πj/b)/(πj)| = b|cj | for j ̸= 0, we have
+                               X b sin(πj/b) 2          X
+                                                  = b2      |cj |2 = b − 1.
+                                        πj
+                              j̸=0                   j̸=0
+Combining these inequalities with Theorem 3.1 yields the first inequality.
+   For the second inequality, set u = π/b ∈ (0, π/2]. The alternating Taylor expansion of sin
+gives sin u ≤ u − u3 /6 + u5 /120, and on (0, π/2] this is in turn bounded by u − u3 /8, as is easily
+verified. Hence 1 − ρ(b) = 1 − sin(u)/u ≥ u2 /8 = π 2 /(8b2 ), and the                        x
+                                                                          bound 1 + x ≤ e with
+x = ρ(b) − 1 yields ρ(b) n−1  ≤e −(n−1)(1−ρ(b))                   2    2
+                                                ≤ exp −(n − 1)π /(8b ) .                            □
+Remark 3.3. For b = 2 Corollary 3.2 recovers Alquié’s sharp O (2/π)n result.
+                                                                            
+                                               √
+Remark 3.4. In  √  the borderline  regime b ≍    n, Corollary 3.2 no longer yieldsconvergence to 0.
+Indeed, if b = c n, then ρ(b)  n−1 tends to the positive constant exp −π 2 /(6c2 ) . In this case, we
+can apply Theorem 3.1 directly: Each term |b sin(πj/b)/(πj)|n+1 converges to exp −π 2 j 2 /(6c2 ) ,
+                                                                                                    
+                                                                  √
+so the sum is O(1) and the resulting bound is O(1/b) = O(1/ n).
+
+                                      Acknowledgements
+  Fulman was supported by Simons Foundation grant 917224.
+
+                                             References
+Alquié, D. (2010). Approximating addition by XOR: how to go all the way. IACR Cryptology
+  ePrint archive, 2010/072.
+Bayer, D. and Diaconis, P. (1992). Trailing the dovetail shuffle to its lair. Ann. Appl. Probab. 2,
+  294-313.
+Diaconis, P. and Fulman, J. (2009). Carries, shuffling, and symmetric functions. Adv. in Appl.
+  Math. 43, 176-196.
+Diaconis, P. and Fulman, J. (2023). The mathematics of shuffling cards. American Math Society.
+Fulman, J. (2004). Stein’s method and non-reversible Markov chains. In Stein’s method: expos-
+  itory lectures and applications, IMS Lecture Notes Monograph Ser. Volume 45, 69-77.
+Holte, J. (1997). Carries, combinatorics, and an amazing matrix. Amer. Math. Monthly 104,
+  138-149.
+Petersen, T.K. (2015). Eulerian numbers. Birkhauser/Springer, New York.
+8                              JASON FULMAN AND ADRIAN RÖLLIN
+
+Rinott, Y. and Rotar, V. (1997). On coupling constructions with rates in the CLT for dependent
+  summands with applications to the antivoter model and weighted U-statistics. Ann. Appl.
+  Probab. 7, 1080-1105.
+Röllin, A. (2007). Translated Poisson approximation using exchangeable pair couplings. Ann.
+  Appl. Probab. 17, 1596-1614.
+Ross, N. (2011). Fundamentals of Stein’s method. Probab. Surveys 8, 210-293.
+Sarkar, P. (2009). On approximating addition by exclusive OR. IACR Cryptology ePrint archive,
+  2009/047.
+Staffelbach, O. and Meier, W. (1991). Cryptographic significance of the carry for ciphers based
+  on integer addition. Advances in Cryptology – Crypto 1990, LNCS Vol. 357, Springer, 601-614.
+Tanny, S. (1973). A probabilistic interpretation of Eulerian numbers. Duke Math. J. 40, 717-722.
+  Department of Mathematics, University of Southern California, Los Angeles, CA 90089-2532,
+USA
+  Email address: fulman@usc.edu
+
+    Department of Statistics and Data Science, National University of Singapore, Singapore
+    Email address: adrian.roellin@nus.edu.sg
+

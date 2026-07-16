@@ -1,0 +1,936 @@
+                                                 Mixed Poisson families with real-valued mixing
+                                                                 distributions
+
+                                                                            F. William Townes1*
+                                                   1*
+                                                        Department of Statistics and Data Science, Carnegie Mellon
+                                                        University, 5000 Forbes Ave, Pittsburgh, 15213, PA, USA.
+
+
+
+
+arXiv:2407.17614v2 [math.PR] 19 Aug 2025
+                                                   Corresponding author(s). E-mail(s): ftownes@andrew.cmu.edu;
+
+
+                                                                                    Abstract
+                                                Mixed Poisson distributions provide a flexible approach to the analysis of count
+                                                data with overdispersion, zero inflation, or heavy tails. Since the Poisson mean
+                                                must be nonnegative, the mixing distribution is typically assumed to have non-
+                                                negative support. We show this assumption is unnecessary and real-valued mixing
+                                                distributions are also possible. Informally, the mixing distribution merely needs
+                                                to have a light (subexponential) left tail and a small amount of probability mass
+                                                on negative values. We provide several concrete examples, including the mixed
+                                                Poisson- extreme stable family, where the mixing distribution has a power law
+                                                tail.
+
+                                                Keywords: mixed Poisson, probability generating functions, stable distributions
+
+                                                MSC Classification: 60E05 , 62E10
+
+
+
+
+                                           1 Introduction
+                                           Mixed Poisson families [1, 2] are widely used to model count data with overdispersion,
+                                           zero inflation, or heavy tails in a variety of applications including finance [3–5], biology
+                                           [6–8], and the physical sciences [9–11]. Suppose X ∼ F is a random variable and
+                                           [Y | X ] follows the Poisson distribution with E[Y | X ] = X . We say that (marginally)
+                                           Y has a mixed Poisson distribution after integrating out X . A prominent example
+                                           is the negative binomial distribution, which is a mixed Poisson where X is gamma
+                                           distributed. It seems natural to assume that X must be restricted to have nonnegative
+                                           support. However, this is in fact unnecessary; the Hermite distribution is obtained by
+                                           allowing X ∼ N (µ, σ 2 ), so long as µ ≥ σ 2 [12].
+
+
+                                                                                         1
+    Here, we identify general conditions under which real-valued mixing distributions
+can be used to produce mixed Poisson distributions. As a motivating example, con-
+sider the stable distributions [13], which are the limits of rescaled sums of potentially
+heavy-tailed random variables. The stable family has two key parameters: α ∈ (0, 2]
+controls the heaviness of the tails and β ∈ [−1, 1] controls the skew. When β = 1,
+the distribution is maximally skewed to the right. In this case, for α ∈ (0, 1) the
+left tail can be bounded at zero. Such “positive stable” distributions can straightfor-
+wardly be used to create mixed Poisson distributions with heavy tails. However, for
+β = 1 and α ∈ [1, 2] the support is R. This would seem to disqualify these “extreme
+stable” distributions as candidates for producing Poisson mixtures. But the Gaussian
+distribution is stable with α = 2 and [12] showed it can be used to produce a Poisson
+mixture. We are then left with a curious gap of α ∈ [1, 2) in the possible values for
+heavy-tailed count modeling. We will show that in fact mixed Poisson extreme stable
+distributions are well-defined for the full range of α ∈ (0, 2], so long as β = 1 and cer-
+tain constraints on location and scale are satisfied. Of course, our results encompass
+non-stable families as well.
+
+2 Preliminaries
+2.1 Subweibull random variables and exponential tilting
+Definition 1 The bilateral Laplace-Stieltjes transform (BLT) of a random variable X with
+distribution function F is
+                                                Z ∞
+                       LX (t) = E[exp(−tX)] =        exp(−tx)dF (x)
+                                                 −∞
+
+
+   We do not restrict X to be nonnegative or to have a density function. In the special
+case that LX (t) < ∞ for all t in an open interval around t = 0, then X has a moment
+generating function (MGF) which is MX (t) = E[exp(tX )] = LX (−t).
+
+Definition 2 A random variable X is q-subweibull if E[exp(λq |X|q )] < ∞ for some λ > 0
+and q > 0. X is strictly q-subweibull if the condition is satisfied for all λ > 0.
+
+
+   We use the term subexponential to refer to 1-subweibull random variables (i.e.
+those having MGFs).
+
+Definition 3 Let X be a random variable with distribution function F . If the BLT satisfies
+LX (−θ) = E[exp(θX)] < ∞ for some θ ̸= 0, then the exponentially tilted distribution is given
+by                                    Z x
+                                            exp(θt)
+                             Fθ (x) =               dF (t)
+                                            L
+                                       −∞ X (−θ)
+
+
+Proposition 2.1 Preservation of subweibull tails under exponential tilting. Let θ be any
+real number.
+
+
+
+                                             2
+  1. If X ∼ F is q-subweibull (q > 1), then the exponentially tilted variable Z ∼ Fθ is also
+     q-subweibull.
+  2. If X ∼ F is strictly q-subweibull (q ≥ 1), the exponentially tilted variable Z ∼ Fθ is
+     also strictly q-subweibull.
+  3. If X ∼ F is not q-subweibull (q > 1), then Z ∼ Fθ is also not q-subweibull.
+
+
+   The proof of Proposition 2.1, along with further discussion of exponential tilting
+and subweibull properties, is provided in [14]. See also [15, 16].
+
+2.2 Mixed Poisson distributions
+Definition 4 A function f (n) on the domain N0 is a valid probability mass function (PMF)
+if it satisfies
+ (i) f (n) ≥ 0 for all n ∈ N0
+     P∞
+(ii)    n=0 f (n) = 1.
+
+
+Definition 5 The probability generating function (PGF) of a discrete nonnegative random
+variable X is given by
+                                             ∞
+                         GX (z) = E[z X ] =     z n Pr(X = n)
+                                            X
+
+                                                 n=0
+
+
+   We will need to verify whether a given function is a PGF for some random variable.
+
+Lemma 2.0.1 An analytic function G(z) is a valid PGF if and only if it satisfies
+ (i) G(1) = 1
+(ii) G(z) is continuous for z ∈ [0, 1]
+(iii) Absolute monotonicity: finite derivatives G(k) (z) ≥ 0 for all z ∈ (0, 1)
+
+
+   The proof is provided on p. 223 of [17]. We use notation from [18] to concisely
+describe mixed Poisson distributions.
+
+Definition 6 Let X be a random variable with distribution F . If random variable Y has
+conditional distribution [Y | X] ∼ P oi(X), then the marginal distribution of Y is the mixed
+Poisson distribution generated by F , denoted with
+                                               ^ 
+                                       Y ∼ P oi F
+
+and having PMF                                  h        i
+                                               E X n e−X
+                                     f (n) =                                             (1)
+                                                    n!
+provided f (n) is a valid PMF.
+
+
+
+
+                                                3
+                                                                                     V
+Lemma 2.0.2 The PGF of a mixed Poisson random variable Y ∼ (P oi                         F ) is
+                                             GY (z) = LX (1 − z)
+where LX (t) is the BLT of the mixing distribution F , provided GY (z) is a valid PGF.
+
+
+
+Proof
+                                   "∞                 #
+                   Y              X z n X n exp(−X)
+   GY (z) = E E[z       | X] = E
+                                                    n!
+                                       n=0
+                                                  ∞
+                                   "                             #
+                                                  X      (zX)n
+                               = E exp(−X)                           = E [exp(−X + zX)] = LX (1 − z)
+                                                           n!
+                                                  n=0
+                                                                                                       □
+
+
+3 General conditions for real-valued mixing
+  distributions
+We will first give conditions based on the probability mass function (PMF).
+
+3.1 Sufficient conditions
+We will refer to f (n) as in Equation 1 as a candidate PMF
+                                                         V for some candidate mixing
+variable X ∼ F under consideration. The mixture P oi F exists if f (n) is a valid
+PMF. It is well known that Pr(X < 0) = 0 is a sufficient condition.
+
+Lemma 3.0.1 Let X ∼ F be a random variable. Then Pr(X < 0) =        V0 is a sufficient but not
+necessary condition for the existence of the mixed distribution P oi F .
+
+
+
+Proof Sufficiency: the PMF f (n) ≥ 0 for all n since all terms in Equation 1 are nonnegative.
+And                                        "               #
+                             X               X X n e−X
+                                 f (n) = E                   =1
+                              n               n
+                                                    n!
+where the interchange of sum and expectation isVjustified by Tonelli’s Theorem. Lack of
+necessity: If X ∼ N (µ, σ 2 ) with µ ≥ σ 2 , then P oi F is the Hermite distribution [12] with
+PGF                                         h                       i
+                             GY (z) = exp a1 (z − 1) + a2 (z 2 − 1)
+
+where a2 = σ 2 /2 and a1 = µ − σ 2 . Since Pr(X < 0) > 0, this serves as a counterexample.             □
+
+   This motivates us to consider less restrictive sufficient conditions that still hold
+when Pr(X < 0) > 0.
+
+Theorem 3.1 Let X be a random variable with distribution F . Define nonnegative random
+variables A = [−X | X < 0] and B = [X | X ≥ 0].   VThe following conditions are sufficient to
+establish the existence of mixed distribution P oi F when Pr(X < 0) > 0.
+
+
+                                                      4
+ (i) for all odd n ∈ N
+                               h     i             h       i
+                              E An eA Pr(X < 0) ≤ E B n e−B Pr(X ≥ 0)
+
+(ii) E[exp(2A)] < ∞
+                          V
+The PMF of Y ∼ (P oi       F ) is then given by
+                                   h      i          h       i
+                          (−1)n E An eA Pr(X < 0) + E B n e−B Pr(X ≥ 0)
+                f (n) =                                                                    (2)
+                                                  n!
+
+
+Proof Equation 2 is clearly equivalent to Equation 1.
+                                     h        i
+               Z n −x
+                  x e              E X n e−X
+       f (n) =          dF (x) =
+                    n!                   n!
+                1  h n −X              i               h              i          
+             =     E X e       | X < 0 Pr(X < 0) + E X n e−X | X ≥ 0 Pr(X ≥ 0)
+               n!
+Assume condition (i) holds. This implies f (n) ≥ 0 for all odd n. For even n, all terms in
+Equation 2 are nonnegative, because A is a positive random variable and B is a nonnegative
+random variable. This provesP f (n) ≥ 0 for all n ∈ N0 as required.
+   It remains to prove that n f (n) = 1. Assume (ii) holds. It is clear that
+                                    "                  #
+                                     X X n exp(−X)
+                                  E                      =1
+                                       n
+                                               n!
+even when X takes on negative values. However, we cannot justify the interchange of expec-
+tation and summation with Tonelli’s Theorem since X takes on negative values. Therefore,
+we must appeal to Fubini’s Theorem, which requires the following sum to be finite.
+       X  X n exp(−X)  X 1 h n −X i
+           E                    =        E |X| e
+        n
+                    n!             n
+                                      n!
+                   h                  i               h                i
+                       n −X
+             X E |X| e         | X ≥ 0 Pr(X ≥ 0) + E |X|n e−X | X < 0 Pr(X < 0)
+           =
+              n
+                                                  n!
+                   h        i                 h     i
+                      n −B
+             XE B e           Pr(X ≥ 0) + E An eA Pr(X < 0)
+           =
+              n
+                                         n!
+               "                  #      "              #
+                 X B n exp(−B)             X An exp(A)
+           =E                       +E
+                 n
+                         n!                 n
+                                                 n!
+           = (1) + E[exp(2A)]
+Here the interchange of sum and expectation is justified by Tonelli’s Theorem since everything
+is nonnegative. By the assumption of condition (ii) the expectation in the last line is finite
+and Fubini’s Theorem justifies the conclusion that
+                                                       "                  #
+                X          X  X n exp(−X)              X X n exp(−X)
+                   f (n) =    E                  =E                         =1
+                n          n
+                                      n!                 n
+                                                                 n!
+                                                                                            □
+
+
+
+
+                                              5
+3.2 Necessary conditions
+Theorem 3.1 broadens the landscape of mixed Poisson distributions. To give an idea
+of how large the space could be, we circumscribe it by providing necessary conditions.
+Furthermore, in many cases it may be more straightforward to check these conditions
+than those of Theorem 3.1(i), so as to speedily rule out candidate distributions that
+are invalid.
+
+Theorem 3.2 Let X be a random variable with distribution F . Define nonnegative random
+variables A = [−X | X < 0]Vand B = [X | X ≥ 0]. The following conditions are necessary for
+the mixed distribution P oi F to exist.
+  1. Either Pr(X < 0) = 0 or Pr(X > 0) > 0.
+  2. If Pr(X < 0) > 0 then A must be subexponential with E[eA ] < ∞.
+  3. If Pr(X < 0) > 0 and B is q-subweibull, then A must also be q-subweibull.
+
+
+
+Proof (1): Suppose Pr(X < 0) > 0 and Pr(X > 0) = 0. Then for n odd,
+                               −1 h n A i
+                Pr(Y = n) =       E A e Pr(X < 0) + (0) Pr(X = 0) < 0
+                               n!
+since A > 0, which violates Definition 4(i).
+    (2): Suppose A is not subexponential. Since A is bounded on the left by zero, we have
+for all t ≤ 0,               Z   ∞            Z           ∞
+                    E[etA ] =        etx dF − (x) ≤           (1)dF − (x) = 1 < ∞
+                                 0                    0
+                                tA
+Therefore it must be that E[e   ] = ∞ for all t > 0.
+                                        1 h 0 Ai
+                           Pr(Y = 0) ≥     E A e Pr(X < 0)
+                                        0!h      i
+                                        ≥ E e(1)A Pr(X < 0) = ∞
+which violates Definition 4(ii). Therefore A must be subexponential. By a similar argument
+if A is subexponential but E[e(1)A ] = ∞ then Pr(Y = 0) = ∞ which again violates Definition
+4(ii).
+    (3): We will show that if Pr(X < 0) > 0 and B is q-subweibull but A is not, then there
+exists an odd integer n for which Pr(Y = n) cannot have a nonnegative value. We have
+already established in (2) that A must be subexponential, so choose q > 1. The condition
+that Pr(Y = n) ≥ 0 is equivalent to, for odd n:
+                                                    h       i
+                                     Pr(X < 0)    E B n e−B
+                                0<             ≤          
+                                     Pr(X ≥ 0)     E An eA
+Let F − and F + denote the distributions of A and B, respectively. Since B is nonnegative, the
+exponentially tilted distribution Fθ+ exists for all θ ≤ 0. Therefore we can define V ∼ F(−1)
+                                                                                          +
+
+so that
+                                                Z
+                            h
+                               n −B
+                                    i                 exp(−x) +
+                          E B e       = LB (1) xn             dF (x)
+                                                       LB (1)
+                                             Z
+                                      = KB z n dF(−1) +
+                                                          (z)
+
+
+
+                                                 6
+                                     = KB E[V n ]
+where we have defined the constant KB = LB (1) = E[exp(−B)] < ∞ for notational conve-
+nience. By Proposition 2.1, V is also q-subweibull which implies there is some K1 > 0 such
+that for all n ≥ 1,
+                                      E[V n ]1/n ≤ K1 n1/q
+                           h       i
+                          E B n e−B = KB E[V n ] ≤ KB K1n nn/q
+    Since by assumption A is subexponential with KA = MA (1) = E[exp(A)] < ∞, we may
+                                                                               −
+define U as a random variable following the exponentially tilted distribution F(1) so that
+                                             Z
+                          h        i              exp(x)
+                         E An eA = MA (1) xn              dF − (x)
+                                                  MA (1)
+                                          Z
+                                                 −
+                                     = KA z n dF(1) (z)
+
+                                    = KA E[U n ]
+By Proposition 2.1, U is not q-subweibull which implies for all K > 0 there exists some n ≥ 1
+such that E[U n ]1/n > Kn1/q . Equivalently,
+                                           E[U n ]1/n
+                                   lim sup            =∞
+                                    n→∞       n1/q
+This establishes that there must exist an infinite subsequence nk satisfying limk→∞ nk = ∞
+such that
+                                            m(nk )
+                                       lim          =∞
+                                      k→∞ n1/q
+                                               k
+where m(n) = E[U n ]1/n is a nondecreasing function of n (it is just the Lp norm sequence).
+Let h(n) = m(n)/n1/q . Then
+                                                                      1/q
+                                 m(nk + 1)       m(nk )        h(nk )nk
+                  h(nk + 1) =            1/q
+                                             ≥          1/q
+                                                            =
+                                (nk + 1)       (nk + 1)       (nk + 1)1/q
+Since limk→∞ hnk = ∞ and
+                                              1/q
+                                             nk
+                                    lim              =1
+                                   k→∞ (nk + 1)1/q
+This implies limk→∞ h(nk + 1) = ∞. Now, there are two possibilities. If {h(nk )} contains an
+infinite number of odd terms, this directly provides a subsequence of odd terms converging
+to infinity as well. If instead {h(nk )} contains only a finite number of odd terms, then it
+contains an infinite number of even terms. Therefore we can find an infinite number of odd
+terms in the subsequence lk = nk + 1 such that limk→∞ h(lk ) = ∞. Together this implies
+                                           E[U n ]1/n
+                                   lim sup            =∞
+                                n odd; n→∞   n1/q
+Furthermore, since f (x) = Kx is a continuous, increasing function for any K > 0,
+                                          E[U n ]1/n
+                                   lim sup     1/q
+                                                     =∞
+                                n odd; n→∞ Kn
+Finally, since there must be an infinite number of terms greater than one, and f (x) = ax is
+continuous and increasing,
+                                                       !n
+                                            E[U n ]1/n
+                                 lim sup                  =∞
+                              n odd; n→∞     Kn1/q
+
+
+                                             7
+Combining the results for the B and A terms produces the desired contradiction.
+                                h     i
+                              E An eA                  E[U n ]KA
+                   lim sup              ≥ lim sup                 =∞
+                                    −B
+                                                       n n/q K
+                                  n
+                n odd; n→∞ E B e          n odd; n→∞ K1 n       B
+                               h       i
+                             E B n e−B
+                   lim inf            =0
+                n odd; n→∞ E An eA
+
+This means that for any value of Pr(X < 0) > 0 we can produce an odd n such that Pr(Y = n)
+cannot have a nonnegative value. Since this violates Definition 4(i), we conclude that if B is
+q-subweibull, then A must also be q-subweibull.                                             □
+
+    Although we have established that the left tail of the candidate distribution must
+be subexponential, and no heavier than the right tail (in a subweibull sense), we have
+left open the possibility that the two tails could be of a similar order, for example if
+they both decay at an exponential but not strictly subexponential rate. This is further
+explored in a later section. First we detail necessary and sufficient conditions based
+on the BLT of the mixing measure.
+
+3.3 Conditions based on the bilateral Laplace-Stieltjes
+    transform
+The class of valid mixing distributions can be characterized by the following properties
+of the BLT:
+
+Proposition 3.1 Let XVbe a random variable with distribution function F . The mixed
+Poisson distribution P oi F exists iff X has a BLT LX (t) that is completely monotone for
+t ∈ [0, 1], i.e.:
+ (i) LX (t) is continuous for t ∈ [0, 1]
+                                                       (k)
+(ii) For all k ∈ N0 , finite derivatives satisfy (−1)k LX (t) ≥ 0 for t ∈ (0, 1).
+
+
+
+Proof First, assume LX (t) satisfies the stated properties. We will show that G(z) = LX (1−z)
+is a valid PGF. First, that LX (t) is a BLT implies LX (0) = 1 hence G(1) = 1. Continuity of
+LX (t) on t ∈ [0, 1] implies continuity of G(z) on z ∈ [0, 1]. Complete monotonicity of LX (t)
+on t ∈ (0, 1) implies absolute monotonicity of G(z) on z ∈ (0, 1). The converse is equally
+straightforward: if G(z) is a valid PGF of a mixed Poisson distribution, then the mixing
+distribution must have a BLT with the stated properties.                                    □
+
+    Bernstein’s theorem[19, 20] holds that the class of completely monotone func-
+tions with nonnegative domain is equivalent to the class of one-sided Laplace-Stieltjes
+transforms (LST) of finite measures with nonnegative support. In other words, every
+nonnegative random variable has a LST that is completely monotone on [0, ∞). Propo-
+sition 3.1 shows that the class of valid mixing distributions is considerably broader,
+permitting real-valued mixing distributions.
+
+
+
+
+                                                8
+4 Examples of real-valued mixing distributions
+4.1 Two point mixture
+The two point distribution is a mixture of a positive atom (point mass) at b, a negative
+atom at −a, and probabilities Pr(X = −a) = p and Pr(X = b) = (1 − p) where
+a, b > 0. The Rademacher distribution is a special case. Let ϕ = p/(1 − p) be the odds
+of the negative atom.
+
+Proposition 4.1 The mixed Poisson- two point distribution with negative atom at −a,
+positive atom at b, and odds of negative atom ϕ exists if b ≥ a and (b/a) exp(−a − b) ≥ ϕ.
+The PMF is given by
+                                          bn exp(−b)    (−a)n exp(a)
+                        f (n) = (1 − p)              +p
+                                               n!            n!
+
+
+Proof We will show that the provided constraints are sufficient to satisfy the requirements
+of Theorem 3.1. Condition (ii) is trivially satisfied since E[exp(2A)] = exp(2a) < ∞. For
+condition (i), we must have for all odd n ∈ N,
+                             (1 − p)bn e−b − pan ea ≥ 0
+                                                          p
+                                        (b/a)n e−a−b ≥       =ϕ
+                                                         1−p
+Let h(n) = (b/a)n exp(−a − b). By assumption h(1) ≥ ϕ. Now assume h(n) ≥ ϕ. We have
+h(n + 1) = (b/a)h(n) ≥ h(n) ≥ ϕ since b ≥ a. Therefore by induction condition (i) is satisfied
+for all n ∈ N.                                                                               □
+
+   Proposition 4.1 shows that the mixing distribution of a mixed Poisson may include
+a negative atom arbitrarily far from zero (with suitably small probability mass). Alter-
+natively, the mass of the negative component can be arbitrarily close to one if the
+atom is close enough to zero. The PMF can exhibit stark multimodality (Figure 1).
+
+4.2 Asymmetric Laplace mixture
+The asymmetric Laplace distribution has A = [−X | X < 0] distributed as Exp(λ1 ),
+B = [X | X ≥ 0] distributed as Exp(λ2 ), and Pr(X < 0) = p. We refer to the rates
+λ1 and λ2 as the left and right tail parameters, respectively. Let ϕ = p/(1 − p) be the
+odds of the negative tail.
+
+Proposition 4.2 The mixed Poisson- asymmetric Laplace distribution with left and right
+tail parameters λ1 , λ2 and odds of negative tail ϕ exists if λ1 ≥ λ2 + 2 and
+                                                      2
+                                          λ    λ1 − 1
+                                     ϕ≤ 2
+                                          λ1 λ2 + 1
+The PMF is given by
+                                            λ2                   λ1
+                     f (n) = (1 − p)               + p(−1)n
+                                       (λ2 + 1)n+1          (λ1 − 1)n+1
+
+
+
+                                               9
+                          Two point distribution                                       Poisson− two point PMF
+
+                                                                         0.4
+
+          0.8
+                                                                         0.3
+          0.6
+ P(X=x)                                                         P(Y=n)
+                                                                         0.2
+          0.4
+                                                                         0.1
+          0.2
+
+          0.0                                                            0.0
+                −4   −3    −2   −1   0    1   2    3   4                       0   1    2   3   4   5   6   7   8   9   10
+
+                                     x                                                              n
+
+
+                     (a) Mixing distribution                                   (b) Mixed Poisson distribution
+Fig. 1: Mixed Poisson- two point probability mass function with positive atom b = 2,
+negative atom a = −2, and probability of negative atom .009.
+
+
+Proof We will show that the provided constraints are sufficient to satisfy the requirements of
+Theorem 3.1. Condition (ii) is satisfied since E[exp(2A)] < ∞ for λ1 > 2 and by assumption
+λ1 ≥ λ2 + 2 > 2. Note that
+                               Z ∞
+                 h     i                                           Γ(n + 1)
+               E An eA = λ1          xn exp(−(λ1 − 1)x)dx = λ1
+                                 0                               (λ1 − 1)n+1
+and                               Z ∞
+                  h        i                                      Γ(n + 1)
+               E B n e−B = λ2         xn exp(−(λ2 + 1)x)dx = λ2           n+1
+                                   0                            (λ 2 + 1)
+so condition (i) is equivalent to
+                                            Γ(n + 1)                 Γ(n + 1)
+                                     λ2               (1 − p) ≥ λ1             p
+                                          (λ2 + 1)n+1              (λ1 − 1)n+1
+                                                      n+1
+                                            λ2 λ1 − 1             p
+                                                              ≥        =ϕ
+                                            λ1 λ2 + 1           1−p
+By assumption this is true for n = 1. Assuming it is true for n we can see this implies the case
+of n + 1 whenever (λ1 − 1)/(λ2 + 1) ≥ 1, which is implied by the assumption of λ1 ≥ λ2 + 2.
+By induction this implies the inequality is satisfied for all n ∈ N.                          □
+
+    Proposition 4.2 shows that the mixing distribution of a mixed Poisson may include
+support on all negative numbers, with a left tail decaying at an exponential rate, so
+long as the right tail decays sufficiently slowly and the odds of the negative tail are
+small enough. Alternatively, the mass of the negative component can be arbitrarily
+close to one if the left tail decays sufficiently rapidly (λ1 is large). The PMF of this
+family can also be multimodal (Figure 2).
+
+
+
+
+                                                           10
+                Asymmetric Laplace density                             Poisson− asymmetric Laplace PMF
+
+        0.30
+                                                                0.30
+
+
+        0.20                                                    0.20
+ f(x)                                                  P(Y=n)
+        0.10                                                    0.10
+
+
+
+        0.00                                                    0.00
+               −2      0         2        4   6                        0   1   2   3   4   5   6   7   8   9   10
+
+                             x                                                             n
+
+
+                (a) Mixing distribution                                (b) Mixed Poisson distribution
+Fig. 2: Mixed Poisson- asymmetric Laplace probability mass function with left tail rate
+λ1 = 2.3, right tail rate λ2 = 0.3 and probability of negative tail p = .058.
+
+
+4.3 Poisson-extreme stable
+4.3.1 Stable distributions
+The central limit theorem shows that normalized sums of random variables with finite
+variance converge to the Gaussian distribution. In the case of infinite variance, the
+limiting distribution is instead a stable distribution [13, 21].
+
+Definition 7 [13] A random variable X ∼ Sα (σ, β, δ) is stable if and only if it has the
+following characteristic function:
+                           (
+                             exp itδ − σ α |t|α 1 − iβ sign(t) tan απ
+                                                                        
+                 h     i                                                    α ̸= 1
+               E eitX =                                               2
+                             exp itδ − σ|t| 1 + iβ π2 sign(t) log |t|
+                                                                     
+                                                                            α = 1.
+where the parameters are δ ∈ R for location, β ∈ [−1, 1] for skewness, and α ∈ (0, 2] as the
+index parameter. The scale parameter is constrained to σ ≥ 0 for α = 1 and σ > 0 otherwise.
+X is strictly stable if and only if either α ̸= 1 and δ = 0 or α = 1 and σβ = 0.
+
+
+   The constraint on σ ensures that degenerate distributions with σ = 0 are considered
+to have α = 1. The case of α = 2 is the Gaussian family. Smaller values of α lead to
+heavier tails. A nondegenerate stable random variable with α < 2 has infinite variance,
+and with α ≤ 1 has an infinite mean.
+   The BLT is not finite for most non-Gaussian stable distributions because they
+have heavy tails on both sides. However, in the special case of extreme stable distri-
+butions having β = 1 (maximally skewed to the right), the left tail becomes strictly
+subexponential [13] and the BLT is given [21, 22] by
+                                       (
+                                        exp −tδ − sec πα
+                                                             α α
+                                                          2   σ t α ̸= 1
+               LX (t) = E[exp(−tX )] =                                                                              (3)
+                                        exp −tδ + σ π2 t log t     α = 1.
+
+
+                                                  11
+which is finite whenever t ≥ 0. Note that sec πα
+                                               2 is positive if 0 < α < 1 and negative
+if 1 < α ≤ 2.
+
+4.3.2 Mixed Poisson-extreme stable
+All nondegenerate stable distributions are absolutely continuous [13]. It seems natural
+to consider whether stable distributions can be used to form Poisson mixtures for
+modeling discrete data. When α < 1 this is straightforward because the extreme
+stable family has support only on the positive reals (it is often called the positive
+stable family). However, for α ∈ [1, 2], the extreme stable family has support on the
+entire real line. Consider the function GY (z ) = LX (1 − z ). If this function satisfies the
+requirements of a PGF, then Y is a mixed Poisson distribution with a skewed stable
+mixing distribution.
+
+Theorem 4.1 Mixed Poisson-stable family Let X be a stable random variable with BLT as
+in Equation 3. If the location parameter δ satisfies the following constraint, then X can be
+used as the mixing parameter in a mixed Poisson distribution.
+                                   (              α
+                                     −α sec πα2 σ       α ̸= 1
+                                δ≥                                                       (4)
+                                     σ π2               α=1
+The PGF of the resulting mixed Poisson family is
+                         (                          α
+                           exp (z − 1)δ − sec πα     σ (1 − z)α
+                                                                 
+                                                 2                      α ̸= 1
+                G(z) =                                                                         (5)
+                           exp (z − 1)δ + σ π2 (1 − z) log(1 − z)
+                                                                  
+                                                                        α = 1.
+
+
+
+Proof We must show that G(z) has the properties of Lemma 2.0.1. It is obvious that G(1) = 1,
+G(z) is continuous for z ∈ [0, 1], and G(0) ≥ 0 for all α ∈ (0, 2]. It remains to show that the
+derivatives G(k) (z) are finite and nonnegative for all k ∈ N and z ∈ (0, 1). The first derivative
+is
+                                       G′ (z) = G(z)r(z)
+where
+                               (              α
+                                δ + α sec πα
+                                           2   σ (1 − z)α−1        α ̸= 1
+                        r(z) =        2
+                                δ + σ π (−1 − log(1 − z))          α = 1.
+The constraints of Equation 4 imply r(0) ≥ 0, which implies G′ (0) ≥ 0. Since r(z) is an
+increasing function for z ∈ [0, 1), this implies r(z) ≥ r(0) ≥ 0 for all z ∈ (0, 1) as required.
+We will now show that all derivatives of r(z) are nonnegative for z ∈ (0, 1), separately for
+α ̸= 1 and α = 1.
+    Case of α ̸= 1. The remaining derivatives of r(z) are
+                                           πα 
+                  r′ (z) = α(α − 1) sec          σ α (1 − z)α−2 (−1)
+                                             2         πα 
+               r(k) (z) = α(α − 1) . . . (α − k) sec         σ α (1 − z)α−k−1 (−1)k
+                                                         2
+                                                       πα 
+                         = α(1 − α) . . . (k − α) sec        σ α (1 − z)α−k−1
+                                                         2
+It is clear that r(k) (z) is finite for all z < 1. We will show that r(k) (0) ≥ 0 by induction. For
+α < 1, all terms are positive. For α > 1 the negative (1 − α) term cancels with the negative
+
+
+                                                12
+secant term. Therefore r′ (0) ≥ 0 for all α ̸= 1. Now assume r(k) (0) ≥ 0 for some k ≥ 1. We
+have r(k+1) (z) = r(k) (z)(k + 1 − α)(1 − z)−1 and r(k+1) (0) = r(k) (0)(k + 1 − α)(1). All terms
+are positive. Therefore r(k) (0) ≥ 0 for all k ∈ N. Finally, since r(k) (z) is increasing in z for
+z ∈ (0, 1), we have that r(k) (z) ≥ r(k) (0) ≥ 0 as well.
+    Case of α = 1. The remaining derivatives of r(z) are
+                                            2
+                                  r′ (z) = σ (1 − z)−1
+                                            π
+                                            2
+                                r(k) (z) = σ (1 − z)−k (k − 1)!
+                                            π
+These are all finite for z < 1 and r(k) (0) = σ π2 (k − 1)! ≥ 0 for all k ∈ N. Again, r(k) (z) ≥
+r(k) (0) ≥ 0 for all z ∈ (0, 1).
+    Returning to the original function G(z) we have (via the general Leibniz rule),
+                                             k
+                                                 !
+                                 (k+1)         k
+                                                    G(k−j) (z)r(j) (z)
+                                             X
+                              G        (z) =
+                                               j
+                                            j=0
+
+We have already shown that G(z) and G′ (z) are finite for z < 1. If G(k) (z) is finite on the
+same range, then so is G(k+1) (z) since it is a finite combination of the lower derivatives and
+the r(k) (z) derivatives, which are all finite. By induction this implies G(k) (z) is finite for
+all k ∈ N. As for nonnegativity, we have already shown G(z) ≥ 0 and G′ (z) is nonnegative
+for z ∈ (0, 1) as long as the condition in Equation 4 is satisfied. Assume G(k) (z) ≥ 0. Then
+G(k+1) (z) is also since it consists of a finite combination of products of nonnegative terms.
+This shows G(z) satisfies all the requirements of Lemma 2.0.1, therefore it is a valid PGF. □
+
+4.4 Numerical evaluation of Poisson-stable PMF
+The Poisson- extreme stable PMF can be obtained by repeated differentiation of the
+PGF. Fortunately, the derivatives have a relatively simple form. We will use a slightly
+different parameterization for convenience:
+                                   (
+                                                  απ
+                                                       
+                                    − sec          2       σα   α ̸= 1
+                                γ=
+                                    σ π2                        α=1
+
+The constraints of Theorem 4.1 simplify to γ ≥ 0 for α ≥ 1, γ < 0 for α < 1, and
+δ ≥ αγ . Define the “R-function” as
+                                            (
+                           d                  δ − αγ (1 − z )α−1      α ̸= 1
+                  r (z ) =    log G(z ) =                                                     (6)
+                           dz                 δ − γ (1 + log(1 − z )) α = 1.
+
+Clearly r(0) = δ − αγ for all α ∈ (0, 2]. For α ∈ (0, 1] its derivatives (k ≥ 1) at zero
+can be expressed as
+
+                                        Γ(k−α+1)
+                                  
+                                  −αγ Γ(1−α)
+                                                                  α ∈ (0, 1)
+                        r(k) (0) = γ Γ(k )                         α=1                        (7)
+                                    α(α − 1)γ Γ(k+1−α)
+                                  
+                                                                   α ∈ (1, 2)
+                                  
+                                               Γ(2−α)
+
+
+
+                                                  13
+For α = 2 (Hermite distribution), r′ (0) = 2γ and r(k) (0) = 0 for all k ≥ 2. The PMF
+can be evaluated for α ∈ (0, 2] by the following recursion:
+
+                      Pr(Y = 0) = exp (−δ + 1α̸=1 γ )
+                                      n−1
+                                    1 X Pr(Y = j ) (n−1−j)
+                      Pr(Y = n) =                       r  (0)
+                                    n j=0 (n − 1 − j )!
+
+   We provide a numerically stable implementation in R as part of the companion
+code repository at https://github.com/willtownes/mixed-poisson. Since each term of
+the PMF requires evaluation of all preceding terms, the computational complexity is
+O(n2 ).
+
+5 Discussion
+We have shown that the mixing distribution of a mixed Poisson family need not be
+restricted to have nonnegative support. Informally, the mixing distribution merely
+needs to have a light left tail and a small amount of probability mass on negative
+values.
+    In the context of hierarchical models, the mixing distribution may be interpreted
+as a Bayesian prior. It is well known that one may use “improper” distributions as
+priors so long as the resulting posterior is proper. However, to our knowledge it has
+not been proposed to use proper distributions whose support is not matched to that
+of the parameter of interest. For example, consider the mixed binomial distribution.
+If the total count N is fixed, the constraints on the mixing distribution for the success
+probability p apply only to the first N moments. One could therefore specify a mixed
+Binomial- Gaussian distribution for N = 2. It would be interesting to explore how this
+perspective relates to other efforts to relax the assumption of a hierarchical model as
+a complete specification of the data generating process, such as robust Bayes [23] and
+Bayesian estimating equations [24].
+    In the field of stochastic processes, an overdispersed Poisson process can be pro-
+duced by rescaling the time index using a subordinator. For example, the negative
+binomial process may be produced by subjecting a Poisson process to a gamma pro-
+cess subordinator [25]. The subordinator is classically restricted to be a nonnegative
+process [26]. Since the subordinator resembles a process analog of the mixing distri-
+bution, this raises the question of whether general, real-valued subordinators could be
+considered as well.
+    While the distributional families explored here are intriguing, they are not yet
+ready to be used for practical statistical applications. In future work we plan to develop
+numerical algorithms for evaluating mixed Poisson likelihoods, sampling, estimation,
+and inference. In the meantime we hope our results will inspire further research into
+flexible approaches to the specification of mixed distributions and analogous stochastic
+processes.
+Acknowledgements. The authors would like to thank Gennady Gorin, Arun
+Kumar Kuchibhotla, Siyuan Ma, Zack McCaw, Gonzalo Mena, Kimberly Sellers,
+
+
+                                            14
+Justin Silverman, Weijing Tang, Valerie Ventura, Larry Wasserman, Nathan Welch,
+Matt Werenski, and Mike Wu for helpful comments and suggestions.
+
+Declarations
+  • Funding- Not applicable
+  • Conflict of interest/Competing interests- Not applicable
+  • Ethics approval and consent to participate- Not applicable
+  • Consent for publication- Not applicable
+  • Data availability- Not applicable
+  • Materials availability- Not applicable
+  • Code availability- https://github.com/willtownes/mixed-poisson
+  • Author contribution- everything by single author
+
+References
+ [1] Johnson, N.L., Kemp, A.W., Kotz, S.: Univariate Discrete Distributions. John
+     Wiley & Sons, Hoboken (2005)
+
+ [2] Grandell, J.: Mixed Poisson Processes. Chapman and Hall/CRC, New York
+     (2020). https://doi.org/10.1201/9781003059950
+
+ [3] Wuensche, O.: Using Mixed Poisson Distributions in Sequential Trade Models,
+     Rochester, NY (2007). https://doi.org/10.2139/ssrn.1010989 . https://papers.
+     ssrn.com/abstract=1010989 Accessed 2024-07-20
+
+ [4] Faria, S., Gonçalves, F.: Financial data modeling by Poisson mixture regression.
+     Journal of Applied Statistics 40(10), 2150–2162 (2013) https://doi.org/10.1080/
+     02664763.2013.807332 . Accessed 2024-07-20
+
+ [5] Heaukulani, C., Pandey, A., James, L.F.: Modelling Financial Volume Curves with
+     Hierarchical Poisson Processes. arXiv (2024). https://doi.org/10.48550/arXiv.
+     2406.19402 . http://arxiv.org/abs/2406.19402 Accessed 2024-07-20
+
+ [6] El-Shaarawi, A.H., Zhu, R., Joe, H.: Modelling species abundance using the
+     Poisson–Tweedie family. Environmetrics 22(2), 152–164 (2011) https://doi.org/
+     10.1002/env.1036 . Accessed 2016-10-31
+
+ [7] Love, M.I., Huber, W., Anders, S.: Moderated estimation of fold change and
+     dispersion for RNA-seq data with DESeq2. Genome Biology 15(12), 550 (2014)
+     https://doi.org/10.1186/s13059-014-0550-8 . Accessed 2015-08-02
+
+ [8] Townes, F.W., Irizarry, R.A.: Quantile normalization of single-cell RNA-seq read
+     counts without unique molecular identifiers. Genome Biology 21(1), 160 (2020)
+     https://doi.org/10.1186/s13059-020-02078-0 . Accessed 2020-07-03
+
+ [9] Kitaura, F.-S., Jasche, J., Metcalf, R.B.: Recovering the non-linear density field
+
+
+                                          15
+    from the galaxy distribution with a Poisson–lognormal filter. Monthly Notices of
+    the Royal Astronomical Society 403(2), 589–604 (2010) https://doi.org/10.1111/
+    j.1365-2966.2009.16163.x . Accessed 2024-07-24
+
+[10] Tarnowsky, T.J., Westfall, G.D.: First study of the negative binomial distribution
+     applied to higher moments of net-charge and net-proton multiplicity distributions.
+     Physics Letters B 724(1), 51–55 (2013) https://doi.org/10.1016/j.physletb.2013.
+     05.064 . Accessed 2024-07-23
+
+[11] Taroni, M., Spassiani, I., Laskin, N., Barani, S.: How many strong earthquakes
+     will there be tomorrow? Frontiers in Applied Mathematics and Statistics 9 (2023)
+     https://doi.org/10.3389/fams.2023.1152476 . Accessed 2024-07-23
+
+[12] Kemp, A.W., Kemp, C.D.: An alternative derivation of the Hermite distribution.
+     Biometrika 53(3-4), 627–628 (1966) https://doi.org/10.1093/biomet/53.3-4.627 .
+     Accessed 2018-08-04
+
+[13] Nolan, J.P.: Stable Distributions - Models for Heavy Tailed Data. Birkhauser,
+     Boston (2018)
+
+[14] Townes, F.W.: Exponential Tilting of Subweibull Distributions. arXiv (2024).
+     http://arxiv.org/abs/2407.11386 Accessed 2024-07-17
+
+[15] Kuchibhotla, A.K., Chakrabortty, A.: Moving beyond sub-Gaussianity in high-
+     dimensional statistics: Applications in covariance estimation and linear regression.
+     Information and Inference: A Journal of the IMA 11(4), 1389–1456 (2022) https:
+     //doi.org/10.1093/imaiai/iaac012 . Accessed 2024-03-25
+
+[16] Vladimirova, M., Girard, S., Nguyen, H., Arbel, J.: Sub-Weibull distributions:
+     Generalizing sub-Gaussian and sub-Exponential properties to heavier tailed dis-
+     tributions. Stat 9(1), 318 (2020) https://doi.org/10.1002/sta4.318 . Accessed
+     2024-06-26
+
+[17] Feller, W.: An Introduction to Probability Theory and Its Applications vol. 2.
+     John Wiley & Sons, New York (1971)
+
+[18] Gurland, J.: Some Interrelations among Compound and Generalized Distri-
+     butions. Biometrika 44(1/2), 265–268 (1957) https://doi.org/10.2307/2333264
+     2333264. Accessed 2024-05-28
+
+[19] Bernstein, S.: Sur les fonctions absolument monotones. Acta Mathematica
+     52(none), 1–66 (1929) https://doi.org/10.1007/BF02592679 . Accessed 2025-07-
+     10
+
+[20] Widder, D.V.: The Laplace Transform. Dover Publications, Princeton (2010)
+
+
+
+
+                                           16
+[21] Samorodnitsky, G., Taqqu, M.: Stable Non-Gaussian Random Processes: Stochas-
+     tic Models with Infinite Variance. Routledge, Boca Raton (1994)
+
+[22] Gupta, V.K., Waymire, E.: Multiscaling properties of spatial rainfall and river
+     flow distributions. Journal of Geophysical Research: Atmospheres 95(D3), 1999–
+     2009 (1990) https://doi.org/10.1029/JD095iD03p01999 . Accessed 2024-02-02
+
+[23] Miller, J.W., Dunson, D.B.: Robust Bayesian Inference via Coarsening. Journal
+     of the American Statistical Association 114(527), 1113–1125 (2019) https://doi.
+     org/10.1080/01621459.2018.1469995 . Accessed 2021-09-24
+
+[24] Bissiri, P.G., Holmes, C.C., Walker, S.G.: A general framework for updating
+     belief distributions. Journal of the Royal Statistical Society: Series B (Statisti-
+     cal Methodology) 78(5), 1103–1130 (2016) https://doi.org/10.1111/rssb.12158 .
+     Accessed 2020-02-10
+
+[25] Kozubowski, T.J., Podgórski, K.: Distributional properties of the negative
+     binomial Lévy process. Probability and Mathematical Statistics 29, 43–71 (2009)
+
+[26] Kallenberg, O.: Foundations of Modern Probability, 3rd edn. Springer, Switzer-
+     land (2021). https://doi.org/10.1007/978-3-030-61871-1
+
+
+
+
+                                          17
+

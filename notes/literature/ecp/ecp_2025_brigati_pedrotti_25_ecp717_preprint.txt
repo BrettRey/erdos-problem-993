@@ -1,0 +1,927 @@
+                                                   Heat flow, log-concavity, and Lipschitz transport maps
+                                                                          Giovanni Brigati∗ and Francesco Pedrotti†
+                                                                             Institute of Science and Technology Austria
+
+
+                                                                                              May 8, 2024
+
+
+
+
+arXiv:2404.15205v2 [math.AP] 6 May 2024
+                                                                                                Abstract
+                                                        In this paper we derive estimates for the Hessian of the logarithm (log-Hessian) for
+                                                    solutions to the heat equation. For initial data in the form of log-Lipschitz perturbation
+                                                    of strongly log-concave measures, the log-Hessian admits an explicit, uniform (in space)
+                                                    lower bound. This yields a new estimate for the Lipschitz constant of a transport map
+                                                    pushing forward the standard Gaussian to a measure in this class. Further connections
+                                                    are discussed with score-based diffusion models and improved Gaussian logarithmic
+                                                    Sobolev inequalities. Finally, we show that assuming only fast decay of the tails of the
+                                                    initial datum does not suffice to guarantee uniform log-Hessian upper bounds.
+
+                                          MSC2020: 26D10 (primary), 39B62, 35K05, 49Q22, 39P15 (secondary).
+                                          Keywords: Heat semigroup, log-Hessian estimates, Lipschitz transport maps, log-concavity,
+                                          logarithmic Sobolev inequality, score-based diffusion models.
+
+
+                                          1        Introduction
+                                          Let d ⩾ 1. We say that a function V : Rd → R ∪ {+∞} is α-convex, and that a probability
+                                          density µ ∈ L1+ (Rd ) is α-log-concave, if, respectively, x → V (x) − α2 |x|2 is convex, and
+                                          µ(x) = e−V (x) for some α-convex function such that Rd e−V (x) dx = 1. In case α = 0, µ is
+                                                                                                  R
+
+                                          a log-concave probability density; if α > 0, µ is strongly log-concave. We also consider the
+                                          heat flow over Rd :                (
+                                                                               ∂t f = 12 ∆f,
+                                                                                                                                    (1)
+                                                                               limt→0 f (t, ·) = µ.
+                                          Taking µ = δ0 , the Dirac delta centered in zero, then the fundamental solution to (1) is
+                                                                                                                      2
+                                                                                 f (t, x) = γt (x) := (2πt)−d/2 e−|x| /2t ,
+
+                                          where γt is the isotropic Gaussian density with zero mean and covariance matrix equal to
+                                          tId . Any otherRsolution to (1) is then given by µ ∗ γt , where ∗ is the symbol of convolution:
+                                          (g1 ∗ g2 )(x) = Rd g1 (x − y) g2 (y) dy. Denote by (Pt )t the corresponding heat semigroup, i.e.
+
+                                                                                         Pt µ := µ ∗ γt ,   t > 0,                               (2)
+
+                                          which is induced by the flow of (1). As solutions to (1) are Gaussian convolutions of the
+                                          initial datum µ, it is expected that those would inherit some features from the Gaussian.
+                                              ∗
+                                                  giovanni.brigati@ist.ac.at
+                                              †
+                                                  francesco.pedrotti@ist.ac.at
+
+
+                                                                                                     1
+There is a vast literature on the subject, which can be roughly classified into three types of
+results.
+(1). Properties holding as soon as t > 0. For example, for all t > 0, f (t, ·) is smooth [33].
+(2). Asymptotic behaviour, in the limit t → ∞, for which we refer to [2, 30, 60].
+(3). Properties which are satisfied by f (t, ·) for t ⩾ T, after a finite time T > 0.
+
+1.1   Log-concavity in finite time
+Observing that the fundamental solution to (1) is log-concave for all t > 0, we pose the
+following, in the spirit of (3).
+Question. Given a probability measure µ on Rd , does there exist a time T > 0, such that
+the solution f (t, x) to (1) is log-concave for t ⩾ T ?
+
+   In general, we cannot expect instantaneous creation of log-concavity, as suggested by
+the example µ = 21 (δ(1) + δ(−1)) ∈ P(R), see [9]. In addition, some hypotheses on the
+behaviour at infinity of µ shall be required, as suggested by [37]. On the other hand, our
+question has a positive answer in two known cases.
+   • If µ is already log-concave, the solution to (1) is log-concave at all times, see [56, 54,
+     49, 7]. Then, by the semigroup property, if a solution to (1) is log-concave at a time
+     T > 0, this property will be propagated to all t ⩾ T.
+
+   • If µ is supported in B(0, R), then f (t, ·) is log-concave for all t ⩾ R2 , as pointed out
+     first in [48]. More precisely, in [4] it is shown that for all t > 0
+
+                                                             R2
+                                                               
+                                     2               1
+                                −∇ log(µ ∗ γt ) <         1−       Id .                      (3)
+                                                      t       t
+
+    One aim of ours is to extend the class of measures for which creation of log-concavity
+in finite time holds, beyond the compactly supported case, motivated also by the series of
+papers [41, 43, 40, 42], concerning various concavity property of solutions for the heat flow.
+    An analogous question can be posed in the context of functional inequalities satisfied
+by the Gaussian distribution. Starting from the case of compactly supported measures,
+previously analysed in [63, 62, 4], Chen, Chewi, and Niles-Weed prove in [18] that if µ is
+subgaussian, i.e. for some ǫ, K > 0
+                                     Z
+                                              2
+                                         eǫ|x| µ(dx) ⩽ K,                                  (4)
+                                      Rd
+then the solution µt := f (t, ·) dx to (1) satisfies a log-Sobolev inequality, for t ⩾ T (ǫ, K).
+Moreover, the subgaussianity assumption is also necessary. Indeed, if µT satisfies a log-
+Sobolev inequality for some T > 0, then µT is also subgaussian [3, Prop. 5.4.1], which
+implies that µ is subgaussian in the first place. On the other hand, strongly log-concave
+measures do also satisfy a logarithmic Sobolev inequality, see [2]. Then, one might wonder
+if (4) would be sufficient for a measure to become log-concave along the heat flow. The
+following theorem implies that this is not the case.
+
+Theorem 1.1. For all non-decreasing function Ψ : R⩾0 → R⩾0 , there exists an explicit
+probability measure on R such that
+   • R eΨ(x) µ(dx) < ∞;
+     R
+
+                           n                  o
+                               d2
+   • for all t > 0, inf x∈R − dx 2 log µ ∗ γt   = −∞.
+
+                                               2
+Remark 1.2. Similar conclusions hold in arbitrary dimension, as it can be seen by consid-
+ering the product probability measure µ × δ0 × . . . × δ0 , with µ given by Theorem 1.1.
+   Our result shows that the creation of log-concavity cannot be guaranteed by assuming
+only some control on the tails of the distributions µ. Therefore, we restrict our analysis to a
+perturbation regime, i.e. we take measures µ which are close to being strongly log-concave,
+and we show that they become log-concave after a finite time along (1). More precisely, we
+prove the following
+Theorem 1.3. Suppose that µ = e−(V +H) ∈ L1+ (Rd ), where V : Rd → R ∪ {+∞} is α-
+convex and H : Rd → R is L-Lipschitz for some α ∈ R, L ⩾ 0. Then for every t > 0 such
+that αt + 1 > 0 we have
+                               s         !2 
+                1
+                    1−
+                       1  L
+                              +
+                                      1      Id 4 −∇2 log(µ ∗ γt ) 4 1 Id .       (5)
+                t           1
+                       t α+ t           1                             t
+                                   α+ t
+
+                                            q 2
+                                       L      1
+In particular, for α > 0 and t ⩾       α +    α     , we have that µ ∗ γt is strongly log-concave.
+
+    Equation (5) goes beyond the problem of log-concavity, yielding interesting consequences,
+as explained in the next subsections.
+
+1.2   Application to Lipschitz transport maps
+In a seminal paper [13], Caffarelli showed that the Brenier map [8] from optimal transport
+                                                                                         √
+between the standard Gaussian γ and an α-log-concave probability measure µ is (1/ α)-
+Lipschitz. This result is useful because Lipschitz transport maps transfer functional in-
+equalities (including isoperimetric, log-Sobolev and Poincaré inequalities) from a probabil-
+ity measure to another one, and it is typically much easier to prove these inequalities for
+the Gaussian measure in the first place. For example, suppose that a probability measure
+µ satisfies the log-Sobolev inequality LSI(C) for some C > 0, i.e. for all regular enough
+probability measures ρ ≪ µ
+
+                             dρ     dρ                          2
+                          Z                      Z    p
+                                log    dµ ⩽ 2C      ∇ dρ/dµ dµ,                       (LSI(C))
+                             dµ     dµ
+where the two sides of the inequalities go under the name of relative entropy and relative
+Fisher information, respectively. Suppose, furthermore, that T : Rd → Rd is L-Lipschitz
+and consider the pushforward probability measure ν := T #µ. Then, ν satisfies LSI(L2 · C).
+Therefore, Caffarelli’s result (together with the Gaussian LSI [36]) immediately implies
+that strongly α-log-concave probability densities satisfy LSI(1/α), recovering the celebrated
+result by Bakry and Émery [2]. Further details and many more applications of Lipschitz
+transport maps are discussed in [50, 26] and the references therein.
+    More recently, Kim and Milman [45] generalized Caffarelli’s result by constructing an-
+other transport map, which is obtained by reverting an appropriate heat flow, and is referred
+to as the heat-flow map (notation: T flow ). Other Lipschitz estimates for this transport map
+were then provided in [50], where the authors considered different types of assumptions on
+the target measure ν (namely, measures that satisfy a combination of boundedness and
+(semi-)log-concavity and some Gaussian convolutions).
+    Several works dealt with the study of Lipschitz transport maps [46, 23, 27, 51, 58, 24, 15,
+22]; the recent paper [35] in particular considers an analogous class of target measure as in
+the present contribution. For comparison, we recall below its main result in the Euclidean
+setting.
+
+                                                    3
+Theorem ([35], Theorem 1). Let µ = e−(V +H) , ν = e−V be probability densities on Rd such
+that for all x ∈ Rd we have
+
+      |∇H| ⩽ L,      ∇2 V (x) ⩾ αId ,      ∇3 V (x)(w, w) ⩽ K         for all w ∈ Sd−1 ,
+
+for some α > 0, L, K ⩾ 0. Then,
+                            √
+                                 thereexists a transport map T : Rd → Rd such that
+                      5L2  5 √πL   LK
+T #ν = µ and T is exp α + α + 2α     2 -Lipschitz.
+
+
+Since Lipschitz transport maps can be composed, this result (combined with Caffarelli’s
+theorem [13]) implies in particular the existence of transport map T̃ such that T̃ #γ = µ
+and T̃ is Lipschitz with constant
+                                      2       √           
+                               1       5L     5 πL LK
+                              √ exp         + √      + 2 .                             (6)
+                                α       α        α      2α
+
+   On the other hand, we will prove in Section 3 that our Theorem 1.3 implies new upper
+bounds on the Lipschitz norm for the heat-flow map from γ to µ.
+
+Theorem 1.4. Let µ = e−(V +H) ∈ L1+ (Rd ) be a probability density on Rd such that V is α-
+convex for α > 0 and H is L-Lipschitz for L ⩾ 0. Then,                       flow : Rd → Rd
+                                                2
+                                                        there exists a map T
+such that T flow #γ = µ and T flow is √1α exp L     √L
+                                              2α + 2 α -Lipschitz.
+
+Remark 1.5. Consider the case where d = 1, V (x) = 21 x2 and H(x) = L|x| + log(Z) for a
+normalizing constant Z, so that the assumptions of Theorem 1.4 are satisfied with α = 1.
+Then, it was observed in [35] that the Lipschitz norm of any map T such that T #γ = µ is
+         L2
+at least e 2 . Hence, the dependence on L2 in Theorem 1.4 is sharp.
+
+    The estimate for the Lipschitz constant of T flow in Theorem 1.4 improves in particular
+on the value in (6), yielding the best available bound in this setting. Moreover, Theorem
+1.4 does not need any assumption on ∇3 V .
+    On the technical side, in Theorem 1.4 we transport directly γ to µ via the heat-flow
+map, and our proof only exploits elementary log-Hessian estimates for the heat semigroup,
+as in Theorem 1.3. On the other hand, [35] employs a construction based on reverting the
+overdamped Langevin dynamics targeting the measure ν = e−V : this requires estimates for
+the corresponding semigroup (cf. [35, Proposition 2]), which is less explicit and needs more
+sophisticated arguments. We remark that the results of [35] are of independent interest,
+due to the construction of a Lipschitz map transporting ν to µ therein, and the extension
+to some non-Euclidean spaces.
+
+1.3   Score-based diffusions models and the Gaussian LSI
+To further motivate our results, we briefly describe here two more applications of Theorem
+1.1 and 1.3.
+
+Score-based diffusion models A similar construction as in Section 1.2, based on re-
+verting an ergodic diffusion process, has also recently found application in the machine
+learning community, within the framework of score-based diffusion models [59, 38]. Let µ
+be a probability measure, from which we want to generate random samples. Consider the
+Ornstein–Uhlenbeck process (initialized at µ)
+                                                        √
+                           X0 ∼ µ,      dXt = −Xt dt + 2dBt ,
+
+
+                                             4
+and denote by Qt the associate semigroup, i.e.
+                                 Z            p    
+                       Qt f (x) = f e−t x + 1 − e−2t γ(x) dx.                               (7)
+
+The key observation is that this process can be reverted, i.e. for T1 > 0 the reverse SDE
+                                                                          √
+                                                          
+                                                            dµ
+           Y0 ∼ law(XT1 ),      dYt = −Yt dt + 2∇ log Qt         (Yt )dt + 2dBt          (8)
+                                                            dγ
+is such that YT1 ∼ µ, see [1, 16, 59]. Therefore, one can simulate the process (Yt )t until
+time T1 to sample from µ. A common assumption in theoreticalworks       aimed at analysing
+                                                                     dµ
+this method is some control on the Lipschitz constant of ∇ log Qt dγ [20, 21, 19] or on the
+one-sided one [47, 53]. These assumptions are indeed useful to control the discretization
+errors when employing a numerical scheme to simulate the process or some sort of “con-
+tractivity” along the reverse dynamics. On the one hand, Theorem 1.3 enlarges the class
+of distributions µ for which these assumptions can be justified, by implying bounds on the
+Hessian ∇2 log Qt dµ dγ (cf. Corollary 3.2), beyond the setting where the initial distribution
+µ has bounded support.
+    On the other hand, Theorem 1.1 shows that, for some distributions µ, such assumptions
+can be too restrictive. Thus, complementary analysis is needed, as done in [25, 5, 19].
+
+Improvements in the Gaussian LSI The standard Gaussian measure γ satisfies LSI(1).
+                                                                dν
+Henceforth, let ν ≪ γ be a probability measure, and set u2 := dγ   ∈ L1 (γ): then
+
+                                  1
+                  Z                 Z
+                       |∇u|2 dγ −        u2 log u2 dγ ⩾ 0, if u ∈ H1 (dγ).        (γ-LSI)
+                   R d            2  R d
+
+
+The Gaussian logarithmic Sobolev inequality was written first in [36], although it can be
+deduced from [57]. The related literature is wide: see [12] for a recent review, and [55, 14]
+for accurate historical comments. The constant C = 1 is optimal, with extremal probability
+measures belonging to M := {νa,b := ea+hb,xi γ, a ∈ R, b ∈ Rd }, according to [14]. Then,
+one may investigate whether the constant in the Gaussian LSI can be improved on a subclass
+of measures ν, under orthogonality constraints. Contributions in this direction appear in
+[34, 12], and they are closely related to stability inequalities, for which the reader may refer
+to [29, 28, 10, 11, 39], and references quoted therein.
+    In [12, Theorem 1], an improved Gaussian LSI is shown: for all ǫ, K > 0, there    R exists a
+constant η(ǫ, K) > 0, such that for all probability measures ν = u2 γ satisfying Rd x ν = 0,
+and (4), we have
+                            1
+           Z                  Z                      Z
+                 |∇u|2 dγ −         u2 log u2 dγ ⩾ η      |∇u|2 dγ,     if u ∈ H1 (dγ).      (9)
+             R d            2   R d                   R d
+
+
+The core of the proof for (9) is showing that – after a finite time T > 0 – the solution
+f (t, ·) = ν ∗ γt to (1), starting at ν, satisfies a Poincaré inequality:
+          Z                       Z                     2       Z
+                    2
+               ϕ(x) f (t, x) dx −        ϕ(x) f (t, x) dx ⩽ CP        |∇ϕ(x)|2 f (t, x) dx,
+          Rd                      Rd                            Rd
+
+for all functions ϕ ∈ H1 (f (t, ·) dx), and some constant CP > 0. Condition (4) guarantees
+such a Poincaré inequality in finite time, see [18].
+                                                  p Then, [34, Theorem 1] applies, and an
+improved inequality like (9) holds for u(T, ·) = f (T, ·)/γ, after a finite time. The proof is
+completed by integrating backwards in time via [12, Lemma 2].
+
+                                               5
+    • We notice first that, if ν = e−(V +H) is a log-Lipschitz perturbation of a strongly
+      log-concave measure, then the ideas of [12, Theorem 1] apply, since (4) holds true.
+      Alternatively, one could estimate the Poincaré constant of f (t, ·) = ν ∗ γt , for any
+      t ⩾ 0, either via the Lipschitz transport map of Section 3, or by a perturbation
+      argument [17], and apply [34, Theorem 1]. Finally, one can optimise the resulting
+      constant in (9) over the parameter t ⩾ 0.
+
+    • The scheme of proof for [12, Theorem 1] can be adapted to measures ν = u2 dγ which
+      become α-log-concave in finite time along (1), for α > 0. In this case, the Poincaré
+      inequality is given by the Bakry-Émery method [2].
+
+    • The same can be done for measures ν which become just log-concave (α R= 0) in finite
+      time along (1), provided an a priori bound on the second-order moment Rd |x|2 ν, see
+      [6] and the discussion of [12, Section 2].
+
+1.4   Structure of the paper
+The proof of Theorem 1.3 is given in Section 2, followed by Subsection 2.1, where sufficient
+conditions in order to apply Theorem 1.3 are discussed. In Section 3, we detail our main
+application to the existence of Lipschitz transport maps, with the proof of Theorem 1.4.
+Finally, in Section 4, we prove the negative result for the creation of log-concavity in finite
+time, namely Theorem 1.1.
+
+Acknowledgement
+The authors thank Professors Jean Dolbeault, Jan Maas, and Nikita Simonov for many
+useful comments, and Professors Kazuhiro Ishige, Asuka Takatsu, and Yair Shenfeld for
+inspiring interactions.
+This research was funded in part by the Austrian Science Fund (FWF) project 10.55776/F65
+and by the European Union’s Horizon 2020 research and innovation programme under the
+Marie Sklodowska-Curie grant agreement No 101034413.
+
+
+2     Log-Lipschitz perturbations of log-concave measures: proof
+      of Theorem 1.3
+Let µ be a probability measure on Rd . For t > 0 and z ∈ Rd , define the probability measure
+µz,t by
+                                    z · x |x|2
+                                              
+                       µz,t ∝ exp        −       µ(x) ∝ γz,t (x)µ(x),                   (10)
+                                      t     2t
+where γz,t is the Gaussian density with mean z and covariance matrix tId . We will make
+frequent use of the following well-known probabilistic characterization of the Hessian of
+log(µ ∗ γt ), cf. [4, 46]:
+
+                                                         Covµz,t
+                                                                
+                             2                  1
+                           −∇ log(µ ∗ γt )(z) =     Id −           .                 (11)
+                                                t          t
+
+Consequently, bounds on ∇2 log(µ∗γt ) are given by bounds on covariance matrices. For this
+purpose, we provide the following lemma, which gives an upper bound for the covariance
+matrix of a probability measure µ in terms of the covariance of another probability measure
+ν and of the Wasserstein distance between the two.
+
+
+                                              6
+Lemma 2.1. Let µ, ν be probability measures on Rd . For any unit vector w ∈ Sd−1
+                                                 p            2
+                        hw, Cov µ wi ⩽ W2 (µ, ν) + hw, Cov ν wi .                                                         (12)
+
+Proof. Let (X, Y ) be an optimal coupling for W2 (µ, ν). Fix a unit vector w ∈ Rd and let
+Xw := hw, Xi and Yw := hw, Y i. We have that
+                  h               i
+ hw, Cov µ wi = E (Xw − E[Xw ])2
+                  h              i     h                          i
+              ⩽ E (Xw − E[Yw ])2 = E (Xw − Yw + Yw − E[Yw ])2
+                                                           i 2
+                   r h                                      !
+                                   i r h
+                                 2                       2
+              ⩽      E (Xw − Yw ) + E (Yw − E[Yw ])                (by Cauchy–Schwarz)
+
+                                                                  i 2
+                                  r h                              !                                            2
+                                                                                              q
+                                                              2
+               ⩽    W2 (µ, ν) +     E (Yw − E[Yw ])                     =       W2 (µ, ν) +       hw, Cov µ wi        .
+
+
+
+
+Proof of Theorem 1.3. The upper bound in (5) is well known, and holds for arbitrary prob-
+ability measures µ (cf., for example, [31, Lemma 1.3]); alternatively, it follows from (11)
+and the fact that covariance matrices are positive semidefinite. Let us then turn to the
+first inequality. Fix t > 0 and z ∈ Rd . Define the probability density νz,t ∈ L1+ (Rd ) by
+νz,t ∝ e−V γz,t . Notice that νz,t is (α + 1t )-log-concave: therefore, Covνz,t 4 α+1 1 Id by the
+                                                                                                          t
+Brascamp–Lieb inequality [7] (cf. also [32, Lemma 5]). Moreover we have µz,t ∝ e−H νz,t :
+it follows from [44, Corollary 2.4] that
+
+                                                                                  L
+                           W2 (µz,t , νz,t ) ⩽ W∞ (µz,t, νz,t ) ⩽                      .
+                                                                                α + 1t
+
+We are now in position to apply Lemma 2.1: for any unit vector v ∈ Rd we have
+                                                          q              2
+                     hv, Cov µz,t vi ⩽ W2 (µz,t, νz,t ) + hv, Cov νz,t vi
+                                                  s          !2
+                                           L             1
+                                     ⩽          +               .
+                                         α + 1t       α + 1t
+                                          q           2
+                                  L             1
+This shows that Covµz,t 4        α+ 1t
+                                       +       α+ 1t
+                                                            Id , and the conclusion follows from (11).
+
+Remark 2.2. In the proof of Theorem 1.3, we estimated from above W2 (µz,t , νz,t ) with
+the L∞ -Wasserstein distance W∞ (µz,t , νz,t ). Alternatively,
+                                                              we could have achieved the
+                                                                 t
+same conclusion as follows, using that νz,t satisfies LSI αt+1       . First, a transport-entropy
+inequality [52] allows to estimate W2 (µz,t , νz,t ) in terms of the relative entropy of µz,t with
+respect to νz,t ; then, the relative entropy is bounded from above by the relative Fisher
+information using the logarithmic Sobolev inequality of νz,t; finally, the relative Fisher
+information is easily estimated using that µz,t ∝ e−H νz,t and H is L-Lipschitz.
+
+
+
+
+                                                        7
+2.1   Sufficient conditions
+By Theorem 1.3, log-Lipschitz perturbations of strongly log-concave measures become log-
+concave in finite time along (1); by Theorem 1.4, they are the pushforward of the Gaussian
+measure via a Lipschtzt transport map. The purpose of this subsection is to give sufficient
+conditions for a measure µ to be a log-Lipschitz perturbation of a strongly log-concave
+measure.
+
+Example 2.3. Suppose that µ is a probability measure supported on the Euclidean ball
+B(0, R) for some radius R > 0. Then, proceeding as in [4], for any s > 0 we can write
+
+                                       µ ∗ γs = e−H γs
+
+where H : Rd → Rd is Rs -Lipschitz. By 1s -log-concavity of γs , Theorem 1.3 applied to µ ∗ γs
+and t > 0 yields that
+                               s            !2 
+          1      1    R/s            1         Id 4 −∇2 log(µ ∗ γt+s ) 4 1 Id .
+               1−             +
+           t      t 1/s + 1t       1/s + 1t                                t+s
+
+By letting s → 0, we recover the classical estimate
+
+                                 R2
+                                   
+                         1                                   1
+                             1−       Id 4 −∇2 log(µ ∗ γt ) 4 Id ,
+                         t        t                          t
+
+cf. [4, Sec. 2.1]. In this sense, we can say that the class of densities considered in Theorem
+1.3 contains both log-concave ones (taking L = 0) and the ones with bounded support.
+
+    Consider now a probability density µ = e−U ∈ L1+ (Rd ) for some U ∈ C 2 (Rd ). The
+following result asserts that, if we have a uniform positive lower bound for the Hessian of
+U outside some Euclidean ball, then we can rewrite µ as a log-Lipschitz perturbation of a
+strongly log-concave measure.
+
+Lemma 2.4. Let U ∈ C 2 (Rd ) be such that for some α, β, R ⩾ 0 it holds that
+                           (
+                             ∇2 U (x) < αId      if |x| ⩾ R,
+                               2
+                             ∇ U (x) < −βId if |x| < R.
+
+Then there exists V, H ∈ C 1 (Rd ) such that U = V + H, V is α-convex and H is 2(α + β)R-
+Lipschitz.
+
+Proof. Let H : Rd → R be defined by
+                           (
+                             (α + β)|x|2                       if |x| ⩽ R,
+                  −H(x) =
+                             2(α + β)R|x| − 2(α + β)R2         if |x| ⩾ R,
+
+and set V (x) = U (x) − H(x). Then we have that U = V + H, V ∈ C 1 (Rd ) is α-convex and
+|∇H| ⩽ 2(α + β)R, as desired.
+
+   The above lemma can be useful to study linear combinations of strongly log-concave
+densities, via the following
+
+
+
+
+                                              8
+Proposition 2.5. Consider a measure µ = N               −Ui for some N > 0, weights α > 0
+                                            P
+                                               i=1 αi e                              i
+and potentials Ui ∈ C (R ) such that e i ∈ L+ (R ). Assume ∇2 Ui < KId for all i and
+                     2  d             −U        1   d
+
+some K > 0. Then
+                                                   −Ui −Uj (∇U − ∇U )⊗2
+                                     P
+                     2                  i>j αi αj e             i         j
+                  −∇ log µ < KId −                        2
+                                                                                       (13)
+                                                        µ
+                                     X           (∇Ui − ∇Uj )⊗2
+                            < KId −                                      .           (14)
+                                                αi Uj −Ui     α
+                                     i>j 2 + αj e           + αji eUi −Uj
+
+Proof. Notice that
+                            −∇2 log µ = µ−2 (∇µ ⊗ ∇µ − µ∇2 µ).
+Set µi := αi e−Ui so that µ = N i=1 µi . By construction
+                             P
+
+           ∇µi = −∇Ui µi ,            ∇2 µi = (−∇2 Ui + ∇Ui ⊗ ∇Ui )µi ,              ∀i = 1, . . . , N.
+Then,
+                       P                 ⊗2       P             P                                    
+                          N                              N               N      2
+                            i=1 ∇Ui µi          −        i=1 µi          i=1 (−∇ Ui + ∇Ui ⊗ ∇Ui )µi
+        −∇2 log µ =
+                                                                   µ2
+                           PN    2
+                                                PN
+                       µ    i=1 ∇ Ui µi −           i,j=1 µi µj (∇Ui ⊗ ∇Uj − ∇Uj ⊗ ∇Uj )
+                   =
+                                                             µ2
+                                                           ⊗2
+                                 P
+                                     i>j µi µj (∇Ui − ∇Uj )
+                   < K Id −                                   ,
+                                                µ2
+which shows (13). The crude estimate
+                                 N
+                                 X
+                           2
+                           µ =           µl µm ⩾ 2µi µj + µ2i + µ2j           for i 6= j
+                                 l,m=1
+
+then gives (14).
+   From the above proposition, it is clear that when the right-hand-side of (13) is uniformly
+positive definite outside a Euclidean ball, then by Lemma 2.4 we can recast µ as a log-
+Lipschitz perturbation of a strongly log-concave measure. Therefore, the assumptions of
+Theorem 1.3 are satisfied, and µ ∗ γt becomes strongly log-concave in finite time along the
+heat flow (1). We illustrate this in the following example, where µ is a finite mixture of
+Gaussians in dimension 1.
+Example 2.6. Let µ be a linear combination of one-dimensional Gaussians, i.e. µ =
+P N       −Ui for some N ⩾ 2, weights α > 0 and potentials U of the form
+  i=1 αi e                             i                    i
+
+                                                          (x − mi )2
+                                            Ui (x) =
+                                                              σi2
+for some mi ∈ R, σi2 > 0. Without loss of generality we can assume that Ui 6= Uj for i 6= j.
+By Proposition 2.5, we have that
+                        d2           1        X          (Ui′ − Uj′ )2
+                   −       log µ <          −                               .
+                       dx2         maxi σi2
+                                                
+                                                                    α
+                                                 2 + αi eUj −Ui + j eUi −Uj
+                                                     i>j           αj           αi
+
+It is then not difficult to see that the argument of the sum in the right-hand-side converges
+to 0 as |x| → ∞. By the previous discussion, it follows that the assumptions of Theorem
+1.3 are satisfied for some L, α > 0: hence, a finite linear combination of Gaussian densities
+on R becomes strongly log-concave in finite time along the heat flow.
+
+                                                           9
+3    Lipschitz transport maps: proof of Theorem 1.4
+Construction of the heat-flow map. Let µ ∈ L1+ (Rd ) be a probability density on Rd .
+Assume, furthermore, that µ has finite second-order moment. We begin by sketching the
+construction of the heat-flow map, and refer the reader to [45, 50] for details. The idea is
+to interpolate between µ and γ along the Ornstein–Uhlenbeck flow
+                                                        √
+                            X0 ∼ µ,    dXt = −Xt dt + 2dBt .                            (15)
+Let us denote by Qt the associated transition semigroup (7) and by µt the law of Xt . Then,
+µt satisfies the Fokker–Planck equation
+                                                   
+                                                    dµ
+                             ∂µt − ∇ · µt ∇ log Qt        = 0.
+                                                    dγ
+Correspondingly, we can consider the flow maps (St )t⩾0 obtained by solving
+                                                             
+                                      d                      dµ
+                        S0 (x) = x,      St (x) = −∇ log Qt
+                                      dt                     dγ
+for all x ∈ Rd . Under some regularity assumptions (cf. [45, 50, 52, 61]), this defines a flow
+of diffeomorphisms such that St #µ = µt ; conversely, Tt := St−1 is such that Tt #µt = µ.
+The heat-flow map is then heuristically defined by T flow = limt→∞ Tt and is such that
+T flow #γ = µ. To make things rigorous, we recall/adapt the following result from [50].
+Lemma 3.1. Suppose that µ ∈ L1+ (Rd ) is a probability density with finite second-order
+moment. Suppose, furthermore, that for all t > 0 there exist θtmax , θtmin ∈ R such that
+                                               
+                                      2         dµ
+                          min
+                         θt Id 4 ∇ log Qt            4 θtmax Id                          (16)
+                                                dγ
+and for all s > 1
+                               sup max |θtmin |, |θtmax | < ∞.
+                                      
+                              1
+                              s
+                                <t<s
+                                        Rt
+Then, provided that L := lim supt→∞      1   θtmax dt < ∞, there exists a map T : Rd → Rd such
+                                         t
+that T #γ = µ and T is eL -Lipschitz.
+Proof. Notice first of all that µt is a smooth density for every t > 0. Fix s > 0: by the
+assumptions
+   R        inthe Lemma and by [50, Lemma 2 and 3] there exists a map Ts which is
+       s max
+exp 1 θt dt -Lipschitz and such that Ts #µs = µ 1 . Since µs → γ and µ 1 → µ in
+      s                                                s                       s
+W2 -distance (hence weakly) as s → ∞, the conclusion follows from [50, Lemma 1].
+                                                                                                  
+                                                                                              dµ
+New estimates.      In view of Lemma 3.1, the goal is to provide estimates on ∇2 log Qt       dγ    ,
+for some classes of probability measures µ on Rd . The Ornstein–Uhlenbeck semigroup Qt
+is related to the heat semigroup Pt in (2) by the identity Qt f (x) = P1−e−2t f (e−t x) for
+f ∈ L1 (γ). Combining this with Theorem 1.3 yields the following
+Corollary 3.2 (Corollary of Thm. 1.3). Let µ = e−V −H ∈ L1+ (Rd ) be a probability density
+on Rd such that V is α-convex and H is L-Lipschitz, for some α, ∈ R, L ⩾ 0. Then for
+every 0 < t such that αt + 1 > 0 we have
+                          
+      1          2        dµ
+ − 2t      Id 4∇ log Qt
+    e −1                  dγ
+                                                                                    !
+                      1−α               e2t L2                  2Le2t
+              4                 +                 +p                                  Id .
+                 α(e2t − 1) + 1 (α(e2t − 1) + 1)2    (e2t − 1) (α(e2t − 1) + 1)3/2
+                                                                                              (17)
+
+                                                10
+Proof of Theorem 1.4. We integrate the upper bound in (17). An elementary computation
+using the change of variable τ = e2t − 1 shows that
+
+        Z ∞                                                                         !
+                1−α                e2t L2                      2Le2t
+                           +                   +                                        dt
+            α(e2t − 1) + 1 (α(e2t − 1) + 1)2
+                                                  p
+        0                                           (e2t − 1) (α(e2t − 1) + 1)3/2
+       Z ∞                                              
+             1−α       2 τ +1                τ +1              1
+     =             +L            2
+                                   + 2L √            3/2
+                                                                    dτ
+        0   τα + 1      (τ α + 1)         τ (τ α + 1)      2(τ + 1)
+          1        L2       L
+     = − log(α) +      + 2√ .
+          2        2α        α
+
+The desired conclusion then follows from Lemma 3.1.
+
+
+4    The negative result: proof of Theorem 1.1
+Before proving the actual theorem, we give some heuristics behind the proof. The leading
+idea is the following. If one considers (1) with µ = δ0 , then the solution is immediately
+log-concave for t > 0. However, this behaviour is not stable.
+                                           α       β
+Proposition 4.1. Fix x0 ∈ R. Let µ = α+β     δ0 + α+β δx0 , for some α, β > 0. Then, µ ∗ γt
+                                    1 2
+is log-concave (if and) only if t ⩾ 4 x0 .
+
+Proof. We prove only the only if part, since the other implication follows directly from (3).
+It is not difficult to see that with x0 , t, α, β > 0 fixed, there exists z̄ ∈ R for which
+                                           z̄ 2        (z̄−x0 )2
+                                      αe− 2t = βe−         2t      .
+
+Then, using (11), we have that
+
+                               d2                              x20
+                                                                  
+                                                        1
+                                  (− log µ ∗ γt )(z̄) =     1−       ,
+                              dx2                       t      4t
+
+which is negative if t < x20 /4.
+
+    From equation (3) we see that a compactly-supported distribution becomes log-concave
+along (1) after a time T = O(R2 ). Proposition 4.1 gives a simple account of this time scale
+being correct. In addition, we see that the time needed for the measure µ of Proposition
+4.1 to become log-concave along (1) does not depend on the mass of the perturbation δx0 .
+Exploiting these observations allows us to create mixtures of Dirac deltas with arbitrarily
+thin tails, which never become log-concave along (1).
+
+Proof of Theorem 1.1. For i ⩾ 0, set xi = i(i+1)
+                                             2    ⩾ 0. Define the probability measure µ on
+R by
+                                     ∞
+                                    X       1
+                               µ∝                e−Ψ(xi ) δxi
+                                        (i + 1)2
+                                    i=0
+
+and let X ∼ µ. It is immediate to check that E eΨ(X) < ∞. Let us now fix t ⩾ 0. Recall
+                                                      
+
+from (11) that
+                            d2                          Varµz,t
+                                                               
+                                                1
+                         − 2 log µ ∗ γt (z) =       1−            ,
+                           dx                   t            t
+
+
+
+                                                  11
+where
+                                                       ∞
+                                    zx x2                        1             zx     x2
+                                                                       −Ψ(xi )+ t i − 2ti
+                                                       X
+                                       − 2t
+                    µz,t (x) ∝ e     t        µ(x) ∝                  e                   δxi .
+                                                             (i + 1)2
+                                                       i=0
+
+Therefore, it suffices to prove that, for every M > 0, there exists z such that Varµz,t ⩾ M 2 .
+                                      √
+To this end, fix M and choose j ⩾ 2M so that
+
+                                        |xj − xj−1 |2 = j 2 ⩾ 2M 2 .
+
+To conclude, it suffices to show that there exists z ∈ R such that
+                                                         1
+                                  µz,t ([0, xj−1 ]) =      = µz,t([xj , +∞]).                     (18)
+                                                         2
+Indeed, the above implies that Varµz,t ⩾ M 2 . Notice now that (18) is equivalent to finding
+a solution to the equation F (z) = 0, where
+                         j−1                                       ∞
+                                   1             zx     x2          1             zx     x2
+                                         −Ψ(xi )+ t i − 2ti               −Ψ(xi )+ t i − 2ti
+                         X                                    X
+               F (z) =                  e                   −            e                   .    (19)
+                               (i + 1)2                         (i + 1)2
+                         i=0                                      i=j
+                                                                   P∞       1
+It is straightforward to check that F (0) ⩾ 0, e.g. using that 1 >   i=1 (i+1)2 and that
+Ψ is non-decreasing. Moreover, F is continuous, since for any compact interval [a, b] ⊂
+R, the series in (19) converges uniformly in C([a, b]). To conclude, we show now that
+limz→∞ F (z) = −∞. To this end, notice that
+                                                                                 2
+                                     −Ψ(0)+
+                                               zxj−1        1               x    zx
+                                                                   −Ψ(xj )− 2tj + t j
+                      F (z) ⩽ je                 t     −          e
+                                                         (j + 1)2
+                                                                                x2
+                                                                                      
+                                    zxj−1                       1      −Ψ(xj )− 2tj zj
+                               =e     t      je−Ψ(0) −                e            e t   ,
+                                                             (j + 1)2
+
+which yields the desired conclusion since j > 0.
+
+
+References
+ [1]   Brian D. O. Anderson. “Reverse-time diffusion equation models”. English. In: Stochas-
+       tic Processes Appl. 12 (1982), pp. 313–326.
+ [2]    Dominique Bakry and Michel Émery. “Diffusions hypercontractives”. In: Séminaire de
+        probabilités, XIX, 1983/84. Vol. 1123. Lecture Notes in Math. Springer, Berlin, 1985,
+        pp. 177–206.
+ [3]   Dominique Bakry, Ivan Gentil, and Michel Ledoux. Analysis and geometry of Markov
+       diffusion operators. English. Vol. 348. Grundlehren Math. Wiss. Cham: Springer, 2014.
+ [4]    Jean-Baptiste Bardet, Nathaël Gozlan, Florent Malrieu, and Pierre-André Zitt. “Func-
+        tional inequalities for Gaussian convolutions of compactly supported measures: Ex-
+        plicit bounds and dimension dependence”. In: Bernoulli 24.1 (2018), pp. 333–353.
+ [5]   Joe Benton, Valentin De Bortoli, Arnaud Doucet, and George Deligiannidis. “Nearly
+       $d$-Linear Convergence Bounds for Diffusion Models via Stochastic Localization”. In:
+       The Twelfth International Conference on Learning Representations. 2024.
+ [6]    Sergey Bobkov. “Isoperimetric and analytic inequalities for log-concave probability
+        measures”. In: Ann. Probab. 27.4 (1999), pp. 1903–1921.
+
+                                                         12
+ [7]   Herm Jan Brascamp and Elliott H. Lieb. “On extensions of the Brunn-Minkowski
+       and Prekopa-Leindler theorems, including inequalities for log concave functions, and
+       with an application to the diffusion equation”. English. In: J. Funct. Anal. 22 (1976),
+       pp. 366–389.
+ [8]   Yann Brenier. “Polar factorization and monotone rearrangement of vector-valued func-
+       tions”. In: Comm. Pure Appl. Math. 44.4 (1991), pp. 375–417.
+ [9]   Giovanni Brigati. “Kinetic equations, functional inequalities, and distances in the
+       space of probability measures”. PhD thesis. Université Paris sciences et lettres; Uni-
+       versità degli studi di Pavia, 2023.
+[10]   Giovanni Brigati, Jean Dolbeault, and Nikita Simonov. “Logarithmic Sobolev and
+       interpolation inequalities on the sphere: constructive stability results”. In: Annales de
+       l’Institut Henri Poincaré C (2023).
+[11]   Giovanni Brigati, Jean Dolbeault, and Nikita Simonov. “On Gaussian interpolation
+       inequalities”. In: C. R. Math. Acad. Sci. Paris 362 (2024), pp. 21–44.
+[12]   Giovanni Brigati, Jean Dolbeault, and Nikita Simonov. “Stability for the logarithmic
+       Sobolev inequality”. In: preprint arXiv:2303.12926 (2023).
+[13]   Luis A. Caffarelli. “Monotonicity properties of optimal transportation and the FKG
+       and related inequalities”. In: Comm. Math. Phys. 214.3 (2000), pp. 547–563.
+[14]   Eric A. Carlen. “Superadditivity of Fisher’s information and logarithmic Sobolev in-
+       equalities”. In: J. Funct. Anal. 101.1 (1991), pp. 194–211.
+[15]   Guillaume Carlier, Alessio Figalli, and Filippo Santambrogio. “On optimal transport
+       maps between 1/d-concave densities”. In: preprint arXiv:2404.05456 (2024).
+[16]   Patrick Cattiaux, Giovanni Conforti, Ivan Gentil, and Christian Léonard. “Time Re-
+       versal of diffusion processes under a finite entropy condition”. English. In: Ann. Inst.
+       Henri Poincaré, Probab. Stat. 59.4 (2023), pp. 1844–1881.
+[17]   Patrick Cattiaux and Arnaud Guillin. “Functional inequalities for perturbed mea-
+       sures with applications to log-concave measures and to some Bayesian problems”. In:
+       Bernoulli 28.4 (2022), pp. 2294–2321.
+[18]   Hong-Bin Chen, Sinho Chewi, and Jonathan Niles-Weed. “Dimension-free log-Sobolev
+       inequalities for mixture distributions”. In: Journal of Functional Analysis 281.11 (2021),
+       p. 109236.
+[19]   Hongrui Chen, Holden Lee, and Jianfeng Lu. “Improved Analysis of Score-based Gen-
+       erative Modeling: User-Friendly Bounds under Minimal Smoothness Assumptions”. In:
+       International Conference on Machine Learning. 2022.
+[20]   Sitan Chen, Sinho Chewi, Holden Lee, Yuanzhi Li, Jianfeng Lu, and Adil Salim. “The
+       probability flow ODE is provably fast”. In: Thirty-seventh Conference on Neural In-
+       formation Processing Systems. 2023.
+[21]   Sitan Chen, Sinho Chewi, Jerry Li, Yuanzhi Li, Adil Salim, and Anru Zhang. “Sam-
+       pling is as easy as learning the score: theory for diffusion models with minimal data as-
+       sumptions”. In: International Conference on Learning Representations (ICLR). 2023.
+[22]   Sinho Chewi and Aram-Alexandre Pooladian. “An entropic generalization of Caf-
+       farelli’s contraction theorem via covariance inequalities”. In: C. R. Math. Acad. Sci.
+       Paris 361 (2023), pp. 1471–1482.
+[23]   Maria Colombo and Max Fathi. “Bounds on optimal transport maps onto log-concave
+       measures”. In: J. Differential Equations 271 (2021), pp. 1007–1022.
+
+                                               13
+[24]   Maria Colombo, Alessio Figalli, and Yash Jhaveri. “Lipschitz changes of variables
+       between perturbations of log-concave measures”. In: Ann. Sc. Norm. Super. Pisa Cl.
+       Sci. (5) 17.4 (2017), pp. 1491–1519.
+[25]   Giovanni Conforti, Alain Durmus, and Marta Gentiloni Silveri. “Score diffusion mod-
+       els without early stopping: finite Fisher information is all you need”. In: preprint
+       arXiv:2308.12240 (2023).
+[26]   Dario Cordero-Erausquin. “Some applications of mass transport to Gaussian-type
+       inequalities”. In: Arch. Ration. Mech. Anal. 161.3 (2002), pp. 257–269.
+[27]   Yin Dai, Yuan Gao, Jian Huang, Yuling Jiao, Lican Kang, and Jin Liu. “Lipschitz
+       Transport Maps via the Follmer Flow”. In: preprint arXiv:2309.03490 (2023).
+[28]   Jean Dolbeault, Maria J. Esteban, Alessio Figalli, Rupert L. Frank, and Michael Loss.
+       “A short review on Improvements and stability for some interpolation inequalities”.
+       In: preprint arXiv:2402.08527 (2024).
+[29]   Jean Dolbeault, Maria J. Esteban, Alessio Figalli, Rupert L. Frank, and Michael Loss.
+       “Sharp stability for Sobolev and log-Sobolev inequalities, with optimal dimensional
+       dependence”. In: preprint arXiv:2209.08651 (2022).
+[30]   Jean Dolbeault and Giuseppe Toscani. “Best matching Barenblatt profiles are delayed”.
+       In: J. Phys. A 48.6 (2015), pp. 065206, 14.
+[31]   Ronen Eldan and James R. Lee. “Regularization under diffusion and anticoncentration
+       of the information content”. English. In: Duke Math. J. 167.5 (2018), pp. 969–993.
+[32]   Ronen Eldan and Joseph Lehec. “Bounding the norm of a log-concave vector via thin-
+       shell estimates”. English. In: Geometric aspects of functional analysis. Proceedings of
+       the Israel seminar (GAFA) 2011–2013. Cham: Springer, 2014, pp. 107–122.
+[33]   Lawrence C. Evans. Partial differential equations. Vol. 19. American Mathematical
+       Society, 2022.
+[34]   Max Fathi, Emanuel Indrei, and Michel Ledoux. “Quantitative logarithmic Sobolev
+       inequalities and stability estimates”. In: Discrete Contin. Dyn. Syst. 36.12 (2016),
+       pp. 6835–6853.
+[35]   Max Fathi, Dan Mikulincer, and Yair Shenfeld. “Transportation onto log-Lipschitz
+       perturbations”. In: Calc. Var. Partial Differential Equations 63.3 (2024), Paper no.
+       61.
+[36]   Leonard Gross. “Logarithmic Sobolev inequalities”. In: Amer. J. Math. 97.4 (1975),
+       pp. 1061–1083.
+[37]   Luis Herraiz. “Asymptotic behaviour of solutions of some semilinear parabolic prob-
+       lems”. In: vol. 16. 1. 1999, pp. 49–105.
+[38]   Jonathan Ho, Ajay Jain, and Pieter Abbeel. “Denoising Diffusion Probabilistic Mod-
+       els”. In: Advances in Neural Information Processing Systems (NeurIPS). 2020.
+[39]   Emanuel Indrei and Daesung Kim. “Deficit estimates for the logarithmic Sobolev
+       inequality”. In: Differential Integral Equations 34.7-8 (2021), pp. 437–466.
+[40]   Kazuhiro Ishige. “Eventual concavity properties of the heat flow”. In: preprint arXiv:2310.14475
+       (2023).
+[41]   Kazuhiro Ishige, Paolo Salani, and Asuka Takatsu. “Characterization of F -concavity
+       preserved by the Dirichlet heat flow”. In: to appear in Trans. Amer. Math. Soc. (2022).
+
+
+
+                                              14
+[42]   Kazuhiro Ishige, Paolo Salani, and Asuka Takatsu. “Hierarchy of deformations in
+       concavity”. In: Inf. Geom. 7 (2024), S251–S269.
+[43]   Kazuhiro Ishige, Paolo Salani, and Asuka Takatsu. “New characterizations of log-
+       concavity via Dirichlet heat flow”. In: Ann. Mat. Pura Appl. (4) 201.4 (2022), pp. 1531–
+       1552.
+[44]   Ksenia A. Khudiakova, Jan Maas, and Francesco Pedrotti. “L∞ -optimal transport of
+       anisotropic log-concave measures and exponential convergence in Fisher’s infinitesimal
+       model”. In: preprint arXiv:2402.04151 (2024).
+[45]   Young-Heon Kim and Emanuel Milman. “A generalization of Caffarelli’s contraction
+       theorem via (reverse) heat flow”. In: Math. Ann. 354.3 (2012), pp. 827–862.
+[46]   Bo’az Klartag and Eli Putterman. “Spectral monotonicity under Gaussian convolu-
+       tion”. In: preprint arXiv:2107.09496 (2021).
+[47]   Dohyun Kwon, Ying Fan, and Kangwook Lee. “Score-based Generative Modeling Se-
+       cretly Minimizes the Wasserstein Distance”. In: Advances in Neural Information Pro-
+       cessing Systems (NeurIPS). 2022.
+[48]   Ki-Ahm Lee and Juan Luis Vázquez. “Geometrical properties of solutions of the
+       porous medium equation for large times”. In: Indiana Univ. Math. J. 52.4 (2003),
+       pp. 991–1016.
+[49]   László Leindler. “On a certain converse of Hölder’s inequality. II”. In: Acta Sci. Math.
+       (Szeged) 33.3-4 (1972), pp. 217–223.
+[50]   Dan Mikulincer and Yair Shenfeld. “On the Lipschitz properties of transportation
+       along heat flows”. In: Geometric aspects of functional analysis. Vol. 2327. Lecture
+       Notes in Math. Springer, Cham, 2023, pp. 269–290.
+[51]   Dan Mikulincer and Yair Shenfeld. “The Brownian transport map”. In: preprint arXiv:2111.11521
+       (2021).
+[52]   Felix Otto and Cédric Villani. “Generalization of an inequality by Talagrand and links
+       with the logarithmic Sobolev inequality”. English. In: J. Funct. Anal. 173.2 (2000),
+       pp. 361–400.
+[53]   Francesco Pedrotti, Jan Maas, and Marco Mondelli. “Improved convergence of score-
+       based diffusion models via prediction-correction”. In: preprint arXiv:2305.14164 (2023).
+[54]   András Prékopa. “On logarithmic concave measures and functions”. In: Acta Sci. Math.
+       (Szeged) 34 (1973), pp. 335–343.
+[55]   Fraydoun Rezakhanlou and Cédric Villani. “Entropy production and convergence to
+       equilibrium”. In: Entropy Methods for the Boltzmann Equation: Lectures from a Special
+       Semester at the Centre Émile Borel, Institut H. Poincaré, Paris, 2001 (2008), pp. 1–
+       70.
+[56]   Adrien Saumard and Jon A. Wellner. “Log-concavity and strong log-concavity: a re-
+       view”. In: Stat. Surv. 8 (2014), pp. 45–114.
+[57]   Claude Elwood Shannon. “A mathematical theory of communication”. In: The Bell
+       system technical journal 27.3 (1948), pp. 379–423.
+[58]   Yair Shenfeld. “Exact renormalization groups and transportation of measures”. In:
+       Ann. Henri Poincaré 25.3 (2024), pp. 1897–1910.
+
+
+
+
+                                              15
+[59]   Yang Song, Jascha Sohl-Dickstein, Diederik P Kingma, Abhishek Kumar, Stefano
+       Ermon, and Ben Poole. “Score-Based Generative Modeling through Stochastic Differ-
+       ential Equations”. In: International Conference on Learning Representations (ICLR).
+       2021.
+[60]   Juan Luis Vázquez. “Asymptotic behaviour methods for the Heat Equation. Conver-
+       gence to the Gaussian”. In: preprint arXiv:1706.10034 (2017).
+[61]   Cédric Villani. Topics in optimal transportation. English. Vol. 58. Grad. Stud. Math.
+       Providence, RI: American Mathematical Society (AMS), 2003.
+[62]   Feng-Yu Wang and Jian Wang. “Functional inequalities for convolution probability
+       measures”. English. In: Ann. Inst. Henri Poincaré, Probab. Stat. 52.2 (2016), pp. 898–
+       914.
+[63]   David Zimmermann. “Logarithmic Sobolev inequalities for mollified compactly sup-
+       ported measures”. English. In: J. Funct. Anal. 265.6 (2013), pp. 1064–1083.
+
+
+
+
+                                             16
+
