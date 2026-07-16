@@ -35,6 +35,29 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
   cross-gap recovery. No witnesses. The disproof-relevant gap to V=1 is
   roughly 11/n at best and widening with size, so no family in the searched
   classes is on a crossing trajectory.
+- **Spectral conjectures distilled, literature-placed, and same-day
+  kill-tested; constant collar refuted, cusp envelope and sector survive**
+  Following the campaign, the spectral content was stated precisely
+  (`notes/real_collar_conjecture_2026-07-16.md`) and placed against the
+  literature: Csikvari (CPC 2013) proves the smallest-modulus root of
+  I(G,x) is unique and real for every graph; Prakash--Sharma
+  (FSTTCS 2025, arXiv:2510.09197) quantify the all-roots gap as
+  exponentially small in general (paths: 1 + Omega(1/n^2), so a uniform
+  all-roots collar is false for trees); Hibi--Kara--Vien
+  (arXiv:2604.18824) is complementary gamma-positivity work. The
+  first-draft conjecture (uniform real collar for non-real zeros) was
+  killed within the hour by its own kill-test
+  (`scratch_collar_stress_20260716.py`, 28,998 certified trees): random
+  trees reach ratio 1.054 and adversarial minimization reaches 1.01839,
+  via real-root collisions whose emergent pairs have angle ~2e-5.
+  Surviving conjectures: B' (cusp envelope: angle of non-real zeros
+  vanishes as dominance ratio -> 1) and C (uniform positive-axis
+  sector: |arg z| >= 0.90 measured over all certified trees). A
+  non-unimodal control (split graph K_20 v E_6, valley at k=2 with
+  non-real zeros at ratio 30+) shows any spectral bridge to
+  unimodality must be asymptotic (window coefficients are governed by
+  positive-axis saddle analysis, not the dominant zero), with n <= 29
+  exhaustive covering small cases.
 - **Aperiodic composition attack closed** Trees grown by iterating five
   pairs of rooted maps under Fibonacci, Thue-Morse, periodic, and random
   control words (103 constructions, exact map/adjacency cross-check):

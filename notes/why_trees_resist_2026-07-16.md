@@ -111,6 +111,15 @@ Two follow-up attacks hardened this into a measured frontier:
   ~-- no certified non-real pair within ~10% of dominant modulus was
   ever produced. `R <= 0.957`, `c - b = 1` throughout.
 
+CORRECTION (2026-07-16, later same day): the exclusion zone is a
+statement about angularly meaningful pairs, not all non-real pairs.
+Adversarial minimization finds non-real pairs down to ratio 1.018, but
+they emerge from real-root collisions with angle ~2e-5 (harmless
+cusps). The surviving spectral laws are the cusp envelope (angle -> 0
+as ratio -> 1) and a uniform positive-axis sector (|arg z| >= 0.90
+over 28,998 certified trees). See
+notes/real_collar_conjecture_2026-07-16.md.
+
 ## 5. What would falsify these barriers
 
 - A tree family whose genuine-descent rebound deficit decays faster
