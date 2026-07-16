@@ -92,17 +92,43 @@ The corrected program is asymptotic:
   is a program, not a theorem; the analytic step is Darboux/saddle
   asymptotics for polynomials with zero sets obeying A/B.
 
-## 4. Relation to the tree-DP invariant (repo issue #1)
+## 4. The tree-DP invariant, concretely (repo issue #1)
 
-Both conjectures, if true, are preserved along the tree DP, so the
-right proof shape is an invariant on rooted pairs (E, I) ~--
-a sector/compatibility condition closed under the two composition maps
-(child attachment, root inclusion). This would be the genuine
-treeDPPair realizability invariant that coefficient-shape hypotheses
-(Formal/STP2Closure.lean) provably fail to supply. Candidate
-machinery: Asano/Lee--Yang contractions, Chudnovsky--Seymour
-compatible-polynomial arguments, tree-recurrence conformal methods
-(Peters--Regts).
+Work with the occupation ratio R_T(x) = I_root/E_root. Every rooted
+tree is generated from the single vertex (R = x) by two maps:
+
+    extend:  R  ->  x / (1 + R)          (new root above)
+    merge:   (R_1, R_2)  ->  R_1 R_2 / x (identify roots)
+
+and x0 is a zero of the full polynomial I(T; x) iff the reachable set
+at x = x0 hits R = -1 (or E vanishes compatibly). So all three
+spectral statements are reachability statements for this semigroup:
+
+- Csikvari's theorem: the first x on the negative real ray where -1
+  becomes reachable is a simple, isolated hit.
+- Cusp envelope B': for x off the real axis but close to that first
+  hit, -1 is NOT reachable unless arg(x) is tiny ~-- reachability
+  leaks off the axis only tangentially.
+- Sector C: for x in a sector around the positive axis (quantified by
+  degree via the number of merges), -1 is never reachable.
+
+Literature alignment (verified from the abstract of de Boer--Buys--
+Guerini--Peters--Regts, arXiv:2111.06451, 2026-07-16): the zero-free
+region for bounded degree "coincides with the normality region" of
+exactly these occupation-ratio maps, the rescaled limit domain is a
+cardioid, and they give "an exact formula for the boundary ... near
+the positive real boundary point." So the invariant sought in issue #1
+is, in this frame, a forward-invariant domain for extend/merge
+avoiding -1 ~-- Asano/Lee--Yang contraction style. The genuinely new
+work for #993 is (i) uniformity-in-degree bookkeeping for the merge
+map (this is what breaks for general graphs), and (ii) the bridge:
+converting the exact positive-boundary formula into a window
+saddle-point bound at occupancy ~0.28.
+
+Reading task (open): extract from the full paper the boundary
+geometry near the negative real point (cusp confirmation for B') and
+the exact positive-boundary formula with its modulus scaling in
+Delta (input for the bridge inequality).
 
 ## 5. Kill-test results and next tests
 
@@ -113,14 +139,21 @@ every near-dominant non-real pair found is angularly trivial
 (cusp behavior), and the positive-axis sector minimum stayed at
 0.90284 under both random and adversarial pressure.
 
-Next kill-tests:
-1. Adversarial maximization of phi at FIXED small dominance ratio
-   (attack B' directly: force an angularly meaningful pair near beta).
-2. Adversarial minimization of |arg z| (attack C: push a zero toward
-   the positive axis). C surviving adversarial pressure would make it
-   the strongest structural invariant found.
+Kill-tests 1 and 2 executed 2026-07-16, both survived rigidly:
+1. B' attack (maximize angle within modulus band <= 1.2): 25,163
+   adversarial mutations, zero improvement over the frontier value
+   0.05404 (`results/cusp_attack_20260716.json`).
+2. C attack (minimize |arg z|): 17,526 adversarial mutations, zero
+   improvement over 0.90284 (`results/sector_attack_20260716.json`).
+Contrast: the refuted collar conjecture moved within seconds under
+identical adversarial pressure. Rigidity under adversarial search is
+separating true invariants from artifacts.
+
+Remaining kill-test:
 3. Joint attack: minimize |arg z| subject to moderate modulus (the
-   saddle-relevant zeros for window-k coefficients).
+   saddle-relevant zeros for window-k coefficients), ideally on
+   high-degree deep trees where the Peters--Regts caveat predicts the
+   sector must eventually narrow.
 
 ## 6. Provenance
 

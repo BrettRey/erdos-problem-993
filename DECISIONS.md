@@ -58,6 +58,19 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
   unimodality must be asymptotic (window coefficients are governed by
   positive-axis saddle analysis, not the dominant zero), with n <= 29
   exhaustive covering small cases.
+- **Cusp envelope and sector both survive dedicated adversarial
+  kill-tests; DP invariant made concrete** B' attack (maximize certified
+  angle in the modulus band <= 1.2): 25,163 mutations, zero improvement
+  over 0.05404. C attack (minimize |arg z|): 17,526 mutations, zero
+  improvement over 0.90284. The refuted collar moved within seconds
+  under identical pressure, so adversarial rigidity is functioning as a
+  truth signal. The issue #1 invariant is now stated concretely in
+  notes/real_collar_conjecture_2026-07-16.md section 4: occupation-ratio
+  reachability for the extend/merge semigroup (R -> x/(1+R);
+  R1R2/x), zeros = parameters where -1 is reachable; verified
+  consistent with the normality-region characterization in
+  arXiv:2111.06451 (abstract level; full read is the open task, for the
+  negative-axis cusp geometry and the exact positive-boundary formula).
 - **Aperiodic composition attack closed** Trees grown by iterating five
   pairs of rooted maps under Fibonacci, Thue-Morse, periodic, and random
   control words (103 constructions, exact map/adjacency cross-check):
