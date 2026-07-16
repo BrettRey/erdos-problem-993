@@ -38,7 +38,7 @@ The finite Poisson--binomial note now identifies:
 - Hillion--Johnson (2016), Theorem A.2 and Corollary A.3, equations (78)--(79), as the primary source of the cubic coefficient inequalities;
 - Bobkov--Marsiglietti--Melbourne (2022), Theorem 1.1 and Corollary 3.2, as the source of the lattice max-atom/variance inequality.
 
-The remaining novelty claim is deliberately narrower: no screened source gave the same finite first-strict-descent bound, while the endpoint-aware propagation, two-sided modal windows, and propagation-to-variance synthesis appear new. Confidence is moderate--high, not a claim of historical priority. A MathSciNet/zbMATH pass and an expert check remain appropriate before publication.
+The remaining novelty claim is deliberately narrower: no screened source gave the same finite first-strict-descent bound, while the endpoint-aware propagation, two-sided modal windows, and propagation-to-variance synthesis appear new. Confidence is moderate--high, not a claim of historical priority. The subsequent public-database audit includes zbMATH, arXiv, OpenAlex, Semantic Scholar, and Crossref; an authenticated MathSciNet pass and an expert check remain appropriate before publication.
 
 ## Jerrum--Patel source audit
 

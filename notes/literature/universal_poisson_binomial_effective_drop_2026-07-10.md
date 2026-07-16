@@ -39,12 +39,15 @@ terminal case is immediate: the next ratio is zero and the reserve is one.
 
 ## Novelty and provenance status
 
-A literature audit through 2026-07-16 found no prior finite bound of this
-form at the first strict descent. The safe novelty claim is therefore that the
-endpoint-aware propagation, the resulting two-sided modal mass windows, and
-the propagation-to-variance synthesis are new; confidence is moderate--high,
-not a claim of historical priority. Two inputs are known results: the cubic
-coefficient inequalities of Hillion--Johnson and the lattice
+A reproducible zbMATH/arXiv/OpenAlex/Semantic Scholar/Crossref audit through
+2026-07-16 found no prior finite bound of this form at the first strict
+descent; see `poisson_binomial_novelty_database_audit_2026-07-16.md` and its
+machine-readable query and screening log. An authenticated MathSciNet result
+session was not available, so the safe wording is “we are not aware of a
+previous finite bound,” not an unqualified historical-first claim. The
+apparently new part is the endpoint-aware propagation, the resulting two-sided
+modal mass windows, and the propagation-to-variance synthesis. Two inputs are
+known results: the cubic coefficient inequalities of Hillion--Johnson and the lattice
 max-atom/variance inequality of Bobkov--Marsiglietti--Melbourne.
 
 ## Signed Corollary

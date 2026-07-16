@@ -17,7 +17,7 @@ The search found no solution of Erdős Problem 993 and no non-unimodal tree. It 
    \[
    V\left(1-\frac{f_{D-1}f_{D+1}}{f_D^2}\right)\ge \frac14
    \]
-   at the first strict descent appears genuinely new, with moderate--high confidence. Two of its ingredients are exact prior results, however: Hillion--Johnson's cubic inequalities and Bobkov--Marsiglietti--Melbourne's max-atom/variance inequality. The novelty lies in their endpoint-aware propagation, the forced modal mass windows, and the variance synthesis.
+   at the first strict descent appears new after the documented search, with moderate--high confidence. Two of its ingredients are exact prior results, however: Hillion--Johnson's cubic inequalities and Bobkov--Marsiglietti--Melbourne's max-atom/variance inequality. The novelty lies in their endpoint-aware propagation, the forced modal mass windows, and the variance synthesis.
   
 4. The abstract of Ramos--Sun reports examples from 27 to 101 vertices, while their Section 4.1 says early searches found none at 27 or 29 and their public artifacts contain no 27-vertex certificate. Our exact $n=27$ audit finds no log-concavity failure. This should remain explicitly unresolved pending a certificate or author confirmation.
   
@@ -172,9 +172,9 @@ Recommended wording:
 Do not call 27 a typo without author confirmation.
 ## Other active work, not formal literature
 
-The [Erdős Problems #993 discussion](https://www.erdosproblems.com/forum/thread/993) now includes a June 2026 report by Will Blair, with [public code and witnesses](https://github.com/williamjblair0708/verified-combinatorics/tree/main/erdos-993). It reports 4,445 non-log-concave rooted-bush tree polynomials up to 60 vertices and 253,695 products/powers/path-products of the strongest seeds, all unimodal. This is not peer-reviewed literature and its forum claims were not independently rerun here, but it is a relevant parallel forest/product search. **[source report]**
+The [Erdős Problems #993 discussion](https://www.erdosproblems.com/forum/thread/993) now includes a June 2026 report by Will Blair, with [public code and witnesses](https://github.com/willblair0708/verified-combinatorics/tree/main/erdos-993). It reports 4,445 non-log-concave rooted-bush tree polynomials up to 60 vertices and 253,695 products/powers/path-products of the strongest seeds, all unimodal. The upstream verifier and all 25 publicly materialized rooted bushes have now been independently replayed; see `blair_rooted_bush_comparison_2026-07-16.md`. The remaining 4,420 claimed bush polynomials are not serialized in the public result. This is not peer-reviewed literature, but it is a relevant parallel forest/product search. **[source report; partial independent replay]**
 
-The useful next step is corpus comparison, not duplicate broad search: determine whether Blair's bush grammar adds structurally new hard components beyond the Ramos--Sun, Galvin, Bautista, Li, and exact $n=28$ corpus already audited here.
+The corpus comparison is now complete. Blair's V2 grammar is wholly contained in the local spider-bouquet grammar. Of the 25 public bushes, one is an exact Galvin duplicate and 24 are new exact coefficient/tree records relative to the bounded index; five improve the available same-order pressure comparator, but none extends the order-at-most Pareto frontier. The duplicate-enumeration gate is therefore closed. The bounded next step, only if the missing 4,420 records become available, is archival ingestion rather than another broad search.
 ## Search method and coverage
 
 This was not a flat keyword search. The intake used four passes:
@@ -190,7 +190,7 @@ This was not a flat keyword search. The intake used four passes:
 
 Limitations:
 
-- This is not a formal MathSciNet or zbMATH exhaustive-citation certification.
+- The subsequent multi-database audit includes a reproducible zbMATH query layer, but no authenticated MathSciNet or proprietary-index session was available.
   
 - Search engines can miss differently worded coefficient inequalities and non-indexed journals.
   
@@ -231,14 +231,14 @@ The full-text corpus is in `notes/literature/`. New PDF/text pairs acquired duri
 - `arxiv_2411_14791`, `arxiv_2510_09197`, `arxiv_2111_06451`, `arxiv_2204_04868`, and Scott--Sokal -- spectral/occupation-ratio sources.
   
 
-PDFs are ignored by the repository's Git rules; extracted `.txt` files and this intake note are currently untracked. Existing user changes elsewhere in the worktree were not touched.
+PDFs are ignored by the repository's Git rules. The retained text conversions and audit notes provide the reviewable source layer; unrelated project files were not changed by this follow-up.
 ### Access still useful
 
 - Liu--Tang--Zhao 2025: publisher full text was not acquired.
   
 - Xie--Zhang 2025: the publisher PDF endpoint returned HTTP 403, though the abstract and bibliographic metadata were accessible.
   
-- For a publication-grade novelty statement on the Poisson--binomial theorem, a final MathSciNet/zbMATH citation search around Hillion--Johnson Theorem A.2 and Johnson's curvature equation would be worthwhile.
+- The publication-grade public-database and citation-chain audit is recorded in `poisson_binomial_novelty_database_audit_2026-07-16.md`. Only an authenticated MathSciNet pass remains useful immediately before submission, especially if wording stronger than “we are not aware” is contemplated.
   
 ## Recommended next actions after review
 
