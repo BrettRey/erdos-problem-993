@@ -9,6 +9,46 @@
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## Current state (2026-07-15/16)
+
+### Session notes (user-directed valley-first disproof campaign)
+
+- **Mandate and outcome.** Brett explicitly requested a disproof attempt,
+  overriding the parked posture. Roughly 1.4 million exact evaluations
+  across seven mechanism lanes produced zero witnesses and two measured
+  barrier laws. Full narrative: `notes/why_trees_resist_2026-07-16.md`;
+  decision trail: DECISIONS.md 2026-07-15 and 2026-07-16.
+- **Coefficient-space law.** Under a genuine prior descent (threshold
+  0.001), the rebound deficit never beat `~11/n`; the constant grows with
+  n and with the threshold; every achieving rebound in the campaign has
+  rise distance `c-b = 1`. The `T_{3,M,N}` late shoulder slides out of the
+  legal window as it scales. Lanes: bouquet grammar sweeps (107k specs),
+  forest/product dumbbells, depth-3/4 stacking, optimized-mix scaling to
+  n=5,073, subtractive join carving (1,406 joins), exact-pathology
+  interference (540,492 joins of the 21 known LC-failure trees), free
+  mutation (263k evals), independent Codex GPT-5.6 sol search at n<=3,000
+  (top candidates replayed exactly, matched to 10 decimals).
+- **Root-space law.** With certified Arb root isolation (a claw-free
+  control invalidated float64 root-finding), the near-dominant root angle
+  frontier is: smooth families 0, n=28 failure trees 0.06-0.11,
+  `T_{6,6,1}` 0.256; certified evolution (611,897 evals) lifted it to
+  0.444 at modulus ratio 2.0, then plateaued for 49 minutes. The champion
+  spectrum shows angle falling monotonically as dominance rises, heading
+  to 0 at amplitude parity. A counterexample needs the empty corner
+  (near-dominant modulus at substantial angle).
+- **Metric caution.** The raw valley margin V is contaminated by mode
+  flatness (slope x lattice-offset factorization); one apparent new decay
+  class was this artifact. Disproof-relevant ranking must use
+  descent-thresholded rebounds.
+- **New tools.** `scripts/valley_search.py`,
+  `scripts/product_valley_search.py`, `scripts/valley_scaling_probe.py`
+  (Kronecker-packed exact arithmetic), plus ten dated scratch probes and
+  two results JSONs. Self-tests cross-check every fast path against the
+  generic big-int DP.
+- **Posture.** Manuscript untouched; no public claims. The conjectural
+  positive reading (universal `V <= 1 - c/n`) is parked as a separate
+  program per the 2026-07-11 posture.
+
 ## Current state (2026-07-11)
 
 ### Session notes (broad prefix-GSB variance push, numbered D1--D27 round)
@@ -99,6 +139,15 @@ The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapsho
   obstruction packet, exact replay, compact JSON certificate, and the D19--D27
   status corrections. The exact replay and full test suite pass; the paper is
   still untouched.
+- **Next-session recommendation.** Keep direct #993 search parked. First audit
+  the universal Poisson-binomial reserve theorem for novelty and standalone
+  publication value. If mathematical work resumes afterward, return only to
+  the bounded fixed-arm `A+xR` perturbation target.
+- **Future disproof posture.** Treat proof-lemma falsification and conjecture
+  disproof as different programs. A new negative cycle requires a direct
+  valley-producing architecture and a precise explanation of how it escapes
+  the D17/D19/D20/D23 smoothing and phase-weight obstructions; do not begin
+  with another broad scan.
 
 ## Current state (2026-07-10)
 

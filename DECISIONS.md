@@ -1,10 +1,144 @@
 # Decisions Log
+<!-- SUMMARY: Append-only decisions governing proof scope, verification standards, release posture, and bounded AI-assisted work on Erdős #993 · status: active decision log · updated: 2026-07-15 -->
 
 Append-only record of project decisions. Agents: add an entry whenever a non-trivial decision is made during a session (structural changes, venue choices, theoretical commitments, scope changes, reviewer feedback acted on). Keep entries short.
 
 Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationale.
 
 ---
+
+## 2026-07-16
+
+- **Flat-mode contamination found in the raw valley margin; metric corrected**
+  Component diagnosis of the top depth-3 scaling ray showed its scoring index
+  b coincides with the global mode (no prior descent; root-included component
+  nowhere dominant), so the raw margin `V` was measuring mode flatness there,
+  not a dip. At a smooth mode the deficit factorizes as (local ratio slope,
+  ~C/n) x (fractional lattice offset of the r=1 crossing, quasi-random in
+  (0,1)), which fully explains the apparent deficit "acceleration" at
+  n=19,777 and the non-monotone n(1-V) constants in the dumbbell rays:
+  lattice wobble, no new mechanism. Plateau-approach can push V arbitrarily
+  close to 1 without ever crossing, so V near 1 is not evidence of a nearby
+  counterexample. Corrected ranking metric: descent-thresholded rebound
+  `R_gap(theta)` (rebound suffix-max/i_b over dips with prior descent at
+  least theta, theta = 0.001 and 0.01, with rise distance c-b reported);
+  witness detection (V > 1 exactly) is unaffected. Killed the mix
+  re-optimization and ray-extension runs that were optimizing the artifact;
+  re-scored the depth-3 grid and all 2026-07-15 champions under R_gap
+  (`scratch_rgap_rescore_20260715.py`).
+- **Corrected barrier is stronger than the raw one** Under R_gap(0.001) the
+  best genuine-descent rebounds are n(1-R) ~ 10.9-13.5 (depth-3 grid best
+  10.87 at n=1378; two-phase shoulders 13.3-13.5 at n~320), the constant
+  grows with n (20.5 at n=2537, 16.8 at n=6563) and with theta (23-42 at
+  theta=0.01), and every achieving rebound in ~3,500 rescored configs plus
+  all champions has rise distance c-b=1: locally slowed decay, never a
+  cross-gap recovery. No witnesses. The disproof-relevant gap to V=1 is
+  roughly 11/n at best and widening with size, so no family in the searched
+  classes is on a crossing trajectory.
+- **Bump-interference attack (exact pathology blocks) closed** 540,492 exact
+  joins pairing the 21 exhaustive LC-failure trees (n=26/28) with each other
+  at every vertex pair and with smooth partners sized to translate the k=14
+  bump into the composite mid-band
+  (`scratch_bump_interference_20260716.py`): zero witnesses, zero rebounds
+  with c-b > 1. The bump does survive embedding as the campaign's best
+  constant (n(1-R)=5.3 at n~104, failure tree x broom), but it is a fixed
+  28-vertex object that dilutes under scaling; not a counterexample seed.
+- **Root-herding attack: float64 pipeline invalidated, certified frontier
+  established** A claw-free control (P_101 must be real-rooted) exposed
+  numpy-roots noise: the float pipeline reported phi_dom=0.685 for P_101
+  and 0.949 for an evolved champion whose certified value is 0.045.
+  Certified Arb root isolation (python-flint 0.9.0, scratch venv;
+  `scratch_root_herding_20260716.py` + certified recheck) gives the true
+  near-dominant-root angular frontier: phi_dom <= 0.256, maximized by
+  T_{6,6,1} (the LC-fragile class), failure trees 0.06-0.11, smooth
+  families 0. Root geometry is the right search coordinate (angle tracks
+  the known convexity pathology exactly), but any future root-herding
+  evolution must score with certified roots in the loop (~1-2 s/eval at
+  degree ~70). Same lesson as the repo's standing rule: do not trust
+  floating-point combinatorics.
+- **Certified root-herding evolution run and closed: the dominance-angle
+  tradeoff is the obstruction** 611,897 certified evals
+  (`scratch_certified_root_evolution_20260716.py`, Arb in the scoring
+  loop): phi_dom(|z| <= 2 z_min) rose 0.256 -> 0.444 in the first ~10
+  seconds, then zero improvements for 49+ minutes; no witness; R <= 0.90
+  and rise distance c-b = 1 on every champion. The 0.26 "ceiling" was
+  family bias, but the champion's own certified spectrum shows the real
+  invariant: root angle falls monotonically as modulus dominance rises
+  (ratio 2.0 -> phi 0.44; 2.5 -> 0.26; 2.7 -> 0.13; 2.76 -> 0.03), heading
+  to phi -> 0 at amplitude parity. A counterexample needs a near-dominant
+  pair at substantial angle, i.e. the opposite corner of the measured
+  frontier; oscillations from subdominant pairs are exponentially damped
+  in k. This is the spectral form of the same barrier the coefficient-space
+  campaign measured. Champion saved to
+  `results/certified_root_evolution_20260716.json`.
+- **Subtractive carving channel tested and closed** The last
+  composition mechanism outside the D17/D19/D20/D23 smoothing obstructions
+  was the edge-join correction `-x^2 I(T1-N[u]) I(T2-N[v])`, which subtracts
+  rather than mixes and so could in principle carve a dip. A 1,406-join scan
+  (`scratch_join_carving_20260716.py`) over 11 component types at
+  structurally distinct join vertices (root/gadget center/mid-leg/leaf,
+  connector lengths 1-2) produced no witness, no rebound with rise distance
+  c-b > 1, and at most a ~20% improvement in the deficit constant
+  (best n(1-R)=8.8 at n=338). Join-vertex choice shifts R by ~0.2%: the
+  correction is too smooth to carve, consistent with the manuscript's
+  edge bound P(u)+P(v) < 2/3. With additive mixing, depth stacking, free
+  mutation, and subtractive carving all measured, no composition mechanism
+  reachable from spider/star/path blocks shows a crossing trajectory; a
+  disproof would need a qualitatively different source of coefficient
+  interference than tree composition provides.
+
+- **Opened a user-directed valley-first disproof campaign** Brett explicitly
+  asked for a disproof attempt, overriding the parked posture. Honoring the
+  2026-07-11 "future disproof posture" rule, the campaign used direct
+  valley-producing architectures scored by the exact witness margin
+  `V(T) = max_b min(prefix-max, suffix-max)/i_b` (V > 1 iff counterexample),
+  not log-concavity defect. New tools: `scripts/valley_search.py`
+  (spider-bouquet grammar sweeps + hill climb, self-tested against the
+  generic DP), `scripts/product_valley_search.py` (forest/product lane with
+  path-join tree realization), `scripts/valley_scaling_probe.py`
+  (Kronecker-packed exact arithmetic for n in the thousands), plus dated
+  scratch probes for free-form mutation, deficit-constant mapping, and
+  depth-3 phase stacking.
+- **No counterexample; ~150k exact evaluations** Zero valley witnesses across
+  bouquet sweeps (107,253 specs, n <= 320), 6,441 forest products with
+  dumbbell realizations, scaling probes to n = 7,299, a 263k-mutation
+  free-form optimizer, and an independent Codex (GPT-5.6 sol) search at
+  n <= 3,000 whose top candidates were replayed exactly and matched to
+  10 decimals.
+- **Empirical barrier law identified** Every architecture (perturbed
+  T_{3,M,N}, hub-bouquets, two-type hybrids, subdivided stars, dumbbells,
+  depth-3/4 block trees, engineered connectors) obeys
+  `1 - V(n) ~ C/n` with best-achieved C converging to about 4, matching the
+  lower end of the manuscript's proved leaf-attachment constant C in [4,8).
+  The optimized-mix constant is flat in the phase-gap parameter (t = 6..90),
+  so widening phase contrast buys nothing. The descent/rebound decomposition
+  shows the binding tradeoff: genuine descents (depth 1.014) pair with weak
+  rebounds (~1 - 13/n); near-unit rebounds (~1 - 4/n) sit on plateau-scale
+  descents (1 + 1e-5). T_{3,M,N}-type shoulders additionally slide outside
+  the legal rebound window (rise index passes ceil((2*alpha-1)/3)) as n grows,
+  so that mechanism is asymptotically dead regardless of depth.
+- **Exhaustive-data motif audit came back empty** The 19 exact n=28
+  LC-failure trees are all small hub-with-spider-star variants (the same
+  late-shoulder mechanism) and the n=28 near-miss champions are brooms
+  (binomial C(25,k) tails); no third mechanism is hiding in the exhaustive
+  artifacts.
+
+- **Use Dobriban (2026) only as proof-workflow precedent** The author's reported
+  GPT-5.6 Pro discovery of a BH counterexample illustrates a useful separation
+  among AI exploration, a narrow analytic theorem, exact replayable
+  certification, finite simulation, and human audit. It supplies no
+  combinatorial lemma, certificate, or evidence for Erdős #993. Do not reopen
+  the search, alter the submitted manuscript, or imply progress on #993 from
+  it. The one-shot and cross-version capability story is an uncontrolled
+  anecdote and does not displace the project's bounded-target discipline.
+- **Require clean-clone verification of the whole release bundle** A local
+  clean-clone check replayed Dobriban's standalone `python-flint`/Arb
+  certificate, but the advertised full verifier failed because the manifest
+  and repository tree disagree about the README, manuscript, and simulation
+  artifact paths. Certificate replay is not an independent audit of the
+  analytic reduction. For any future #993 release, test the proof reduction,
+  exact certificate, simulations, and complete package separately from a clean
+  checkout before making a reproduction claim.
 
 ## 2026-07-11
 
@@ -39,6 +173,16 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
 - **Do not promote full marked flow as a reduction** Its total target-capacity
   cut is exactly GSB. Saturation through order 11 is finite diagnostic evidence
   only.
+- **Park direct #993 search after the D25 closeout** The remaining aggregate
+  `q_far<=0` proposition is theorem-strength and has no live local mechanism.
+  Do not open D28. The next high-value activity is publication triage of the
+  universal Poisson-binomial reserve theorem; if proof work later resumes, use
+  the bounded fixed-arm `A+xR` perturbation target.
+- **Separate disproof engineering from proof-route falsification** A
+  counterexample to an auxiliary lemma is not evidence against #993. Any future
+  negative program must begin with a concept-level architecture for an exact
+  descent followed by a later ascent, explain what escapes D17/D19/D20/D23,
+  and only then authorize computation.
 
 ## 2026-07-10
 
