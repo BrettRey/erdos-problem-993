@@ -1,5 +1,5 @@
 # The real-collar conjecture for tree independence polynomials
-<!-- SUMMARY: Precise spectral conjectures distilled from the July 2026 campaign: a uniform real collar around the dominant zero for trees, an angle envelope, and an asymptotic bridge program to unimodality · status: conjecture note, literature-placed · updated: 2026-07-16 -->
+<!-- SUMMARY: Precise spectral conjectures distilled from the July 2026 campaign: minimum-root isolation, a near-dominant cusp envelope, and a quantified saddle-sector bridge program to unimodality · status: conjecture note, literature-placed · updated: 2026-07-16 -->
 
 Status: private research note. Statements are precise; support is
 certified computation plus literature placement. No proof claims.
@@ -91,7 +91,8 @@ The corrected program is asymptotic:
 
 - Near-dominant zeros govern the TAIL third (alpha - k small), where
   coefficients are elementary symmetric functions of few reciprocal
-  roots; the real collar should yield effective tail regularity.
+  roots. Minimum-root isolation plus a quantitative B' estimate is the
+  surviving candidate input for effective tail regularity.
 - Mid-band coefficients (the open window k < 2 alpha / 3) are governed
   by saddle-point analysis: the oscillation suppressor there is the
   distance of non-real zeros from the positive real axis (the saddle
@@ -176,7 +177,8 @@ coefficient recurrences plus Arb root intervals):
   positive-axis mechanism is remote from the near-dominant cusp. This
   is evidence for keeping B'/C' separate, not a proof of either.
 
-Full intervals and all threshold classifications are in
+Arb intervals for every reported extremum, all threshold
+classifications, and the exact graph and coefficient data are in
 `results/literature_root_stress_20260716.json`.
 
 ## 6. Provenance

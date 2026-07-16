@@ -149,6 +149,12 @@ def validate_tree(adj: Sequence[Sequence[int]]) -> dict[str, Any]:
     return {
         "order": n,
         "edges": edge_count,
+        "edge_list": [
+            [vertex, neighbor]
+            for vertex, neighbors in enumerate(adj)
+            for neighbor in neighbors
+            if vertex < neighbor
+        ],
         "max_degree": max(map(len, adj), default=0),
         "degree_histogram": histogram,
     }
@@ -824,6 +830,7 @@ def audit_case(case: StressCase, precision: int) -> dict[str, Any]:
             "degree": degree,
             "constant": dp_poly[0],
             "linear": dp_poly[1],
+            "coefficients": dp_poly,
             "formula_matches_tree_dp": True,
             "recurrence_residual_zero": True,
             "unimodal": True,

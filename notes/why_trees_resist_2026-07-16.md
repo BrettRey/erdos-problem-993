@@ -133,9 +133,9 @@ CORRECTION 3 (2026-07-16, certified replay): the 41-case literature
 stress corpus ranked both constructions with Arb intervals. In the
 exact unsplit family through height~8, the minimum positive-axis angle
 fell to 1.103 radians at modulus ratio 20.41; all nine tested endpoint
-phases for (k=1) remained remote, with minimum ratio 16.82. These finite depths do
-not witness the asymptotic accumulation, but they confirm that the
-mechanism is not near-dominant at accessible scale. Artifact:
+phases for (k=1) remained remote, with minimum ratio 16.82. These finite
+depths do not witness the asymptotic accumulation, but they confirm
+that the mechanism is not near-dominant at accessible scale. Artifact:
 `results/literature_root_stress_20260716.json`.
 
 ## 5. What would falsify these barriers

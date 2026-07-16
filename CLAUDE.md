@@ -35,6 +35,12 @@ A **counterexample** is any tree where this sequence is not unimodal (i.e., it d
 
 - A July 2026 GPT-5.6-sol Ultra session made substantive progress on the signed-reserve lane, including a universal finite Poisson-binomial bound. Treat this as evidence that the model is worth using on tightly scoped proof work, not as a substitute for exact replay or independent audit.
 - Aristotle (Harmonic) is available through `scripts/aristotle_cli.py` and the Harmonic API/dashboard. Use it for frozen, bounded Lean packets after the mathematical statement is settled; replay every result locally and audit for `sorry` and unexpected axioms. The completed conditional example is `formalization/pb_effective_drop_aristotle/`.
+- **Packet design (2026-07-16, proven pattern):** freeze the target with graded sub-targets, make refutation an explicit success mode, and require a self-grading bar in the deliverable ("an honest PARTIAL with one real proved step beats a grandiose FAILED-in-disguise"). The bridge packet (`gpt_attack/bridge_window_unimodality/`) resolved in one dispatch this way. Always independently replay the returned mathematics in exact arithmetic before recording any verdict.
+- **Adversarial kill-tests before believing a conjecture:** state the conjecture, then immediately run adversarial search against it. Rigidity is a truth signal here: the false collar conjecture cracked within seconds of adversarial pressure; the surviving laws did not move in 20k+ targeted mutations each.
+
+## Root-finding rule (MANDATORY)
+
+**Never use float64 root-finding (numpy.roots or similar) for any claim about polynomial zeros.** A claw-free control (P_101, real-rooted by theorem) exposed numpy.roots reporting a spurious non-real angle of 0.685 where the true value is 0; an evolutionary search then optimized that noise into a fake result off by a factor of 21. Use certified Arb root isolation via `python-flint` (venv setup: `python3 -m venv venv && venv/bin/pip install python-flint`), with the conservative non-real test that the imaginary ball excludes zero. Exact Sturm/`sympy count_roots` on rational boxes is acceptable for counting. See DECISIONS.md 2026-07-16.
 
 ## Setup
 

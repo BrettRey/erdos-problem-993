@@ -20,7 +20,7 @@ The new certified stress corpus contains 41 source-defined cases. Exact integer 
 
 Claude Code owns `DECISIONS.md` and `gpt_attack/bridge_window_unimodality/` during this run. Those paths were not edited, read for reuse, reformatted, or included in any patch. The scope reservation and both Jerrum--Patel source corrections were sent through shared memory so that the live bridge-window run could account for them without changing its frozen packet.
 
-Codex's write scope was limited to the manuscript bibliography/prose, literature and spectral notes, and the standalone family harness, tests, and result certificate. A final process and modification-time check showed no overlapping concurrent writes.
+Codex's write scope was limited to the manuscript bibliography/prose, literature and spectral notes, and the standalone family harness, tests, and replay report. No line-level collision occurred, but the concurrent process advanced and pushed `HEAD` twice during final validation, incorporating the earlier shared work into commits `051b9b6` and `bdaee62`. Codex did not commit, push, reset, or check out files. The five post-commit refinements were re-reserved through shared memory before this handoff.
 
 ## Manuscript and provenance changes
 
@@ -73,7 +73,7 @@ Across all 41 cases:
 
 For the unsplit binary family, the minimum positive-axis angle decreases from 2.18381 radians at height 2 to 1.10264 at height 8. The height-8 root has modulus ratio 20.40894 relative to the minimum root. This is consistent with the asymptotic scale separation between the positive neutral activity 4 and the negative threshold -4/27, whose ratio is 27.
 
-The nine tested endpoint phases of five `k=1` periods are shallower. Their smallest positive-axis angle is 1.62114 radians, at modulus ratio 118.16224. They do not numerically reach the source's asymptotic accumulation regime.
+The nine tested endpoint phases of five `k=1` periods are shallower. Their positive-axis roots have modulus ratios of at least 16.81938; the smallest-angle instance is 1.62114 radians at ratio 118.16224. They do not numerically reach the source's asymptotic accumulation regime.
 
 The same height-8 unsplit polynomial also contains a much closer non-real pair, at ratio 1.41113, but its negative-axis deviation is only 0.04758 radians. Thus the finite spectrum exhibits both phenomena at once: a remote positive-axis root and a near-dominant cusp root.
 
@@ -95,9 +95,11 @@ All three remain unimodal. Their roots closest to the source-specific equimodula
 
 - Harness: `scripts/stress_literature_root_families.py`
 - Exact non-root tests: `test_literature_root_families.py`
-- Arb certificate: `results/literature_root_stress_20260716.json`
-- Certificate SHA-256: `5e206c9b1572277ba4e380cd0d5e17454374e61d681452de82c2acc82f48e5fe`
+- Certified replay report, including exact edge lists and coefficient vectors: `results/literature_root_stress_20260716.json`
+- Result SHA-256: `074f3aadcf8473fc32004469b65c9696691dbd2e404d400cd0ffecc6e0000dcb`
 - Environment recorded in the JSON: Python 3.14.6, python-flint 0.9.0, initial Arb precision 192 bits.
+
+The JSON stores exact replay inputs and Arb intervals for the reported extrema and threshold summaries. It does not serialize every isolated root ball.
 
 Exact generation command:
 
@@ -107,7 +109,7 @@ Exact generation command:
   --precision 192
 ```
 
-The certificate was generated twice. After removing `generated_at`, elapsed-time fields, per-case root timings, and the newly added environment-version field, the two JSON trees were byte-for-byte identical.
+The result was generated twice. After removing `generated_at`, elapsed-time fields, and per-case root timings, the normalized JSON trees were identical. A representative 256-bit replay also overlapped every stored 192-bit interval.
 
 ## Validation
 

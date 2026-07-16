@@ -35,6 +35,19 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
   cross-gap recovery. No witnesses. The disproof-relevant gap to V=1 is
   roughly 11/n at best and widening with size, so no family in the searched
   classes is on a crossing trajectory.
+- **(Parallel literature-audit session) Uniform positive-axis sector
+  refuted at the source; logged here at shutdown** Jerrum--Patel
+  (arXiv:2510.01466v2, Lemma 17) supplies the asymptotic counterexample
+  class (subdivided complete binary trees, max degree 3, zeros
+  accumulating on the positive real axis); a 41-case certified stress
+  corpus (`scripts/stress_literature_root_families.py`,
+  `results/literature_root_stress_20260716.json`) confirmed the
+  mechanism is not near-dominant at accessible scale (min positive-axis
+  angle 1.103 at modulus ratio 20.41 through height 8). Conjecture C is
+  replaced by target C' (quantified saddle-sector profile) in
+  notes/real_collar_conjecture_2026-07-16.md; the audit also flagged an
+  apparent index shift in the lemma's appeal to Buys, worth
+  clarification before any citation-bearing use.
 - **Bridge packet RESOLVED same-day: REFUTED(T3), zero-location
   hypotheses provably insufficient** Codex (GPT-5.6) returned a
   refutation within its 60-minute budget:

@@ -55,9 +55,34 @@ The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapsho
   ~10% of dominant modulus, ever ~-- is the sharpest form of the
   spectral barrier. Frontier trees:
   `results/pareto_root_frontier_20260716.json`.
+- **Spectral conjecture cycle (2026-07-16, after the campaign).**
+  Stated, literature-placed, and same-day kill-tested. Constant real
+  collar: refuted by own adversarial test (real-root collision pairs at
+  ratio 1.018, angle 2e-5). Uniform positive-axis sector: refuted by
+  the parallel literature audit (Jerrum--Patel Lemma 17). Survivors:
+  cusp envelope B' (adversarially rigid; matches the Bencs--Buys--
+  Peters infinite-degree cardioid cusp law (2(r-1))^{3/2}/6 at all
+  measured points) and quantified saddle-sector target C'. Lit intake
+  (7 papers to notes/literature/) found the two relevant literatures
+  (zero geometry vs unimodality combinatorics) do not cite each other.
+- **Bridge packet dispatched and resolved: REFUTED(T3).**
+  `gpt_attack/bridge_window_unimodality/`: Codex (GPT-5.6) proved
+  zero-location hypotheses (dominance + U_24 + sector + cusp) plus
+  positivity do NOT imply window unimodality, via
+  `P_s = ((1+x)^6+20x)(1+x^2)^{2s}` (base = the split-graph control;
+  parity-lacunary factor carries a mid-window valley). Hand-checked and
+  independently replayed in exact arithmetic
+  (`outcome_2026-07-16/independent_replay.json`). The bridge must run
+  through the tree-DP realizability invariant (issue #1, now provably
+  necessary). Reformulated target: no cross-gap rebound (c-b > 1) for
+  trees ~-- the exceptionless empirical law of the whole campaign.
+  Issues #1/#3/#4/#8 updated; #8 tracks remaining attacks.
 - **Posture.** Manuscript untouched; no public claims. The conjectural
   positive reading (universal `V <= 1 - c/n`) is parked as a separate
-  program per the 2026-07-11 posture.
+  program per the 2026-07-11 posture. A parallel literature-audit
+  session was still active at shutdown (uncommitted edits to the two
+  notes, the stress script, and its results JSON); its own wrap-up
+  should ship those.
 
 ## Current state (2026-07-11)
 
