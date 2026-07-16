@@ -6,11 +6,14 @@ Date: 2026-07-16
 
 The high-value actions from the literature intake are implemented. The manuscript now cites the three directly relevant 2026 papers, the probability note attributes both of its known analytic inputs correctly, and the spectral notes no longer treat a fixed positive-axis sector as a viable universal conjecture.
 
-The new certified stress corpus contains 41 source-defined tree families. Exact integer formulas and recurrences were replayed against the generic tree DP, and every root-ranking decision was made with Arb intervals rather than floating-point roots. The computations support a clean separation:
+The new certified stress corpus contains 41 source-defined cases. Exact integer formulas and recurrences were replayed against the generic tree DP, and every root-ranking decision was made with Arb intervals rather than floating-point roots. The computations support a clean separation:
 
 - Jerrum--Patel's positive-axis mechanism defeats a global fixed sector, but its accessible positive-axis roots are remote from the minimum-modulus root.
+
 - Near-dominant non-real roots in the same trees remain cusp-like: at height 8 the closest non-real pair has modulus ratio 1.41113 and negative-axis deviation 0.04758 radians.
+
 - The Bautista recurrence loci are also populated by roots well beyond the near-dominant window in the tested range.
+
 - None of this proves the surviving cusp envelope or a saddle-sector bridge. It does remove two misleading shortcuts: a universal sector and an inference from an unranked limiting locus to dangerous near-dominant roots.
 
 ## Concurrent-work boundary

@@ -3,7 +3,7 @@
 **Date:** 2026-07-16  
 **Scope:** tree independence-polynomial unimodality, current structural and spectral methods, and the finite Poisson--binomial effective-drop theorem  
 **Cutoff:** arXiv and publisher records checked through 2026-07-16  
-**Status:** reviewed intake; no manuscript edits have been made
+**Status:** reviewed intake; selected actions integrated after review (see `literature_followthrough_2026-07-16.md`)
 
 ## Executive judgment
 
