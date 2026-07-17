@@ -25,6 +25,26 @@ import sympy as sp
 DEFAULT_OUT = Path(
     "results/universal_pb_finite_bernstein_certificate_2026-07-10.json"
 )
+LEGACY_CERTIFICATE_PATH = (
+    "results/universal_pb_finite_bernstein_certificate_2026-07-10.json"
+)
+LEGACY_CERTIFICATE_SHA256 = (
+    "6b91554d9ab1f43151e36c94c5c8c427c7bb057130b7f39d233b14c7ab3860c6"
+)
+
+SOURCE_FORMULA_IDS = {
+    "asymmetric_window_v1": (
+        "u_r=((H-1)/H)^r*prod_{j=1}^{r-1}(1-j/(H+1)); "
+        "v_r=prod_{j=1}^{r}(1-j/H); "
+        "A=(1+sum(u_r+v_r))*sum(r^2*(u_r+v_r))"
+        "-(sum(r*(u_r-v_r)))^2"
+    ),
+    "symmetric_window_v1": (
+        "b_r=prod_{j=1}^{r}(1-j/H); "
+        "A=(1+2*sum(b_r))*(2*sum(r^2*b_r))"
+    ),
+    "scalar_target_v1": "Q=(H+1)*(3*H+4)/4",
+}
 
 
 def power_to_bernstein(
@@ -122,6 +142,15 @@ def exact_string(value: sp.Expr) -> str:
     return f"{value.p}/{value.q}"
 
 
+def canonical_json(value: Any) -> str:
+    """Return the canonical JSON encoding used by the full certificate."""
+    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
+
+
+def json_digest(value: Any) -> str:
+    return sha256(canonical_json(value).encode("ascii")).hexdigest()
+
+
 @dataclass(frozen=True)
 class Cell:
     name: str
@@ -149,6 +178,52 @@ class Cell:
             "maximum_denominator_digits": max(len(str(value)) for value in denominators),
             "coefficient_sha256": self.digest,
         }
+
+    @property
+    def formula_id(self) -> str:
+        if self.name == "asymmetric_3_4":
+            return "asymmetric_window_v1"
+        return "symmetric_window_v1"
+
+    @property
+    def window_count(self) -> int:
+        if self.name == "asymmetric_3_4":
+            return 3
+        return self.left_endpoint
+
+    @property
+    def expected_denominator_record(self) -> dict[str, Any]:
+        if self.name == "asymmetric_3_4":
+            factors = [["H", 5], ["H+1", 3]]
+        else:
+            factors = [["H", 2 * self.window_count]]
+        return {"constant": 4, "factors": factors}
+
+    def full_record(self) -> dict[str, Any]:
+        t = sp.symbols("t")
+        polynomial = sp.Poly(self.numerator_in_t, t, domain=sp.QQ)
+        power_coefficients = [
+            exact_string(polynomial.coeff_monomial(t**index))
+            for index in range(self.degree + 1)
+        ]
+        bernstein_coefficients = [
+            exact_string(value) for value in self.coefficients
+        ]
+        record: dict[str, Any] = {
+            "cell_id": self.name,
+            "formula_id": self.formula_id,
+            "window_count": self.window_count,
+            "interval": [self.left_endpoint, self.left_endpoint + 1],
+            "left_endpoint": self.left_endpoint,
+            "degree": self.degree,
+            "expected_denominator": self.expected_denominator_record,
+            "numerator_power_coefficients_low_to_high": power_coefficients,
+            "bernstein_coefficients_low_to_high": bernstein_coefficients,
+            "coefficient_count": len(bernstein_coefficients),
+            "bernstein_vector_sha256": self.digest,
+        }
+        record["cell_payload_sha256"] = json_digest(record)
+        return record
 
 
 def make_cell(
@@ -206,6 +281,42 @@ def build_cells() -> list[Cell]:
         for cell in range(4, 16)
     )
     return cells
+
+
+def build_full_certificate(cells: list[Cell]) -> dict[str, Any]:
+    payload = {"cells": [cell.full_record() for cell in cells]}
+    total_coefficients = sum(len(cell.coefficients) for cell in cells)
+    return {
+        "schema": "universal-pb-finite-bernstein/v2",
+        "certificate_date": "2026-07-16",
+        "claim": "positivity of the thirteen compact scalar-cell numerators",
+        "rational_encoding": "reduced decimal p or p/q with q>0",
+        "variable": "t",
+        "domain": ["0", "1"],
+        "basis": "binomial(d,i)*t^i*(1-t)^(d-i)",
+        "coefficient_order": "ascending index 0 through degree",
+        "substitution": "H=left_endpoint+t",
+        "source_formula_ids": SOURCE_FORMULA_IDS,
+        "expands_summary_artifact": {
+            "path": LEGACY_CERTIFICATE_PATH,
+            "sha256": LEGACY_CERTIFICATE_SHA256,
+        },
+        "generator": {
+            "path": "scripts/verify_universal_pb_finite_bernstein.py",
+            "sympy_version": sp.__version__,
+        },
+        "payload": payload,
+        "summary": {
+            "total_cells": len(cells),
+            "total_coefficients": total_coefficients,
+            "all_coefficients_strictly_positive": all(
+                value > 0 for cell in cells for value in cell.coefficients
+            ),
+            "all_source_identities_exact": True,
+            "all_bernstein_identities_exact": True,
+        },
+        "payload_sha256": json_digest(payload),
+    }
 
 
 def lean_rational(value: sp.Rational) -> str:
@@ -272,6 +383,12 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     parser.add_argument(
+        "--full-out",
+        type=Path,
+        default=None,
+        help="Write the full v2 coefficient and identity certificate.",
+    )
+    parser.add_argument(
         "--emit-lean",
         type=Path,
         help="Optionally emit exact Lean coefficient data and ring theorem stubs.",
@@ -310,6 +427,12 @@ def main() -> int:
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    if args.full_out is not None:
+        full_result = build_full_certificate(cells)
+        args.full_out.parent.mkdir(parents=True, exist_ok=True)
+        args.full_out.write_text(
+            json.dumps(full_result, indent=2) + "\n", encoding="utf-8"
+        )
     if args.emit_lean is not None:
         emit_lean(cells, args.emit_lean)
 
@@ -321,6 +444,9 @@ def main() -> int:
                 "coefficients": total_coefficients,
                 "all_positive": result["all_coefficients_strictly_positive"],
                 "out": str(args.out),
+                "full_out": (
+                    None if args.full_out is None else str(args.full_out)
+                ),
                 "lean": None if args.emit_lean is None else str(args.emit_lean),
             },
             indent=2,

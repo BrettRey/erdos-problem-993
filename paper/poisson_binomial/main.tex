@@ -1,11 +1,10 @@
 \documentclass[ECP,preprint]{ejpecp}
 
-\SHORTTITLE{First-descent curvature of Poisson--binomial laws}
+\SHORTTITLE{A variance-scaled Tur\'an inequality at first descent}
 
-\TITLE{A variance-normalized curvature bound at the first descent of
-  Poisson--binomial laws%
-  \thanks{Generative AI systems assisted with proof exploration, exact
-    verification, literature searching, and drafting; see the disclosure
+\TITLE{A variance-scaled Tur\'an inequality at the first descent of a
+  Poisson--binomial mass function%
+  \thanks{Generative AI systems assisted with this work; see the disclosure
     and audit status at the end.}}
 
 \AUTHORS{%
@@ -13,28 +12,33 @@
     \EMAIL{brett.reynolds@humber.ca}}%
   \orcid{0000-0003-2407-9448}}
 
-\KEYWORDS{Poisson--binomial distribution; Bernoulli sum; log-concavity;
-  Tur\'an inequality; mode; computer-assisted proof}
+\KEYWORDS{Poisson--binomial law; Bernoulli sum; probability mass function;
+  log-concavity; Tur\'an inequality; modal index; computer-assisted proof}
 
 \AMSSUBJ{60E15}
 \AMSSUBJSECONDARY{60C05; 05A20}
 
-\ABSTRACT{Let $W$ be a finite sum of independent Bernoulli variables, let
-  $f_k=\mathbb{P}(W=k)$, and let $V=\operatorname{Var}(W)\geq1$. If $D$ is
-  the first index at which the mass function strictly decreases, we prove
+\ABSTRACT{Let $W$ be a finite sum of independent Bernoulli summands with
+  probability mass function (pmf) $f=(f_k)$, where
+  $f_k=\mathbb{P}(W=k)$, and variance
+  $V=\operatorname{Var}(W)\geq1$. If $D$ is the first-descent index of this
+  pmf, we prove
   \[
     V\left(1-\frac{f_{D-1}f_{D+1}}{f_D^2}\right)\geq\frac14.
   \]
-  Thus the local three-mass curvature immediately after the largest mode is
-  bounded at the variance scale. An exact finite binomial family shows that
-  no universal constant larger than $1/3$ is possible. The proof combines
-  cubic coefficient inequalities for Bernoulli sums with a lattice
-  max-atom bound, two-sided modal mass windows, and an exact
-  Bernstein-positive certificate for a compact scalar range.}
+  This gives a variance-scaled bound for the normalized Tur\'an deficit at
+  $D$ and yields $f_{D+r}/f_D\leq\exp(-r/(4V))$ for every support index
+  $D+r$ with $r\geq1$.
+  An explicit family of finite binomial laws shows that no universal constant
+  larger than $1/3$ is possible. The proof derives left and right normalized-mass
+  lower bounds about the rightmost modal index from cubic mass inequalities,
+  combines them with a lattice maximal-mass bound, and proves the remaining
+  scalar inequality directly outside a compact range and by exact Bernstein
+  expansions with strictly positive rational coefficients within it.}
 
 \hypersetup{
-  pdftitle={A variance-normalized curvature bound at the first descent
-    of Poisson-binomial laws},
+  pdftitle={A variance-scaled Turan inequality at the first descent of a
+    Poisson-binomial mass function},
   pdfauthor={Brett Reynolds},
 }
 
@@ -51,23 +55,38 @@ Let
   W=\sum_{i=1}^n B_i,
   \qquad B_i\sim\Ber(p_i),
 \]
-where the variables are independent. The law of $W$ is Poisson--binomial;
-see \cite{tangtang2023} for a recent survey. Parameters equal to zero may be
-deleted, and parameters equal to one may be absorbed into a deterministic
-shift. We therefore assume throughout that $0<p_i<1$. Put
+where the summands are independent. The law of $W$ is Poisson--binomial;
+see \cite{tangtang2023} for a recent survey.
+
+Bernoulli summands with $p_i=0$ may be deleted, whereas those with $p_i=1$
+contribute a deterministic shift. Put
+$I=\{i:0<p_i<1\}$,
+$s=\#\{i:p_i=1\}$, and
+$W^\circ=\sum_{i\in I}B_i$. Then $W=s+W^\circ$ and
+$\Var(W^\circ)=\Var(W)$. Let $h=(h_k)$ be the pmf of $W^\circ$, where
+$h_k=\Pp(W^\circ=k)$. Then $\Pp(W=s+k)=h_k$; hence translation shifts the
+first-descent index by $s$ and
+preserves the corresponding adjacent mass ratios and normalized Tur\'an
+deficits wherever defined.
+
+Assume $\Var(W)\geq1$. Then $I$ is nonempty. We henceforth replace $W$ by
+$W^\circ$, relabel $|I|$ as $n$, and assume that every success probability
+satisfies $0<p_i<1$. Put
 \[
   f_k=\Pp(W=k),\qquad V=\Var(W)=\sum_{i=1}^n p_i(1-p_i),
 \]
-and extend the mass function by $f_{-1}=f_{n+1}=0$. Its generating
-polynomial has only negative real zeros, so $(f_k)_{k=0}^n$ is log-concave.
+and call $(f_k)_{k=0}^n$ the probability mass function (pmf) of $W$. Extend
+the pmf by $f_{-1}=f_{n+1}=0$. The probability-generating polynomial
+$\sum_{k=0}^n f_kx^k$ has only negative real zeros, so Newton's inequalities
+make the pmf log-concave \cite[equation~(1)]{pitman1997}.
 For $0\leq k\leq n$, define the normalized Tur\'an deficit
 \begin{equation}\label{eq:deficit}
   \delta_k
   :=1-\frac{f_{k-1}f_{k+1}}{f_k^2}.
 \end{equation}
-Thus $0\leq\delta_k\leq1$ and $\delta_0=\delta_n=1$.
+We have $0\leq\delta_k\leq1$ and $\delta_0=\delta_n=1$.
 
-Assume $V\geq1$, and let
+Let
 \begin{equation}\label{eq:first-descent}
   D:=\min\{1\leq k\leq n:f_k<f_{k-1}\}.
 \end{equation}
@@ -81,22 +100,24 @@ If $f_n\geq f_{n-1}$, then the sum on the right is at most one, whereas
   V=\sum_{i=1}^n p_i^2\frac{1-p_i}{p_i}
   <\sum_{i=1}^n\frac{1-p_i}{p_i}\leq1,
 \]
-a contradiction. By log-concavity, $D-1$ is the largest modal index.
+a contradiction. By log-concavity, $c:=D-1$ is the rightmost modal index.
 
 Ordinary log-concavity gives only $\delta_D\geq0$. The sharper
 $\operatorname{ULC}(n)$ estimate scales with the number of summands, which can
-grow while the variance remains fixed. Variance discounts nearly deterministic
-Bernoulli factors, so the natural local question is whether $V\delta_D$ stays
-uniformly positive. Darroch's mode localization and variance-scale max-atom
-bounds control the location or height of the mode rather than this three-mass
-deficit, while the cubic inequalities of Hillion and Johnson furnish the
-propagation input below but no variance comparison
-\cite{bobkovmarsigliettimelbourne2022,darroch1964,hillionjohnson2016}. The
-answer is yes.
+grow while the variance remains fixed. Darroch's localization theorem controls
+modal-index location; variance-scaled maximal-mass bounds control the maximal
+mass; neither controls the normalized Tur\'an deficit. The cubic mass
+inequalities of Hillion and Johnson supply a recurrence for that deficit but
+don't compare it with variance
+\cite{bobkovmarsigliettimelbourne2022,darroch1964,hillionjohnson2016}.
+
+The variance of the Bernoulli summand $B_i$ is $p_i(1-p_i)$, which tends to
+zero as $p_i$ approaches $0$ or $1$. Thus the natural local question is
+whether $V\delta_D$ is uniformly bounded away from zero. The answer is yes.
 
 \begin{theorem}\label{thm:main}
-  Let $W$ be a finite Poisson--binomial random variable with variance
-  $V\geq1$, and let $D$ be defined by \eqref{eq:first-descent}. Then
+  Under the standing notation above, suppose $V\geq1$ and let $D$ be defined
+  by \eqref{eq:first-descent}. Then
   \begin{equation}\label{eq:main-bound}
     V\delta_D
     =V\left(1-\frac{f_{D-1}f_{D+1}}{f_D^2}\right)
@@ -104,20 +125,24 @@ answer is yes.
   \end{equation}
 \end{theorem}
 
-The constant $1/4$ is not claimed to be optimal. If $c_\star$ denotes the
-infimum of $V\delta_D$ over the laws in Theorem~\ref{thm:main}, then the next
-proposition gives the finite bracket
+A positive universal bound without a lower variance threshold is impossible.
+If $W\sim\Ber(p)$ with $0<p<1/2$, then $D=1$, $\delta_D=1$, and
+$V\delta_D=p(1-p)\to0$ as $p\downarrow0$.
+
+Let $c_\star$ denote the infimum of $V\delta_D$ over all finite
+Poisson--binomial laws with $V\geq1$, where $D$ and $\delta_D$ are defined
+from each law's pmf as above. The theorem and the next proposition give
 \begin{equation}\label{eq:constant-bracket}
   \frac14\leq c_\star\leq\frac13.
 \end{equation}
 
 \begin{proposition}\label{prop:one-third}
-  For every $n\geq5$, there is a binomial law of variance one whose first
-  strict descent is at $D=2$ and for which
+  For every $n\geq5$, there exists a binomial law of variance one whose pmf has
+  first-descent index $D=2$ and for which
   \[
     \delta_D=\frac{n+1}{3(n-1)}.
   \]
-  Consequently $c_\star\leq1/3$.
+  This gives $c_\star\leq1/3$.
 \end{proposition}
 
 \begin{proof}
@@ -126,7 +151,8 @@ proposition gives the finite bracket
     p_n=\frac{1-\sqrt{1-4/n}}2,
     \qquad W_n\sim\operatorname{Bin}(n,p_n).
   \]
-  Then $np_n(1-p_n)=1$. If $q_k=f_k/f_{k-1}$, then
+  Then $np_n(1-p_n)=1$. Write $f=(f_k)$ for the pmf of $W_n$ and put
+  $q_k=f_k/f_{k-1}$. Then
   \[
     q_k=\frac{n-k+1}{k}\frac{p_n}{1-p_n}.
   \]
@@ -137,7 +163,7 @@ proposition gives the finite bracket
     \frac{2}{n+1}\left(1-\frac{2}{n+1}\right)
     =\frac{2(n-1)}{(n+1)^2}>\frac1n.
   \]
-  Therefore $q_2<1$, so $D=2$. Finally,
+  So $q_2<1$ and $D=2$. Finally,
   \[
     \delta_2=1-\frac{q_3}{q_2}
     =1-\frac{2(n-2)}{3(n-1)}
@@ -145,89 +171,166 @@ proposition gives the finite bracket
   \]
 \end{proof}
 
-Theorem~\ref{thm:main} also controls the unnormalized fall in the next
-coefficient ratio and is invariant under translating a difference of
-Bernoulli sums.
+Proposition~\ref{prop:one-third} supplies a limiting admissible family but no
+extremality argument. The lower-bound proof also uses several relaxations. It
+first derives explicit left and right normalized-mass lower bounds. When the
+scalar $H$ introduced in
+Section~\ref{sec:scalar} satisfies $H\geq4$, the proof replaces each right
+normalized-mass lower bound by a smaller symmetric normalized-mass lower bound
+before applying the general maximal-mass bound. The inequalities defining
+these normalized-mass lower bounds and the maximal-mass bound need not be
+equalities simultaneously. The argument establishes
+\eqref{eq:constant-bracket}, and we make no conjecture about which,
+if either, endpoint equals $c_\star$.
+
+Theorem~\ref{thm:main} also bounds the adjacent-ratio drop
+$1-f_{D+1}/f_D$; log-concavity then bounds $f_{D+r}/f_D$ at every support
+index $D+r>D$.
+Complementation followed by translation extends these conclusions to
+differences of independent Bernoulli sums.
 
 \begin{corollary}\label{cor:signed}
   Under the hypotheses of Theorem~\ref{thm:main},
-  \begin{equation}\label{eq:raw-drop}
+  \begin{equation}\label{eq:adjacent-ratio-drop}
     V\left(1-\frac{f_{D+1}}{f_D}\right)\geq\frac14.
   \end{equation}
-  More generally, let $Z=X-Y$, where $X$ and $Y$ are finite Bernoulli sums
-  whose factors are mutually independent. Write $g_j=\Pp(Z=j)$, assume
-  $V_Z=\Var(Z)\geq1$, and let $d$ be the first strict descent within the
-  integer support of $g$. Then
+  Writing $\rho_V=1-(4V)^{-1}$, we also have
+  \begin{equation}\label{eq:right-tail-decay}
+    \frac{f_{D+r}}{f_D}
+    \leq\rho_V^r
+    \leq\exp\left(-\frac{r}{4V}\right),
+    \qquad 1\leq r\leq n-D.
+  \end{equation}
+  More generally, let $X$ and $Y$ be finite Bernoulli sums, with all summands
+  in the two sums mutually independent, and put $Z=X-Y$. Write $g=(g_j)$ for
+  the pmf of $Z$, so $g_j=\Pp(Z=j)$, and assume $V_Z=\Var(Z)\geq1$. Define
+  $d:=\min\{j\in\mathbb Z:g_j>0\text{ and }g_j<g_{j-1}\}$. Complementation
+  followed by translation to a Bernoulli sum shows that this index is well
+  defined. If
+  $u=\max\{j:g_j>0\}$ and $\rho_Z=1-(4V_Z)^{-1}$, then
   \[
     V_Z\left(1-\frac{g_{d-1}g_{d+1}}{g_d^2}\right)\geq\frac14,
     \qquad
     V_Z\left(1-\frac{g_{d+1}}{g_d}\right)\geq\frac14.
   \]
+  We also have
+  \[
+    \frac{g_{d+r}}{g_d}
+    \leq\rho_Z^r
+    \leq\exp\left(-\frac{r}{4V_Z}\right),
+    \qquad 1\leq r\leq u-d.
+  \]
 \end{corollary}
 
 \begin{proof}
-  Write $R_-=f_D/f_{D-1}<1$ and $R_+=f_{D+1}/f_D$. Then
+  Write $\eta_-=f_D/f_{D-1}<1$ and $\eta_+=f_{D+1}/f_D$. Then
   \[
-    1-R_+\geq1-\frac{R_+}{R_-}=\delta_D,
+    1-\eta_+\geq1-\frac{\eta_+}{\eta_-}=\delta_D,
   \]
-  proving \eqref{eq:raw-drop}. Write $Y=\sum_{j=1}^mY_j$. Then
+  proving \eqref{eq:adjacent-ratio-drop}. Log-concavity makes the adjacent
+  mass ratios nonincreasing. Hence, for $1\leq j\leq r$,
+  \[
+    \frac{f_{D+j}}{f_{D+j-1}}
+    \leq\frac{f_{D+1}}{f_D}\leq\rho_V.
+  \]
+  Multiplication gives the first inequality in
+  \eqref{eq:right-tail-decay}, and $1-x\leq e^{-x}$ gives the second.
+
+  Write $Y=\sum_{j=1}^mY_j$. Then
   \[
     Z+m=X+\sum_{j=1}^m(1-Y_j)
   \]
-  is an ordinary Poisson--binomial random variable. Translation preserves
-  the variance, the first-descent ratios, and the deficits.
+  is a finite Bernoulli sum. Translation preserves the variance and the
+  corresponding adjacent mass ratios and normalized Tur\'an deficits while
+  shifting the first-descent index, so the same argument gives all three
+  signed estimates.
 \end{proof}
 
-Poisson--binomial mass functions satisfy the standard
-$\operatorname{ULC}(n)$ estimate
+Equation~\eqref{eq:right-tail-decay} gives a variance-scaled geometric upper
+bound for the normalized mass $f_{D+r}/f_D$ at every support index $D+r$ with
+$1\leq r\leq n-D$. The standard
+$\operatorname{ULC}(n)$ estimate for Poisson--binomial pmfs alone
+doesn't recover this conclusion:
 \begin{equation}\label{eq:ulc}
   \delta_k\geq
   \frac{n+1}{(k+1)(n-k+1)};
 \end{equation}
-see \cite[Definition~3.11 and equation~(41)]{hillionjohnson2016}. This bound
-is indexed by the number of summands rather than their variance. For example,
-take $m$ parameters equal to $\varepsilon_m$ and $m$ equal to
-$1-\varepsilon_m$, where
-$2m\varepsilon_m(1-\varepsilon_m)=1$. The law is symmetric and strictly
-log-concave, has $V=1$ and $D=m+1$, but the right side of
+see \cite[Definition~3.11 and equation~(41)]{hillionjohnson2016} and, for a
+recent treatment via relative log-concavity,
+\cite[the discussion following Definition~1.3]{marsigliettimelbourne2026}.
+This bound is indexed by the number of summands rather than by the variance
+$V$ of their sum.
+
+For example, take $m$ success probabilities equal to $\varepsilon_m$ and $m$
+equal to $1-\varepsilon_m$, where
+$2m\varepsilon_m(1-\varepsilon_m)=1$. The resulting pmf is symmetric and
+strictly log-concave. The law has $V=1$, and the pmf has first-descent index
+$D=m+1$, but the right-hand side of
 \eqref{eq:ulc} at $D$ is
 \[
   \frac{2m+1}{m(m+2)}\longrightarrow0.
 \]
-Thus the displayed $\operatorname{ULC}(n)$ estimate alone supplies no
-positive variance-only constant at the first descent.
+Even at fixed variance, the $\operatorname{ULC}(n)$ lower bound at the
+first-descent index tends to zero.
 
-Darroch's theorem localizes a mode within one of the mean
-\cite{darroch1964}. Pitman bounds consecutive coefficient ratios through the
-means of exponentially tilted real-rooted laws
-\cite[equations~(20)--(21)]{pitman1997}, while D\"umbgen and Wellner prove
-strict decrease of the index-weighted ratios $(k+1)f_{k+1}/f_k$
-\cite[Proposition~2]{duembgenwellner2020}. Johnson's $c$-log-concavity bound
-for Bernoulli sums gives
+Existing quantitative results control modal-index location, adjacent mass
+ratios, or individual masses rather than the variance-scaled normalized
+Tur\'an deficit at the first-descent index. Darroch shows that a modal index
+lies within one unit of the mean \cite{darroch1964}. Pitman bounds adjacent
+mass ratios through exponentially tilted real-rooted laws
+\cite[equations~(20)--(21)]{pitman1997}, and D\"umbgen and Wellner prove strict
+decrease of the index-weighted mass ratios
+$(k+1)f_{k+1}/f_k$ \cite[Proposition~2]{duembgenwellner2020}.
+
+Gnedin extends the mean--mode rule to extended Bernoulli sums
+\cite[Theorem~2]{gnedin2024}. A three-mass peak-skewness statistic measures
+the Bernoulli perturbation needed to change the leading mode
+\cite[Sections~4.2 and~7]{gnedin2024}, rather than the normalized Tur\'an
+deficit at the first-descent index considered here.
+
+Johnson's $c$-log-concavity bound also controls $\delta_k$, but its scale
+depends on the success probabilities:
 \[
   \delta_k\geq \frac{f_{k+1}}{f_k}
   \left(\sum_i\frac{p_i}{1-p_i}\right)^{-1};
 \]
 see \cite[Definition~1.2, Lemma~5.1, and
-Example~5.2(2)]{johnson2017discrete}. In the
-variance-one symmetric family above, the odds-sum constant tends to zero, and
-the adjacent-ratio factor remains. Existing
-variance-scale bounds for Bernoulli sums, including the sharp uniform atom
-estimate of Baillon, Cominetti, and Vaisman and the lattice max-atom relation
-of Bobkov, Marsiglietti, and Melbourne, concern a single mass rather than the
-deficit in \eqref{eq:deficit}
-\cite{bailloncominettivaisman2016,bobkovmarsigliettimelbourne2022}. I am not
-aware of a previous finite variance-normalized lower bound for this three-mass
-deficit at the first strict descent of a Poisson--binomial law.
+Example~5.2(2)]{johnson2017discrete}. In the variance-one symmetric family
+above, the reciprocal of the odds sum tends to zero. At the first-descent
+index, the adjacent mass ratio is at most one, so the right-hand side of
+Johnson's bound also tends to zero.
 
-The proof has two external inputs. The cubic inequalities of Hillion and
-Johnson propagate a small deficit away from $D$. The max-atom/variance bound
-of Bobkov, Marsiglietti, and Melbourne then conflicts with the two-sided mass
-window forced by that propagation. The remaining scalar inequality is
-analytic outside a compact interval. On the compact interval it is proved by
-exact rational Bernstein certificates, not by floating-point sampling.
+The uniform maximal-mass bound of Baillon, Cominetti, and Vaisman and the
+lattice maximal-mass bound of Bobkov, Marsiglietti, and Melbourne control one
+mass rather than the normalized Tur\'an deficit in \eqref{eq:deficit}
+\cite{bailloncominettivaisman2016,bobkovmarsigliettimelbourne2022}. We aren't
+aware of an earlier universal constant $c>0$ for which
+$V\delta_D\geq c$ at the first-descent index of the pmf of every finite
+Poisson--binomial law with $V\geq1$.
 
-\section{Curvature propagation and modal mass windows}
+For an integer-valued log-concave random variable $X$ with maximal mass $M$,
+Aravinda's sharp min-entropy/variance inequality gives
+\cite[Theorem~1.4]{aravinda2024}
+\[
+M^{-2}\geq1+\Var(X).
+\]
+This bounds the maximal mass from above. Its direction is opposite to the input needed here:
+\eqref{eq:maximal-mass-bound} gives
+$M\geq(1+12V)^{-1/2}$, a lower bound on the maximal mass. Aravinda's result
+complements that step and reinforces the distinction between variance control
+of one atom and variance control of a local normalized Tur\'an deficit.
+
+The proof uses two external results. The cubic mass inequalities of Hillion
+and Johnson yield a recurrence; iteration yields explicit left and right
+normalized-mass lower bounds about the rightmost modal index. The
+pairwise variance identity turns those bounds into a variance estimate;
+combining that estimate with the maximal-mass bound of Bobkov, Marsiglietti,
+and Melbourne reduces the theorem to a scalar inequality. A direct symbolic
+argument proves that inequality for $H\geq16$; exact Bernstein expansions with
+strictly positive rational coefficients prove it for $3<H\leq16$, without
+floating-point sampling.
+
+\section{The recurrence for normalized Tur\'an deficits}
 \label{sec:propagation}
 
 For $1\leq k\leq n$, put
@@ -240,9 +343,9 @@ $1\leq k\leq n-1$,
   \delta_k=1-\frac{q_{k+1}}{q_k}.
 \end{equation}
 
-Hillion and Johnson proved the cubic coefficient inequalities
-\cite[Theorem~A.2, equation~(78), and Corollary~A.3,
-equation~(79)]{hillionjohnson2016}
+Hillion and Johnson's Theorem~A.2 and Corollary~A.3 state, for every
+$k\in\mathbb Z$, the cubic mass inequalities
+\cite[(78)--(79)]{hillionjohnson2016}
 \begin{align}
   (f_{k-1}^2-f_{k-2}f_k)f_{k+1}
   &\leq f_{k-1}(f_k^2-f_{k-1}f_{k+1}),
@@ -251,9 +354,21 @@ equation~(79)]{hillionjohnson2016}
   &\leq f_{k+1}(f_k^2-f_{k-1}f_{k+1}).
   \label{eq:HJ-right}
 \end{align}
-They hold with zero extension beyond the support. For $1\leq k\leq n-1$,
-division by the positive central masses gives the endpoint-aware recurrence
-\begin{equation}\label{eq:propagation}
+Their all-integer statement understands the pmf as zero beyond its support,
+so these inequalities include the cases adjacent to a support boundary. The
+identities
+\[
+\begin{aligned}
+  f_{k-1}^2-f_{k-2}f_k&=f_{k-1}^2\delta_{k-1},\\
+  f_k^2-f_{k-1}f_{k+1}&=f_k^2\delta_k,\\
+  f_{k+1}^2-f_kf_{k+2}&=f_{k+1}^2\delta_{k+1}
+\end{aligned}
+\]
+show the normalization explicitly. For $1\leq k\leq n-1$, dividing
+\eqref{eq:HJ-left} by $f_{k-1}f_k^2$ and \eqref{eq:HJ-right} by
+$f_{k+1}f_k^2$, respectively, gives the recurrence for normalized Tur\'an
+deficits
+\begin{equation}\label{eq:deficit-recurrence}
   \delta_{k-1}(1-\delta_k)\leq\delta_k,
   \qquad
   \delta_{k+1}(1-\delta_k)\leq\delta_k.
@@ -261,99 +376,123 @@ division by the positive central masses gives the endpoint-aware recurrence
 In particular, this includes relations adjacent to the boundary, such as
 $\delta_n(1-\delta_{n-1})\leq\delta_{n-1}$.
 
-Set $\delta=\delta_D$. We first note that $\delta>0$. If $\delta=0$,
-\eqref{eq:propagation} forces both neighboring deficits to vanish, and
-iteration reaches either $\delta_0$ or $\delta_n$, contradicting
+Set $\delta=\delta_D$. The boundary values show that $\delta>0$: if
+$\delta=0$, \eqref{eq:deficit-recurrence} forces both adjacent values of
+$\delta_k$ to vanish; repeated application then forces every $\delta_k$ to
+vanish, contradicting
 $\delta_0=\delta_n=1$. If $\delta\geq1/4$, Theorem~\ref{thm:main} follows
-at once from $V\geq1$. We may therefore assume
+from $V\geq1$, so it remains to consider
 \begin{equation}\label{eq:small-delta}
   0<\delta<\frac14.
 \end{equation}
+In this case $D$ lies strictly inside the support: $D\geq1$ by definition,
+whereas $\delta_D<1=\delta_n$ forces $D<n$.
 
-Iterating the map $x\mapsto x/(1-x)$ in \eqref{eq:propagation} gives, for
-either sign,
-\begin{equation}\label{eq:deficit-window}
+Iterating the map $x\mapsto x/(1-x)$ in \eqref{eq:deficit-recurrence} gives,
+for either sign and every integer $r\geq1$,
+\begin{equation}\label{eq:deficit-bound}
   \delta_{D\pm r}\leq\frac{\delta}{1-r\delta}
   \qquad\text{provided }D\pm r\in\{0,\ldots,n\}
   \text{ and }(r+1)\delta<1.
 \end{equation}
-The same bound excludes a support endpoint in this range: otherwise the
-left side would equal one, while the right side is strictly less than one.
+The same bound excludes an endpoint index of the support in this range:
+otherwise the left-hand side would equal one, while the right-hand side is
+strictly less than one.
 
 Define
 \begin{equation}\label{eq:K-a}
-  K=\max\{r\geq1:(r+1)\delta<1\},
+  K=\max\{r\in\mathbb Z_{\geq1}:(r+1)\delta<1\},
   \qquad
   a=\frac{1-2\delta}{1-\delta}.
 \end{equation}
-The endpoint exclusion gives $D>K$ and $n-D>K$, so every mass used below
-belongs to the support. Center the indices at the largest mode $c=D-1$, and
-write
-$p=f_c=\max_k f_k$. Since $q_{D-1}\geq1>q_D$, the first inequality in
-\eqref{eq:propagation} gives
+The endpoint exclusion gives $D>K$ and $n-D>K$, so every index used below
+lies in the support and its corresponding mass is strictly positive. Recall
+that
+$c=D-1$ is the rightmost modal index, and write $p=f_c=\max_k f_k$ for the
+maximal mass. Since $q_{D-1}\geq1>q_D$, the first inequality in
+\eqref{eq:deficit-recurrence} gives
 \[
   \delta_{D-1}\leq\frac{\delta}{1-\delta},
   \qquad
   q_D=q_{D-1}(1-\delta_{D-1})\geq a.
 \]
 
-For $0\leq j\leq K-1$, \eqref{eq:delta-ratio} and
-\eqref{eq:deficit-window} give
+For $0\leq j\leq K-1$, \eqref{eq:deficit-bound} gives
 \[
+\begin{aligned}
   q_{D+j}
-  =q_D\prod_{s=0}^{j-1}(1-\delta_{D+s})
-  \geq a(1-j\delta).
+  &=q_D\prod_{s=0}^{j-1}(1-\delta_{D+s})\\
+  &\geq a\prod_{s=0}^{j-1}
+    \frac{1-(s+1)\delta}{1-s\delta}
+   =a(1-j\delta).
+\end{aligned}
 \]
-Multiplication yields the right-hand mass window
-\begin{equation}\label{eq:right-window}
-  \frac{f_{c+r}}p\geq
+For $1\leq r\leq K$, we obtain the right normalized-mass lower bound
+\begin{equation}\label{eq:right-mass-bound}
   R_r:=a^r\prod_{j=1}^{r-1}(1-j\delta),
-  \qquad 1\leq r\leq K.
+  \qquad
+  \frac{f_{c+r}}p=\prod_{j=0}^{r-1}q_{D+j}\geq R_r.
 \end{equation}
-For the left-hand window, if $1\leq j\leq K$, then
+For the left normalized-mass lower bounds, let $1\leq j\leq K$. Then
 \[
   q_D=q_{D-j}\prod_{s=1}^j(1-\delta_{D-s})<1,
 \]
 and hence
 \[
+\begin{aligned}
   \frac1{q_{D-j}}
-  >\prod_{s=1}^j(1-\delta_{D-s})
-  \geq\frac{1-(j+1)\delta}{1-\delta}.
+  &>\prod_{s=1}^j(1-\delta_{D-s})\\
+  &\geq\prod_{s=1}^j
+    \frac{1-(s+1)\delta}{1-s\delta}
+   =\frac{1-(j+1)\delta}{1-\delta}.
+\end{aligned}
 \]
-Multiplying these inequalities gives
-\begin{equation}\label{eq:left-window}
-  \frac{f_{c-r}}p\geq
+For $1\leq r\leq K$, we obtain the left normalized-mass lower bound
+\begin{equation}\label{eq:left-mass-bound}
   L_r:=(1-\delta)^{-r}
   \prod_{j=2}^{r+1}(1-j\delta),
-  \qquad 1\leq r\leq K.
+  \qquad
+  \frac{f_{c-r}}p=\prod_{j=1}^r\frac1{q_{D-j}}\geq L_r.
 \end{equation}
 
-\section{Variance synthesis and scalar reduction}
+\section{Variance bounds and scalar reduction}
 \label{sec:variance}
 
-Put $w_0=1$, $w_r=R_r$, and $w_{-r}=L_r$ for $1\leq r\leq K$, and
-define
+Define auxiliary weights by $w_0=1$, $w_r=R_r$, and $w_{-r}=L_r$ for
+$1\leq r\leq K$, and put
 \begin{equation}\label{eq:A-def}
   A(\delta)=\frac12\sum_{i,j=-K}^K w_iw_j(i-j)^2.
 \end{equation}
-The pairwise variance identity and the mass windows give
+The pairwise variance identity and the preceding normalized-mass lower bounds
+give
 \begin{equation}\label{eq:pairwise-variance}
   V=\frac12\sum_{i,j=0}^n f_if_j(i-j)^2
   \geq p^2A(\delta).
 \end{equation}
 
-We also use the lattice max-atom bound of Bobkov, Marsiglietti, and Melbourne
+We also use the lattice maximal-mass bound of Bobkov, Marsiglietti, and
+Melbourne
 \cite[Corollary~3.2]{bobkovmarsigliettimelbourne2022}:
-\begin{equation}\label{eq:max-atom}
+\begin{equation}\label{eq:maximal-mass-bound}
   V\geq\frac{p^{-2}-1}{12}.
 \end{equation}
-For completeness, let $U$ be independent and uniform on
-$[-1/2,1/2]$. The density of $W+U$ is bounded by $p$, and
-$\Var(W+U)=V+1/12$. Among densities bounded by $p$, the centered uniform
-density on an interval of length $1/p$ minimizes variance. Thus
-$V+1/12\geq1/(12p^2)$, proving \eqref{eq:max-atom}.
+A short smoothing argument proves \eqref{eq:maximal-mass-bound}. Let $U$ be
+independent of $W$ and uniform on the unit interval centered at zero. The
+density of $W+U$ is bounded by $p$, and
+$\Var(W+U)=V+1/12$. Let $\varphi$ be any probability density bounded by $p$,
+and let $x_0\in\mathbb R$. Its second moment about $x_0$ is minimized by
+filling the interval of length $1/p$ centered at $x_0$ at density $p$.
+Moving mass toward $x_0$ without exceeding the density bound lowers the
+integral until this density is reached. Hence
+\[
+  \int_{\mathbb R}(x-x_0)^2\varphi(x)\,dx
+  \geq p\int_{-1/(2p)}^{1/(2p)}t^2\,dt
+  =\frac1{12p^2}.
+\]
+Taking $x_0=\mathbb E(W+U)$ yields $V+1/12\geq1/(12p^2)$, proving
+\eqref{eq:maximal-mass-bound}.
 
-The proof now reduces to one scalar estimate.
+It remains to prove one scalar estimate.
 
 \begin{proposition}\label{prop:scalar}
   For $0<\delta<1/4$, the quantity in \eqref{eq:A-def} satisfies
@@ -364,7 +503,8 @@ The proof now reduces to one scalar estimate.
 
 \begin{proof}[Proof of Theorem~\ref{thm:main} from
   Proposition~\ref{prop:scalar}]
-  Suppose that $V<1/(4\delta)$. Inequality \eqref{eq:max-atom} then gives
+  Suppose that $V<1/(4\delta)$. Inequality
+  \eqref{eq:maximal-mass-bound} then gives
   \[
     p^2>\frac{\delta}{3+\delta}.
   \]
@@ -377,43 +517,61 @@ The proof now reduces to one scalar estimate.
   a contradiction.
 \end{proof}
 
-\section{The scalar inequality and its exact certificate}
+\section{The scalar inequality}
 \label{sec:scalar}
 
 Set
 \begin{equation}\label{eq:H-def}
   H=\frac{1-\delta}{\delta}=\frac1\delta-1>3.
 \end{equation}
-The left weights become
+Under \eqref{eq:H-def}, the left normalized-mass lower bounds are
 \begin{equation}\label{eq:b-def}
   L_r=b_r:=\prod_{s=1}^r\left(1-\frac{s}{H}\right).
 \end{equation}
-The right weights are no smaller. Indeed, if $C_r=R_r/L_r$, then $C_1=1$
+For $1\leq r\leq K$, the right normalized-mass lower bounds satisfy
+$R_r\geq L_r=b_r$. Indeed,
+if $C_r=R_r/L_r$, then $C_1=1$
 and, for $1\leq r<K$,
 \begin{equation}\label{eq:C-ratio}
   \frac{C_{r+1}}{C_r}
   =\frac{(H-1)(H+1-r)}{(H+1)(H-r-1)}
   =1+\frac{2r}{(H+1)(H-r-1)}\geq1.
 \end{equation}
-The pairwise form in \eqref{eq:A-def} is coordinatewise increasing in its
-nonnegative weights. Replacing every $R_r$ by $b_r$ therefore gives a lower
-bound. For the resulting symmetric weights, put
+
+Since every auxiliary weight is nonnegative, the pairwise form in
+\eqref{eq:A-def} is nondecreasing in each auxiliary weight. With $K$ fixed,
+\[
+  \frac{\partial A}{\partial w_\ell}
+  =\sum_{j=-K}^K w_j(\ell-j)^2\geq0.
+\]
+Replacing every $R_r$ by $b_r$ doesn't increase the pairwise form; denote the
+resulting value by $A_{\mathrm{sym}}$. For the symmetric auxiliary weights
+$w_0=1$ and $w_{\pm r}=b_r$, put
 \begin{equation}\label{eq:S-T}
   S=1+2\sum_{r=1}^K b_r,
   \qquad
   T=2\sum_{r=1}^K r^2b_r.
 \end{equation}
-Their first moment vanishes, so $A(\delta)\geq ST$. Under
-\eqref{eq:H-def}, the right side of \eqref{eq:scalar-target} is
+The pairwise identity gives
+\[
+  A_{\mathrm{sym}}
+  =\left(\sum_{r=-K}^K w_r\right)
+   \left(\sum_{r=-K}^K r^2w_r\right)
+   -\left(\sum_{r=-K}^K rw_r\right)^2
+  =ST,
+\]
+because the final sum vanishes by symmetry. Hence
+$A(\delta)\geq A_{\mathrm{sym}}=ST$. Under \eqref{eq:H-def}, the right-hand
+side of \eqref{eq:scalar-target} is
 \begin{equation}\label{eq:Q-def}
   Q(H)=\frac{(3H+4)(H+1)}4.
 \end{equation}
-The symmetric reduction proves the desired estimate except on $3<H<4$,
-where we retain the exact asymmetric weights.
+For $H\geq4$, it remains to prove $ST\geq Q(H)$. On $3<H<4$, we instead
+retain the exact asymmetric normalized-mass lower bounds.
 
 \subsection{The compact range}
 
-On $3<H\leq4$, use the exact weights
+On $3<H\leq4$, use the exact normalized-mass lower bounds
 $L_1,L_2,L_3,R_1,R_2,R_3$. Direct simplification gives
 \begin{equation}\label{eq:asymmetric-P}
   A(\delta)-Q(H)=\frac{P(H)}{4H^5(H+1)^3},
@@ -437,71 +595,123 @@ and
 \begin{equation}\label{eq:compact-P}
   P_m(H)=4H^{2m}\bigl(S_mT_m-Q(H)\bigr).
 \end{equation}
-At an integer $H=m$, the actual window ends at $m-1$, but the added term
-$b_m$ is zero. Each $P_m$ is an integer polynomial of degree $2m+2$. After
-$H=m+t$, its full-degree Bernstein coefficients are all strictly positive.
+For $m<H\leq m+1$, we have $K=m$. At $H=m$, we have $K=m-1$ and
+$b_m=0$. Hence $S_m=S$ and $T_m=T$ throughout the closed cell
+$[m,m+1]$. Each $P_m$ is an integer polynomial of degree $2m+2$. After
+substituting $H=m+t$, all its full-degree Bernstein coefficients are strictly
+positive.
 
-For clarity, if $G(t)=\sum_{j=0}^d a_jt^j$, its coefficients in the
-degree-$d$ Bernstein basis are
+If $G(t)=\sum_{j=0}^d a_jt^j$ has degree $d$, the Bernstein conversion used
+here is
 \begin{equation}\label{eq:bernstein-conversion}
-  c_i=\sum_{j=0}^i a_j
+  \beta_i=\sum_{j=0}^i a_j
   \frac{\binom{i}{j}}{\binom{d}{j}},
   \qquad
-  G(t)=\sum_{i=0}^d c_i\binom di t^i(1-t)^{d-i}.
+  G(t)=\sum_{i=0}^d \beta_i\binom di t^i(1-t)^{d-i}.
 \end{equation}
-All computations in this step are therefore rational polynomial identities.
-There are $11$ positive coefficients for \eqref{eq:asymmetric-P} and $264$
-for \eqref{eq:compact-P}, for $275/275$ positive coefficients in total.
-The exact verifier reconstructs every identity before checking the signs.
-Because the Bernstein basis functions are nonnegative on $[0,1]$, this proves
+All polynomial identities and Bernstein coefficients in this step are exact
+and rational.
+The Bernstein expansions of $P(3+t)$ and the twelve polynomials $P_m(m+t)$,
+$4\leq m\leq15$, have, respectively, $11$ and $264$ strictly positive
+coefficients. Thus all $275$ certificate coefficients are strictly positive.
+
+\begin{table}[t]
+  \centering
+  \caption{Compact-range certificate summary. The minimum is taken over the
+  Bernstein coefficients of the stated cleared numerator; the final column
+  gives the first sixteen hexadecimal characters of its coefficient-vector
+  SHA-256 digest. Full coefficients and digests are in the supplement.}
+  \label{tab:certificate-summary}
+  \scriptsize
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{lrrrl}
+    \hline
+    Cell & Degree & Count & Minimum coefficient & SHA-256 prefix \\
+    \hline
+    $[3,4]$ asym. & 10 & 11 & $22272$ & \texttt{e1e452c9c93c30cd} \\
+    $[4,5]$ & 10 & 11 & $332800$ & \texttt{441f603ac3f60919} \\
+    $[5,6]$ & 12 & 13 & $476945150$ & \texttt{80a652bad6b13e69} \\
+    $[6,7]$ & 14 & 15 & $252843503616$ & \texttt{e3ad5553e47317b2} \\
+    $[7,8]$ & 16 & 17 & $141578177942152$ & \texttt{6c774572e048423c} \\
+    $[8,9]$ & 18 & 19 & $92316620768411648$ & \texttt{e9b192d522d49b1e} \\
+    $[9,10]$ & 20 & 21 & $71284663153149460650$ & \texttt{876f43f48d0c3c1e} \\
+    $[10,11]$ & 22 & 23 & $65053547560474378240000$ & \texttt{b741906966aed963} \\
+    $[11,12]$ & 24 & 25 & $69645362929101036447979796$ & \texttt{6c318dad110490486} \\
+    $[12,13]$ & 26 & 27 & $86706679760909016273411637248$ & \texttt{643c6c7cf85a5535} \\
+    $[13,14]$ & 28 & 29 & $124437022735783915561664544889462$ & \texttt{64f915da71a6e95d} \\
+    $[14,15]$ & 30 & 31 & $204172536352322626071425358548172800$ & \texttt{e31285e840aa69d9} \\
+    $[15,16]$ & 32 & 33 & $380093996939768323066638847260414000000$ & \texttt{0850f4a393088df0} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+The generator program reconstructs every identity before checking the signs.
+This reconstruction provides an internal consistency check.
+The accompanying full certificate data file records each exact power-basis
+numerator and all $275$ reduced rational Bernstein coefficients. A separately
+implemented standard-library checker supplies a computational cross-check: it
+reconstructs the identities and Bernstein expansions for the thirteen compact
+scalar cells without importing the generator program. Because the Bernstein
+basis functions are nonnegative on $[0,1]$, the verified coefficient signs prove
 Proposition~\ref{prop:scalar} for $3<H\leq16$.
 
 \subsection{The analytic range}
 
-Suppose $H\geq16$, and choose an integer $R\geq5$ such that
+Thirteen exact scalar-cell checks cover the compact range; one initial
+triangular cell and a uniform cell family cover the analytic range.
+
+Suppose $H\geq16$, and choose an integer $J\geq5$ such that
 \begin{equation}\label{eq:triangular-cell}
-  \frac{R(R+1)}2\leq H\leq\frac{(R+1)(R+2)}2.
+  \frac{J(J+1)}2\leq H\leq\frac{(J+1)(J+2)}2.
 \end{equation}
-Either choice is valid at a shared endpoint. For $1\leq r\leq R$, the
-elementary product bound gives
+Either choice is valid at a shared endpoint. Since $\delta=(H+1)^{-1}$,
+\[
+  K=\max\{r\in\mathbb Z_{\geq1}:r<H\}.
+\]
+For $J\geq5$, $J<J(J+1)/2\leq H$, so $J\leq K$. For
+$1\leq r\leq J$, the elementary product bound gives
 \begin{equation}\label{eq:bonferroni}
-  b_r\geq c_r:=1-\frac{r(r+1)}{2H}\geq0.
+  b_r\geq\lambda_r:=1-\frac{r(r+1)}{2H}\geq0.
 \end{equation}
 Put
 \begin{align}
-  S_0&=1+2\sum_{r=1}^R c_r
-  =2R+1-\frac{R(R+1)(R+2)}{3H},
+  S_0&=1+2\sum_{r=1}^J \lambda_r
+  =2J+1-\frac{J(J+1)(J+2)}{3H},
   \label{eq:S0}\\
-  T_0&=2\sum_{r=1}^Rr^2c_r
-  =\frac{R(R+1)(2R+1)}3-\frac{Q_4+Q_3}{H},
+  T_0&=2\sum_{r=1}^Jr^2\lambda_r
+  =\frac{J(J+1)(2J+1)}3-\frac{M_4+M_3}{H},
   \label{eq:T0}
 \end{align}
 where
 \[
-  Q_3=\frac{R^2(R+1)^2}{4},
+  M_3=\frac{J^2(J+1)^2}{4},
   \qquad
-  Q_4=\frac{R(R+1)(2R+1)(3R^2+3R-1)}{30}.
+  M_4=\frac{J(J+1)(2J+1)(3J^2+3J-1)}{30}.
 \]
-Since $R\leq K$, all omitted weights are nonnegative and $b_r\geq c_r$ for
-$r\leq R$. Consequently $S\geq S_0$, $T\geq T_0$, and
-$A(\delta)\geq ST\geq S_0T_0$. It therefore remains to prove
-$S_0T_0\geq Q(H)$.
+Since $J\leq K$, all omitted auxiliary weights are nonnegative and
+$b_r\geq\lambda_r$ for $r\leq J$. Hence $S\geq S_0$, $T\geq T_0$, and
+$A(\delta)\geq ST\geq S_0T_0$. It remains to prove $S_0T_0\geq Q(H)$.
 
-Let $N_R(H)=H^2(S_0T_0-Q(H))$. For $R=5$, only
+Let $N_J(H)=H^2(S_0T_0-Q(H))$. For $J=5$, only
 $16\leq H\leq21$ is needed. After writing $H=16+5t$, $0\leq t\leq1$, the
 degree-four Bernstein coefficients are
 \[
   2360,\qquad 7500,\qquad \frac{25055}{2},\qquad
   \frac{254205}{16},\qquad \frac{31115}{2}.
 \]
-For $R\geq6$, write
+
+For $J\geq6$, write
 \[
-  H=\frac{R(R+1)}2+(R+1)t,
-  \qquad R=u+6,
+  H=\frac{J(J+1)}2+(J+1)t,
+  \qquad J=u+6,
   \qquad 0\leq t\leq1.
 \]
-Up to positive prefactors, the five degree-four Bernstein coefficients of
-$N_R$ are the following polynomials in $u$:
+After removing strictly positive multipliers, the five degree-four Bernstein
+coefficients in $t$ of
+\[
+  N_J\left(\frac{J(J+1)}2+(J+1)t\right)
+\]
+are the following polynomials in $u$, in order:
 \begin{align*}
   &121u^4+2474u^3+17431u^2+46014u+25400,\\
   &121u^5+3442u^4+37967u^3+199405u^2+480475u+384510,\\
@@ -510,40 +720,55 @@ $N_R$ are the following polynomials in $u$:
   &121u^5+3684u^4+43735u^3+249961u^2+671859u+644400,\\
   &121u^4+2958u^3+25579u^2+88782u+91440.
 \end{align*}
-The corresponding positive prefactors, before the harmless common factor
-$1/2880$, are
+After factoring out the common strictly positive scalar $1/2880$, the removed
+multipliers are, respectively,
 \[
-  R^2(R+1)^2,\quad R(R+1)^2,\quad (R+1)^2,\quad
-  (R+1)^2(R+2),\quad (R+1)^2(R+2)^2.
+  J^2(J+1)^2,\quad J(J+1)^2,\quad (J+1)^2,\quad
+  (J+1)^2(J+2),\quad (J+1)^2(J+2)^2.
 \]
-Every displayed coefficient is positive for $u\geq0$. Hence
-$S_0T_0\geq Q(H)$ throughout the analytic range. Together with the compact
-certificate, this proves Proposition~\ref{prop:scalar}.
+All five multipliers are strictly positive for $J\geq6$, and every coefficient
+of the five polynomials above is strictly positive for $u\geq0$. Thus
+$N_J(H)>0$ and $S_0T_0>Q(H)$ throughout the analytic range. Together with the
+compact range Bernstein verification, this proves Proposition~\ref{prop:scalar}.
 
-\begin{acks}[Data, code, and certificate availability]
-The exact verifiers, machine-readable certificates, and replay instructions
-are in the project repository:
-\href{https://github.com/BrettRey/erdos-problem-993}
-  {\nolinkurl{github.com/BrettRey/erdos-problem-993}}. The compact Bernstein
-certificate reconstructs thirteen rational polynomial identities and checks
-all $275$ coefficient signs. The certificate records the combined cell digest;
-the archived DOI and frozen submission hashes will be added before submission.
-These artifacts corroborate the finite calculation in
-Section~\ref{sec:scalar}; they do not replace an unstated mathematical step.
+\par\bigskip
+\begin{supplement}
+\stitle{Code and exact certificate data}
+\sdescription{The supplementary archive comprises the generator program, an
+independently implemented checker, the compact summary certificate, the full
+certificate, the MIT license, and a manifest giving the reference environment,
+exact replay commands, per-cell and aggregate digests, and archive status. The
+full certificate records the exact power-basis numerators and all $275$
+reduced rational Bernstein coefficients for the thirteen compact scalar cells.
+Using only the Python standard library and without importing the generator,
+the checker reconstructs the identities and Bernstein expansions, verifies
+strict positivity, and recomputes the Bernstein-vector digest for each cell,
+each cell-payload digest, and the overall payload digest. The programs verify
+only the thirteen compact scalar cells. Neither program machine-verifies
+Theorem~\ref{thm:main}. The archive also contains the complete conditional Lean
+project cited in the acknowledgement. That project formalizes the recurrence
+propagation, endpoint exclusion, first-crossing algebra, and raw-drop
+corollary, taking the normalized Hillion--Johnson recurrence as a hypothesis.}
+\end{supplement}
+
+\medskip
+\begin{acks}[AI use and author responsibility]
+OpenAI's GPT-5.6 model, accessed through Codex, supplied substantial proof-search
+assistance. Other sessions with Claude (Anthropic), ChatGPT and Codex (both
+OpenAI), and Gemini (Google) assisted with computational exploration,
+exact-verification code, proof critique, formalization support, literature
+searching, drafting, and revision. Aristotle (Harmonic) completed bounded proof
+obligations in Lean for a conditional formalization; that formalization assumes
+the normalized Hillion--Johnson recurrence and doesn't formally prove
+Theorem~\ref{thm:main}. Its complete Lean project is included in the supplement.
+The author remains responsible for the mathematics, sources, wording, and
+released files. Fresh generator output matched both certificate files byte for
+byte, and the independently implemented checker replayed the full certificate
+in the reference environment; the exact commands and digests are listed in the
+supplement.
 \end{acks}
 
-\begin{acks}[Use of AI tools and author responsibility]
-GPT-5.6 (OpenAI) supplied substantial proof-search assistance. Claude
-(Anthropic), ChatGPT and Codex (OpenAI), and Gemini (Google) assisted with
-computational exploration, exact-verification code, proof critique,
-formalization support, literature searching, drafting, and revision.
-Aristotle (Harmonic) filled bounded Lean proof obligations in a conditional
-formalization; that artifact assumes the normalized Hillion--Johnson
-recurrence and is not an end-to-end formal proof of Theorem~\ref{thm:main}.
-The independent human proof and certificate audit is in progress. This draft
-is not cleared for submission.
-\end{acks}
-
+\clearpage
 \bibliographystyle{amsplain}
 \bibliography{references}
 

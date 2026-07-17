@@ -89,7 +89,7 @@ pip install networkx numpy
 The July 2026 proof-audit harnesses additionally use:
 
 ```bash
-pip install mpmath sympy
+pip install mpmath "sympy==1.14.0"
 ```
 
 Optional: install [nauty](https://pallini.di.uniroma1.it/) for fast tree enumeration (`brew install nauty` on macOS).
@@ -123,6 +123,20 @@ python3 scripts/verify_one_reflected_bernoulli.py
 python3 scripts/verify_two_reflected_bernoulli.py
 python3 scripts/verify_universal_pb_effective_drop.py
 python3 scripts/verify_universal_pb_finite_bernstein.py
+
+# Full finite Bernstein certificate: regenerate without overwriting provenance
+python3 scripts/verify_universal_pb_finite_bernstein.py \
+  --out /tmp/universal_pb_finite_bernstein_summary.json \
+  --full-out /tmp/universal_pb_finite_bernstein_full.json
+cmp /tmp/universal_pb_finite_bernstein_summary.json \
+  results/universal_pb_finite_bernstein_certificate_2026-07-10.json
+cmp /tmp/universal_pb_finite_bernstein_full.json \
+  results/universal_pb_finite_bernstein_full_certificate_2026-07-16.json
+python3 -I -S scripts/check_universal_pb_finite_bernstein_certificate.py \
+  results/universal_pb_finite_bernstein_full_certificate_2026-07-16.json
+
+# Build and checksum the deterministic Poisson--binomial supplement
+python3 scripts/build_poisson_binomial_supplement.py
 ```
 
 ## Key files
@@ -131,6 +145,10 @@ python3 scripts/verify_universal_pb_finite_bernstein.py
 |------|-------------|
 | `paper/main_v2.tex` | Current manuscript (XeLaTeX + biber) |
 | `paper/main.tex` | Previous version |
+| `paper/poisson_binomial/main.tex` | Standalone ECP Poisson--binomial manuscript |
+| `paper/poisson_binomial/CERTIFICATE.md` | Audit manifest and exact replay instructions for its scalar certificate |
+| `scripts/check_universal_pb_finite_bernstein_certificate.py` | Independent standard-library certificate checker |
+| `scripts/build_poisson_binomial_supplement.py` | Deterministic supplementary-archive builder |
 | `indpoly.py` | Core DP + analysis functions |
 | `search.py` | Exhaustive parallel search |
 | `targeted.py` | Structured family search |
