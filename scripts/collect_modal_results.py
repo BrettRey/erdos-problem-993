@@ -11,11 +11,14 @@ Examples:
     --out results/analysis_n28_modal_unimodality.json
   python3 scripts/collect_modal_results.py collect --kind lc_nm --n 28 --workers 1024 \
     --top-k 200 --lc-top-k 200 --out results/analysis_n28_modal_lc_nm.json
+  python3 scripts/collect_modal_results.py collect --kind unimodality --n 29 --workers 1024 \
+    --raw-in results/raw_n29_modal_rows.json --out /tmp/replayed_n29.json
 """
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import heapq
 import json
 import subprocess
@@ -29,6 +32,9 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from search import A000055_COUNTS
+
+
+RAW_EXPORT_SCHEMA = "erdos993-modal-dict-rows-v1"
 
 
 def dict_name(kind: str, n: int) -> str:
@@ -49,7 +55,160 @@ def load_modal_dict(name: str, limit: int) -> dict[str, Any]:
     return out
 
 
+def _canonical_json_bytes(value: Any) -> bytes:
+    """Return a stable JSON encoding suitable for artifact hashes."""
+    return json.dumps(
+        value,
+        ensure_ascii=True,
+        allow_nan=False,
+        separators=(",", ":"),
+        sort_keys=True,
+    ).encode("utf-8")
+
+
+def _sha256_json(value: Any) -> str:
+    return hashlib.sha256(_canonical_json_bytes(value)).hexdigest()
+
+
+def _partition_sort_key(key: str) -> tuple[int, int, str]:
+    try:
+        residue_s, workers_s = key.split("/", 1)
+        return (int(workers_s), int(residue_s), key)
+    except (ValueError, TypeError):
+        return (sys.maxsize, sys.maxsize, key)
+
+
+def expected_partition_keys(workers: int) -> list[str]:
+    if workers < 1:
+        raise ValueError("workers must be positive")
+    return [f"{residue}/{workers}" for residue in range(workers)]
+
+
+def audit_partition_keys(rows: dict[str, Any], workers: int) -> dict[str, Any]:
+    """Check the exact residue-key set, including stale or foreign keys."""
+    expected = expected_partition_keys(workers)
+    expected_set = set(expected)
+    actual = sorted(rows, key=_partition_sort_key)
+    actual_set = set(actual)
+    missing = [key for key in expected if key not in actual_set]
+    unexpected = [key for key in actual if key not in expected_set]
+    present_expected = workers - len(missing)
+    return {
+        "expected_count": workers,
+        "present_expected_count": present_expected,
+        "actual_count": len(actual),
+        "missing_keys": missing,
+        "unexpected_keys": unexpected,
+        "exact_match": not missing and not unexpected,
+        "expected_keys_sha256": _sha256_json(expected),
+        "actual_keys_sha256": _sha256_json(actual),
+    }
+
+
+def expected_rows_only(rows: dict[str, Any], workers: int) -> dict[str, Any]:
+    """Exclude stale keys from status totals while retaining partial results."""
+    return {key: rows[key] for key in expected_partition_keys(workers) if key in rows}
+
+
+def require_exact_partition_keys(rows: dict[str, Any], workers: int) -> dict[str, Any]:
+    audit = audit_partition_keys(rows, workers)
+    if not audit["exact_match"]:
+        missing = ", ".join(audit["missing_keys"][:5]) or "none"
+        unexpected = ", ".join(audit["unexpected_keys"][:5]) or "none"
+        raise ValueError(
+            "Modal partition keys do not exactly match the expected residue set: "
+            f"missing={len(audit['missing_keys'])} ({missing}); "
+            f"unexpected={len(audit['unexpected_keys'])} ({unexpected})"
+        )
+    return audit
+
+
+def sorted_raw_rows(rows: dict[str, Any]) -> list[dict[str, Any]]:
+    return [
+        {"key": key, "value": rows[key]}
+        for key in sorted(rows, key=_partition_sort_key)
+    ]
+
+
+def build_raw_export(
+    rows: dict[str, Any],
+    *,
+    kind: str,
+    n: int,
+    workers: int,
+    expected: int | None,
+    name: str,
+) -> dict[str, Any]:
+    """Build a deterministic, self-hashing export of the raw Modal rows."""
+    raw_rows = sorted_raw_rows(rows)
+    payload = {
+        "schema": RAW_EXPORT_SCHEMA,
+        "kind": kind,
+        "n": n,
+        "workers": workers,
+        "expected_tree_count": expected,
+        "dict_name": name,
+        "row_count": len(raw_rows),
+        "partition_key_audit": audit_partition_keys(rows, workers),
+        "rows_sha256": _sha256_json(raw_rows),
+        "rows": raw_rows,
+    }
+    payload["content_sha256"] = _sha256_json(payload)
+    return payload
+
+
+def load_raw_export(path: Path) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Load and validate a deterministic raw-row export without Modal."""
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("schema") != RAW_EXPORT_SCHEMA:
+        raise ValueError(f"unsupported raw export schema: {payload.get('schema')!r}")
+    claimed_content_hash = payload.get("content_sha256")
+    content_without_hash = {
+        key: value for key, value in payload.items() if key != "content_sha256"
+    }
+    if claimed_content_hash != _sha256_json(content_without_hash):
+        raise ValueError("raw export content_sha256 mismatch")
+    for field, expected_type in (
+        ("kind", str),
+        ("n", int),
+        ("workers", int),
+        ("dict_name", str),
+    ):
+        if not isinstance(payload.get(field), expected_type):
+            raise ValueError(f"raw export {field} has the wrong type")
+    raw_rows = payload.get("rows")
+    if not isinstance(raw_rows, list):
+        raise ValueError("raw export rows must be a list")
+    if payload.get("row_count") != len(raw_rows):
+        raise ValueError("raw export row_count does not match its rows")
+    if payload.get("rows_sha256") != _sha256_json(raw_rows):
+        raise ValueError("raw export rows_sha256 mismatch")
+
+    rows: dict[str, Any] = {}
+    for row in raw_rows:
+        if not isinstance(row, dict) or set(row) != {"key", "value"}:
+            raise ValueError("each raw export row must contain exactly key and value")
+        key = row["key"]
+        if not isinstance(key, str):
+            raise ValueError("raw export row key must be a string")
+        if key in rows:
+            raise ValueError(f"duplicate raw export key: {key}")
+        rows[key] = row["value"]
+
+    workers = payload.get("workers")
+    if not isinstance(workers, int):
+        raise ValueError("raw export workers must be an integer")
+    calculated_audit = audit_partition_keys(rows, workers)
+    if payload.get("partition_key_audit") != calculated_audit:
+        raise ValueError("raw export partition_key_audit mismatch")
+    if raw_rows != sorted_raw_rows(rows):
+        raise ValueError("raw export rows are not in canonical partition order")
+    return rows, payload
+
+
 def summarize_unimodality(rows: dict[str, Any], n: int, workers: int, expected: int | None) -> dict[str, Any]:
+    partition_audit = audit_partition_keys(rows, workers)
+    rows = expected_rows_only(rows, workers)
     total_trees = 0
     counterexamples: list[dict[str, Any]] = []
     for value in rows.values():
@@ -67,7 +226,9 @@ def summarize_unimodality(rows: dict[str, Any], n: int, workers: int, expected: 
         "counterexamples_found": len(counterexamples),
         "counterexample_examples": counterexamples[:3],
         "dict_name": dict_name("unimodality", n),
-        "complete": len(rows) == workers,
+        "complete": partition_audit["exact_match"],
+        "partition_key_audit": partition_audit,
+        "rows_sha256": _sha256_json(sorted_raw_rows(rows)),
     }
 
 
@@ -86,6 +247,8 @@ def collect_unimodality(rows: dict[str, Any], n: int, workers: int, expected: in
         "date": time.strftime("%Y-%m-%d"),
         "complete": status["complete"],
         "completed_partitions": status["completed"],
+        "partition_key_audit": status["partition_key_audit"],
+        "rows_sha256": status["rows_sha256"],
     }
 
 
@@ -107,6 +270,8 @@ def collect_lc_nm(
     top_k: int,
     lc_top_k: int,
 ) -> dict[str, Any]:
+    partition_audit = audit_partition_keys(rows, workers)
+    rows = expected_rows_only(rows, workers)
     agg_count = 0
     agg_non_unimodal = 0
     agg_lc_fail = 0
@@ -166,8 +331,10 @@ def collect_lc_nm(
         "platform": "Modal",
         "dict_name": dict_name("lc_nm", n),
         "date": time.strftime("%Y-%m-%d"),
-        "complete": len(rows) == workers,
+        "complete": partition_audit["exact_match"],
         "completed_partitions": len(rows),
+        "partition_key_audit": partition_audit,
+        "rows_sha256": _sha256_json(sorted_raw_rows(rows)),
     }
 
 
@@ -178,6 +345,8 @@ def format_status(summary: dict[str, Any], kind: str) -> str:
         f"workers={summary['workers']}",
         f"completed_partitions={summary['completed'] if 'completed' in summary else summary['completed_partitions']}",
         f"complete={summary['complete']}",
+        f"missing_partition_keys={len(summary['partition_key_audit']['missing_keys'])}",
+        f"unexpected_partition_keys={len(summary['partition_key_audit']['unexpected_keys'])}",
     ]
     if kind == "unimodality":
         lines.extend(
@@ -214,6 +383,17 @@ def build_parser() -> argparse.ArgumentParser:
         p.add_argument("--lc-top-k", type=int, default=200)
         p.add_argument("--dict-name", default="")
         p.add_argument("--out", default="")
+        p.add_argument(
+            "--raw-in",
+            type=Path,
+            help="Validate and replay a prior raw-row export instead of contacting Modal",
+        )
+        if command == "collect":
+            p.add_argument(
+                "--raw-out",
+                type=Path,
+                help="Write sorted raw Modal rows with hashes for offline replay",
+            )
     return parser
 
 
@@ -223,7 +403,36 @@ def main() -> int:
 
     expected = resolve_expected(args.n, args.expected) if args.kind == "unimodality" else args.expected
     name = args.dict_name or dict_name(args.kind, args.n)
-    rows = load_modal_dict(name, max(args.workers, 2000))
+    if args.raw_in:
+        try:
+            rows, raw_payload = load_raw_export(args.raw_in)
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            parser.error(f"cannot validate --raw-in: {exc}")
+        for field, requested in (
+            ("kind", args.kind),
+            ("n", args.n),
+            ("workers", args.workers),
+        ):
+            if raw_payload.get(field) != requested:
+                parser.error(
+                    f"--raw-in metadata {field}={raw_payload.get(field)!r} "
+                    f"does not match requested {requested!r}"
+                )
+        if args.dict_name and raw_payload.get("dict_name") != args.dict_name:
+            parser.error("--raw-in dict_name does not match --dict-name")
+        if raw_payload.get("expected_tree_count") != expected:
+            parser.error(
+                "--raw-in expected_tree_count does not match the resolved expected count"
+            )
+        name = raw_payload["dict_name"]
+    else:
+        rows = load_modal_dict(name, max(args.workers, 2000))
+
+    if args.command == "collect":
+        try:
+            require_exact_partition_keys(rows, args.workers)
+        except ValueError as exc:
+            parser.error(str(exc))
 
     if args.kind == "unimodality":
         status = summarize_unimodality(rows, args.n, args.workers, expected)
@@ -236,6 +445,30 @@ def main() -> int:
         if args.command == "status":
             print(format_status(summary, args.kind))
             return 0
+
+    summary["dict_name"] = name
+
+    if args.command == "collect" and args.raw_out:
+        raw_export = build_raw_export(
+            rows,
+            kind=args.kind,
+            n=args.n,
+            workers=args.workers,
+            expected=expected,
+            name=name,
+        )
+        args.raw_out.parent.mkdir(parents=True, exist_ok=True)
+        args.raw_out.write_text(
+            json.dumps(raw_export, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        summary["raw_export"] = {
+            "path": str(args.raw_out),
+            "rows_sha256": raw_export["rows_sha256"],
+            "content_sha256": raw_export["content_sha256"],
+            "row_count": raw_export["row_count"],
+        }
+        print(f"saved_raw={args.raw_out}")
 
     if args.out:
         out_path = Path(args.out)

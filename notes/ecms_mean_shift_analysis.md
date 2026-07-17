@@ -1,6 +1,6 @@
 # ECMS Mean Shift Analysis (2026-02-17)
 
-## Key Result: |δμ| < 1 suffices for ECMS
+## Corrected status: |δμ| < 1 leaves a rounding-alignment case
 
 ### Algebraic Identity
 
@@ -28,7 +28,7 @@ where:
 
 ### Straddling Analysis
 
-For LC polynomials, mode ∈ {⌊μ⌋, ⌈μ⌉}. If |δμ| < 1 but means straddle an integer k, modes could in principle differ by 2. Exhaustive check:
+Assume the Darroch-style localization mode ∈ {⌊μ⌋, ⌈μ⌉}; positive log-concavity alone does not imply this localization. If |δμ| < 1 but the means straddle an integer k, the modes can in principle differ by 2. Exhaustive check:
 
 | n range | Edges | Straddling | Gap-2 (|Δmode|=2) |
 |---------|-------|------------|-------------------|
@@ -39,7 +39,7 @@ In straddling cases, the mode of T/e always rounds UP to ⌈μ(T/e)⌉:
 - 1.5%: mode(T) = k+1, mode(T/e) = k
 - 0%: mode(T/e) drops to k-1
 
-**Conclusion**: Proving |μ(T) - μ(T/e)| < 1 would establish ECMS for log-concave trees.
+**Corrected conclusion**: Together with mode localization, proving |μ(T) - μ(T/e)| < 1 establishes ECMS when the two means have the same floor. In the straddling cases, an additional rounding-alignment argument is required. The zero gap-2 count above is empirical, not a consequence of the mean-shift bound.
 
 ### Computational Verification
 

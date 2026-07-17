@@ -1,0 +1,159 @@
+{
+  "all_checks_passed": true,
+  "checker": "scripts/verify_mode_mean_artifacts.py",
+  "hard_families": [
+    {
+      "archived_exact_fields_match": true,
+      "ceil_mean_minus_mode_hist": {
+        "0": 524,
+        "1": 235
+      },
+      "d_leaf_hist": {
+        "1": 759
+      },
+      "family": "galvin",
+      "mean": {
+        "maximum": "774505728898362051766102379330422182540731540846098899262596065970090771254086609978550695474335851499551876346031930785/4708241545847191693400480720877239043125964749252806118388679527141483305905143316658404505870174861820218798309237554",
+        "minimum": "5/4"
+      },
+      "mode_le_ceil_mean_count": 759,
+      "mode_le_ceil_mean_failures": [],
+      "non_log_concave_count": 390,
+      "order": {
+        "distinct": 374,
+        "greater_than_23": 736,
+        "histogram_sha256": "59bd4e2672ef5d270c4a805a9172b1dd4d84e061102b106627c55e5b60c794e0",
+        "max": 499,
+        "min": 4
+      },
+      "parameter_rows": 759,
+      "rows_sha256": "42cbbc4ee092940aadc82b1454c4d05d78f3594ba6d77e4dc39bb425e2bea997",
+      "source_artifact": "results/galvin_family_grid_m1-50_t1-50_nle500_summary.json",
+      "source_sha256": "cd3a7ac9f2f9b9e01458340cbde8bf110b5544602d47b8c6bfc5bf6f4c295d6c",
+      "unimodal_count": 759
+    },
+    {
+      "archived_exact_fields_match": true,
+      "ceil_mean_minus_mode_hist": {
+        "0": 37,
+        "1": 27
+      },
+      "d_leaf_hist": {
+        "1": 64
+      },
+      "family": "bautista-ramos",
+      "mean": {
+        "maximum": "4405384649814654734801822275922089563244127147472544146746111828828962015081515576484592495415425/33348512045620400976122442937948118972785591265305154830580374592180834895811719521094828445953",
+        "minimum": "1564/429"
+      },
+      "mode_le_ceil_mean_count": 64,
+      "mode_le_ceil_mean_failures": [],
+      "non_log_concave_count": 28,
+      "order": {
+        "distinct": 60,
+        "greater_than_23": 61,
+        "histogram_sha256": "64182c126caa89ed23f92cceba22ada69acf8e9fccc1655151287ec96d90ff11",
+        "max": 418,
+        "min": 12
+      },
+      "parameter_rows": 64,
+      "rows_sha256": "e015c9fee1c7caea3692cacb7a3b7688ce92cd0ab5ee39cd2919ec990cce1ef9",
+      "source_artifact": "results/bautista_ramos_family_grid_m1-8_t1-8_summary.json",
+      "source_sha256": "07e77acfa24cb52ad86d55252a8fbb29c6bbe7574f04c25c81dae9283292be6a",
+      "unimodal_count": 64
+    },
+    {
+      "archived_exact_fields_match": true,
+      "ceil_mean_minus_mode_hist": {
+        "0": 1666,
+        "1": 834
+      },
+      "d_leaf_hist": {
+        "1": 2500
+      },
+      "family": "li",
+      "mean": {
+        "maximum": "2210110604882462461797392861156863512302675071071067/31953406341964391991161845298476319991872819088542",
+        "minimum": "4653/1118"
+      },
+      "mode_le_ceil_mean_count": 2500,
+      "mode_le_ceil_mean_failures": [],
+      "non_log_concave_count": 229,
+      "order": {
+        "distinct": 99,
+        "greater_than_23": 2485,
+        "histogram_sha256": "ac3c8342df873b53dd5cfd9de9922328a4082abdd46f49e03db7272d7856f49c",
+        "max": 210,
+        "min": 14
+      },
+      "parameter_rows": 2500,
+      "rows_sha256": "59362fd309df9fdb626d37a3d0da1b4978ef259d9b2d0868418bf3b87cd5d067",
+      "source_artifact": "results/li_family_grid_m1-50_n1-50_summary.json",
+      "source_sha256": "341ebea1c92594e8fc1415388ac894072c839e641646187e0d6f8ac25a2dcb61",
+      "unimodal_count": 2500
+    },
+    {
+      "archived_exact_fields_match": true,
+      "ceil_mean_minus_mode_hist": {
+        "0": 1666,
+        "1": 834
+      },
+      "d_leaf_hist": {
+        "1": 2500
+      },
+      "family": "li-star",
+      "mean": {
+        "maximum": "294727225317043739578597435160922683699438148561598/4226095677438680673006003383044834007242250324197",
+        "minimum": "52/11"
+      },
+      "mode_le_ceil_mean_count": 2500,
+      "mode_le_ceil_mean_failures": [],
+      "non_log_concave_count": 321,
+      "order": {
+        "distinct": 99,
+        "greater_than_23": 2490,
+        "histogram_sha256": "e7617798ebc11a3520c89f806c022f25d5fa484a5ee36e178e74bcc8d1e7040d",
+        "max": 212,
+        "min": 16
+      },
+      "parameter_rows": 2500,
+      "rows_sha256": "2013974df5f0a7f967d1d0daaa7ce7c5a13ca151ccfb841acb9018c364947407",
+      "source_artifact": "results/li_star_family_grid_m1-50_n1-50_summary.json",
+      "source_sha256": "a200420f58c089a353005d4b072cc9483a78ecadbf01deb80a75ec2019bd7990",
+      "unimodal_count": 2500
+    }
+  ],
+  "n28_lc_witnesses": {
+    "alpha_hist": {
+      "15": 19
+    },
+    "archived_fields_match": true,
+    "d_leaf_hist": {
+      "1": 19
+    },
+    "lc_defect_position_hist": {
+      "14": 19
+    },
+    "mode_le_ceil_mean_count": 19,
+    "mode_le_ceil_mean_failures": [],
+    "order_hist": {
+      "28": 19
+    },
+    "retained_witnesses": 19,
+    "rows_sha256": "976d30c4688229e2c85a72796ac7c1d83dce805fdcaf892c6993f422c2286a3a",
+    "source_artifact": "results/analysis_n28_modal_lc_nm.json",
+    "source_sha256": "36479b9207a56894e6690883a270d3357c9de67c4aef4ac8908d75758d0399e9",
+    "unimodal_count": 19,
+    "unique_graph6": 19
+  },
+  "schema": "erdos993-mode-mean-artifact-replay-v1",
+  "totals": {
+    "all_replayed_rows": 5842,
+    "hard_family_rows": 5823,
+    "hard_family_rows_expected": 5823,
+    "hard_family_rows_greater_than_23": 5772,
+    "mode_le_ceil_mean_count": 5842,
+    "n28_lc_witnesses": 19,
+    "unimodal_count": 5842
+  }
+}

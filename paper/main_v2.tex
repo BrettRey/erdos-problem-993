@@ -51,6 +51,10 @@
 % ============================
 \title{Mean bounds, structural reductions, and exhaustive verification\\
   for tree independence polynomial unimodality}
+\hypersetup{
+  pdftitle={Mean bounds, structural reductions, and exhaustive verification for tree independence polynomial unimodality},
+  pdfkeywords={independence polynomial, unimodality, trees, Erdős Problem 993, exhaustive verification},
+}
 \author{Brett Reynolds\\
   \small Humber College, Toronto, Canada\\
   \small \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}
@@ -62,19 +66,18 @@
 \begin{abstract}
 \textcite{alavi1987} conjectured that the independence polynomial of every tree is unimodal.
 I prove $\mu(T) < n/3$ for every $\dleaf \le 1$ tree on $n \ge 3$ vertices via Steiner peeling on a compensation function.
-Hub Exclusion and Transfer give a conditional reduction for 1-Private maximal independent sets: Conjecture~A on the $\dleaf \le 1$ regime plus a Case~B hub bound would prove that every such set has size at least the mode.
-Conditional on $\mathrm{mode} \le \lceil\mu\rceil$, the mean bound settles the Conjecture~A part.
-A subdivision-contraction identity shows that, conditional on a conjectured Edge Contraction Mode Stability property and a tail condition verified through $n \le 19$, any minimal counterexample is homeomorphically irreducible.
-Neither conditional route closes the full conjecture.
+This mean bound would give the target mode bound for that class if tree independence polynomials satisfied $\mathrm{mode} \le \lceil\mu\rceil$; the tree-specific mode--mean conjecture remains open.
+A subdivision-contraction identity shows that, conditional on a conjectured Edge Contraction Mode Stability property and a combined tail condition verified through $n \le 19$, any minimal counterexample is homeomorphically irreducible.
+Neither conditional step closes the full conjecture.
 Computationally, I verify unimodality for all 8\,691\,747\,673 trees on $n \le 29$ vertices.
-Multi-arm stars are the empirically extremal family in the tested regimes, with near-miss ratio $\nm(s) = 1 - C/s + O(1/s^2)$, $C \in [4, 8]$.
+Multi-arm stars are the empirically extremal family in the tested regimes, with near-miss ratio $\nm(s) = 1 - C/s + O(1/s^2)$ along each parity class, where the parity-dependent constant satisfies $4\le C\le 8$.
 \end{abstract}
 
-\noindent\textbf{Keywords:} independence polynomial, unimodality, trees, Erd\H{o}s Problem 993, exhaustive verification
+\noindent\textbf{Keywords:} independence polynomial; unimodality; trees; Erd\H{o}s Problem 993; exhaustive verification
 
 \section{Introduction}\label{sec:intro}
 
-An \emph{independent set} in a graph~$G$ is a set of vertices no two of which are adjacent.
+An \emph{independent set} (IS) in a graph~$G$ is a set of vertices no two of which are adjacent.
 Write $i_k(G)$ for the number of independent sets of size~$k$ and $\alpha(G)$ for the independence number.
 The \emph{independence polynomial} is $I(G;\, x) = \sum_{k=0}^{\alpha(G)} i_k(G)\, x^k$, with $i_0 = 1$.
 
@@ -91,20 +94,21 @@ The stronger property of log-concavity ($i_k^2 \ge i_{k-1}\, i_{k+1}$ for all~$k
 
 On the algebraic side, \textcite{bendjeddou2024} proved that a subclass of trees~-- those in the image of an edge-replacement operator~-- have \enquote{pre-Lorentzian} multivariate independence polynomials, so their independence sequences are log-concave and unimodal, but the full conjecture remains open.
 
-On the positive side, unimodality has been proved for paths and centipedes \citep{alavi1987}, regular caterpillars, and Fibonacci trees.
+On the positive side, unimodality has been proved for paths and centipedes \citep{alavi1987}, regular caterpillars \citep{galvinhilyard2018}, and Fibonacci trees \citep{bencs2018}.
 \textcite{levit2006} showed that $i_k(T)$ is strictly decreasing for $k \ge \lceil (2\alpha - 1)/3 \rceil$, so any violation has to occur in roughly the first two-thirds of the sequence.
 \textcite{basitgalvin2020} proved that for a uniformly random labelled tree, asymptotically almost surely the initial $\approx 49.5\%$ of the sequence is increasing and the terminal $\approx 38.8\%$ is decreasing; \textcite{heilman2025} proved a complementary $46.8\%$ increasing-prefix result and formulated the \enquote{four-fifths true} perspective.
+Basit and Galvin also report A.~J. Radcliffe's computational verification that every tree on at most 25~vertices has the stronger property of an ordered log-concave independence sequence; their source is a personal communication.
 
 \textcite{li2025spiders} proved that all spiders have log-concave independence polynomials, implying unimodality for brooms as a special case; \textcite{li2026unimodality} extended this by proving unimodality for two further tree families that include the \textcite{kadrawi2025} log-concavity-failing examples.
 \textcite{hibi2026symmetric} used a rooted Bridge Lemma and $\gamma$-admissibility to construct a tree with a symmetric unimodal independence polynomial in every order except $2,4,5,7,10$, and a tree with such a polynomial of every degree except~$3$.
 
 My contributions:
 \begin{enumerate}
-  \item Hub Exclusion and Transfer Lemmas reduce the 1-Private maximal-IS bound to Conjecture~A and a Case~B hub bound (Section~\ref{sec:reduction}).
-  \item A proof that $\mu(T) < n/3$ for every $\dleaf \le 1$ tree~$T$, via a decimation identity and Steiner peeling on the heavy-vertex compensation function (Section~\ref{sec:reduction}).
+  \item A proof that $\mu(T) < n/3$ for every $\dleaf \le 1$ tree~$T$ on $n\ge3$ vertices, via a decimation identity and Steiner peeling on the occupation-heavy compensation function (Section~\ref{sec:reduction}).
+  \item A conditional structural result for 1-Private maximal IS: Hub Exclusion and Transfer reduce their size bound to Conjecture~A and a Case~B hub bound (Section~\ref{sec:reduction}).
   \item A tree-specialized derivation of the subdivision-contraction recurrence $I(T_e) = I(T) + x \cdot I(T/e)$ and its mode-analysis consequences (Section~\ref{sec:identity}).
   \item A conjectured Edge Contraction Mode Stability (ECMS) property, verified for 24.7~million edges (Section~\ref{sec:identity}).
-  \item A conditional subdivision lemma: ECMS and a tail condition verified through $n \le 19$ together imply subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible (Section~\ref{sec:identity}).
+  \item A conditional subdivision lemma: ECMS and a combined tail condition verified through $n \le 19$ together imply subdivision preserves unimodality, so any minimal counterexample is homeomorphically irreducible (Section~\ref{sec:identity}).
   \item Exhaustive verification for all trees on $n \le 29$ vertices, with log-concavity and near-miss metrics through $n = 28$ (Section~\ref{sec:exhaustive}).
   \item Identification of multi-arm stars as the empirically extremal family in the tested regimes and an asymptotic analysis of the near-miss ratio (Section~\ref{sec:extremal}).
 \end{enumerate}
@@ -118,37 +122,38 @@ My contributions:
     \toprule
     Claim & Status & Depends on & Evidence path \\
     \midrule
-    Hub Exclusion + Transfer & Proved & PNP framework lemmas & \S\ref{sec:reduction} \\
-    PNP reduction modulo A/B & Conditional & Conj.~\ref{conj:A} + Case~B & \S\ref{sec:reduction} \\
+    Hub Exclusion + Transfer & Proved & Private-neighbor definitions & \S\ref{sec:reduction} \\
+    PNP reduction & Conditional & Conj.~\ref{conj:A} + Conj.~\ref{conj:case-b} & \S\ref{sec:reduction} \\
     Mean bound $\mu < n/3$ (Cor.~\ref{cor:mu-bound}) & Proved & Decimation + Steiner peeling & \S\ref{sec:reduction} \\
-    Conjecture~A closure via mean bound & Conditional & Conj.~\ref{conj:mode-mean} (mode-mean) & \S\ref{sec:reduction} + App.~\ref{app:certificates} \\
-    Subdivision-contraction identity (Thm.~\ref{thm:identity}) & Proved & DP decomposition & \S\ref{sec:identity} + edge checks ($n \le 14$) \\
-    Conditional subdivision closure (Thm.~\ref{thm:conditional}) & Conditional & ECMS + combined tail & \S\ref{sec:identity}; ECMS/tail certificates in App.~\ref{app:certificates} \\
+    Conjecture~A closure via mean bound & Conditional & Conj.~\ref{conj:mode-mean} & \S\ref{sec:reduction} + App.~\ref{app:certificates} \\
+    Subdivision-contraction identity (Thm.~\ref{thm:identity}) & Proved & Include--exclude decomposition & \S\ref{sec:identity} + edge checks ($n \le 14$) \\
+    Conditional subdivision closure (Thm.~\ref{thm:conditional}) & Conditional & ECMS + combined tail & \S\ref{sec:identity}; finite checks in App.~\ref{app:certificates} \\
     Exhaustive no-counterexample claim ($n \le 29$) & Empirical & Tree enumeration + exact IS checks & \S\ref{sec:exhaustive}, App.~\ref{app:repro} \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 The central proved theorem in this manuscript is the mean bound $\mu(T) < n/3$ for $\dleaf \le 1$ trees (Corollary~\ref{cor:mu-bound}).
-The subdivision thread gives a separate conditional route (ECMS + combined tail) to structural constraints on minimal counterexamples.
-Accordingly, the main text is organized around this theorem-first backbone: Section~\ref{sec:reduction} carries the primary proved result, while the subdivision route and computational frontier evidence are presented as supporting structural and falsification layers.
+Section~\ref{sec:reduction} proves this result.
+Section~\ref{sec:identity} develops a separate conditional argument (ECMS + combined tail) about minimal counterexamples, and Sections~\ref{sec:exhaustive}--\ref{sec:extremal} report the computational frontier and the extremal families found there.
 
 
 \section{Definitions and method}\label{sec:method}
 
 \begin{definition}\label{def:unimodal}
   A finite sequence $(a_0, a_1, \dotsc, a_m)$ of positive reals is \emph{unimodal} if there exists an index~$p$ such that $a_0 \le a_1 \le \dotsb \le a_p \ge a_{p+1} \ge \dotsb \ge a_m$.
-  It is \emph{log-concave} if $a_k^2 \ge a_{k-1}\, a_{k+1}$ for all $1 \le k \le m-1$.
+  The sequence is \emph{log-concave} if $a_k^2 \ge a_{k-1}\, a_{k+1}$ for all $1 \le k \le m-1$.
 \end{definition}
 
 Log-concavity (with positive terms) implies unimodality, but not conversely.
-For a unimodal sequence, the \emph{mode} is the index~$p$ of the maximum; if the maximum is achieved at multiple indices, I take the smallest.
+For any finite sequence, the \emph{mode} is the smallest index at which its global maximum is achieved.
+For a unimodal sequence, the mode is its leftmost peak.
 
 To quantify proximity to a violation, define the \emph{near-miss ratio}~$\nm(T)$.
 Let $j_0$ be the first index where $i_{j_0} > i_{j_0+1}$ (the first strict descent).
 Then $\nm(T) = \max_{j > j_0} i_{j+1}(T)/i_j(T)$.
 A value exceeding~1 indicates a violation; a value near~1 indicates the tree nearly violates unimodality.
-If no strict descent occurs, set $\nm(T)=0$.
+If no strict descent occurs, or if no ratio remains after the first strict descent, set $\nm(T)=0$.
 
 The independence polynomial is computed by rooting~$T$ at an arbitrary vertex and traversing bottom-up.
 For each vertex~$v$, define two polynomials for the subtree rooted at~$v$:
@@ -163,26 +168,28 @@ For an edge $e = uv$ in~$T$, the \emph{contraction} $T/e$ is the tree obtained b
 The \emph{subdivision} $T_e$ inserts a new degree-2 vertex on~$e$.
 A tree is \emph{homeomorphically irreducible} if it has no degree-2 vertex; equivalently, it isn't the subdivision of a smaller tree.
 
-Non-isomorphic trees on~$n$ vertices are enumerated with \texttt{nauty/geng} \citep{mckay2014}, parallelized across eight workers.
+Non-isomorphic trees on~$n$ vertices are enumerated with \texttt{nauty/geng} \citep{mckay2014}.
+The local runs use either one process or eight workers, as recorded in Table~\ref{tab:exhaustive}; the later cloud runs use residue-class shards.
 Polynomial arithmetic uses \texttt{numpy.convolve} when coefficients fit in 64-bit integers, with automatic fallback to pure Python big-integer arithmetic for larger values.
 Log-concavity is checked in exact integer arithmetic, avoiding floating-point error.
 
 
-\section{Reduction to \texorpdfstring{$\dleaf \le 1$}{d\_leaf ≤ 1} trees}\label{sec:reduction}
+\section{The 1-Private framework and the \texorpdfstring{$\dleaf \le 1$}{d\_leaf ≤ 1} mean bound}\label{sec:reduction}
 
 Write $\dleaf(v)$ for the number of leaf-neighbors of vertex~$v$ in tree~$T$ (equivalently, the number of degree-$1$ vertices adjacent to~$v$); the definition is unrooted.
 Call a maximal independent set~$S$ \emph{1-Private} if every $u \in S$ has at most one private neighbor (a non-$S$ vertex whose only $S$-neighbor is~$u$).
-The following chain of lemmas reduces the mode bound to a single structural property.
+The \emph{Private Neighbor Property} (PNP) asserts that every maximal IS~$S$ with $|S|<\mathrm{mode}(I(T))$ contains a vertex with at least two private neighbors; equivalently, every 1-Private maximal IS has size at least the mode.
+The following chain reduces PNP to Conjecture~A and the Case~B hub bound.
 
 \begin{lemma}[Private Neighbor Bound]\label{lem:pnb}
-  For any tree~$T$ on $n$~vertices and any dominating independent set~$S$ of size~$k$, the total number of private vertices satisfies $P \ge n - 2k + 1$.
+  For any tree~$T$ on $n$~vertices and any dominating independent set~$S$ of size~$k$, the total number of private neighbors satisfies $p_{\mathrm{priv}} \ge n - 2k + 1$.
 \end{lemma}
 
 \begin{proof}
 All edges from~$S$ go to $V \setminus S$.
-Let $Q = n - k - P$ count non-$S$ vertices with $\ge 2$ $S$-neighbors.
-The edge count from~$S$ satisfies $|E(S, V \setminus S)| \ge P + 2Q = 2(n - k) - P$.
-Since $T$ has $n - 1$ edges, $P \ge 2(n - k) - (n - 1) = n - 2k + 1$.
+Let $Q = n - k - p_{\mathrm{priv}}$ count non-$S$ vertices with $\ge 2$ $S$-neighbors.
+The edge count from~$S$ satisfies $|E(S, V \setminus S)| \ge p_{\mathrm{priv}} + 2Q = 2(n - k) - p_{\mathrm{priv}}$.
+Since $T$ has $n - 1$ edges, $p_{\mathrm{priv}} \ge 2(n - k) - (n - 1) = n - 2k + 1$.
 \end{proof}
 
 \begin{corollary}\label{cor:1priv-size}
@@ -190,7 +197,7 @@ Since $T$ has $n - 1$ edges, $P \ge 2(n - k) - (n - 1) = n - 2k + 1$.
 \end{corollary}
 
 \begin{proof}
-If $S$ is 1-Private, then $P \le k$, so $k \ge n - 2k + 1$, giving $3k \ge n + 1$.
+If $S$ is 1-Private, then $p_{\mathrm{priv}} \le k$, so $k \ge n - 2k + 1$, giving $3k \ge n + 1$.
 \end{proof}
 
 This means that if $\mathrm{mode}(I(T)) \le \lfloor n/3 \rfloor + 1$, then every 1-Private maximal IS already has $|S| \ge \mathrm{mode}$.
@@ -273,13 +280,20 @@ Writing $C_1,\ldots,C_c$ for the non-empty components of~$T^*$, Corollary~\ref{c
 Conjecture~\ref{conj:case-b} gives $\mathrm{mode}(I(T))\le B(T)$, so $|S|\ge \mathrm{mode}(I(T))$.
 \end{proof}
 
+The motivation for this reduction is a level-to-level injection strategy.
+A non-maximal independent set can be enlarged by adding a vertex with no neighbor in the set.
+Conditional on Corollary~\ref{cor:pnp-reduction}, a maximal independent set below the mode can't be 1-Private, so it contains a vertex~$u$ with two private neighbors $v$ and~$w$; replacing~$u$ by $v$ and~$w$ increases its size by one.
+Every below-mode independent set would then have an upward local move.
+This doesn't by itself define an injection between consecutive coefficient levels: controlling collisions, equivalently proving a suitable Hall condition in the level-incidence graph, remains open.
+Corollary~\ref{cor:pnp-reduction} is a conditional structural result, not a proof of coefficient monotonicity.
+
 \begin{remark}
 The Case~B hub bound is currently empirical: verified for all 8\,710\,881 trees with $H(T)\ne\emptyset$ through $n = 22$ (zero violations, minimum surplus~1).
 An analytical proof of Conjecture~\ref{conj:case-b} is open.
 The reduction controls 1-Private maximal independent sets; it doesn't by itself prove unimodality.
 \end{remark}
 
-I verified Conjecture~A for all 931\,596 trees with $\dleaf \le 1$ through $n = 23$ (zero violations).
+I verified Conjecture~A for all 931\,596 trees with $\dleaf \le 1$ on $3\le n\le23$ (zero violations).
 
 \subsection{The mean bound}\label{subsec:mean}
 
@@ -287,26 +301,32 @@ Conjecture~A can be approached through the hard-core model.
 At fugacity $\lambda = 1$, each IS is equally likely.
 Write $P(v)$ for the probability that vertex~$v$ belongs to a uniformly random IS (the scalar occupation probability, not the polynomial~$P_v(x)$ of Section~\ref{sec:method}).
 The expected IS size is $\mu = \sum_v P(v)$.
-Since $I(T;\, 1)$ counts all IS and $I'(T;\, 1) = \sum_k k\, i_k$, we have $\mu = I'(T;\, 1) / I(T;\, 1)$.
+Since $I(T;\, 1)$ counts all IS and $I'(T;\, 1) = \sum_k k\, i_k$, it follows that $\mu = I'(T;\, 1) / I(T;\, 1)$.
 
-All $\dleaf \le 1$ trees tested through $n = 23$ (931\,596 trees) have strictly log-concave independence sequences (strict inequality $i_k^2 > i_{k-1}\, i_{k+1}$ at every interior index).
-Strict log-concavity implies a unique mode, and the mode-mean bound $\mathrm{mode} \le \lceil\mu\rceil$ holds computationally for all 23\,942\,357 trees through $n = 23$ (zero violations).
+All 931\,596 $\dleaf \le 1$ trees tested on $3\le n\le23$ have strictly log-concave independence sequences (strict inequality $i_k^2 > i_{k-1}\, i_{k+1}$ at every interior index).
+The mode--mean bound $\mathrm{mode} \le \lceil\mu\rceil$ also holds for this complete restricted class, with zero violations.
 Since $\lceil \mu \rceil \le \lfloor n/3 \rfloor + 1$ whenever $\mu < n/3$, Conjecture~A would follow from a proof of $\mathrm{mode} \le \lceil\mu\rceil$ for $\dleaf \le 1$ trees together with $\mu < n/3$.
 The latter is proved in Corollary~\ref{cor:mu-bound} below via the Steiner peeling method.
 
-\begin{conjecture}[Mode-mean bound for trees]\label{conj:mode-mean}
+\begin{conjecture}[Mode--mean bound for trees]\label{conj:mode-mean}
   For every tree~$T$, $\mathrm{mode}(I(T)) \le \lceil \mu(T) \rceil$.
 \end{conjecture}
 
-Conjecture~\ref{conj:mode-mean} holds for all 23\,942\,357 trees through $n = 23$ (zero violations). This verification requires exact multiprecision arithmetic for the mean, so it's computationally heavier than the modular unimodality check and stops at $n=23$. It also holds, checked individually, for the two log-concavity-failing trees at $n = 26$ (where $\mu \approx 7.83$ and $\mathrm{mode} = 8$).
-The stronger localization $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ (\textcite{darroch1964} proved this for Poisson-Binomial distributions) also holds for all 175\,722 $\dleaf \le 1$ trees through $n = 21$.
+Conjecture~\ref{conj:mode-mean} is genuinely tree-specific and doesn't follow from log-concavity: the strictly log-concave sequence $(1,2,3,4,5)$ has mean $8/3$ and mode~4.
+Darroch's localization applies in the stronger real-rooted, Poisson--binomial setting, whereas tree independence polynomials need not be real-rooted (Figure~\ref{fig:roots26}).
+Corollary~\ref{cor:mu-bound} leaves Conjecture~\ref{conj:mode-mean} as the remaining step in the mean-based proof of Conjecture~A.
+
+Conjecture~\ref{conj:mode-mean} holds for all 931\,596 $\dleaf\le1$ trees on $3\le n\le23$ (zero violations). This verification uses exact multiprecision arithmetic for the mean. It also holds, checked individually, for the two log-concavity-failing trees at $n = 26$ (where $\mu \approx 7.83$ and $\mathrm{mode} = 8$).
+Additional exact adversarial checks find no violation among the 19 log-concavity-failing trees at $n=28$ or among 5\,823 parameter instances from hard families studied by \textcite{galvin2025}, \textcite{bautistaramos2025}, \textcite{li2025spiders}, and \textcite{li2026unimodality}; 5\,772 of the latter have order greater than~23, and the largest has order~499.
+The replay certificate is \path{results/mode_mean_artifact_replay_certificate.json}.
+The stronger localization $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ (\textcite{darroch1964} proved this for Poisson--binomial distributions) also holds for all 175\,722 $\dleaf \le 1$ trees on $3\le n\le21$.
 If Conjecture~\ref{conj:mode-mean} holds for $\dleaf \le 1$ trees, then Conjecture~A follows from Corollary~\ref{cor:mu-bound} without requiring log-concavity.
 
-\begin{remark}[Tie-fugacity condition]
+\begin{remark}[Tie-fugacity condition]\label{rem:tie-fugacity-condition}
 A sharpened proof target avoids log-concavity entirely.
 For a tree~$T$ with IS polynomial $I(x) = \sum_k i_k x^k$ and mode $m$ at fugacity~$1$, define the \emph{tie fugacity} $\lambda_m = i_{m-1}/i_m$.
-At fugacity~$\lambda_m$, IS of sizes $m-1$ and~$m$ have equal probability weight $i_{m-1}\lambda_m^{m-1} = i_m\lambda_m^m$, and every other size has strictly smaller weight (verified for all 11\,172\,104 adjacent pairs across 931\,596 trees).
-Since $m$ is the mode at fugacity~1, we have $i_m \ge i_{m-1}$, so $\lambda_m \le 1$.
+At fugacity~$\lambda_m$, IS of sizes $m-1$ and~$m$ have equal probability weight $i_{m-1}\lambda_m^{m-1} = i_m\lambda_m^m$, and every other size has strictly smaller weight (verified for all 11\,172\,104 adjacent pairs across the 931\,596 $\dleaf\le1$ trees on $3\le n\le23$).
+Since $m$ is the mode at fugacity~1, $i_m \ge i_{m-1}$ and hence $\lambda_m \le 1$.
 The expected IS size $\mu(\lambda) = \sum_v P(v;\lambda)$ is strictly increasing in~$\lambda$ (differentiating gives $\mu'(\lambda) = \operatorname{Var}(|S|)/\lambda > 0$ for $\lambda > 0$), so $\mu(\lambda_m) \le \mu(1) = \mu(T)$.
 
 If one could prove the single-tie condition $\mu(\lambda_m) \ge m - 1$, then
@@ -314,11 +334,11 @@ If one could prove the single-tie condition $\mu(\lambda_m) \ge m - 1$, then
   m - 1 \;\le\; \mu(\lambda_m) \;\le\; \mu(T) \;<\; \frac{n}{3}
 \]
 (the last inequality by Corollary~\ref{cor:mu-bound}), giving $\mathrm{mode} = m \le \mu(T) + 1 < n/3 + 1$, and so $\mathrm{mode} \le \lfloor n/3 \rfloor + 1$~-- Conjecture~A~-- with no log-concavity required.
-This condition holds for all 931\,596 $\dleaf \le 1$ trees through $n = 23$, with minimum margin $\mu(\lambda_m) - (m-1) \ge 0.362$.
-The condition also holds for all 9\,114\,283 trees of any type through $n = 22$; the global minimum margin is still $0.362$, attained by the same tree $S(2^{10})$.
+This condition holds for all 931\,596 $\dleaf \le 1$ trees on $3\le n\le23$, with minimum margin $\mu(\lambda_m) - (m-1) \ge 0.362$.
+The condition also holds for all 9\,114\,283 trees of any type on $3\le n\le22$; the global minimum margin is still $0.362$, attained by the same tree $S(2^{10})$.
 \end{remark}
 
-I verified $\mu < n/3$ for all 931\,596 such trees through $n = 23$; the worst ratio is $\mu / (n/3) = 0.973$.
+I verified $\mu < n/3$ for all 931\,596 such trees on $3\le n\le23$; the worst ratio is $\mu / (n/3) = 0.973$.
 The extremal family consists of \emph{spiders}~-- trees with exactly one vertex of degree $\ge 3$ (the hub) and paths radiating from it.
 The notation $S(a_1, \dotsc, a_m)$ denotes the spider whose $m$~arms have lengths $a_1, \dotsc, a_m$.
 The worst case is $S(2^k, 1)$ (a hub with $k$ arms of length~2 and one pendant leaf).
@@ -338,10 +358,11 @@ The gap $n/3 - \mu$ simplifies to the stated expression.
 The numerator is positive for $k \ge 3$; direct computation confirms $k = 1, 2$.
 \end{proof}
 
-The hard-core model~-- the uniform distribution over IS of a graph, studied extensively in statistical physics and combinatorics (see \textcite{galvin2025} for a survey in the tree setting)~-- provides structural insight into why $\mu < n/3$ should hold.
+At fugacity~1, the hard-core model is the uniform distribution over IS of a graph.
+This model, studied extensively in statistical physics and combinatorics (see \textcite{galvin2025} for a survey in the tree setting), provides structural insight into why $\mu < n/3$ should hold.
 
 \begin{theorem}[Edge bound]\label{thm:edge-bound}
-  For any tree~$T$ on $n \ge 3$ vertices and any edge $e = uv$, the hard-core occupation probabilities satisfy $P(u) + P(v) < 2/3$.
+  For any tree~$T$ on $n \ge 3$ vertices and any edge $e = uv$, the hard-core occupation probabilities at fugacity~1 satisfy $P(u) + P(v) < 2/3$.
 \end{theorem}
 
 \begin{proof}
@@ -356,96 +377,73 @@ For $n \ge 3$, at least one of $u, v$ has a neighbor besides the other, so at le
 Both ratios are at most~1, giving $r_u + r_v < 2$ and $P(u) + P(v) < 2/3$.
 \end{proof}
 
-The edge bound implies that the set $\{v : P(v) > 1/3\}$ is independent (two adjacent vertices can't both exceed $1/3$).
+The edge bound implies that the occupation-heavy set
+$\mathcal H := \{v : P(v) > 1/3\}$ is independent (two adjacent vertices can't both exceed $1/3$).
 For $\dleaf \le 1$ trees, every support vertex~$v$ (having a leaf-neighbor~$w$) satisfies $r_v \le 1/2$ (the leaf contributes a factor $1/(1+1) = 1/2$ in the cavity recursion $r_v = \prod_c 1/(1+r_c)$), so $P(v) + P(w) \le 2/3$ by the edge bound.
 Pairing each leaf~$w$ with its support vertex~$v$, these $2\ell$ vertices (where $\ell$ is the number of leaves) contribute at most $2\ell/3$ to $\mu$.
 For the global bound $\mu < n/3$ to hold, the remaining $n - 2\ell$ interior vertices have to contribute less than $(n - 2\ell)/3$.
 Their occupation probabilities tend toward the infinite-path limit $P \approx 0.276 < 1/3$.
-A proof of the global bound $\mu < n/3$ is given in Corollary~\ref{cor:mu-bound} below using a Steiner peeling argument on the heavy-vertex compensation function.
+A proof of the global bound $\mu < n/3$ is given in Corollary~\ref{cor:mu-bound} below using a Steiner peeling argument on the occupation-heavy compensation function.
 
-The bound can be reformulated as a compensation condition.
-Since $H$ is independent and every $v \notin H$ has $P(v) \le 1/3$,
+The target bound has a raw neighborhood-compensation form.
+Since $\mathcal H$ is independent and every $v \notin \mathcal H$ has $P(v) \le 1/3$,
 \[
   \mu
-  = \sum_{h \in H}\! P(h) + \sum_{u \in N(H)}\! P(u) + \sum_{w \notin H \cup N(H)}\! P(w)
-  \;\le\; \frac{n}{3} + \sum_{h \in H}\!\bigl(P(h) - \tfrac{1}{3}\bigr) - \sum_{u \in N(H)}\!\bigl(\tfrac{1}{3} - P(u)\bigr),
+  = \sum_{h \in \mathcal H}\! P(h) + \sum_{u \in N(\mathcal H)}\! P(u) + \sum_{w \notin \mathcal H \cup N(\mathcal H)}\! P(w)
+  \;\le\; \frac{n}{3} + \sum_{h \in \mathcal H}\!\bigl(P(h) - \tfrac{1}{3}\bigr) - \sum_{u \in N(\mathcal H)}\!\bigl(\tfrac{1}{3} - P(u)\bigr),
 \]
-so $\mu \le n/3$ whenever the heavy surplus is absorbed by the neighborhood deficit:
+For $S\subseteq\mathcal H$, define the \emph{raw compensation surplus}
+\[
+  F_{\mathrm{raw}}(S)
+  :=\sum_{u\in N(S)}\!\left(\frac13-P(u)\right)
+  -\sum_{h\in S}\!\left(P(h)-\frac13\right).
+\]
+The bound $\mu \le n/3$ holds whenever the occupation-heavy surplus is absorbed by the neighborhood deficit, equivalently when $F_{\mathrm{raw}}(\mathcal H)\ge0$:
 \begin{equation}\label{eq:whnc}
-  \sum_{h \in H}\!\bigl(P(h) - \tfrac{1}{3}\bigr)
+  \sum_{h \in \mathcal H}\!\bigl(P(h) - \tfrac{1}{3}\bigr)
   \;\le\;
-  \sum_{u \in N(H)}\!\bigl(\tfrac{1}{3} - P(u)\bigr).
+  \sum_{u \in N(\mathcal H)}\!\bigl(\tfrac{1}{3} - P(u)\bigr).
 \end{equation}
 
-\begin{proposition}[Singleton compensation]\label{prop:singleton}
-  For each $h \in H$,
-  \[
-    \sum_{u \in N(h)}\!\bigl(\tfrac{1}{3} - P(u)\bigr) \;>\; P(h) - \tfrac{1}{3}.
-  \]
-\end{proposition}
+For a singleton $\{h\}\subseteq\mathcal H$, the edge bound gives
+$1/3-P(u)>P(h)-1/3$ for every $u\in N(h)$, so any one neighbor supplies more than the required deficit.
+The difficulty in the raw formulation is overlap among the neighborhoods of several occupation-heavy vertices.
 
-\begin{proof}
-Each $u \in N(h)$ satisfies $P(u) < 2/3 - P(h) < 1/3$ by the edge bound, so every summand exceeds $P(h) - 1/3$.
-\end{proof}
-
-The case with a single non-leaf heavy vertex is also provable.
-
-\begin{proposition}[Mixed single-hub compensation]\label{prop:mixed-single}
-  In any $\dleaf \le 1$ tree, let $L \ne \emptyset$ be a set of heavy leaves and $h \in H$ a non-leaf heavy vertex.
-  Then $F(L \cup \{h\}) > 0$.
-\end{proposition}
-
-\begin{proof}
-Write $s_l$ for the (unique) support of leaf~$l$, set $A_l = 2/3 - P(s_l) - P(l) > 0$ (edge bound on $l$--$s_l$), and let $J = N(h) \setminus \{s_l : l \in L\}$.
-The $\dleaf \le 1$ condition gives distinct supports, and
+Write $L$ for the leaves, $A$ for their support vertices, and $C=V\setminus L$.
+As the next lemma shows, in a $\dleaf\le1$ tree on $n\ge3$ vertices every leaf~$\ell$ is occupation-heavy and every support~$s_\ell$ satisfies $P(s_\ell)<1/3$.
+The occupation-heavy set decomposes as
 \[
-  F(L \cup \{h\}) = \sum_{l \in L} A_l + \sum_{j \in J}\bigl(\tfrac{1}{3} - P(j)\bigr) - \bigl(P(h) - \tfrac{1}{3}\bigr).
+  \mathcal H=L\sqcup\mathcal H_{\mathrm{core}},
+  \qquad
+  \mathcal H_{\mathrm{core}}:=\{v\in C\setminus A:P(v)>1/3\}.
 \]
-
-\textit{Case~1: $J \ne \emptyset$.}
-Any $j \in J$ satisfies $P(h) + P(j) < 2/3$ (edge bound on $h$--$j$), so $\tfrac{1}{3} - P(j) > P(h) - \tfrac{1}{3}$.
-The $J$-supply alone exceeds the $h$-demand, giving $F > \sum_l A_l \ge 0$.
-
-\textit{Case~2: $J = \emptyset$.}
-Let $L_I = \{l \in L : s_l \in N(h)\}$; leaves in $L \setminus L_I$ contribute only non-negative $A_l$ terms.
-Since $J = \emptyset$, we have $N(h) = \{s_i\}_{i=1}^m$ where $m = \deg(h) \ge 2$.
-Write $q_i = R_{s_i \to h}$; the leaf-neighbor $l_i$ forces $q_i \le 1/2$.
-Set $Q = \prod_i(1+q_i)$ and $Y = Q+1$; the cavity formulas give
+The cavity identity $P(\ell)=(1-P(s_\ell))/2$ gives
 \[
-  P(h) = \frac{1}{Y}, \qquad P(s_i) = \frac{q_i Q}{Y(1+q_i)}, \qquad P(l_i) = \frac{Q+1+q_i}{2Y(1+q_i)}.
+  P(\ell)-\frac13
+  =\frac12\left(\frac13-P(s_\ell)\right).
 \]
-Direct expansion yields
-\[
-  F_I := \sum_{i=1}^m A_i - \bigl(P(h) - \tfrac{1}{3}\bigr) = \frac{m+2}{6} - \frac{1}{Y} - \frac{Q}{2Y}\sum_{i=1}^m \frac{q_i}{1+q_i}.
-\]
-Since $q_i \le 1/2$, we have $q_i/(1+q_i) \le 1/3$, so $F_I \ge (m+2)/6 - (6+Qm)/(6Y)$, which is positive iff $2Q + m > 4$.
-For $m = 2$: $Q > 1$ since $q_i > 0$ strictly.
-For $m \ge 3$: $2Q + m \ge 2 + 3 = 5 > 4$.
-This gives $F_I > 0$, and $F(L \cup \{h\}) \ge F_I > 0$.
-\end{proof}
-
-Condition~\eqref{eq:whnc} is a weighted analogue of Hall's marriage condition: the probability deficit in $N(S)$ has to cover the surplus from every subset $S \subseteq H$, not just singletons.
-I verified~\eqref{eq:whnc} for all 931\,596 trees with $\dleaf \le 1$ through $n = 23$ (zero violations).
-
-The $\dleaf \le 1$ structure enables a decimation reduction that resolves the global compensation problem.
+Each occupation-heavy leaf is absorbed by half of its support's deficit, leaving a weighted compensation problem on the core.
+The inequalities $F_{\mathrm{raw}}(S)\ge0$ for every nonempty $S\subseteq\mathcal H$ were verified for all 931\,596 $\dleaf\le1$ trees on $3\le n\le23$.
+The decimation below resolves the global mean bound analytically by replacing those overlapping unweighted neighborhoods with a weighted core surplus.
 
 \begin{lemma}[Decimation identity]\label{lem:decimation}
-For any $\dleaf \le 1$ tree~$T$ with leaves $L$, support vertices $A$ (those adjacent to leaves), and core $C = V \setminus L$,
+For any $\dleaf \le 1$ tree~$T$ on $n\ge3$ vertices, with leaves $L$, support vertices $A$ (those adjacent to leaves), and core $C = V \setminus L$,
 \[
   \frac{n}{3} - \mu(T)
   = \sum_{v \in C \setminus A}\!\Bigl(\frac{1}{3} - P(v)\Bigr)
   + \frac{1}{2}\sum_{v \in A}\!\Bigl(\frac{1}{3} - P(v)\Bigr).
 \]
-Every support vertex satisfies $P(v) < 1/3$, so every heavy vertex lies in $H_{\mathrm{core}} := \{v \in C \setminus A : P(v) > 1/3\}$.
+Every support vertex satisfies $P(v) < 1/3$, so the remaining occupation-heavy vertices are precisely those in $\mathcal H_{\mathrm{core}}$.
 \end{lemma}
 
 \begin{proof}
 Each support $s \in A$ has exactly one leaf-neighbor $l_s$ (since $\dleaf \le 1$), with $P(l_s) = (1 - P(s))/2$ by the cavity recursion.
 Summing over all vertices and using $n = 2|A| + |C \setminus A|$ gives the identity.
-The support bound holds because the leaf forces the factor $1/(1+1) = 1/2$ in $R_{s \to h} = \prod_{c \ne h} 1/(1 + R_{c \to s})$, so $R_{s \to h} \le 1/2$; the edge bound then gives $P(s) < 1/3$.
+For a leaf edge $s\ell$, the cavity identity gives $P(\ell)=(1-P(s))/2$.
+Applying the edge bound to $s\ell$ yields $P(s)+(1-P(s))/2<2/3$, and hence $P(s)<1/3$.
 \end{proof}
 
-Since the identity decomposes $n/3 - \mu$ as a sum of non-negative terms over all $C$-vertices, with the heavy interior vertices contributing negative terms, the global gap is bounded below by the \emph{gap-formula surplus}:
+The identity decomposes $n/3 - \mu$ into weighted terms over the $C$-vertices. After discarding non-negative terms away from the occupation-heavy core and its neighborhood, the global gap is bounded below by the \emph{gap-formula surplus}:
 \[
   F_{\mathrm{gap}}(S)
   = \sum_{u \in N_C(S) \cap C \setminus A}\!\!\!\Bigl(\frac{1}{3} - P(u)\Bigr)
@@ -453,13 +451,13 @@ Since the identity decomposes $n/3 - \mu$ as a sum of non-negative terms over al
   - \sum_{h \in S}\!\Bigl(P(h) - \frac{1}{3}\Bigr),
 \]
 where $N_C(S) = N(S) \cap (C \setminus S)$.
-Vertices in $C \setminus (H_{\mathrm{core}} \cup N_C(H_{\mathrm{core}}))$ have $P \le 1/3$ and contribute non-negatively to the identity, so $n/3 - \mu(T) \ge F_{\mathrm{gap}}(H_{\mathrm{core}})$.
+Vertices in $C \setminus (\mathcal H_{\mathrm{core}} \cup N_C(\mathcal H_{\mathrm{core}}))$ have $P \le 1/3$ and contribute non-negatively to the identity, so $n/3 - \mu(T) \ge F_{\mathrm{gap}}(\mathcal H_{\mathrm{core}})$.
 
 \begin{lemma}[Steiner-leaf boundary bookkeeping]\label{lem:steiner-boundary}
-Let $S \subseteq H_{\mathrm{core}}$ with $|S|\ge2$, let $h$ be a leaf of the Steiner tree of~$S$ in~$T$, and put $D=S\setminus\{h\}$.
+Let $S \subseteq \mathcal H_{\mathrm{core}}$ with $|S|\ge2$, let $h$ be a leaf of the Steiner tree of~$S$ in~$T$, and put $D=S\setminus\{h\}$.
 Let $v_0$ be the unique neighbor of~$h$ that lies on the Steiner tree, and set $U=N_T(h)\setminus\{v_0\}$.
 Then $U\subseteq N_C(S)\setminus N_C(D)$ and $N_C(D)\subseteq N_C(S)$.
-Consequently, for any non-negative weight function $\sigma$ on~$C$,
+For any non-negative weight function $\sigma$ on~$C$, it follows that
 \[
   \sum_{u\in N_C(S)}\sigma(u)-\sum_{u\in N_C(D)}\sigma(u)
   \ge \sum_{u\in U}\sigma(u).
@@ -467,7 +465,7 @@ Consequently, for any non-negative weight function $\sigma$ on~$C$,
 \end{lemma}
 
 \begin{proof}
-Since $h\in H_{\mathrm{core}}\subseteq C\setminus A$, $h$ has no leaf-neighbor, so every neighbor of~$h$ lies in~$C$.
+Since $h\in \mathcal H_{\mathrm{core}}\subseteq C\setminus A$, $h$ has no leaf-neighbor, so every neighbor of~$h$ lies in~$C$.
 The Steiner-leaf property gives a unique first edge from~$h$ toward the rest of~$S$; call its other endpoint~$v_0$.
 No vertex of~$U$ lies in~$D$: if $u\in U\cap D$, then the edge $hu$ lies in the Steiner tree and would be this unique first edge, forcing $u=v_0$.
 If $u\in U$ were adjacent to some $d\in D$, then the path from~$h$ to~$d$ would begin with~$u$, contradicting the uniqueness of the Steiner edge at~$h$.
@@ -475,12 +473,12 @@ Every $u\in U$ is adjacent to~$h$, lies outside~$S$, and is adjacent to no verte
 
 For the inclusion $N_C(D)\subseteq N_C(S)$, take $x\in N_C(D)$.
 Then $x$ is adjacent to some $d\in D$ and $x\notin D$.
-The set $H_{\mathrm{core}}$ is independent by the edge bound, so $x$ is neither a vertex of~$S$ nor~$h$; thus $x\in C\setminus S$ and $x\in N_C(S)$.
+The set $\mathcal H_{\mathrm{core}}$ is independent by the edge bound, so $x$ is neither a vertex of~$S$ nor~$h$; thus $x\in C\setminus S$ and $x\in N_C(S)$.
 The displayed inequality follows by subtracting sums over nested sets and using $\sigma\ge 0$.
 \end{proof}
 
 \begin{theorem}[Gap-formula compensation by Steiner peeling]\label{thm:steiner-peeling}
-For any $\dleaf \le 1$ tree~$T$ and every non-empty $S \subseteq H_{\mathrm{core}}$, $F_{\mathrm{gap}}(S) > 0$.
+For any $\dleaf \le 1$ tree~$T$ on $n\ge3$ vertices and every non-empty $S \subseteq \mathcal H_{\mathrm{core}}$, $F_{\mathrm{gap}}(S) > 0$.
 \end{theorem}
 
 \begin{proof}
@@ -488,12 +486,12 @@ Induction on $|S|$.
 Write $s(u) = 1/3 - P(u)$ for $u \in C \setminus A$ and $s(u) = \tfrac{1}{2}(1/3 - P(u))$ for $u \in A$.
 
 \textit{Base case} $S = \{h\}$.
-All $m = \deg_T(h) \ge 2$ neighbors $u_1, \ldots, u_m$ of $h$ are in $C$ (since $h \in H_{\mathrm{core}} \subset C \setminus A$) and are private.
+All $m = \deg_T(h) \ge 2$ neighbors $u_1, \ldots, u_m$ of $h$ are in $C$ (since $h \in \mathcal H_{\mathrm{core}} \subset C \setminus A$) and belong to $N_C(\{h\})$.
 $F_{\mathrm{gap}}(\{h\}) = \sum_i s(u_i) - (P(h) - 1/3)$.
 
 If any $u_i \in C \setminus A$: the edge bound gives $s(u_i) - (P(h) - 1/3) = 2/3 - P(h) - P(u_i) > 0$, so $F_{\mathrm{gap}}(\{h\}) > 0$.
 
-If all $u_i \in A$, we show $2P(h) + \sum P(u_i) < (m+2)/3$, which is equivalent to $F_{\mathrm{gap}}(\{h\}) > 0$:
+If all $u_i \in A$, it remains to prove $2P(h) + \sum P(u_i) < (m+2)/3$, which is equivalent to $F_{\mathrm{gap}}(\{h\}) > 0$:
 \begin{itemize}
   \item $m = 2$: summing the two edge bounds $P(h) + P(u_i) < 2/3$ gives $2P(h) + P(u_1) + P(u_2) < 4/3$.
   \item $m \ge 3$: summing $m$ edge bounds gives $m P(h) + \sum P(u_i) < 2m/3$; subtracting $(m-2)P(h) > (m-2)/3$ yields $2P(h) + \sum P(u_i) < (m+2)/3$.
@@ -502,13 +500,13 @@ If all $u_i \in A$, we show $2P(h) + \sum P(u_i) < (m+2)/3$, which is equivalent
 \textit{Inductive step} $|S| \ge 2$.
 Let $h$ be a leaf of the Steiner tree of $S$ in $T$ (minimal subtree spanning $S$).
 Let $v_0$ be the unique neighbor of~$h$ on this Steiner tree.
-Then $h$ has $k = \deg_T(h) - 1 \ge 1$ boundary-private $C$-neighbors $u_1, \ldots, u_k$ in $N_T(h)\setminus\{v_0\}$.
+Then $h$ has $k = \deg_T(h) - 1 \ge 1$ new boundary neighbors $u_1, \ldots, u_k$ in $N_T(h)\setminus\{v_0\}$, all lying in~$C$.
 The removal marginal is $M_{\mathrm{gap}}(h, S) = \sum_i s(u_i) - (P(h) - 1/3)$.
 
 If any $u_i \in C \setminus A$: the edge bound gives $M_{\mathrm{gap}} \ge 2/3 - P(h) - P(u_i) > 0$.
 
 If all $u_i \in A$, the same counting argument as the base case shows $M_{\mathrm{gap}} > 0$ for $k \ge 2$.
-For $k = 1$ (so $\deg_T(h) = 2$, with sole boundary-private $A$-neighbor $u_1$ and Steiner neighbor $v_0$), the belief-propagation fixed-point equations give
+For $k = 1$ (so $\deg_T(h) = 2$, with sole new boundary neighbor $u_1\in A$ and Steiner neighbor $v_0$), the belief-propagation fixed-point equations give
 \[
   P(h) = \frac{1}{D}, \qquad P(u_1) = \frac{(1 + \alpha)a}{D}, \qquad D = 2 + a + \alpha + a\alpha,
 \]
@@ -516,7 +514,7 @@ where $a = R_{u_1 \to h} \le 1/2$ (leaf-suppression at $u_1$) and $\alpha = R_{v
 Then $2P(h) + P(u_1) = (2 + a + a\alpha)/D = 1 - \alpha/D < 1$, so $M_{\mathrm{gap}} = (1 - 2P(h) - P(u_1))/2 > 0$.
 
 In every case $M_{\mathrm{gap}}(h, S) > 0$.
-Every boundary weight $s(u)$ is non-negative: if $u\in N_C(S)$, then $u$ is adjacent to some heavy vertex, so the edge bound gives $P(u)<1/3$.
+Every boundary weight $s(u)$ is non-negative: if $u\in N_C(S)$, then $u$ is adjacent to an occupation-heavy vertex, so the edge bound gives $P(u)<1/3$.
 Lemma~\ref{lem:steiner-boundary}, applied to the weight~$s$, gives
 \[
   F_{\mathrm{gap}}(S) \ge F_{\mathrm{gap}}(S \setminus \{h\}) + M_{\mathrm{gap}}(h, S) > F_{\mathrm{gap}}(S \setminus \{h\}) > 0
@@ -530,16 +528,28 @@ The bound is tight at $K_2$ (where $\mu = 2/3 = n/3$), and fails at $K_1$ (where
 \end{corollary}
 
 \begin{proof}
-If $H_{\mathrm{core}} = \emptyset$, all terms in Lemma~\ref{lem:decimation} are positive ($P(v) \le 1/3$ throughout $C$, strictly so in $A$), giving $n/3 - \mu > 0$.
-If $H_{\mathrm{core}} \ne \emptyset$, Theorem~\ref{thm:steiner-peeling} gives $F_{\mathrm{gap}}(H_{\mathrm{core}}) > 0$, and $n/3 - \mu \ge F_{\mathrm{gap}}(H_{\mathrm{core}}) > 0$.
+If $\mathcal H_{\mathrm{core}} = \emptyset$, all terms in Lemma~\ref{lem:decimation} are non-negative, and the terms indexed by support vertices are strictly positive. Since every tree on $n\ge3$ vertices has a support vertex, $n/3 - \mu > 0$.
+If $\mathcal H_{\mathrm{core}} \ne \emptyset$, Theorem~\ref{thm:steiner-peeling} gives $F_{\mathrm{gap}}(\mathcal H_{\mathrm{core}}) > 0$, and $n/3 - \mu \ge F_{\mathrm{gap}}(\mathcal H_{\mathrm{core}}) > 0$.
 \end{proof}
+
+\begin{remark}[Sharpness of the leaf-neighbor hypothesis]
+The conclusion doesn't extend to all $\dleaf\le2$ trees.
+Take two vertices, attach two leaves to each, and join the two support vertices through one degree-2 vertex.
+The resulting seven-vertex tree has $\dleaf\le2$ and
+\[
+  I(x)=1+7x+15x^2+12x^3+5x^4+x^5,
+  \qquad
+  \mu=\frac{98}{41}>\frac73.
+\]
+The obstruction appears at the target inequality itself, before the Steiner-peeling induction.
+\end{remark}
 
 
 
 \subsection{Spider extremality and tie-fugacity}\label{subsec:spider}
 
-The minimum margin is attained by $S(2^{10})$, the equal-arm spider with hub connected to ten arms of length~2 (21~vertices, $\dleaf = 1$ everywhere).
-This tree is the global minimizer across all tree types through $n = 22$, not only among $\dleaf \le 1$ trees.
+Among all 9\,114\,283 trees scanned on $3\le n\le22$, the minimum computed tie-fugacity margin is attained by $S(2^{10})$, the equal-arm spider with hub connected to ten arms of length~2 (21~vertices, $\dleaf = 1$ everywhere).
+The same tree minimizes the margin in the restricted $\dleaf \le 1$ scan.
 More generally, the margin for the $S(2^k)$ family can be bounded analytically.
 
 \begin{proposition}[Equal-arm spider tie-fugacity margin]\label{prop:spider-tie-margin}
@@ -564,7 +574,7 @@ Summing over IS by size gives $I(x) = x(1+x)^k + (1+2x)^k$, and expanding the co
 
 \textit{Part~2.}
 By \textcite{li2025spiders}, spiders have log-concave independence polynomials, so the coefficient sequence $(i_j)$ is unimodal.
-It is enough to check that $i_m \ge i_{m-1}$ and $i_m \ge i_{m+1}$ for $m = \lfloor(2k+1)/3\rfloor$.
+It suffices to check that $i_m \ge i_{m-1}$ and $i_m \ge i_{m+1}$ for $m = \lfloor(2k+1)/3\rfloor$.
 Write $k = 3r, 3r+1$, or $3r+2$.
 If $k = 3r$, then $m = 2r$ and
 \[
@@ -625,10 +635,10 @@ As $k \to \infty$ along $k = 3j+1$, the hub-off surplus $(j+1)/(3j+2) \to 1/3$ a
 \begin{remark}
 The proof above establishes margin $> 0$ but doesn't show margin $> 1/3$ directly.
 Numerically, margin $> 1/3$ for all $k \le 600$, with margin $= 1/3 + c/k + O(1/k^2)$ and $c \approx 1/3$; a closed-form proof of the sharper bound would follow from the exact asymptotics of~$\lambda_m$.
-Since $S(2^k)$ is the extremal $\dleaf \le 1$ tree for the mean bound (verified through $n \le 20$), and $S(2^{10})$ is also the global minimizer for the tie-fugacity margin across all 9\,114\,283 trees through $n = 22$, establishing analytically that $S(2^k)$ minimizes the margin for all tree types would reduce the full tie-fugacity condition $\mu(\lambda_m) \ge m-1$ to the spider case, which Proposition~\ref{prop:spider-tie-margin} already proves.
+Since $S(2^k)$ is the extremal $\dleaf \le 1$ tree for the mean bound (verified through $n \le 20$), and $S(2^{10})$ is also the global minimizer for the tie-fugacity margin across all 9\,114\,283 trees on $3\le n\le22$, establishing analytically that $S(2^k)$ minimizes the margin for all tree types would reduce the full tie-fugacity condition $\mu(\lambda_m) \ge m-1$ to the spider case, which Proposition~\ref{prop:spider-tie-margin} already proves.
 \end{remark}
 
-Since spiders are already known to be log-concave by \textcite{li2025spiders}, the tie-fugacity analysis below is included as an extremal calibration of the mode-mean program rather than as a new proof of spider unimodality.
+Since spiders are already known to be log-concave by \textcite{li2025spiders}, the tie-fugacity analysis below is included as an extremal calibration of Conjecture~\ref{conj:mode-mean} rather than as a new proof of spider unimodality.
 The equal-arm result extends to the full mixed-spider family $S(2^k, 1^j)$~-- a hub with $k$ arms of length~2 and $j$ pendant leaves~-- whose IS polynomial is $I(x) = (1+2x)^k(1+x)^j + x(1+x)^k$.
 Write $\mathrm{margin}(k,j) = \mu(\lambda_m) - (m-1)$ for the tie-fugacity margin of $S(2^k, 1^j)$.
 
@@ -638,11 +648,11 @@ Write $\mathrm{margin}(k,j) = \mu(\lambda_m) - (m-1)$ for the tie-fugacity margi
 
 \begin{proof}
 This proof is computer-assisted: the finite ranges cited below are checked by exact integer arithmetic, while the large-parameter tail is handled by the explicit inequalities recorded in the proof.
-The hub-off generating polynomial $A_j(x) = (1+2x)^k(1+x)^j$ is a product of linear factors with negative real roots, generating a Poisson-Binomial distribution with mean $\mu_j = (4k+3j)/6$.
+The hub-off generating polynomial $A_j(x) = (1+2x)^k(1+x)^j$ is a product of linear factors with negative real roots, generating a Poisson--binomial distribution with mean $\mu_j = (4k+3j)/6$.
 
 \textit{Parity monotonicity.}
 For $k \ge 6$: $\mathrm{margin}(k,\, j+2) \ge \mathrm{margin}(k,\, j)$.
-By \textcite{darroch1964}, any Poisson-Binomial distribution has mode in $\{\lfloor\mu_j\rfloor, \lceil\mu_j\rceil\}$; here $A_j(x) = (1+2x)^k(1+x)^j$ is exactly the generating polynomial of such a distribution.
+By \textcite{darroch1964}, any Poisson--binomial distribution has mode in $\{\lfloor\mu_j\rfloor, \lceil\mu_j\rceil\}$; here $A_j(x) = (1+2x)^k(1+x)^j$ is exactly the generating polynomial of such a distribution.
 Since $\mu_{j+2} = \mu_j + 1$ and $4k + 3(j+2) \equiv 4k + 3j \pmod{6}$, the same rounding rule applies, giving $m(k,\, j+2) = m(k,\, j) + 1$.
 Decompose the margin shift as
 \[
@@ -652,7 +662,7 @@ Decompose the margin shift as
 \]
 For $\Delta_{\mathrm{fixed}} \ge 0$: write $F = T_1 + T_2$ where $T_1 = \Delta(m) - \Delta(m{-}1)$ is the difference of successive log-concavity defects of~$A_j$ and $T_2$ is a hub-on correction involving binomial coefficients $\tbinom{k}{m{-}1}$ and $\tbinom{k}{m{-}2}$.
 When $m > k+2$, these binomial coefficients vanish and $F = T_1$; for $m \le k+2$ and $k \le 200$, exact integer computation over all 14\,430 active $(k,j)$ pairs confirms $F > 0$ with minimum ratio $T_1/|T_2| = 2.24$ at $(k,j) = (6,1)$.
-The extended lane-2 envelope certificate \path{results/subclaimA_lane2_envelope_k3000_j120_v2.json} checks the same inequality for $6\le k\le3000$, $0\le j\le120$, with zero failures.
+The extended second-residue-class envelope certificate \path{results/subclaimA_lane2_envelope_k3000_j120_v2.json} checks the same inequality for $6\le k\le3000$, $0\le j\le120$, with zero failures.
 Together: $F > 0$ for all $k \ge 6$ and $m \le k+2$ in the certified range, and $F = T_1 > 0$ for $m > k+2$; for $k > 3000$, the same hub-on estimate as in Proposition~\ref{prop:spider-tie-margin} gives a correction of order $O(k(5/7)^k)$, so the remaining tail is governed by the positive hub-off term~$T_1$.
 For $\Delta_\lambda \ge 0$: the fugacity comparison $\lambda_{j+2} \ge \lambda_j$ follows from the same $F > 0$ bound.
 This reduces the problem to $j \in \{0, 1\}$ for $k \ge 6$.
@@ -669,7 +679,7 @@ $\mathrm{margin}(k,\,1) > 0$ for all $k \ge 3$: the same hub-off/hub-on decompos
 
 \textit{Small $k$.}
 For $k \in \{3, 4, 5\}$, direct computation confirms $\mathrm{margin}(k,\, j) > 0$ for all $j \le 400$; for larger~$j$, the hub-on weight decays geometrically in~$j$ while the hub-off surplus exceeds~$1/3$.
-The exact scan artifacts cited in this proof are archived in the repository's mixed-spider and lane-2 result files.
+The exact scan artifacts cited in this proof are archived in the repository's mixed-spider and residue-class envelope result files.
 \end{proof}
 
 \section{The subdivision-contraction identity}\label{sec:identity}
@@ -758,7 +768,10 @@ The identity already constrains the mode of $I(T_e)$ without any conjecture:
 \end{proof}
 
 I verified the mode sandwich for all 3\,348\,674 edges in trees on $n \le 18$, with zero failures.
-An immediate consequence is that $\mathrm{mode}(I(T_e)) - \mathrm{mode}(I(T)) \in \{0, 1\}$ whenever ECMS holds: if $m' \ge m - 1$, then $m' + 1 \ge m$, so the sandwich interval contains~$m$ (and~$m{+}1$), and subdivision can't decrease the mode.
+Under ECMS, the sandwich gives
+$\mathrm{mode}(I(T_e)) - \mathrm{mode}(I(T)) \in \{0,1,2\}$.
+Indeed, $m'\ge m-1$ prevents a decrease, while the ECMS gap case $m'=m+1$ leaves the upper endpoint $m+2$ available.
+Ruling out that two-step shift requires the additional tail alignment introduced below; ECMS alone doesn't do it.
 
 \begin{remark}[Mean shift approach]\label{rem:mean-shift}
   Let $\mu(G) = I'(G;\,1)/I(G;\,1)$ denote the mean of the normalized coefficient sequence.
@@ -777,8 +790,10 @@ An immediate consequence is that $\mathrm{mode}(I(T_e)) - \mathrm{mode}(I(T)) \i
   \]
   The local term is in $(0, 1/2)$ since $A, B \in (0, 1]$ on any tree.
   Exhaustive checks over 3\,348\,674 edges ($n \le 18$) give $|\mu(T)-\mu(T/e)| < 0.537$ (worst exhaustive value $\approx 0.533$), and an illustrative near-extremal family witness is the tripod star $T(5,5,5)$ (centre-to-bridge edge, $|\delta\mu| \approx 0.537$).
-  By \textcite{darroch1964}, mode localization $\mathrm{mode}\in\{\lfloor\mu\rfloor,\lceil\mu\rceil\}$ holds for Poisson-binomial sequences; I verify the same localization for all tree IS polynomials through $n=22$.
-  Therefore, a proof of $|\mu(T)-\mu(T/e)|<1$ together with this localization would imply ECMS.
+  By \textcite{darroch1964}, mode localization $\mathrm{mode}\in\{\lfloor\mu\rfloor,\lceil\mu\rceil\}$ holds for Poisson--binomial sequences; a retained exact scan verifies the same localization for all 175\,722 $\dleaf\le1$ trees on $3\le n\le21$.
+  In any class where this localization holds, localization alone proves ECMS whenever $\lfloor\mu(T)\rfloor=\lfloor\mu(T/e)\rfloor$.
+  A mean-shift bound below~1 would leave only the cases in which the means straddle an integer; there the two localized candidate sets can have union of diameter~2, so an additional rounding-alignment argument is required.
+  No gap-two case occurs in the exhaustive data, but that remains empirical.
 \end{remark}
 
 \begin{proposition}[Distance-1 perturbation formula]\label{prop:s1-formula}
@@ -800,7 +815,7 @@ Let
 \[
   C_w=\prod_{z\in N(u)\setminus\{v,w\}}(1+R_{z\to u})^{-1}.
 \]
-Since $A=R_{u\to v}=C_w/(1+q)$, we have $C_w=A(1+q)$.
+The identity $A=R_{u\to v}=C_w/(1+q)$ gives $C_w=A(1+q)$.
 In~$T$, the message from $u$ to~$w$ is
 \[
   R^T_{u\to w}=\frac{C_w}{1+B}=\frac{A(1+q)}{1+B}.
@@ -810,7 +825,7 @@ In~$T/e$, the contracted vertex sends
   R^{T/e}_{u\!v\to w}=C_wB=A(1+q)B.
 \]
 For an edge with opposing message~$t$, the occupation probability at~$w$ is $q/(1+q+t)$.
-Therefore
+Substitution gives
 \[
 \begin{aligned}
   P_T(w)-P_{T/e}(w)
@@ -826,7 +841,7 @@ Therefore
   \cdot \frac{q}{1+q}.
 \end{aligned}
 \]
-This is the stated formula with factor~$F_u$.
+This gives the stated formula with factor~$F_u$.
 The formula at neighbors of~$v$ follows by interchanging $u,A$ with $v,B$.
 \end{proof}
 
@@ -856,7 +871,14 @@ The gap case arises in 8\,405 of these edges (0.09\%); in every instance the sig
   If $|p-q|=1$, only one transition index lies between $m_-$ and $m_+$, so no strict valley can occur.
 \end{proof}
 
-A contemporaneous version of the same adjacent-mode bridge appears as Lemma~2.16 of \textcite{levitkadrawi2026}.
+\textcite{levitkadrawi2026} pursue a parallel operation-based program for one-edge closures.
+For nonadjacent closure endpoints $u$ and~$v$, their identity
+\[
+  I(T+uv;\,x)=I(T;\,x)-x^2I(T-N[u]-N[v];\,x)
+\]
+is subtractive, unlike the additive subdivision identity here.
+For their explicit KL-closure families, they obtain a positive decomposition $I(U_{k,r};\,x)=H_{k,r}(x)+E_{k,r}(x)$, prove $H_{k,r}$ unimodal, use Darroch localization to place a mode of $E_{k,r}$ adjacent to one of $H_{k,r}$, and apply their Lemma~2.16, the same adjacent-mode sum principle used above.
+Both programs transport independence polynomials exactly across a graph operation and then seek mode alignment; their result is unconditional for specified unicyclic families, whereas the general subdivision-preservation statement here remains conditional.
 
 \begin{theorem}[Conditional subdivision lemma]\label{thm:conditional}
   Assume ECMS (Conjecture~\ref{conj:ecms}) and the combined tail condition (Definition~\ref{def:combined_tail}).
@@ -902,11 +924,12 @@ Table~\ref{tab:exhaustive} shows the verification results.
 Every tree count matches OEIS A000055 \citep{oeis-a000055}; counts are checked automatically during the search.
 No unimodality violation was found at any~$n$.
 The table records per-$n$ wall times through $n = 27$; the $n = 28$ and $n = 29$ extensions were resumed Modal backfills whose workers wrote residue-class summaries into a shared cloud dictionary, so for those levels I report worker count, artifacts, and completeness checks rather than a single comparable wall time.
-For each generated tree, the pipeline computes the full coefficient vector $(i_0,\dots,i_{\alpha})$ in exact integer arithmetic and evaluates unimodality, log-concavity, and near-miss statistics from that full vector (not from truncated ratios).
+For every generated tree through $n=29$, the unimodality pipeline computes the full coefficient vector $(i_0,\dots,i_{\alpha})$ in exact integer arithmetic before checking its shape.
+Companion scans evaluate log-concavity and near-miss statistics from the same full vectors through $n=28$; those metrics weren't collected at $n=29$.
 
 \begin{table}[ht]
   \centering
-  \caption{Exhaustive verification of unimodality for trees on $n$ vertices through $n = 29$. Times for $n \le 26$ are wall times on an Apple Silicon Mac with 8 parallel workers; the $n = 27$ entry used Modal cloud compute with 1024 parallel workers. The $n = 28$ and $n = 29$ entries used resumed Modal backfills; their times are 1024-worker equivalents extrapolated from total worker-hours rather than directly comparable wall times.}
+  \caption{Exhaustive verification of unimodality for trees on $n$ vertices through $n = 29$. Local times are wall times on an Apple Silicon Mac, using one process through $n=20$ and 8~workers for $21\le n\le26$; the $n=27$ entry used Modal cloud compute with 1024~workers. The $n=28$ and $n=29$ entries used resumed Modal backfills; their times are 1024-worker equivalents extrapolated from total worker-hours rather than directly comparable wall times.}
   \label{tab:exhaustive}
   \begin{tabular}{r r r}
     \toprule
@@ -939,6 +962,7 @@ For each generated tree, the pipeline computes the full coefficient vector $(i_0
 The case $n = 26$ is the first at which log-concavity fails: \textcite{kadrawi2025} found exactly two failures through exhaustive enumeration.
 My independent re-analysis reproduces these two failures (both at $k = 13$, worst ratio $i_{12}\, i_{14} / i_{13}^2 = 1.145$) and adds the near-miss metric: $\nm = 0.845$~-- far below the violation threshold.
 Even where log-concavity breaks, unimodality holds with a comfortable margin.
+Figure~\ref{fig:roots26} plots the roots of the independence polynomials of the two $n=26$ failures in the complex plane; neither polynomial is real-rooted.
 Extending to $n = 27$ (751~million trees, run on Modal cloud compute with 1024 parallel workers) finds no unimodality violations and no log-concavity failures; the top near-miss ratio is $\nm = 0.8571425$ at position $k = 13$.
 
 \textcite{ramos2025} report in their abstract that their non-log-concave examples range from $27$ to $101$ vertices, but my exhaustive enumeration finds no log-concavity failure on $27$ vertices.
@@ -946,13 +970,14 @@ Their Section~4.1 states that early searches found no failures at $N=27$ or~$29$
 The abstract's lower endpoint remains unresolved: it may refer to a later example not included in the public artifacts, or it may be a typographical error.
 A $27$-vertex certificate or confirmation from the authors would settle the discrepancy.
 
-A subsequent resumed Modal backfill extends the exhaustive frontier to $n = 28$ (2\,023\,443\,032 trees; artifacts \texttt{results/analysis\_n28\_modal\_unimodality.json} and \texttt{results/analysis\_n28\_modal\_lc\_nm.json}), again with no unimodality violations.
+A subsequent resumed Modal backfill extends the exhaustive frontier to $n = 28$ (2\,023\,443\,032 trees; the two artifacts are listed in Appendix~\ref{app:repro}), again with no unimodality violations.
 The companion $n = 28$ LC / near-miss audit finds 19 log-concavity failures, all at $k = 14$, with worst ratio $i_{13}\, i_{15} / i_{14}^2 = 1.5027778$; the top near-miss ratio is $\nm = 0.8565666$ at position $k = 13$.
-A further resumed Modal backfill extends the exhaustive frontier to $n = 29$ (5\,469\,566\,585 trees; artifact \texttt{results/analysis\_n29\_modal\_unimodality.json}), again with no unimodality violations.
-Completeness was checked by requiring every expected shard key and matching the merged totals to the full OEIS tree count; Appendix~\ref{app:repro} states the retained certificate and the limits of the temporary odd-modulus diagnostic.
+A further resumed Modal backfill extends the exhaustive frontier to $n = 29$ (5\,469\,566\,585 trees; artifact \path{results/analysis_n29_modal_unimodality.json}), again with no unimodality violations.
+At collection time, the cloud dictionary reported 1024 completed partitions and the merged total matched the full OEIS tree count.
+The retained local file is an aggregate run summary rather than a per-shard certificate; Appendix~\ref{app:repro} states this limitation and the status of the temporary odd-modulus diagnostic.
 Log-concavity and near-miss metrics currently stop at $n = 28$.
 This raises the exhaustive unimodality frontier to 8.69~billion trees through $n = 29$.
-Figure~\ref{fig:roots26} plots the roots of the independence polynomials of these two trees in the complex plane; neither polynomial is real-rooted.
+The forum user \texttt{JakeMallen} also reported an independent exhaustive verification through $n\le29$ \citep{mallen2026forum}; the forum marks user comments as unverified.
 
 \begin{figure}[ht]
   \centering
@@ -962,7 +987,7 @@ Figure~\ref{fig:roots26} plots the roots of the independence polynomials of thes
 \end{figure}
 
 Beyond exhaustive enumeration, I tested 145\,362 trees from five structured families (subdivided stars, caterpillars, spiders, brooms, and random perturbations) at sizes up to $n = 500$, finding zero unimodality violations and 378 log-concavity failures (all but 2 in subdivided stars).
-The highest near-miss ratio among these families is $\nm = 0.992$ (spiders and brooms), but brooms aren't the true extremal family.
+The highest near-miss ratio among these families is $\nm = 0.992$ (spiders and brooms), but the broader optimizer finds still larger values among multi-arm stars at every tested order in Table~\ref{tab:multiarm}.
 
 
 \section{Extremal families and asymptotics}\label{sec:extremal}
@@ -977,7 +1002,7 @@ The optimizer consistently converged to a generalization of brooms.
 
 Table~\ref{tab:multiarm} compares the best standard broom against the best multi-arm star at each vertex count.
 Multi-arm stars achieve higher~$\nm$ at every~$n$ tested, with the optimal configuration transitioning from two arms at small~$n$ to four arms by $n = 200$.
-The champion at $n \ge 200$ is $M(s;\, 5, 5, 4, 2)$, achieving $\nm = 0.9918$ at $n = 500$.
+At every tested order $n\ge200$, the champion is $M(s;\, 5, 5, 4, 2)$; it achieves $\nm = 0.9918$ at $n = 500$.
 
 \begin{table}[ht]
   \centering
@@ -997,52 +1022,92 @@ The champion at $n \ge 200$ is $M(s;\, 5, 5, 4, 2)$, achieving $\nm = 0.9918$ at
   \end{tabular}
 \end{table}
 
-The near-miss mechanism extends to any fixed core with pendant leaves.
-Earlier work proves eventual unimodality under sufficiently many pendant attachments at a vertex \citep{galvinhilyard2018}; the theorem below strengthens this by quantifying the approach to the boundary via $\nm(s)=1-C/s+O(1/s^2)$ with explicit first-order constant~$C$.
+The near-miss mechanism extends to any fixed base tree with pendant leaves.
+\textcite[Theorem~1.11]{galvinhilyard2018} prove eventual log-concavity under sufficiently many pendant attachments at a vertex; the theorem below quantifies the approach to the boundary via $\nm(s)=1-C/s+O(1/s^2)$ with an explicit first-order constant~$C$.
 I use independence-polynomial language, but this pendant-attachment enumeration also sits in the Fibonacci-number and Merrifield--Simmons-index tradition initiated by \textcite{prodinger_tichy1982} and surveyed by \textcite{gutman_wagner2010}.
 
 \begin{theorem}[Leaf-attachment asymptotics]\label{thm:leaf-attach}
 Let $H$ be a fixed tree with distinguished vertex~$v$, and let $H_s$ be obtained by attaching $s$~new leaves to~$v$.
-Write $A(x) = I(H - v;\, x)$ with $\mu_A = A'(1)/A(1)$.
-Set $y_0=\mu_A-\tfrac12$ and $\Lambda_s=\{y:s/2+y\in\mathbb{Z}\}$.
-Let $y_1$ be the smallest element of~$\Lambda_s$ strictly larger than~$y_0$, and let $y^*=y_1+1$, the next point of the same lattice.
-For each fixed parity of $s$, the near-miss ratio satisfies
+Write
 \[
-  \nm(s) \;=\; 1 - \frac{C}{s} + O\!\left(\frac{1}{s^2}\right),
+  A(x)=I(H-v;\,x),\qquad
+  \mu_A=\frac{A'(1)}{A(1)},\qquad
+  d_k(s)=[x^k](1+x)^sA(x),
 \]
-where
+and set $y_0=\mu_A-\tfrac12$.
+Fix a parity of~$s$, and let $\Lambda=\{y:s/2+y\in\mathbb Z\}$ be the corresponding lattice.
+If $y_0\in\Lambda$ and $d_{s/2+y_0}(s)>d_{s/2+y_0+1}(s)$ for every sufficiently large~$s$ of this parity, set $y_d=y_0$.
+Otherwise, set $y_d=\min\{y\in\Lambda:y>y_0\}$.
+In either case, put $y^*=y_d+1$.
+Then
 \[
-  C = 4y^* + 2 - 4\mu_A = 4(y^*-y_0).
+  \nm(s)=1-\frac{C}{s}+O\!\left(\frac1{s^2}\right),
+  \qquad C=4(y^*-y_0),
 \]
-In particular $4<C\le 8$ (so $C$ lies in the closed envelope $[4,8]$). In the pure-star core $H=\{v\}$, $\mu_A=0$, the constant is $C=6$ along even~$s$ and $C=8$ along odd~$s$. Thus $H_s$ is unimodal for all sufficiently large~$s$ in either parity class.
+with $4\le C\le8$.
+If $y_0\notin\Lambda$, then $4<C<8$; at resonance $y_0\in\Lambda$, one has $C=4$ or $C=8$ according as the comparison at~$y_0$ is eventually a strict descent or not.
+In the pure-star base tree $H=\{v\}$, $C=6$ along even~$s$ and $C=8$ along odd~$s$.
+It follows that $H_s$ is unimodal for all sufficiently large~$s$ in either parity class.
 \end{theorem}
 
 \begin{proof}
-Write $I(H_s;\, x) = (1+x)^s A(x) + x\, B(x)$ where $B(x) = I(H - N[v];\, x)$.
-Let $c_k = [x^k]\, I(H_s)$ and $d_k = \sum_j a_j \binom{s}{k-j}$ be the leading contribution.
-For $k = s/2 + y$ with $y = O(1)$, the ratio $\binom{s}{k{+}1{-}j}/\binom{s}{k{-}j} = 1 - (4y + 2 - 4j)/s + O(1/s^2)$.
-Taking the $a_j$-weighted average:
+Write
 \[
-  \frac{d_{k+1}}{d_k} = 1 - \frac{4y + 2 - 4\mu_A}{s} + O(1/s^2).
+  I(H_s;\,x)=(1+x)^sA(x)+xB(x),
+  \qquad B(x)=I(H-N[v];\,x),
 \]
-The $x B(x)$ term contributes $O(\sqrt{s}\, 2^{-s})$ relative to~$d_k$ in the central window (since $B$ is a fixed polynomial while $d_k$ grows as~$2^s/\sqrt{s}$), so $c_{k+1}/c_k = d_{k+1}/d_k + O(\sqrt{s}\, 2^{-s})$.
-The first-order term is strictly decreasing in~$y$, with adjacent lattice points separated by $4/s+O(1/s^2)$, and the error is uniform for bounded~$y$.
-For fixed parity and sufficiently large~$s$, the first strict descent in the central window occurs at
+and let $c_k=[x^k]I(H_s)$.
+Put $A(x)=\sum_{j=0}^q a_jx^j$.
+For $k=s/2+y$ with bounded~$y$, the term $xB(x)$ vanishes once~$s$ is large, and
 \[
-  k_1=s/2+y_1,
+  \frac{d_{k+1}}{d_k}
+  =\sum_{j=0}^q w_{j,k}\frac{s-k+j}{k+1-j},
+  \qquad
+  w_{j,k}=\frac{a_j\binom{s}{k-j}}{d_k}.
 \]
-where $y_1$ is the first lattice point in~$\Lambda_s$ strictly larger than $y_0=\mu_A-\tfrac12$.
-The near-miss ratio ignores this first strict descent and maximizes over later tail ratios, so the maximizing ratio occurs at the next lattice point $k^*=k_1+1=s/2+y^*$.
-Substituting $y=y^*$ in the ratio expansion gives the stated constant.
-Since $\Lambda_s$ has spacing~$1$, $0<y_1-y_0\le1$, and so
+Here $\sum_jw_{j,k}=1$, and uniformly for bounded~$y$ the weighted mean of~$j$ is $\mu_A+O(1/s)$.
+The resulting ratio satisfies
+\begin{equation}\label{eq:leaf-central-ratio}
+  \frac{c_{k+1}}{c_k}=\frac{d_{k+1}}{d_k}
+  =1-\frac{4y+2-4\mu_A}{s}+O\!\left(\frac1{s^2}\right)
+  =1-\frac{4(y-y_0)}s+O\!\left(\frac1{s^2}\right).
+\end{equation}
+
+It remains to show that this bounded-window expansion controls both the first descent and the global maximum over all later ratios.
+Choose a fixed integer $K>\max\{q,\deg(xB)\}$.
+For each fixed $k<K$, $d_k(s)$ is a polynomial in~$s$ of degree~$k$ with positive leading coefficient $1/k!$, so $c_{k+1}>c_k$ for all sufficiently large~$s$.
+For $K\le k\le(s-1)/2$, the displayed weighted-average identity applies and every factor satisfies
 \[
-  1<y^*-y_0\le2.
+  \frac{s-k+j}{k+1-j}\ge\frac{s-k}{k+1}\ge1;
 \]
-This proves $4<C\le8$.
-For the pure-star core $H=\{v\}$, $\mu_A=0$ and $y_0=-1/2$.
-If $s$ is even then $\Lambda_s=\mathbb{Z}$, so $y_1=0$, $y^*=1$, and $C=6$.
-If $s$ is odd then $\Lambda_s=\mathbb{Z}+\tfrac12$, so $y_1=1/2$, $y^*=3/2$, and $C=8$.
+so no strict descent occurs before the central window.
+Conversely, if $k>s/2+q-1/2$, every active factor is less than~1, so a strict descent has occurred by a bounded distance to the right of the centre.
+Formula~\eqref{eq:leaf-central-ratio} now shows that the first strict descent is at $k_d=s/2+y_d$: ratios with $y<y_0$ exceed~1, ratios with $y>y_0$ are below~1, and only the resonant point $y=y_0$ requires the comparison built into the definition of~$y_d$.
+At resonance that comparison has an eventual sign because, after division by a central binomial coefficient, its difference is a rational function of~$s$.
+
+The definition of~$\nm$ first admits the ratio at $k^*=k_d+1=s/2+y^*$.
+Among the finitely many later ratios with $y<q+3$, formula~\eqref{eq:leaf-central-ratio} makes this one strictly largest for large~$s$, since each lattice step increases the first-order deficit by~$4/s$.
+For the remaining tail, monotonicity of the factors in~$j$ gives, whenever $y\ge q+3$,
+\[
+  \frac{d_{k+1}}{d_k}
+  \le\frac{s-k+q}{k+1-q}
+  \le\frac{s/2-3}{s/2+4}
+  =1-\frac{14}{s+8}.
+\]
+The bound is smaller than the ratio at~$k^*$, whose first-order deficit is at most~$8/s$.
+It follows that $k^*$ gives the global post-descent maximum, and substituting $y=y^*$ in~\eqref{eq:leaf-central-ratio} yields the asserted asymptotic.
+Finally, either $y_d=y_0$ or $0<y_d-y_0\le1$, so $1\le y^*-y_0\le2$ and $4\le C\le8$.
+The pure-star constants follow from $\mu_A=0$ and the two parity lattices.
 \end{proof}
+
+At resonance, the constant isn't determined by~$\mu_A$ alone.
+Expanding the same weighted average one order further gives the following diagnostic.
+If $J$ has distribution $\Pr(J=j)=a_j/A(1)$ and third central moment~$\kappa_3$, then the ratio at $y_0$ satisfies
+\[
+  \frac{d_{s/2+y_0+1}(s)}{d_{s/2+y_0}(s)}
+  =1-\frac{8\kappa_3}{s^2}+O\!\left(\frac1{s^3}\right).
+\]
+Positive $\kappa_3$ gives $C=4$ and negative $\kappa_3$ gives $C=8$; if $\kappa_3=0$, higher-order terms decide, with an exact tie counted in the $C=8$ case.
 
 Table~\ref{tab:Cpred} compares the predicted~$C(p)$ against the empirical value at $s = 5{,}000$ for brooms $\broom(p, s)$, using $\mu_A = G_{p-1}/F_{p-1}$ where $F_n, G_n$ satisfy the Fibonacci-type recurrences
 $F_n = F_{n-1} + F_{n-2}$ with $F_0=1, F_1=1$, and
@@ -1066,36 +1131,52 @@ Agreement is within 0.5\% in all cases.
   \end{tabular}
 \end{table}
 
-The multi-arm star champion $M(s;\, 5, 5, 4, 2)$ has an empirical rate $\hat{C} \approx 3.98$ at the tested range (a finite-$s$ estimate that absorbs the $O(1/s^2)$ remainder); the theorem guarantees the asymptotic value $C \ge 4$ for any fixed core, so the margin is positive for all sufficiently large~$s$.
+For the multi-arm champion $M(s;\,5,5,4,2)$,
+\[
+  \mu_A=2\left(\frac{20}{13}\right)+\frac54+\frac23=\frac{779}{156},
+\]
+so the exact asymptotic constants are
+\[
+  C_{\mathrm{odd}}=\frac{157}{39}\approx4.02564,
+  \qquad
+  C_{\mathrm{even}}=\frac{235}{39}\approx6.02564,
+\]
+where the subscript records the parity of~$s$.
+The tested values in Table~\ref{tab:multiarm} have odd $s=n-17$; at $n=1000$, for example, the finite estimator
+$\widehat C_s:=s(1-\nm(s))$ equals approximately $3.982507$ at $s=983$.
+Since $\widehat C_s=C+O(1/s)$, its finite value below~4 doesn't contradict either exact asymptotic constant: the $O(1/s)$ remainder is still negative at this finite~$s$.
 
 
 \section{Discussion}\label{sec:discussion}
 
-\subsection{Proved backbone}
+\subsection{Established results}
 
-Two independent arguments give conditional information about any hypothetical counterexample.
-The PNP reduction (Section~\ref{sec:reduction}) provides combinatorial structure: Hub Exclusion and Transfer force the behavior of 1-Private maximal IS on trees with many leaf-neighbors, reducing that bound to Conjecture~A and the Case~B hub bound.
+The main theorem is the mean bound $\mu(T)<n/3$ for $\dleaf\le1$ trees (Corollary~\ref{cor:mu-bound}).
+The edge bound $P(u)+P(v)<2/3$ (Theorem~\ref{thm:edge-bound}), the decimation identity, and Steiner peeling turn the occupation-probability comparison into that global inequality.
+Conjecture~\ref{conj:mode-mean} would convert the mean bound into Conjecture~A, but the mode--mean conjecture is false for general log-concave sequences and remains unproved for trees.
+The mean-based approach isolates, rather than removes, the remaining difficulty.
+
+Two other arguments give conditional constraints.
+The PNP framework (Section~\ref{sec:reduction}) provides a structural side result: Hub Exclusion and Transfer force the behavior of 1-Private maximal IS on trees with many leaf-neighbors, reducing their size bound to Conjecture~A and the Case~B hub bound.
 The subdivision-contraction identity (Theorem~\ref{thm:identity}) provides algebraic structure: the relationship $I(T_e) = I(T) + x \cdot I(T/e)$ connects three natural operations on trees.
 If ECMS (Conjecture~\ref{conj:ecms}) and the combined tail condition hold, subdivision preserves unimodality, so any minimal counterexample has no degree-2 vertices.
 
-These two threads don't yet close the problem.
+Neither conditional result closes the problem.
 ECMS and Conjecture~A remain open, and neither immediately implies the other.
-But they point toward complementary strategies: ECMS asks how edge contraction affects the mode (a local operation), while Conjecture~A requires bounding the mean IS size (a global property related to the hard-core model).
+The two conditional results suggest complementary strategies.
+ECMS concerns local mode changes under edge contraction; the mean-based proof of Conjecture~A requires Conjecture~\ref{conj:mode-mean}.
 
-The hard-core model connection is useful here.
-The edge bound $P(u) + P(v) < 2/3$ (Theorem~\ref{thm:edge-bound}) is tight for $K_2$ and already constrains the mean.
-For $\dleaf \le 1$ trees, the leaf-support pairing accounts for all but the interior vertices, whose occupation probabilities tend to be well below $1/3$.
-Conjecture~\ref{conj:mode-mean} together with the proved bound $\mu < n/3$ (Corollary~\ref{cor:mu-bound}) would close Conjecture~A; Conjecture~\ref{conj:mode-mean} is verified for all 23\,942\,357 trees through $n = 23$ but remains open algebraically.
-
-\subsection{Conditional closure path}
+\subsection{Remaining conditional steps}
 
 Two main open problems remain.
 First, prove ECMS.
-The mean shift approach (Remark~\ref{rem:mean-shift}) reduces this to showing $|\mu(T) - \mu(T/e)| < 1$, with the local component proved to lie in $(0, 1/2)$ and the distance-1 remote contribution numerically bounded by $|S_1| < 0.355$ (Observation~\ref{obs:s1-bound}); for further empirical diagnostics, see Appendix~\ref{app:certificates}.
+The mean-shift analysis (Remark~\ref{rem:mean-shift}) suggests the intermediate bound $|\mu(T) - \mu(T/e)| < 1$, with the local component proved to lie in $(0, 1/2)$ and the distance-1 remote contribution numerically bounded by $|S_1| < 0.355$ (Observation~\ref{obs:s1-bound}).
+Even with mode localization, that bound leaves the integer-straddling cases and their rounding alignment unresolved; for further empirical diagnostics, see Appendix~\ref{app:certificates}.
 Second, prove Conjecture~A.
-The proved mean bound $\mu < n/3$ reduces this to Conjecture~\ref{conj:mode-mean}; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the mean bound is tight.
-The compensation condition~\eqref{eq:whnc} provides a more direct path: Propositions~\ref{prop:singleton} and~\ref{prop:mixed-single} together cover all $S \subseteq H$ with at most one non-leaf heavy vertex, and in all 931\,596 trees tested through $n = 23$, the tightest subset is always a singleton.
-On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed core, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $C \ge 4$, so adding pendant leaves always preserves unimodality for large~$s$.
+The proved mean bound $\mu < n/3$ reduces this problem to Conjecture~\ref{conj:mode-mean}; the extremal spider $S(2^k, 1)$ has gap $n/3 - \mu \to 1/6$, so the mean bound itself is tight.
+The raw compensation condition~\eqref{eq:whnc} motivates the argument, while the decimation identity and Theorem~\ref{thm:steiner-peeling} resolve the weighted core compensation for every $S\subseteq\mathcal H_{\mathrm{core}}$.
+Conjecture~\ref{conj:mode-mean} remains open.
+On the positive side, the leaf-attachment asymptotics (Theorem~\ref{thm:leaf-attach}) already rule out one natural source of counterexamples: for any fixed base tree, the near-miss ratio satisfies $\nm(s) = 1 - C/s + O(1/s^2)$ with $4\le C\le8$, so adding pendant leaves always preserves unimodality for large~$s$.
 
 A separate Lean artifact records a counterexample to the naive abstract convolution-closure hypotheses and proves the leaf special case; the general closure step remains open.
 As of this submission, \path{Formal/P3.lean}, \path{Formal/JleE.lean}, \path{Formal/Algebra.lean}, and \path{Formal/Basic.lean} are sorry-free.
@@ -1105,7 +1186,7 @@ As of this submission, \path{Formal/P3.lean}, \path{Formal/JleE.lean}, \path{For
 
 The conjecture remains unproved, but the computational evidence increasingly constrains the space of potential counterexamples.
 A minimal counterexample would be homeomorphically irreducible if ECMS and the combined tail condition hold.
-The PNP analysis separately constrains below-mode 1-Private maximal IS, and the leaf-attachment theorem rules out counterexamples obtained by adding sufficiently many pendant leaves to a fixed core.
+The PNP analysis separately constrains below-mode 1-Private maximal IS, and the leaf-attachment theorem rules out counterexamples obtained by adding sufficiently many pendant leaves to a fixed base tree.
 The margin of unimodality can be made arbitrarily small~-- multi-arm stars approach the boundary at rate $1/s$~-- but the boundary appears to be strict.
 
 For empirical stress diagnostics (including the complete $n=25$ frontier snapshot and witness classes), see Appendix~\ref{app:certificates}.
@@ -1113,15 +1194,17 @@ For empirical stress diagnostics (including the complete $n=25$ frontier snapsho
 All code, data, and reproduction scripts are available in the project repository:
 \url{https://github.com/BrettRey/erdos-problem-993}.
 
-\paragraph{Artifact availability.}
-The reproducible manuscript snapshot is Git tag
-\texttt{paper-v2-2026-03-18-doi}, commit
-\texttt{487096954fef98f7ff93a352d241f3f8d62ef0e5}.
-API documentation is published at \url{https://brettrey.github.io/erdos-problem-993/docs/}.
-The corresponding Zenodo concept DOI is
-\href{https://doi.org/10.5281/zenodo.18745546}{10.5281/\allowbreak zenodo.18745546}
-(version DOI:
-\href{https://doi.org/10.5281/zenodo.19100781}{10.5281/\allowbreak zenodo.19100781}).
+The archived snapshot is tagged \texttt{paper-v2-2026-03-18-doi}
+at commit \texttt{487096954fef}.
+API documentation is published on the
+\href{https://brettrey.github.io/erdos-problem-993/docs/}{project documentation site}.
+
+The Zenodo concept DOI is
+\href{https://doi.org/10.5281/zenodo.18745546}{10.5281/\allowbreak zenodo.18745546}.
+
+The version DOI is
+\href{https://doi.org/10.5281/zenodo.19100781}{10.5281/\allowbreak zenodo.19100781}.
+
 The repository also includes a Lean~4.28 formalization of the local algebraic lemmas in \texttt{Formal/}. The current formalization leaves the general convolution-closure step open but records the proved leaf special case and an explicit obstruction to the naive abstract hypothesis set. The Steiner-peeling proof and Hub Exclusion/Transfer reduction aren't formalized in Lean.
 
 
@@ -1138,9 +1221,10 @@ I manually reviewed all machine-generated code, proofs, and prose, and I take re
 Computations through $n = 26$ were run on an Apple M4 (arm64) with 32\,GB RAM, running macOS.
 The $n = 27$ search used Modal cloud compute with 1024 parallel workers (78~minutes wall time).
 The $n = 28$ and $n = 29$ extensions used resumed Modal backfills with 1024 workers writing exact shard totals into a shared dictionary. In rough 1024-worker equivalents, the corresponding jobs were about 3.5\,h for the $n = 28$ unimodality scan, 7.2\,h for the companion $n = 28$ LC / near-miss audit, and 9.5\,h for the $n = 29$ unimodality scan; these are extrapolated worker-hour equivalents rather than measured wall times because the runs were resumed in stages.
-The retained $n=29$ certificate is the 1024-key Modal dictionary merge archived in \path{results/analysis_n29_modal_unimodality.json}.
-All keys were present, all reported zero counterexamples, and the merged total was $5\,469\,566\,585$, matching the hard-coded OEIS~A000055 count in the collector.
-The collection notes mention a temporary odd-modulus rerun used interactively while chasing one slow binary residue. That rerun isn't part of the archived proof certificate. The end-to-end certificate is the production mod-1024 partition: every production key is present, every key reports zero counterexamples, and the merged total matches OEIS~A000055.
+The three retained $n=28,29$ files are aggregate summaries: \path{results/analysis_n28_modal_unimodality.json}, \path{results/analysis_n28_modal_lc_nm.json}, and \path{results/analysis_n29_modal_unimodality.json} each record 1024 completed partitions and a merged total matching the relevant OEIS~A000055 count.
+They don't preserve the raw dictionary rows, so the committed repository can't independently replay the exact shard-key coverage or each per-shard result from those files alone.
+The collection notes mention a temporary odd-modulus rerun used interactively while chasing one slow binary residue; that diagnostic isn't part of the retained production summary.
+The collector now validates the exact expected key set and can export sorted raw rows for future immutable certificates, but recovering the old rows depends on continued availability of the original cloud dictionaries.
 Software versions: Python~3.14.2, NumPy~2.4.2, NetworkX~3.6.1, nauty/geng~2.9301 (32-bit).
 
 \begin{table}[ht]
@@ -1160,12 +1244,17 @@ Software versions: Python~3.14.2, NumPy~2.4.2, NetworkX~3.6.1, nauty/geng~2.9301
   \end{tabular}
 \end{table}
 
+\subsection{Code and certificate data}
+
 \begin{verbatim}
 pip install networkx numpy
 brew install nauty
 
-# Unit tests (43 tests)
+# Core unit tests (55 tests)
 python3 -m unittest test_all.py -v
+
+# Modal collector integrity tests (3 tests)
+python3 -m unittest test_collect_modal_results.py -v
 
 # Exhaustive search, n <= 26 (8 workers, requires geng)
 python3 search.py --max-n 26 --workers 8
@@ -1182,16 +1271,22 @@ modal run analyze_modal_lc_nm_n28.py::dispatch \
   --n 28 --workers 1024 --top-k 200 --lc-top-k 200
 python3 scripts/collect_modal_results.py collect \
   --kind unimodality --n 28 --workers 1024 \
+  --raw-out results/raw_n28_modal_unimodality_rows.json \
   --out results/analysis_n28_modal_unimodality.json
 python3 scripts/collect_modal_results.py collect \
   --kind lc_nm --n 28 --workers 1024 --top-k 200 --lc-top-k 200 \
+  --raw-out results/raw_n28_modal_lc_nm_rows.json \
   --out results/analysis_n28_modal_lc_nm.json
 
 # n = 29 (Modal backfill via shared dict, 1024 workers)
 modal run search_modal_exhaustive_n29.py::dispatch --n 29 --workers 1024
 python3 scripts/collect_modal_results.py collect \
   --kind unimodality --n 29 --workers 1024 \
+  --raw-out results/raw_n29_modal_unimodality_rows.json \
   --out results/analysis_n29_modal_unimodality.json
+
+# Exact replay of the retained mode--mean evidence
+python3 scripts/verify_mode_mean_artifacts.py
 
 # Regime-adaptive frontier diagnostics at n = 25 (Modal, 256 residues)
 modal run scan_modal_alpha_bookkeeping.py::dispatch_missing \
@@ -1214,42 +1309,41 @@ See the repository documentation for serialization contracts, golden-byte checks
 Random seeds are fixed (\texttt{random.Random(42)}) in \texttt{targeted.py}, ensuring deterministic reproduction.
 Per-family breakdowns are archived in \texttt{results/targeted\_families.json}.
 
-
-\section{Computational certificates}\label{app:certificates}
+\clearpage
+\section{Computational checks and certificates}\label{app:certificates}
 
 Table~\ref{tab:certificates} summarizes all verified properties.
 
-\begin{table}[ht]
+\begin{table}[!htbp]
   \centering
-  \caption{Zero-violation computational certificates.  Exhaustive LC / near-miss audits with nonzero failures are summarized in Section~\ref{sec:exhaustive}.}
+  \caption{Zero-violation computational checks. Retained artifact granularity varies; the $n=28,29$ limitation is stated in Appendix~\ref{app:repro}. Exhaustive LC / near-miss audits with nonzero failures are summarized in Section~\ref{sec:exhaustive}.}
   \label{tab:certificates}
-  \small
+  \footnotesize
   \begin{tabular}{@{}p{0.38\linewidth} p{0.21\linewidth} p{0.11\linewidth} p{0.18\linewidth}@{}}
     \toprule
     Property & Count & $n$ range & Ref \\
     \midrule
-    Unimodality (exhaustive) & \liningnums{8\,691\,747\,673} trees & $\le 29$ & Conj.~\ref{conj:main} \\
-    LC (exhaustive, zero-failure range) & \liningnums{167\,879\,146} trees & $\le 25$ & \S\ref{sec:exhaustive} \\
-    $I(T_e) = I(T) + x I(T/e)$ & \liningnums{66\,697} edges & $\le 14$ & Thm.~\ref{thm:identity} \\
-    ECMS & \liningnums{24\,710\,099} edges & $\le 20$ & Conj.~\ref{conj:ecms} \\
-    $A(x)$ unimodal and LC & \liningnums{9\,071\,864} edges & $\le 19$ & Thm.~\ref{thm:conditional} \\
-    Combined tail & \liningnums{9\,071\,864} edges & $\le 19$ & Def.~\ref{def:combined_tail} \\
-    $x R_u R_v$ ascending before mode & \liningnums{24\,710\,099} edges & $\le 20$ & Rem.~\ref{rem:additional} \\
-    $|\delta(T, v)| \le 1$ & \liningnums{26\,056\,121} pairs & $\le 20$ & Rem.~\ref{rem:additional} \\
-    Conjecture A & \liningnums{931\,596} trees & $\le 23$ & Conj.~\ref{conj:A} \\
-    $\mu < n/3$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ & Cor.~\ref{cor:mu-bound} \\
-    Compensation~\eqref{eq:whnc} ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ & Prop.~\ref{prop:singleton} \\
-    Singleton argmin & \liningnums{931\,596} trees & $\le 23$ & \S\ref{sec:discussion} \\
-    Case B bound & \liningnums{8\,710\,881} trees & $\le 22$ & \S\ref{sec:reduction} \\
-    $S_1$ formula (Prop.~\ref{prop:s1-formula}) & \liningnums{3\,348\,674} edges & $\le 18$ & Prop.~\ref{prop:s1-formula} \\
-    $|\delta\mu| < 0.537$ & \liningnums{3\,348\,674} edges & $\le 18$ & Rem.~\ref{rem:mean-shift} \\
-    LC ($\dleaf \le 1$ trees) & \liningnums{931\,596} trees & $\le 23$ & \S\ref{subsec:mean} \\
-    $\mathrm{mode} \le \lceil\mu\rceil$ (all trees) & \liningnums{23\,942\,357} trees & $\le 23$ & \S\ref{subsec:mean} \\
-    $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ ($\dleaf \le 1$) & \liningnums{175\,722} trees & $\le 21$ & \S\ref{subsec:mean} \\
-    Tie-fugacity: $\mu(\lambda_m) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ & Prop.~\ref{prop:spider-tie-margin} \\
-    Tie-fugacity: $\mu(\lambda_m) \ge m-1$ (all trees) & \liningnums{9\,114\,283} trees & $\le 22$ & Prop.~\ref{prop:spider-tie-margin} \\
-    Bridge mode bound: $\mathrm{mode}(P) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $\le 23$ & \S\ref{subsec:mean} \\
-    Regime frontier shards (alpha + lambda, Modal) & \liningnums{512} shards & $n = 25$ & \S\ref{sec:discussion} \\
+    Unimodality (exhaustive) & \liningnums{8\,691\,747\,673} trees & $1\le n\le29$ & Conj.~\ref{conj:main} \\
+    LC (exhaustive, zero-failure range) & \liningnums{167\,879\,146} trees & $1\le n\le25$ & \S\ref{sec:exhaustive} \\
+    $I(T_e) = I(T) + x I(T/e)$ & \liningnums{66\,697} edges & $3\le n\le14$ & Thm.~\ref{thm:identity} \\
+    ECMS & \liningnums{24\,710\,099} edges & $3\le n\le20$ & Conj.~\ref{conj:ecms} \\
+    $xI(T/e;\,x)$ log-concave & \liningnums{9\,071\,864} edges & $3\le n\le19$ & Rem.~\ref{rem:additional} \\
+    Combined tail & \liningnums{9\,071\,864} edges & $3\le n\le19$ & Def.~\ref{def:combined_tail} \\
+    $x R_u R_v$ ascending before mode & \liningnums{24\,710\,099} edges & $3\le n\le20$ & Rem.~\ref{rem:additional} \\
+    Vertex deletion shifts mode by at most~1 & \liningnums{26\,056\,121} pairs & $3\le n\le20$ & Rem.~\ref{rem:additional} \\
+    Conjecture A & \liningnums{931\,596} trees & $3\le n\le23$ & Conj.~\ref{conj:A} \\
+    $\mu < n/3$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $3\le n\le23$ & Cor.~\ref{cor:mu-bound} \\
+    $F_{\mathrm{raw}}(S)\ge0$ for all nonempty~$S$ ($\dleaf\le1$) & \liningnums{931\,596} trees & $3\le n\le23$ & \S\ref{subsec:mean} \\
+    Case B bound ($H(T)\ne\emptyset$) & \liningnums{8\,710\,881} trees & $3\le n\le22$ & \S\ref{sec:reduction} \\
+    $S_1$ formula (Prop.~\ref{prop:s1-formula}) & \liningnums{3\,348\,674} edges & $3\le n\le18$ & Prop.~\ref{prop:s1-formula} \\
+    $|\mu(T)-\mu(T/e)| < 0.537$ & \liningnums{3\,348\,674} edges & $3\le n\le18$ & Rem.~\ref{rem:mean-shift} \\
+    LC ($\dleaf \le 1$ trees) & \liningnums{931\,596} trees & $3\le n\le23$ & \S\ref{subsec:mean} \\
+    $\mathrm{mode} \le \lceil\mu\rceil$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $3\le n\le23$ & \S\ref{subsec:mean} \\
+    $\mathrm{mode} \le \lceil\mu\rceil$ (hard families) & \liningnums{5\,823} instances & $4$--$499$ & \S\ref{subsec:mean} \\
+    $\mathrm{mode} \le \lceil\mu\rceil$ ($n=28$ LC failures) & \liningnums{19} trees & $n=28$ & \S\ref{subsec:mean} \\
+    $\mathrm{mode} \in \{\lfloor\mu\rfloor, \lceil\mu\rceil\}$ ($\dleaf \le 1$) & \liningnums{175\,722} trees & $3\le n\le21$ & \S\ref{subsec:mean} \\
+    Tie fugacity: $\mu(\lambda_m) \ge m-1$ ($\dleaf \le 1$) & \liningnums{931\,596} trees & $3\le n\le23$ & Rem.~\ref{rem:tie-fugacity-condition} \\
+    Tie fugacity: $\mu(\lambda_m) \ge m-1$ (all trees) & \liningnums{9\,114\,283} trees & $3\le n\le22$ & Rem.~\ref{rem:tie-fugacity-condition} \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -1262,11 +1356,12 @@ For the complete $n=25$ frontier snapshot, the aggregated values are
 with witness classes $(2,21)$ and $(5,18)$, and gap $-0.183755327$.
 The full-precision values are in the committed $n=25$ frontier JSON artifact.
 
-\section{Falsification ledger}\label{app:falsification}
+\clearpage
+\subsection{Falsification ledger}\label{app:falsification}
 
 The proved theorems and conjectural reductions in the main text were each subjected to high-severity computational tests designed to falsify them. Table~\ref{tab:falsification} records the severe tests, their scopes, and outcomes. None of the hypotheses produced a violation under exhaustive enumeration in the tested ranges; the determinism fixture matrix and golden-byte replay checks confirm that the verification pipeline itself is reproducible.
 
-\begin{table}[ht]
+\begin{table}[!htbp]
   \centering
   \caption{Severe tests for the main hypotheses.}
   \label{tab:falsification}
@@ -1278,7 +1373,7 @@ The proved theorems and conjectural reductions in the main text were each subjec
     Identity $I(T_e)=I(T)+xI(T/e)$ & Exhaustive edge checks on trees $n \le 14$ & No violations & App.~\ref{app:certificates}, identity row \\
     ECMS $|\Delta \mathrm{mode}| \le 1$ & Exhaustive edge scan on trees $n \le 20$ & No violations & App.~\ref{app:certificates}, ECMS row \\
     Combined tail in gap case & Exhaustive edge scan on trees $n \le 19$ & No violations & App.~\ref{app:certificates}, combined-tail row \\
-    Conjecture A on $\dleaf \le 1$ trees & Exhaustive scan through $n=23$ & No violations & App.~\ref{app:certificates}, Conjecture~A row \\
+    Conjecture A on $\dleaf \le 1$ trees & Exhaustive scan on $3\le n\le23$ & No violations & App.~\ref{app:certificates}, Conjecture~A row \\
     Regime hard-step frontier completeness at $n=25$ & Full shard completion ($256+256$) + replayed aggregation & Complete; obstruction gap widened & $n=25$ frontier JSON \\
     Machine-artifact determinism & Fixture matrix T0--T7 + golden-byte replay checks & Passing & orchestrator tests \\
     \bottomrule
@@ -1286,7 +1381,7 @@ The proved theorems and conjectural reductions in the main text were each subjec
 \end{table}
 
 
-\section{Verification checklist}\label{app:verify}
+\subsection{Verification checklist}\label{app:verify}
 
 \begin{enumerate}
   \item Tree counts match OEIS A000055 at every~$n$.
@@ -1300,10 +1395,10 @@ The proved theorems and conjectural reductions in the main text were each subjec
 
   \item The overflow guard for polynomial multiplication triggers automatic fallback to pure Python big-integer arithmetic when coefficient products approach $2^{62}$.
 
-  \item 43 unit tests cover: polynomial correctness on small graphs, unimodality and LC checks, near-miss ratio computation, graph6 parsing, and tree generation.
+  \item 55 core unit tests cover polynomial correctness on small graphs, unimodality and LC checks, near-miss ratio computation, graph6 parsing, and tree generation. Three focused collector tests cover exact shard-key validation and hashed raw-row replay.
 \end{enumerate}
 
-\newpage
+\clearpage
 \begingroup
 \setlength{\emergencystretch}{2em}
 \printbibliography
