@@ -9,6 +9,10 @@
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## 2026-07-17: Independent audit of the Poisson-binomial manuscript passed
+
+Full independent audit at Brett's request: exact certificate replay (byte-identical, checker passed, digests reproduced), fresh symbolic re-derivation of the entire scalar section (`scripts/audit_pb_scalar_independent_20260717.py`), exact end-to-end tests of Prop 3.1 and Theorem 1.1 (`scripts/audit_pb_endtoend_exact_20260717.py`; 760 δ samples, 368 exact PB laws, 0 failures), Hillion–Johnson quotation verified against the source text, Lean project built clean with no sorry/axiom. No defects found. Full record: `notes/poisson_binomial_independent_audit_2026-07-17.md`. Remaining gates: human sign-off on this audit, authenticated MathSciNet/expert novelty checks, durable certificate DOI, prediction-ledger forecast. (Same day: the interactive explainer went live at https://brettreynolds.ca/first-descent.html with the manuscript PDF at https://brettreynolds.ca/variance-scaled-turan.pdf.)
+
 ## Current state (2026-07-15/16)
 
 ### Session notes (user-directed valley-first disproof campaign)
