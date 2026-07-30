@@ -1,3 +1,90 @@
+---
+slug: erdos-problem-993
+kind: paper
+title: Mean bounds, structural reductions, and exhaustive verification for tree independence polynomial
+  unimodality
+stage: complete
+external: in-review
+blocked_on:
+- venue-response
+updated: 2026-07-23
+source:
+- STATUS.md
+- PORTFOLIO.md
+- paper/main_v2.tex
+venue: Electronic Journal of Combinatorics
+external_id: '15526'
+preprints:
+- zenodo/19100781
+next_action: Wait; E-JC requests no status enquiries before six months elapse (submitted 2026-04-25).
+notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-polynomial
+
+  unimodality), not a linguistics paper -- flagging per the task''s "consider
+
+  kind" hint. kind vocabulary (paper|book|tool|non-paper) tracks document type,
+
+  not subject-matter fit, and there is no subject-scope axis in this schema, so
+
+  kind=paper still holds; the mismatch is a portfolio-scope question, not a
+
+  schema-fit one.
+
+
+  external: UNCLEAR. STATUS.md''s own account of the current submission
+
+  (2026-04-25 entry) says only: "Submitted to the Electronic Journal of
+
+  Combinatorics. Submission number 60492-1 ... Acknowledgement received same
+
+  day; OJS submission ID 15526 ... E-JC requests no status enquiries before six
+
+  months elapse." It never calls this submission "under review" (the phrase
+
+  "Under review at Experimental Mathematics" appears only for the earlier,
+
+  since-dropped submission that was desk rejected). PORTFOLIO.md:79 states
+
+  "Under review (E-JC requests no status checks for 6 months)." Both readings
+
+  are recorded; blocked_on (venue-response) is the same under either reading.
+
+
+  Two identifiers exist for the same submission: OJS submission ID 15526 (used
+
+  above as external_id, matching PORTFOLIO.md) and submission number 60492-1
+
+  (STATUS.md only). Extensive private mathematical research on the underlying
+
+  conjecture continues in STATUS.md but has not touched the submitted
+
+  manuscript (paper/main_v2.tex unchanged throughout).
+
+
+  RESOLVED to in-review by ADJUDICATION 2026-07-30. This block is gap 4, and the
+
+  gap closed by deletion rather than by a new value: schema v2 dropped `submitted`
+
+  altogether, so the acknowledged-but-unconfirmed state and the with-referees state
+
+  are one value. blocked_on was venue-response under either reading, which is why
+
+  the distinction had no consumer. Verified still at the venue as of 2026-07-30:
+
+  nothing in STATUS.md, DECISIONS.md, or the git log records any E-JC contact since
+
+  the 2026-04-25 acknowledgement, and the paper is about three months into a
+
+  six-month no-enquiry window, so silence is expected rather than a signal. Gmail
+
+  searches for "Electronic Journal of Combinatorics", "E-JC", "15526", "60492",
+
+  "combinatorics.org" returned nothing, which is suggestive but not conclusive,
+
+  since portals sometimes write to Brett''s Humber or UofT addresses.
+
+  '
+---
+
 # Erdos Problem #993 -- Independent Set Sequence Unimodality for Trees
 
 **Problem:** Is the independent set sequence of every tree unimodal?
@@ -8,6 +95,10 @@
 ## Source of truth
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
+
+## 2026-07-23: Conditional new-model trigger
+
+Do not restart the long-horizon proof search on the present allowance, which is nearly exhausted. A CDC-style GPT-5.6 Sol Ultra run was already completed on 2026-07-11 (session `019f50b2-d9d6-7381-a975-737224dd5d0b`); it generated the D1--D27 registry and the prefix-GSB/rank-three/obstruction artifacts recorded below but did not resolve #993. Reconsider a sustained run only if a new model release also brings a meaningful allowance reset. If reopened, continue from the July 11 prefix-GSB and July 16 no-cross-gap-rebound/tree-DP frontier, import the closed-route registry, and use a persistent goal with checkpoints. Do not blindly replay the earlier portfolio prompt. The release/reset is a trigger to evaluate the opportunity, not an automatic instruction to spend the reset.
 
 ## 2026-07-17: Independent audit of the Poisson-binomial manuscript passed
 
