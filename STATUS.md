@@ -7,7 +7,7 @@ stage: complete
 external: in-review
 blocked_on:
 - venue-response
-updated: 2026-07-23
+updated: 2026-07-31
 source:
 - STATUS.md
 - PORTFOLIO.md
@@ -95,6 +95,15 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 ## Source of truth
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
+
+## 2026-07-31: Lin & Li citation added; Hyra evaluated and ruled out as a tool
+
+Brett flagged Lin & Li, *Settling the Optimal Exponent Relating Sumsets and Difference Sets* (arXiv:2607.27199, math.CO, v1 2026-07-29), with its Lean repo `linhaowei1/sum-diff-proof` and the Tencent Hyra launch post. Mathematically unrelated to trees (additive combinatorics: the exponent $1/2$ in $\sigma(A)^{1/2} \le \delta(A) \le \sigma(A)^2$ is optimal). Relevant three ways, all methodological.
+
+- **Citation added.** The 2026-03-11 log records adding a Ramsey/AlphaEvolve citation to `paper/main_v2.tex` and `paper/references.bib` as broader AI-assisted extremal-combinatorics context; neither file contained it, so the slot was empty. Filled with `linli2026`, one sentence after the `ramos2025` line in the intro, flagged as outside the tree problem. Build clean (30 pages, no undefined citations). Committed and pushed as `abcdf24`. **Does not reach E-JC**: `main_v2.tex` is the manuscript submitted 2026-04-25 (OJS 15526), so this lands only on a revision round.
+- **Trust-base distinction worth copying.** Their Lean build has no `sorry`, but the axiom footprint splits: the analytic upper bound and non-attainment are fully kernel-checked (`propext`, `Classical.choice`, `Quot.sound`), while the supremum, convergence, and quantitative-witness theorems add three `native_decide` certificates about a 12-element base-39 block. `native_decide` moves the Lean compiler and native execution into the trusted base. Directly relevant to `Formal/` if the exhaustive $n \le 29$ verification is ever formalized, where `native_decide` is the obvious shortcut.
+- **Hyra is not usable and is not the trigger.** The agent framework is unreleased; only result artifacts are public (`Tencent-Hunyuan/hyra-results`). Hy3, the base model, is open-weights Apache 2.0 (295B A21B) and available through third-party APIs at roughly $0.13/M input and $0.53/M output, which is outside the Anthropic and OpenAI allowances entirely. That is an economic change, not the allowance reset the 2026-07-23 trigger names, so the project stays shelved. If a cheap probe is ever wanted, hand `gpt_attack/erdos993_open_handoff_2026-07-22/` to Hy3 the way GLM-5.2 was handled.
+- **Outreach lead, not acted on.** `hyra-results` includes an `erdos_min_overlap` track and 100 record-breaking packings credited on Erich Friedman's Packing Center as "Found by Haowei Lin". Lin is the natural contact if #993 is ever pitched as a target for that pipeline.
 
 ## 2026-07-23: Conditional new-model trigger
 
