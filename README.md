@@ -10,7 +10,7 @@ This is known to be false for general graphs. The tree case remains open.
 
 - [erdosproblems.com #993](https://erdosproblems.com/993)
 
-## Current public targets, July 2026
+## Current public targets, August 2026
 
 This repository does not contain a proof of Erdos Problem #993.
 
@@ -60,6 +60,22 @@ The current active targets are:
    been completed.
 
 ## Results
+
+### Additional repository result
+
+Every **double broom**—a path with any number of leaves attached at either
+endpoint—has a log-concave independence polynomial. The proof covers all
+numbers of leaves and every connector length; see
+[`notes/double_broom_log_concavity.md`](notes/double_broom_log_concavity.md).
+An exact replay audits the formulas and coefficient identities but is not the
+proof of the all-parameter theorem.
+
+The same recurrence also gives a computer-assisted extension to every
+two-hub tree with at most 24 vertices on its pendant arms and an arbitrarily
+long connector. The exact certificate covers 163,523 unordered pendant-core
+pairs. Neither result settles Erdős Problem #993 or the unrestricted class of
+trees with two branch vertices. These repository results arose through
+substantive generative-AI assistance and have not been peer reviewed.
 
 The manuscript (`paper/main_v2.tex`) reports:
 
@@ -137,6 +153,17 @@ python3 -I -S scripts/check_universal_pb_finite_bernstein_certificate.py \
 
 # Build and checksum the deterministic Poisson--binomial supplement
 python3 scripts/build_poisson_binomial_supplement.py
+
+# Double-broom theorem audit and bounded two-hub certificate
+audit_dir=$(mktemp -d)
+python3 verify_connector_partial_sync_route_20260808.py \
+  --out "$audit_dir/double-broom.json"
+cmp "$audit_dir/double-broom.json" \
+  results/connector_partial_sync_route_20260808.json
+python3 verify_c2_bounded_pendant_core_20260808.py \
+  --out "$audit_dir/c2-bounded.json"
+cmp "$audit_dir/c2-bounded.json" \
+  results/c2_bounded_pendant_core_20260808.json
 ```
 
 ## Key files
@@ -149,6 +176,9 @@ python3 scripts/build_poisson_binomial_supplement.py
 | `paper/poisson_binomial/CERTIFICATE.md` | Audit manifest and exact replay instructions for its scalar certificate |
 | `scripts/check_universal_pb_finite_bernstein_certificate.py` | Independent standard-library certificate checker |
 | `scripts/build_poisson_binomial_supplement.py` | Deterministic supplementary-archive builder |
+| `notes/double_broom_log_concavity.md` | Proof note for log-concavity of every double broom, plus the bounded two-hub companion |
+| `verify_connector_partial_sync_route_20260808.py` | Exact audit of the double-broom formulas and coefficient identities |
+| `verify_c2_bounded_pendant_core_20260808.py` | Exact bounded-pendant-core enumerator and certificate generator |
 | `indpoly.py` | Core DP + analysis functions |
 | `search.py` | Exhaustive parallel search |
 | `targeted.py` | Structured family search |

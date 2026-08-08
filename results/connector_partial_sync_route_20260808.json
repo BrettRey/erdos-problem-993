@@ -1,0 +1,29 @@
+{
+  "theorem_scope": "The algebraic proof covers all p,q,t >= 0 for double stars with unit pendant arms and t internal hub-connector vertices.",
+  "computation_role": "Finite exact audit of formulas and general coefficient identities; the finite ranges are not the proof of the theorem.",
+  "max_leaves_each_side": 30,
+  "ratio_audit_max_leaves_each_side": 100,
+  "max_internal_connector_vertices": 20,
+  "full_partial_base_parameter_cases": 961,
+  "ratio_base_parameter_cases": 10201,
+  "recurrence_parameter_cases": 18259,
+  "tree_dp_cases": 324,
+  "binomial_basis_max_k": 60,
+  "binomial_basis_coefficients_checked": 228741,
+  "basis_finite_difference_max_k": 10,
+  "finite_difference_coefficients_checked": 2016,
+  "ordinary_synchronization_obstruction": {
+    "p": 2,
+    "q": 2,
+    "internal_vertices": 3,
+    "summand_failure": {
+      "relation": "right <= x*left",
+      "witness": {
+        "type": "ratio",
+        "k": 6,
+        "lhs": 11,
+        "rhs": 10
+      }
+    }
+  }
+}

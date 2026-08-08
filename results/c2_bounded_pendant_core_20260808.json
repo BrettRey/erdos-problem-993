@@ -1,0 +1,51 @@
+{
+  "claim_scope": "Computer-assisted theorem: every two-hub tree whose two pendant-arm multisets have total weight at most 24 has a log-concave independence polynomial for every number of internal connector vertices.",
+  "theorem_vs_computation": {
+    "algebraic_part": "The connector formula, Fibonacci recurrence, and partial-synchronization induction cover every connector length.",
+    "exact_computational_part": "The finite integer-partition enumeration verifies the two base polynomials and two base relations for every bounded pendant core.",
+    "not_claimed": "No conclusion is made for pendant cores above the stated bound, for trees with three or more branch vertices, or for Erdos Problem 993 in full."
+  },
+  "maximum_total_pendant_vertices": 24,
+  "partition_vectors": 7338,
+  "unordered_arm_vector_pairs": 163523,
+  "pairs_by_total_pendant_weight": [
+    1,
+    1,
+    3,
+    5,
+    11,
+    18,
+    34,
+    55,
+    95,
+    150,
+    244,
+    376,
+    588,
+    885,
+    1340,
+    1978,
+    2922,
+    4235,
+    6130,
+    8745,
+    12442,
+    17501,
+    24533,
+    34075,
+    47156
+  ],
+  "canonical_enumeration_sha256": "25c37f1435984d3bbdb275424ea4f6f5766c33a7c6e792a67700a90dae91efb1",
+  "base_checks_per_pair": [
+    "B is log-concave and unimodal",
+    "C is log-concave and unimodal",
+    "C is partially synchronized with B",
+    "xC is partially synchronized with B"
+  ],
+  "dp_audit": {
+    "maximum_total_pendant_vertices": 8,
+    "maximum_internal_connector_vertices": 4,
+    "tree_dp_formula_cases": 1115,
+    "recurrence_cases": 669
+  }
+}
