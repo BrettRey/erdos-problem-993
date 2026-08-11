@@ -1,0 +1,7161 @@
+{
+  "claim_scope": "exact evolutionary search; evidence only unless a counterexample is present",
+  "objective": "largest later adjacent ratio that exceeds an earlier tail ratio",
+  "parameters": {
+    "min_n": 30,
+    "max_n": 100,
+    "step_n": 10,
+    "population": 240,
+    "generations": 1500,
+    "offspring_per_parent": 6,
+    "seed": 20260808
+  },
+  "counterexample_found": false,
+  "results": [
+    {
+      "counterexample_found": false,
+      "n": 30,
+      "evaluated": 738240,
+      "seed": 20260838,
+      "history": [
+        {
+          "generation": 0,
+          "evaluated": 240,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 25,
+          "evaluated": 12540,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 50,
+          "evaluated": 24840,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 75,
+          "evaluated": 37140,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 100,
+          "evaluated": 49440,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 125,
+          "evaluated": 61740,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 150,
+          "evaluated": 74040,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 175,
+          "evaluated": 86340,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 200,
+          "evaluated": 98640,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 225,
+          "evaluated": 110940,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 250,
+          "evaluated": 123240,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 275,
+          "evaluated": 135540,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 300,
+          "evaluated": 147840,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 325,
+          "evaluated": 160140,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 350,
+          "evaluated": 172440,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 375,
+          "evaluated": 184740,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 400,
+          "evaluated": 197040,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 425,
+          "evaluated": 209340,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 450,
+          "evaluated": 221640,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 475,
+          "evaluated": 233940,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 500,
+          "evaluated": 246240,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 525,
+          "evaluated": 258540,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 550,
+          "evaluated": 270840,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 575,
+          "evaluated": 283140,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 600,
+          "evaluated": 295440,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 625,
+          "evaluated": 307740,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 650,
+          "evaluated": 320040,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 675,
+          "evaluated": 332340,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 700,
+          "evaluated": 344640,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 725,
+          "evaluated": 356940,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 750,
+          "evaluated": 369240,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 775,
+          "evaluated": 381540,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 800,
+          "evaluated": 393840,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 825,
+          "evaluated": 406140,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 850,
+          "evaluated": 418440,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 875,
+          "evaluated": 430740,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 900,
+          "evaluated": 443040,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 925,
+          "evaluated": 455340,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 950,
+          "evaluated": 467640,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 975,
+          "evaluated": 479940,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1000,
+          "evaluated": 492240,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1025,
+          "evaluated": 504540,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1050,
+          "evaluated": 516840,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1075,
+          "evaluated": 529140,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1100,
+          "evaluated": 541440,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1125,
+          "evaluated": 553740,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1150,
+          "evaluated": 566040,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1175,
+          "evaluated": 578340,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1200,
+          "evaluated": 590640,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1225,
+          "evaluated": 602940,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1250,
+          "evaluated": 615240,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1275,
+          "evaluated": 627540,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1300,
+          "evaluated": 639840,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1325,
+          "evaluated": 652140,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1350,
+          "evaluated": 664440,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1375,
+          "evaluated": 676740,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1400,
+          "evaluated": 689040,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1425,
+          "evaluated": 701340,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1450,
+          "evaluated": 713640,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1475,
+          "evaluated": 725940,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        },
+        {
+          "generation": 1500,
+          "evaluated": 738240,
+          "rebound_ratio": 0.020134228187919462,
+          "rebound_gain": 1.0607630286924012,
+          "rebound_k": 15,
+          "first_descent": 9,
+          "near_miss_ratio": 0.6487056332028751,
+          "unimodal": true
+        }
+      ],
+      "best": {
+        "label": "analysis_n28_modal_lc_nm.json:10:grow9",
+        "generation": 0,
+        "alpha": 16,
+        "unimodal": true,
+        "near_miss_ratio": 0.6487056332028751,
+        "near_miss_k": 10,
+        "first_descent": 9,
+        "rebound_k": 15,
+        "rebound_num": 3,
+        "rebound_den": 149,
+        "rebound_ratio": 0.020134228187919462,
+        "rebound_gain": 1.0607630286924012,
+        "minimum_slope_k": 14,
+        "n": 30,
+        "edges": [
+          [
+            0,
+            13
+          ],
+          [
+            0,
+            27
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            1,
+            14
+          ],
+          [
+            1,
+            25
+          ],
+          [
+            2,
+            15
+          ],
+          [
+            2,
+            25
+          ],
+          [
+            3,
+            16
+          ],
+          [
+            3,
+            25
+          ],
+          [
+            4,
+            17
+          ],
+          [
+            4,
+            26
+          ],
+          [
+            5,
+            18
+          ],
+          [
+            5,
+            26
+          ],
+          [
+            6,
+            19
+          ],
+          [
+            6,
+            26
+          ],
+          [
+            7,
+            20
+          ],
+          [
+            7,
+            26
+          ],
+          [
+            8,
+            21
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            9,
+            22
+          ],
+          [
+            9,
+            27
+          ],
+          [
+            10,
+            23
+          ],
+          [
+            10,
+            27
+          ],
+          [
+            11,
+            24
+          ],
+          [
+            12,
+            25
+          ],
+          [
+            12,
+            26
+          ],
+          [
+            12,
+            27
+          ],
+          [
+            24,
+            28
+          ],
+          [
+            28,
+            29
+          ]
+        ],
+        "polynomial": null
+      }
+    },
+    {
+      "counterexample_found": false,
+      "n": 40,
+      "evaluated": 738240,
+      "seed": 20260848,
+      "history": [
+        {
+          "generation": 0,
+          "evaluated": 240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 12,
+          "near_miss_ratio": 0.8203746017916903,
+          "unimodal": true
+        },
+        {
+          "generation": 25,
+          "evaluated": 12540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 14,
+          "near_miss_ratio": 0.8642068519202574,
+          "unimodal": true
+        },
+        {
+          "generation": 50,
+          "evaluated": 24840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 14,
+          "near_miss_ratio": 0.8696037977978113,
+          "unimodal": true
+        },
+        {
+          "generation": 75,
+          "evaluated": 37140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 14,
+          "near_miss_ratio": 0.8714021151358012,
+          "unimodal": true
+        },
+        {
+          "generation": 100,
+          "evaluated": 49440,
+          "rebound_ratio": 0.013157894736842105,
+          "rebound_gain": 1.0802025623268698,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.660287718113073,
+          "unimodal": true
+        },
+        {
+          "generation": 125,
+          "evaluated": 61740,
+          "rebound_ratio": 0.01444043321299639,
+          "rebound_gain": 1.0422917019640554,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6842955645546254,
+          "unimodal": true
+        },
+        {
+          "generation": 150,
+          "evaluated": 74040,
+          "rebound_ratio": 0.016216216216216217,
+          "rebound_gain": 1.007662527392257,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6895949809475282,
+          "unimodal": true
+        },
+        {
+          "generation": 175,
+          "evaluated": 86340,
+          "rebound_ratio": 0.017045454545454544,
+          "rebound_gain": 1.005270209194215,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6837698309061958,
+          "unimodal": true
+        },
+        {
+          "generation": 200,
+          "evaluated": 98640,
+          "rebound_ratio": 0.017045454545454544,
+          "rebound_gain": 1.005270209194215,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6837698309061958,
+          "unimodal": true
+        },
+        {
+          "generation": 225,
+          "evaluated": 110940,
+          "rebound_ratio": 0.017045454545454544,
+          "rebound_gain": 1.005270209194215,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6837698309061958,
+          "unimodal": true
+        },
+        {
+          "generation": 250,
+          "evaluated": 123240,
+          "rebound_ratio": 0.017045454545454544,
+          "rebound_gain": 1.005270209194215,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6837698309061958,
+          "unimodal": true
+        },
+        {
+          "generation": 275,
+          "evaluated": 135540,
+          "rebound_ratio": 0.017045454545454544,
+          "rebound_gain": 1.005270209194215,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6837698309061958,
+          "unimodal": true
+        },
+        {
+          "generation": 300,
+          "evaluated": 147840,
+          "rebound_ratio": 0.017045454545454544,
+          "rebound_gain": 1.005270209194215,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6837698309061958,
+          "unimodal": true
+        },
+        {
+          "generation": 325,
+          "evaluated": 160140,
+          "rebound_ratio": 0.017045454545454544,
+          "rebound_gain": 1.005270209194215,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6837698309061958,
+          "unimodal": true
+        },
+        {
+          "generation": 350,
+          "evaluated": 172440,
+          "rebound_ratio": 0.017045454545454544,
+          "rebound_gain": 1.005270209194215,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6837698309061958,
+          "unimodal": true
+        },
+        {
+          "generation": 375,
+          "evaluated": 184740,
+          "rebound_ratio": 0.017391304347826087,
+          "rebound_gain": 1.0007561436672967,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6979771766783451,
+          "unimodal": true
+        },
+        {
+          "generation": 400,
+          "evaluated": 197040,
+          "rebound_ratio": 0.017391304347826087,
+          "rebound_gain": 1.0007561436672967,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6979771766783451,
+          "unimodal": true
+        },
+        {
+          "generation": 425,
+          "evaluated": 209340,
+          "rebound_ratio": 0.017391304347826087,
+          "rebound_gain": 1.0007561436672967,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6979771766783451,
+          "unimodal": true
+        },
+        {
+          "generation": 450,
+          "evaluated": 221640,
+          "rebound_ratio": 0.017391304347826087,
+          "rebound_gain": 1.0007561436672967,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6979771766783451,
+          "unimodal": true
+        },
+        {
+          "generation": 475,
+          "evaluated": 233940,
+          "rebound_ratio": 0.017391304347826087,
+          "rebound_gain": 1.0007561436672967,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6979771766783451,
+          "unimodal": true
+        },
+        {
+          "generation": 500,
+          "evaluated": 246240,
+          "rebound_ratio": 0.017391304347826087,
+          "rebound_gain": 1.0007561436672967,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6979771766783451,
+          "unimodal": true
+        },
+        {
+          "generation": 525,
+          "evaluated": 258540,
+          "rebound_ratio": 0.017391304347826087,
+          "rebound_gain": 1.0013610586011341,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6993152926893,
+          "unimodal": true
+        },
+        {
+          "generation": 550,
+          "evaluated": 270840,
+          "rebound_ratio": 0.017391304347826087,
+          "rebound_gain": 1.0013610586011341,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6993152926893,
+          "unimodal": true
+        },
+        {
+          "generation": 575,
+          "evaluated": 283140,
+          "rebound_ratio": 0.017391304347826087,
+          "rebound_gain": 1.0013610586011341,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6993152926893,
+          "unimodal": true
+        },
+        {
+          "generation": 600,
+          "evaluated": 295440,
+          "rebound_ratio": 0.017391304347826087,
+          "rebound_gain": 1.0013610586011341,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6993152926893,
+          "unimodal": true
+        },
+        {
+          "generation": 625,
+          "evaluated": 307740,
+          "rebound_ratio": 0.017391304347826087,
+          "rebound_gain": 1.0013610586011341,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.6993152926893,
+          "unimodal": true
+        },
+        {
+          "generation": 650,
+          "evaluated": 320040,
+          "rebound_ratio": 0.018018018018018018,
+          "rebound_gain": 1.0136893650407164,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7180695812581138,
+          "unimodal": true
+        },
+        {
+          "generation": 675,
+          "evaluated": 332340,
+          "rebound_ratio": 0.018292682926829267,
+          "rebound_gain": 1.00210997917906,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7151851551756349,
+          "unimodal": true
+        },
+        {
+          "generation": 700,
+          "evaluated": 344640,
+          "rebound_ratio": 0.018475750577367205,
+          "rebound_gain": 1.0049442900650172,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7322402740689139,
+          "unimodal": true
+        },
+        {
+          "generation": 725,
+          "evaluated": 356940,
+          "rebound_ratio": 0.018475750577367205,
+          "rebound_gain": 1.0049442900650172,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7322402740689139,
+          "unimodal": true
+        },
+        {
+          "generation": 750,
+          "evaluated": 369240,
+          "rebound_ratio": 0.018475750577367205,
+          "rebound_gain": 1.0049442900650172,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7322402740689139,
+          "unimodal": true
+        },
+        {
+          "generation": 775,
+          "evaluated": 381540,
+          "rebound_ratio": 0.018475750577367205,
+          "rebound_gain": 1.0049442900650172,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7322402740689139,
+          "unimodal": true
+        },
+        {
+          "generation": 800,
+          "evaluated": 393840,
+          "rebound_ratio": 0.018475750577367205,
+          "rebound_gain": 1.0049442900650172,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7322402740689139,
+          "unimodal": true
+        },
+        {
+          "generation": 825,
+          "evaluated": 406140,
+          "rebound_ratio": 0.018475750577367205,
+          "rebound_gain": 1.0049442900650172,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7322402740689139,
+          "unimodal": true
+        },
+        {
+          "generation": 850,
+          "evaluated": 418440,
+          "rebound_ratio": 0.018475750577367205,
+          "rebound_gain": 1.0049442900650172,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7322402740689139,
+          "unimodal": true
+        },
+        {
+          "generation": 875,
+          "evaluated": 430740,
+          "rebound_ratio": 0.01853997682502897,
+          "rebound_gain": 1.003253357752538,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7318216593097217,
+          "unimodal": true
+        },
+        {
+          "generation": 900,
+          "evaluated": 443040,
+          "rebound_ratio": 0.01853997682502897,
+          "rebound_gain": 1.003253357752538,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7318216593097217,
+          "unimodal": true
+        },
+        {
+          "generation": 925,
+          "evaluated": 455340,
+          "rebound_ratio": 0.01853997682502897,
+          "rebound_gain": 1.003253357752538,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7318216593097217,
+          "unimodal": true
+        },
+        {
+          "generation": 950,
+          "evaluated": 467640,
+          "rebound_ratio": 0.01853997682502897,
+          "rebound_gain": 1.003253357752538,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7318216593097217,
+          "unimodal": true
+        },
+        {
+          "generation": 975,
+          "evaluated": 479940,
+          "rebound_ratio": 0.01853997682502897,
+          "rebound_gain": 1.003253357752538,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7318216593097217,
+          "unimodal": true
+        },
+        {
+          "generation": 1000,
+          "evaluated": 492240,
+          "rebound_ratio": 0.01853997682502897,
+          "rebound_gain": 1.003253357752538,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7318216593097217,
+          "unimodal": true
+        },
+        {
+          "generation": 1025,
+          "evaluated": 504540,
+          "rebound_ratio": 0.01853997682502897,
+          "rebound_gain": 1.003253357752538,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7318216593097217,
+          "unimodal": true
+        },
+        {
+          "generation": 1050,
+          "evaluated": 516840,
+          "rebound_ratio": 0.01853997682502897,
+          "rebound_gain": 1.003253357752538,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7318216593097217,
+          "unimodal": true
+        },
+        {
+          "generation": 1075,
+          "evaluated": 529140,
+          "rebound_ratio": 0.01853997682502897,
+          "rebound_gain": 1.003253357752538,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7318216593097217,
+          "unimodal": true
+        },
+        {
+          "generation": 1100,
+          "evaluated": 541440,
+          "rebound_ratio": 0.01853997682502897,
+          "rebound_gain": 1.003253357752538,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7318216593097217,
+          "unimodal": true
+        },
+        {
+          "generation": 1125,
+          "evaluated": 553740,
+          "rebound_ratio": 0.01853997682502897,
+          "rebound_gain": 1.003253357752538,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7318216593097217,
+          "unimodal": true
+        },
+        {
+          "generation": 1150,
+          "evaluated": 566040,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1175,
+          "evaluated": 578340,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1200,
+          "evaluated": 590640,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1225,
+          "evaluated": 602940,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1250,
+          "evaluated": 615240,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1275,
+          "evaluated": 627540,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1300,
+          "evaluated": 639840,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1325,
+          "evaluated": 652140,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1350,
+          "evaluated": 664440,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1375,
+          "evaluated": 676740,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1400,
+          "evaluated": 689040,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1425,
+          "evaluated": 701340,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1450,
+          "evaluated": 713640,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1475,
+          "evaluated": 725940,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        },
+        {
+          "generation": 1500,
+          "evaluated": 738240,
+          "rebound_ratio": 0.018583042973286876,
+          "rebound_gain": 1.000149732706884,
+          "rebound_k": 20,
+          "first_descent": 12,
+          "near_miss_ratio": 0.7312232882536247,
+          "unimodal": true
+        }
+      ],
+      "best": {
+        "label": "g1141_p15_c5",
+        "generation": 1141,
+        "alpha": 21,
+        "unimodal": true,
+        "near_miss_ratio": 0.7312232882536247,
+        "near_miss_k": 13,
+        "first_descent": 12,
+        "rebound_k": 20,
+        "rebound_num": 32,
+        "rebound_den": 1722,
+        "rebound_ratio": 0.018583042973286876,
+        "rebound_gain": 1.000149732706884,
+        "minimum_slope_k": 19,
+        "n": 40,
+        "edges": [
+          [
+            0,
+            19
+          ],
+          [
+            1,
+            14
+          ],
+          [
+            1,
+            25
+          ],
+          [
+            2,
+            15
+          ],
+          [
+            2,
+            25
+          ],
+          [
+            3,
+            16
+          ],
+          [
+            3,
+            26
+          ],
+          [
+            4,
+            17
+          ],
+          [
+            4,
+            26
+          ],
+          [
+            5,
+            31
+          ],
+          [
+            5,
+            39
+          ],
+          [
+            6,
+            35
+          ],
+          [
+            6,
+            27
+          ],
+          [
+            7,
+            27
+          ],
+          [
+            7,
+            20
+          ],
+          [
+            8,
+            21
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            9,
+            28
+          ],
+          [
+            9,
+            36
+          ],
+          [
+            10,
+            34
+          ],
+          [
+            10,
+            13
+          ],
+          [
+            10,
+            24
+          ],
+          [
+            10,
+            38
+          ],
+          [
+            10,
+            18
+          ],
+          [
+            10,
+            37
+          ],
+          [
+            11,
+            24
+          ],
+          [
+            12,
+            25
+          ],
+          [
+            12,
+            26
+          ],
+          [
+            12,
+            27
+          ],
+          [
+            13,
+            23
+          ],
+          [
+            15,
+            33
+          ],
+          [
+            18,
+            32
+          ],
+          [
+            19,
+            25
+          ],
+          [
+            22,
+            34
+          ],
+          [
+            26,
+            31
+          ],
+          [
+            27,
+            28
+          ],
+          [
+            28,
+            37
+          ],
+          [
+            29,
+            33
+          ],
+          [
+            30,
+            39
+          ]
+        ],
+        "polynomial": null
+      }
+    },
+    {
+      "counterexample_found": false,
+      "n": 50,
+      "evaluated": 738240,
+      "seed": 20260858,
+      "history": [
+        {
+          "generation": 0,
+          "evaluated": 240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 15,
+          "near_miss_ratio": 0.8486377410423691,
+          "unimodal": true
+        },
+        {
+          "generation": 25,
+          "evaluated": 12540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.88659721558238,
+          "unimodal": true
+        },
+        {
+          "generation": 50,
+          "evaluated": 24840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.8888257312950235,
+          "unimodal": true
+        },
+        {
+          "generation": 75,
+          "evaluated": 37140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.8895401724003063,
+          "unimodal": true
+        },
+        {
+          "generation": 100,
+          "evaluated": 49440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.8902798516950726,
+          "unimodal": true
+        },
+        {
+          "generation": 125,
+          "evaluated": 61740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.8909475432709909,
+          "unimodal": true
+        },
+        {
+          "generation": 150,
+          "evaluated": 74040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.8918691479401747,
+          "unimodal": true
+        },
+        {
+          "generation": 175,
+          "evaluated": 86340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.8929531296333394,
+          "unimodal": true
+        },
+        {
+          "generation": 200,
+          "evaluated": 98640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.8938619243609575,
+          "unimodal": true
+        },
+        {
+          "generation": 225,
+          "evaluated": 110940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.8940600297104353,
+          "unimodal": true
+        },
+        {
+          "generation": 250,
+          "evaluated": 123240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.8943169095486773,
+          "unimodal": true
+        },
+        {
+          "generation": 275,
+          "evaluated": 135540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.8944516642090946,
+          "unimodal": true
+        },
+        {
+          "generation": 300,
+          "evaluated": 147840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.8944516642090946,
+          "unimodal": true
+        },
+        {
+          "generation": 325,
+          "evaluated": 160140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 17,
+          "near_miss_ratio": 0.8945347488151072,
+          "unimodal": true
+        },
+        {
+          "generation": 350,
+          "evaluated": 172440,
+          "rebound_ratio": 0.011695906432748537,
+          "rebound_gain": 1.2875528652690857,
+          "rebound_k": 26,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7766003240207225,
+          "unimodal": true
+        },
+        {
+          "generation": 375,
+          "evaluated": 184740,
+          "rebound_ratio": 0.015411973918197985,
+          "rebound_gain": 1.009973053114774,
+          "rebound_k": 26,
+          "first_descent": 15,
+          "near_miss_ratio": 0.8299181132764206,
+          "unimodal": true
+        },
+        {
+          "generation": 400,
+          "evaluated": 197040,
+          "rebound_ratio": 0.015411973918197985,
+          "rebound_gain": 1.009973053114774,
+          "rebound_k": 26,
+          "first_descent": 15,
+          "near_miss_ratio": 0.8299181132764206,
+          "unimodal": true
+        },
+        {
+          "generation": 425,
+          "evaluated": 209340,
+          "rebound_ratio": 0.01658374792703151,
+          "rebound_gain": 1.008042521866437,
+          "rebound_k": 26,
+          "first_descent": 15,
+          "near_miss_ratio": 0.8319199947319497,
+          "unimodal": true
+        },
+        {
+          "generation": 450,
+          "evaluated": 221640,
+          "rebound_ratio": 0.01715102429728442,
+          "rebound_gain": 1.0063173529626055,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7799072092864897,
+          "unimodal": true
+        },
+        {
+          "generation": 475,
+          "evaluated": 233940,
+          "rebound_ratio": 0.01715102429728442,
+          "rebound_gain": 1.0063173529626055,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7799072092864897,
+          "unimodal": true
+        },
+        {
+          "generation": 500,
+          "evaluated": 246240,
+          "rebound_ratio": 0.01715102429728442,
+          "rebound_gain": 1.0063173529626055,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7799072092864897,
+          "unimodal": true
+        },
+        {
+          "generation": 525,
+          "evaluated": 258540,
+          "rebound_ratio": 0.01715102429728442,
+          "rebound_gain": 1.0063173529626055,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7799072092864897,
+          "unimodal": true
+        },
+        {
+          "generation": 550,
+          "evaluated": 270840,
+          "rebound_ratio": 0.01715102429728442,
+          "rebound_gain": 1.0063173529626055,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7799072092864897,
+          "unimodal": true
+        },
+        {
+          "generation": 575,
+          "evaluated": 283140,
+          "rebound_ratio": 0.01715102429728442,
+          "rebound_gain": 1.0063173529626055,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7799072092864897,
+          "unimodal": true
+        },
+        {
+          "generation": 600,
+          "evaluated": 295440,
+          "rebound_ratio": 0.017266187050359712,
+          "rebound_gain": 1.0168790435277677,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7798425337327056,
+          "unimodal": true
+        },
+        {
+          "generation": 625,
+          "evaluated": 307740,
+          "rebound_ratio": 0.017550702028081122,
+          "rebound_gain": 1.0015930327150684,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7880730570988799,
+          "unimodal": true
+        },
+        {
+          "generation": 650,
+          "evaluated": 320040,
+          "rebound_ratio": 0.017550702028081122,
+          "rebound_gain": 1.0015930327150684,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7880730570988799,
+          "unimodal": true
+        },
+        {
+          "generation": 675,
+          "evaluated": 332340,
+          "rebound_ratio": 0.017550702028081122,
+          "rebound_gain": 1.0015930327150684,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7880730570988799,
+          "unimodal": true
+        },
+        {
+          "generation": 700,
+          "evaluated": 344640,
+          "rebound_ratio": 0.017550702028081122,
+          "rebound_gain": 1.0015930327150684,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7880730570988799,
+          "unimodal": true
+        },
+        {
+          "generation": 725,
+          "evaluated": 356940,
+          "rebound_ratio": 0.017550702028081122,
+          "rebound_gain": 1.0015930327150684,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7880730570988799,
+          "unimodal": true
+        },
+        {
+          "generation": 750,
+          "evaluated": 369240,
+          "rebound_ratio": 0.017550702028081122,
+          "rebound_gain": 1.0015930327150684,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7880730570988799,
+          "unimodal": true
+        },
+        {
+          "generation": 775,
+          "evaluated": 381540,
+          "rebound_ratio": 0.017550702028081122,
+          "rebound_gain": 1.0015930327150684,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7880730570988799,
+          "unimodal": true
+        },
+        {
+          "generation": 800,
+          "evaluated": 393840,
+          "rebound_ratio": 0.017550702028081122,
+          "rebound_gain": 1.0015930327150684,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7880730570988799,
+          "unimodal": true
+        },
+        {
+          "generation": 825,
+          "evaluated": 406140,
+          "rebound_ratio": 0.01762545899632803,
+          "rebound_gain": 1.0130324245043738,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.797315460469679,
+          "unimodal": true
+        },
+        {
+          "generation": 850,
+          "evaluated": 418440,
+          "rebound_ratio": 0.017833398513883457,
+          "rebound_gain": 1.0037915778368185,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7981862682646215,
+          "unimodal": true
+        },
+        {
+          "generation": 875,
+          "evaluated": 430740,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 900,
+          "evaluated": 443040,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 925,
+          "evaluated": 455340,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 950,
+          "evaluated": 467640,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 975,
+          "evaluated": 479940,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1000,
+          "evaluated": 492240,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1025,
+          "evaluated": 504540,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1050,
+          "evaluated": 516840,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1075,
+          "evaluated": 529140,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1100,
+          "evaluated": 541440,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1125,
+          "evaluated": 553740,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1150,
+          "evaluated": 566040,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1175,
+          "evaluated": 578340,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1200,
+          "evaluated": 590640,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1225,
+          "evaluated": 602940,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1250,
+          "evaluated": 615240,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1275,
+          "evaluated": 627540,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1300,
+          "evaluated": 639840,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1325,
+          "evaluated": 652140,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1350,
+          "evaluated": 664440,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1375,
+          "evaluated": 676740,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1400,
+          "evaluated": 689040,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1425,
+          "evaluated": 701340,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1450,
+          "evaluated": 713640,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1475,
+          "evaluated": 725940,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        },
+        {
+          "generation": 1500,
+          "evaluated": 738240,
+          "rebound_ratio": 0.017846247712019526,
+          "rebound_gain": 1.0016444714257902,
+          "rebound_k": 25,
+          "first_descent": 15,
+          "near_miss_ratio": 0.7993057434363536,
+          "unimodal": true
+        }
+      ],
+      "best": {
+        "label": "g851_p3_c5",
+        "generation": 851,
+        "alpha": 26,
+        "unimodal": true,
+        "near_miss_ratio": 0.7993057434363536,
+        "near_miss_k": 16,
+        "first_descent": 15,
+        "rebound_k": 25,
+        "rebound_num": 468,
+        "rebound_den": 26224,
+        "rebound_ratio": 0.017846247712019526,
+        "rebound_gain": 1.0016444714257902,
+        "minimum_slope_k": 24,
+        "n": 50,
+        "edges": [
+          [
+            0,
+            44
+          ],
+          [
+            1,
+            14
+          ],
+          [
+            1,
+            25
+          ],
+          [
+            2,
+            34
+          ],
+          [
+            3,
+            16
+          ],
+          [
+            3,
+            24
+          ],
+          [
+            3,
+            42
+          ],
+          [
+            3,
+            46
+          ],
+          [
+            3,
+            30
+          ],
+          [
+            4,
+            17
+          ],
+          [
+            4,
+            30
+          ],
+          [
+            4,
+            26
+          ],
+          [
+            5,
+            18
+          ],
+          [
+            5,
+            26
+          ],
+          [
+            6,
+            19
+          ],
+          [
+            6,
+            26
+          ],
+          [
+            7,
+            27
+          ],
+          [
+            7,
+            13
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            8,
+            31
+          ],
+          [
+            9,
+            27
+          ],
+          [
+            9,
+            11
+          ],
+          [
+            10,
+            27
+          ],
+          [
+            10,
+            43
+          ],
+          [
+            10,
+            49
+          ],
+          [
+            12,
+            25
+          ],
+          [
+            12,
+            26
+          ],
+          [
+            12,
+            27
+          ],
+          [
+            15,
+            46
+          ],
+          [
+            20,
+            29
+          ],
+          [
+            20,
+            22
+          ],
+          [
+            21,
+            41
+          ],
+          [
+            21,
+            22
+          ],
+          [
+            22,
+            23
+          ],
+          [
+            22,
+            33
+          ],
+          [
+            24,
+            37
+          ],
+          [
+            25,
+            34
+          ],
+          [
+            25,
+            28
+          ],
+          [
+            25,
+            44
+          ],
+          [
+            26,
+            48
+          ],
+          [
+            28,
+            32
+          ],
+          [
+            28,
+            36
+          ],
+          [
+            30,
+            40
+          ],
+          [
+            30,
+            47
+          ],
+          [
+            33,
+            49
+          ],
+          [
+            35,
+            42
+          ],
+          [
+            36,
+            39
+          ],
+          [
+            38,
+            47
+          ],
+          [
+            45,
+            48
+          ]
+        ],
+        "polynomial": null
+      }
+    },
+    {
+      "counterexample_found": false,
+      "n": 60,
+      "evaluated": 738240,
+      "seed": 20260868,
+      "history": [
+        {
+          "generation": 0,
+          "evaluated": 240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 19,
+          "near_miss_ratio": 0.8782489100624131,
+          "unimodal": true
+        },
+        {
+          "generation": 25,
+          "evaluated": 12540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 20,
+          "near_miss_ratio": 0.8970383198001199,
+          "unimodal": true
+        },
+        {
+          "generation": 50,
+          "evaluated": 24840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 20,
+          "near_miss_ratio": 0.9001234558138439,
+          "unimodal": true
+        },
+        {
+          "generation": 75,
+          "evaluated": 37140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9080968881129988,
+          "unimodal": true
+        },
+        {
+          "generation": 100,
+          "evaluated": 49440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9094081989243327,
+          "unimodal": true
+        },
+        {
+          "generation": 125,
+          "evaluated": 61740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9107420660532995,
+          "unimodal": true
+        },
+        {
+          "generation": 150,
+          "evaluated": 74040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9110025710419042,
+          "unimodal": true
+        },
+        {
+          "generation": 175,
+          "evaluated": 86340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9111335425310435,
+          "unimodal": true
+        },
+        {
+          "generation": 200,
+          "evaluated": 98640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.91202571921452,
+          "unimodal": true
+        },
+        {
+          "generation": 225,
+          "evaluated": 110940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9123244736169819,
+          "unimodal": true
+        },
+        {
+          "generation": 250,
+          "evaluated": 123240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9124376508468414,
+          "unimodal": true
+        },
+        {
+          "generation": 275,
+          "evaluated": 135540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9126921465068085,
+          "unimodal": true
+        },
+        {
+          "generation": 300,
+          "evaluated": 147840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9126921465068085,
+          "unimodal": true
+        },
+        {
+          "generation": 325,
+          "evaluated": 160140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.912747310186453,
+          "unimodal": true
+        },
+        {
+          "generation": 350,
+          "evaluated": 172440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.912747310186453,
+          "unimodal": true
+        },
+        {
+          "generation": 375,
+          "evaluated": 184740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9127724949667371,
+          "unimodal": true
+        },
+        {
+          "generation": 400,
+          "evaluated": 197040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.912830623162181,
+          "unimodal": true
+        },
+        {
+          "generation": 425,
+          "evaluated": 209340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.912830623162181,
+          "unimodal": true
+        },
+        {
+          "generation": 450,
+          "evaluated": 221640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9128728102823858,
+          "unimodal": true
+        },
+        {
+          "generation": 475,
+          "evaluated": 233940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9128752229208235,
+          "unimodal": true
+        },
+        {
+          "generation": 500,
+          "evaluated": 246240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9129007346509723,
+          "unimodal": true
+        },
+        {
+          "generation": 525,
+          "evaluated": 258540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9129497678337624,
+          "unimodal": true
+        },
+        {
+          "generation": 550,
+          "evaluated": 270840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9129528700238219,
+          "unimodal": true
+        },
+        {
+          "generation": 575,
+          "evaluated": 283140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.912989798185024,
+          "unimodal": true
+        },
+        {
+          "generation": 600,
+          "evaluated": 295440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.912989798185024,
+          "unimodal": true
+        },
+        {
+          "generation": 625,
+          "evaluated": 307740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9129916584754272,
+          "unimodal": true
+        },
+        {
+          "generation": 650,
+          "evaluated": 320040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9129994191673511,
+          "unimodal": true
+        },
+        {
+          "generation": 675,
+          "evaluated": 332340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9130091732927454,
+          "unimodal": true
+        },
+        {
+          "generation": 700,
+          "evaluated": 344640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9130091732927454,
+          "unimodal": true
+        },
+        {
+          "generation": 725,
+          "evaluated": 356940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9130091732927454,
+          "unimodal": true
+        },
+        {
+          "generation": 750,
+          "evaluated": 369240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9134030872644174,
+          "unimodal": true
+        },
+        {
+          "generation": 775,
+          "evaluated": 381540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9135976079482045,
+          "unimodal": true
+        },
+        {
+          "generation": 800,
+          "evaluated": 393840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9135976079482045,
+          "unimodal": true
+        },
+        {
+          "generation": 825,
+          "evaluated": 406140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9136383717610649,
+          "unimodal": true
+        },
+        {
+          "generation": 850,
+          "evaluated": 418440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9136714307439175,
+          "unimodal": true
+        },
+        {
+          "generation": 875,
+          "evaluated": 430740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9136714307439175,
+          "unimodal": true
+        },
+        {
+          "generation": 900,
+          "evaluated": 443040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9136771877532993,
+          "unimodal": true
+        },
+        {
+          "generation": 925,
+          "evaluated": 455340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9136832180218423,
+          "unimodal": true
+        },
+        {
+          "generation": 950,
+          "evaluated": 467640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.913684168977555,
+          "unimodal": true
+        },
+        {
+          "generation": 975,
+          "evaluated": 479940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.913684168977555,
+          "unimodal": true
+        },
+        {
+          "generation": 1000,
+          "evaluated": 492240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.913684168977555,
+          "unimodal": true
+        },
+        {
+          "generation": 1025,
+          "evaluated": 504540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.913684168977555,
+          "unimodal": true
+        },
+        {
+          "generation": 1050,
+          "evaluated": 516840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.913684168977555,
+          "unimodal": true
+        },
+        {
+          "generation": 1075,
+          "evaluated": 529140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9136852972233757,
+          "unimodal": true
+        },
+        {
+          "generation": 1100,
+          "evaluated": 541440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9136852972233757,
+          "unimodal": true
+        },
+        {
+          "generation": 1125,
+          "evaluated": 553740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9136905033486877,
+          "unimodal": true
+        },
+        {
+          "generation": 1150,
+          "evaluated": 566040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9136905033486877,
+          "unimodal": true
+        },
+        {
+          "generation": 1175,
+          "evaluated": 578340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9136906038782477,
+          "unimodal": true
+        },
+        {
+          "generation": 1200,
+          "evaluated": 590640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 21,
+          "near_miss_ratio": 0.9136906038782477,
+          "unimodal": true
+        },
+        {
+          "generation": 1225,
+          "evaluated": 602940,
+          "rebound_ratio": 0.007722007722007722,
+          "rebound_gain": 1.189099745084301,
+          "rebound_k": 33,
+          "first_descent": 18,
+          "near_miss_ratio": 0.8298501269230556,
+          "unimodal": true
+        },
+        {
+          "generation": 1250,
+          "evaluated": 615240,
+          "rebound_ratio": 0.012834224598930482,
+          "rebound_gain": 1.034637536103406,
+          "rebound_k": 31,
+          "first_descent": 18,
+          "near_miss_ratio": 0.805488276615425,
+          "unimodal": true
+        },
+        {
+          "generation": 1275,
+          "evaluated": 627540,
+          "rebound_ratio": 0.013814682527968828,
+          "rebound_gain": 1.0138526060736355,
+          "rebound_k": 30,
+          "first_descent": 18,
+          "near_miss_ratio": 0.7838223199664064,
+          "unimodal": true
+        },
+        {
+          "generation": 1300,
+          "evaluated": 639840,
+          "rebound_ratio": 0.014139827179890024,
+          "rebound_gain": 1.048204012393484,
+          "rebound_k": 30,
+          "first_descent": 18,
+          "near_miss_ratio": 0.7966821189943705,
+          "unimodal": true
+        },
+        {
+          "generation": 1325,
+          "evaluated": 652140,
+          "rebound_ratio": 0.014342629482071713,
+          "rebound_gain": 1.0241685052618212,
+          "rebound_k": 30,
+          "first_descent": 18,
+          "near_miss_ratio": 0.7945068977597011,
+          "unimodal": true
+        },
+        {
+          "generation": 1350,
+          "evaluated": 664440,
+          "rebound_ratio": 0.014466546112115732,
+          "rebound_gain": 1.0109865962087448,
+          "rebound_k": 30,
+          "first_descent": 18,
+          "near_miss_ratio": 0.7860658585781327,
+          "unimodal": true
+        },
+        {
+          "generation": 1375,
+          "evaluated": 676740,
+          "rebound_ratio": 0.014728121507002433,
+          "rebound_gain": 1.009769171413601,
+          "rebound_k": 30,
+          "first_descent": 18,
+          "near_miss_ratio": 0.8044942154145162,
+          "unimodal": true
+        },
+        {
+          "generation": 1400,
+          "evaluated": 689040,
+          "rebound_ratio": 0.014728121507002433,
+          "rebound_gain": 1.009769171413601,
+          "rebound_k": 30,
+          "first_descent": 18,
+          "near_miss_ratio": 0.8044942154145162,
+          "unimodal": true
+        },
+        {
+          "generation": 1425,
+          "evaluated": 701340,
+          "rebound_ratio": 0.014784394250513347,
+          "rebound_gain": 1.002984032483166,
+          "rebound_k": 30,
+          "first_descent": 18,
+          "near_miss_ratio": 0.8018241534484009,
+          "unimodal": true
+        },
+        {
+          "generation": 1450,
+          "evaluated": 713640,
+          "rebound_ratio": 0.014784394250513347,
+          "rebound_gain": 1.002984032483166,
+          "rebound_k": 30,
+          "first_descent": 18,
+          "near_miss_ratio": 0.8018241534484009,
+          "unimodal": true
+        },
+        {
+          "generation": 1475,
+          "evaluated": 725940,
+          "rebound_ratio": 0.014796547472256474,
+          "rebound_gain": 1.0045566433183675,
+          "rebound_k": 30,
+          "first_descent": 18,
+          "near_miss_ratio": 0.801455105602017,
+          "unimodal": true
+        },
+        {
+          "generation": 1500,
+          "evaluated": 738240,
+          "rebound_ratio": 0.014796547472256474,
+          "rebound_gain": 1.0045566433183675,
+          "rebound_k": 30,
+          "first_descent": 18,
+          "near_miss_ratio": 0.801455105602017,
+          "unimodal": true
+        }
+      ],
+      "best": {
+        "label": "g1466_p20_c1",
+        "generation": 1466,
+        "alpha": 31,
+        "unimodal": true,
+        "near_miss_ratio": 0.801455105602017,
+        "near_miss_k": 19,
+        "first_descent": 18,
+        "rebound_k": 30,
+        "rebound_num": 1728,
+        "rebound_den": 116784,
+        "rebound_ratio": 0.014796547472256474,
+        "rebound_gain": 1.0045566433183675,
+        "minimum_slope_k": 29,
+        "n": 60,
+        "edges": [
+          [
+            0,
+            24
+          ],
+          [
+            1,
+            25
+          ],
+          [
+            1,
+            38
+          ],
+          [
+            2,
+            31
+          ],
+          [
+            2,
+            48
+          ],
+          [
+            2,
+            15
+          ],
+          [
+            3,
+            45
+          ],
+          [
+            3,
+            17
+          ],
+          [
+            4,
+            45
+          ],
+          [
+            4,
+            56
+          ],
+          [
+            5,
+            18
+          ],
+          [
+            5,
+            26
+          ],
+          [
+            6,
+            19
+          ],
+          [
+            6,
+            49
+          ],
+          [
+            7,
+            20
+          ],
+          [
+            7,
+            53
+          ],
+          [
+            7,
+            56
+          ],
+          [
+            8,
+            27
+          ],
+          [
+            8,
+            34
+          ],
+          [
+            9,
+            27
+          ],
+          [
+            9,
+            39
+          ],
+          [
+            9,
+            40
+          ],
+          [
+            10,
+            28
+          ],
+          [
+            10,
+            42
+          ],
+          [
+            10,
+            27
+          ],
+          [
+            11,
+            25
+          ],
+          [
+            11,
+            32
+          ],
+          [
+            12,
+            25
+          ],
+          [
+            12,
+            26
+          ],
+          [
+            12,
+            27
+          ],
+          [
+            13,
+            55
+          ],
+          [
+            13,
+            16
+          ],
+          [
+            13,
+            29
+          ],
+          [
+            13,
+            50
+          ],
+          [
+            14,
+            56
+          ],
+          [
+            16,
+            21
+          ],
+          [
+            22,
+            54
+          ],
+          [
+            23,
+            42
+          ],
+          [
+            24,
+            32
+          ],
+          [
+            24,
+            41
+          ],
+          [
+            25,
+            30
+          ],
+          [
+            26,
+            49
+          ],
+          [
+            26,
+            51
+          ],
+          [
+            26,
+            52
+          ],
+          [
+            27,
+            33
+          ],
+          [
+            29,
+            52
+          ],
+          [
+            30,
+            31
+          ],
+          [
+            33,
+            43
+          ],
+          [
+            34,
+            44
+          ],
+          [
+            35,
+            51
+          ],
+          [
+            36,
+            49
+          ],
+          [
+            37,
+            41
+          ],
+          [
+            39,
+            46
+          ],
+          [
+            40,
+            56
+          ],
+          [
+            42,
+            54
+          ],
+          [
+            44,
+            47
+          ],
+          [
+            48,
+            59
+          ],
+          [
+            50,
+            58
+          ],
+          [
+            53,
+            57
+          ]
+        ],
+        "polynomial": null
+      }
+    },
+    {
+      "counterexample_found": false,
+      "n": 70,
+      "evaluated": 738240,
+      "seed": 20260878,
+      "history": [
+        {
+          "generation": 0,
+          "evaluated": 240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 22,
+          "near_miss_ratio": 0.8958452404363292,
+          "unimodal": true
+        },
+        {
+          "generation": 25,
+          "evaluated": 12540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9092562342190487,
+          "unimodal": true
+        },
+        {
+          "generation": 50,
+          "evaluated": 24840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9103447104630478,
+          "unimodal": true
+        },
+        {
+          "generation": 75,
+          "evaluated": 37140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9114197537909373,
+          "unimodal": true
+        },
+        {
+          "generation": 100,
+          "evaluated": 49440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.91177294257716,
+          "unimodal": true
+        },
+        {
+          "generation": 125,
+          "evaluated": 61740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9119206937091556,
+          "unimodal": true
+        },
+        {
+          "generation": 150,
+          "evaluated": 74040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.912280462659874,
+          "unimodal": true
+        },
+        {
+          "generation": 175,
+          "evaluated": 86340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.912719463098753,
+          "unimodal": true
+        },
+        {
+          "generation": 200,
+          "evaluated": 98640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9131724729764419,
+          "unimodal": true
+        },
+        {
+          "generation": 225,
+          "evaluated": 110940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9142881601496389,
+          "unimodal": true
+        },
+        {
+          "generation": 250,
+          "evaluated": 123240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9142881601496389,
+          "unimodal": true
+        },
+        {
+          "generation": 275,
+          "evaluated": 135540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.914459422356959,
+          "unimodal": true
+        },
+        {
+          "generation": 300,
+          "evaluated": 147840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9144621163198445,
+          "unimodal": true
+        },
+        {
+          "generation": 325,
+          "evaluated": 160140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9145258619677126,
+          "unimodal": true
+        },
+        {
+          "generation": 350,
+          "evaluated": 172440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9151355666526427,
+          "unimodal": true
+        },
+        {
+          "generation": 375,
+          "evaluated": 184740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9153291366605653,
+          "unimodal": true
+        },
+        {
+          "generation": 400,
+          "evaluated": 197040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.915460539215913,
+          "unimodal": true
+        },
+        {
+          "generation": 425,
+          "evaluated": 209340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9154621789469668,
+          "unimodal": true
+        },
+        {
+          "generation": 450,
+          "evaluated": 221640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9155811780892822,
+          "unimodal": true
+        },
+        {
+          "generation": 475,
+          "evaluated": 233940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9155811780892822,
+          "unimodal": true
+        },
+        {
+          "generation": 500,
+          "evaluated": 246240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.916548035458813,
+          "unimodal": true
+        },
+        {
+          "generation": 525,
+          "evaluated": 258540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9167788490365504,
+          "unimodal": true
+        },
+        {
+          "generation": 550,
+          "evaluated": 270840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9169529418360267,
+          "unimodal": true
+        },
+        {
+          "generation": 575,
+          "evaluated": 283140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9169529418360267,
+          "unimodal": true
+        },
+        {
+          "generation": 600,
+          "evaluated": 295440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9169529418360267,
+          "unimodal": true
+        },
+        {
+          "generation": 625,
+          "evaluated": 307740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9170116170129909,
+          "unimodal": true
+        },
+        {
+          "generation": 650,
+          "evaluated": 320040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9170642930772092,
+          "unimodal": true
+        },
+        {
+          "generation": 675,
+          "evaluated": 332340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9170824997642377,
+          "unimodal": true
+        },
+        {
+          "generation": 700,
+          "evaluated": 344640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9170824997642377,
+          "unimodal": true
+        },
+        {
+          "generation": 725,
+          "evaluated": 356940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9170824997642377,
+          "unimodal": true
+        },
+        {
+          "generation": 750,
+          "evaluated": 369240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9171802758190754,
+          "unimodal": true
+        },
+        {
+          "generation": 775,
+          "evaluated": 381540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9172364613619336,
+          "unimodal": true
+        },
+        {
+          "generation": 800,
+          "evaluated": 393840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9172364613619336,
+          "unimodal": true
+        },
+        {
+          "generation": 825,
+          "evaluated": 406140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9172364613619336,
+          "unimodal": true
+        },
+        {
+          "generation": 850,
+          "evaluated": 418440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9172364613619336,
+          "unimodal": true
+        },
+        {
+          "generation": 875,
+          "evaluated": 430740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9172364613619336,
+          "unimodal": true
+        },
+        {
+          "generation": 900,
+          "evaluated": 443040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9172364613619336,
+          "unimodal": true
+        },
+        {
+          "generation": 925,
+          "evaluated": 455340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9172708007736091,
+          "unimodal": true
+        },
+        {
+          "generation": 950,
+          "evaluated": 467640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9172708007736091,
+          "unimodal": true
+        },
+        {
+          "generation": 975,
+          "evaluated": 479940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9172708007736091,
+          "unimodal": true
+        },
+        {
+          "generation": 1000,
+          "evaluated": 492240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9172708007736091,
+          "unimodal": true
+        },
+        {
+          "generation": 1025,
+          "evaluated": 504540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9172708007736091,
+          "unimodal": true
+        },
+        {
+          "generation": 1050,
+          "evaluated": 516840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.917292481470389,
+          "unimodal": true
+        },
+        {
+          "generation": 1075,
+          "evaluated": 529140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173191974073469,
+          "unimodal": true
+        },
+        {
+          "generation": 1100,
+          "evaluated": 541440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173191974073469,
+          "unimodal": true
+        },
+        {
+          "generation": 1125,
+          "evaluated": 553740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173191974073469,
+          "unimodal": true
+        },
+        {
+          "generation": 1150,
+          "evaluated": 566040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173191974073469,
+          "unimodal": true
+        },
+        {
+          "generation": 1175,
+          "evaluated": 578340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173191974073469,
+          "unimodal": true
+        },
+        {
+          "generation": 1200,
+          "evaluated": 590640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173191974073469,
+          "unimodal": true
+        },
+        {
+          "generation": 1225,
+          "evaluated": 602940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173191974073469,
+          "unimodal": true
+        },
+        {
+          "generation": 1250,
+          "evaluated": 615240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173243252565849,
+          "unimodal": true
+        },
+        {
+          "generation": 1275,
+          "evaluated": 627540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173243252565849,
+          "unimodal": true
+        },
+        {
+          "generation": 1300,
+          "evaluated": 639840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173243252565849,
+          "unimodal": true
+        },
+        {
+          "generation": 1325,
+          "evaluated": 652140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173243252565849,
+          "unimodal": true
+        },
+        {
+          "generation": 1350,
+          "evaluated": 664440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173271901566135,
+          "unimodal": true
+        },
+        {
+          "generation": 1375,
+          "evaluated": 676740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173271901566135,
+          "unimodal": true
+        },
+        {
+          "generation": 1400,
+          "evaluated": 689040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173359003523478,
+          "unimodal": true
+        },
+        {
+          "generation": 1425,
+          "evaluated": 701340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173359003523478,
+          "unimodal": true
+        },
+        {
+          "generation": 1450,
+          "evaluated": 713640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173433833169141,
+          "unimodal": true
+        },
+        {
+          "generation": 1475,
+          "evaluated": 725940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173433833169141,
+          "unimodal": true
+        },
+        {
+          "generation": 1500,
+          "evaluated": 738240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 23,
+          "near_miss_ratio": 0.9173433833169141,
+          "unimodal": true
+        }
+      ],
+      "best": {
+        "label": "g1449_p0_c3",
+        "generation": 1449,
+        "alpha": 49,
+        "unimodal": true,
+        "near_miss_ratio": 0.9173433833169141,
+        "near_miss_k": 24,
+        "first_descent": 23,
+        "rebound_k": -1,
+        "rebound_num": 0,
+        "rebound_den": 1,
+        "rebound_ratio": 0.0,
+        "rebound_gain": 0.0,
+        "minimum_slope_k": -1,
+        "n": 70,
+        "edges": [
+          [
+            0,
+            13
+          ],
+          [
+            1,
+            25
+          ],
+          [
+            2,
+            15
+          ],
+          [
+            2,
+            23
+          ],
+          [
+            2,
+            28
+          ],
+          [
+            2,
+            56
+          ],
+          [
+            3,
+            52
+          ],
+          [
+            3,
+            16
+          ],
+          [
+            3,
+            12
+          ],
+          [
+            4,
+            67
+          ],
+          [
+            4,
+            54
+          ],
+          [
+            5,
+            18
+          ],
+          [
+            5,
+            31
+          ],
+          [
+            5,
+            36
+          ],
+          [
+            6,
+            26
+          ],
+          [
+            6,
+            67
+          ],
+          [
+            7,
+            20
+          ],
+          [
+            7,
+            60
+          ],
+          [
+            7,
+            34
+          ],
+          [
+            8,
+            54
+          ],
+          [
+            9,
+            63
+          ],
+          [
+            9,
+            40
+          ],
+          [
+            9,
+            39
+          ],
+          [
+            10,
+            33
+          ],
+          [
+            10,
+            48
+          ],
+          [
+            10,
+            61
+          ],
+          [
+            11,
+            24
+          ],
+          [
+            11,
+            26
+          ],
+          [
+            12,
+            27
+          ],
+          [
+            13,
+            40
+          ],
+          [
+            13,
+            37
+          ],
+          [
+            13,
+            42
+          ],
+          [
+            14,
+            41
+          ],
+          [
+            14,
+            69
+          ],
+          [
+            14,
+            48
+          ],
+          [
+            15,
+            53
+          ],
+          [
+            17,
+            47
+          ],
+          [
+            19,
+            29
+          ],
+          [
+            21,
+            47
+          ],
+          [
+            22,
+            57
+          ],
+          [
+            22,
+            27
+          ],
+          [
+            23,
+            25
+          ],
+          [
+            24,
+            38
+          ],
+          [
+            24,
+            35
+          ],
+          [
+            24,
+            56
+          ],
+          [
+            24,
+            37
+          ],
+          [
+            25,
+            59
+          ],
+          [
+            26,
+            61
+          ],
+          [
+            26,
+            60
+          ],
+          [
+            26,
+            36
+          ],
+          [
+            27,
+            55
+          ],
+          [
+            27,
+            51
+          ],
+          [
+            29,
+            43
+          ],
+          [
+            29,
+            50
+          ],
+          [
+            30,
+            53
+          ],
+          [
+            32,
+            62
+          ],
+          [
+            35,
+            57
+          ],
+          [
+            38,
+            62
+          ],
+          [
+            43,
+            64
+          ],
+          [
+            44,
+            49
+          ],
+          [
+            44,
+            65
+          ],
+          [
+            44,
+            69
+          ],
+          [
+            45,
+            53
+          ],
+          [
+            46,
+            62
+          ],
+          [
+            47,
+            65
+          ],
+          [
+            54,
+            64
+          ],
+          [
+            57,
+            58
+          ],
+          [
+            57,
+            66
+          ],
+          [
+            67,
+            68
+          ]
+        ],
+        "polynomial": null
+      }
+    },
+    {
+      "counterexample_found": false,
+      "n": 80,
+      "evaluated": 738240,
+      "seed": 20260888,
+      "history": [
+        {
+          "generation": 0,
+          "evaluated": 240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 25,
+          "near_miss_ratio": 0.9053578301976529,
+          "unimodal": true
+        },
+        {
+          "generation": 25,
+          "evaluated": 12540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9187589382237327,
+          "unimodal": true
+        },
+        {
+          "generation": 50,
+          "evaluated": 24840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9195799850441472,
+          "unimodal": true
+        },
+        {
+          "generation": 75,
+          "evaluated": 37140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9200390051937413,
+          "unimodal": true
+        },
+        {
+          "generation": 100,
+          "evaluated": 49440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9208662169206289,
+          "unimodal": true
+        },
+        {
+          "generation": 125,
+          "evaluated": 61740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9211131721395476,
+          "unimodal": true
+        },
+        {
+          "generation": 150,
+          "evaluated": 74040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9216473798695516,
+          "unimodal": true
+        },
+        {
+          "generation": 175,
+          "evaluated": 86340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9217447343618229,
+          "unimodal": true
+        },
+        {
+          "generation": 200,
+          "evaluated": 98640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9219647376370582,
+          "unimodal": true
+        },
+        {
+          "generation": 225,
+          "evaluated": 110940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9222114570702323,
+          "unimodal": true
+        },
+        {
+          "generation": 250,
+          "evaluated": 123240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9226996999331062,
+          "unimodal": true
+        },
+        {
+          "generation": 275,
+          "evaluated": 135540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9233414696636558,
+          "unimodal": true
+        },
+        {
+          "generation": 300,
+          "evaluated": 147840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9234973282291602,
+          "unimodal": true
+        },
+        {
+          "generation": 325,
+          "evaluated": 160140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9234973282291602,
+          "unimodal": true
+        },
+        {
+          "generation": 350,
+          "evaluated": 172440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9235269517612839,
+          "unimodal": true
+        },
+        {
+          "generation": 375,
+          "evaluated": 184740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9235418216796526,
+          "unimodal": true
+        },
+        {
+          "generation": 400,
+          "evaluated": 197040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9235567176840518,
+          "unimodal": true
+        },
+        {
+          "generation": 425,
+          "evaluated": 209340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9236150368554452,
+          "unimodal": true
+        },
+        {
+          "generation": 450,
+          "evaluated": 221640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.923831115006516,
+          "unimodal": true
+        },
+        {
+          "generation": 475,
+          "evaluated": 233940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9238439306727895,
+          "unimodal": true
+        },
+        {
+          "generation": 500,
+          "evaluated": 246240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.923915031602904,
+          "unimodal": true
+        },
+        {
+          "generation": 525,
+          "evaluated": 258540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.923915031602904,
+          "unimodal": true
+        },
+        {
+          "generation": 550,
+          "evaluated": 270840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9239152500428602,
+          "unimodal": true
+        },
+        {
+          "generation": 575,
+          "evaluated": 283140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9239152500428602,
+          "unimodal": true
+        },
+        {
+          "generation": 600,
+          "evaluated": 295440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9240210920410111,
+          "unimodal": true
+        },
+        {
+          "generation": 625,
+          "evaluated": 307740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9240210920410111,
+          "unimodal": true
+        },
+        {
+          "generation": 650,
+          "evaluated": 320040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9240429487518174,
+          "unimodal": true
+        },
+        {
+          "generation": 675,
+          "evaluated": 332340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9241143178491996,
+          "unimodal": true
+        },
+        {
+          "generation": 700,
+          "evaluated": 344640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9241143178491996,
+          "unimodal": true
+        },
+        {
+          "generation": 725,
+          "evaluated": 356940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9241143178491996,
+          "unimodal": true
+        },
+        {
+          "generation": 750,
+          "evaluated": 369240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9241143178491996,
+          "unimodal": true
+        },
+        {
+          "generation": 775,
+          "evaluated": 381540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9241735662937727,
+          "unimodal": true
+        },
+        {
+          "generation": 800,
+          "evaluated": 393840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9241735662937727,
+          "unimodal": true
+        },
+        {
+          "generation": 825,
+          "evaluated": 406140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9241949791506974,
+          "unimodal": true
+        },
+        {
+          "generation": 850,
+          "evaluated": 418440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242409316470445,
+          "unimodal": true
+        },
+        {
+          "generation": 875,
+          "evaluated": 430740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242409316470445,
+          "unimodal": true
+        },
+        {
+          "generation": 900,
+          "evaluated": 443040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242409316470445,
+          "unimodal": true
+        },
+        {
+          "generation": 925,
+          "evaluated": 455340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242409316470445,
+          "unimodal": true
+        },
+        {
+          "generation": 950,
+          "evaluated": 467640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242669541394436,
+          "unimodal": true
+        },
+        {
+          "generation": 975,
+          "evaluated": 479940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242669541394436,
+          "unimodal": true
+        },
+        {
+          "generation": 1000,
+          "evaluated": 492240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242669541394436,
+          "unimodal": true
+        },
+        {
+          "generation": 1025,
+          "evaluated": 504540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242855524325555,
+          "unimodal": true
+        },
+        {
+          "generation": 1050,
+          "evaluated": 516840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242855524325555,
+          "unimodal": true
+        },
+        {
+          "generation": 1075,
+          "evaluated": 529140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242855524325555,
+          "unimodal": true
+        },
+        {
+          "generation": 1100,
+          "evaluated": 541440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242855524325555,
+          "unimodal": true
+        },
+        {
+          "generation": 1125,
+          "evaluated": 553740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242855524325555,
+          "unimodal": true
+        },
+        {
+          "generation": 1150,
+          "evaluated": 566040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242855524325555,
+          "unimodal": true
+        },
+        {
+          "generation": 1175,
+          "evaluated": 578340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242855524325555,
+          "unimodal": true
+        },
+        {
+          "generation": 1200,
+          "evaluated": 590640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242855524325555,
+          "unimodal": true
+        },
+        {
+          "generation": 1225,
+          "evaluated": 602940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242855524325555,
+          "unimodal": true
+        },
+        {
+          "generation": 1250,
+          "evaluated": 615240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242855524325555,
+          "unimodal": true
+        },
+        {
+          "generation": 1275,
+          "evaluated": 627540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242878891560313,
+          "unimodal": true
+        },
+        {
+          "generation": 1300,
+          "evaluated": 639840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242878891560313,
+          "unimodal": true
+        },
+        {
+          "generation": 1325,
+          "evaluated": 652140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242878891560313,
+          "unimodal": true
+        },
+        {
+          "generation": 1350,
+          "evaluated": 664440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242878891560313,
+          "unimodal": true
+        },
+        {
+          "generation": 1375,
+          "evaluated": 676740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242878891560313,
+          "unimodal": true
+        },
+        {
+          "generation": 1400,
+          "evaluated": 689040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9242878891560313,
+          "unimodal": true
+        },
+        {
+          "generation": 1425,
+          "evaluated": 701340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.924306061145122,
+          "unimodal": true
+        },
+        {
+          "generation": 1450,
+          "evaluated": 713640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.924306061145122,
+          "unimodal": true
+        },
+        {
+          "generation": 1475,
+          "evaluated": 725940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.924306061145122,
+          "unimodal": true
+        },
+        {
+          "generation": 1500,
+          "evaluated": 738240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 26,
+          "near_miss_ratio": 0.9243537843524955,
+          "unimodal": true
+        }
+      ],
+      "best": {
+        "label": "g1488_p52_c5",
+        "generation": 1488,
+        "alpha": 55,
+        "unimodal": true,
+        "near_miss_ratio": 0.9243537843524955,
+        "near_miss_k": 27,
+        "first_descent": 26,
+        "rebound_k": -1,
+        "rebound_num": 0,
+        "rebound_den": 1,
+        "rebound_ratio": 0.0,
+        "rebound_gain": 0.0,
+        "minimum_slope_k": -1,
+        "n": 80,
+        "edges": [
+          [
+            0,
+            60
+          ],
+          [
+            0,
+            40
+          ],
+          [
+            0,
+            54
+          ],
+          [
+            1,
+            35
+          ],
+          [
+            1,
+            64
+          ],
+          [
+            2,
+            26
+          ],
+          [
+            2,
+            48
+          ],
+          [
+            3,
+            72
+          ],
+          [
+            4,
+            41
+          ],
+          [
+            4,
+            79
+          ],
+          [
+            5,
+            26
+          ],
+          [
+            6,
+            79
+          ],
+          [
+            7,
+            32
+          ],
+          [
+            7,
+            52
+          ],
+          [
+            7,
+            44
+          ],
+          [
+            7,
+            76
+          ],
+          [
+            8,
+            38
+          ],
+          [
+            8,
+            46
+          ],
+          [
+            9,
+            58
+          ],
+          [
+            9,
+            78
+          ],
+          [
+            10,
+            27
+          ],
+          [
+            11,
+            24
+          ],
+          [
+            11,
+            49
+          ],
+          [
+            12,
+            26
+          ],
+          [
+            12,
+            56
+          ],
+          [
+            13,
+            56
+          ],
+          [
+            13,
+            37
+          ],
+          [
+            14,
+            78
+          ],
+          [
+            15,
+            23
+          ],
+          [
+            16,
+            78
+          ],
+          [
+            17,
+            34
+          ],
+          [
+            18,
+            31
+          ],
+          [
+            19,
+            37
+          ],
+          [
+            20,
+            53
+          ],
+          [
+            21,
+            45
+          ],
+          [
+            21,
+            25
+          ],
+          [
+            22,
+            48
+          ],
+          [
+            23,
+            29
+          ],
+          [
+            23,
+            67
+          ],
+          [
+            23,
+            43
+          ],
+          [
+            24,
+            41
+          ],
+          [
+            25,
+            63
+          ],
+          [
+            25,
+            77
+          ],
+          [
+            25,
+            65
+          ],
+          [
+            27,
+            62
+          ],
+          [
+            27,
+            29
+          ],
+          [
+            27,
+            55
+          ],
+          [
+            28,
+            61
+          ],
+          [
+            28,
+            74
+          ],
+          [
+            28,
+            77
+          ],
+          [
+            29,
+            58
+          ],
+          [
+            30,
+            48
+          ],
+          [
+            31,
+            32
+          ],
+          [
+            31,
+            38
+          ],
+          [
+            33,
+            39
+          ],
+          [
+            34,
+            63
+          ],
+          [
+            34,
+            57
+          ],
+          [
+            35,
+            46
+          ],
+          [
+            36,
+            56
+          ],
+          [
+            36,
+            70
+          ],
+          [
+            37,
+            73
+          ],
+          [
+            39,
+            71
+          ],
+          [
+            41,
+            60
+          ],
+          [
+            42,
+            48
+          ],
+          [
+            42,
+            58
+          ],
+          [
+            44,
+            79
+          ],
+          [
+            45,
+            68
+          ],
+          [
+            45,
+            76
+          ],
+          [
+            46,
+            69
+          ],
+          [
+            47,
+            79
+          ],
+          [
+            50,
+            70
+          ],
+          [
+            51,
+            70
+          ],
+          [
+            52,
+            72
+          ],
+          [
+            53,
+            55
+          ],
+          [
+            53,
+            75
+          ],
+          [
+            53,
+            66
+          ],
+          [
+            56,
+            71
+          ],
+          [
+            56,
+            77
+          ],
+          [
+            58,
+            59
+          ]
+        ],
+        "polynomial": null
+      }
+    },
+    {
+      "counterexample_found": false,
+      "n": 90,
+      "evaluated": 738240,
+      "seed": 20260898,
+      "history": [
+        {
+          "generation": 0,
+          "evaluated": 240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 28,
+          "near_miss_ratio": 0.9145307872194078,
+          "unimodal": true
+        },
+        {
+          "generation": 25,
+          "evaluated": 12540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 29,
+          "near_miss_ratio": 0.9239436564950578,
+          "unimodal": true
+        },
+        {
+          "generation": 50,
+          "evaluated": 24840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 29,
+          "near_miss_ratio": 0.9251921235580318,
+          "unimodal": true
+        },
+        {
+          "generation": 75,
+          "evaluated": 37140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 29,
+          "near_miss_ratio": 0.9259719666043835,
+          "unimodal": true
+        },
+        {
+          "generation": 100,
+          "evaluated": 49440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 29,
+          "near_miss_ratio": 0.9268211851906356,
+          "unimodal": true
+        },
+        {
+          "generation": 125,
+          "evaluated": 61740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 29,
+          "near_miss_ratio": 0.9272839609046736,
+          "unimodal": true
+        },
+        {
+          "generation": 150,
+          "evaluated": 74040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 29,
+          "near_miss_ratio": 0.9276399599687307,
+          "unimodal": true
+        },
+        {
+          "generation": 175,
+          "evaluated": 86340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9308311699470745,
+          "unimodal": true
+        },
+        {
+          "generation": 200,
+          "evaluated": 98640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9318271758469409,
+          "unimodal": true
+        },
+        {
+          "generation": 225,
+          "evaluated": 110940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9320452251381974,
+          "unimodal": true
+        },
+        {
+          "generation": 250,
+          "evaluated": 123240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9323514787115976,
+          "unimodal": true
+        },
+        {
+          "generation": 275,
+          "evaluated": 135540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9325748742333687,
+          "unimodal": true
+        },
+        {
+          "generation": 300,
+          "evaluated": 147840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9328340546034011,
+          "unimodal": true
+        },
+        {
+          "generation": 325,
+          "evaluated": 160140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9332443668689799,
+          "unimodal": true
+        },
+        {
+          "generation": 350,
+          "evaluated": 172440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9332443668689799,
+          "unimodal": true
+        },
+        {
+          "generation": 375,
+          "evaluated": 184740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9332707855608645,
+          "unimodal": true
+        },
+        {
+          "generation": 400,
+          "evaluated": 197040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9332707855608645,
+          "unimodal": true
+        },
+        {
+          "generation": 425,
+          "evaluated": 209340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9336402485222345,
+          "unimodal": true
+        },
+        {
+          "generation": 450,
+          "evaluated": 221640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9336402485222345,
+          "unimodal": true
+        },
+        {
+          "generation": 475,
+          "evaluated": 233940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9336402485222345,
+          "unimodal": true
+        },
+        {
+          "generation": 500,
+          "evaluated": 246240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9336402485222345,
+          "unimodal": true
+        },
+        {
+          "generation": 525,
+          "evaluated": 258540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9337336325285746,
+          "unimodal": true
+        },
+        {
+          "generation": 550,
+          "evaluated": 270840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9337336325285746,
+          "unimodal": true
+        },
+        {
+          "generation": 575,
+          "evaluated": 283140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9337748272099549,
+          "unimodal": true
+        },
+        {
+          "generation": 600,
+          "evaluated": 295440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9337748272099549,
+          "unimodal": true
+        },
+        {
+          "generation": 625,
+          "evaluated": 307740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9337911057209108,
+          "unimodal": true
+        },
+        {
+          "generation": 650,
+          "evaluated": 320040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9338816489110158,
+          "unimodal": true
+        },
+        {
+          "generation": 675,
+          "evaluated": 332340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9341428391389089,
+          "unimodal": true
+        },
+        {
+          "generation": 700,
+          "evaluated": 344640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9341428391389089,
+          "unimodal": true
+        },
+        {
+          "generation": 725,
+          "evaluated": 356940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9343519148435974,
+          "unimodal": true
+        },
+        {
+          "generation": 750,
+          "evaluated": 369240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9343849446370701,
+          "unimodal": true
+        },
+        {
+          "generation": 775,
+          "evaluated": 381540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9343968929491037,
+          "unimodal": true
+        },
+        {
+          "generation": 800,
+          "evaluated": 393840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9345566739689086,
+          "unimodal": true
+        },
+        {
+          "generation": 825,
+          "evaluated": 406140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9345621944823709,
+          "unimodal": true
+        },
+        {
+          "generation": 850,
+          "evaluated": 418440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9345788720162503,
+          "unimodal": true
+        },
+        {
+          "generation": 875,
+          "evaluated": 430740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9345938970730413,
+          "unimodal": true
+        },
+        {
+          "generation": 900,
+          "evaluated": 443040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9346348887698167,
+          "unimodal": true
+        },
+        {
+          "generation": 925,
+          "evaluated": 455340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9346348887698167,
+          "unimodal": true
+        },
+        {
+          "generation": 950,
+          "evaluated": 467640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9346486365229014,
+          "unimodal": true
+        },
+        {
+          "generation": 975,
+          "evaluated": 479940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9346486365229014,
+          "unimodal": true
+        },
+        {
+          "generation": 1000,
+          "evaluated": 492240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.934711557385263,
+          "unimodal": true
+        },
+        {
+          "generation": 1025,
+          "evaluated": 504540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.934711557385263,
+          "unimodal": true
+        },
+        {
+          "generation": 1050,
+          "evaluated": 516840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.934711557385263,
+          "unimodal": true
+        },
+        {
+          "generation": 1075,
+          "evaluated": 529140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.934711557385263,
+          "unimodal": true
+        },
+        {
+          "generation": 1100,
+          "evaluated": 541440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9348692311888827,
+          "unimodal": true
+        },
+        {
+          "generation": 1125,
+          "evaluated": 553740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9348692311888827,
+          "unimodal": true
+        },
+        {
+          "generation": 1150,
+          "evaluated": 566040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9348721925354402,
+          "unimodal": true
+        },
+        {
+          "generation": 1175,
+          "evaluated": 578340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9348721925354402,
+          "unimodal": true
+        },
+        {
+          "generation": 1200,
+          "evaluated": 590640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9348721925354402,
+          "unimodal": true
+        },
+        {
+          "generation": 1225,
+          "evaluated": 602940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9348777742862044,
+          "unimodal": true
+        },
+        {
+          "generation": 1250,
+          "evaluated": 615240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9348799536416784,
+          "unimodal": true
+        },
+        {
+          "generation": 1275,
+          "evaluated": 627540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9349262432903093,
+          "unimodal": true
+        },
+        {
+          "generation": 1300,
+          "evaluated": 639840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9349262432903093,
+          "unimodal": true
+        },
+        {
+          "generation": 1325,
+          "evaluated": 652140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9349319941610365,
+          "unimodal": true
+        },
+        {
+          "generation": 1350,
+          "evaluated": 664440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9349319941610365,
+          "unimodal": true
+        },
+        {
+          "generation": 1375,
+          "evaluated": 676740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9349319941610365,
+          "unimodal": true
+        },
+        {
+          "generation": 1400,
+          "evaluated": 689040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9349319941610365,
+          "unimodal": true
+        },
+        {
+          "generation": 1425,
+          "evaluated": 701340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9350712967760554,
+          "unimodal": true
+        },
+        {
+          "generation": 1450,
+          "evaluated": 713640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9350712967760554,
+          "unimodal": true
+        },
+        {
+          "generation": 1475,
+          "evaluated": 725940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9350720748455392,
+          "unimodal": true
+        },
+        {
+          "generation": 1500,
+          "evaluated": 738240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 30,
+          "near_miss_ratio": 0.9351012071507891,
+          "unimodal": true
+        }
+      ],
+      "best": {
+        "label": "g1495_p1_c1",
+        "generation": 1495,
+        "alpha": 63,
+        "unimodal": true,
+        "near_miss_ratio": 0.9351012071507891,
+        "near_miss_k": 31,
+        "first_descent": 30,
+        "rebound_k": -1,
+        "rebound_num": 0,
+        "rebound_den": 1,
+        "rebound_ratio": 0.0,
+        "rebound_gain": 0.0,
+        "minimum_slope_k": -1,
+        "n": 90,
+        "edges": [
+          [
+            0,
+            49
+          ],
+          [
+            0,
+            24
+          ],
+          [
+            1,
+            53
+          ],
+          [
+            1,
+            65
+          ],
+          [
+            2,
+            12
+          ],
+          [
+            3,
+            73
+          ],
+          [
+            3,
+            40
+          ],
+          [
+            3,
+            89
+          ],
+          [
+            3,
+            25
+          ],
+          [
+            4,
+            88
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            18
+          ],
+          [
+            5,
+            54
+          ],
+          [
+            5,
+            59
+          ],
+          [
+            5,
+            66
+          ],
+          [
+            6,
+            29
+          ],
+          [
+            7,
+            52
+          ],
+          [
+            7,
+            70
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            8,
+            57
+          ],
+          [
+            8,
+            81
+          ],
+          [
+            9,
+            31
+          ],
+          [
+            9,
+            61
+          ],
+          [
+            9,
+            18
+          ],
+          [
+            9,
+            22
+          ],
+          [
+            10,
+            23
+          ],
+          [
+            10,
+            60
+          ],
+          [
+            10,
+            32
+          ],
+          [
+            11,
+            27
+          ],
+          [
+            11,
+            71
+          ],
+          [
+            11,
+            19
+          ],
+          [
+            11,
+            66
+          ],
+          [
+            12,
+            26
+          ],
+          [
+            12,
+            69
+          ],
+          [
+            12,
+            38
+          ],
+          [
+            12,
+            47
+          ],
+          [
+            13,
+            29
+          ],
+          [
+            14,
+            28
+          ],
+          [
+            14,
+            56
+          ],
+          [
+            15,
+            75
+          ],
+          [
+            16,
+            48
+          ],
+          [
+            16,
+            82
+          ],
+          [
+            16,
+            34
+          ],
+          [
+            16,
+            47
+          ],
+          [
+            16,
+            59
+          ],
+          [
+            17,
+            26
+          ],
+          [
+            17,
+            65
+          ],
+          [
+            19,
+            76
+          ],
+          [
+            20,
+            26
+          ],
+          [
+            20,
+            46
+          ],
+          [
+            21,
+            77
+          ],
+          [
+            24,
+            28
+          ],
+          [
+            28,
+            37
+          ],
+          [
+            29,
+            40
+          ],
+          [
+            29,
+            67
+          ],
+          [
+            30,
+            65
+          ],
+          [
+            33,
+            75
+          ],
+          [
+            35,
+            77
+          ],
+          [
+            36,
+            51
+          ],
+          [
+            36,
+            74
+          ],
+          [
+            38,
+            85
+          ],
+          [
+            39,
+            52
+          ],
+          [
+            41,
+            62
+          ],
+          [
+            42,
+            74
+          ],
+          [
+            43,
+            53
+          ],
+          [
+            44,
+            62
+          ],
+          [
+            45,
+            51
+          ],
+          [
+            48,
+            52
+          ],
+          [
+            50,
+            72
+          ],
+          [
+            50,
+            60
+          ],
+          [
+            50,
+            86
+          ],
+          [
+            50,
+            69
+          ],
+          [
+            51,
+            82
+          ],
+          [
+            52,
+            84
+          ],
+          [
+            53,
+            64
+          ],
+          [
+            55,
+            56
+          ],
+          [
+            56,
+            78
+          ],
+          [
+            56,
+            79
+          ],
+          [
+            58,
+            76
+          ],
+          [
+            58,
+            62
+          ],
+          [
+            62,
+            83
+          ],
+          [
+            63,
+            70
+          ],
+          [
+            68,
+            75
+          ],
+          [
+            72,
+            77
+          ],
+          [
+            74,
+            80
+          ],
+          [
+            76,
+            89
+          ],
+          [
+            76,
+            79
+          ],
+          [
+            76,
+            81
+          ],
+          [
+            85,
+            87
+          ]
+        ],
+        "polynomial": null
+      }
+    },
+    {
+      "counterexample_found": false,
+      "n": 100,
+      "evaluated": 738240,
+      "seed": 20260908,
+      "history": [
+        {
+          "generation": 0,
+          "evaluated": 240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 31,
+          "near_miss_ratio": 0.9246614332022494,
+          "unimodal": true
+        },
+        {
+          "generation": 25,
+          "evaluated": 12540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9300706589443125,
+          "unimodal": true
+        },
+        {
+          "generation": 50,
+          "evaluated": 24840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9307492607978932,
+          "unimodal": true
+        },
+        {
+          "generation": 75,
+          "evaluated": 37140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9315438280079623,
+          "unimodal": true
+        },
+        {
+          "generation": 100,
+          "evaluated": 49440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9316405441317755,
+          "unimodal": true
+        },
+        {
+          "generation": 125,
+          "evaluated": 61740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9321295781034212,
+          "unimodal": true
+        },
+        {
+          "generation": 150,
+          "evaluated": 74040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9326119558347157,
+          "unimodal": true
+        },
+        {
+          "generation": 175,
+          "evaluated": 86340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9330345457110076,
+          "unimodal": true
+        },
+        {
+          "generation": 200,
+          "evaluated": 98640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9332640045299928,
+          "unimodal": true
+        },
+        {
+          "generation": 225,
+          "evaluated": 110940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9333670620353969,
+          "unimodal": true
+        },
+        {
+          "generation": 250,
+          "evaluated": 123240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9334786183614452,
+          "unimodal": true
+        },
+        {
+          "generation": 275,
+          "evaluated": 135540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9335860955005192,
+          "unimodal": true
+        },
+        {
+          "generation": 300,
+          "evaluated": 147840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9335860955005192,
+          "unimodal": true
+        },
+        {
+          "generation": 325,
+          "evaluated": 160140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9336584780915257,
+          "unimodal": true
+        },
+        {
+          "generation": 350,
+          "evaluated": 172440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9336589870611727,
+          "unimodal": true
+        },
+        {
+          "generation": 375,
+          "evaluated": 184740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9337017148329793,
+          "unimodal": true
+        },
+        {
+          "generation": 400,
+          "evaluated": 197040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9337017148329793,
+          "unimodal": true
+        },
+        {
+          "generation": 425,
+          "evaluated": 209340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9338163242164323,
+          "unimodal": true
+        },
+        {
+          "generation": 450,
+          "evaluated": 221640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9338450401349063,
+          "unimodal": true
+        },
+        {
+          "generation": 475,
+          "evaluated": 233940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9339216057360122,
+          "unimodal": true
+        },
+        {
+          "generation": 500,
+          "evaluated": 246240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9339384385659029,
+          "unimodal": true
+        },
+        {
+          "generation": 525,
+          "evaluated": 258540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9341040737927343,
+          "unimodal": true
+        },
+        {
+          "generation": 550,
+          "evaluated": 270840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9342844767241578,
+          "unimodal": true
+        },
+        {
+          "generation": 575,
+          "evaluated": 283140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9344779715732958,
+          "unimodal": true
+        },
+        {
+          "generation": 600,
+          "evaluated": 295440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9344779715732958,
+          "unimodal": true
+        },
+        {
+          "generation": 625,
+          "evaluated": 307740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9346061580849612,
+          "unimodal": true
+        },
+        {
+          "generation": 650,
+          "evaluated": 320040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9346061580849612,
+          "unimodal": true
+        },
+        {
+          "generation": 675,
+          "evaluated": 332340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9346061580849612,
+          "unimodal": true
+        },
+        {
+          "generation": 700,
+          "evaluated": 344640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9347399908430273,
+          "unimodal": true
+        },
+        {
+          "generation": 725,
+          "evaluated": 356940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9348441113332674,
+          "unimodal": true
+        },
+        {
+          "generation": 750,
+          "evaluated": 369240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9348441113332674,
+          "unimodal": true
+        },
+        {
+          "generation": 775,
+          "evaluated": 381540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9348441113332674,
+          "unimodal": true
+        },
+        {
+          "generation": 800,
+          "evaluated": 393840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9349302694672438,
+          "unimodal": true
+        },
+        {
+          "generation": 825,
+          "evaluated": 406140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9351666310462761,
+          "unimodal": true
+        },
+        {
+          "generation": 850,
+          "evaluated": 418440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9351666310462761,
+          "unimodal": true
+        },
+        {
+          "generation": 875,
+          "evaluated": 430740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9353949935143816,
+          "unimodal": true
+        },
+        {
+          "generation": 900,
+          "evaluated": 443040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.935476926757725,
+          "unimodal": true
+        },
+        {
+          "generation": 925,
+          "evaluated": 455340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.935536935725757,
+          "unimodal": true
+        },
+        {
+          "generation": 950,
+          "evaluated": 467640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.935536935725757,
+          "unimodal": true
+        },
+        {
+          "generation": 975,
+          "evaluated": 479940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9356244837368487,
+          "unimodal": true
+        },
+        {
+          "generation": 1000,
+          "evaluated": 492240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9356244837368487,
+          "unimodal": true
+        },
+        {
+          "generation": 1025,
+          "evaluated": 504540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9356244837368487,
+          "unimodal": true
+        },
+        {
+          "generation": 1050,
+          "evaluated": 516840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9356414418243372,
+          "unimodal": true
+        },
+        {
+          "generation": 1075,
+          "evaluated": 529140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9356414418243372,
+          "unimodal": true
+        },
+        {
+          "generation": 1100,
+          "evaluated": 541440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9356414418243372,
+          "unimodal": true
+        },
+        {
+          "generation": 1125,
+          "evaluated": 553740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9357453646058558,
+          "unimodal": true
+        },
+        {
+          "generation": 1150,
+          "evaluated": 566040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9357501507458073,
+          "unimodal": true
+        },
+        {
+          "generation": 1175,
+          "evaluated": 578340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9357823708041337,
+          "unimodal": true
+        },
+        {
+          "generation": 1200,
+          "evaluated": 590640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9358253134160367,
+          "unimodal": true
+        },
+        {
+          "generation": 1225,
+          "evaluated": 602940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9358654590110612,
+          "unimodal": true
+        },
+        {
+          "generation": 1250,
+          "evaluated": 615240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9358654590110612,
+          "unimodal": true
+        },
+        {
+          "generation": 1275,
+          "evaluated": 627540,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9358690173843904,
+          "unimodal": true
+        },
+        {
+          "generation": 1300,
+          "evaluated": 639840,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9358874596393416,
+          "unimodal": true
+        },
+        {
+          "generation": 1325,
+          "evaluated": 652140,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9359493618246925,
+          "unimodal": true
+        },
+        {
+          "generation": 1350,
+          "evaluated": 664440,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9359941847887182,
+          "unimodal": true
+        },
+        {
+          "generation": 1375,
+          "evaluated": 676740,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9359941847887182,
+          "unimodal": true
+        },
+        {
+          "generation": 1400,
+          "evaluated": 689040,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9360012174338319,
+          "unimodal": true
+        },
+        {
+          "generation": 1425,
+          "evaluated": 701340,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9360012174338319,
+          "unimodal": true
+        },
+        {
+          "generation": 1450,
+          "evaluated": 713640,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9360082265215975,
+          "unimodal": true
+        },
+        {
+          "generation": 1475,
+          "evaluated": 725940,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9360341168794043,
+          "unimodal": true
+        },
+        {
+          "generation": 1500,
+          "evaluated": 738240,
+          "rebound_ratio": 0.0,
+          "rebound_gain": 0.0,
+          "rebound_k": -1,
+          "first_descent": 32,
+          "near_miss_ratio": 0.9360393366875358,
+          "unimodal": true
+        }
+      ],
+      "best": {
+        "label": "g1498_p23_c5",
+        "generation": 1498,
+        "alpha": 67,
+        "unimodal": true,
+        "near_miss_ratio": 0.9360393366875358,
+        "near_miss_k": 33,
+        "first_descent": 32,
+        "rebound_k": -1,
+        "rebound_num": 0,
+        "rebound_den": 1,
+        "rebound_ratio": 0.0,
+        "rebound_gain": 0.0,
+        "minimum_slope_k": -1,
+        "n": 100,
+        "edges": [
+          [
+            0,
+            92
+          ],
+          [
+            0,
+            94
+          ],
+          [
+            0,
+            43
+          ],
+          [
+            1,
+            14
+          ],
+          [
+            1,
+            44
+          ],
+          [
+            1,
+            98
+          ],
+          [
+            1,
+            93
+          ],
+          [
+            2,
+            68
+          ],
+          [
+            3,
+            42
+          ],
+          [
+            3,
+            84
+          ],
+          [
+            4,
+            17
+          ],
+          [
+            4,
+            73
+          ],
+          [
+            5,
+            85
+          ],
+          [
+            6,
+            53
+          ],
+          [
+            6,
+            10
+          ],
+          [
+            7,
+            97
+          ],
+          [
+            7,
+            88
+          ],
+          [
+            8,
+            47
+          ],
+          [
+            8,
+            33
+          ],
+          [
+            8,
+            65
+          ],
+          [
+            8,
+            93
+          ],
+          [
+            9,
+            21
+          ],
+          [
+            9,
+            49
+          ],
+          [
+            9,
+            60
+          ],
+          [
+            10,
+            69
+          ],
+          [
+            10,
+            34
+          ],
+          [
+            10,
+            20
+          ],
+          [
+            11,
+            72
+          ],
+          [
+            11,
+            44
+          ],
+          [
+            11,
+            57
+          ],
+          [
+            11,
+            46
+          ],
+          [
+            12,
+            66
+          ],
+          [
+            12,
+            59
+          ],
+          [
+            13,
+            95
+          ],
+          [
+            15,
+            29
+          ],
+          [
+            16,
+            96
+          ],
+          [
+            17,
+            41
+          ],
+          [
+            18,
+            71
+          ],
+          [
+            18,
+            67
+          ],
+          [
+            18,
+            81
+          ],
+          [
+            19,
+            37
+          ],
+          [
+            19,
+            81
+          ],
+          [
+            19,
+            28
+          ],
+          [
+            19,
+            87
+          ],
+          [
+            20,
+            22
+          ],
+          [
+            21,
+            91
+          ],
+          [
+            22,
+            30
+          ],
+          [
+            22,
+            74
+          ],
+          [
+            22,
+            98
+          ],
+          [
+            23,
+            96
+          ],
+          [
+            24,
+            66
+          ],
+          [
+            24,
+            97
+          ],
+          [
+            24,
+            46
+          ],
+          [
+            24,
+            43
+          ],
+          [
+            25,
+            85
+          ],
+          [
+            26,
+            57
+          ],
+          [
+            26,
+            90
+          ],
+          [
+            26,
+            79
+          ],
+          [
+            27,
+            64
+          ],
+          [
+            27,
+            36
+          ],
+          [
+            27,
+            72
+          ],
+          [
+            28,
+            84
+          ],
+          [
+            29,
+            37
+          ],
+          [
+            29,
+            40
+          ],
+          [
+            31,
+            42
+          ],
+          [
+            32,
+            35
+          ],
+          [
+            33,
+            56
+          ],
+          [
+            34,
+            52
+          ],
+          [
+            35,
+            87
+          ],
+          [
+            35,
+            48
+          ],
+          [
+            35,
+            80
+          ],
+          [
+            38,
+            83
+          ],
+          [
+            39,
+            91
+          ],
+          [
+            41,
+            76
+          ],
+          [
+            41,
+            80
+          ],
+          [
+            42,
+            75
+          ],
+          [
+            45,
+            53
+          ],
+          [
+            47,
+            68
+          ],
+          [
+            48,
+            61
+          ],
+          [
+            50,
+            56
+          ],
+          [
+            51,
+            84
+          ],
+          [
+            52,
+            62
+          ],
+          [
+            53,
+            78
+          ],
+          [
+            54,
+            95
+          ],
+          [
+            55,
+            56
+          ],
+          [
+            58,
+            83
+          ],
+          [
+            59,
+            82
+          ],
+          [
+            60,
+            61
+          ],
+          [
+            63,
+            86
+          ],
+          [
+            65,
+            96
+          ],
+          [
+            68,
+            70
+          ],
+          [
+            70,
+            95
+          ],
+          [
+            73,
+            74
+          ],
+          [
+            73,
+            89
+          ],
+          [
+            75,
+            85
+          ],
+          [
+            77,
+            84
+          ],
+          [
+            83,
+            88
+          ],
+          [
+            86,
+            92
+          ],
+          [
+            96,
+            99
+          ]
+        ],
+        "polynomial": null
+      }
+    }
+  ],
+  "elapsed_seconds": 2686.907654762268
+}

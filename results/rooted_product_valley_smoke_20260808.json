@@ -1,0 +1,51 @@
+{
+  "claim_scope": "exact rooted-product search",
+  "identity": "I(G[H];x)=A(x)^|V(G)| I(G;B(x)/A(x))",
+  "base_count": 21,
+  "max_gadget_order_requested": 6,
+  "evaluated_products": 1365,
+  "counterexample_found": false,
+  "counterexample": null,
+  "best_near_miss": {
+    "base_source": "results/analysis_n28_modal_lc_nm.json",
+    "base_record_index": 2,
+    "base_graph6": "[?????????????_?G?@??C??G??G??C??@???G???_??@???@??w?_?BoO??B{??",
+    "base_order": 28,
+    "gadget_graph6": "E?qo",
+    "gadget_order": 6,
+    "gadget_root": 2,
+    "gadget_edges": [
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        5
+      ]
+    ],
+    "product_order": 168,
+    "degree": 99,
+    "near_miss": {
+      "k": 50,
+      "numerator": 245771040488283124316823071800559887,
+      "denominator": 245778517494159897282135219148543819,
+      "ratio": 0.9999695782774142
+    },
+    "valley": null,
+    "polynomial": null
+  },
+  "elapsed_seconds": 0.8267409801483154
+}

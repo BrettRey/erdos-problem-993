@@ -1,0 +1,213 @@
+{
+  "claim_scope": "exhaustive evidence, not a proof",
+  "statement": "some vertex v has adjacent modal intervals for I(F-v) and x I(F-N[v])",
+  "max_n": 18,
+  "component_library_size": 205004,
+  "orders": [
+    {
+      "n": 1,
+      "forests": 1,
+      "vertex_splits": 1,
+      "failures": 0,
+      "best_distance_histogram": {
+        "1": 1
+      },
+      "elapsed_seconds": 76.48361897468567
+    },
+    {
+      "n": 2,
+      "forests": 2,
+      "vertex_splits": 4,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 2
+      },
+      "elapsed_seconds": 76.48367500305176
+    },
+    {
+      "n": 3,
+      "forests": 3,
+      "vertex_splits": 9,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 2,
+        "1": 1
+      },
+      "elapsed_seconds": 76.48375391960144
+    },
+    {
+      "n": 4,
+      "forests": 6,
+      "vertex_splits": 24,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 5,
+        "1": 1
+      },
+      "elapsed_seconds": 76.48392701148987
+    },
+    {
+      "n": 5,
+      "forests": 10,
+      "vertex_splits": 50,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 8,
+        "1": 2
+      },
+      "elapsed_seconds": 76.48426175117493
+    },
+    {
+      "n": 6,
+      "forests": 20,
+      "vertex_splits": 120,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 18,
+        "1": 2
+      },
+      "elapsed_seconds": 76.48501491546631
+    },
+    {
+      "n": 7,
+      "forests": 37,
+      "vertex_splits": 259,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 30,
+        "1": 7
+      },
+      "elapsed_seconds": 76.48656582832336
+    },
+    {
+      "n": 8,
+      "forests": 76,
+      "vertex_splits": 608,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 66,
+        "1": 10
+      },
+      "elapsed_seconds": 76.49013590812683
+    },
+    {
+      "n": 9,
+      "forests": 153,
+      "vertex_splits": 1377,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 140,
+        "1": 13
+      },
+      "elapsed_seconds": 76.49800896644592
+    },
+    {
+      "n": 10,
+      "forests": 329,
+      "vertex_splits": 3290,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 273,
+        "1": 56
+      },
+      "elapsed_seconds": 76.51656794548035
+    },
+    {
+      "n": 11,
+      "forests": 710,
+      "vertex_splits": 7810,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 627,
+        "1": 83
+      },
+      "elapsed_seconds": 76.56016087532043
+    },
+    {
+      "n": 12,
+      "forests": 1601,
+      "vertex_splits": 19212,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 1464,
+        "1": 137
+      },
+      "elapsed_seconds": 76.66668105125427
+    },
+    {
+      "n": 13,
+      "forests": 3658,
+      "vertex_splits": 47554,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 3318,
+        "1": 340
+      },
+      "elapsed_seconds": 76.93030190467834
+    },
+    {
+      "n": 14,
+      "forests": 8599,
+      "vertex_splits": 120386,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 7586,
+        "1": 1013
+      },
+      "elapsed_seconds": 77.60382986068726
+    },
+    {
+      "n": 15,
+      "forests": 20514,
+      "vertex_splits": 307710,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 19329,
+        "1": 1185
+      },
+      "elapsed_seconds": 79.33527898788452
+    },
+    {
+      "n": 16,
+      "forests": 49905,
+      "vertex_splits": 798480,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 45926,
+        "1": 3979
+      },
+      "elapsed_seconds": 83.88382577896118
+    },
+    {
+      "n": 17,
+      "forests": 122963,
+      "vertex_splits": 2090371,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 112156,
+        "1": 10807
+      },
+      "elapsed_seconds": 95.9166567325592
+    },
+    {
+      "n": 18,
+      "forests": 307199,
+      "vertex_splits": 5529582,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 288931,
+        "1": 18268
+      },
+      "elapsed_seconds": 128.03385186195374
+    }
+  ],
+  "failures": [],
+  "total_forests": 515786,
+  "total_vertex_splits": 8926847,
+  "best_distance_histogram": {
+    "0": 479881,
+    "1": 35905
+  },
+  "failure_count": 0,
+  "elapsed_seconds": 128.0338909626007
+}

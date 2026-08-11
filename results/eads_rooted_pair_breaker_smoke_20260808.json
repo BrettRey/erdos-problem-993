@@ -1,0 +1,208 @@
+{
+  "claim_scope": "exact rooted-state pair sampling; evidence only",
+  "seed": 202608085,
+  "max_rooted_order": 8,
+  "distinct_states": 199,
+  "low_degree_states": 149,
+  "samples_completed": 10000,
+  "counterexample": null,
+  "best_right_score": 1,
+  "best_low_degree_left_score": 1,
+  "best_right": {
+    "sample": 2,
+    "orientations": [
+      [
+        "right",
+        1
+      ],
+      [
+        "right",
+        1
+      ]
+    ],
+    "left": {
+      "order": 7,
+      "graph6": "F?`e_",
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "root": 3,
+      "root_degree_before_join": 1,
+      "excluded": [
+        1,
+        6,
+        10,
+        4
+      ],
+      "included": [
+        0,
+        1,
+        5,
+        7,
+        2
+      ]
+    },
+    "right": {
+      "order": 8,
+      "graph6": "G?`DB_",
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "root": 2,
+      "root_degree_before_join": 2,
+      "excluded": [
+        1,
+        7,
+        16,
+        13,
+        3
+      ],
+      "included": [
+        0,
+        1,
+        5,
+        8,
+        4
+      ]
+    }
+  },
+  "best_low_degree_left": {
+    "sample": 104,
+    "orientations": [
+      [
+        "left",
+        1
+      ],
+      [
+        "right",
+        1
+      ]
+    ],
+    "left": {
+      "order": 3,
+      "graph6": "BW",
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "root": 2,
+      "root_degree_before_join": 2,
+      "excluded": [
+        1,
+        2,
+        1
+      ],
+      "included": [
+        0,
+        1
+      ]
+    },
+    "right": {
+      "order": 8,
+      "graph6": "G?`DE_",
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "root": 3,
+      "root_degree_before_join": 1,
+      "excluded": [
+        1,
+        7,
+        15,
+        11,
+        2
+      ],
+      "included": [
+        0,
+        1,
+        6,
+        11,
+        6
+      ]
+    }
+  },
+  "elapsed_seconds": 0.17058014869689941
+}

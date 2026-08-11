@@ -1,0 +1,217 @@
+{
+  "claim_scope": "exhaustive evidence, not a proof",
+  "statement": "some vertex v has adjacent modal intervals for I(F-v) and x I(F-N[v])",
+  "min_n": 1,
+  "max_n": 18,
+  "orders": [
+    {
+      "n": 1,
+      "trees": 1,
+      "vertex_splits": 1,
+      "failures": 0,
+      "best_distance_histogram": {
+        "1": 1
+      },
+      "elapsed_seconds": 5.7220458984375e-06
+    },
+    {
+      "n": 2,
+      "trees": 1,
+      "vertex_splits": 2,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 1
+      },
+      "elapsed_seconds": 0.0029129981994628906
+    },
+    {
+      "n": 3,
+      "trees": 1,
+      "vertex_splits": 3,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 1
+      },
+      "elapsed_seconds": 0.00533294677734375
+    },
+    {
+      "n": 4,
+      "trees": 2,
+      "vertex_splits": 8,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 2
+      },
+      "elapsed_seconds": 0.007565021514892578
+    },
+    {
+      "n": 5,
+      "trees": 3,
+      "vertex_splits": 15,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 2,
+        "1": 1
+      },
+      "elapsed_seconds": 0.010016918182373047
+    },
+    {
+      "n": 6,
+      "trees": 6,
+      "vertex_splits": 36,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 5,
+        "1": 1
+      },
+      "elapsed_seconds": 0.013019800186157227
+    },
+    {
+      "n": 7,
+      "trees": 11,
+      "vertex_splits": 77,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 11
+      },
+      "elapsed_seconds": 0.016640901565551758
+    },
+    {
+      "n": 8,
+      "trees": 23,
+      "vertex_splits": 184,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 17,
+        "1": 6
+      },
+      "elapsed_seconds": 0.022314786911010742
+    },
+    {
+      "n": 9,
+      "trees": 47,
+      "vertex_splits": 423,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 45,
+        "1": 2
+      },
+      "elapsed_seconds": 0.03296685218811035
+    },
+    {
+      "n": 10,
+      "trees": 106,
+      "vertex_splits": 1060,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 94,
+        "1": 12
+      },
+      "elapsed_seconds": 0.05690884590148926
+    },
+    {
+      "n": 11,
+      "trees": 235,
+      "vertex_splits": 2585,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 202,
+        "1": 33
+      },
+      "elapsed_seconds": 0.1145179271697998
+    },
+    {
+      "n": 12,
+      "trees": 551,
+      "vertex_splits": 6612,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 529,
+        "1": 22
+      },
+      "elapsed_seconds": 0.26090002059936523
+    },
+    {
+      "n": 13,
+      "trees": 1301,
+      "vertex_splits": 16913,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 1226,
+        "1": 75
+      },
+      "elapsed_seconds": 0.6326467990875244
+    },
+    {
+      "n": 14,
+      "trees": 3159,
+      "vertex_splits": 44226,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 2779,
+        "1": 380
+      },
+      "elapsed_seconds": 1.6343119144439697
+    },
+    {
+      "n": 15,
+      "trees": 7741,
+      "vertex_splits": 116115,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 7282,
+        "1": 459
+      },
+      "elapsed_seconds": 4.289186954498291
+    },
+    {
+      "n": 16,
+      "trees": 19320,
+      "vertex_splits": 309120,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 18230,
+        "1": 1090
+      },
+      "elapsed_seconds": 11.533411979675293
+    },
+    {
+      "n": 17,
+      "trees": 48629,
+      "vertex_splits": 826693,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 44478,
+        "1": 4151
+      },
+      "elapsed_seconds": 31.39310884475708
+    },
+    {
+      "n": 18,
+      "trees": 123867,
+      "vertex_splits": 2229606,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 115351,
+        "1": 8516
+      },
+      "elapsed_seconds": 85.79799294471741
+    }
+  ],
+  "failures": [],
+  "total_trees": 205004,
+  "total_vertex_splits": 3553679,
+  "identity_failures": 0,
+  "distance_histogram": {
+    "0": 1182716,
+    "1": 2310219,
+    "2": 56509,
+    "3": 3692,
+    "4": 481,
+    "5": 45,
+    "6": 15,
+    "7": 2
+  },
+  "failure_count": 0,
+  "elapsed_seconds": 85.79802989959717
+}

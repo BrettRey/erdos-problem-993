@@ -1,0 +1,359 @@
+{
+  "claim_scope": "Theorem: each fixed arm vector is unimodal for all s at or above its certified threshold. Finite scans below the threshold are computational certificates, reported separately. This does not resolve Erdos Problem 993.",
+  "method": "exact integer arithmetic; independent tree-DP spot checks",
+  "records": [
+    {
+      "arms": [
+        5,
+        5,
+        4,
+        2
+      ],
+      "q": [
+        1,
+        16,
+        108,
+        400,
+        885,
+        1192,
+        951,
+        414,
+        83,
+        6
+      ],
+      "x_r": [
+        0,
+        1,
+        12,
+        58,
+        145,
+        201,
+        154,
+        60,
+        9
+      ],
+      "correction_degree": 8,
+      "correction_drops": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        47,
+        94,
+        51,
+        9
+      ],
+      "certified_threshold": 18,
+      "crude_threshold": 863,
+      "proof_replay": [
+        {
+          "s": 18,
+          "minimum_actual_early_difference": 34,
+          "minimum_proof_lower_margin": 17,
+          "minimum_actual_minus_proof_lower_bound": 17
+        },
+        {
+          "s": 19,
+          "minimum_actual_early_difference": 35,
+          "minimum_proof_lower_margin": 18,
+          "minimum_actual_minus_proof_lower_bound": 17
+        },
+        {
+          "s": 35,
+          "minimum_actual_early_difference": 51,
+          "minimum_proof_lower_margin": 34,
+          "minimum_actual_minus_proof_lower_bound": 17
+        }
+      ],
+      "tree_dp_crosschecks": [
+        {
+          "s": 0,
+          "coefficient_count": 10
+        },
+        {
+          "s": 1,
+          "coefficient_count": 11
+        },
+        {
+          "s": 2,
+          "coefficient_count": 12
+        },
+        {
+          "s": 7,
+          "coefficient_count": 17
+        }
+      ],
+      "finite_scan": {
+        "range": [
+          0,
+          17
+        ],
+        "complete_below_threshold": true,
+        "nonunimodal_count": 0,
+        "nonunimodal_witnesses": [],
+        "early_difference_failure_count": 7,
+        "last_early_difference_failure": 6
+      },
+      "all_s_unimodal_certified": true
+    },
+    {
+      "arms": [
+        2,
+        3,
+        6
+      ],
+      "q": [
+        1,
+        11,
+        47,
+        98,
+        102,
+        48,
+        8
+      ],
+      "x_r": [
+        0,
+        1,
+        8,
+        23,
+        29,
+        15,
+        2
+      ],
+      "correction_degree": 6,
+      "correction_drops": [
+        0,
+        0,
+        0,
+        0,
+        14,
+        13,
+        2
+      ],
+      "certified_threshold": 14,
+      "crude_threshold": 111,
+      "proof_replay": [
+        {
+          "s": 14,
+          "minimum_actual_early_difference": 25,
+          "minimum_proof_lower_margin": 13,
+          "minimum_actual_minus_proof_lower_bound": 12
+        },
+        {
+          "s": 15,
+          "minimum_actual_early_difference": 26,
+          "minimum_proof_lower_margin": 14,
+          "minimum_actual_minus_proof_lower_bound": 12
+        },
+        {
+          "s": 31,
+          "minimum_actual_early_difference": 42,
+          "minimum_proof_lower_margin": 30,
+          "minimum_actual_minus_proof_lower_bound": 12
+        }
+      ],
+      "tree_dp_crosschecks": [
+        {
+          "s": 0,
+          "coefficient_count": 7
+        },
+        {
+          "s": 1,
+          "coefficient_count": 8
+        },
+        {
+          "s": 2,
+          "coefficient_count": 9
+        },
+        {
+          "s": 7,
+          "coefficient_count": 14
+        }
+      ],
+      "finite_scan": {
+        "range": [
+          0,
+          13
+        ],
+        "complete_below_threshold": true,
+        "nonunimodal_count": 0,
+        "nonunimodal_witnesses": [],
+        "early_difference_failure_count": 6,
+        "last_early_difference_failure": 5
+      },
+      "all_s_unimodal_certified": true
+    },
+    {
+      "arms": [
+        6,
+        6,
+        1
+      ],
+      "q": [
+        1,
+        13,
+        68,
+        184,
+        276,
+        228,
+        96,
+        16
+      ],
+      "x_r": [
+        0,
+        1,
+        10,
+        37,
+        62,
+        46,
+        12,
+        1
+      ],
+      "correction_degree": 7,
+      "correction_drops": [
+        0,
+        0,
+        0,
+        0,
+        16,
+        34,
+        11,
+        1
+      ],
+      "certified_threshold": 16,
+      "crude_threshold": 287,
+      "proof_replay": [
+        {
+          "s": 16,
+          "minimum_actual_early_difference": 29,
+          "minimum_proof_lower_margin": 15,
+          "minimum_actual_minus_proof_lower_bound": 14
+        },
+        {
+          "s": 17,
+          "minimum_actual_early_difference": 30,
+          "minimum_proof_lower_margin": 16,
+          "minimum_actual_minus_proof_lower_bound": 14
+        },
+        {
+          "s": 33,
+          "minimum_actual_early_difference": 46,
+          "minimum_proof_lower_margin": 32,
+          "minimum_actual_minus_proof_lower_bound": 14
+        }
+      ],
+      "tree_dp_crosschecks": [
+        {
+          "s": 0,
+          "coefficient_count": 8
+        },
+        {
+          "s": 1,
+          "coefficient_count": 9
+        },
+        {
+          "s": 2,
+          "coefficient_count": 10
+        },
+        {
+          "s": 7,
+          "coefficient_count": 15
+        }
+      ],
+      "finite_scan": {
+        "range": [
+          0,
+          15
+        ],
+        "complete_below_threshold": true,
+        "nonunimodal_count": 0,
+        "nonunimodal_witnesses": [],
+        "early_difference_failure_count": 7,
+        "last_early_difference_failure": 6
+      },
+      "all_s_unimodal_certified": true
+    },
+    {
+      "arms": [
+        8
+      ],
+      "q": [
+        1,
+        8,
+        21,
+        20,
+        5
+      ],
+      "x_r": [
+        0,
+        1,
+        7,
+        15,
+        10,
+        1
+      ],
+      "correction_degree": 5,
+      "correction_drops": [
+        0,
+        0,
+        0,
+        5,
+        9,
+        1
+      ],
+      "certified_threshold": 12,
+      "crude_threshold": 65,
+      "proof_replay": [
+        {
+          "s": 12,
+          "minimum_actual_early_difference": 20,
+          "minimum_proof_lower_margin": 11,
+          "minimum_actual_minus_proof_lower_bound": 9
+        },
+        {
+          "s": 13,
+          "minimum_actual_early_difference": 21,
+          "minimum_proof_lower_margin": 12,
+          "minimum_actual_minus_proof_lower_bound": 9
+        },
+        {
+          "s": 29,
+          "minimum_actual_early_difference": 37,
+          "minimum_proof_lower_margin": 28,
+          "minimum_actual_minus_proof_lower_bound": 9
+        }
+      ],
+      "tree_dp_crosschecks": [
+        {
+          "s": 0,
+          "coefficient_count": 6
+        },
+        {
+          "s": 1,
+          "coefficient_count": 6
+        },
+        {
+          "s": 2,
+          "coefficient_count": 7
+        },
+        {
+          "s": 7,
+          "coefficient_count": 12
+        }
+      ],
+      "finite_scan": {
+        "range": [
+          0,
+          11
+        ],
+        "complete_below_threshold": true,
+        "nonunimodal_count": 0,
+        "nonunimodal_witnesses": [],
+        "early_difference_failure_count": 7,
+        "last_early_difference_failure": 6
+      },
+      "all_s_unimodal_certified": true
+    }
+  ]
+}

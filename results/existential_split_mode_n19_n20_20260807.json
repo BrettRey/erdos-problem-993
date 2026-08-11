@@ -1,0 +1,47 @@
+{
+  "claim_scope": "exhaustive evidence, not a proof",
+  "statement": "some vertex v has adjacent modal intervals for I(F-v) and x I(F-N[v])",
+  "min_n": 19,
+  "max_n": 20,
+  "orders": [
+    {
+      "n": 19,
+      "trees": 317955,
+      "vertex_splits": 6041145,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 304679,
+        "1": 13276
+      },
+      "elapsed_seconds": 150.0383849143982
+    },
+    {
+      "n": 20,
+      "trees": 823065,
+      "vertex_splits": 16461300,
+      "failures": 0,
+      "best_distance_histogram": {
+        "0": 770002,
+        "1": 53063
+      },
+      "elapsed_seconds": 571.4118039608002
+    }
+  ],
+  "failures": [],
+  "total_trees": 1141020,
+  "total_vertex_splits": 22502445,
+  "identity_failures": 0,
+  "distance_histogram": {
+    "0": 7454724,
+    "1": 14698081,
+    "2": 330775,
+    "3": 15176,
+    "4": 3208,
+    "5": 436,
+    "6": 30,
+    "7": 13,
+    "8": 2
+  },
+  "failure_count": 0,
+  "elapsed_seconds": 571.4118449687958
+}

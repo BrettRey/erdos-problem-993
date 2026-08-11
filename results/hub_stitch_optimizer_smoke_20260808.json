@@ -1,0 +1,76 @@
+{
+  "claim_scope": "exact optimization finalists; floating point used only for ranking",
+  "identity": "I(T;x)=(1+x)^ell product I(C_i;x)+x product I(C_i-r_i;x)",
+  "seed": 20260808,
+  "source_rows": 100,
+  "distinct_components_loaded": 138,
+  "restarts": 1,
+  "max_hub_leaves": 0,
+  "evaluated_exact_finalists": 100,
+  "counterexample_found": false,
+  "counterexample": null,
+  "best": {
+    "source": "results/forest_valley_later_slope_sep10_20260807.json",
+    "source_factors": [
+      1169,
+      1456,
+      1986,
+      2119,
+      2292,
+      2762,
+      3863,
+      3864,
+      4303,
+      4303
+    ],
+    "component_labels": [
+      "bush(u3p3,u6p1,u6p1,u6p2)|n=59",
+      "bush(u6p1,u6p1,u6p1,s6p2)|n=60",
+      "bush(u2p2,u2p3,u5p2,u6p1,u6p1)|n=59",
+      "bush(u2p2,u3p1,u6p1,u6p1,u6p2)|n=60",
+      "bush(u2p2,u3p3,u5p1,u5p1,u5p2)|n=59",
+      "bush(u2p3,u3p2,u3p3,u5p1,u5p2)|n=60",
+      "bush(u3p2,u4p1,u4p1,u5p1,u6p2)|n=59",
+      "bush(u3p2,u4p1,u4p1,u5p1,s6p2)|n=60",
+      "bush(u4p1,u4p1,u4p2,u5p1,u5p2)|n=59",
+      "bush(u4p1,u4p1,u4p2,u5p1,u5p2)|n=59"
+    ],
+    "component_orders": [
+      59,
+      60,
+      59,
+      60,
+      59,
+      60,
+      59,
+      60,
+      59,
+      59
+    ],
+    "attachment_vertices": [
+      40,
+      40,
+      33,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "hub_leaves": 0,
+    "order": 595,
+    "alpha": 336,
+    "unimodal": true,
+    "valley": {
+      "ratio": 0.9872621869172311,
+      "pos": 181,
+      "rise_pos": 182,
+      "window": true,
+      "witness": false
+    },
+    "polynomial": null
+  },
+  "elapsed_seconds": 3.559217929840088
+}

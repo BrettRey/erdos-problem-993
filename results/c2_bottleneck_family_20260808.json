@@ -1,0 +1,28 @@
+{
+  "family": {
+    "left_pendant_arms": [
+      1,
+      1
+    ],
+    "right_pendant_arms": "[m,m]",
+    "parameter_range_checked": [
+      1,
+      500
+    ]
+  },
+  "theorem": {
+    "scope": "odd m=2h+1, top-degree diagonal only, all h>=0",
+    "top_degree": "N=2h+4",
+    "B_N_minus_1": "2h^2+5h+6",
+    "C_N_minus_1": "h^2+3h+4",
+    "partial_sync_margin": "2*C_(N-1)-B_(N-1)=h+2>0"
+  },
+  "computational_evidence": {
+    "scope": "Exact full log-concavity and both full two-index base partial-synchronization relations only through the stated finite m bound.",
+    "parameters_checked": 500,
+    "failures": 0,
+    "minimum_odd_top_margin": 2,
+    "minimum_odd_top_margin_at_m": 1
+  },
+  "not_claimed": "The finite audit is not a proof of full partial synchronization for all m, of universal C2 log-concavity, or of Erdos #993."
+}

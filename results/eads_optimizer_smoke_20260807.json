@@ -1,0 +1,111 @@
+{
+  "claim_scope": "exact evolutionary computation; evidence only",
+  "statement_tested": "Every tree has a vertex v whose I(T-v) and xI(T-N[v]) modal intervals have distance at most one.",
+  "seed": 993,
+  "evaluated": 22,
+  "counterexample_found": false,
+  "best": {
+    "restart": 0,
+    "step": 0,
+    "n": 12,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        9,
+        10
+      ]
+    ],
+    "good_count": 12,
+    "good_vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "distances": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "ordered_distances": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "polynomial": [
+      1,
+      12,
+      55,
+      122,
+      138,
+      79,
+      23,
+      3
+    ]
+  }
+}

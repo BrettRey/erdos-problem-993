@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-08-08T06:36:25.218704+00:00",
+  "source": "Theorem 4.11, arXiv:2603.14204v1",
+  "parameters": {
+    "k_max": 4,
+    "ell_max": 12,
+    "n_max": 12,
+    "m_max": 100,
+    "degree_max": 5000,
+    "tail": 50
+  },
+  "checked": 62343,
+  "closest": null,
+  "counterexample": null
+}

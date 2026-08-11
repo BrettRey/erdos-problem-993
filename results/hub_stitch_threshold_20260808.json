@@ -1,0 +1,86 @@
+{
+  "claim_scope": "exact optimization finalists; floating point used only for ranking",
+  "identity": "I(T;x)=(1+x)^ell product I(C_i;x)+x product I(C_i-r_i;x)",
+  "seed": 20260808,
+  "source_rows": 100,
+  "distinct_components_loaded": 138,
+  "restarts": 20,
+  "max_hub_leaves": 4,
+  "threshold": 0.001,
+  "min_separation": 2,
+  "evaluated_exact_finalists": 10000,
+  "counterexample_found": false,
+  "counterexample": null,
+  "best": {
+    "source": "results/forest_valley_later_slope_sep10_20260807.json",
+    "source_factors": [
+      974,
+      1305,
+      1399,
+      1456,
+      2292,
+      2397,
+      3210,
+      3210,
+      3317,
+      4430
+    ],
+    "component_labels": [
+      "bush(u3p3,u3p3,u3p3,s6p2)|n=60",
+      "bush(u4p1,u4p3,u6p1,u6p2)|n=59",
+      "bush(u4p3,u5p1,u5p1,s6p2)|n=60",
+      "bush(u6p1,u6p1,u6p1,s6p2)|n=60",
+      "bush(u2p2,u3p3,u5p1,u5p1,u5p2)|n=59",
+      "bush(u2p2,u4p1,u5p2,u6p1,u6p1)|n=59",
+      "bush(u3p1,u3p2,u5p1,u5p1,u6p2)|n=59",
+      "bush(u3p1,u3p2,u5p1,u5p1,u6p2)|n=59",
+      "bush(u3p1,u3p3,u4p2,u4p2,u6p1)|n=60",
+      "bush(u4p2,u4p2,u5p1,u5p1,u5p1)|n=60"
+    ],
+    "component_orders": [
+      60,
+      59,
+      60,
+      60,
+      59,
+      59,
+      59,
+      59,
+      60,
+      60
+    ],
+    "attachment_vertices": [
+      43,
+      43,
+      43,
+      0,
+      46,
+      20,
+      43,
+      43,
+      24,
+      4
+    ],
+    "hub_leaves": 4,
+    "order": 600,
+    "alpha": 338,
+    "unimodal": true,
+    "valley": {
+      "ratio": 0.9863052433419076,
+      "pos": 183,
+      "rise_pos": 184,
+      "window": true,
+      "witness": false
+    },
+    "objective": {
+      "ratio_numerator": 39921255071728153429853958959403918112935196624257180910575747466865258442156495683624487879674966869470936441933702945878753611429,
+      "ratio_denominator": 41832696432376599948303313238827316664095613453928060095878933238608780381843644835897795184109698279502377741206411068736751141113,
+      "ratio": 0.9543074789898296,
+      "dip": 184,
+      "rise": 186,
+      "witness": false
+    },
+    "polynomial": null
+  },
+  "elapsed_seconds": 433.6444730758667
+}

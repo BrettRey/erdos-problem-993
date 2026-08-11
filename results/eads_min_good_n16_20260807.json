@@ -1,0 +1,264 @@
+{
+  "scope": "exhaustive exact evidence",
+  "rows": [
+    {
+      "n": 2,
+      "min_good": 2,
+      "certificate": [
+        0,
+        "A_",
+        [
+          0,
+          1
+        ]
+      ],
+      "hist_min_count": 1
+    },
+    {
+      "n": 3,
+      "min_good": 3,
+      "certificate": [
+        0,
+        "BW",
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "hist_min_count": 1
+    },
+    {
+      "n": 4,
+      "min_good": 4,
+      "certificate": [
+        0,
+        "CF",
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "hist_min_count": 2
+    },
+    {
+      "n": 5,
+      "min_good": 5,
+      "certificate": [
+        0,
+        "D?{",
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "hist_min_count": 3
+    },
+    {
+      "n": 6,
+      "min_good": 6,
+      "certificate": [
+        0,
+        "E?Bw",
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "hist_min_count": 6
+    },
+    {
+      "n": 7,
+      "min_good": 6,
+      "certificate": [
+        0,
+        "F??Fw",
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "hist_min_count": 1
+    },
+    {
+      "n": 8,
+      "min_good": 7,
+      "certificate": [
+        0,
+        "G???F{",
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "hist_min_count": 1
+    },
+    {
+      "n": 9,
+      "min_good": 8,
+      "certificate": [
+        0,
+        "H????B~",
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "hist_min_count": 2
+    },
+    {
+      "n": 10,
+      "min_good": 9,
+      "certificate": [
+        0,
+        "I??????~w",
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "hist_min_count": 13
+    },
+    {
+      "n": 11,
+      "min_good": 5,
+      "certificate": [
+        26,
+        "J????B?gA}?",
+        [
+          0,
+          1,
+          2,
+          8,
+          9
+        ]
+      ],
+      "hist_min_count": 1
+    },
+    {
+      "n": 12,
+      "min_good": 9,
+      "certificate": [
+        173,
+        "K????A?[EOCw",
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "hist_min_count": 15
+    },
+    {
+      "n": 13,
+      "min_good": 12,
+      "certificate": [
+        0,
+        "L???????????~~",
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      ],
+      "hist_min_count": 204
+    },
+    {
+      "n": 14,
+      "min_good": 5,
+      "certificate": [
+        345,
+        "M???????C?]?b_?]?",
+        [
+          0,
+          10,
+          11,
+          12,
+          13
+        ]
+      ],
+      "hist_min_count": 2
+    },
+    {
+      "n": 15,
+      "min_good": 9,
+      "certificate": [
+        2432,
+        "N???????E?S?S?b_GM?",
+        [
+          0,
+          1,
+          2,
+          3,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      ],
+      "hist_min_count": 11
+    },
+    {
+      "n": 16,
+      "min_good": 4,
+      "certificate": [
+        555,
+        "O???????????_?]??{EGw",
+        [
+          0,
+          12,
+          13,
+          14
+        ]
+      ],
+      "hist_min_count": 2
+    }
+  ]
+}

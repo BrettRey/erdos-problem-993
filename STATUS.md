@@ -7,7 +7,7 @@ stage: complete
 external: in-review
 blocked_on:
 - venue-response
-updated: 2026-07-31
+updated: 2026-08-11
 source:
 - STATUS.md
 - PORTFOLIO.md
@@ -95,6 +95,107 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 ## Source of truth
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
+
+## 2026-08-11: Partial-sync failure geometry mapped on the pattern-graph families
+
+Brett supplied three externally produced artifacts (note, script, JSON)
+locating where the HWZZ partial-synchronization induction from the
+double-broom note fails on the Bautista-Ramos pattern-graph decompositions
+(arXiv:2603.14204). The shipped script replayed byte-identically; the sweep
+was then extended to the note's full claimed ranges (`T12 m <= 60`,
+`T13 m <= 30`, `T17 m <= 24`; 158 instances, 134/134 closed-form checks
+against Corollaries 4.8/4.12/4.13/4.14, re-read from
+`notes/literature/arxiv_2603_14204.txt`). An independent audit with freshly
+written violation/Turán/break implementations plus brute-force subset
+enumeration on four small trees passed throughout. Two corrections landed in
+the published note: the violation band leaves the Levit–Mandrescu decreasing
+zone at `m = 21`, not 22 (it touches the boundary exactly at `m = 20`), and
+the three-break family's LC break sits at reflected index {2} alone for
+`3 <= m <= 7`, so the top-corner anchor of the break blocks is not universal.
+Robust structure: the KL family fails at exactly one diagonal pair
+`(alpha-1, alpha-1)` at every `k`; synchronization fails far earlier than LC
+(both larger families already at `m = 2`); `(alpha, alpha)` is never
+violated. Artifacts: `notes/partial_sync_obstruction_2026-08-11.md`,
+`verify_partial_sync_obstruction_20260811.py`,
+`results/partial_sync_obstruction_20260811.json`. The note's stated next
+target: banded partial synchronization plus a head-reserve inequality on the
+c2-bounded pendant core.
+
+## 2026-08-08: Long search stopped; EADS refuted, #993 still open
+
+The overnight proof/disproof campaign stopped at Brett's request without
+resolving Erdős #993. An exact order-60 tree refutes the auxiliary EADS
+vertex-split statement but has a unimodal, log-concave full independence
+polynomial. Exact replay also showed that the apparent rooted-product ratio
+`0.9999999769395256` was the first descent itself, not a later rebound; that
+search score must not be treated as near-counterexample evidence. The saved
+2019 ratio-order paper was checked together with its bundled 2023 corrigendum;
+the corrected support condition was already represented in the strict-core
+experiment, whose simple synchronization invariants fail. All exploratory
+workers and `caffeinate` were stopped. Exact certificates, negative-search
+bounds, source hashes, and the restart recommendation are recorded in
+`notes/session_handoff_2026-08-08.md`.
+
+A bounded post-wrap continuation then supplied an effective version of the
+previously designated fixed-arm statement. For
+`F_s=(1+x)^s product_j I(P_{a_j}) + x product_j I(P_{a_j-1})`, the note
+`notes/fixed_arm_effective_unimodality_2026-08-08.md` gives an explicit
+computable threshold `S(a)` above which `F_s` is unimodal. Exact finite replay
+closes all leaf counts for `(5,5,4,2)`, `(2,3,6)`, `(6,6,1)`, and `(8)`.
+Prior-art correction: all these trees are spiders, already covered by the
+stronger Li--Li--Yang--Zhang all-spider log-concavity theorem. The result is
+therefore an explicit quantitative refinement, not a new family closure.
+At the genuine two-hub frontier, exact double-star witnesses refute both the
+direct synchronization grouping and the synchronization use of the
+subdivision-contraction identity; the `C_2` log-concavity conjecture itself
+survives. An aggregate factorization nevertheless proves the unsubdivided
+base case: every double star
+`I(D_{p,q})=(1+x)^{p+q}+x(1+x)^p+x(1+x)^q` is log-concave. The proof reduces
+the only harder Turán inequality to a concave quadratic whose two endpoint
+values are nonnegative. Prior-art correction: Galvin--Hilyard Theorem 1.9(1)
+already includes every double star; this is a short self-contained reproof,
+not a new family theorem. The same sparse-perturbation method does prove the
+once-subdivided double-star family log-concave. A product-binomial-basis
+argument now proves the two base partial-synchronization relations for all
+leaf counts. Combined with `F_t=F_{t-1}+xF_{t-2}`, this proves every double
+star with an arbitrarily subdivided hub connector log-concave. Exact replay
+audits 10,201 ratio-base cases, 961 full partial-synchronization base cases,
+18,259 connector cases, 324 independent tree-DP formulas, and 228,741
+general basis coefficients; these computations audit the formulas and are
+not the reason the all-parameter theorem holds. Records:
+`notes/two_hub_ratio_order_killtest_2026-08-08.md` and
+`notes/double_star_log_concavity_2026-08-08.md`,
+`notes/once_subdivided_double_star_lc_2026-08-08.md`, and
+`notes/connector_partial_sync_route_2026-08-08.md`. The remaining `C_2` step
+is subdivision of pendant arms on one or both sides.
+
+A further exact transfer now covers a bounded but substantially larger part
+of that step. Writing the two pendant-arm multisets as integer partitions,
+the adjacent and contracted base polynomials satisfy the two required
+partial-synchronization relations for every one of the 163,523 unordered
+pairs with total pendant weight at most 24. The connector induction is
+algebraic, so every one of those pendant cores is log-concave for **every**
+connector length; total tree order is unbounded. This is a computer-assisted
+theorem with a bounded pendant core, not a proof of universal `C_2` and not a
+solution of #993. Exact enumeration digest, verifier, and proof boundary are
+in `notes/c2_bounded_pendant_core_2026-08-08.md` and
+`results/c2_bounded_pendant_core_20260808.json`.
+
+### 2026-08-08 Session Notes
+
+- Brett chose a public repository note rather than a paper, journal
+  submission, or standalone archival deposit.
+- The curated ten-file package was pushed to public `master` in commit
+  `51885d3`: `notes/double_broom_log_concavity.md`, the README entry, exact
+  double-broom and bounded-pendant certificates, their replay modules, and
+  focused regression tests. The note explicitly records substantive
+  generative-AI assistance, lack of peer review, and the boundary short of
+  full `C_2` and Erdős #993.
+- Exact regeneration matched both committed JSON certificates byte-for-byte;
+  the full project suite plus the new tests passed (62 tests). No manuscript
+  file changed.
+- The many overnight scratch programs, negative-search outputs, and internal
+  handoff notes remain local and uncommitted by design.
 
 ## 2026-07-31: Lin & Li citation added; Hyra evaluated and ruled out as a tool
 

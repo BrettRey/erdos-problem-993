@@ -1,11 +1,83 @@
 # Decisions Log
-<!-- SUMMARY: Append-only decisions governing proof scope, verification standards, release posture, and bounded AI-assisted work on Erdős #993 · status: active decision log · updated: 2026-07-31 -->
+<!-- SUMMARY: Append-only decisions governing proof scope, verification standards, release posture, and bounded AI-assisted work on Erdős #993 · status: active decision log · updated: 2026-08-08 -->
 
 Append-only record of project decisions. Agents: add an entry whenever a non-trivial decision is made during a session (structural changes, venue choices, theoretical commitments, scope changes, reviewer feedback acted on). Keep entries short.
 
 Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationale.
 
 ---
+
+## 2026-08-08
+
+- **Retire EADS as a proof route; preserve its counterexample as an auxiliary
+  certificate only.** Exact independent replay verifies an order-60 tree for
+  which every vertex split has modal-interval distance two. Its full
+  independence polynomial is unimodal and log-concave, so this refutes EADS
+  but does not refute Erdős #993. Certificate and verifier:
+  `results/eads_counterexample_n60_20260808.json` and
+  `verify_eads_counterexample_20260808.py`.
+- **Discard the rooted-product 0.9999999769 score as a first-descent artifact.**
+  Exact coefficient replay shows monotone decay after that index and no later
+  rebound. Future searches must score a rise strictly after a genuine prior
+  descent; plateau proximity at the first descent is not a valley signal.
+- **Pause the campaign unresolved and decaffeinated.** At Brett's morning
+  stopping point, three remaining exploratory searches were interrupted and
+  all `caffeinate` processes stopped. No negative search is promoted to a
+  theorem. Full handoff: `notes/session_handoff_2026-08-08.md`.
+- **Record the fixed-arm threshold as an effective refinement, not a new
+  family theorem.** For
+  each fixed multi-arm vector, finitely many early differences are dominated
+  explicitly by the `q_0=1` binomial contribution; after the fixed correction
+  support ends, real-rootedness of the path-product term supplies a unimodal
+  tail. This proves eventual unimodality with a computable threshold and,
+  after exact finite replay, all-`s` unimodality for four hard vectors.
+  However, every multi-arm star is a spider and the stronger all-spider
+  log-concavity theorem is already known. The genuinely open extension is
+  multi-hub structure. Record:
+  `notes/fixed_arm_effective_unimodality_2026-08-08.md`.
+- **Reject pairwise synchronization as the two-hub bridge.** Exact double-star
+  witnesses show that both corrected synchronization/partial synchronization
+  for the adjacent-hub summands and synchronization of the two terms in
+  `I(T_e)=I(T)+xI(T/e)` can fail while the resulting polynomial remains
+  log-concave. Any `C_2` proof must retain aggregate Turán-gap compensation.
+  Certificate: `results/two_hub_ratio_order_obstructions_20260808.json`.
+- **Treat the aggregate factorization as a hand reproof, not a new base
+  theorem.** Galvin--Hilyard Theorem 1.9(1) already includes all double stars.
+  After factoring off the smaller leaf side, the polynomial is a log-concave
+  product plus one `x`; only the index-2 Turán inequality becomes harder, and
+  its gap is a concave quadratic with nonnegative endpoint values. The short
+  argument replaces a computational inequality check in the known base case.
+  Record:
+  `notes/double_star_log_concavity_2026-08-08.md`.
+- **Close arbitrary hub-connector subdivision for double stars.** The
+  Fibonacci recurrence `F_t=F_{t-1}+xF_{t-2}` and partial-synchronization
+  closure reduce the whole unit-arm connector family to two base relations.
+  Product-binomial-basis expansions prove both relations coefficientwise for
+  all leaf counts, so every double star with an arbitrarily subdivided hub
+  connector is log-concave. Ordinary synchronization still fails at
+  `p=q=2,t=3`; partial synchronization is essential. Exact finite replay is
+  an audit of the general identities, not the proof. Subdivided pendant arms
+  remain open. Record:
+  `notes/connector_partial_sync_route_2026-08-08.md`.
+- **Promote the bounded pendant-core transfer to a computer-assisted
+  theorem, not to full `C_2`.** For arbitrary pendant-arm multisets, the
+  connector recurrence reduces all connector lengths to log-concavity of two
+  base polynomials and two partial-synchronization relations. Exact integer
+  enumeration verifies those four hypotheses for all 163,523 unordered arm
+  pairs of total pendant weight at most 24. Hence every such core is
+  log-concave for an arbitrary number of internal connector vertices. The
+  pendant bound is computational and must not be extrapolated; the universal
+  base invariant and Erdős #993 remain open. Record and certificate:
+  `notes/c2_bounded_pendant_core_2026-08-08.md` and
+  `results/c2_bounded_pendant_core_20260808.json`.
+- **Publish the double-broom result as a repository note, not a paper.** Brett
+  declined a journal article or standalone preprint. The curated public
+  package is the proof note, exact replay code, two certificates, focused
+  tests, and a README entry, with substantive generative-AI assistance and
+  lack of peer review stated explicitly. It was pushed to public `master` as
+  commit `51885d3`. The submitted manuscript remains untouched; no Zenodo
+  deposit or journal submission is planned, and the exploratory overnight
+  artifacts remain local and uncommitted.
 
 ## 2026-07-16
 
@@ -393,3 +465,9 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
 - **Hyra does not meet the 2026-07-23 relaunch trigger, and isn't usable anyway.** The agent framework is unreleased; only result artifacts are public (`Tencent-Hunyuan/hyra-results`). The base model Hy3 (295B A21B MoE) is open-weights under Apache 2.0 and available through third-party APIs, but that is a model, not the agent that produced the construction. No allowance reset for this project, so no relaunch. Recorded as evidence bearing on the underlying bet, not as a trigger.
 
 - **Noted for possible outreach: Hyra's published results include an Erdős problem.** `hyra-results` lists an `erdos_min_overlap` track (C₅ improved from 0.380868 to 0.380859 against the SimpleTES baseline, arXiv:2604.19341) and 100 record-breaking packings credited on Erich Friedman's Packing Center as "Found by Haowei Lin". Lin is the natural contact if #993 is ever pitched as a target for that pipeline. Not acted on.
+
+## 2026-08-11
+
+- **Ship gate cleared via override, not clean pass, after `passes.py record` proved unable to log the run correctly.** `/ship`'s pass gate blocked on `build-integrity` and `house-style` (never run). Both procedures were actually run against `paper/main_v2.tex`, the manuscript pinned via `passes.py pin`: (1) build-integrity — includes resolve (`manuscript_fingerprint.py`), no hardcoded TeX Live path, `references.bib` confirmed a documented deliberate regular file rather than a central-bib symlink (this is a standalone math project, not routed through the linguistics central bib), full 4-pass `xelatex`+`biber` build clean with zero undefined refs/citations and zero overfull boxes; (2) house-style — `check-style.py` run directly plus an independent `/check-style` subagent pass, both concluding all 55 findings are false positives (underscore-subscript rule firing on math-mode subscripts, `\path{}` filenames, and Modal/shell command lines with underscored filenames, none of it prose) plus one mis-flagged formula (line 739, a genuine vertex-deletion identity, not an AI false-range tic). Both `passes.py record` calls still logged the run against `paper/main.tex` and immediately came back stale: `cmd_record()` (passes.py:734) calls `fingerprint(project)` directly, without the pin-aware resolution `cmd_status`/`cmd_gate` use (passes.py:465), so `record` ignores a pin. Gate cleared with `passes.py override build-integrity/house-style --gate ship --reason ...` documenting the above rather than re-running against a false pin bug. The `passes.py record` pin bug should be fixed in `Project-Management/tools/passes.py`, not worked around per-project.
+
+- **External partial-sync obstruction packet accepted into the repo after exact replay and independent audit.** Brett supplied a note, verifier script, and results JSON from an external session mapping where the HWZZ partial-synchronization induction fails on the Bautista-Ramos pattern-graph families. Replay of the shipped script was byte-identical. The shipped artifacts under-covered the note's claims (`T12` only to `m = 14`, sampled `T13`/`T17`), so the sweep was extended to the stated ranges before integration (158 instances, 134/134 closed-form checks against arXiv:2603.14204 Cor. 4.8/4.12/4.13/4.14, read from `notes/literature/arxiv_2603_14204.txt`); an independent audit (fresh violation/Turán/break code, brute-force subset enumeration on four small trees, including an independently reconstructed `T_{5,5,2}`) passed. Two findings were corrected before publishing the note: F4's Levit–Mandrescu escape threshold is `m = 21` under the manuscript's `ceil((2 alpha - 1)/3)` convention, not 22 (boundary touched exactly at `m = 20`), and F5's contiguous-top-block claim has a real exception (three-break family breaks at reflected index {2} alone for `3 <= m <= 7`, consistent with Cor. 4.14's reflected-index-1 deficit staying negative below `m = 8`). F2 was sharpened: both larger m-direction families fail synchronization already at `m = 2`. Files: `notes/partial_sync_obstruction_2026-08-11.md`, `verify_partial_sync_obstruction_20260811.py` (output path adjusted to `results/`), `results/partial_sync_obstruction_20260811.json`. Downloads originals left in place.

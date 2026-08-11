@@ -1,0 +1,18 @@
+{
+  "claim_scope": "exact computation; evidence only",
+  "statement_tested": "for every tested vertex-complete downset Delta on b vertices and nonnegative q with sum(q)=b+extra_leaves, the polynomial sum_{S in Delta} x^|S|(1+x)^(sum(q)-q(S)) is log-concave",
+  "exhaustive_extra_leaves": -4,
+  "exhaustive_orders": [
+    {
+      "b": 5,
+      "downsets": 6894,
+      "compositions": 5,
+      "tests": 34470
+    }
+  ],
+  "random_seed": 993,
+  "random_tests": 0,
+  "total_tests": 34470,
+  "failure": null,
+  "elapsed_seconds": 0.1153421401977539
+}

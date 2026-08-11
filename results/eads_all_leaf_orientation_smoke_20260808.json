@@ -1,0 +1,27 @@
+{
+  "claim_scope": "exhaustive exact computation; finite-range evidence only",
+  "statement_tested": "if every leaf split is bad, no edge has two bad endpoints of the same orientation",
+  "min_n": 14,
+  "max_n": 14,
+  "total_trees": 3159,
+  "all_leaf_bad_trees": 1,
+  "left_left_bad_edges": 0,
+  "right_right_bad_edges": 0,
+  "witnesses": [],
+  "orders": [
+    {
+      "n": 14,
+      "trees": 3159,
+      "all_leaf_bad_trees": 1,
+      "left_left_bad_edges": 0,
+      "right_right_bad_edges": 0,
+      "orientation_histogram_on_all_leaf_bad_trees": {
+        "left": 3,
+        "overlap": 2,
+        "right": 9
+      },
+      "elapsed_seconds": 1.2023990154266357
+    }
+  ],
+  "elapsed_seconds": 1.2024509906768799
+}

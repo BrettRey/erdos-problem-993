@@ -1,0 +1,10049 @@
+{
+ "date": "2026-08-11",
+ "source_paper": "arXiv:2603.14204",
+ "hwzz": "Hu-Wang-Zhao-Zhao, Math. Inequal. Appl. 20 (2017) 91-103",
+ "definition": "A ~_p B iff a_m b_n + a_n b_m >= a_{m+1} b_{n-1} + a_{n-1} b_{m+1} for m >= n",
+ "closed_form_checks_passed": 134,
+ "closed_form_checks_total": 134,
+ "runtime_s": 5.13,
+ "results": [
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 2,
+   "order": 14,
+   "alpha": 11,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 3,
+   "order": 15,
+   "alpha": 12,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 4,
+   "order": 16,
+   "alpha": 12,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 5,
+   "order": 17,
+   "alpha": 13,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 6,
+   "order": 18,
+   "alpha": 13,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 7,
+   "order": 19,
+   "alpha": 14,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 8,
+   "order": 20,
+   "alpha": 14,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 9,
+   "order": 21,
+   "alpha": 15,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 10,
+   "order": 22,
+   "alpha": 15,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 11,
+   "order": 23,
+   "alpha": 16,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 12,
+   "order": 24,
+   "alpha": 16,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 13,
+   "order": 25,
+   "alpha": 17,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 14,
+   "order": 26,
+   "alpha": 17,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 15,
+   "order": 27,
+   "alpha": 18,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 16,
+   "order": 28,
+   "alpha": 18,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 17,
+   "order": 29,
+   "alpha": 19,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 18,
+   "order": 30,
+   "alpha": 19,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 19,
+   "order": 31,
+   "alpha": 20,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 20,
+   "order": 32,
+   "alpha": 20,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 21,
+   "order": 33,
+   "alpha": 21,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 22,
+   "order": 34,
+   "alpha": 21,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 23,
+   "order": 35,
+   "alpha": 22,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 24,
+   "order": 36,
+   "alpha": 22,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "double_broom_ctrl",
+   "p": 5,
+   "q": 5,
+   "t": 25,
+   "order": 37,
+   "alpha": 23,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null
+  },
+  {
+   "family": "KL_3kk",
+   "k": 2,
+   "order": 18,
+   "alpha": 10,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     9,
+     9
+    ],
+    "n_range": [
+     9,
+     9
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      9,
+      9
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 3,
+   "order": 22,
+   "alpha": 12,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     11,
+     11
+    ],
+    "n_range": [
+     11,
+     11
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      11,
+      11
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 4,
+   "order": 26,
+   "alpha": 14,
+   "unimodal": true,
+   "lc_breaks": [
+    13
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     13,
+     13
+    ],
+    "n_range": [
+     13,
+     13
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      13,
+      13
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 5,
+   "order": 30,
+   "alpha": 16,
+   "unimodal": true,
+   "lc_breaks": [
+    15
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     15,
+     15
+    ],
+    "n_range": [
+     15,
+     15
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      15,
+      15
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 6,
+   "order": 34,
+   "alpha": 18,
+   "unimodal": true,
+   "lc_breaks": [
+    17
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     17,
+     17
+    ],
+    "n_range": [
+     17,
+     17
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      17,
+      17
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 7,
+   "order": 38,
+   "alpha": 20,
+   "unimodal": true,
+   "lc_breaks": [
+    19
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     19,
+     19
+    ],
+    "n_range": [
+     19,
+     19
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      19,
+      19
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 8,
+   "order": 42,
+   "alpha": 22,
+   "unimodal": true,
+   "lc_breaks": [
+    21
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     21,
+     21
+    ],
+    "n_range": [
+     21,
+     21
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      21,
+      21
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 9,
+   "order": 46,
+   "alpha": 24,
+   "unimodal": true,
+   "lc_breaks": [
+    23
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     23,
+     23
+    ],
+    "n_range": [
+     23,
+     23
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      23,
+      23
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 10,
+   "order": 50,
+   "alpha": 26,
+   "unimodal": true,
+   "lc_breaks": [
+    25
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     25,
+     25
+    ],
+    "n_range": [
+     25,
+     25
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      25,
+      25
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 11,
+   "order": 54,
+   "alpha": 28,
+   "unimodal": true,
+   "lc_breaks": [
+    27
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     27,
+     27
+    ],
+    "n_range": [
+     27,
+     27
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      27,
+      27
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 12,
+   "order": 58,
+   "alpha": 30,
+   "unimodal": true,
+   "lc_breaks": [
+    29
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     29,
+     29
+    ],
+    "n_range": [
+     29,
+     29
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      29,
+      29
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 13,
+   "order": 62,
+   "alpha": 32,
+   "unimodal": true,
+   "lc_breaks": [
+    31
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     31,
+     31
+    ],
+    "n_range": [
+     31,
+     31
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      31,
+      31
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 14,
+   "order": 66,
+   "alpha": 34,
+   "unimodal": true,
+   "lc_breaks": [
+    33
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     33,
+     33
+    ],
+    "n_range": [
+     33,
+     33
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      33,
+      33
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 15,
+   "order": 70,
+   "alpha": 36,
+   "unimodal": true,
+   "lc_breaks": [
+    35
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     35,
+     35
+    ],
+    "n_range": [
+     35,
+     35
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      35,
+      35
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 16,
+   "order": 74,
+   "alpha": 38,
+   "unimodal": true,
+   "lc_breaks": [
+    37
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     37,
+     37
+    ],
+    "n_range": [
+     37,
+     37
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      37,
+      37
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 17,
+   "order": 78,
+   "alpha": 40,
+   "unimodal": true,
+   "lc_breaks": [
+    39
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     39,
+     39
+    ],
+    "n_range": [
+     39,
+     39
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      39,
+      39
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 18,
+   "order": 82,
+   "alpha": 42,
+   "unimodal": true,
+   "lc_breaks": [
+    41
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     41,
+     41
+    ],
+    "n_range": [
+     41,
+     41
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      41,
+      41
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 19,
+   "order": 86,
+   "alpha": 44,
+   "unimodal": true,
+   "lc_breaks": [
+    43
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     43,
+     43
+    ],
+    "n_range": [
+     43,
+     43
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      43,
+      43
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 20,
+   "order": 90,
+   "alpha": 46,
+   "unimodal": true,
+   "lc_breaks": [
+    45
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     45,
+     45
+    ],
+    "n_range": [
+     45,
+     45
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      45,
+      45
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 21,
+   "order": 94,
+   "alpha": 48,
+   "unimodal": true,
+   "lc_breaks": [
+    47
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     47,
+     47
+    ],
+    "n_range": [
+     47,
+     47
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      47,
+      47
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 22,
+   "order": 98,
+   "alpha": 50,
+   "unimodal": true,
+   "lc_breaks": [
+    49
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     49,
+     49
+    ],
+    "n_range": [
+     49,
+     49
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      49,
+      49
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 23,
+   "order": 102,
+   "alpha": 52,
+   "unimodal": true,
+   "lc_breaks": [
+    51
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     51,
+     51
+    ],
+    "n_range": [
+     51,
+     51
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      51,
+      51
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "KL_3kk",
+   "k": 24,
+   "order": 106,
+   "alpha": 54,
+   "unimodal": true,
+   "lc_breaks": [
+    53
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     53,
+     53
+    ],
+    "n_range": [
+     53,
+     53
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      53,
+      53
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 2,
+   "order": 44,
+   "alpha": 23,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": null,
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 3,
+   "order": 63,
+   "alpha": 33,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 2,
+    "m_range": [
+     31,
+     32
+    ],
+    "n_range": [
+     31,
+     32
+    ],
+    "m_refl": [
+     1,
+     2
+    ],
+    "n_refl": [
+     1,
+     2
+    ],
+    "pairs_head": [
+     [
+      31,
+      31
+     ],
+     [
+      32,
+      32
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 4,
+   "order": 82,
+   "alpha": 43,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 5,
+    "m_range": [
+     40,
+     42
+    ],
+    "n_range": [
+     40,
+     42
+    ],
+    "m_refl": [
+     1,
+     3
+    ],
+    "n_refl": [
+     1,
+     3
+    ],
+    "pairs_head": [
+     [
+      40,
+      40
+     ],
+     [
+      41,
+      40
+     ],
+     [
+      41,
+      41
+     ],
+     [
+      42,
+      41
+     ],
+     [
+      42,
+      42
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 5,
+   "order": 101,
+   "alpha": 53,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 7,
+    "m_range": [
+     49,
+     52
+    ],
+    "n_range": [
+     49,
+     52
+    ],
+    "m_refl": [
+     1,
+     4
+    ],
+    "n_refl": [
+     1,
+     4
+    ],
+    "pairs_head": [
+     [
+      49,
+      49
+     ],
+     [
+      50,
+      49
+     ],
+     [
+      50,
+      50
+     ],
+     [
+      51,
+      50
+     ],
+     [
+      51,
+      51
+     ],
+     [
+      52,
+      51
+     ],
+     [
+      52,
+      52
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 6,
+   "order": 120,
+   "alpha": 63,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 10,
+    "m_range": [
+     58,
+     62
+    ],
+    "n_range": [
+     58,
+     62
+    ],
+    "m_refl": [
+     1,
+     5
+    ],
+    "n_refl": [
+     1,
+     5
+    ],
+    "pairs_head": [
+     [
+      58,
+      58
+     ],
+     [
+      59,
+      58
+     ],
+     [
+      59,
+      59
+     ],
+     [
+      60,
+      59
+     ],
+     [
+      60,
+      60
+     ],
+     [
+      61,
+      59
+     ],
+     [
+      61,
+      60
+     ],
+     [
+      61,
+      61
+     ],
+     [
+      62,
+      61
+     ],
+     [
+      62,
+      62
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 7,
+   "order": 139,
+   "alpha": 73,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 15,
+    "m_range": [
+     67,
+     72
+    ],
+    "n_range": [
+     67,
+     72
+    ],
+    "m_refl": [
+     1,
+     6
+    ],
+    "n_refl": [
+     1,
+     6
+    ],
+    "pairs_head": [
+     [
+      67,
+      67
+     ],
+     [
+      68,
+      67
+     ],
+     [
+      68,
+      68
+     ],
+     [
+      69,
+      67
+     ],
+     [
+      69,
+      68
+     ],
+     [
+      69,
+      69
+     ],
+     [
+      70,
+      68
+     ],
+     [
+      70,
+      69
+     ],
+     [
+      70,
+      70
+     ],
+     [
+      71,
+      69
+     ],
+     [
+      71,
+      70
+     ],
+     [
+      71,
+      71
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 8,
+   "order": 158,
+   "alpha": 83,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 20,
+    "m_range": [
+     76,
+     82
+    ],
+    "n_range": [
+     76,
+     82
+    ],
+    "m_refl": [
+     1,
+     7
+    ],
+    "n_refl": [
+     1,
+     7
+    ],
+    "pairs_head": [
+     [
+      76,
+      76
+     ],
+     [
+      77,
+      76
+     ],
+     [
+      77,
+      77
+     ],
+     [
+      78,
+      76
+     ],
+     [
+      78,
+      77
+     ],
+     [
+      78,
+      78
+     ],
+     [
+      79,
+      77
+     ],
+     [
+      79,
+      78
+     ],
+     [
+      79,
+      79
+     ],
+     [
+      80,
+      77
+     ],
+     [
+      80,
+      78
+     ],
+     [
+      80,
+      79
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 9,
+   "order": 177,
+   "alpha": 93,
+   "unimodal": true,
+   "lc_breaks": [
+    92
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 24,
+    "m_range": [
+     85,
+     92
+    ],
+    "n_range": [
+     85,
+     92
+    ],
+    "m_refl": [
+     1,
+     8
+    ],
+    "n_refl": [
+     1,
+     8
+    ],
+    "pairs_head": [
+     [
+      85,
+      85
+     ],
+     [
+      86,
+      85
+     ],
+     [
+      86,
+      86
+     ],
+     [
+      87,
+      85
+     ],
+     [
+      87,
+      86
+     ],
+     [
+      87,
+      87
+     ],
+     [
+      88,
+      86
+     ],
+     [
+      88,
+      87
+     ],
+     [
+      88,
+      88
+     ],
+     [
+      89,
+      86
+     ],
+     [
+      89,
+      87
+     ],
+     [
+      89,
+      88
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 10,
+   "order": 196,
+   "alpha": 103,
+   "unimodal": true,
+   "lc_breaks": [
+    102
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 29,
+    "m_range": [
+     94,
+     102
+    ],
+    "n_range": [
+     94,
+     102
+    ],
+    "m_refl": [
+     1,
+     9
+    ],
+    "n_refl": [
+     1,
+     9
+    ],
+    "pairs_head": [
+     [
+      94,
+      94
+     ],
+     [
+      95,
+      94
+     ],
+     [
+      95,
+      95
+     ],
+     [
+      96,
+      94
+     ],
+     [
+      96,
+      95
+     ],
+     [
+      96,
+      96
+     ],
+     [
+      97,
+      95
+     ],
+     [
+      97,
+      96
+     ],
+     [
+      97,
+      97
+     ],
+     [
+      98,
+      95
+     ],
+     [
+      98,
+      96
+     ],
+     [
+      98,
+      97
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 11,
+   "order": 215,
+   "alpha": 113,
+   "unimodal": true,
+   "lc_breaks": [
+    112
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 37,
+    "m_range": [
+     103,
+     112
+    ],
+    "n_range": [
+     103,
+     112
+    ],
+    "m_refl": [
+     1,
+     10
+    ],
+    "n_refl": [
+     1,
+     10
+    ],
+    "pairs_head": [
+     [
+      103,
+      103
+     ],
+     [
+      104,
+      103
+     ],
+     [
+      104,
+      104
+     ],
+     [
+      105,
+      103
+     ],
+     [
+      105,
+      104
+     ],
+     [
+      105,
+      105
+     ],
+     [
+      106,
+      103
+     ],
+     [
+      106,
+      104
+     ],
+     [
+      106,
+      105
+     ],
+     [
+      106,
+      106
+     ],
+     [
+      107,
+      104
+     ],
+     [
+      107,
+      105
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 12,
+   "order": 234,
+   "alpha": 123,
+   "unimodal": true,
+   "lc_breaks": [
+    122
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 43,
+    "m_range": [
+     112,
+     122
+    ],
+    "n_range": [
+     112,
+     122
+    ],
+    "m_refl": [
+     1,
+     11
+    ],
+    "n_refl": [
+     1,
+     11
+    ],
+    "pairs_head": [
+     [
+      112,
+      112
+     ],
+     [
+      113,
+      112
+     ],
+     [
+      113,
+      113
+     ],
+     [
+      114,
+      112
+     ],
+     [
+      114,
+      113
+     ],
+     [
+      114,
+      114
+     ],
+     [
+      115,
+      112
+     ],
+     [
+      115,
+      113
+     ],
+     [
+      115,
+      114
+     ],
+     [
+      115,
+      115
+     ],
+     [
+      116,
+      113
+     ],
+     [
+      116,
+      114
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 13,
+   "order": 253,
+   "alpha": 133,
+   "unimodal": true,
+   "lc_breaks": [
+    132
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 51,
+    "m_range": [
+     121,
+     132
+    ],
+    "n_range": [
+     121,
+     132
+    ],
+    "m_refl": [
+     1,
+     12
+    ],
+    "n_refl": [
+     1,
+     12
+    ],
+    "pairs_head": [
+     [
+      121,
+      121
+     ],
+     [
+      122,
+      121
+     ],
+     [
+      122,
+      122
+     ],
+     [
+      123,
+      121
+     ],
+     [
+      123,
+      122
+     ],
+     [
+      123,
+      123
+     ],
+     [
+      124,
+      121
+     ],
+     [
+      124,
+      122
+     ],
+     [
+      124,
+      123
+     ],
+     [
+      124,
+      124
+     ],
+     [
+      125,
+      122
+     ],
+     [
+      125,
+      123
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 14,
+   "order": 272,
+   "alpha": 143,
+   "unimodal": true,
+   "lc_breaks": [
+    142
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 75,
+    "m_range": [
+     107,
+     142
+    ],
+    "n_range": [
+     107,
+     142
+    ],
+    "m_refl": [
+     1,
+     36
+    ],
+    "n_refl": [
+     1,
+     36
+    ],
+    "pairs_head": [
+     [
+      107,
+      107
+     ],
+     [
+      108,
+      108
+     ],
+     [
+      109,
+      108
+     ],
+     [
+      109,
+      109
+     ],
+     [
+      110,
+      109
+     ],
+     [
+      110,
+      110
+     ],
+     [
+      111,
+      110
+     ],
+     [
+      111,
+      111
+     ],
+     [
+      112,
+      111
+     ],
+     [
+      112,
+      112
+     ],
+     [
+      113,
+      112
+     ],
+     [
+      113,
+      113
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 15,
+   "order": 291,
+   "alpha": 153,
+   "unimodal": true,
+   "lc_breaks": [
+    152
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 106,
+    "m_range": [
+     111,
+     152
+    ],
+    "n_range": [
+     111,
+     152
+    ],
+    "m_refl": [
+     1,
+     42
+    ],
+    "n_refl": [
+     1,
+     42
+    ],
+    "pairs_head": [
+     [
+      111,
+      111
+     ],
+     [
+      112,
+      112
+     ],
+     [
+      113,
+      112
+     ],
+     [
+      113,
+      113
+     ],
+     [
+      114,
+      113
+     ],
+     [
+      114,
+      114
+     ],
+     [
+      115,
+      113
+     ],
+     [
+      115,
+      114
+     ],
+     [
+      115,
+      115
+     ],
+     [
+      116,
+      114
+     ],
+     [
+      116,
+      115
+     ],
+     [
+      116,
+      116
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 16,
+   "order": 310,
+   "alpha": 163,
+   "unimodal": true,
+   "lc_breaks": [
+    162
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 140,
+    "m_range": [
+     116,
+     162
+    ],
+    "n_range": [
+     116,
+     162
+    ],
+    "m_refl": [
+     1,
+     47
+    ],
+    "n_refl": [
+     1,
+     47
+    ],
+    "pairs_head": [
+     [
+      116,
+      116
+     ],
+     [
+      117,
+      116
+     ],
+     [
+      117,
+      117
+     ],
+     [
+      118,
+      117
+     ],
+     [
+      118,
+      118
+     ],
+     [
+      119,
+      117
+     ],
+     [
+      119,
+      118
+     ],
+     [
+      119,
+      119
+     ],
+     [
+      120,
+      118
+     ],
+     [
+      120,
+      119
+     ],
+     [
+      120,
+      120
+     ],
+     [
+      121,
+      119
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 17,
+   "order": 329,
+   "alpha": 173,
+   "unimodal": true,
+   "lc_breaks": [
+    172
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 179,
+    "m_range": [
+     121,
+     172
+    ],
+    "n_range": [
+     121,
+     172
+    ],
+    "m_refl": [
+     1,
+     52
+    ],
+    "n_refl": [
+     1,
+     52
+    ],
+    "pairs_head": [
+     [
+      121,
+      121
+     ],
+     [
+      122,
+      121
+     ],
+     [
+      122,
+      122
+     ],
+     [
+      123,
+      121
+     ],
+     [
+      123,
+      122
+     ],
+     [
+      123,
+      123
+     ],
+     [
+      124,
+      122
+     ],
+     [
+      124,
+      123
+     ],
+     [
+      124,
+      124
+     ],
+     [
+      125,
+      123
+     ],
+     [
+      125,
+      124
+     ],
+     [
+      125,
+      125
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 18,
+   "order": 348,
+   "alpha": 183,
+   "unimodal": true,
+   "lc_breaks": [
+    182
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 228,
+    "m_range": [
+     125,
+     182
+    ],
+    "n_range": [
+     125,
+     182
+    ],
+    "m_refl": [
+     1,
+     58
+    ],
+    "n_refl": [
+     1,
+     58
+    ],
+    "pairs_head": [
+     [
+      125,
+      125
+     ],
+     [
+      126,
+      125
+     ],
+     [
+      126,
+      126
+     ],
+     [
+      127,
+      126
+     ],
+     [
+      127,
+      127
+     ],
+     [
+      128,
+      126
+     ],
+     [
+      128,
+      127
+     ],
+     [
+      128,
+      128
+     ],
+     [
+      129,
+      127
+     ],
+     [
+      129,
+      128
+     ],
+     [
+      129,
+      129
+     ],
+     [
+      130,
+      127
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 19,
+   "order": 367,
+   "alpha": 193,
+   "unimodal": true,
+   "lc_breaks": [
+    192
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 269,
+    "m_range": [
+     130,
+     192
+    ],
+    "n_range": [
+     130,
+     192
+    ],
+    "m_refl": [
+     1,
+     63
+    ],
+    "n_refl": [
+     1,
+     63
+    ],
+    "pairs_head": [
+     [
+      130,
+      130
+     ],
+     [
+      131,
+      130
+     ],
+     [
+      131,
+      131
+     ],
+     [
+      132,
+      131
+     ],
+     [
+      132,
+      132
+     ],
+     [
+      133,
+      131
+     ],
+     [
+      133,
+      132
+     ],
+     [
+      133,
+      133
+     ],
+     [
+      134,
+      131
+     ],
+     [
+      134,
+      132
+     ],
+     [
+      134,
+      133
+     ],
+     [
+      134,
+      134
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 20,
+   "order": 386,
+   "alpha": 203,
+   "unimodal": true,
+   "lc_breaks": [
+    202
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 323,
+    "m_range": [
+     135,
+     202
+    ],
+    "n_range": [
+     135,
+     202
+    ],
+    "m_refl": [
+     1,
+     68
+    ],
+    "n_refl": [
+     1,
+     68
+    ],
+    "pairs_head": [
+     [
+      135,
+      135
+     ],
+     [
+      136,
+      135
+     ],
+     [
+      136,
+      136
+     ],
+     [
+      137,
+      135
+     ],
+     [
+      137,
+      136
+     ],
+     [
+      137,
+      137
+     ],
+     [
+      138,
+      136
+     ],
+     [
+      138,
+      137
+     ],
+     [
+      138,
+      138
+     ],
+     [
+      139,
+      136
+     ],
+     [
+      139,
+      137
+     ],
+     [
+      139,
+      138
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 21,
+   "order": 405,
+   "alpha": 213,
+   "unimodal": true,
+   "lc_breaks": [
+    212
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 381,
+    "m_range": [
+     139,
+     212
+    ],
+    "n_range": [
+     139,
+     212
+    ],
+    "m_refl": [
+     1,
+     74
+    ],
+    "n_refl": [
+     1,
+     74
+    ],
+    "pairs_head": [
+     [
+      139,
+      139
+     ],
+     [
+      140,
+      139
+     ],
+     [
+      140,
+      140
+     ],
+     [
+      141,
+      140
+     ],
+     [
+      141,
+      141
+     ],
+     [
+      142,
+      140
+     ],
+     [
+      142,
+      141
+     ],
+     [
+      142,
+      142
+     ],
+     [
+      143,
+      140
+     ],
+     [
+      143,
+      141
+     ],
+     [
+      143,
+      142
+     ],
+     [
+      143,
+      143
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 22,
+   "order": 424,
+   "alpha": 223,
+   "unimodal": true,
+   "lc_breaks": [
+    222
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 438,
+    "m_range": [
+     144,
+     222
+    ],
+    "n_range": [
+     144,
+     222
+    ],
+    "m_refl": [
+     1,
+     79
+    ],
+    "n_refl": [
+     1,
+     79
+    ],
+    "pairs_head": [
+     [
+      144,
+      144
+     ],
+     [
+      145,
+      144
+     ],
+     [
+      145,
+      145
+     ],
+     [
+      146,
+      144
+     ],
+     [
+      146,
+      145
+     ],
+     [
+      146,
+      146
+     ],
+     [
+      147,
+      145
+     ],
+     [
+      147,
+      146
+     ],
+     [
+      147,
+      147
+     ],
+     [
+      148,
+      145
+     ],
+     [
+      148,
+      146
+     ],
+     [
+      148,
+      147
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 23,
+   "order": 443,
+   "alpha": 233,
+   "unimodal": true,
+   "lc_breaks": [
+    232
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 506,
+    "m_range": [
+     148,
+     232
+    ],
+    "n_range": [
+     148,
+     232
+    ],
+    "m_refl": [
+     1,
+     85
+    ],
+    "n_refl": [
+     1,
+     85
+    ],
+    "pairs_head": [
+     [
+      148,
+      148
+     ],
+     [
+      149,
+      148
+     ],
+     [
+      149,
+      149
+     ],
+     [
+      150,
+      148
+     ],
+     [
+      150,
+      149
+     ],
+     [
+      150,
+      150
+     ],
+     [
+      151,
+      149
+     ],
+     [
+      151,
+      150
+     ],
+     [
+      151,
+      151
+     ],
+     [
+      152,
+      149
+     ],
+     [
+      152,
+      150
+     ],
+     [
+      152,
+      151
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 24,
+   "order": 462,
+   "alpha": 243,
+   "unimodal": true,
+   "lc_breaks": [
+    242
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 573,
+    "m_range": [
+     152,
+     242
+    ],
+    "n_range": [
+     152,
+     242
+    ],
+    "m_refl": [
+     1,
+     91
+    ],
+    "n_refl": [
+     1,
+     91
+    ],
+    "pairs_head": [
+     [
+      152,
+      152
+     ],
+     [
+      153,
+      152
+     ],
+     [
+      153,
+      153
+     ],
+     [
+      154,
+      153
+     ],
+     [
+      154,
+      154
+     ],
+     [
+      155,
+      153
+     ],
+     [
+      155,
+      154
+     ],
+     [
+      155,
+      155
+     ],
+     [
+      156,
+      153
+     ],
+     [
+      156,
+      154
+     ],
+     [
+      156,
+      155
+     ],
+     [
+      156,
+      156
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 25,
+   "order": 481,
+   "alpha": 253,
+   "unimodal": true,
+   "lc_breaks": [
+    252
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 643,
+    "m_range": [
+     157,
+     252
+    ],
+    "n_range": [
+     157,
+     252
+    ],
+    "m_refl": [
+     1,
+     96
+    ],
+    "n_refl": [
+     1,
+     96
+    ],
+    "pairs_head": [
+     [
+      157,
+      157
+     ],
+     [
+      158,
+      157
+     ],
+     [
+      158,
+      158
+     ],
+     [
+      159,
+      157
+     ],
+     [
+      159,
+      158
+     ],
+     [
+      159,
+      159
+     ],
+     [
+      160,
+      158
+     ],
+     [
+      160,
+      159
+     ],
+     [
+      160,
+      160
+     ],
+     [
+      161,
+      158
+     ],
+     [
+      161,
+      159
+     ],
+     [
+      161,
+      160
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 26,
+   "order": 500,
+   "alpha": 263,
+   "unimodal": true,
+   "lc_breaks": [
+    262
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 721,
+    "m_range": [
+     161,
+     262
+    ],
+    "n_range": [
+     161,
+     262
+    ],
+    "m_refl": [
+     1,
+     102
+    ],
+    "n_refl": [
+     1,
+     102
+    ],
+    "pairs_head": [
+     [
+      161,
+      161
+     ],
+     [
+      162,
+      161
+     ],
+     [
+      162,
+      162
+     ],
+     [
+      163,
+      161
+     ],
+     [
+      163,
+      162
+     ],
+     [
+      163,
+      163
+     ],
+     [
+      164,
+      162
+     ],
+     [
+      164,
+      163
+     ],
+     [
+      164,
+      164
+     ],
+     [
+      165,
+      162
+     ],
+     [
+      165,
+      163
+     ],
+     [
+      165,
+      164
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 27,
+   "order": 519,
+   "alpha": 273,
+   "unimodal": true,
+   "lc_breaks": [
+    272
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 810,
+    "m_range": [
+     165,
+     272
+    ],
+    "n_range": [
+     165,
+     272
+    ],
+    "m_refl": [
+     1,
+     108
+    ],
+    "n_refl": [
+     1,
+     108
+    ],
+    "pairs_head": [
+     [
+      165,
+      165
+     ],
+     [
+      166,
+      165
+     ],
+     [
+      166,
+      166
+     ],
+     [
+      167,
+      165
+     ],
+     [
+      167,
+      166
+     ],
+     [
+      167,
+      167
+     ],
+     [
+      168,
+      166
+     ],
+     [
+      168,
+      167
+     ],
+     [
+      168,
+      168
+     ],
+     [
+      169,
+      166
+     ],
+     [
+      169,
+      167
+     ],
+     [
+      169,
+      168
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 28,
+   "order": 538,
+   "alpha": 283,
+   "unimodal": true,
+   "lc_breaks": [
+    282
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 891,
+    "m_range": [
+     169,
+     282
+    ],
+    "n_range": [
+     169,
+     282
+    ],
+    "m_refl": [
+     1,
+     114
+    ],
+    "n_refl": [
+     1,
+     114
+    ],
+    "pairs_head": [
+     [
+      169,
+      169
+     ],
+     [
+      170,
+      169
+     ],
+     [
+      170,
+      170
+     ],
+     [
+      171,
+      169
+     ],
+     [
+      171,
+      170
+     ],
+     [
+      171,
+      171
+     ],
+     [
+      172,
+      170
+     ],
+     [
+      172,
+      171
+     ],
+     [
+      172,
+      172
+     ],
+     [
+      173,
+      170
+     ],
+     [
+      173,
+      171
+     ],
+     [
+      173,
+      172
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 29,
+   "order": 557,
+   "alpha": 293,
+   "unimodal": true,
+   "lc_breaks": [
+    292
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 985,
+    "m_range": [
+     173,
+     292
+    ],
+    "n_range": [
+     173,
+     292
+    ],
+    "m_refl": [
+     1,
+     120
+    ],
+    "n_refl": [
+     1,
+     120
+    ],
+    "pairs_head": [
+     [
+      173,
+      173
+     ],
+     [
+      174,
+      173
+     ],
+     [
+      174,
+      174
+     ],
+     [
+      175,
+      173
+     ],
+     [
+      175,
+      174
+     ],
+     [
+      175,
+      175
+     ],
+     [
+      176,
+      174
+     ],
+     [
+      176,
+      175
+     ],
+     [
+      176,
+      176
+     ],
+     [
+      177,
+      174
+     ],
+     [
+      177,
+      175
+     ],
+     [
+      177,
+      176
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 30,
+   "order": 576,
+   "alpha": 303,
+   "unimodal": true,
+   "lc_breaks": [
+    302
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1076,
+    "m_range": [
+     177,
+     302
+    ],
+    "n_range": [
+     177,
+     302
+    ],
+    "m_refl": [
+     1,
+     126
+    ],
+    "n_refl": [
+     1,
+     126
+    ],
+    "pairs_head": [
+     [
+      177,
+      177
+     ],
+     [
+      178,
+      177
+     ],
+     [
+      178,
+      178
+     ],
+     [
+      179,
+      177
+     ],
+     [
+      179,
+      178
+     ],
+     [
+      179,
+      179
+     ],
+     [
+      180,
+      178
+     ],
+     [
+      180,
+      179
+     ],
+     [
+      180,
+      180
+     ],
+     [
+      181,
+      178
+     ],
+     [
+      181,
+      179
+     ],
+     [
+      181,
+      180
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 31,
+   "order": 595,
+   "alpha": 313,
+   "unimodal": true,
+   "lc_breaks": [
+    312
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1183,
+    "m_range": [
+     181,
+     312
+    ],
+    "n_range": [
+     181,
+     312
+    ],
+    "m_refl": [
+     1,
+     132
+    ],
+    "n_refl": [
+     1,
+     132
+    ],
+    "pairs_head": [
+     [
+      181,
+      181
+     ],
+     [
+      182,
+      181
+     ],
+     [
+      182,
+      182
+     ],
+     [
+      183,
+      181
+     ],
+     [
+      183,
+      182
+     ],
+     [
+      183,
+      183
+     ],
+     [
+      184,
+      182
+     ],
+     [
+      184,
+      183
+     ],
+     [
+      184,
+      184
+     ],
+     [
+      185,
+      182
+     ],
+     [
+      185,
+      183
+     ],
+     [
+      185,
+      184
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 32,
+   "order": 614,
+   "alpha": 323,
+   "unimodal": true,
+   "lc_breaks": [
+    322
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1274,
+    "m_range": [
+     185,
+     322
+    ],
+    "n_range": [
+     185,
+     322
+    ],
+    "m_refl": [
+     1,
+     138
+    ],
+    "n_refl": [
+     1,
+     138
+    ],
+    "pairs_head": [
+     [
+      185,
+      185
+     ],
+     [
+      186,
+      185
+     ],
+     [
+      186,
+      186
+     ],
+     [
+      187,
+      185
+     ],
+     [
+      187,
+      186
+     ],
+     [
+      187,
+      187
+     ],
+     [
+      188,
+      186
+     ],
+     [
+      188,
+      187
+     ],
+     [
+      188,
+      188
+     ],
+     [
+      189,
+      186
+     ],
+     [
+      189,
+      187
+     ],
+     [
+      189,
+      188
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 33,
+   "order": 633,
+   "alpha": 333,
+   "unimodal": true,
+   "lc_breaks": [
+    332
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1391,
+    "m_range": [
+     189,
+     332
+    ],
+    "n_range": [
+     189,
+     332
+    ],
+    "m_refl": [
+     1,
+     144
+    ],
+    "n_refl": [
+     1,
+     144
+    ],
+    "pairs_head": [
+     [
+      189,
+      189
+     ],
+     [
+      190,
+      189
+     ],
+     [
+      190,
+      190
+     ],
+     [
+      191,
+      189
+     ],
+     [
+      191,
+      190
+     ],
+     [
+      191,
+      191
+     ],
+     [
+      192,
+      190
+     ],
+     [
+      192,
+      191
+     ],
+     [
+      192,
+      192
+     ],
+     [
+      193,
+      190
+     ],
+     [
+      193,
+      191
+     ],
+     [
+      193,
+      192
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 34,
+   "order": 652,
+   "alpha": 343,
+   "unimodal": true,
+   "lc_breaks": [
+    342
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1498,
+    "m_range": [
+     193,
+     342
+    ],
+    "n_range": [
+     193,
+     342
+    ],
+    "m_refl": [
+     1,
+     150
+    ],
+    "n_refl": [
+     1,
+     150
+    ],
+    "pairs_head": [
+     [
+      193,
+      193
+     ],
+     [
+      194,
+      193
+     ],
+     [
+      194,
+      194
+     ],
+     [
+      195,
+      193
+     ],
+     [
+      195,
+      194
+     ],
+     [
+      195,
+      195
+     ],
+     [
+      196,
+      193
+     ],
+     [
+      196,
+      194
+     ],
+     [
+      196,
+      195
+     ],
+     [
+      196,
+      196
+     ],
+     [
+      197,
+      194
+     ],
+     [
+      197,
+      195
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 35,
+   "order": 671,
+   "alpha": 353,
+   "unimodal": true,
+   "lc_breaks": [
+    352
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1629,
+    "m_range": [
+     197,
+     352
+    ],
+    "n_range": [
+     196,
+     352
+    ],
+    "m_refl": [
+     1,
+     156
+    ],
+    "n_refl": [
+     1,
+     157
+    ],
+    "pairs_head": [
+     [
+      197,
+      196
+     ],
+     [
+      197,
+      197
+     ],
+     [
+      198,
+      197
+     ],
+     [
+      198,
+      198
+     ],
+     [
+      199,
+      197
+     ],
+     [
+      199,
+      198
+     ],
+     [
+      199,
+      199
+     ],
+     [
+      200,
+      197
+     ],
+     [
+      200,
+      198
+     ],
+     [
+      200,
+      199
+     ],
+     [
+      200,
+      200
+     ],
+     [
+      201,
+      198
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 36,
+   "order": 690,
+   "alpha": 363,
+   "unimodal": true,
+   "lc_breaks": [
+    362
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1736,
+    "m_range": [
+     200,
+     362
+    ],
+    "n_range": [
+     200,
+     362
+    ],
+    "m_refl": [
+     1,
+     163
+    ],
+    "n_refl": [
+     1,
+     163
+    ],
+    "pairs_head": [
+     [
+      200,
+      200
+     ],
+     [
+      201,
+      200
+     ],
+     [
+      201,
+      201
+     ],
+     [
+      202,
+      200
+     ],
+     [
+      202,
+      201
+     ],
+     [
+      202,
+      202
+     ],
+     [
+      203,
+      201
+     ],
+     [
+      203,
+      202
+     ],
+     [
+      203,
+      203
+     ],
+     [
+      204,
+      201
+     ],
+     [
+      204,
+      202
+     ],
+     [
+      204,
+      203
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 37,
+   "order": 709,
+   "alpha": 373,
+   "unimodal": true,
+   "lc_breaks": [
+    372
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1876,
+    "m_range": [
+     204,
+     372
+    ],
+    "n_range": [
+     204,
+     372
+    ],
+    "m_refl": [
+     1,
+     169
+    ],
+    "n_refl": [
+     1,
+     169
+    ],
+    "pairs_head": [
+     [
+      204,
+      204
+     ],
+     [
+      205,
+      204
+     ],
+     [
+      205,
+      205
+     ],
+     [
+      206,
+      204
+     ],
+     [
+      206,
+      205
+     ],
+     [
+      206,
+      206
+     ],
+     [
+      207,
+      204
+     ],
+     [
+      207,
+      205
+     ],
+     [
+      207,
+      206
+     ],
+     [
+      207,
+      207
+     ],
+     [
+      208,
+      205
+     ],
+     [
+      208,
+      206
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 38,
+   "order": 728,
+   "alpha": 383,
+   "unimodal": true,
+   "lc_breaks": [
+    382
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 1997,
+    "m_range": [
+     208,
+     382
+    ],
+    "n_range": [
+     207,
+     382
+    ],
+    "m_refl": [
+     1,
+     175
+    ],
+    "n_refl": [
+     1,
+     176
+    ],
+    "pairs_head": [
+     [
+      208,
+      207
+     ],
+     [
+      208,
+      208
+     ],
+     [
+      209,
+      208
+     ],
+     [
+      209,
+      209
+     ],
+     [
+      210,
+      208
+     ],
+     [
+      210,
+      209
+     ],
+     [
+      210,
+      210
+     ],
+     [
+      211,
+      208
+     ],
+     [
+      211,
+      209
+     ],
+     [
+      211,
+      210
+     ],
+     [
+      211,
+      211
+     ],
+     [
+      212,
+      209
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 39,
+   "order": 747,
+   "alpha": 393,
+   "unimodal": true,
+   "lc_breaks": [
+    392
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 2142,
+    "m_range": [
+     211,
+     392
+    ],
+    "n_range": [
+     211,
+     392
+    ],
+    "m_refl": [
+     1,
+     182
+    ],
+    "n_refl": [
+     1,
+     182
+    ],
+    "pairs_head": [
+     [
+      211,
+      211
+     ],
+     [
+      212,
+      211
+     ],
+     [
+      212,
+      212
+     ],
+     [
+      213,
+      211
+     ],
+     [
+      213,
+      212
+     ],
+     [
+      213,
+      213
+     ],
+     [
+      214,
+      212
+     ],
+     [
+      214,
+      213
+     ],
+     [
+      214,
+      214
+     ],
+     [
+      215,
+      212
+     ],
+     [
+      215,
+      213
+     ],
+     [
+      215,
+      214
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 40,
+   "order": 766,
+   "alpha": 403,
+   "unimodal": true,
+   "lc_breaks": [
+    402
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 2275,
+    "m_range": [
+     215,
+     402
+    ],
+    "n_range": [
+     215,
+     402
+    ],
+    "m_refl": [
+     1,
+     188
+    ],
+    "n_refl": [
+     1,
+     188
+    ],
+    "pairs_head": [
+     [
+      215,
+      215
+     ],
+     [
+      216,
+      215
+     ],
+     [
+      216,
+      216
+     ],
+     [
+      217,
+      215
+     ],
+     [
+      217,
+      216
+     ],
+     [
+      217,
+      217
+     ],
+     [
+      218,
+      215
+     ],
+     [
+      218,
+      216
+     ],
+     [
+      218,
+      217
+     ],
+     [
+      218,
+      218
+     ],
+     [
+      219,
+      216
+     ],
+     [
+      219,
+      217
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 41,
+   "order": 785,
+   "alpha": 413,
+   "unimodal": true,
+   "lc_breaks": [
+    412
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 2430,
+    "m_range": [
+     218,
+     412
+    ],
+    "n_range": [
+     218,
+     412
+    ],
+    "m_refl": [
+     1,
+     195
+    ],
+    "n_refl": [
+     1,
+     195
+    ],
+    "pairs_head": [
+     [
+      218,
+      218
+     ],
+     [
+      219,
+      218
+     ],
+     [
+      219,
+      219
+     ],
+     [
+      220,
+      218
+     ],
+     [
+      220,
+      219
+     ],
+     [
+      220,
+      220
+     ],
+     [
+      221,
+      219
+     ],
+     [
+      221,
+      220
+     ],
+     [
+      221,
+      221
+     ],
+     [
+      222,
+      219
+     ],
+     [
+      222,
+      220
+     ],
+     [
+      222,
+      221
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 42,
+   "order": 804,
+   "alpha": 423,
+   "unimodal": true,
+   "lc_breaks": [
+    422
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 2576,
+    "m_range": [
+     222,
+     422
+    ],
+    "n_range": [
+     222,
+     422
+    ],
+    "m_refl": [
+     1,
+     201
+    ],
+    "n_refl": [
+     1,
+     201
+    ],
+    "pairs_head": [
+     [
+      222,
+      222
+     ],
+     [
+      223,
+      222
+     ],
+     [
+      223,
+      223
+     ],
+     [
+      224,
+      222
+     ],
+     [
+      224,
+      223
+     ],
+     [
+      224,
+      224
+     ],
+     [
+      225,
+      222
+     ],
+     [
+      225,
+      223
+     ],
+     [
+      225,
+      224
+     ],
+     [
+      225,
+      225
+     ],
+     [
+      226,
+      223
+     ],
+     [
+      226,
+      224
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 43,
+   "order": 823,
+   "alpha": 433,
+   "unimodal": true,
+   "lc_breaks": [
+    432
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 2734,
+    "m_range": [
+     225,
+     432
+    ],
+    "n_range": [
+     225,
+     432
+    ],
+    "m_refl": [
+     1,
+     208
+    ],
+    "n_refl": [
+     1,
+     208
+    ],
+    "pairs_head": [
+     [
+      225,
+      225
+     ],
+     [
+      226,
+      225
+     ],
+     [
+      226,
+      226
+     ],
+     [
+      227,
+      225
+     ],
+     [
+      227,
+      226
+     ],
+     [
+      227,
+      227
+     ],
+     [
+      228,
+      226
+     ],
+     [
+      228,
+      227
+     ],
+     [
+      228,
+      228
+     ],
+     [
+      229,
+      226
+     ],
+     [
+      229,
+      227
+     ],
+     [
+      229,
+      228
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 44,
+   "order": 842,
+   "alpha": 443,
+   "unimodal": true,
+   "lc_breaks": [
+    442
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 2886,
+    "m_range": [
+     229,
+     442
+    ],
+    "n_range": [
+     228,
+     442
+    ],
+    "m_refl": [
+     1,
+     214
+    ],
+    "n_refl": [
+     1,
+     215
+    ],
+    "pairs_head": [
+     [
+      229,
+      228
+     ],
+     [
+      229,
+      229
+     ],
+     [
+      230,
+      229
+     ],
+     [
+      230,
+      230
+     ],
+     [
+      231,
+      229
+     ],
+     [
+      231,
+      230
+     ],
+     [
+      231,
+      231
+     ],
+     [
+      232,
+      229
+     ],
+     [
+      232,
+      230
+     ],
+     [
+      232,
+      231
+     ],
+     [
+      232,
+      232
+     ],
+     [
+      233,
+      230
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 45,
+   "order": 861,
+   "alpha": 453,
+   "unimodal": true,
+   "lc_breaks": [
+    452
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 3050,
+    "m_range": [
+     232,
+     452
+    ],
+    "n_range": [
+     232,
+     452
+    ],
+    "m_refl": [
+     1,
+     221
+    ],
+    "n_refl": [
+     1,
+     221
+    ],
+    "pairs_head": [
+     [
+      232,
+      232
+     ],
+     [
+      233,
+      232
+     ],
+     [
+      233,
+      233
+     ],
+     [
+      234,
+      232
+     ],
+     [
+      234,
+      233
+     ],
+     [
+      234,
+      234
+     ],
+     [
+      235,
+      232
+     ],
+     [
+      235,
+      233
+     ],
+     [
+      235,
+      234
+     ],
+     [
+      235,
+      235
+     ],
+     [
+      236,
+      233
+     ],
+     [
+      236,
+      234
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 46,
+   "order": 880,
+   "alpha": 463,
+   "unimodal": true,
+   "lc_breaks": [
+    462
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 3221,
+    "m_range": [
+     235,
+     462
+    ],
+    "n_range": [
+     235,
+     462
+    ],
+    "m_refl": [
+     1,
+     228
+    ],
+    "n_refl": [
+     1,
+     228
+    ],
+    "pairs_head": [
+     [
+      235,
+      235
+     ],
+     [
+      236,
+      235
+     ],
+     [
+      236,
+      236
+     ],
+     [
+      237,
+      235
+     ],
+     [
+      237,
+      236
+     ],
+     [
+      237,
+      237
+     ],
+     [
+      238,
+      236
+     ],
+     [
+      238,
+      237
+     ],
+     [
+      238,
+      238
+     ],
+     [
+      239,
+      236
+     ],
+     [
+      239,
+      237
+     ],
+     [
+      239,
+      238
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 47,
+   "order": 899,
+   "alpha": 473,
+   "unimodal": true,
+   "lc_breaks": [
+    472
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 3383,
+    "m_range": [
+     238,
+     472
+    ],
+    "n_range": [
+     238,
+     472
+    ],
+    "m_refl": [
+     1,
+     235
+    ],
+    "n_refl": [
+     1,
+     235
+    ],
+    "pairs_head": [
+     [
+      238,
+      238
+     ],
+     [
+      239,
+      238
+     ],
+     [
+      239,
+      239
+     ],
+     [
+      240,
+      239
+     ],
+     [
+      240,
+      240
+     ],
+     [
+      241,
+      239
+     ],
+     [
+      241,
+      240
+     ],
+     [
+      241,
+      241
+     ],
+     [
+      242,
+      239
+     ],
+     [
+      242,
+      240
+     ],
+     [
+      242,
+      241
+     ],
+     [
+      242,
+      242
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 48,
+   "order": 918,
+   "alpha": 483,
+   "unimodal": true,
+   "lc_breaks": [
+    482
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 3569,
+    "m_range": [
+     242,
+     482
+    ],
+    "n_range": [
+     242,
+     482
+    ],
+    "m_refl": [
+     1,
+     241
+    ],
+    "n_refl": [
+     1,
+     241
+    ],
+    "pairs_head": [
+     [
+      242,
+      242
+     ],
+     [
+      243,
+      242
+     ],
+     [
+      243,
+      243
+     ],
+     [
+      244,
+      242
+     ],
+     [
+      244,
+      243
+     ],
+     [
+      244,
+      244
+     ],
+     [
+      245,
+      242
+     ],
+     [
+      245,
+      243
+     ],
+     [
+      245,
+      244
+     ],
+     [
+      245,
+      245
+     ],
+     [
+      246,
+      243
+     ],
+     [
+      246,
+      244
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 49,
+   "order": 937,
+   "alpha": 493,
+   "unimodal": true,
+   "lc_breaks": [
+    492
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 3741,
+    "m_range": [
+     245,
+     492
+    ],
+    "n_range": [
+     245,
+     492
+    ],
+    "m_refl": [
+     1,
+     248
+    ],
+    "n_refl": [
+     1,
+     248
+    ],
+    "pairs_head": [
+     [
+      245,
+      245
+     ],
+     [
+      246,
+      245
+     ],
+     [
+      246,
+      246
+     ],
+     [
+      247,
+      245
+     ],
+     [
+      247,
+      246
+     ],
+     [
+      247,
+      247
+     ],
+     [
+      248,
+      245
+     ],
+     [
+      248,
+      246
+     ],
+     [
+      248,
+      247
+     ],
+     [
+      248,
+      248
+     ],
+     [
+      249,
+      246
+     ],
+     [
+      249,
+      247
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 50,
+   "order": 956,
+   "alpha": 503,
+   "unimodal": true,
+   "lc_breaks": [
+    502
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 3946,
+    "m_range": [
+     248,
+     502
+    ],
+    "n_range": [
+     248,
+     502
+    ],
+    "m_refl": [
+     1,
+     255
+    ],
+    "n_refl": [
+     1,
+     255
+    ],
+    "pairs_head": [
+     [
+      248,
+      248
+     ],
+     [
+      249,
+      248
+     ],
+     [
+      249,
+      249
+     ],
+     [
+      250,
+      248
+     ],
+     [
+      250,
+      249
+     ],
+     [
+      250,
+      250
+     ],
+     [
+      251,
+      249
+     ],
+     [
+      251,
+      250
+     ],
+     [
+      251,
+      251
+     ],
+     [
+      252,
+      249
+     ],
+     [
+      252,
+      250
+     ],
+     [
+      252,
+      251
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 51,
+   "order": 975,
+   "alpha": 513,
+   "unimodal": true,
+   "lc_breaks": [
+    512
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 4123,
+    "m_range": [
+     251,
+     512
+    ],
+    "n_range": [
+     251,
+     512
+    ],
+    "m_refl": [
+     1,
+     262
+    ],
+    "n_refl": [
+     1,
+     262
+    ],
+    "pairs_head": [
+     [
+      251,
+      251
+     ],
+     [
+      252,
+      251
+     ],
+     [
+      252,
+      252
+     ],
+     [
+      253,
+      251
+     ],
+     [
+      253,
+      252
+     ],
+     [
+      253,
+      253
+     ],
+     [
+      254,
+      252
+     ],
+     [
+      254,
+      253
+     ],
+     [
+      254,
+      254
+     ],
+     [
+      255,
+      252
+     ],
+     [
+      255,
+      253
+     ],
+     [
+      255,
+      254
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 52,
+   "order": 994,
+   "alpha": 523,
+   "unimodal": true,
+   "lc_breaks": [
+    522
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 4331,
+    "m_range": [
+     254,
+     522
+    ],
+    "n_range": [
+     254,
+     522
+    ],
+    "m_refl": [
+     1,
+     269
+    ],
+    "n_refl": [
+     1,
+     269
+    ],
+    "pairs_head": [
+     [
+      254,
+      254
+     ],
+     [
+      255,
+      254
+     ],
+     [
+      255,
+      255
+     ],
+     [
+      256,
+      254
+     ],
+     [
+      256,
+      255
+     ],
+     [
+      256,
+      256
+     ],
+     [
+      257,
+      255
+     ],
+     [
+      257,
+      256
+     ],
+     [
+      257,
+      257
+     ],
+     [
+      258,
+      255
+     ],
+     [
+      258,
+      256
+     ],
+     [
+      258,
+      257
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 53,
+   "order": 1013,
+   "alpha": 533,
+   "unimodal": true,
+   "lc_breaks": [
+    532
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 4520,
+    "m_range": [
+     258,
+     532
+    ],
+    "n_range": [
+     257,
+     532
+    ],
+    "m_refl": [
+     1,
+     275
+    ],
+    "n_refl": [
+     1,
+     276
+    ],
+    "pairs_head": [
+     [
+      258,
+      257
+     ],
+     [
+      258,
+      258
+     ],
+     [
+      259,
+      258
+     ],
+     [
+      259,
+      259
+     ],
+     [
+      260,
+      258
+     ],
+     [
+      260,
+      259
+     ],
+     [
+      260,
+      260
+     ],
+     [
+      261,
+      258
+     ],
+     [
+      261,
+      259
+     ],
+     [
+      261,
+      260
+     ],
+     [
+      261,
+      261
+     ],
+     [
+      262,
+      259
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 54,
+   "order": 1032,
+   "alpha": 543,
+   "unimodal": true,
+   "lc_breaks": [
+    542
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 4738,
+    "m_range": [
+     261,
+     542
+    ],
+    "n_range": [
+     260,
+     542
+    ],
+    "m_refl": [
+     1,
+     282
+    ],
+    "n_refl": [
+     1,
+     283
+    ],
+    "pairs_head": [
+     [
+      261,
+      260
+     ],
+     [
+      261,
+      261
+     ],
+     [
+      262,
+      261
+     ],
+     [
+      262,
+      262
+     ],
+     [
+      263,
+      261
+     ],
+     [
+      263,
+      262
+     ],
+     [
+      263,
+      263
+     ],
+     [
+      264,
+      261
+     ],
+     [
+      264,
+      262
+     ],
+     [
+      264,
+      263
+     ],
+     [
+      264,
+      264
+     ],
+     [
+      265,
+      262
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 55,
+   "order": 1051,
+   "alpha": 553,
+   "unimodal": true,
+   "lc_breaks": [
+    552
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 4943,
+    "m_range": [
+     264,
+     552
+    ],
+    "n_range": [
+     263,
+     552
+    ],
+    "m_refl": [
+     1,
+     289
+    ],
+    "n_refl": [
+     1,
+     290
+    ],
+    "pairs_head": [
+     [
+      264,
+      263
+     ],
+     [
+      264,
+      264
+     ],
+     [
+      265,
+      264
+     ],
+     [
+      265,
+      265
+     ],
+     [
+      266,
+      264
+     ],
+     [
+      266,
+      265
+     ],
+     [
+      266,
+      266
+     ],
+     [
+      267,
+      264
+     ],
+     [
+      267,
+      265
+     ],
+     [
+      267,
+      266
+     ],
+     [
+      267,
+      267
+     ],
+     [
+      268,
+      265
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 56,
+   "order": 1070,
+   "alpha": 563,
+   "unimodal": true,
+   "lc_breaks": [
+    562
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 5164,
+    "m_range": [
+     267,
+     562
+    ],
+    "n_range": [
+     267,
+     562
+    ],
+    "m_refl": [
+     1,
+     296
+    ],
+    "n_refl": [
+     1,
+     296
+    ],
+    "pairs_head": [
+     [
+      267,
+      267
+     ],
+     [
+      268,
+      267
+     ],
+     [
+      268,
+      268
+     ],
+     [
+      269,
+      267
+     ],
+     [
+      269,
+      268
+     ],
+     [
+      269,
+      269
+     ],
+     [
+      270,
+      267
+     ],
+     [
+      270,
+      268
+     ],
+     [
+      270,
+      269
+     ],
+     [
+      270,
+      270
+     ],
+     [
+      271,
+      268
+     ],
+     [
+      271,
+      269
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 57,
+   "order": 1089,
+   "alpha": 573,
+   "unimodal": true,
+   "lc_breaks": [
+    572
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 5382,
+    "m_range": [
+     270,
+     572
+    ],
+    "n_range": [
+     269,
+     572
+    ],
+    "m_refl": [
+     1,
+     303
+    ],
+    "n_refl": [
+     1,
+     304
+    ],
+    "pairs_head": [
+     [
+      270,
+      269
+     ],
+     [
+      270,
+      270
+     ],
+     [
+      271,
+      270
+     ],
+     [
+      271,
+      271
+     ],
+     [
+      272,
+      270
+     ],
+     [
+      272,
+      271
+     ],
+     [
+      272,
+      272
+     ],
+     [
+      273,
+      270
+     ],
+     [
+      273,
+      271
+     ],
+     [
+      273,
+      272
+     ],
+     [
+      273,
+      273
+     ],
+     [
+      274,
+      271
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 58,
+   "order": 1108,
+   "alpha": 583,
+   "unimodal": true,
+   "lc_breaks": [
+    582
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 5606,
+    "m_range": [
+     273,
+     582
+    ],
+    "n_range": [
+     272,
+     582
+    ],
+    "m_refl": [
+     1,
+     310
+    ],
+    "n_refl": [
+     1,
+     311
+    ],
+    "pairs_head": [
+     [
+      273,
+      272
+     ],
+     [
+      273,
+      273
+     ],
+     [
+      274,
+      273
+     ],
+     [
+      274,
+      274
+     ],
+     [
+      275,
+      273
+     ],
+     [
+      275,
+      274
+     ],
+     [
+      275,
+      275
+     ],
+     [
+      276,
+      273
+     ],
+     [
+      276,
+      274
+     ],
+     [
+      276,
+      275
+     ],
+     [
+      276,
+      276
+     ],
+     [
+      277,
+      274
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 59,
+   "order": 1127,
+   "alpha": 593,
+   "unimodal": true,
+   "lc_breaks": [
+    592
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 5837,
+    "m_range": [
+     275,
+     592
+    ],
+    "n_range": [
+     275,
+     592
+    ],
+    "m_refl": [
+     1,
+     318
+    ],
+    "n_refl": [
+     1,
+     318
+    ],
+    "pairs_head": [
+     [
+      275,
+      275
+     ],
+     [
+      276,
+      275
+     ],
+     [
+      276,
+      276
+     ],
+     [
+      277,
+      275
+     ],
+     [
+      277,
+      276
+     ],
+     [
+      277,
+      277
+     ],
+     [
+      278,
+      276
+     ],
+     [
+      278,
+      277
+     ],
+     [
+      278,
+      278
+     ],
+     [
+      279,
+      276
+     ],
+     [
+      279,
+      277
+     ],
+     [
+      279,
+      278
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T12_S24_2",
+   "m": 60,
+   "order": 1146,
+   "alpha": 603,
+   "unimodal": true,
+   "lc_breaks": [
+    602
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 6064,
+    "m_range": [
+     278,
+     602
+    ],
+    "n_range": [
+     278,
+     602
+    ],
+    "m_refl": [
+     1,
+     325
+    ],
+    "n_refl": [
+     1,
+     325
+    ],
+    "pairs_head": [
+     [
+      278,
+      278
+     ],
+     [
+      279,
+      278
+     ],
+     [
+      279,
+      279
+     ],
+     [
+      280,
+      278
+     ],
+     [
+      280,
+      279
+     ],
+     [
+      280,
+      280
+     ],
+     [
+      281,
+      279
+     ],
+     [
+      281,
+      280
+     ],
+     [
+      281,
+      281
+     ],
+     [
+      282,
+      279
+     ],
+     [
+      282,
+      280
+     ],
+     [
+      282,
+      281
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 2,
+   "order": 46,
+   "alpha": 24,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 1,
+    "m_range": [
+     23,
+     23
+    ],
+    "n_range": [
+     23,
+     23
+    ],
+    "m_refl": [
+     1,
+     1
+    ],
+    "n_refl": [
+     1,
+     1
+    ],
+    "pairs_head": [
+     [
+      23,
+      23
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 3,
+   "order": 65,
+   "alpha": 34,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 2,
+    "m_range": [
+     32,
+     33
+    ],
+    "n_range": [
+     32,
+     33
+    ],
+    "m_refl": [
+     1,
+     2
+    ],
+    "n_refl": [
+     1,
+     2
+    ],
+    "pairs_head": [
+     [
+      32,
+      32
+     ],
+     [
+      33,
+      33
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 4,
+   "order": 84,
+   "alpha": 44,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 5,
+    "m_range": [
+     41,
+     43
+    ],
+    "n_range": [
+     41,
+     43
+    ],
+    "m_refl": [
+     1,
+     3
+    ],
+    "n_refl": [
+     1,
+     3
+    ],
+    "pairs_head": [
+     [
+      41,
+      41
+     ],
+     [
+      42,
+      41
+     ],
+     [
+      42,
+      42
+     ],
+     [
+      43,
+      42
+     ],
+     [
+      43,
+      43
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 5,
+   "order": 103,
+   "alpha": 54,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 7,
+    "m_range": [
+     50,
+     53
+    ],
+    "n_range": [
+     50,
+     53
+    ],
+    "m_refl": [
+     1,
+     4
+    ],
+    "n_refl": [
+     1,
+     4
+    ],
+    "pairs_head": [
+     [
+      50,
+      50
+     ],
+     [
+      51,
+      50
+     ],
+     [
+      51,
+      51
+     ],
+     [
+      52,
+      51
+     ],
+     [
+      52,
+      52
+     ],
+     [
+      53,
+      52
+     ],
+     [
+      53,
+      53
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 6,
+   "order": 122,
+   "alpha": 64,
+   "unimodal": true,
+   "lc_breaks": [
+    63
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 10,
+    "m_range": [
+     59,
+     63
+    ],
+    "n_range": [
+     59,
+     63
+    ],
+    "m_refl": [
+     1,
+     5
+    ],
+    "n_refl": [
+     1,
+     5
+    ],
+    "pairs_head": [
+     [
+      59,
+      59
+     ],
+     [
+      60,
+      59
+     ],
+     [
+      60,
+      60
+     ],
+     [
+      61,
+      60
+     ],
+     [
+      61,
+      61
+     ],
+     [
+      62,
+      60
+     ],
+     [
+      62,
+      61
+     ],
+     [
+      62,
+      62
+     ],
+     [
+      63,
+      62
+     ],
+     [
+      63,
+      63
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 7,
+   "order": 141,
+   "alpha": 74,
+   "unimodal": true,
+   "lc_breaks": [
+    73
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 15,
+    "m_range": [
+     68,
+     73
+    ],
+    "n_range": [
+     68,
+     73
+    ],
+    "m_refl": [
+     1,
+     6
+    ],
+    "n_refl": [
+     1,
+     6
+    ],
+    "pairs_head": [
+     [
+      68,
+      68
+     ],
+     [
+      69,
+      68
+     ],
+     [
+      69,
+      69
+     ],
+     [
+      70,
+      68
+     ],
+     [
+      70,
+      69
+     ],
+     [
+      70,
+      70
+     ],
+     [
+      71,
+      69
+     ],
+     [
+      71,
+      70
+     ],
+     [
+      71,
+      71
+     ],
+     [
+      72,
+      70
+     ],
+     [
+      72,
+      71
+     ],
+     [
+      72,
+      72
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 8,
+   "order": 160,
+   "alpha": 84,
+   "unimodal": true,
+   "lc_breaks": [
+    83
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 20,
+    "m_range": [
+     77,
+     83
+    ],
+    "n_range": [
+     77,
+     83
+    ],
+    "m_refl": [
+     1,
+     7
+    ],
+    "n_refl": [
+     1,
+     7
+    ],
+    "pairs_head": [
+     [
+      77,
+      77
+     ],
+     [
+      78,
+      77
+     ],
+     [
+      78,
+      78
+     ],
+     [
+      79,
+      77
+     ],
+     [
+      79,
+      78
+     ],
+     [
+      79,
+      79
+     ],
+     [
+      80,
+      78
+     ],
+     [
+      80,
+      79
+     ],
+     [
+      80,
+      80
+     ],
+     [
+      81,
+      78
+     ],
+     [
+      81,
+      79
+     ],
+     [
+      81,
+      80
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 9,
+   "order": 179,
+   "alpha": 94,
+   "unimodal": true,
+   "lc_breaks": [
+    93
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 24,
+    "m_range": [
+     86,
+     93
+    ],
+    "n_range": [
+     86,
+     93
+    ],
+    "m_refl": [
+     1,
+     8
+    ],
+    "n_refl": [
+     1,
+     8
+    ],
+    "pairs_head": [
+     [
+      86,
+      86
+     ],
+     [
+      87,
+      86
+     ],
+     [
+      87,
+      87
+     ],
+     [
+      88,
+      86
+     ],
+     [
+      88,
+      87
+     ],
+     [
+      88,
+      88
+     ],
+     [
+      89,
+      87
+     ],
+     [
+      89,
+      88
+     ],
+     [
+      89,
+      89
+     ],
+     [
+      90,
+      87
+     ],
+     [
+      90,
+      88
+     ],
+     [
+      90,
+      89
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 10,
+   "order": 198,
+   "alpha": 104,
+   "unimodal": true,
+   "lc_breaks": [
+    103
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 30,
+    "m_range": [
+     95,
+     103
+    ],
+    "n_range": [
+     95,
+     103
+    ],
+    "m_refl": [
+     1,
+     9
+    ],
+    "n_refl": [
+     1,
+     9
+    ],
+    "pairs_head": [
+     [
+      95,
+      95
+     ],
+     [
+      96,
+      95
+     ],
+     [
+      96,
+      96
+     ],
+     [
+      97,
+      95
+     ],
+     [
+      97,
+      96
+     ],
+     [
+      97,
+      97
+     ],
+     [
+      98,
+      95
+     ],
+     [
+      98,
+      96
+     ],
+     [
+      98,
+      97
+     ],
+     [
+      98,
+      98
+     ],
+     [
+      99,
+      96
+     ],
+     [
+      99,
+      97
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 11,
+   "order": 217,
+   "alpha": 114,
+   "unimodal": true,
+   "lc_breaks": [
+    113
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 37,
+    "m_range": [
+     104,
+     113
+    ],
+    "n_range": [
+     104,
+     113
+    ],
+    "m_refl": [
+     1,
+     10
+    ],
+    "n_refl": [
+     1,
+     10
+    ],
+    "pairs_head": [
+     [
+      104,
+      104
+     ],
+     [
+      105,
+      104
+     ],
+     [
+      105,
+      105
+     ],
+     [
+      106,
+      104
+     ],
+     [
+      106,
+      105
+     ],
+     [
+      106,
+      106
+     ],
+     [
+      107,
+      104
+     ],
+     [
+      107,
+      105
+     ],
+     [
+      107,
+      106
+     ],
+     [
+      107,
+      107
+     ],
+     [
+      108,
+      105
+     ],
+     [
+      108,
+      106
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 12,
+   "order": 236,
+   "alpha": 124,
+   "unimodal": true,
+   "lc_breaks": [
+    123
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 44,
+    "m_range": [
+     113,
+     123
+    ],
+    "n_range": [
+     113,
+     123
+    ],
+    "m_refl": [
+     1,
+     11
+    ],
+    "n_refl": [
+     1,
+     11
+    ],
+    "pairs_head": [
+     [
+      113,
+      113
+     ],
+     [
+      114,
+      113
+     ],
+     [
+      114,
+      114
+     ],
+     [
+      115,
+      113
+     ],
+     [
+      115,
+      114
+     ],
+     [
+      115,
+      115
+     ],
+     [
+      116,
+      113
+     ],
+     [
+      116,
+      114
+     ],
+     [
+      116,
+      115
+     ],
+     [
+      116,
+      116
+     ],
+     [
+      117,
+      114
+     ],
+     [
+      117,
+      115
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 13,
+   "order": 255,
+   "alpha": 134,
+   "unimodal": true,
+   "lc_breaks": [
+    133
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 51,
+    "m_range": [
+     122,
+     133
+    ],
+    "n_range": [
+     122,
+     133
+    ],
+    "m_refl": [
+     1,
+     12
+    ],
+    "n_refl": [
+     1,
+     12
+    ],
+    "pairs_head": [
+     [
+      122,
+      122
+     ],
+     [
+      123,
+      122
+     ],
+     [
+      123,
+      123
+     ],
+     [
+      124,
+      122
+     ],
+     [
+      124,
+      123
+     ],
+     [
+      124,
+      124
+     ],
+     [
+      125,
+      122
+     ],
+     [
+      125,
+      123
+     ],
+     [
+      125,
+      124
+     ],
+     [
+      125,
+      125
+     ],
+     [
+      126,
+      123
+     ],
+     [
+      126,
+      124
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 14,
+   "order": 274,
+   "alpha": 144,
+   "unimodal": true,
+   "lc_breaks": [
+    143
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 65,
+    "m_range": [
+     110,
+     143
+    ],
+    "n_range": [
+     110,
+     143
+    ],
+    "m_refl": [
+     1,
+     34
+    ],
+    "n_refl": [
+     1,
+     34
+    ],
+    "pairs_head": [
+     [
+      110,
+      110
+     ],
+     [
+      111,
+      111
+     ],
+     [
+      112,
+      112
+     ],
+     [
+      113,
+      113
+     ],
+     [
+      114,
+      114
+     ],
+     [
+      131,
+      131
+     ],
+     [
+      132,
+      131
+     ],
+     [
+      132,
+      132
+     ],
+     [
+      133,
+      131
+     ],
+     [
+      133,
+      132
+     ],
+     [
+      133,
+      133
+     ],
+     [
+      134,
+      131
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 15,
+   "order": 293,
+   "alpha": 154,
+   "unimodal": true,
+   "lc_breaks": [
+    153
+   ],
+   "lc_breaks_refl": [
+    1
+   ],
+   "sync": {
+    "count": 95,
+    "m_range": [
+     114,
+     153
+    ],
+    "n_range": [
+     114,
+     153
+    ],
+    "m_refl": [
+     1,
+     40
+    ],
+    "n_refl": [
+     1,
+     40
+    ],
+    "pairs_head": [
+     [
+      114,
+      114
+     ],
+     [
+      115,
+      114
+     ],
+     [
+      115,
+      115
+     ],
+     [
+      116,
+      115
+     ],
+     [
+      116,
+      116
+     ],
+     [
+      117,
+      116
+     ],
+     [
+      117,
+      117
+     ],
+     [
+      118,
+      117
+     ],
+     [
+      118,
+      118
+     ],
+     [
+      119,
+      117
+     ],
+     [
+      119,
+      118
+     ],
+     [
+      119,
+      119
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 16,
+   "order": 312,
+   "alpha": 164,
+   "unimodal": true,
+   "lc_breaks": [
+    162,
+    163
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 128,
+    "m_range": [
+     118,
+     163
+    ],
+    "n_range": [
+     118,
+     163
+    ],
+    "m_refl": [
+     1,
+     46
+    ],
+    "n_refl": [
+     1,
+     46
+    ],
+    "pairs_head": [
+     [
+      118,
+      118
+     ],
+     [
+      119,
+      119
+     ],
+     [
+      120,
+      119
+     ],
+     [
+      120,
+      120
+     ],
+     [
+      121,
+      120
+     ],
+     [
+      121,
+      121
+     ],
+     [
+      122,
+      120
+     ],
+     [
+      122,
+      121
+     ],
+     [
+      122,
+      122
+     ],
+     [
+      123,
+      121
+     ],
+     [
+      123,
+      122
+     ],
+     [
+      123,
+      123
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 17,
+   "order": 331,
+   "alpha": 174,
+   "unimodal": true,
+   "lc_breaks": [
+    172,
+    173
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 169,
+    "m_range": [
+     123,
+     173
+    ],
+    "n_range": [
+     123,
+     173
+    ],
+    "m_refl": [
+     1,
+     51
+    ],
+    "n_refl": [
+     1,
+     51
+    ],
+    "pairs_head": [
+     [
+      123,
+      123
+     ],
+     [
+      124,
+      123
+     ],
+     [
+      124,
+      124
+     ],
+     [
+      125,
+      124
+     ],
+     [
+      125,
+      125
+     ],
+     [
+      126,
+      124
+     ],
+     [
+      126,
+      125
+     ],
+     [
+      126,
+      126
+     ],
+     [
+      127,
+      125
+     ],
+     [
+      127,
+      126
+     ],
+     [
+      127,
+      127
+     ],
+     [
+      128,
+      125
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 18,
+   "order": 350,
+   "alpha": 184,
+   "unimodal": true,
+   "lc_breaks": [
+    182,
+    183
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 210,
+    "m_range": [
+     127,
+     183
+    ],
+    "n_range": [
+     127,
+     183
+    ],
+    "m_refl": [
+     1,
+     57
+    ],
+    "n_refl": [
+     1,
+     57
+    ],
+    "pairs_head": [
+     [
+      127,
+      127
+     ],
+     [
+      128,
+      127
+     ],
+     [
+      128,
+      128
+     ],
+     [
+      129,
+      128
+     ],
+     [
+      129,
+      129
+     ],
+     [
+      130,
+      128
+     ],
+     [
+      130,
+      129
+     ],
+     [
+      130,
+      130
+     ],
+     [
+      131,
+      129
+     ],
+     [
+      131,
+      130
+     ],
+     [
+      131,
+      131
+     ],
+     [
+      132,
+      129
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 19,
+   "order": 369,
+   "alpha": 194,
+   "unimodal": true,
+   "lc_breaks": [
+    192,
+    193
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 259,
+    "m_range": [
+     132,
+     193
+    ],
+    "n_range": [
+     132,
+     193
+    ],
+    "m_refl": [
+     1,
+     62
+    ],
+    "n_refl": [
+     1,
+     62
+    ],
+    "pairs_head": [
+     [
+      132,
+      132
+     ],
+     [
+      133,
+      132
+     ],
+     [
+      133,
+      133
+     ],
+     [
+      134,
+      133
+     ],
+     [
+      134,
+      134
+     ],
+     [
+      135,
+      133
+     ],
+     [
+      135,
+      134
+     ],
+     [
+      135,
+      135
+     ],
+     [
+      136,
+      134
+     ],
+     [
+      136,
+      135
+     ],
+     [
+      136,
+      136
+     ],
+     [
+      137,
+      134
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 20,
+   "order": 388,
+   "alpha": 204,
+   "unimodal": true,
+   "lc_breaks": [
+    202,
+    203
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 312,
+    "m_range": [
+     136,
+     203
+    ],
+    "n_range": [
+     136,
+     203
+    ],
+    "m_refl": [
+     1,
+     68
+    ],
+    "n_refl": [
+     1,
+     68
+    ],
+    "pairs_head": [
+     [
+      136,
+      136
+     ],
+     [
+      137,
+      137
+     ],
+     [
+      138,
+      137
+     ],
+     [
+      138,
+      138
+     ],
+     [
+      139,
+      137
+     ],
+     [
+      139,
+      138
+     ],
+     [
+      139,
+      139
+     ],
+     [
+      140,
+      138
+     ],
+     [
+      140,
+      139
+     ],
+     [
+      140,
+      140
+     ],
+     [
+      141,
+      138
+     ],
+     [
+      141,
+      139
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 21,
+   "order": 407,
+   "alpha": 214,
+   "unimodal": true,
+   "lc_breaks": [
+    212,
+    213
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 361,
+    "m_range": [
+     141,
+     213
+    ],
+    "n_range": [
+     141,
+     213
+    ],
+    "m_refl": [
+     1,
+     73
+    ],
+    "n_refl": [
+     1,
+     73
+    ],
+    "pairs_head": [
+     [
+      141,
+      141
+     ],
+     [
+      142,
+      141
+     ],
+     [
+      142,
+      142
+     ],
+     [
+      143,
+      141
+     ],
+     [
+      143,
+      142
+     ],
+     [
+      143,
+      143
+     ],
+     [
+      144,
+      142
+     ],
+     [
+      144,
+      143
+     ],
+     [
+      144,
+      144
+     ],
+     [
+      145,
+      142
+     ],
+     [
+      145,
+      143
+     ],
+     [
+      145,
+      144
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 22,
+   "order": 426,
+   "alpha": 224,
+   "unimodal": true,
+   "lc_breaks": [
+    222,
+    223
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 423,
+    "m_range": [
+     145,
+     223
+    ],
+    "n_range": [
+     145,
+     223
+    ],
+    "m_refl": [
+     1,
+     79
+    ],
+    "n_refl": [
+     1,
+     79
+    ],
+    "pairs_head": [
+     [
+      145,
+      145
+     ],
+     [
+      146,
+      145
+     ],
+     [
+      146,
+      146
+     ],
+     [
+      147,
+      146
+     ],
+     [
+      147,
+      147
+     ],
+     [
+      148,
+      146
+     ],
+     [
+      148,
+      147
+     ],
+     [
+      148,
+      148
+     ],
+     [
+      149,
+      147
+     ],
+     [
+      149,
+      148
+     ],
+     [
+      149,
+      149
+     ],
+     [
+      150,
+      147
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 23,
+   "order": 445,
+   "alpha": 234,
+   "unimodal": true,
+   "lc_breaks": [
+    232,
+    233
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 486,
+    "m_range": [
+     150,
+     233
+    ],
+    "n_range": [
+     150,
+     233
+    ],
+    "m_refl": [
+     1,
+     84
+    ],
+    "n_refl": [
+     1,
+     84
+    ],
+    "pairs_head": [
+     [
+      150,
+      150
+     ],
+     [
+      151,
+      150
+     ],
+     [
+      151,
+      151
+     ],
+     [
+      152,
+      150
+     ],
+     [
+      152,
+      151
+     ],
+     [
+      152,
+      152
+     ],
+     [
+      153,
+      151
+     ],
+     [
+      153,
+      152
+     ],
+     [
+      153,
+      153
+     ],
+     [
+      154,
+      151
+     ],
+     [
+      154,
+      152
+     ],
+     [
+      154,
+      153
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 24,
+   "order": 464,
+   "alpha": 244,
+   "unimodal": true,
+   "lc_breaks": [
+    242,
+    243
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 556,
+    "m_range": [
+     154,
+     243
+    ],
+    "n_range": [
+     154,
+     243
+    ],
+    "m_refl": [
+     1,
+     90
+    ],
+    "n_refl": [
+     1,
+     90
+    ],
+    "pairs_head": [
+     [
+      154,
+      154
+     ],
+     [
+      155,
+      154
+     ],
+     [
+      155,
+      155
+     ],
+     [
+      156,
+      154
+     ],
+     [
+      156,
+      155
+     ],
+     [
+      156,
+      156
+     ],
+     [
+      157,
+      155
+     ],
+     [
+      157,
+      156
+     ],
+     [
+      157,
+      157
+     ],
+     [
+      158,
+      155
+     ],
+     [
+      158,
+      156
+     ],
+     [
+      158,
+      157
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 25,
+   "order": 483,
+   "alpha": 254,
+   "unimodal": true,
+   "lc_breaks": [
+    252,
+    253
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 630,
+    "m_range": [
+     158,
+     253
+    ],
+    "n_range": [
+     158,
+     253
+    ],
+    "m_refl": [
+     1,
+     96
+    ],
+    "n_refl": [
+     1,
+     96
+    ],
+    "pairs_head": [
+     [
+      158,
+      158
+     ],
+     [
+      159,
+      158
+     ],
+     [
+      159,
+      159
+     ],
+     [
+      160,
+      159
+     ],
+     [
+      160,
+      160
+     ],
+     [
+      161,
+      159
+     ],
+     [
+      161,
+      160
+     ],
+     [
+      161,
+      161
+     ],
+     [
+      162,
+      159
+     ],
+     [
+      162,
+      160
+     ],
+     [
+      162,
+      161
+     ],
+     [
+      162,
+      162
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 26,
+   "order": 502,
+   "alpha": 264,
+   "unimodal": true,
+   "lc_breaks": [
+    262,
+    263
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 705,
+    "m_range": [
+     163,
+     263
+    ],
+    "n_range": [
+     163,
+     263
+    ],
+    "m_refl": [
+     1,
+     101
+    ],
+    "n_refl": [
+     1,
+     101
+    ],
+    "pairs_head": [
+     [
+      163,
+      163
+     ],
+     [
+      164,
+      163
+     ],
+     [
+      164,
+      164
+     ],
+     [
+      165,
+      163
+     ],
+     [
+      165,
+      164
+     ],
+     [
+      165,
+      165
+     ],
+     [
+      166,
+      163
+     ],
+     [
+      166,
+      164
+     ],
+     [
+      166,
+      165
+     ],
+     [
+      166,
+      166
+     ],
+     [
+      167,
+      164
+     ],
+     [
+      167,
+      165
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 27,
+   "order": 521,
+   "alpha": 274,
+   "unimodal": true,
+   "lc_breaks": [
+    272,
+    273
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 791,
+    "m_range": [
+     167,
+     273
+    ],
+    "n_range": [
+     167,
+     273
+    ],
+    "m_refl": [
+     1,
+     107
+    ],
+    "n_refl": [
+     1,
+     107
+    ],
+    "pairs_head": [
+     [
+      167,
+      167
+     ],
+     [
+      168,
+      167
+     ],
+     [
+      168,
+      168
+     ],
+     [
+      169,
+      167
+     ],
+     [
+      169,
+      168
+     ],
+     [
+      169,
+      169
+     ],
+     [
+      170,
+      168
+     ],
+     [
+      170,
+      169
+     ],
+     [
+      170,
+      170
+     ],
+     [
+      171,
+      168
+     ],
+     [
+      171,
+      169
+     ],
+     [
+      171,
+      170
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 28,
+   "order": 540,
+   "alpha": 284,
+   "unimodal": true,
+   "lc_breaks": [
+    282,
+    283
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 873,
+    "m_range": [
+     171,
+     283
+    ],
+    "n_range": [
+     171,
+     283
+    ],
+    "m_refl": [
+     1,
+     113
+    ],
+    "n_refl": [
+     1,
+     113
+    ],
+    "pairs_head": [
+     [
+      171,
+      171
+     ],
+     [
+      172,
+      171
+     ],
+     [
+      172,
+      172
+     ],
+     [
+      173,
+      171
+     ],
+     [
+      173,
+      172
+     ],
+     [
+      173,
+      173
+     ],
+     [
+      174,
+      172
+     ],
+     [
+      174,
+      173
+     ],
+     [
+      174,
+      174
+     ],
+     [
+      175,
+      172
+     ],
+     [
+      175,
+      173
+     ],
+     [
+      175,
+      174
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 29,
+   "order": 559,
+   "alpha": 294,
+   "unimodal": true,
+   "lc_breaks": [
+    292,
+    293
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 964,
+    "m_range": [
+     175,
+     293
+    ],
+    "n_range": [
+     175,
+     293
+    ],
+    "m_refl": [
+     1,
+     119
+    ],
+    "n_refl": [
+     1,
+     119
+    ],
+    "pairs_head": [
+     [
+      175,
+      175
+     ],
+     [
+      176,
+      175
+     ],
+     [
+      176,
+      176
+     ],
+     [
+      177,
+      175
+     ],
+     [
+      177,
+      176
+     ],
+     [
+      177,
+      177
+     ],
+     [
+      178,
+      176
+     ],
+     [
+      178,
+      177
+     ],
+     [
+      178,
+      178
+     ],
+     [
+      179,
+      176
+     ],
+     [
+      179,
+      177
+     ],
+     [
+      179,
+      178
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T13_S24_2",
+   "m": 30,
+   "order": 578,
+   "alpha": 304,
+   "unimodal": true,
+   "lc_breaks": [
+    302,
+    303
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 1058,
+    "m_range": [
+     179,
+     303
+    ],
+    "n_range": [
+     179,
+     303
+    ],
+    "m_refl": [
+     1,
+     125
+    ],
+    "n_refl": [
+     1,
+     125
+    ],
+    "pairs_head": [
+     [
+      179,
+      179
+     ],
+     [
+      180,
+      179
+     ],
+     [
+      180,
+      180
+     ],
+     [
+      181,
+      179
+     ],
+     [
+      181,
+      180
+     ],
+     [
+      181,
+      181
+     ],
+     [
+      182,
+      180
+     ],
+     [
+      182,
+      181
+     ],
+     [
+      182,
+      182
+     ],
+     [
+      183,
+      180
+     ],
+     [
+      183,
+      181
+     ],
+     [
+      183,
+      182
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 2,
+   "order": 62,
+   "alpha": 32,
+   "unimodal": true,
+   "lc_breaks": [],
+   "lc_breaks_refl": [],
+   "sync": {
+    "count": 2,
+    "m_range": [
+     30,
+     31
+    ],
+    "n_range": [
+     30,
+     31
+    ],
+    "m_refl": [
+     1,
+     2
+    ],
+    "n_refl": [
+     1,
+     2
+    ],
+    "pairs_head": [
+     [
+      30,
+      30
+     ],
+     [
+      31,
+      31
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 3,
+   "order": 85,
+   "alpha": 44,
+   "unimodal": true,
+   "lc_breaks": [
+    42
+   ],
+   "lc_breaks_refl": [
+    2
+   ],
+   "sync": {
+    "count": 5,
+    "m_range": [
+     41,
+     43
+    ],
+    "n_range": [
+     41,
+     43
+    ],
+    "m_refl": [
+     1,
+     3
+    ],
+    "n_refl": [
+     1,
+     3
+    ],
+    "pairs_head": [
+     [
+      41,
+      41
+     ],
+     [
+      42,
+      41
+     ],
+     [
+      42,
+      42
+     ],
+     [
+      43,
+      42
+     ],
+     [
+      43,
+      43
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 4,
+   "order": 108,
+   "alpha": 56,
+   "unimodal": true,
+   "lc_breaks": [
+    54
+   ],
+   "lc_breaks_refl": [
+    2
+   ],
+   "sync": {
+    "count": 8,
+    "m_range": [
+     52,
+     55
+    ],
+    "n_range": [
+     52,
+     55
+    ],
+    "m_refl": [
+     1,
+     4
+    ],
+    "n_refl": [
+     1,
+     4
+    ],
+    "pairs_head": [
+     [
+      52,
+      52
+     ],
+     [
+      53,
+      52
+     ],
+     [
+      53,
+      53
+     ],
+     [
+      54,
+      53
+     ],
+     [
+      54,
+      54
+     ],
+     [
+      55,
+      53
+     ],
+     [
+      55,
+      54
+     ],
+     [
+      55,
+      55
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 5,
+   "order": 131,
+   "alpha": 68,
+   "unimodal": true,
+   "lc_breaks": [
+    66
+   ],
+   "lc_breaks_refl": [
+    2
+   ],
+   "sync": {
+    "count": 11,
+    "m_range": [
+     63,
+     67
+    ],
+    "n_range": [
+     63,
+     67
+    ],
+    "m_refl": [
+     1,
+     5
+    ],
+    "n_refl": [
+     1,
+     5
+    ],
+    "pairs_head": [
+     [
+      63,
+      63
+     ],
+     [
+      64,
+      63
+     ],
+     [
+      64,
+      64
+     ],
+     [
+      65,
+      64
+     ],
+     [
+      65,
+      65
+     ],
+     [
+      66,
+      64
+     ],
+     [
+      66,
+      65
+     ],
+     [
+      66,
+      66
+     ],
+     [
+      67,
+      65
+     ],
+     [
+      67,
+      66
+     ],
+     [
+      67,
+      67
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 6,
+   "order": 154,
+   "alpha": 80,
+   "unimodal": true,
+   "lc_breaks": [
+    78
+   ],
+   "lc_breaks_refl": [
+    2
+   ],
+   "sync": {
+    "count": 17,
+    "m_range": [
+     74,
+     79
+    ],
+    "n_range": [
+     74,
+     79
+    ],
+    "m_refl": [
+     1,
+     6
+    ],
+    "n_refl": [
+     1,
+     6
+    ],
+    "pairs_head": [
+     [
+      74,
+      74
+     ],
+     [
+      75,
+      74
+     ],
+     [
+      75,
+      75
+     ],
+     [
+      76,
+      74
+     ],
+     [
+      76,
+      75
+     ],
+     [
+      76,
+      76
+     ],
+     [
+      77,
+      75
+     ],
+     [
+      77,
+      76
+     ],
+     [
+      77,
+      77
+     ],
+     [
+      78,
+      75
+     ],
+     [
+      78,
+      76
+     ],
+     [
+      78,
+      77
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 7,
+   "order": 177,
+   "alpha": 92,
+   "unimodal": true,
+   "lc_breaks": [
+    90
+   ],
+   "lc_breaks_refl": [
+    2
+   ],
+   "sync": {
+    "count": 21,
+    "m_range": [
+     85,
+     91
+    ],
+    "n_range": [
+     85,
+     91
+    ],
+    "m_refl": [
+     1,
+     7
+    ],
+    "n_refl": [
+     1,
+     7
+    ],
+    "pairs_head": [
+     [
+      85,
+      85
+     ],
+     [
+      86,
+      85
+     ],
+     [
+      86,
+      86
+     ],
+     [
+      87,
+      85
+     ],
+     [
+      87,
+      86
+     ],
+     [
+      87,
+      87
+     ],
+     [
+      88,
+      86
+     ],
+     [
+      88,
+      87
+     ],
+     [
+      88,
+      88
+     ],
+     [
+      89,
+      86
+     ],
+     [
+      89,
+      87
+     ],
+     [
+      89,
+      88
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 8,
+   "order": 200,
+   "alpha": 104,
+   "unimodal": true,
+   "lc_breaks": [
+    102,
+    103
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 29,
+    "m_range": [
+     96,
+     103
+    ],
+    "n_range": [
+     96,
+     103
+    ],
+    "m_refl": [
+     1,
+     8
+    ],
+    "n_refl": [
+     1,
+     8
+    ],
+    "pairs_head": [
+     [
+      96,
+      96
+     ],
+     [
+      97,
+      96
+     ],
+     [
+      97,
+      97
+     ],
+     [
+      98,
+      96
+     ],
+     [
+      98,
+      97
+     ],
+     [
+      98,
+      98
+     ],
+     [
+      99,
+      96
+     ],
+     [
+      99,
+      97
+     ],
+     [
+      99,
+      98
+     ],
+     [
+      99,
+      99
+     ],
+     [
+      100,
+      97
+     ],
+     [
+      100,
+      98
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 9,
+   "order": 223,
+   "alpha": 116,
+   "unimodal": true,
+   "lc_breaks": [
+    114,
+    115
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 38,
+    "m_range": [
+     96,
+     115
+    ],
+    "n_range": [
+     96,
+     115
+    ],
+    "m_refl": [
+     1,
+     20
+    ],
+    "n_refl": [
+     1,
+     20
+    ],
+    "pairs_head": [
+     [
+      96,
+      96
+     ],
+     [
+      97,
+      97
+     ],
+     [
+      98,
+      98
+     ],
+     [
+      107,
+      107
+     ],
+     [
+      108,
+      107
+     ],
+     [
+      108,
+      108
+     ],
+     [
+      109,
+      107
+     ],
+     [
+      109,
+      108
+     ],
+     [
+      109,
+      109
+     ],
+     [
+      110,
+      107
+     ],
+     [
+      110,
+      108
+     ],
+     [
+      110,
+      109
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 10,
+   "order": 246,
+   "alpha": 128,
+   "unimodal": true,
+   "lc_breaks": [
+    126,
+    127
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 62,
+    "m_range": [
+     102,
+     127
+    ],
+    "n_range": [
+     102,
+     127
+    ],
+    "m_refl": [
+     1,
+     26
+    ],
+    "n_refl": [
+     1,
+     26
+    ],
+    "pairs_head": [
+     [
+      102,
+      102
+     ],
+     [
+      103,
+      102
+     ],
+     [
+      103,
+      103
+     ],
+     [
+      104,
+      103
+     ],
+     [
+      104,
+      104
+     ],
+     [
+      105,
+      104
+     ],
+     [
+      105,
+      105
+     ],
+     [
+      106,
+      104
+     ],
+     [
+      106,
+      105
+     ],
+     [
+      106,
+      106
+     ],
+     [
+      107,
+      105
+     ],
+     [
+      107,
+      106
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 11,
+   "order": 269,
+   "alpha": 140,
+   "unimodal": true,
+   "lc_breaks": [
+    138,
+    139
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 94,
+    "m_range": [
+     108,
+     139
+    ],
+    "n_range": [
+     108,
+     139
+    ],
+    "m_refl": [
+     1,
+     32
+    ],
+    "n_refl": [
+     1,
+     32
+    ],
+    "pairs_head": [
+     [
+      108,
+      108
+     ],
+     [
+      109,
+      109
+     ],
+     [
+      110,
+      109
+     ],
+     [
+      110,
+      110
+     ],
+     [
+      111,
+      109
+     ],
+     [
+      111,
+      110
+     ],
+     [
+      111,
+      111
+     ],
+     [
+      112,
+      110
+     ],
+     [
+      112,
+      111
+     ],
+     [
+      112,
+      112
+     ],
+     [
+      113,
+      111
+     ],
+     [
+      113,
+      112
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 12,
+   "order": 292,
+   "alpha": 152,
+   "unimodal": true,
+   "lc_breaks": [
+    150,
+    151
+   ],
+   "lc_breaks_refl": [
+    1,
+    2
+   ],
+   "sync": {
+    "count": 127,
+    "m_range": [
+     115,
+     151
+    ],
+    "n_range": [
+     115,
+     151
+    ],
+    "m_refl": [
+     1,
+     37
+    ],
+    "n_refl": [
+     1,
+     37
+    ],
+    "pairs_head": [
+     [
+      115,
+      115
+     ],
+     [
+      116,
+      115
+     ],
+     [
+      116,
+      116
+     ],
+     [
+      117,
+      116
+     ],
+     [
+      117,
+      117
+     ],
+     [
+      118,
+      116
+     ],
+     [
+      118,
+      117
+     ],
+     [
+      118,
+      118
+     ],
+     [
+      119,
+      117
+     ],
+     [
+      119,
+      118
+     ],
+     [
+      119,
+      119
+     ],
+     [
+      120,
+      117
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 13,
+   "order": 315,
+   "alpha": 164,
+   "unimodal": true,
+   "lc_breaks": [
+    161,
+    162,
+    163
+   ],
+   "lc_breaks_refl": [
+    1,
+    2,
+    3
+   ],
+   "sync": {
+    "count": 163,
+    "m_range": [
+     122,
+     163
+    ],
+    "n_range": [
+     122,
+     163
+    ],
+    "m_refl": [
+     1,
+     42
+    ],
+    "n_refl": [
+     1,
+     42
+    ],
+    "pairs_head": [
+     [
+      122,
+      122
+     ],
+     [
+      123,
+      122
+     ],
+     [
+      123,
+      123
+     ],
+     [
+      124,
+      122
+     ],
+     [
+      124,
+      123
+     ],
+     [
+      124,
+      124
+     ],
+     [
+      125,
+      123
+     ],
+     [
+      125,
+      124
+     ],
+     [
+      125,
+      125
+     ],
+     [
+      126,
+      123
+     ],
+     [
+      126,
+      124
+     ],
+     [
+      126,
+      125
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 14,
+   "order": 338,
+   "alpha": 176,
+   "unimodal": true,
+   "lc_breaks": [
+    173,
+    174,
+    175
+   ],
+   "lc_breaks_refl": [
+    1,
+    2,
+    3
+   ],
+   "sync": {
+    "count": 213,
+    "m_range": [
+     128,
+     175
+    ],
+    "n_range": [
+     128,
+     175
+    ],
+    "m_refl": [
+     1,
+     48
+    ],
+    "n_refl": [
+     1,
+     48
+    ],
+    "pairs_head": [
+     [
+      128,
+      128
+     ],
+     [
+      129,
+      128
+     ],
+     [
+      129,
+      129
+     ],
+     [
+      130,
+      128
+     ],
+     [
+      130,
+      129
+     ],
+     [
+      130,
+      130
+     ],
+     [
+      131,
+      129
+     ],
+     [
+      131,
+      130
+     ],
+     [
+      131,
+      131
+     ],
+     [
+      132,
+      129
+     ],
+     [
+      132,
+      130
+     ],
+     [
+      132,
+      131
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 15,
+   "order": 361,
+   "alpha": 188,
+   "unimodal": true,
+   "lc_breaks": [
+    185,
+    186,
+    187
+   ],
+   "lc_breaks_refl": [
+    1,
+    2,
+    3
+   ],
+   "sync": {
+    "count": 267,
+    "m_range": [
+     134,
+     187
+    ],
+    "n_range": [
+     134,
+     187
+    ],
+    "m_refl": [
+     1,
+     54
+    ],
+    "n_refl": [
+     1,
+     54
+    ],
+    "pairs_head": [
+     [
+      134,
+      134
+     ],
+     [
+      135,
+      134
+     ],
+     [
+      135,
+      135
+     ],
+     [
+      136,
+      135
+     ],
+     [
+      136,
+      136
+     ],
+     [
+      137,
+      135
+     ],
+     [
+      137,
+      136
+     ],
+     [
+      137,
+      137
+     ],
+     [
+      138,
+      135
+     ],
+     [
+      138,
+      136
+     ],
+     [
+      138,
+      137
+     ],
+     [
+      138,
+      138
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 16,
+   "order": 384,
+   "alpha": 200,
+   "unimodal": true,
+   "lc_breaks": [
+    197,
+    198,
+    199
+   ],
+   "lc_breaks_refl": [
+    1,
+    2,
+    3
+   ],
+   "sync": {
+    "count": 324,
+    "m_range": [
+     141,
+     199
+    ],
+    "n_range": [
+     141,
+     199
+    ],
+    "m_refl": [
+     1,
+     59
+    ],
+    "n_refl": [
+     1,
+     59
+    ],
+    "pairs_head": [
+     [
+      141,
+      141
+     ],
+     [
+      142,
+      141
+     ],
+     [
+      142,
+      142
+     ],
+     [
+      143,
+      141
+     ],
+     [
+      143,
+      142
+     ],
+     [
+      143,
+      143
+     ],
+     [
+      144,
+      142
+     ],
+     [
+      144,
+      143
+     ],
+     [
+      144,
+      144
+     ],
+     [
+      145,
+      142
+     ],
+     [
+      145,
+      143
+     ],
+     [
+      145,
+      144
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 17,
+   "order": 407,
+   "alpha": 212,
+   "unimodal": true,
+   "lc_breaks": [
+    209,
+    210,
+    211
+   ],
+   "lc_breaks_refl": [
+    1,
+    2,
+    3
+   ],
+   "sync": {
+    "count": 387,
+    "m_range": [
+     147,
+     211
+    ],
+    "n_range": [
+     147,
+     211
+    ],
+    "m_refl": [
+     1,
+     65
+    ],
+    "n_refl": [
+     1,
+     65
+    ],
+    "pairs_head": [
+     [
+      147,
+      147
+     ],
+     [
+      148,
+      147
+     ],
+     [
+      148,
+      148
+     ],
+     [
+      149,
+      147
+     ],
+     [
+      149,
+      148
+     ],
+     [
+      149,
+      149
+     ],
+     [
+      150,
+      147
+     ],
+     [
+      150,
+      148
+     ],
+     [
+      150,
+      149
+     ],
+     [
+      150,
+      150
+     ],
+     [
+      151,
+      148
+     ],
+     [
+      151,
+      149
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 18,
+   "order": 430,
+   "alpha": 224,
+   "unimodal": true,
+   "lc_breaks": [
+    221,
+    222,
+    223
+   ],
+   "lc_breaks_refl": [
+    1,
+    2,
+    3
+   ],
+   "sync": {
+    "count": 459,
+    "m_range": [
+     153,
+     223
+    ],
+    "n_range": [
+     153,
+     223
+    ],
+    "m_refl": [
+     1,
+     71
+    ],
+    "n_refl": [
+     1,
+     71
+    ],
+    "pairs_head": [
+     [
+      153,
+      153
+     ],
+     [
+      154,
+      153
+     ],
+     [
+      154,
+      154
+     ],
+     [
+      155,
+      153
+     ],
+     [
+      155,
+      154
+     ],
+     [
+      155,
+      155
+     ],
+     [
+      156,
+      153
+     ],
+     [
+      156,
+      154
+     ],
+     [
+      156,
+      155
+     ],
+     [
+      156,
+      156
+     ],
+     [
+      157,
+      154
+     ],
+     [
+      157,
+      155
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 19,
+   "order": 453,
+   "alpha": 236,
+   "unimodal": true,
+   "lc_breaks": [
+    233,
+    234,
+    235
+   ],
+   "lc_breaks_refl": [
+    1,
+    2,
+    3
+   ],
+   "sync": {
+    "count": 535,
+    "m_range": [
+     159,
+     235
+    ],
+    "n_range": [
+     158,
+     235
+    ],
+    "m_refl": [
+     1,
+     77
+    ],
+    "n_refl": [
+     1,
+     78
+    ],
+    "pairs_head": [
+     [
+      159,
+      158
+     ],
+     [
+      159,
+      159
+     ],
+     [
+      160,
+      159
+     ],
+     [
+      160,
+      160
+     ],
+     [
+      161,
+      159
+     ],
+     [
+      161,
+      160
+     ],
+     [
+      161,
+      161
+     ],
+     [
+      162,
+      159
+     ],
+     [
+      162,
+      160
+     ],
+     [
+      162,
+      161
+     ],
+     [
+      162,
+      162
+     ],
+     [
+      163,
+      160
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 20,
+   "order": 476,
+   "alpha": 248,
+   "unimodal": true,
+   "lc_breaks": [
+    245,
+    246,
+    247
+   ],
+   "lc_breaks_refl": [
+    1,
+    2,
+    3
+   ],
+   "sync": {
+    "count": 615,
+    "m_range": [
+     164,
+     247
+    ],
+    "n_range": [
+     164,
+     247
+    ],
+    "m_refl": [
+     1,
+     84
+    ],
+    "n_refl": [
+     1,
+     84
+    ],
+    "pairs_head": [
+     [
+      164,
+      164
+     ],
+     [
+      165,
+      164
+     ],
+     [
+      165,
+      165
+     ],
+     [
+      166,
+      164
+     ],
+     [
+      166,
+      165
+     ],
+     [
+      166,
+      166
+     ],
+     [
+      167,
+      165
+     ],
+     [
+      167,
+      166
+     ],
+     [
+      167,
+      167
+     ],
+     [
+      168,
+      165
+     ],
+     [
+      168,
+      166
+     ],
+     [
+      168,
+      167
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 21,
+   "order": 499,
+   "alpha": 260,
+   "unimodal": true,
+   "lc_breaks": [
+    257,
+    258,
+    259
+   ],
+   "lc_breaks_refl": [
+    1,
+    2,
+    3
+   ],
+   "sync": {
+    "count": 704,
+    "m_range": [
+     170,
+     259
+    ],
+    "n_range": [
+     170,
+     259
+    ],
+    "m_refl": [
+     1,
+     90
+    ],
+    "n_refl": [
+     1,
+     90
+    ],
+    "pairs_head": [
+     [
+      170,
+      170
+     ],
+     [
+      171,
+      170
+     ],
+     [
+      171,
+      171
+     ],
+     [
+      172,
+      170
+     ],
+     [
+      172,
+      171
+     ],
+     [
+      172,
+      172
+     ],
+     [
+      173,
+      171
+     ],
+     [
+      173,
+      172
+     ],
+     [
+      173,
+      173
+     ],
+     [
+      174,
+      171
+     ],
+     [
+      174,
+      172
+     ],
+     [
+      174,
+      173
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 22,
+   "order": 522,
+   "alpha": 272,
+   "unimodal": true,
+   "lc_breaks": [
+    269,
+    270,
+    271
+   ],
+   "lc_breaks_refl": [
+    1,
+    2,
+    3
+   ],
+   "sync": {
+    "count": 792,
+    "m_range": [
+     176,
+     271
+    ],
+    "n_range": [
+     175,
+     271
+    ],
+    "m_refl": [
+     1,
+     96
+    ],
+    "n_refl": [
+     1,
+     97
+    ],
+    "pairs_head": [
+     [
+      176,
+      175
+     ],
+     [
+      176,
+      176
+     ],
+     [
+      177,
+      176
+     ],
+     [
+      177,
+      177
+     ],
+     [
+      178,
+      176
+     ],
+     [
+      178,
+      177
+     ],
+     [
+      178,
+      178
+     ],
+     [
+      179,
+      176
+     ],
+     [
+      179,
+      177
+     ],
+     [
+      179,
+      178
+     ],
+     [
+      179,
+      179
+     ],
+     [
+      180,
+      177
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 23,
+   "order": 545,
+   "alpha": 284,
+   "unimodal": true,
+   "lc_breaks": [
+    281,
+    282,
+    283
+   ],
+   "lc_breaks_refl": [
+    1,
+    2,
+    3
+   ],
+   "sync": {
+    "count": 899,
+    "m_range": [
+     181,
+     283
+    ],
+    "n_range": [
+     181,
+     283
+    ],
+    "m_refl": [
+     1,
+     103
+    ],
+    "n_refl": [
+     1,
+     103
+    ],
+    "pairs_head": [
+     [
+      181,
+      181
+     ],
+     [
+      182,
+      181
+     ],
+     [
+      182,
+      182
+     ],
+     [
+      183,
+      181
+     ],
+     [
+      183,
+      182
+     ],
+     [
+      183,
+      183
+     ],
+     [
+      184,
+      182
+     ],
+     [
+      184,
+      183
+     ],
+     [
+      184,
+      184
+     ],
+     [
+      185,
+      182
+     ],
+     [
+      185,
+      183
+     ],
+     [
+      185,
+      184
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  },
+  {
+   "family": "T17_S25_2",
+   "m": 24,
+   "order": 568,
+   "alpha": 296,
+   "unimodal": true,
+   "lc_breaks": [
+    293,
+    294,
+    295
+   ],
+   "lc_breaks_refl": [
+    1,
+    2,
+    3
+   ],
+   "sync": {
+    "count": 1009,
+    "m_range": [
+     186,
+     295
+    ],
+    "n_range": [
+     186,
+     295
+    ],
+    "m_refl": [
+     1,
+     110
+    ],
+    "n_refl": [
+     1,
+     110
+    ],
+    "pairs_head": [
+     [
+      186,
+      186
+     ],
+     [
+      187,
+      186
+     ],
+     [
+      187,
+      187
+     ],
+     [
+      188,
+      187
+     ],
+     [
+      188,
+      188
+     ],
+     [
+      189,
+      187
+     ],
+     [
+      189,
+      188
+     ],
+     [
+      189,
+      189
+     ],
+     [
+      190,
+      187
+     ],
+     [
+      190,
+      188
+     ],
+     [
+      190,
+      189
+     ],
+     [
+      190,
+      190
+     ]
+    ]
+   },
+   "closed_form_ok": true
+  }
+ ]
+}

@@ -1,0 +1,115 @@
+{
+  "claim_scope": "Exact counterexamples to two sufficient-condition proof routes for two-hub trees; not counterexamples to log-concavity, unimodality, or Erdos Problem 993.",
+  "adjacent_double_star_decomposition": {
+    "tree": "double star with three leaves at each hub",
+    "order": 8,
+    "A=(1+x)^6": [
+      1,
+      6,
+      15,
+      20,
+      15,
+      6,
+      1
+    ],
+    "D=2x(1+x)^3": [
+      0,
+      2,
+      6,
+      6,
+      2
+    ],
+    "I=A+D": [
+      1,
+      8,
+      21,
+      26,
+      17,
+      6,
+      1
+    ],
+    "A_D_synchronization_failures": [
+      {
+        "relation": "left <= x*right",
+        "witness": {
+          "type": "ratio",
+          "k": 5,
+          "lhs": 36,
+          "rhs": 30
+        }
+      }
+    ],
+    "A_D_partial_synchronization_failure": {
+      "lower": 5,
+      "upper": 5,
+      "lhs": 2,
+      "rhs": 0
+    },
+    "I_log_concavity_gaps": [
+      43,
+      233,
+      319,
+      133,
+      19
+    ],
+    "I_log_concave": true,
+    "I_unimodal": true
+  },
+  "subdivision_contraction_decomposition": {
+    "tree": "double star with two leaves at each hub",
+    "order": 6,
+    "subdivided_edge": [
+      0,
+      1
+    ],
+    "I(T)": [
+      1,
+      6,
+      10,
+      6,
+      1
+    ],
+    "I(T/e)": [
+      1,
+      5,
+      6,
+      4,
+      1
+    ],
+    "xI(T/e)": [
+      0,
+      1,
+      5,
+      6,
+      4,
+      1
+    ],
+    "I(T_e)": [
+      1,
+      7,
+      15,
+      12,
+      5,
+      1
+    ],
+    "identity_verified": true,
+    "summand_synchronization_failures": [
+      {
+        "relation": "right <= x*left",
+        "witness": {
+          "type": "ratio",
+          "k": 4,
+          "lhs": 40,
+          "rhs": 36
+        }
+      }
+    ],
+    "I(T_e)_log_concavity_gaps": [
+      34,
+      141,
+      69,
+      13
+    ],
+    "all_three_polynomials_log_concave_and_unimodal": true
+  }
+}

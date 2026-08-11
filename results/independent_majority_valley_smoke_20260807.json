@@ -1,0 +1,166 @@
+{
+  "claim_scope": "exact adversarial computation; evidence only",
+  "statement_tested": "If N is independent, |N|=m, |V\\N|=p, and m>=2p+2, then I_G is unimodal; log-concavity was also tested.",
+  "seed": 993,
+  "random_trials_requested": 30,
+  "hill_restarts_requested": 2,
+  "hill_steps_requested": 20,
+  "hill_objective": "valley",
+  "cases_completed": 70,
+  "first_lc_failure": null,
+  "first_unimodality_failure": null,
+  "worst_lc_case": {
+    "trial": 11,
+    "source": "structured-random:random:blocks",
+    "p": 5,
+    "m": 16,
+    "p_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "n_neighborhood_masks": [
+      3,
+      6,
+      12,
+      24,
+      17,
+      3,
+      6,
+      12,
+      24,
+      17,
+      3,
+      6,
+      12,
+      24,
+      17,
+      3
+    ],
+    "polynomial": [
+      1,
+      21,
+      172,
+      791,
+      2411,
+      5344,
+      9102,
+      12286,
+      13317,
+      11595,
+      8040,
+      4371,
+      1820,
+      560,
+      120,
+      16,
+      1
+    ],
+    "unimodal": true,
+    "first_valley": null,
+    "worst_lc_minor": {
+      "k": 8,
+      "lhs": 177342489,
+      "rhs": 142456170
+    },
+    "worst_lc_ratio": 0.803282793668245
+  },
+  "worst_rebound_case": {
+    "trial": 4,
+    "source": "structured-random:complete:blocks",
+    "p": 4,
+    "m": 13,
+    "p_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "n_neighborhood_masks": [
+      3,
+      6,
+      12,
+      9,
+      3,
+      6,
+      12,
+      9,
+      3,
+      6,
+      12,
+      9,
+      3
+    ],
+    "polynomial": [
+      1,
+      17,
+      104,
+      358,
+      825,
+      1387,
+      1770,
+      1732,
+      1289,
+      715,
+      286,
+      78,
+      13,
+      1
+    ],
+    "unimodal": true,
+    "first_valley": null,
+    "worst_lc_minor": {
+      "k": 6,
+      "lhs": 3132900,
+      "rhs": 2402284
+    },
+    "worst_lc_ratio": 0.7667924287401449,
+    "rebound_minor": {
+      "valley_k": 7,
+      "later_max": 1289,
+      "valley_value": 1732,
+      "ratio": 0.7442263279445728
+    }
+  }
+}

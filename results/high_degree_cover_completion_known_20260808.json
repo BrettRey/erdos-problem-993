@@ -1,0 +1,840 @@
+{
+  "claim_scope": "exact finite computation; evidence only",
+  "statement_tested": "Completing a minimum-cost vertex cover to minimum degree four repairs the selected known non-log-concave tree instances.",
+  "threshold": 4,
+  "known_failures": {
+    "instances": 21,
+    "original_lc_failures": 21,
+    "completed_lc_failures": 0,
+    "completed_unimodality_failures": 0,
+    "worst_completed_case": {
+      "label": "known_n28_lc_failure_17",
+      "params": {
+        "n": 28,
+        "rank": 17
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "cover_size": 13,
+      "leaves_added": 25,
+      "completed_order": 53,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 22,
+        "lhs": 47587158335864800862784,
+        "rhs": 43264239515495512322688
+      },
+      "worst_ratio": 0.9091578700737158
+    }
+  },
+  "family_parameter_bounds": null,
+  "family_failures": null,
+  "known_records": [
+    {
+      "label": "known_n26_lc_failure_1",
+      "params": {
+        "n": 26,
+        "rank": 1
+      },
+      "original_order": 26,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        23,
+        24,
+        25
+      ],
+      "cover_size": 14,
+      "leaves_added": 22,
+      "completed_order": 48,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 21,
+        "lhs": 104079155036867225856,
+        "rhs": 93504344237756451255
+      },
+      "worst_ratio": 0.898396458009628
+    },
+    {
+      "label": "known_n26_lc_failure_2",
+      "params": {
+        "n": 26,
+        "rank": 2
+      },
+      "original_order": 26,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        23,
+        24,
+        25
+      ],
+      "cover_size": 14,
+      "leaves_added": 22,
+      "completed_order": 48,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 20,
+        "lhs": 211602093686206836804,
+        "rhs": 190115627399208273631
+      },
+      "worst_ratio": 0.89845815836368
+    },
+    {
+      "label": "known_n28_lc_failure_1",
+      "params": {
+        "n": 28,
+        "rank": 1
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 22,
+        "lhs": 11190826183571958836025,
+        "rhs": 10134263565717431567688
+      },
+      "worst_ratio": 0.9055867189318378
+    },
+    {
+      "label": "known_n28_lc_failure_2",
+      "params": {
+        "n": 28,
+        "rank": 2
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 22,
+        "lhs": 10927376953703227143025,
+        "rhs": 9896850831103077078016
+      },
+      "worst_ratio": 0.9056931844699555
+    },
+    {
+      "label": "known_n28_lc_failure_3",
+      "params": {
+        "n": 28,
+        "rank": 3
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 22,
+        "lhs": 11235196208107767988521,
+        "rhs": 10174351621250228933319
+      },
+      "worst_ratio": 0.9055784547766071
+    },
+    {
+      "label": "known_n28_lc_failure_4",
+      "params": {
+        "n": 28,
+        "rank": 4
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 22,
+        "lhs": 10929712994282852582400,
+        "rhs": 9898966711521620439576
+      },
+      "worst_ratio": 0.9056931976804516
+    },
+    {
+      "label": "known_n28_lc_failure_5",
+      "params": {
+        "n": 28,
+        "rank": 5
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        24,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 21,
+        "lhs": 14432909115680842335844,
+        "rhs": 13000883078028643854668
+      },
+      "worst_ratio": 0.9007804991928929
+    },
+    {
+      "label": "known_n28_lc_failure_6",
+      "params": {
+        "n": 28,
+        "rank": 6
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        24,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 21,
+        "lhs": 13679062319861020592041,
+        "rhs": 12296845460597127336030
+      },
+      "worst_ratio": 0.8989538298062277
+    },
+    {
+      "label": "known_n28_lc_failure_7",
+      "params": {
+        "n": 28,
+        "rank": 7
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "cover_size": 13,
+      "leaves_added": 25,
+      "completed_order": 53,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 22,
+        "lhs": 48361084303622752502500,
+        "rhs": 43967269200546298892104
+      },
+      "worst_ratio": 0.9091456453810878
+    },
+    {
+      "label": "known_n28_lc_failure_8",
+      "params": {
+        "n": 28,
+        "rank": 8
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        24,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 21,
+        "lhs": 14455374979635610151481,
+        "rhs": 13020789999950923214445
+      },
+      "worst_ratio": 0.9007576779083423
+    },
+    {
+      "label": "known_n28_lc_failure_9",
+      "params": {
+        "n": 28,
+        "rank": 9
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        24,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 23,
+      "completed_order": 51,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 21,
+        "lhs": 3785865442445189712400,
+        "rhs": 3400408061351300142780
+      },
+      "worst_ratio": 0.8981851344286201
+    },
+    {
+      "label": "known_n28_lc_failure_10",
+      "params": {
+        "n": 28,
+        "rank": 10
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 22,
+        "lhs": 10971095372150744439361,
+        "rhs": 9936353692010753967892
+      },
+      "worst_ratio": 0.9056847429504077
+    },
+    {
+      "label": "known_n28_lc_failure_11",
+      "params": {
+        "n": 28,
+        "rank": 11
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        24,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 23,
+      "completed_order": 51,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 22,
+        "lhs": 2363660519618915448100,
+        "rhs": 2131875703432054349200
+      },
+      "worst_ratio": 0.901938195327546
+    },
+    {
+      "label": "known_n28_lc_failure_12",
+      "params": {
+        "n": 28,
+        "rank": 12
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "cover_size": 13,
+      "leaves_added": 25,
+      "completed_order": 53,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 22,
+        "lhs": 48342048739714592872164,
+        "rhs": 43949959199686687833435
+      },
+      "worst_ratio": 0.9091455646889112
+    },
+    {
+      "label": "known_n28_lc_failure_13",
+      "params": {
+        "n": 28,
+        "rank": 13
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 21,
+        "lhs": 10457824834487159004736,
+        "rhs": 9373215372195390047849
+      },
+      "worst_ratio": 0.8962872796726321
+    },
+    {
+      "label": "known_n28_lc_failure_14",
+      "params": {
+        "n": 28,
+        "rank": 14
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 22,
+        "lhs": 10665278253751567743025,
+        "rhs": 9660595297404932343606
+      },
+      "worst_ratio": 0.9057987112531984
+    },
+    {
+      "label": "known_n28_lc_failure_15",
+      "params": {
+        "n": 28,
+        "rank": 15
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        24,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 21,
+        "lhs": 14817132172284244011225,
+        "rhs": 13344470256784211389830
+      },
+      "worst_ratio": 0.900610867313806
+    },
+    {
+      "label": "known_n28_lc_failure_16",
+      "params": {
+        "n": 28,
+        "rank": 16
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        24,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 21,
+        "lhs": 13251068395232780072601,
+        "rhs": 11915017192877627744206
+      },
+      "worst_ratio": 0.8991740769494623
+    },
+    {
+      "label": "known_n28_lc_failure_17",
+      "params": {
+        "n": 28,
+        "rank": 17
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "cover_size": 13,
+      "leaves_added": 25,
+      "completed_order": 53,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 22,
+        "lhs": 47587158335864800862784,
+        "rhs": 43264239515495512322688
+      },
+      "worst_ratio": 0.9091578700737158
+    },
+    {
+      "label": "known_n28_lc_failure_18",
+      "params": {
+        "n": 28,
+        "rank": 18
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "cover_size": 13,
+      "leaves_added": 25,
+      "completed_order": 53,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 23,
+        "lhs": 25340798779461580126464,
+        "rhs": 23038210658741379571320
+      },
+      "worst_ratio": 0.9091351404997374
+    },
+    {
+      "label": "known_n28_lc_failure_19",
+      "params": {
+        "n": 28,
+        "rank": 19
+      },
+      "original_order": 28,
+      "original_log_concave": false,
+      "original_unimodal": true,
+      "cover": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        24,
+        25,
+        26,
+        27
+      ],
+      "cover_size": 15,
+      "leaves_added": 24,
+      "completed_order": 52,
+      "completed_log_concave": true,
+      "completed_unimodal": true,
+      "worst_minor": {
+        "k": 21,
+        "lhs": 16179093964827119883844,
+        "rhs": 14564908166526414147104
+      },
+      "worst_ratio": 0.9002301487456653
+    }
+  ],
+  "family_records": []
+}
