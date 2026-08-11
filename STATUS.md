@@ -96,6 +96,36 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## 2026-08-11 (later): Absorption-margin kill-test passed; literature swept clean
+
+Follow-up on the partial-sync result, at Brett's direction, dispatched to
+Sonnet subagents with agy cross-checks. Three outcomes.
+
+- **Absorption-margin probe (kill-test evidence, replay-verified).** Across
+  the three m-direction families plus Bautista-Ramos's alternating-break
+  family `TG_{m,t}` (arXiv:2511.00334; builder validated against the paper's
+  exact break sets for `TG_{4,6}` and `TG_{5,6}`), 9,961 diagonal-deficit
+  indices were examined in exact arithmetic. The absorption factor
+  `rho = (Turan(A)+Turan(B))/(-S)` never falls below ~3.37, its closest
+  approaches to 1 sit at the *smallest* parameters, and per relative-depth
+  band it grows by orders of magnitude as the parameter grows. Growing the
+  parameter within these four families is dead as a route to a valley; the
+  lane flips to the proof side. `notes/absorption_margin_probe_2026-08-11.md`,
+  `scripts/probe_absorption_margin_20260811.py`,
+  `results/absorption_margin_probe_20260811.json`.
+- **2511.00334 read twice (main session + agy Sonnet 4.6), fetched to
+  `notes/literature/arxiv_2511_00334.txt`.** Breaks at alternating reflected
+  offsets within `2(m-1)` of the head, `alpha = 3(t+1)m + 1`; the paper
+  itself says breaks occur "near the leading coefficient". No construction
+  below the Levit-Mandrescu threshold, so the prefix-LC target (Li 2026's
+  proof shape, Route 2's formalization) survives the paper most likely to
+  kill it.
+- **Literature triage since the 2026-07-16 intake:** nothing new touches
+  tree unimodality. One intake: Du-Heilman-Panova (arXiv:2605.02193,
+  dominating-set sequences via modified PatternBoost) — flagged only for a
+  transferable implementation detail (reward index tied to first nonzero
+  index rather than fixed n/2). `notes/literature/literature_triage_2026-08-11.md`.
+
 ## 2026-08-11: Partial-sync failure geometry mapped on the pattern-graph families
 
 Brett supplied three externally produced artifacts (note, script, JSON)

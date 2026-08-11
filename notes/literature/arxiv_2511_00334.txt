@@ -1,0 +1,316 @@
+                                                   MULTIPLE BREAKS OF LOG-CONCAVITY IN THE
+                                                     INDEPENDENCE POLYNOMIALS OF TREES
+
+
+                                                                          CÉSAR BAUTISTA-RAMOS
+
+
+
+
+arXiv:2511.00334v1 [math.CO] 1 Nov 2025
+                                                   Abstract. We construct infinite families of trees whose independence poly-
+                                                   nomials violate log-concavity at an arbitrary number of indices. This affirma-
+                                                   tively answers a question of D. Galvin.
+
+
+
+
+                                                                               1. Introduction
+                                              The conjecture that independence polynomials of trees are unimodal [1] was later
+                                          strengthened to the more tractable conjecture that they are log-concave [9]. Several
+                                          authors have since disproven this [7, 6, 4, 10]. At the time of this writing, all known
+                                          counterexamples in the literature exhibited only a single break in log-concavity.
+                                          This observation led Galvin [4] to ask whether multiple breaks are possible.
+                                              In this note, we answer that question affirmatively. We construct infinite fam-
+                                          ilies of trees whose independence polynomials break log-concavity at an arbitrary
+                                          number of indices (Theorem 1).
+
+                                                                       2. Definitions and Results
+                                             We use standard definitions, notations, and concepts from the literature con-
+                                          cerning independent sets in simple graphs and the log-concavity of sequences (see,
+                                          for instance, [7, 4]). In particular, if G is a graph and v is a vertex of G, we use
+                                          N [v] to denote the closed neighborhood of v, while G \ v and G \ N [v] denote
+                                          the corresponding graphs with those vertices deleted. We denote the independence
+                                          polynomial of a graph G in the indeterminate x by I(G). The degree of I(G) is
+                                          the independence number of the graph, denoted α(G). We also use the standard
+                                          recursive formulas for computing the independence polynomial [2, 5]. For a simple
+                                          graph G and a vertex v of G,
+                                                                      I(G) = I(G \ v) + x I(G \ N [v]).                             (1)
+                                          If G is the disjoint union of graphs G1 and G2 , then
+                                                                              I(G) = I(G1 )I(G2 ).                                  (2)
+                                             In the following, we define the trees T Gm,t that exhibit as many as m violations
+                                          of the log-concavity of their independence polynomials.
+                                          Definition 1. Let m and t be two nonnegative integers.
+                                           (i) Let Pm denote the path graph on m vertices.
+
+                                             2020 Mathematics Subject Classification. Primary 05C05, 05C31, 05A15, 30C15; Secondary
+                                          05C76, 11B83.
+                                             Key words and phrases. Tree graph, Log-concave sequence, Independence polynomial, Broken
+                                          log-concavity.
+                                                                                         1
+2                               CÉSAR BAUTISTA-RAMOS
+
+
+ (ii) Let S2,m denote the starlike graph with a root w to which m copies of P2 are
+      attached.
+(iii) The tree Tm,t is defined as the tree with a root v that has m children, and each
+      child has t pendant P2 paths.
+(iv) The tree T Gm,t is obtained by taking m disjoint copies of T3,t , joining the root
+      v of each copy to a new root v0 , and adding one additional child to v0 that
+      has no further descendants.
+   The trees Tm,t and S2,t were first defined by Galvin [4] in order to prove a con-
+jecture of Kadrawi and Levit [6]. Fig. 1 shows the tree T G2,5 , whose independence
+polynomial is non-log-concave, with violations at two indices. In what follows, we
+explain why.
+
+                                            v0
+
+
+
+                v                                                      v
+
+
+
+
+        Figure 1. The tree T G2,5 , whose independence polynomial has
+        degree 37 and breaks log-concavity at indices 34 and 36. For
+        T Gm,t , the parameter m equals the number of log-concavity vi-
+        olations for sufficiently large t.
+
+   The equations I(P1 ) = 1 + x, I(P2 ) = 1 + 2x, together with (1) and (2), yield
+the following.
+Lemma 1. Let m and t be two nonnegative integers. Then,
+                I(S2,t ) = I(P2 )t + xI(P1 )t ,               m
+                                                  I(Tm,t ) = S2,t + xP2mt           (3)
+and α(S2,t ) = t + 1, α(Tm,t ) = m(t + 1).
+   The trees in [7, 6, 10] have independence polynomials whose log-concavity is
+broken near the leading coefficient. A similar phenomenon occurs for our trees
+T Gm,t . To expose the relevant coefficients, it is convenient to consider the reflected
+independence polynomials.
+Definition 2. Let p ∈ Z[x] be a polynomial. The reflected polynomial of p, denoted
+by Rp, is defined as
+                                Rp(x) = xn p(1/x),
+where n = deg p.
+   BREAKS OF LOG-CONCAVITY IN THE INDEPENDENCE POLYNOMIALS OF TREES                      3
+
+
+   From the definition, it follows that the reflection operator R is multiplicative:
+for any polynomials p, q ∈ Z[x], we have
+                                   R(pq) = (Rp)(Rq).
+Additionally, R satisfies an additive property under certain conditions: If deg(p +
+q) = deg p, then
+                           R(p + q) = Rp + xdeg p−deg q Rq.
+   Applying (1) to the root vertex v0 of T Gm,t yields
+                       I(T Gm,t ) = I(P1 )I(T3,t )m + xI(S2,t )3m ,                   (4)
+which implies, together with Lemma 1, that α(T Gm,t ) = 3(t + 1)m + 1. We now
+define the coefficients of the reflected independence polynomial of T Gm,t .
+Definition 3. Let ck (m, t) ∈ Z be such that
+                                         X∞
+                           RI(T Gm,t ) =     ck (m, t)xk .
+                                              k=0
+
+   We can compute the first few coefficients ck (m, t) as follows. After applying the
+reflection operator to both sides of (4) and using its additive and multiplicative
+properties together with Lemma 1, we obtain
+                    RI(T Gm,t ) = (x + 1)RI(T3,t )m + RI(S2,t )3m .                   (5)
+Furthermore, from Lemma 1, we use the equations
+       RI(T3,t ) = RI(S2,t )3 + x2 (x + 2)3t ,   RI(S2,t ) = (x + 1)t + x(x + 2)t ,   (6)
+                           t              t
+where we expand (x + 2) and (x + 1) using the binomial theorem. However, we
+are only interested in the highest-order terms. To this end, we use the exact-order
+Θ asymptotic notation [3, p. 87], [8, p. 110].
+Definition 4. Let A = (ak (t))∞                     ∞
+                                k=0 and B = (bk (t))k=0 be sequences where each term
+is an eventually nonnegative function of the positive integer variable t. Let SA (x)
+and SB (x) be their respective generating functions with indeterminate x, and let m
+be a fixed positive integer. We write SA (x) ≍ SB (x) (mod xm ) if ak (t) ∈ Θ(bk (t))
+for all 0 ≤ k ≤ m − 1.
+   The relation ≍ is an equivalence relation because this property is inherited from
+the exact-order relation Θ. Furthermore, ≍ is consistent with the sum and product
+of generating functions in the following sense.
+Proposition 1. Let m be a fixed positive integer. Let A, B, C, D be four sequences
+of eventually nonnegative functions of the positive integer variable t. If
+                   SA (x) ≍ SC (x) and SB (x) ≍ SD (x)      (mod xm )
+then
+  SA (x) + SB (x) ≍ SC (x) + SD (x) and SA (x)SB (x) ≍ SC (x)SD (x)         (mod xm ).
+   The proof of this proposition is elementary, so we omit it. This proposition is
+used frequently in the proof of the following lemma.
+Lemma 2. Let m be a fixed positive integer and let t be a positive integer variable.
+Then:
+ (i) (2 + x)t ≍ 2t (1 + x)t (mod xm ).
+4                                     CÉSAR BAUTISTA-RAMOS
+
+
+  (ii) (2 + x)t (1 + x) ≍ (2 + x)t (mod xm ).
+ (iii) (1 + 2t x)m (1 + x) ≍ (1 + 2t x)m (mod xm+1 ).
+  (iv) RI(S2,t ) ≍ 1 + 2t x(1 + x)t (mod xm ).
+   (v) RI(S2,t )3 ≍ (1 + 2t x)2 + x3 (2 + x)3t (mod xm ).
+  (vi) RI(T3,t ) ≍ (1 + 2t x)2 + x2 (2 + x)3t (mod xm ).
+                             P∞
+ (vii) RI(T3,t )m (x +P1) ≍ k=0 2(k+⌊k/2⌋)t (mod x2m+1 ).
+                         ∞
+(viii) RI(S2,t )3m ≍ k=0 2kt xk (mod x2m+1 ).
+Proof. (i) From the binomial theorem and using that kt ∈ Θ(tk ) for 0 ≤ k ≤
+                                                           
+
+      m − 1, the result follows.
+ (ii) Using (i) and (1 + x)t+1 ≍ (1 + x)t (mod xm ), we obtain the result.
+(iii) From the binomial theorem,
+                                           m
+                                           X                m
+                                                            X
+                (1 + 2t x)m (1 + x) ≍            2jt xj +         2jt xj+1
+                                           j=0              j=0
+                                                 m
+                                                 X
+                                        ≍1+            (2jt + 2(j−1)t )xj + 2mt xm+1
+                                                 j=1
+
+                                        ≍ (1 + 2t x)m          (mod xm+1 ).
+ (iv) From (6) and (i) we obtain:
+                                                   ∞
+                                                   X                 ∞
+                                                                     X
+           RI(S2,t ) ≍ (1 + x)t (1 + 2t x) ≍              t k xk +         2t tk xk+1
+                                                   k=0               k=0
+                              ∞
+                              X
+                     ≍1+            (tk + 2t tk−1 )xk ≍ 1 + 2t x(1 + x)t            (mod xm ).
+                              k=1
+
+    (v) From (iv), the binomial theorem, and (i), we obtain:
+        RI(S2,t )3 ≍ 1 + x2t (1 + x)t + x2 22t (1 + x)2t + x3 23t (1 + x)3t
+                            ∞
+                            X                    ∞
+                                                 X                     ∞
+                                                                       X
+                   ≍1+            2t tk xk+1 +         22t tk xk+2 +         23t tk xk+3
+                            k=0                  k=0                   k=0
+                                                         ∞
+                                                         X
+                   ≍ 1 + 2t x + (t2t + 22t )x2 +               (2t tk−1 + 22t tk−2 + 23t tk−3 )xk
+                                                         k=3
+                   ≍ (1 + 2t x)2 + x3 (2 + x)3t           (mod xm ).
+ (vi) From (6), (v), and (ii), we obtain:
+                   RI(T3,t ) ≍ (1 + 2t x)2 + x3 (2 + x)3t + x2 (2 + x)3t
+                              ≍ (1 + 2t x)2 + x2 (2 + x)3t (1 + x)
+                              ≍ (1 + 2t x)2 + x2 (2 + x)3t             (mod x2m+1 ),
+      where we work modulo x2m+1 in preparation for the proof of (vii).
+(vii) By (vi) and the binomial theorem, we obtain
+               RI(T3,t )m (1 + x) ≍ (1 + 2t x)2m (1 + x)+
+                   m
+                   X
+                         (1 + 2t x)2(m−j) x2j (x + 2)3jt (1 + x)             (mod x2m+1 ).
+                   j=1
+    BREAKS OF LOG-CONCAVITY IN THE INDEPENDENCE POLYNOMIALS OF TREES                          5
+
+
+      From (iii) and (ii), we know that the factor 1 + x can be ignored. Thus, using
+      (i), we can write
+                                          m
+                                          X
+                RI(T3,t )m (1 + x) ≍        (1 + 2t x)2(m−j) x2j (2 + x)3jt
+                                          j=0
+                                            ∞
+                                                           !
+                                            X
+                                                     k k
+                                      ≍             t x        Q     (mod x2m+1 ),
+                                            k=0
+
+
+
+      where
+                                    m 2(m−j)
+                                    X   X
+                            Q=                       2(3j+k)t x2j+k .
+                                    j=0    k=0
+      In order to find the exact order of the coefficients of Q, we make the change
+      of variables
+                                     ℓ = 2j + k.                                (7)
+      We must determine the coefficients of each monomial xℓ . Observe that ℓ + j =
+      3j + k, and that the largest integer solution j in (7) occurs when j is the
+      quotient of the integer division of ℓ by 2 and k is its remainder, i.e., when
+      j = ⌊ℓ/2⌋. Consequently,
+                             2m
+                             X
+                       Q≍           2(ℓ+⌊ℓ/2⌋)t xℓ         (mod x2m+1 ).
+                              ℓ=0
+
+        Hence, we have
+                                           ∞                    ∞
+                                                          !                           !
+                                           X                    X
+                        m                           k k                (k+⌊k/2⌋)t k
+               RI(T3,t ) (1 + x) ≍                  t x               2           x
+                                           k=0                  k=0
+                                          ∞ X
+                                          X k
+                                     ≍               tk−j 2(j+⌊j/2⌋)t xk
+                                          k=0 j=0
+                                          X∞
+                                               (k+⌊k/2⌋)t k
+                                     ≍          2               x         (mod x2m+1 ).
+                                          k=0
+
+(viii) From (v) and proceeding similarly to (vii), we obtain
+                          ∞ X
+                          X m                                  ∞
+                                                               X
+          RI(S2,t )3m ≍             2(3j+k)t x3j+k ≍                 2kt xk   (mod x2m+1 ).
+                          k=0 j=0                              k=0
+
+                                                                                              □
+
+Lemma 3. Let m be a fixed positive integer and let t be a positive integer variable.
+Then:
+                             X∞
+              RI(T Gm,t ) ≍       2(k+⌊k/2⌋)t xk (mod x2m+1 )
+                                     k=0
+
+Proof. Lemma 2(vii), Lemma 2(viii), (5), and Proposition 1 yield the result.                  □
+
+   This analysis reveals how the log-concavity of I(T Gm,t ) is broken multiple times.
+6                                 CÉSAR BAUTISTA-RAMOS
+
+
+Theorem 1. For each positive integer m and for every sufficiently large integer t,
+the log-concavity of the independence polynomial of the tree T Gm,t is broken at m
+indices.
+Proof. Let 0 ≤ k ≤ 2(m − 1). According to Lemma 3, ck (m, t) ∈ Θ(2uk t ), where
+uk = k + ⌊k/2⌋. Let us assume that k is even and write k = 2j. Then, uk = 3j,
+uk+1 = 3j + 1, uk+2 = 3(j + 1), and
+             ck (m, t)ck+2 (m, t) ∈ Θ(2(6j+3)t ),     c2k+1 (m, t) ∈ Θ(2(6j+2)t ),
+which implies
+                     ck (m, t)ck+2 (m, t) − c2k+1 (m, t) ∈ Θ(2(6j+3)t ).
+                                                                                             □
+   For example, straightforward calculations using (4) and (3) show that the graphs
+T G4,6 and T G5,6 break log-concavity exactly at indices 84, 82, 80, 78 and 105, 103,
+101, 99, 97, respectively.
+
+                                        References
+ 1. Y. Alavi, P. J. Malde, A. J. Schwenk, and P. Erdös, The vertex independence sequence of a
+    graph is not constrained, Congr. Numer. 58 (1987), 15–23.
+ 2. J. L. Arocha, Propiedades del polinomio independiente de un grafo, Rev. Cienc. Mat. V
+    (1984), 103–110.
+ 3. G. Brassard and P. Bratley, Fundamentals of algorithmics, Prentice-Hall, Inc., 1996.
+ 4. D. Galvin, Trees with non log-concave independent set sequences, arXiv preprint 2502.10654v1
+    (2025).
+ 5. I. Gutman and F. Harary, Generalizations of the matching polynomial, Util. Math. 24 (1983),
+    no. 1, 97–106.
+ 6. O. Kadrawi and V. E. Levit, The independence polynomial of trees is not always log-concave
+    starting from order 26, arXiv preprint arXiv:2305.01784 (2023).
+ 7. O. Kadrawi, V. E. Levit, R. Yosef, and M. Mizrachi, On computing of independence polyno-
+    mials of trees, Recent Research in Polynomials (Faruk Özger, ed.), IntechOpen, 2023.
+ 8. D. E. Knuth, The art of computer programming: Fundamental algorithms, volume 1, Addison-
+    Wesley, 1997.
+ 9. V. E. Levit and E Mandrescu, Very well-covered graphs with log-concave independence poly-
+    nomials, Carpathian J. Math. (2004), 73–80.
+10. E. Ramos and S. Sun, An AI enhanced approach to the tree unimodality conjecture, arXiv
+    preprint arXiv:2510.18826 (2025).
+   Email address: cesar.bautista@correo.buap.mx
+
+   Facultad de Ciencias de la Computación, Benemérita Universidad Autónoma de Pue-
+bla, 14 sur y Avenida San Claudio, CC03-304, Ciudad Universitaria, Puebla, 72570,
+Puebla, Mexico
+
