@@ -96,6 +96,25 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## 2026-08-12 (later): Atlas truncation killed at the bottom level
+
+The survey's reopening trigger ran and fired negative, decisively. The
+atlas's direct verification burden sits at sink vertices carrying the
+bordered compatible-extensions matrix `A(empty,1)`; the required
+one-positive-eigenvalue property is, by the paper's own Lemma 4.6
+proof, bottom-level transitivity of the conflict relation — i.e., the
+matroid exchange property itself. For graphs the conflict relation is
+adjacency: exact computation (matroid controls pass with exactly one
+positive eigenvalue) shows **every tree on 3..9 vertices fails
+(93/93)**, with (Hyp) coinciding exactly with cluster conflict graphs,
+and with paths failing worse (3 positive eigenvalues) than claws or
+spiders (2) — the failure anticorrelates with the LC pathology and
+lives in a vertex contained in the atlas of every certifying index, so
+index truncation removes nothing. Lane closed; a graph-side atlas
+would need a replacement bottom-level theory, not a modification.
+`verify_atlas_bottom_level_20260812.py` (13 s, exit 0),
+`notes/atlas_truncation_killtest_2026-08-12.md`.
+
 ## 2026-08-12: Outward survey, Karlin toolkit, LAW-V packet frozen
 
 Morning session, three deliverables. (1) **Prefix-certification survey**
