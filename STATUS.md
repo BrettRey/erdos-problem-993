@@ -96,6 +96,51 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## 2026-08-11 (evening): C2 base facts reduced to three single-index laws
+
+Token-burn session at Brett's direction, main-session Fable work. Four
+results, recorded in `notes/c2_single_index_laws_2026-08-11.md` with verifier
+`verify_c2_single_index_laws_20260811.py` and head certificates
+`scripts/bottleneck_head_certificates_20260811.py`.
+
+- **Fact 2 of the c2 base facts is now a citation.** C is a spider
+  polynomial, and Li-Li-Yang-Zhang (arXiv:2501.04245) prove all spiders
+  strongly log-concave (verified against the on-disk source).
+- **Assembly lemma (proved).** C log-concave + `V_n >= 0` + `U_m >= 0` give
+  the `(C,B)` partial-sync inequality at every `(m,n)`, and with `W` the
+  `(xC,B)` one off the diagonal strip. So both open sync facts reduce to
+  three SINGLE-INDEX forms plus a head strip.
+- **Three laws, adversarially rigid:** V >= 0 always; W >= 0 always; U < 0
+  only at reflected depth <= 3. Zero violations over 8,166 exact instances
+  (structured to weight 24 + large shapes, random to weight 200,
+  hill-climbing plateaus at ~3.5% margin). Bottleneck family clean to
+  h = 80 including U.
+- **Bottleneck head certificates (proved).** Reflected coefficients of B, C
+  are explicit polynomials in h; Turan gaps of B (depths 1..7) and all head
+  sync margins (depths <= 4) are positive for all in-range h by exact Sturm
+  root isolation. The `h+2` margin of the c2 note reproduces exactly.
+- **Bilinear localization:** U, V, W split over six generator pairs; the
+  laws hold by aggregate cancellation (termwise positivity fails), and the
+  table names the cross terms a proof must dominate.
+
+Open after this: prove LAW-V and LAW-W (single-index, all arm pairs), the
+depth<=3 head strip per family, and B's log-concavity.
+
+**Universal kill-test landed (same evening): no violation.** The sonnet
+sweep plus a main-session replay (16,531 and 16,525 pairs; identical
+verdicts and minima) found zero violations of the three open base facts at
+pendant weights 25 to 6,002 — structured grids, random search, and
+hill-climbing. Every one of the tightest 20 pairs is `(1,1) x (m,m)` at
+the largest sampled m; the global minimum margin is the top-corner
+`xC ~_p B` inequality at `(1,1) x (2921,2921)`, exactly `h + 2 = 1462`,
+i.e. the closed form the c2 note proved, reconfirmed out to `h = 1460`.
+One new structural fact: B's own log-concavity minimum sits at an INTERIOR
+index (`k = 1269` of degree 3003 at `(1,1) x (3000,3000)`, ~0.0017), so
+the B-LC lane needs a body argument, not only head certificates.
+`notes/c2_universal_killtest_2026-08-11.md`,
+`results/c2_universal_killtest_20260811.json`,
+`scripts/killtest_c2_universal_20260811.py`.
+
 ## 2026-08-11 (later): Absorption-margin kill-test passed; literature swept clean
 
 Follow-up on the partial-sync result, at Brett's direction, dispatched to
