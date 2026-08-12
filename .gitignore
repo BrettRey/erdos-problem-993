@@ -60,3 +60,6 @@ notes/literature/**/*.pdf
 # Oversized raw result dumps exceed GitHub's 100 MB push limit; keep them
 # local only. 2026-08-11: results/eads_pendant_pair_n20_20260808.json (109 MB).
 results/eads_pendant_pair_n20_20260808.json
+# hyperresearch working vault + run artifacts (raw agent output; never publish) — 2026-08-12
+.hyperresearch/
+research/

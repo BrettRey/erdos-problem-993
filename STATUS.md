@@ -96,6 +96,36 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## 2026-08-12: Outward survey, Karlin toolkit, LAW-V packet frozen
+
+Morning session, three deliverables. (1) **Prefix-certification survey**
+(hyperresearch light tier, first run in this repo; vault gitignored, ship
+gate passed): the prefix-plus-tail reduction is already published as
+Levit-Kadrawi arXiv:2603.17114 **Lemma 2.19 / Corollary 2.20** — trees
+need only log-concavity below ceil((2 alpha - 1)/3) — hiding in a paper
+already on disk under its unicyclic-counterexamples title. Atlas
+truncation: no prior art (evidenced), and structurally two stacked open
+problems for trees; deprioritized behind the Karlin/TP lane with a cheap
+local-conditions kill-test as the reopening trigger. Lorentzian variants
+restrict domains, never coefficient indices; Bendjeddou-Hardiman
+(arXiv:2405.00511) propose the unimodality-direct weakening this
+campaign wants, as future work. Older lineage: Bjorner 1994. Nothing
+known blocks the prefix target. (2) **HWZZ MIA 2017 fetched** (ele-math)
+and the **TP2 toolkit note** written
+(`notes/karlin_lr_order_toolkit_2026-08-12.md`): LAW-V is a consecutive-
+TP2 condition on [C; xB]; common-LC-convolution closure proved via
+Cauchy-Binet (verified on thousands of exact instances); dirty-term
+failure geometry reduces to single-hub pairs (Q_a, xR_a), making the
+single-hub case the load-bearing sub-target. (3) **LAW-V/LAW-W proof
+packet frozen** at `gpt_attack/law_v_packet_2026-08-12/` per the proven
+packet pattern: graded targets G0-G6, refutation-as-success, sourced
+toolkit T1-T6, 21-check grounded self-test (tree-DP identities, Cassini,
+the h+2 anchor, weight<=14 exhaustive re-check, assembly end-to-end),
+passing. Not dispatched. Also this morning: two comments drafted and
+posted to erdosproblems.com/993 (literature + progress update); the
+site's exhaustive-verification record is now n = 32 (external
+contributor), superseding our n = 29 on that axis.
+
 ## 2026-08-11 (night): Contraction forms — two universal conjectures killed, C2 laws survive
 
 The C2 single-index forms turn out to be about tree edge contraction in
