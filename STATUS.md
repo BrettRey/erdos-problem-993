@@ -96,6 +96,39 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## 2026-08-11 (night): Contraction forms — two universal conjectures killed, C2 laws survive
+
+The C2 single-index forms turn out to be about tree edge contraction in
+general: rooting at the contracted edge gives `I(T) = A_uA_v + x(D_uA_v +
+A_uD_v)`, `I(T/e) = A_uA_v + xD_uD_v` — the exact B/C shape, with the
+two-hub case as the all-path-pieces special case, so the assembly lemma
+applies to every tree and edge whenever its hypotheses hold.
+
+Two universal conjectures about where the U/V/W hypotheses hold were
+stated and killed the same night, per the adversarial-first rule:
+
+1. **Clean laws for all trees** (V, W >= 0 everywhere): survived
+   exhaustive n <= 16 (all 32,506 trees, 464,871 contraction pairs, V
+   spotless) but died on Kadrawi-Levit non-LC composites — V fails at
+   reflected depth 1, W at depths 0-1.
+2. **Absolute band law** (all failures at depth <= 2): survived ~478k
+   pairs and then died on multi-break pattern-family composites (orders
+   177-315, one pendant leaf attached): U-failures to depth 23, V to 5,
+   W to 4. Failure depth scales with the component's own
+   synchronization-band depth (which the absorption probe showed grows
+   linearly in the family parameter); there is no absolute strip.
+
+What survives: the C2 clean laws (path pieces; untouched by both kills,
+since they require non-LC components), the A/D structural identity, and
+the exhaustive small-tree fact (V never fails to n = 16; U, W within
+depth 2 there). The correct universal statement, if any, must normalize
+failure depth against component pathology — deliberately not conjectured
+yet; measuring that scaling is the named next step before any proof
+dispatch. Note: `notes/contraction_band_law_2026-08-11.md` (kill history
+included); verifier regenerates all four sweeps in ~25 s
+(`verify_contraction_band_law_20260811.py`,
+`results/contraction_band_law_20260811.json`).
+
 ## 2026-08-11 (evening): C2 base facts reduced to three single-index laws
 
 Token-burn session at Brett's direction, main-session Fable work. Four
