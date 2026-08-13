@@ -7,7 +7,7 @@ stage: complete
 external: in-review
 blocked_on:
 - venue-response
-updated: 2026-08-11
+updated: 2026-08-12
 source:
 - STATUS.md
 - PORTFOLIO.md
