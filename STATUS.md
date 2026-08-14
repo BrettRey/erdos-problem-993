@@ -96,6 +96,23 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## 2026-08-14 (afternoon): Full LC census n <= 32 — depth-2 window closed
+
+Same-day sequel to the morning's lane. A new C engine
+(`scripts/lc_census.c`, exact uint64 full-polynomial DP on gentreeg parent
+arrays, 1.38M trees/s/core, validated byte-exactly against all stored
+ground truth) swept **all 173,378,186,130 trees on 27..32 vertices in
+7.5 hours on the laptop** (64 restartable shards per order, every total
+matching an independent `gentreeg -u` count). Zero non-unimodal sequences
+(independent unimodality re-verification through n = 32). 1,228 LC
+failures, and every one is a lone depth-1 break at k = alpha - 1; counts
+by order 26..32: 2, 0, 19, 7, 121, 159, 922 (n >= 29 believed new). With
+the window arithmetic this closes the depth-2 dist-3 window for ALL n:
+**dist >= 4 unconditional through n = 32**, and the dist-3 frontier moves
+to depth >= 3, alpha in {17,18,19}, n in [33,38] (thin near-perfect-
+matching slice; matching-constrained enumeration is the named next lane).
+`notes/break_depth_lane_2026-08-14.md`, `results/lc_census_20260814/`.
+
 ## 2026-08-14: Rota disproof read; break-depth lane opened; dist=4 wall
 
 Brett supplied arXiv:2608.07342 (Divoux-Larson-Lowen-Wang, Rota's

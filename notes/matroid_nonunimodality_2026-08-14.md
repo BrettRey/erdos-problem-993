@@ -157,11 +157,14 @@ redirection, not a straight discount:
    The gap between those two facts is where a counterexample would have to
    live. An evolutionary lane with depth as fitness is cheap and is the
    honest kill-test the prefix-LC conjecture now owes us.
-   **[RUN same day at Brett's direction: see
-   `notes/break_depth_lane_2026-08-14.md`. Outcome: dist = k - thr >= 4
-   everywhere (58.5M exact evaluations, complete small mutation balls);
-   dist = 3 reduced to a finite window (depth-2 break, alpha in {15,16},
-   n in [29,32]).]**
+   **[RUN same day at Brett's direction, twice over: see
+   `notes/break_depth_lane_2026-08-14.md`. Search campaign: dist >= 4
+   everywhere (58.5M exact evaluations, complete small mutation balls).
+   Then a full LC census of ALL 173.7B trees n <= 32 (C engine, same
+   afternoon) closed the depth-2 window outright: dist >= 4 is
+   unconditional through n = 32, every failure ever found is a lone
+   depth-1 break, and the dist-3 frontier moved to depth >= 3,
+   alpha in {17,18,19}, n in [33,38].]**
 2. **Manuscript hook, for a revision round only.** If E-JC comes back, the
    "why trees resist" discussion can now cite 2608.07342 as the
    cross-category contrast: the recipe that killed Rota stalls for trees at

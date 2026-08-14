@@ -63,3 +63,6 @@ results/eads_pendant_pair_n20_20260808.json
 # hyperresearch working vault + run artifacts (raw agent output; never publish) — 2026-08-12
 .hyperresearch/
 research/
+
+# Compiled census binary; rebuild with: cc -O3 -march=native -o scripts/lc_census scripts/lc_census.c
+scripts/lc_census

@@ -1,5 +1,5 @@
 # Break-depth lane: how far below the head can a tree LC break sit?
-<!-- SUMMARY: New search lane (objective: minimize k_break - LK-threshold) opened after the Rota disproof read; first campaign finds a rigid dist=4 wall across 58.5M exact evaluations plus complete small mutation balls, and reduces dist=3 to a finite window (depth-2 break, alpha in {15,16}, n in [29,32]) · status: wall standing, finite target named · updated: 2026-08-14 -->
+<!-- SUMMARY: Break-depth lane opened after the Rota disproof read; same-day full LC census of ALL trees n<=32 (173.7B, C engine, every count independently verified) closes the depth-2 window: dist >= 4 is now unconditional through n=32, every failure ever found is a lone depth-1 break, and the dist-3 frontier moves to depth>=3, alpha in {17,18,19}, n in [33,38] · status: census complete, wall unconditional to n=32 · updated: 2026-08-14 -->
 
 **Motivation:** `notes/matroid_nonunimodality_2026-08-14.md`. The
 Divoux-Larson-Lowen-Wang disproof of Rota's conjecture (arXiv:2608.07342)
@@ -117,6 +117,67 @@ n = 96, 0.9732 at n = 200, 0.9902 at n = 1042 in TG_{20,8}): pure mode
 smoothness, no anomalous tightness. Any future depth lane should treat
 near-mode ratio maximization as an attractor to design around, not a
 signal.
+
+## Same-day sequel: the window is closed — full LC census of all trees n <= 32
+
+Brett challenged the "day of careful C work" estimate; the engine took
+minutes and the census ran the same day (07:34-15:03 EDT, 7.5 h wall on
+the laptop, 9 workers, caffeinated).
+
+**Engine:** `scripts/lc_census.c` (exact uint64 full-polynomial DP fused to
+`gentreeg -p` parent arrays; 1.38M trees/s/core), driver
+`scripts/run_lc_census_20260814.py` (64 restartable shards per order),
+ladder `scripts/run_census_ladder_20260814.sh` (hard validation gates).
+Validation before the open rungs: all 106 n=10 polynomials byte-match the
+Python DP; n=26 reproduces the 2 stored failures byte-exactly; n=27 gives
+0; n=28 reproduces the 19 stored failures by exact polynomial multiset.
+Every rung's tree count equals an independent `gentreeg -u` count.
+
+**Result: 173,378,186,130 trees (n = 27..32), complete, zero non-unimodal
+sequences** (an independent re-verification of unimodality through n = 32),
+**1,228 LC failures, and every single one is a lone depth-1 break at
+k = alpha - 1:**
+
+| n  | trees           | failures | profile                                        |
+|----|-----------------|----------|------------------------------------------------|
+| 27 | 751,065,460     | 0        | --                                             |
+| 28 | 2,023,443,032   | 19       | alpha 15, dist 4 (all)                         |
+| 29 | 5,469,566,585   | 7        | alpha 16, dist 4 (all; first odd-n failures)   |
+| 30 | 14,830,871,802  | 121      | alpha 16 dist 4 (114); alpha 17 dist 5 (7)     |
+| 31 | 40,330,829,030  | 159      | alpha 17 dist 5 (152); alpha 18 dist 5 (7)     |
+| 32 | 109,972,410,221 | 922      | alpha 17 (735) / 18 (180) / 19 (7), all dist 5 |
+
+Shard outputs and per-order summaries: `results/lc_census_20260814/`.
+
+**Consequences.**
+
+1. **dist >= 4 is now unconditional for all trees on <= 32 vertices**
+   (complete enumeration, not search). With the window arithmetic
+   (dist = 3 forces alpha in {3d+8, 3d+9, 3d+10}), the depth-2 window
+   (alpha <= 16 forces n <= 32) is **closed**: no tree of any size can
+   achieve dist = 3 via a depth-2 break. The dist-3 frontier moves to
+   **depth >= 3, alpha in {17, 18, 19}, n in [33, 38]** — while no tree
+   with any break of depth >= 2 exists at all below alpha = 19 (census)
+   and depth 3 first appears at alpha = 25 (grammar).
+2. **One failure geometry.** All 1,230 LC-failure trees now known
+   (n <= 32) have exactly one break, at reflected depth 1, with
+   alpha in {ceil(n/2)+1, +2, +3}; perfect- and near-perfect-matching
+   classes never fail. dist = 4 is achieved only at alpha in {14, 15, 16},
+   all of which force n <= 32 — so the census's 142 dist-4 trees
+   (2 + 19 + 7 + 114 at n = 26, 28, 29, 30) are the complete set of dist-4
+   achievers among depth-1 breaks, ever.
+3. **New census integers.** LC-failure counts by order, 26..32:
+   2, 0, 19, 7, 121, 159, 922. The n >= 29 values are, as far as we know,
+   new (the March n=29 sweep and the external n <= 32 record checked
+   unimodality only). Candidate erdosproblems.com comment material and a
+   possible OEIS sequence, on Brett's call.
+4. **The n in [33,38] depth-3 window is the next bounded target.** Full
+   enumeration is ~75T trees (Modal-scale, ~430x the n=32 rung), but the
+   window only needs alpha in {17,18,19}, i.e. matching number
+   >= (n-19) of floor(n/2) — an exponentially thin near-perfect-matching
+   slice as n grows. A matching-constrained generator (or generate-and
+   -filter with the O(n) greedy matching bound before the DP) should cut
+   orders of magnitude; sizing that is the next lane decision.
 
 ## Provenance
 
