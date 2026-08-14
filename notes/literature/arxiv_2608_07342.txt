@@ -1,0 +1,574 @@
+MATROID FLAT COUNTS CAN HAVE MANY PEAKS
+
+arXiv:2608.07342v1 [math.CO] 7 Aug 2026
+
+ALEXANDER DIVOUX, MATT LARSON, CHAYIM LOWEN, SHOUDA WANG
+
+Abstract. We disprove Rota’s conjecture that the counts of flats in a matroid according to rank form a unimodal sequence. Furthermore, we show that this sequence
+can have arbitrarily many peaks. The construction starts by finding a generalized
+theta graph for which log-concavity fails severely. By taking direct sums, we break
+log-concavity in many places. We then use Whittle’s q-lift construction to produce a
+matroid whose flat counts have many peaks.
+
+1. Introduction
+For a matroid M and a natural number i, let Wi be the number of flats of rank i.
+These are known as the Whitney numbers of the second kind of M . In his article for the
+proceedings of the 1970 International Congress of Mathematicians, Gian-Carlo Rota stated
+his conjecture that these numbers form a unimodal sequence for any matroid [Rot71].
+Conjecture 1.1. For any matroid M of rank r, the sequence (W0 , W1 , . . . , Wr ) is unimodal. That is, there is some index k such that W0 ≤ W1 ≤ · · · ≤ Wk−1 ≤ Wk and
+Wk ≥ Wk+1 ≥ · · · ≥ Wr−1 ≥ Wr .
+In [Mas72], Mason conjectured three strengthenings of Conjecture 1.1, the weakest
+of which is that Whitney numbers are log-concave. These conjectures have attracted
+significant attention over the years. For example, Mason’s log-concavity conjecture is
+Problem 25(c) in Stanley’s list of positivity problems in algebraic combinatorics [Sta00].
+In making Conjecture 1.1, Rota was motivated by the known cases of Boolean lattices,
+braid matroids [Har67, Lie68], and perfect matroid designs [You70]; see [RH71, pg. 69].
+The log-concavity conjecture was proved for certain supersolvable matroids [DDR94] and
+for Dowling geometries [Sto75a, Ben99]. See [Aig87] for a survey.
+The special case of Mason’s log-concavity conjecture at k = 2, that W22 ≥ W1 W3 , has
+attracted particular attention. This conjecture, which is known as the points-lines-planes
+conjecture, was proved for graphic matroids in [Sto75b] and for matroids where each flat
+of rank 2 has size at most four in [Sey82]. In fact, what was proved there is the strongest
+W1 −1
+of Mason’s log-concavity conjectures for these matroids: that W22 ≥ 23 W
+W1 W3 . The
+1 −2
+points-lines-planes conjecture was subsequently studied by Kung [Kun00] and Dukes [Duk08].
+The most significant progress towards Conjecture 1.1 was the proof of the Dowling–
+Wilson top-heavy conjecture [DW74, DW75]: if M is a matroid of rank r then Wi ≤ Wr−i
+for i ≤ r/2 and W0 ≤ W1 ≤ · · · ≤ W⌊r/2⌋ . This was proved for realizable matroids in
+[HW17] and then for all matroids in [BHM+ 26]. A simpler proof was given in [AHL25].
+Date: August 10, 2026.
+2020 Mathematics Subject Classification. Primary 05B35.
+Key words and phrases. Unimodality, Rota’s conjecture, Whitney number.
+1
+
+2
+
+ALEXANDER DIVOUX, MATT LARSON, CHAYIM LOWEN, AND SHOUDA WANG
+
+As is explained in [Kun95], Conjecture 1.1 was motivated by the Alexandrov–Fenchel
+inequality for mixed volumes of convex bodies. In recent years, Rota’s intuition has been
+partially validated, as analogues of the Alexandrov–Fenchel inequality have been used
+to affirmatively resolve several log-concavity conjectures about matroids [Huh12, HK12,
+AHK18, BH20, ALOGV24]. See [Huh18] for a discussion of the analogy between the
+Alexandrov–Fenchel inequality and these results.
+We give a counterexample to Conjecture 1.1. Better yet, we show that unimodality
+can fail very badly, in the following sense. In a sequence (a0 , a1 , . . . , as ) of real numbers,
+a peak is an index i such that ai > ai−1 and ai = ai+1 = · · · = ai+t > ai+t+1 for some
+nonnegative integer t, where we interpret a−1 and as+1 as −∞. A sequence is unimodal
+if and only if it has a unique peak.
+Theorem 1.2. For each positive integer m, there is a matroid whose sequence of Whitney
+numbers of the second kind has exactly m peaks.
+This refutes Conjecture 1.1. Recall that a sequence (a0 , a1 , . . . , as ) of nonnegative real
+numbers is log-concave if a2i ≥ ai−1 ai+1 for every 0 < i < s. As log-concave sequences
+with no internal zeroes are unimodal, Theorem 1.2 also gives a counterexample to Mason’s
+log-concavity conjecture. The smallest example of a matroid that our method gives whose
+Whitney numbers are not unimodal has a ground set of size 4957; see Example 3.2. The
+smallest example of a matroid that we can construct whose Whitney numbers are not logconcave has a ground set of size 78; see Example 2.2. The unique failure of log-concavity
+2
+in the latter example is that W73
+< W72 W74 . Our techniques seem incapable of producing
+a counterexample to the points-lines-planes conjecture.
+We prove Theorem 1.2 by a construction that proceeds in two steps. First, we exhibit
+examples where log-concavity of the Whitney numbers fails very badly. For this, we use
+generalized theta graphs. Let Gt be the graphic matroid of the generalized theta graph
+consisting of two endpoint vertices and four internally disjoint paths joining them, where
+three of the paths have length t and the remaining path consists of a single edge. See
+Figure 1 for a depiction of G28 . This is a matroid of rank 3t − 2 on a ground set of size
+3t + 1. We show that the log-concavity of the Whitney numbers fails badly for this family
+2
+of matroids: the quantity W3t−5 W3t−3 /W3t−4
+grows linearly in t. Moreover, by taking
+direct sums of these matroids, we can produce examples where log-concavity fails at many
+indices.
+To produce many peaks and prove Theorem 1.2, we use the following elementary observation: a sequence (a0 , a1 , a2 , . . . , am ) is log-concave with no internal zeroes if and only
+if, for every c > 0, the sequence (a0 , ca1 , c2 a2 , . . . , cm am ) is unimodal. To exploit this, we
+use an operation introduced by Whittle [Whi89] called the q-lift. This operation turns a
+matroid with Whitney numbers (W0 , W1 , W2 , W3 , . . . ) realized over Fq into a matroid with
+Whitney numbers (W0 , qW1 +W0 , q 2 W2 +W1 , q 3 W3 +W2 , . . . ). Choosing q judiciously, and
+using that direct sums of Gt with itself are realizable over any field, we produce examples
+of matroids whose Whitney numbers have arbitrarily many peaks.
+The construction used to prove Theorem 1.2 has similarities to two prominent constructions that were used to give counterexamples to other conjectures about matroids.
+In [Sok04], Sokal used generalized theta graphs (with a varying number of paths) to show
+that the roots of chromatic polynomials of graphs are dense in the complex plane. The
+
+MATROID FLAT COUNTS CAN HAVE MANY PEAKS
+
+3
+
+Figure 1. The generalized theta graph whose matroid is G28 .
+coefficients of chromatic polynomials of graphs (and more generally characteristic polynomials of matroids) are known as Whitney numbers of the first kind, and they can be
+viewed as counts of flats weighted by the Möbius function. However, it was shown in
+[AHK18] that Whitney numbers of the first kind are log-concave.
+The dual of the matroid Gt is a non-simple matroid whose simplification is the uniform
+matroid U3,4 . In [BCCP24], a non-simple matroid whose simplification is uniform was
+used to refute the Merino–Welsh conjecture, which predicted an inequality for the Tutte
+polynomial of all matroids.
+Organization of this paper. The rest of this paper is organized as follows. Section 2
+is devoted to the proofs of Lemmas 2.1 and 2.4, which exhibit failures of log-concavity for
+the Whitney numbers of the second kind. Example 2.2 provides an explicit matroid for
+which Mason’s conjecture fails, along with the relevant flat counts. In Section 3, we prove
+Theorem 1.2. Example 3.2 gives a matroid whose Whitney numbers of the second kind
+form a non-unimodal sequence.
+Acknowledgments. The authors thank Paul Seymour and Luis Ferroni for helpful discussions. Part of this work was conducted at the 2026 Combinatorics at the Confluence
+conference, and the authors thank the organizers and Carnegie Mellon University for their
+hospitality. This work was conducted while the second author was at the Institute for Advanced Study, where he is supported by the Charles Simonyi Endowment and the Oswald
+Veblen Fund.
+In producing this work, ChatGPT played an important role in finding some initial
+examples which the authors were able to generalize. These aspects of our constructions
+have been detailed in the preprints [Lar26] and [DLW26], which are not intended for
+publication. Beyond these initial examples, AI tools did not meaningfully assist in the
+results or writing of this paper.
+2. Failures of log-concavity
+We will make repeated use of Knuth’s asymptotic notation, as set out in [Knu21]. In
+particular, for functions f, g on N valued in the nonnegative reals, we write f = Θ(g) to
+
+4
+
+ALEXANDER DIVOUX, MATT LARSON, CHAYIM LOWEN, AND SHOUDA WANG
+
+mean that there exist constants C, D > 0 and an integer N such that Cg(n) ≤ f (n) ≤
+Dg(n) for all n ≥ N .
+In the following lemma and in the subsequent text, we write W η (M ) for the Whitney
+number Wr(M )−η (M ) of a matroid M , i.e. the number of flats of M of corank η. We also
+write E(M ) for the ground set of M and rM for its rank function. We write r(M ) for
+rM (E(M )), the rank of M as a matroid. We refer the reader to [Oxl11] for other standard
+conventions in matroid theory. Recall the matroid Gt , which was defined as the graphic
+matroid of the graph consisting of two endpoints and four internally disjoint paths between
+them, three of length t and one of length 1.
+Lemma 2.1. For a fixed integer η ≥ 0, as t grows to infinity, the Whitney numbers of Gt
+are given asymptotically by
+
+
+if η = 0,
+1
+W η (Gt ) = Θ(tη+2 ) if η ∈ {1, 2},
+
+
+Θ(tη+3 ) if η ≥ 3.
+Proof. In the dual G∗t , the four series classes of Gt become parallel classes P0 , P1 , P2 , P3 ,
+with |P0 | = 1 and |P1 | = |P2 | = |P3 | = t. Simplifying these parallel classes yields the uniform matroid U3,4 , so each circuit of G∗t is either a two-element subset of one of P1 , P2 , P3 ,
+or has size four and consists of one element from each parallel class. For every flat F of
+Gt of rank 0 ≤ j ≤ r(Gt ), the corresponding cyclic set S = E(Gt ) \ F of G∗t satisfies
+|S| − rG∗t (S) = r(Gt ) − rGt (F ) = r(Gt ) − j
+by the dual rank formula. We will refer to the quantity |S| − rG∗t (S) as the nullity of S
+(in G∗t ). By the equation above, computing W η (Gt ) amounts to counting cyclic sets S of
+G∗t of nullity η. The equality W 0 (Gt ) = 1 is clear.
+A cyclic set S of nullity 1 is simply a circuit. By the above classification of the circuits
+of G∗t , the number of cyclic sets of nullity 1 is
+ 
+t
+1
+W =3
++ t3 = Θ(t3 ).
+2
+Let S be a cyclic set of nullity 2. Then S is the union of two distinct circuits of G∗t , so
+|S| = rG∗t (S) + 2 ≤ r(G∗t ) + 2 = 5.
+If S contains P0 , there are at most four elements of S in P1 ∪ P2 ∪ P3 . If S does not contain
+P0 , then it is the union of two size 2 circuits, and therefore has at most four elements. In
+either case, S is determined by a subset of P1 ∪ P2 ∪ P3 of size 3 or 4. Hence
+   
+3t
+3t
+W2 ≤ 2
++
+= O(t4 ).
+4
+3
+On the other hand, the union of a pair of elements of P1 with another pair from P2 is a
+cyclic set of nullity 2. So,
+ 2
+t
+2
+W ≥
+= Ω(t4 ).
+2
+We deduce that W 2 = Θ(t4 ).
+Now we prove the claim for η ≥ 3. On the one hand, a set S of nullity η satisfies
+|S| = rG∗t (S) + η ≤ r(G∗t ) + η = 3 + η.
+
+MATROID FLAT COUNTS CAN HAVE MANY PEAKS
+
+5
+
+It follows that
+η
+
+W ≤
+
+
+η+3 
+X
+3t + 1
+j=0
+
+j
+
+= O(tη+3 ).
+
+On the other hand, any set consisting of two elements from P1 , two elements from P2 , and
+η − 1 elements from P3 is cyclic (since η − 1 ≥ 2), has size η + 3, has rank 3, and thus has
+nullity η. Hence
+  
+
+t
+t
+t
+η
+W ≥
+= Ω(tη+3 ).
+2 2 η−1
+We therefore have W η = Θ(tη+3 ) for η ≥ 3, as desired.
+□
+Example 2.2. Consider the matroid of the generalized theta graph with four strands of
+lengths 1, 25, 26, 26. This is a matroid of rank 75 on a ground set of size 78. We have
+(W72 , W73 , W74 ) = (49120475, 933425, 17850).
+The Whitney numbers of this matroid are not log-concave.
+Remark 2.3. The argument above works just as well for generalized theta graphs with
+more strands (of lengths 1, t, . . . , t) or strands of various other lengths. It can also be
+embedded within a larger matroid, in the following sense. Choose a cocircuit D of size
+at least 4 in a matroid M . Let Mt be the matroid obtained by cothickening three of the
+elements of this cocircuit. That is, Mt is the matroid obtained by taking the dual of M ,
+replacing three of the elements of D with parallel classes of size t, and then taking the
+dual again. We then have W 1 (Mt ) = Θ(t3 ), W 2 (Mt ) = Θ(t4 ), and W 3 (Mt ) = Θ(t6 ), so
+log-concavity will fail for t sufficiently large.
+We write M ⊕m for the direct sum of m copies of a matroid M . Taking Lemma 2.1 as
+a starting point, we now compute asymptotics for the Whitney numbers of G⊕m
+.
+t
+Lemma 2.4. For fixed integers η ≥ 0 and m ≥ 1, the Whitney numbers of G⊕m
+as t
+t
+grows to infinity are given asymptotically by
+
+3η
+
+if η ≤ m,
+Θ(t )
+⊕m
+η
+W (Gt ) = Θ(t⌊3(η+m)/2⌋ ) if m ≤ η ≤ 3m,
+
+
+Θ(tη+3m )
+if η ≥ 3m.
+Proof. It is easily verified that this agrees with Lemma 2.1 when m = 1. The flats of the
+direct sum of two matroids consist of all pairwise unions of a flat from the first matroid
+and a flat from the second, and the rank of such a flat is the sum of the ranks of its two
+parts. Therefore, the sequence (W η (G⊕m
+))η is the m-fold convolution of the sequence of
+t
+(W η (Gt ))η with itself. In other words,
+W η (G⊕m
+)=
+t
+
+X
+
+m
+Y
+
+W xi (Gt ),
+
+x1 +···+xm =η i=1
+
+with the implicit constraint x1 , . . . , xm ≥ 0. Combining this with Lemma 2.1, we conclude
+that W η (G⊕m
+) = Θ(tf (η,m) ) for the unique integer-valued function f satisfying
+t
+f (η, m) =
+
+sup
+x1 +···+xm =η
+
+m
+X
+i=1
+
+f (xi , 1),
+
+6
+
+ALEXANDER DIVOUX, MATT LARSON, CHAYIM LOWEN, AND SHOUDA WANG
+
+where the values f (η, 1) are given by
+
+
+0
+f (η, 1) = η + 2
+
+
+η+3
+
+if η = 0,
+if η ∈ {1, 2},
+if η ≥ 3.
+
+It will be convenient to rewrite the latter equalities as follows. Write f (η, 1) = η + c(η).
+Then c(0) = 0, c(1) = c(2) = 2, and c(η) = 3 for η ≥ 3. So by the formula for f (η, m),
+f (η, m) = η +
+
+sup
+x1 +···+xm =η
+
+m
+X
+
+c(xi ).
+
+i=1
+
+To compute f (η, m), we must choose x1 , . . . , xm to maximize the sum of the c(xi )’s. To
+this end, we split into three cases according to whether η ≤ m, m ≤ η ≤ 3m, or η ≥ 3m.
+In each case, we prove an upper bound and then show that equality is attained by an
+explicit choice of xi ’s.
+Pm
+First suppose that η ≤ m. Since c(x) ≤ 2x for every x ≥ 0, we have i=1 c(xi ) ≤ 2η,
+so f (η, m) ≤ 3η. On the other hand, setting x1 = · · · = xη = 1 and xη+1 = · · · = xm = 0
+achieves equality. So in fact f (η, m) = 3η.
+Next suppose
+Pm that m ≤ η ≤ 3m. Since c(x) ≤ (x + 3)/2 for every x ≥ 0, we get the
+inequality i=1 c(xi ) ≤ (η + 3m)/2. Since f (η, m) is an integer, this gives
+ 
+
+
+3(η + m)
+η + 3m
+=
+.
+f (η, m) ≤ η +
+2
+2
+The lower bound for this case is slightly more involved. Write η − m = 2a + b with
+b ∈ {0, 1}. We set x1 = · · · = xa = 3, xa+1 = · · · = xa+b = 2, and xa+b+1 = · · · = xm = 1.
+(NoteP
+that η ≤ 3m implies a+b ≤ m.) For these values, using c(3) = 3 and c(1) = c(2) = 2
+m
+gives i=1 c(xi ) = 3a + 2b + 2(m − a − b) = a + 2m. Furthermore,
+ 
+
+ 
+
+2a + b + 4m
+b
+η + 3m
+=
+= a + 2m +
+= a + 2m.
+2
+2
+2
+We conclude that f (η, m) = η + ⌊(η + 3m)/2⌋ = ⌊3(η + m)/2⌋.
+Pm
+Finally, suppose that η ≥ 3m. Since c(x) ≤ 3 for every x ≥ 0, we get i=1 c(xi ) ≤ 3m.
+So f (η, m) ≤ η + 3m. Here, equality can be achieved by taking x1 = η − 3(m − 1) and
+x2 = · · · = xm = 3. (Note that η ≥ 3m implies η − 3(m − 1) ≥ 3, and thus c(x1 ) = 3.)
+Hence f (η, m) = η + 3m.
+Combining the three cases above, we have
+
+
+if η ≤ m,
+3η
+f (η, m) = ⌊3(η + m)/2⌋ if m ≤ η ≤ 3m,
+
+
+η + 3m
+if η ≥ 3m,
+which matches the desired exponents in the expression for W η (G⊕m
+).
+t
+
+□
+
+3. Failures of unimodality
+Throughout this section, we let q be a prime power and let Fq be the finite field of
+cardinality q. Let M be a simple Fq -representable matroid of rank r on n elements.
+Fixing a linear Fq -representation of M , we identify E(M ) with the set of vectors in Frq
+corresponding to this representation. Embed Frq into Fr+1
+= Fq ⊕ Frq as the second factor.
+q
+
+MATROID FLAT COUNTS CAN HAVE MANY PEAKS
+
+7
+
+f of rank r + 1 consisting of the vector a = (1, 0, . . . , 0) ∈ Fr+1
+We consider the matroid M
+q
+and the vectors (z, v), where z runs over Fq and v runs over E(M ). This operation was
+f is called the q-lift of M .
+introduced and studied by Whittle in [Whi89], where M
+Perhaps surprisingly, Oxley and Whittle [OW00] showed by an example that different
+initial representations of M can yield non-isomorphic q-lifts of M . Nevertheless, it was
+shown by Bonin and Qin [BQ01] that any two q-lifts of M have the same Tutte polynomial.
+They also share the same Whitney numbers of the second kind. The following lemma of
+f of M in terms of the number
+Bonin and Qin counts the number of flats of any q-lift M
+of flats of M . It is the crucial ingredient used to turn the failures of log-concavity in
+Lemma 2.1 into failures of unimodality.
+Lemma 3.1 ([BQ01, Lemma 4]). If M is a simple Fq -representable matroid of rank r and
+f is a q-lift of M , then for every 1 ≤ i ≤ r we have
+M
+f) = q i Wi (M ) + Wi−1 (M ).
+Wi ( M
+The following example illustrates the technique by which a failure of log-concavity is
+transformed into a failure of unimodality by an application of Whittle’s q-lift.
+Example 3.2. Consider the matroid of the generalized theta graph with four strands of
+lengths 1, 27, 28, 28. This is a matroid of rank 81 on a ground set of size 84. We have
+(W77 , W78 , W79 , W80 ) = (1648585224, 75732840, 1264437, 22275).
+Taking the q-lift for q = 59, we obtain a matroid of rank 82 on a ground set of size 4957
+with
+(log10 W78 , log10 W79 , log10 W80 ) ≈ (146.00574, 145.99921, 146.01598),
+so the Whitney numbers of this matroid are not unimodal.
+We now explain how to apply Lemma 3.1 with even greater effect to the matroid
+described in Lemma 2.4, giving rise to severe failures of unimodality.
+Proof of Theorem 1.2. Fixing an integer m ≥ 1 and letting t be large, we set M = G⊕m
+.
+t
+We will examine the asymptotic behavior of the Whitney numbers of M as t goes to
+infinity. Write r = r(G⊕m
+) = m(3t − 2). To use Whittle’s construction, we choose a prime
+t
+number p within a factor 2 of t3/2 ; such a prime exists by Bertrand’s postulate. Since M
+f of M . We write W η
+is regular, it is Fp -representable, and hence we may choose a p-lift M
+f η for W η (M
+f). We will show that η = m + 2s + 1 is a peak of η 7→ W
+fη
+for W η (M ) and W
+for all 0 ≤ s ≤ m. To see this, we first use Lemma 2.4 to deduce
+W m+2s+1
+W m+2s+2
+W m+2s−1
+= O(t−2 ),
+= Θ(t),
+= O(t3 ).
+m+2s
+m+2s
+W
+W
+W m+2s
+In fact, the first ratio is Θ(t−2 ) except when s = 0, in which case it is Θ(t−3 ). Similarly, the last ratio is Θ(t3 ) except when s = m, in which case it is Θ(t2 ). Rewriting
+f has rank one greater than M , we get
+Lemma 3.1 by corank and remembering that M
+η
+r+1−η
+η−1
+η
+f
+W =p
+W
++ W . Let ℓ = r − m − 2s. Using p = Θ(t3/2 ) and ℓ = Θ(t), we obtain
+f m+2s/W m+2s = Θ(t3/2 ) · O(t−2 ) + p−ℓ · 1 = O(t−1/2 ),
+p−ℓ · W
+f m+2s+1/W m+2s = 1 + p−ℓ · Θ(t) = 1 + o(1),
+p−ℓ · W
+f m+2s+2/W m+2s = Θ(t−3/2 ) · Θ(t) + p−ℓ · O(t3 ) = Θ(t−1/2 ).
+p−ℓ · W
+
+8
+
+ALEXANDER DIVOUX, MATT LARSON, CHAYIM LOWEN, AND SHOUDA WANG
+
+f m+2s+1 > max(W
+f m+2s , W
+f m+2s+2 ). Since this
+For large t (and m fixed), this shows that W
+f
+holds for all 0 ≤ s ≤ m, the Whitney numbers of M have at least m + 1 distinct peaks.
+We have now seen how to construct matroids whose sequences of Whitney numbers
+have arbitrarily many peaks. To obtain a matroid with a prescribed number of peaks, we
+start with a matroid having a potentially larger number of peaks and then reduce to the
+number we want by applying truncations. For details of this operation, see [Oxl11, § 7.3].
+For our purposes, it will suffice to note that the Whitney numbers of the truncation of a
+matroid are obtained from its Whitney numbers by omitting the W 1 term. It is clear that
+the number of peaks goes down by at most one under such an omission and that we can
+thereby achieve any desired number of peaks.
+□
+References
+[AHK18] Karim Adiprasito, June Huh, and Eric Katz, Hodge theory for combinatorial geometries,
+Ann. of Math. (2) 188 (2018), no. 2, 381–452. MR3862944
+[AHL25] Omid Amini, June Huh, and Matt Larson, A decomposition theorem for Lefschetz modules
+(2025). arXiv:2511.02026v1.
+[Aig87] Martin Aigner, Whitney numbers, Combinatorial geometries, 1987, pp. 139–160. MR921072
+[ALOGV24] Nima Anari, Kuikui Liu, Shayan Oveis Gharan, and Cynthia Vinzant, Log-concave polynomials III: Mason’s ultra-log-concavity conjecture for independent sets of matroids, Proc. Amer.
+Math. Soc. 152 (2024), no. 5, 1969–1981. MR4728467
+[BCCP24] Csongor Beke, Gergely Kál Csáji, Péter Csikvári, and Sára Pituk, The Merino-Welsh conjecture is false for matroids, Adv. Math. 446 (2024), Paper No. 109674, 10. MR4737143
+[Ben99] Moussa Benoumhani, Log-concavity of Whitney numbers of Dowling lattices, Adv. in Appl.
+Math. 22 (1999), no. 2, 186–189. MR1659426
+[BH20] Petter Brändén and June Huh, Lorentzian polynomials, Ann. of Math. (2) 192 (2020), no. 3,
+821–891. MR4172622
+[BHM+ 26] Tom Braden, June Huh, Jacob Matherne, Nicholas Proudfoot, and Botong Wang, Singular
+Hodge theory for combinatorial geometries (2026). Jour. Amer. Math. Soc. (to appear).
+[BQ01] Joseph E. Bonin and Hongxun Qin, Tutte polynomials of q-cones, Discrete Math. 232 (2001),
+no. 1-3, 95–103. MR1823624
+[DDR94] E. Damiani, O. D’Antona, and F. Regonati, Whitney numbers of some geometric lattices, J.
+Combin. Theory Ser. A 65 (1994), no. 1, 11–25. MR1255260
+[DLW26] Alexander Divoux, Chayim Lowen, and Shouda Wang, Matroid flat counts are not unimodal
+(2026). arXiv:2607.22515v1.
+[Duk08] W. M. B. Dukes, Concerning the shape of a geometric lattice, Discrete Math. 308 (2008),
+no. 24, 6632–6638. MR2466971
+[DW74] Thomas A. Dowling and Richard M. Wilson, The slimmest geometric lattices, Trans. Amer.
+Math. Soc. 196 (1974), 203–215. MR345849
+, Whitney number inequalities for geometric lattices, Proc. Amer. Math. Soc. 47
+[DW75]
+(1975), 504–512. MR354422
+[Har67] L. H. Harper, Stirling behavior is asymptotically normal, Ann. Math. Statist. 38 (1967),
+410–414. MR211432
+[HK12] June Huh and Eric Katz, Log-concavity of characteristic polynomials and the Bergman fan
+of matroids, Math. Ann. 354 (2012), no. 3, 1103–1116. MR2983081
+[Huh12] June Huh, Milnor numbers of projective hypersurfaces and the chromatic polynomial of
+graphs, J. Amer. Math. Soc. 25 (2012), no. 3, 907–927. MR2904577
+[Huh18]
+, Combinatorial applications of the Hodge-Riemann relations, Proceedings of the International Congress of Mathematicians—Rio de Janeiro 2018. Vol. IV. Invited lectures, 2018,
+pp. 3093–3111. MR3966524
+[HW17] June Huh and Botong Wang, Enumeration of points, lines, planes, etc, Acta Math. 218
+(2017), no. 2, 297–317. MR3733101
+[Knu21] Donald E. Knuth, Big omicron and big omega and big theta (1976), Ideas that created the
+future—classic papers of computer science, 2021, pp. 441–446. MR4679197
+
+MATROID FLAT COUNTS CAN HAVE MANY PEAKS
+
+9
+
+[Kun00] Joseph P. S. Kung, On the lines-planes inequality for matroids, 2000, pp. 363–368. In memory
+of Gian-Carlo Rota. MR1780029
+[Kun95]
+, The geometric approach to matroid theory, Gian-Carlo Rota on combinatorics, 1995,
+pp. 604–622. MR1392975
+[Lar26] Matt Larson, Counterexamples to two conjectures about matroids
+(2026).
+arXiv:2607.02208v1.
+[Lie68] Elliott H. Lieb, Concavity properties and a generating function for Stirling numbers, J.
+Combinatorial Theory 5 (1968), 203–206. MR230635
+[Mas72] J. H. Mason, Matroids: unimodal conjectures and Motzkin’s theorem, Combinatorics (Proc.
+Conf. Combinatorial Math., Math. Inst., Oxford, 1972), 1972, pp. 207–220. MR0349445
+[OW00] James Oxley and Geoff Whittle, On the non-uniqueness of q-cones of matroids, Discrete
+Math. 218 (2000), no. 1-3, 271–275. MR1754341
+[Oxl11] James Oxley, Matroid theory, Second, Oxford Graduate Texts in Mathematics, vol. 21, Oxford University Press, Oxford, 2011. MR2849819
+[RH71] Gian-Carlo Rota and L. H. Harper, Matching theory, an introduction, Advances in Probability and Related Topics, Vol. 1, 1971, pp. 169–215. MR282855
+[Rot71] Gian-Carlo Rota, Combinatorial theory, old and new, Actes du Congrès International des
+Mathématiciens (Nice, 1970), Tome 3, 1971, pp. 229–233. MR505646
+[Sey82] P. D. Seymour, On the points-lines-planes conjecture, J. Combin. Theory Ser. B 33 (1982),
+no. 1, 17–26. MR678168
+[Sok04] Alan D. Sokal, Chromatic roots are dense in the whole complex plane, Combin. Probab.
+Comput. 13 (2004), no. 2, 221–261. MR2047238
+[Sta00] Richard P. Stanley, Positivity problems and conjectures in algebraic combinatorics, Mathematics: frontiers and perspectives, 2000, pp. 295–319. MR1754784
+[Sto75a] J. Randolph Stonesifer, Logarithmic concavity for a class of geometric lattices, J. Combinatorial Theory Ser. A 18 (1975), 216–218. MR357169
+[Sto75b]
+, Logarithmic concavity for edge lattices of graphs, J. Combinatorial Theory Ser. A
+18 (1975), 36–46. MR376407
+[Whi89] Geoff Whittle, q-lifts of tangential k-blocks, J. London Math. Soc. (2) 39 (1989), no. 1, 9–15.
+MR989915
+[You70] Hobart Peyton Young, Equicardinal matroids and matroid designs, Ph.D. Thesis, 1970.
+Program in Applied and Computational Mathematics, Princeton University
+Email address: adivoux@princeton.edu
+Princeton University and the Institute for Advanced Study
+Email address: mattlarson@princeton.edu
+Department of Mathematics, Princeton University
+Email address: chayiml@princeton.edu
+Program in Applied and Computational Mathematics, Princeton University
+Email address: shoudawang@princeton.edu
+
+

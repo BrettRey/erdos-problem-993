@@ -1,0 +1,14 @@
+{
+ "one_ball_frontier_seeds": {
+  "distinct_polys": 339,
+  "min_dist": 4,
+  "dist_le3_hits": [],
+  "depth2_at_alpha_le18": null
+ },
+ "two_ball_all_known_lc_failures": {
+  "distinct_polys": 10284,
+  "min_dist": 4,
+  "dist_le3_hits": [],
+  "depth2_at_alpha_le18": null
+ }
+}

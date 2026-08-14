@@ -96,6 +96,32 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
+## 2026-08-14: Rota disproof read; break-depth lane opened; dist=4 wall
+
+Brett supplied arXiv:2608.07342 (Divoux-Larson-Lowen-Wang, Rota's
+flat-count unimodality conjecture refuted with arbitrarily many peaks).
+Read in full; exact transfer probe
+(`scripts/probe_matroid_recipe_transfer_20260814.py`) showed trees already
+carry the recipe's first two resources — unbounded LC-violation severity
+(2.4e8 in the TG grid) and replicated breaks — but confined to the
+Levit-Kadrawi tail, and trees lack the third (the q-lift tilt; LC is
+exactly tilt-invariant unimodality). Analysis:
+`notes/matroid_nonunimodality_2026-08-14.md`.
+
+At Brett's direction the depth-maximization lane then ran
+(`scripts/search_break_depth_20260814.py`): minimize
+`dist = k_break - ceil((2 alpha - 1)/3)`. Outcome: **dist = 4 wall,
+untouched** across the 21 known exhaustive failure trees, a 982-tree
+grammar sweep, complete 1-/2-mutation balls (10.6k distinct polys), and a
+58,476,064-eval six-island evolutionary campaign (zero unimodality
+alarms). Exact window arithmetic: depth-d breaks have dist = 3 iff
+alpha in {3d+8, 3d+9, 3d+10}, so the first possible dist-3 tree is a
+depth-2 break at alpha in {15,16}, n in [29,32] — a bounded, Modal-shaped
+enumeration with an alpha prefilter (named next step). Smallest alpha with
+any depth-2 break ever seen: 19. Note:
+`notes/break_depth_lane_2026-08-14.md`; results in
+`results/break_depth_{sweep,balls,search}_20260814.json`.
+
 ## 2026-08-12 (later): Atlas truncation killed at the bottom level
 
 The survey's reopening trigger ran and fired negative, decisively. The
@@ -1044,6 +1070,16 @@ Multi-arm stars surpass brooms as the true extremal family. Champion at n >= 200
 2. Treat any Kadrawi or other reader feedback as parallel input; do not block submission waiting on it.
 3. If another paper-only DOI snapshot is needed, use Zenodo's direct `New version` flow instead of GitHub-release retries.
 4. Leave the project shelved unless there is a genuinely new idea on ECMS or Conjecture A.
+5. One candidate for that condition, actioned same day (2026-08-14):
+   `notes/matroid_nonunimodality_2026-08-14.md`. Rota's flat-count unimodality
+   conjecture was disproved (arXiv:2608.07342) by a construction starting from a
+   generalized theta graph where log-concavity fails severely, then amplified by
+   direct sums and a q-lift. The transfer probe and the break-depth lane ran the
+   same day (see the 2026-08-14 section above and
+   `notes/break_depth_lane_2026-08-14.md`): trees carry the severity and
+   replication resources but not the tilt, and the dist = 4 wall stood across
+   58.5M evaluations. The remaining bounded check is the depth-2 window at
+   alpha in {15,16}, n in [29,32]. It does not bear on the submitted manuscript.
 
 ## Dead ends (do NOT revisit)
 
