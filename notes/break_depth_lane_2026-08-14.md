@@ -178,6 +178,10 @@ Shard outputs and per-order summaries: `results/lc_census_20260814/`.
    slice as n grows. A matching-constrained generator (or generate-and
    -filter with the O(n) greedy matching bound before the DP) should cut
    orders of magnitude; sizing that is the next lane decision.
+   *(Sized 2026-08-19: the window is exactly 531,192,598,181 trees, the
+   rung-4 window is 244x bigger inside 34 quadrillion, and the filter
+   engine is built and validated — see
+   `notes/depth3_window_sizing_2026-08-19.md`.)*
 
 ## Provenance
 

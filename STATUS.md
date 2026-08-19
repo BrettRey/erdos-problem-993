@@ -7,7 +7,7 @@ stage: complete
 external: in-review
 blocked_on:
 - venue-response
-updated: 2026-08-12
+updated: 2026-08-19
 source:
 - STATUS.md
 - PORTFOLIO.md
@@ -95,6 +95,31 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 ## Source of truth
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
+
+## 2026-08-19: Depth-3 window sized exactly; enumeration ladder ends at rung 3
+
+Fable-credit burn session; the named "sizing" lane ran. Trees are
+bipartite so alpha = n - mu (König); an Otter-dissymmetry DP counting
+unlabeled trees by matching number (validated against all 20 grounded
+totals including the six census rungs, exhaustive n <= 14 brute-force
+histograms, and — discovered post hoc — all 990 OEIS A339829 b-file
+terms with n <= 44) sizes the dist-3 frontier without enumerating a
+tree: **rung 3 (alpha in {17,18,19}, n in [33,38]) is exactly
+531,192,598,181 trees** inside 74.2T generated, and **rung 4 is 129.7T
+inside 34.1 quadrillion** — 244x window growth per rung, so rung 3 is
+the last enumeration-reachable point of the dist-3 question. An empty
+rung 3 would make dist >= 4 unconditional for every tree with
+alpha <= 19. The alpha-filtered engine is built and fully validated
+(`scripts/lc_census_alpha.c`: greedy-matching prefilter with per-tree
+DP cross-check, 128-bit Turán products, shard-reconcilable PASS_ALPHA
+counts; per-alpha counts match the DP exactly on full n = 10/20/26
+enumerations, and the n = 26 run reproduces both stored failure
+polynomials byte-exactly). Measured 2.0-4.2M trees/s/pipeline prices
+the run at ~5,300 pipeline-hours as-is; recommendation: fuse the
+filter into gentreeg first (~8x, then 3-4 laptop-days or ~1 Modal-hour
+at 1024 workers). Run NOT launched — Modal spend is Brett's call.
+`notes/depth3_window_sizing_2026-08-19.md`,
+`results/depth3_window_sizing_20260819.json`.
 
 ## 2026-08-14 (afternoon): Full LC census n <= 32 — depth-2 window closed
 
