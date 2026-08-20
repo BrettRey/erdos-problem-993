@@ -1,5 +1,12 @@
 # Bounded pendant cores with arbitrary connectors — 2026-08-08
 
+> **2026-08-20 update.** The bounded theorem and partial-synchronization
+> route below are superseded by a direct clan-cancellation proof draft for
+> arbitrary pendant weight and every connector length. See
+> `notes/two_hub_B_logconcavity_proof_2026-08-20.md` and
+> `notes/c2_connector_clan_reduction_2026-08-20.md`. The original finite
+> theorem and its verifier remain valid independent evidence.
+
 ## Computer-assisted theorem
 
 Let `T(a,b,t)` be the tree obtained from two hubs as follows. Attach pendant

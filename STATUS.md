@@ -7,7 +7,7 @@ stage: complete
 external: in-review
 blocked_on:
 - venue-response
-updated: 2026-08-19
+updated: 2026-08-20
 source:
 - STATUS.md
 - PORTFOLIO.md
@@ -95,6 +95,72 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 ## Source of truth
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
+
+## 2026-08-20: Two-hub base proof, connector reduction, and matching-bag attack
+
+An inference-first session produced one proved LAW subfamily, a proof
+draft for the missing adjacent two-hub base fact, and two new reductions.
+No manuscript or public surface changed.
+
+- **LAW-V with one trivial hub is proved.** For arbitrary arms,
+  `C=Q+xR`, `B=C+xQ`. Path extension gives the likelihood-ratio order
+  `R <=_lr Q`; the spider Turan gap plus two shifted LR summands prove
+  `c_k b_k >= c_{k+1} b_{k-1}` at every index. This closes packet G3
+  and its one-arm special case G1. Note and exact audit:
+  `notes/law_v_one_hub_proof_2026-08-20.md`,
+  `verify_law_v_one_hub_20260820.py`.
+- **Adjacent two-hub B log-concavity has a complete proof draft.** The
+  Li--Li--Yang--Zhang clan cancellation extends after replacing a false
+  map-level injection by a disjoint block decomposition. A local hub
+  pair has imbalance Laurent polynomial
+  `c(z+z^-1)^r + z^r + z^-r`; two active hubs give the four-map product
+  minus only its two extreme monomials, which preserves central
+  unimodality. This proves `B=QaQb+x(RaQb+QaRb)` log-concave if the
+  written clan-normalization audit survives independent review. The
+  exact core verifier passes 129,600 four-map parameter cases and 3,330
+  actual arm pairs. Proof:
+  `notes/two_hub_B_logconcavity_proof_2026-08-20.md`; the collision and
+  repair history is preserved in
+  `notes/two_hub_clan_cancellation_attack_2026-08-20.md`.
+- **C2 connector theorem proof draft.** The same proof closes every odd
+  connector length. Even connector lengths reduce to the single
+  binomial Laurent lemma
+  `cd X^(r+s+1)+d X^s H_(r+1)+c X^r H_(s+1)+H_(r+s+1)` centrally
+  unimodal. Constants reduce to `c=d=1`; a coefficient-range split plus
+  two Vandermonde bounds proves that case, and 14,400 exact cores pass.
+  Subject to independent audit, this proves every tree with at most two
+  degree-at-least-three vertices log-concave, bypassing LAW-V/W.
+  `notes/c2_connector_clan_reduction_2026-08-20.md`.
+- **Distance-3 frontier recoded as a defect CSP.** Contract any maximum
+  matching into `alpha` one-/two-vertex bags. The independence
+  polynomial is exactly the feasible-state polynomial of the resulting
+  port-labeled tree; the rung-3 frontier becomes 17--19 bags with at
+  most five singleton bags, and a depth-3 break is `s_3^2 < s_2 s_4`.
+  Blocked defect configurations have minimal unit-propagation cores that
+  are paths on at most four empty bags. The representation replayed
+  against all 986 trees through n=12.
+  `notes/matching_bag_csp_attack_2026-08-20.md`,
+  `verify_matching_bag_csp_20260820.py`.
+- **The extendable defect profile is now proved log-concave.** Minimum
+  vertex covers relative to a fixed maximum matching form an order-ideal
+  code of a forest-cover poset, times constant coordinates. Its erasure
+  polynomial is the full-whiskering transform of the poset antichain
+  polynomial. A universal Pascal-smoothing lemma for every nonempty
+  downward-closed family proves all upper-tail inequalities through defect
+  depth eight at arbitrary rank and the whole
+  transform through rank 33. In particular, for `M=alpha`,
+  `e_3^2 >= [32(M-2)/(27(M-3))] e_2 e_4`; the rung-3 extendable term is
+  completely closed with quantitative slack. The only remaining term is
+  the blocked alternating-path correction `b_d` in `s_d=e_d+b_d`.
+  `notes/matching_bag_poset_reduction_2026-08-20.md`,
+  `notes/pascal_smoothing_shadow_lemma_2026-08-20.md`,
+  `verify_erasure_shadow_poset_20260820.py`,
+  `verify_pascal_smoothing_20260820.py`.
+
+Named next mathematical targets: independently audit the clan-state
+partition/normalization and the connector parity bookkeeping; express and
+bound the forced-path correction `b_2,b_3,b_4` against the proved Pascal
+reserve. Long enumeration is deprioritized.
 
 ## 2026-08-19: Depth-3 window sized exactly; enumeration ladder ends at rung 3
 

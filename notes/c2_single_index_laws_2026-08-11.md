@@ -1,5 +1,13 @@
 # Single-index laws and an assembly lemma for the C2 base facts
 
+> **2026-08-20 update.** LAW-V and LAW-W remain open as stated, but they
+> are no longer needed for the C2 theorem: a direct clan-cancellation
+> proof draft establishes the adjacent polynomial `B` and then every
+> connector length. See `notes/two_hub_B_logconcavity_proof_2026-08-20.md`
+> and `notes/c2_connector_clan_reduction_2026-08-20.md`. The one-trivial-
+> hub case of LAW-V itself is now proved in
+> `notes/law_v_one_hub_proof_2026-08-20.md`.
+
 Date: 2026-08-11. Companion script: `verify_c2_single_index_laws_20260811.py`;
 results: `results/c2_single_index_laws_20260811.json`; head certificates:
 `scripts/bottleneck_head_certificates_20260811.py`. Produced with substantive
