@@ -96,6 +96,24 @@ def cmd_formalize(args: argparse.Namespace) -> int:
     return run(cmd)
 
 
+def cmd_continue(args: argparse.Namespace) -> int:
+    require_api_key()
+    cmd = [
+        find_aristotle_bin(),
+        "continue",
+        args.project_id,
+        args.prompt,
+        "--mode",
+        args.mode,
+    ]
+    if args.files:
+        cmd.append("--files")
+        cmd.extend(str(path.resolve()) for path in args.files)
+    if args.wait:
+        cmd.append("--wait")
+    return run(cmd)
+
+
 def cmd_result(args: argparse.Namespace) -> int:
     require_api_key()
     cmd = [find_aristotle_bin(), "download", args.project_id]
@@ -105,6 +123,16 @@ def cmd_result(args: argparse.Namespace) -> int:
         cmd.extend(
             ["--destination", str(DEFAULT_DOWNLOADS / f"{args.project_id}-aristotle.tar.gz")]
         )
+    return run(cmd)
+
+
+def cmd_show(args: argparse.Namespace) -> int:
+    require_api_key()
+    cmd = [find_aristotle_bin(), "show", args.project_id, "--limit", str(args.limit)]
+    if args.task:
+        cmd.extend(["--task", args.task])
+    if args.pagination_key:
+        cmd.extend(["--pagination-key", args.pagination_key])
     return run(cmd)
 
 
@@ -172,12 +200,33 @@ def build_parser() -> argparse.ArgumentParser:
     formalize_parser.add_argument("--destination", type=Path)
     formalize_parser.set_defaults(func=cmd_formalize)
 
+    continue_parser = subparsers.add_parser(
+        "continue", help="Continue an existing Aristotle project."
+    )
+    continue_parser.add_argument("project_id")
+    continue_parser.add_argument("prompt")
+    continue_parser.add_argument(
+        "--mode", choices=["ask", "instruct"], default="instruct"
+    )
+    continue_parser.add_argument("--files", nargs="*", type=Path, default=[])
+    continue_parser.add_argument("--wait", action="store_true")
+    continue_parser.set_defaults(func=cmd_continue)
+
     result_parser = subparsers.add_parser(
         "result", help="Fetch a result for an existing Aristotle project id."
     )
     result_parser.add_argument("project_id")
     result_parser.add_argument("--destination", type=Path)
     result_parser.set_defaults(func=cmd_result)
+
+    show_parser = subparsers.add_parser(
+        "show", help="Show task status and recent events for a project."
+    )
+    show_parser.add_argument("project_id")
+    show_parser.add_argument("--task")
+    show_parser.add_argument("--limit", type=int, default=3)
+    show_parser.add_argument("--pagination-key")
+    show_parser.set_defaults(func=cmd_show)
 
     list_parser = subparsers.add_parser("list", help="List recent Aristotle jobs.")
     list_parser.add_argument("--limit", type=int, default=10)
