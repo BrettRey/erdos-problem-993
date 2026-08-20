@@ -1,11 +1,22 @@
 # Log-concavity of the adjacent two-hub independence polynomial
 
-Date: 2026-08-20. Status: proof draft, exact core audit passing. Companion
-verifier: `verify_two_hub_B_logconcavity_20260820.py`. This repairs the
-map-level collision isolated in
+Date: 2026-08-20. Status: proof draft, exact core audit passing, with the
+normalization kernel formally verified but the global partition still open.
+Companion verifier: `verify_two_hub_B_logconcavity_20260820.py`. This repairs
+the map-level collision isolated in
 `notes/two_hub_clan_cancellation_attack_2026-08-20.md`.
 The local transform/inverse, including the new \(p=2\) use, has a
 separate finite audit in `verify_local_li_block_20260820.py`.
+
+The independent Aristotle audit in
+`formalization/clan_normalization_aristotle/RESULT.md` proves the clan
+normalization, normalized imbalance formula, binary product law, local
+`p=2` injection, four-map identity, and the needed block inequality for
+derived scalars `c,d>=1`. It refutes the unnecessarily broad version for
+arbitrary positive rationals and does not formalize the arbitrary-even-arm
+weight derivation or the exhaustive global block partition asserted in
+Sections 3--5. Thus the theorem statement below remains the target of this
+proof draft rather than a fully independently closed theorem.
 
 ## Theorem
 
@@ -219,5 +230,6 @@ lengths and counts.
 This theorem supplies the adjacent base fact. The later proof draft
 `c2_connector_clan_reduction_2026-08-20.md` extends the same partition to
 every connector length and bypasses LAW-V, LAW-W, and the LAW-U head strip.
-Both clan partitions should receive an independent normalization audit
-before the C2 theorem is treated as final.
+The independent audit has closed the normalization and algebraic parts, but
+the arbitrary-even-arm weight derivation and exhaustive global block
+partition remain before either theorem is treated as final.

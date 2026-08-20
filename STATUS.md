@@ -109,27 +109,37 @@ No manuscript or public surface changed.
   and its one-arm special case G1. Note and exact audit:
   `notes/law_v_one_hub_proof_2026-08-20.md`,
   `verify_law_v_one_hub_20260820.py`.
-- **Adjacent two-hub B log-concavity has a complete proof draft.** The
+- **Adjacent two-hub B log-concavity has a proof draft with a formally
+  verified kernel but an open global-partition obligation.** The
   Li--Li--Yang--Zhang clan cancellation extends after replacing a false
   map-level injection by a disjoint block decomposition. A local hub
   pair has imbalance Laurent polynomial
   `c(z+z^-1)^r + z^r + z^-r`; two active hubs give the four-map product
-  minus only its two extreme monomials, which preserves central
-  unimodality. This proves `B=QaQb+x(RaQb+QaRb)` log-concave if the
-  written clan-normalization audit survives independent review. The
+  minus only its two extreme monomials. Aristotle independently proved
+  the clan-normalization kernel, product law, local `p=2` injection,
+  four-map identity, and central unimodality on the derived range
+  `c,d>=1`; it also refuted the overbroad claim for merely positive
+  rational `c,d` using `r=3,s=1,c=1/4,d=1`. Its Lean project replays
+  locally with no `sorry`, `admit`, `axiom`, or `implemented_by`.
+  Arbitrary additional even arms (`c=2^e`) and the exhaustive disjoint
+  global block partition remain unformalized, so this is not yet a
+  final proof that `B=QaQb+x(RaQb+QaRb)` is log-concave. The
   exact core verifier passes 129,600 four-map parameter cases and 3,330
   actual arm pairs. Proof:
   `notes/two_hub_B_logconcavity_proof_2026-08-20.md`; the collision and
   repair history is preserved in
-  `notes/two_hub_clan_cancellation_attack_2026-08-20.md`.
-- **C2 connector theorem proof draft.** The same proof closes every odd
+  `notes/two_hub_clan_cancellation_attack_2026-08-20.md`; formal audit:
+  `formalization/clan_normalization_aristotle/RESULT.md`.
+- **C2 connector theorem remains a proof draft pending that same global
+  clan partition.** The algebraic continuation closes every odd
   connector length. Even connector lengths reduce to the single
   binomial Laurent lemma
   `cd X^(r+s+1)+d X^s H_(r+1)+c X^r H_(s+1)+H_(r+s+1)` centrally
   unimodal. Constants reduce to `c=d=1`; a coefficient-range split plus
   two Vandermonde bounds proves that case, and 14,400 exact cores pass.
-  Subject to independent audit, this proves every tree with at most two
-  degree-at-least-three vertices log-concave, bypassing LAW-V/W.
+  Once the global partition and arbitrary-arm weights are closed, this
+  proves every tree with at most two degree-at-least-three vertices
+  log-concave, bypassing LAW-V/W.
   `notes/c2_connector_clan_reduction_2026-08-20.md`.
 - **Distance-3 frontier recoded as a defect CSP.** Contract any maximum
   matching into `alpha` one-/two-vertex bags. The independence

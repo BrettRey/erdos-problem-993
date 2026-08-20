@@ -1,9 +1,21 @@
 # Clan cancellation proves the two-branch-vertex theorem
 
-Date: 2026-08-20. Status: proof draft complete; exact core verification
-passing. The even-connector binomial lemma left open in the first draft
-is proved below. The 14,400-case exact audit of its Laurent core is in
+Date: 2026-08-20. Status: algebraic proof draft complete; exact core
+verification passing; global clan partition still open. The
+even-connector binomial lemma left open in the first draft is proved
+below. The 14,400-case exact audit of its Laurent core is in
 `verify_two_hub_B_logconcavity_20260820.py`.
+
+An independent Aristotle audit subsequently proved the clan-normalization
+kernel, binary component multiplicativity, the local `p=2` injection, the
+four-map identity, and its central unimodality when the derived scalars
+satisfy `c,d>=1`. It refuted the stronger statement for arbitrary positive
+rationals (`r=3,s=1,c=1/4,d=1`) and left two obligations explicit: deriving
+`c=2^e` for arbitrary additional even arms and proving that the global clan
+maps form the claimed exhaustive disjoint block partition. See
+`formalization/clan_normalization_aristotle/RESULT.md`. Accordingly, the
+displayed connector algebra is proved, but the concluding C2 theorem below
+remains conditional on those combinatorial obligations.
 
 This note starts from
 `notes/two_hub_B_logconcavity_proof_2026-08-20.md` and asks whether the
@@ -207,10 +219,11 @@ Thus (4) increases to its center.  It is symmetric, so it is centrally
 unimodal.  The constants decomposition proves (2) for all
 \(c,d\ge1\). \(\square\)
 
-Combining the odd-connector argument, the even-connector lemma, and the
-unmatched endpoint cases proves: **the independence polynomial of every
-tree with at most two vertices of degree at least three is
-log-concave.** This is the C2 theorem sought in
+Conditional on the exhaustive clan partition and arbitrary-arm weight
+derivation described above, combining the odd-connector argument, the
+even-connector lemma, and the unmatched endpoint cases proves: **the
+independence polynomial of every tree with at most two vertices of degree
+at least three is log-concave.** This is the C2 theorem sought in
 `notes/c2_bounded_pendant_core_2026-08-08.md`, obtained without LAW-V,
 LAW-W, or the connector recurrence.
 

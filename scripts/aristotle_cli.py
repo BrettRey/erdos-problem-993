@@ -98,12 +98,10 @@ def cmd_formalize(args: argparse.Namespace) -> int:
 
 def cmd_result(args: argparse.Namespace) -> int:
     require_api_key()
-    cmd = [find_aristotle_bin(), "result", args.project_id]
-    if args.wait:
-        cmd.append("--wait")
+    cmd = [find_aristotle_bin(), "download", args.project_id]
     if args.destination is not None:
         cmd.extend(["--destination", str(args.destination.resolve())])
-    elif args.wait:
+    else:
         cmd.extend(
             ["--destination", str(DEFAULT_DOWNLOADS / f"{args.project_id}-aristotle.tar.gz")]
         )
@@ -178,7 +176,6 @@ def build_parser() -> argparse.ArgumentParser:
         "result", help="Fetch a result for an existing Aristotle project id."
     )
     result_parser.add_argument("project_id")
-    result_parser.add_argument("--wait", action="store_true")
     result_parser.add_argument("--destination", type=Path)
     result_parser.set_defaults(func=cmd_result)
 
