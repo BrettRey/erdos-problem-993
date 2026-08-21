@@ -19,12 +19,11 @@ graphs*, arXiv:2501.04245, Section 2 and Theorem 3.1).
   All theorems depend only on `propext`, `Classical.choice`, `Quot.sound`.
 * Graded result note: [`RESULT.md`](RESULT.md).
 * Follow-up target `FOLLOWUP_GLOBAL_PARTITION_20260820.md` (the explicit global partition
-  and the final degreewise theorem) is **proved**; see the last traceability table below.
-* Independent local replay on 2026-08-21: `lake build` completed 8,051 jobs. Direct
-  `#print axioms` checks on the final degreewise theorem, partition declarations, and
-  collision theorem reported only `propext`, `Classical.choice`, and `Quot.sound`.
-* Final continuation: `FOLLOWUP_FULL_C2_ASSEMBLY_20260821.md`, Aristotle task
-  `147581ec-6d3a-423f-b359-85cababab583`.
+  and the final degreewise theorem) is **proved**; see the traceability tables below.
+* The development has since been carried all the way to its intended consequence: **every
+  finite tree with at most two vertices of degree at least three has a log-concave
+  independence polynomial** (`ClanAudit.indepPoly_logConcave_of_isTree_of_branchVerts_card_le_two`).
+  See the last table below.
 
 ## Files
 
@@ -52,6 +51,23 @@ graphs*, arXiv:2501.04245, Section 2 and Theorem 3.1).
 | `RequestProject/ClanAudit/BlockWeight.lean` | the exact normalized Laurent sum of each block of the partition |
 | `RequestProject/ClanAudit/GlobalPartition.lean` | the explicit global partition of the degree-`N` map space and the final degreewise theorem |
 | `RequestProject/ClanAudit/Collision.lean` | the explicit collision of the proof notes, formalized and resolved |
+| `RequestProject/ClanAudit/Bridge.lean` | independent sets, `indepCount`, `indepPoly`, and the derived coefficient bridge: degreewise normalized two-row nonnegativity ⟹ log-concavity |
+| `RequestProject/ClanAudit/AdjacentLogConcave.lean` | log-concavity of the independence polynomial of the adjacent two-hub tree |
+| `RequestProject/ClanAudit/Connector.lean` | the arbitrary-connector two-hub tree `connGraph t m a n b` / `connectorGraph ell m a n b` |
+| `RequestProject/ClanAudit/ArmSpider.lean`, `ArmSpiderR.lean` | a spider with one extra pendant path at the hub, and its mirror image; the pieces of a cut connector |
+| `RequestProject/ClanAudit/ConnectorSplit.lean` | cutting the connector tree at a switched-off vertex |
+| `RequestProject/ClanAudit/ConnectorImbalance.lean`, `ConnectorJoint.lean` | the exact imbalance law of the connector component, and the joined stratum |
+| `RequestProject/ClanAudit/EvenBlock.lean`, `RequestProject/EvenConnector.lean`, `Binomial.lean`, `Coeff.lean` | the even-connector block `Gblock` and its central unimodality |
+| `RequestProject/ClanAudit/ConnectorPartition.lean`, `ConnectorBlock.lean`, `ConnectorZero.lean` | the global partition, blockwise weights and degreewise theorem for the connector tree |
+| `RequestProject/ClanAudit/ConnectorLogConcave.lean`, `SpiderLogConcave.lean` | log-concavity for the connector tree and for spiders (hence paths) |
+| `RequestProject/ClanAudit/IsoTransport.lean` | isomorphism invariance of `indepCount`, `indepPoly` and of log-concavity |
+| `RequestProject/ClanAudit/C2Family.lean` | `IsC2Model`, paths as spiders, and log-concavity for every `C₂` model |
+| `RequestProject/ClanAudit/TreeRoot.lean`, `TreeArm.lean`, `TreeTwoHub.lean` | rooted-tree toolkit: root paths, depth, parent, arms, and the two-hub comparison lemmas |
+| `RequestProject/ClanAudit/SpiderRecognition.lean` | every finite tree with at most one branch vertex is isomorphic to a spider |
+| `RequestProject/ClanAudit/ConnectorRecognition.lean` | every finite tree with two branch vertices is isomorphic to a connector model |
+| `RequestProject/ClanAudit/TreeC2.lean` | branch vertices, and the final theorem for abstract trees with at most two of them |
+| `RequestProject/ClanAudit/TreeCriterion.lean` | a rank/parent criterion for a connected finite graph to be a tree |
+| `RequestProject/ClanAudit/ModelsAreTrees.lean` | the models are trees with at most two branch vertices, and the resulting characterization of the `C₂` family |
 | `RequestProject/ClanAudit.lean` | source-labelled summary of every audited item |
 
 ## Traceability table
@@ -134,3 +150,30 @@ the third column gives the file where the mathematics is proved.
 | the published `p ≥ 3` local transformation and its missing normalized-weight theorem | `ClanAudit.Audit.transformed_side_weight` (`Wpoly_side_image`, any `p ≥ 2`) | proved |
 | local pairing map injective / order preserving on a whole side | `ClanAudit.transf_injective`, `ClanAudit.sum_transf` | proved |
 | 6. Final sum: degreewise normalized two-row nonnegativity | `ClanAudit.Audit.adjacent_two_hub_degreewise_nonneg`, `ClanAudit.Audit.total_degree_weight_centrally_unimodal` | proved |
+
+### From the clan machinery to log-concavity: trees with at most two branch vertices
+
+A *branch vertex* is a vertex of degree at least three.  The chain below turns the
+degreewise clan statement into an intrinsic statement about abstract finite trees.
+
+| Step | Lean declaration | File |
+| --- | --- | --- |
+| independent sets, `i(G,j)`, and the independence polynomial | `ClanAudit.indepSets`, `ClanAudit.indepCount`, `ClanAudit.indepPoly` | `Bridge.lean` |
+| coefficient bridge: `∑_α normalizedTwoRowCoeff G α k l = i_k i_l - i_(k+1) i_(l-1)` (derived, not assumed) | `ClanAudit.sum_normalizedTwoRowCoeff_eq` | `Bridge.lean` |
+| degreewise nonnegativity ⟹ log-concavity of `i(G,·)` and of `I(G;x)` | `ClanAudit.indepCount_logConcave_of_degreewise_nonneg`, `ClanAudit.indepPoly_logConcave_of_degreewise_nonneg` | `Bridge.lean` |
+| log-concavity for the adjacent two-hub tree `D(a,b)` | `ClanAudit.dgraph_indepCount_logConcave`, `ClanAudit.dgraph_indepPoly_logConcave` | `AdjacentLogConcave.lean` |
+| the arbitrary-connector two-hub tree | `ClanAudit.connGraph`, `ClanAudit.connectorGraph` | `Connector.lean` |
+| its global partition, blockwise weights and degreewise theorem | `ClanAudit.conn_blocks_pairwise_disjoint`, `ClanAudit.conn_blocks_cover`, `ClanAudit.connBlockSum_isCU`, `ClanAudit.isCU_connTotalW`, `ClanAudit.conn_sum_normalizedTwoRowCoeff_nonneg` | `ConnectorPartition.lean`, `ConnectorBlock.lean`, `ConnectorZero.lean` |
+| log-concavity for every connector tree | `ClanAudit.connGraph_indepPoly_logConcave`, `ClanAudit.connectorGraph_indepPoly_logConcave` | `ConnectorLogConcave.lean` |
+| log-concavity for every spider, hence every path | `ClanAudit.spider_indepPoly_logConcave`, `ClanAudit.pathGraph_indepPoly_logConcave` | `SpiderLogConcave.lean`, `C2Family.lean` |
+| isomorphism invariance of the whole statement | `ClanAudit.indepCount_logConcave_of_iso`, `ClanAudit.indepPoly_logConcave_of_iso` | `IsoTransport.lean` |
+| the `C₂` family of models and its log-concavity | `ClanAudit.IsC2Model`, `ClanAudit.indepCount_logConcave_of_isC2Model`, `ClanAudit.indepPoly_logConcave_of_isC2Model` | `C2Family.lean` |
+| **recognition, one hub**: a finite tree in which every vertex other than `h` has degree at most two is a spider | `ClanAudit.spiderIsoOfTree` | `SpiderRecognition.lean` |
+| **recognition, two hubs**: a finite tree in which every vertex other than `h1 ≠ h2` has degree at most two is a connector tree | `ClanAudit.connIsoOfTree` | `ConnectorRecognition.lean` |
+| branch vertices of a graph | `ClanAudit.branchVerts` | `TreeC2.lean` |
+| **every finite tree with at most two branch vertices is a `C₂` model** | `ClanAudit.isC2Model_of_isTree_of_branchVerts_card_le_two` | `TreeC2.lean` |
+| **every finite tree with at most two branch vertices has log-concave independence counts and independence polynomial** | `ClanAudit.indepCount_logConcave_of_isTree_of_branchVerts_card_le_two`, `ClanAudit.indepPoly_logConcave_of_isTree_of_branchVerts_card_le_two` | `TreeC2.lean` |
+| rank/parent criterion for being a tree | `ClanAudit.isTree_of_rank_parent` | `TreeCriterion.lean` |
+| the models are trees | `ClanAudit.spider_isTree`, `ClanAudit.connGraph_isTree` | `ModelsAreTrees.lean` |
+| only the hubs of a model can be branch vertices | `ClanAudit.spider_branchVerts_card_le_one`, `ClanAudit.connGraph_branchVerts_card_le_two` | `ModelsAreTrees.lean`, `Connector.lean` |
+| **characterization**: `IsC2Model G ↔ G.IsTree ∧ (branchVerts G).card ≤ 2` | `ClanAudit.isC2Model_iff_isTree_branchVerts` | `ModelsAreTrees.lean` |

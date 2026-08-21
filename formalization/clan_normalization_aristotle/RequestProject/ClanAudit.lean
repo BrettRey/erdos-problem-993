@@ -10,6 +10,9 @@ import RequestProject.ClanAudit.P2Weight
 import RequestProject.ClanAudit.EvenArms
 import RequestProject.ClanAudit.GlobalPartition
 import RequestProject.ClanAudit.Collision
+import RequestProject.ClanAudit.AdjacentLogConcave
+import RequestProject.ClanAudit.TreeC2
+import RequestProject.ClanAudit.ModelsAreTrees
 
 /-!
 # `ClanAudit` — source-labelled summary of the audit
@@ -404,6 +407,91 @@ theorem adjacent_two_hub_degreewise_nonneg (m : ℕ) (a : Fin m → ℕ) (n : �
     (N k l : ℕ) (hl : 1 ≤ l) (hkl : l ≤ k) (hN : k + l = N) :
     0 ≤ ∑ alpha ∈ mapsOfOrder m a n b N, normalizedTwoRowCoeff (dgraph m a n b) alpha k l :=
   sum_normalizedTwoRowCoeff_nonneg m a n b N k l hl hkl hN
+
+/-! ## Target A: the direct Li–Li–Yang–Zhang coefficient bridge
+
+Source: the continuation request, "Target A: direct Li–Li–Yang–Zhang coefficient bridge".
+The finite coefficient identity is *derived* from the clan/multicolouring definitions, and
+turned into a reusable transfer theorem which is then instantiated for `dgraph`. -/
+
+theorem coefficient_bridge {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V)
+    (k l N : ℕ) (hl : 1 ≤ l) (hN : k + l = N) :
+    ∑ alpha ∈ multMaps V N, normalizedTwoRowCoeff G alpha k l
+      = (indepCount G k : ℚ) * (indepCount G l : ℚ)
+        - (indepCount G (k + 1) : ℚ) * (indepCount G (l - 1) : ℚ) :=
+  sum_normalizedTwoRowCoeff_eq G k l N hl hN
+
+theorem coefficient_bridge_diagonal {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) (k : ℕ) (hk : 1 ≤ k) :
+    ∑ alpha ∈ multMaps V (2 * k), normalizedTwoRowCoeff G alpha k k
+      = (indepCount G k : ℚ) ^ 2
+        - (indepCount G (k - 1) : ℚ) * (indepCount G (k + 1) : ℚ) :=
+  sum_normalizedTwoRowCoeff_diag G k hk
+
+theorem coefficient_bridge_zero {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) :
+    ∑ alpha ∈ multMaps V 0, normalizedTwoRowCoeff G alpha 0 0 = (indepCount G 0 : ℚ) ^ 2 :=
+  sum_normalizedTwoRowCoeff_zero G
+
+theorem degreewise_nonneg_implies_log_concavity {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V)
+    (h : ∀ N k l : ℕ, 1 ≤ l → l ≤ k → k + l = N →
+      0 ≤ ∑ alpha ∈ multMaps V N, normalizedTwoRowCoeff G alpha k l) (j : ℕ) :
+    indepCount G j * indepCount G (j + 2) ≤ indepCount G (j + 1) * indepCount G (j + 1) :=
+  indepCount_logConcave_of_degreewise_nonneg G h j
+
+theorem adjacent_two_hub_independence_polynomial_log_concave (m : ℕ) (a : Fin m → ℕ)
+    (n : ℕ) (b : Fin n → ℕ) (j : ℕ) :
+    (indepPoly (dgraph m a n b)).coeff j * (indepPoly (dgraph m a n b)).coeff (j + 2)
+      ≤ (indepPoly (dgraph m a n b)).coeff (j + 1)
+        * (indepPoly (dgraph m a n b)).coeff (j + 1) :=
+  dgraph_indepPoly_logConcave m a n b j
+
+/-! ### The `C₂` family: from the clan machinery to abstract trees -/
+
+/-- Source: the connector two-hub tree, arbitrary connector length and arbitrary arms. -/
+theorem connector_two_hub_independence_polynomial_log_concave (t m : ℕ) (a : Fin m → ℕ)
+    (n : ℕ) (b : Fin n → ℕ) (j : ℕ) :
+    (indepPoly (connGraph t m a n b)).coeff j
+        * (indepPoly (connGraph t m a n b)).coeff (j + 2)
+      ≤ (indepPoly (connGraph t m a n b)).coeff (j + 1)
+        * (indepPoly (connGraph t m a n b)).coeff (j + 1) :=
+  connGraph_indepPoly_logConcave t m a n b j
+
+/-- Source: the one-hub case, i.e. spiders (and hence paths). -/
+theorem spider_independence_polynomial_log_concave (k : ℕ) (len : Fin k → ℕ) (j : ℕ) :
+    (indepPoly (spider k len)).coeff j * (indepPoly (spider k len)).coeff (j + 2)
+      ≤ (indepPoly (spider k len)).coeff (j + 1) * (indepPoly (spider k len)).coeff (j + 1) :=
+  spider_indepPoly_logConcave k len j
+
+/-- Source: recognition of a tree with at most one branch vertex as a spider. -/
+noncomputable def tree_one_branch_vertex_is_spider {V : Type*} [Fintype V] [DecidableEq V]
+    {G : SimpleGraph V} [DecidableRel G.Adj] (hG : G.IsTree) (h : V)
+    (hdeg : ∀ v : V, v ≠ h → G.degree v ≤ 2) :
+    G ≃g spider (G.neighborFinset h).card (hubArmLen hG h) :=
+  spiderIsoOfTree hG h hdeg
+
+/-- Source: recognition of a tree with two branch vertices as a connector tree. -/
+noncomputable def tree_two_branch_vertices_is_connector {V : Type*} [Fintype V] [DecidableEq V]
+    {G : SimpleGraph V} [DecidableRel G.Adj] (hG : G.IsTree) {h1 h2 : V} (hne : h1 ≠ h2)
+    (hdeg : ∀ w : V, w ≠ h1 → w ≠ h2 → G.degree w ≤ 2) :
+    G ≃g connModel hG (h1 := h1) (h2 := h2) :=
+  connIsoOfTree hG hne hdeg
+
+/-- Source: the `C₂` conclusion for abstract finite trees. -/
+theorem tree_with_two_branch_vertices_log_concave {V : Type*} [Fintype V] [DecidableEq V]
+    {G : SimpleGraph V} [DecidableRel G.Adj] (hG : G.IsTree)
+    (hb : (branchVerts G).card ≤ 2) (j : ℕ) :
+    (indepPoly G).coeff j * (indepPoly G).coeff (j + 2)
+      ≤ (indepPoly G).coeff (j + 1) * (indepPoly G).coeff (j + 1) :=
+  indepPoly_logConcave_of_isTree_of_branchVerts_card_le_two hG hb j
+
+/-- Source: the scope of the `C₂` family is exactly the finite trees with at most two
+branch vertices. -/
+theorem c2_family_is_exactly_two_branch_trees {V : Type*} [Fintype V] [DecidableEq V]
+    {G : SimpleGraph V} [DecidableRel G.Adj] :
+    IsC2Model G ↔ G.IsTree ∧ (branchVerts G).card ≤ 2 :=
+  isC2Model_iff_isTree_branchVerts
 
 end Audit
 

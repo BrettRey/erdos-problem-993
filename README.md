@@ -63,6 +63,15 @@ The current active targets are:
 
 ### Additional repository result
 
+Every finite tree with at most two vertices of degree at least three has a
+log-concave—and therefore unimodal—independence polynomial. The complete Lean 4
+development is in
+[`formalization/clan_normalization_aristotle/`](formalization/clan_normalization_aristotle/):
+its 8,078-job build replays locally, contains no proof escape hatches, and the
+principal theorem depends only on Lean's standard `propext`, `Classical.choice`,
+and `Quot.sound` axioms. This result has not been peer reviewed and is not yet
+part of the submitted manuscript.
+
 Every **double broom**—a path with any number of leaves attached at either
 endpoint—has a log-concave independence polynomial. The proof covers all
 numbers of leaves and every connector length; see
@@ -70,11 +79,11 @@ numbers of leaves and every connector length; see
 An exact replay audits the formulas and coefficient identities but is not the
 proof of the all-parameter theorem.
 
-The same recurrence also gives a computer-assisted extension to every
+The same recurrence previously gave a computer-assisted extension to every
 two-hub tree with at most 24 vertices on its pendant arms and an arbitrarily
 long connector. The exact certificate covers 163,523 unordered pendant-core
-pairs. Neither result settles Erdős Problem #993 or the unrestricted class of
-trees with two branch vertices. These repository results arose through
+pairs. Neither the C2 theorem nor these earlier results settles Erdős Problem
+#993 for unrestricted trees. These repository results arose through
 substantive generative-AI assistance and have not been peer reviewed.
 
 The manuscript (`paper/main_v2.tex`) reports:

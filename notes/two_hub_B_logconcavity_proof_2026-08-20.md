@@ -1,10 +1,11 @@
 # Log-concavity of the adjacent two-hub independence polynomial
 
-Date: 2026-08-20. Status updated 2026-08-21: the exact core audit passes and
-Aristotle has formally proved the normalization kernel, arbitrary-arm weight
-derivation, exhaustive global partition, and final degreewise normalized
-two-row nonnegativity. The direct LLYZ coefficient bridge to ordinary
-independence-polynomial log-concavity is the only remaining Lean obligation.
+Date: 2026-08-20. Status updated 2026-08-21: theorem formally proved. The exact
+core audit passes, and Aristotle has formally proved the normalization kernel,
+arbitrary-arm weight derivation, exhaustive global partition, direct LLYZ
+coefficient bridge, and ordinary independence-polynomial log-concavity. The
+same development now proves the stronger arbitrary-connector theorem for every
+finite tree with at most two branch vertices.
 Companion verifier: `verify_two_hub_B_logconcavity_20260820.py`. This repairs
 the map-level collision isolated in
 `notes/two_hub_clan_cancellation_attack_2026-08-20.md`.
@@ -19,10 +20,10 @@ four-map identity, the repaired block inequality, and the exhaustive
 degree-preserving partition into explicit fibres of sizes 4/2/1. It also
 formalizes and resolves the collision recorded in the companion attack note.
 The project proves the resulting degreewise normalized two-row coefficient
-sum is nonnegative. It refutes only the unnecessarily broad local inequality
-for arbitrary positive rational `c,d`. A 2026-08-21 continuation is formalizing
-the finite coefficient identity behind LLYZ Corollary 2.2 and then instantiating
-it here.
+sum is nonnegative and carries the finite coefficient identity behind LLYZ
+Corollary 2.2 through to the independence-polynomial theorem. It refutes only
+the unnecessarily broad local inequality for arbitrary positive rational
+`c,d`.
 
 ## Theorem
 

@@ -1,0 +1,865 @@
+                                                    A symmetric function approach to log-concavity of
+                                                              independence polynomials
+                                                 Ethan Y.H. Li1 , Grace M.X. Li2 , Arthur L.B. Yang3 and Zhong-Xue Zhang4
+                                                                   1
+                                                                     School of Mathematics and Statistics,
+                                                      Shaanxi Normal University, Xi’an, Shaanxi 710119, P. R. China
+                                                                 2
+                                                                   School of Mathematics and Data Science,
+                                              Shaanxi University of Science and Technology, Xi’an, Shaanxi 710021, P. R. China
+                                                                     3,4
+                                                                         Center for Combinatorics, LPMC
+
+
+
+
+arXiv:2501.04245v1 [math.CO] 8 Jan 2025
+                                                               Nankai University, Tianjin 300071, P. R. China
+                                              Email: 1 yinhao li@snnu.edu.cn, 2 grace li@sust.edu.cn, 3 yang@nankai.edu.cn,
+                                                                       4
+                                                                         zhzhx@mail.nankai.edu.cn
+
+                                          Abstract. As introduced by Gutman and Harary, the independence polynomial of a
+                                          graph serves as the generating polynomial of its independent sets. In 1987, Alavi, Malde,
+                                          Schwenk and Erdős conjectured that the independence polynomials of all trees are uni-
+                                          modal. In this paper we come up with a new way for proving log-concavity of independence
+                                          polynomials of graphs by means of their chromatic symmetric functions, which is inspired
+                                          by a result of Stanley connecting properties of polynomials to positivity of symmetric
+                                          functions. This method turns out to be more suitable for treating trees with irregular
+                                          structures, and as a simple application we show that all spiders have log-concave inde-
+                                          pendence polynomials, which provides more evidence for the above conjecture. Moreover,
+                                          we present two symmetric function analogues of a basic recurrence formula for indepen-
+                                          dence polynomials, and show that all pineapple graphs also have log-concave independence
+                                          polynomials.
+                                          AMS Mathematics Subject Classification 2020: 05C69, 05E05, 05C05, 05C15
+                                          Keywords: independence polynomial; log-concavity; unimodality; chromatic symmetric
+                                          function; Schur-positivity; spider
+
+
+                                          1      Introduction
+                                          Given a graph G = (V (G), E(G)), an independent set (or stable set) I is defined as a
+                                          subset of V (G) such that any two vertices of I are not adjacent. Let α(G) denote the size
+                                          of maximum independent set(s) of G. The independence polynomial (also called stable set
+                                          polynomial ) of G, introduced by Gutman and Harary [10], is defined as
+
+                                                                       IG (t) = i0 + i1 t + · · · + iα(G) tα(G) ,
+
+                                                                                           1
+where ij denotes the number of independent sets of G with cardinality j and by convention
+i0 = 1.
+    In 1987, Alavi, Malde, Schwenk and Erdős [1] further studied these polynomials and
+particularly investigated their unimodality. Recall that if IG (t) is of degree d and there
+exists an index 0 ≤ j ≤ d such that i0 ≤ · · · ≤ ij−1 ≤ ij ≥ ij+1 ≥ · · · ≥ id , then it is said
+to be unimodal. They made the following conjecture.
+
+Conjecture 1.1 ([1, Problem 3]). The independence polynomial of every tree is unimodal.
+
+    This celebrated conjecture has received considerable attention. For more recent work
+on this conjecture, see [2, 3, 4, 5, 6, 9, 11, 13, 16, 25, 27, 28] and references therein.
+    In particular, it was surmised that these polynomials are actually log-concave [17],
+which is a stronger property than unimodality and requires that i2j ≥ ij−1 ij+1 for any
+1 ≤ j ≤ d − 1. However, Kadrawi, Levit, Yosef and Mizrachi [14, 15] presented many
+counterexamples with unimodal but not log-concave independence polynomials. The real-
+rootedness of independence polynomials, a stronger property than log-concavity, has also
+been studied extensively; see [7, 8, 12, 18, 24, 26, 29] for instance.
+    In this paper we proceed to investigate this conjecture by means of chromatic sym-
+metric functions of graphs. In particular, we find a new way for proving the log-concavity
+of independence polynomials, which is inspired by the following result of Stanley.
+    Let sλ (x) and eλ (x) denote the Schur function and the elementary symmetric function
+in the variables x = {x1 , x2 , . . .} respectively.
+    Let P (t) be a polynomial with real coefficients satisfying P (0) = 1, say
+
+                                P (t) = a0 + a1 t + · · · + ad td .
+
+Stanley defined an inhomogeneous symmetric function
+                                          Y
+                                 FP (x) =    P (xi )
+                                                 i≥1
+
+and established a relation between real-rootedness of P (t) and positivity of FP (x).
+
+Theorem 1.2 ([21, Theorem 2.11]). Let P (t) and FP (x) be defined as above. Then the
+following conditions are equivalent:
+
+   • The coefficient of sλ (x) in FP (x) is nonnegative for each integer partition λ.
+
+   • The coefficient of eλ (x) in FP (x) is nonnegative for each integer partition λ.
+
+   • All zeros of P (t) are negative real numbers.
+
+                                                2
+   By restricting this result to the nonnegativity of the coefficients of sλ indexed by
+partitions of length at most 2, which we call 2-Schur-positivity, we establish the following
+equivalence relation between 2-Schur-positivity of FP (x) and log-concavity of P (t).
+
+Theorem 1.3. Let P (t) and FP (x) be defined as above with a0 , . . . , ad being positive.
+Then the following conditions are equivalent:
+
+  (i) The coefficient of sλ in FP (x) is nonnegative for any partition λ of length at most 2.
+
+ (ii) The coefficient of s(k,k) in FP (x) is nonnegative for any k ≥ 1.
+
+(iii) P (t) is log-concave.
+
+ (iv) P (t) is strongly log-concave.
+
+    As shown by Stanley [21], if P (t) is taken to be the independence polynomial IG (t)
+                                                                                        α
+                                                                                  P
+of a graph G, then FP (x) is just the symmetric function YG = YG (x) =               α XG (to
+be defined in Section 2). Hence, this result actually establishes an equivalence relation
+between 2-Schur-positivity of YG and the log-concavity of IG (t).
+    Based on this result, we come up with a new way for proving log-concavity of IG (t):
+firstly we analyze the coefficients of sλ ’s in each XGα and then show that all the negative
+terms could be eliminated. Unexpectedly, this method is more suitable for treating trees
+with irregular structures, and as an application we are able to prove that all spiders have
+log-concave independence polynomials, which provides further evidence for Conjecture 1.1.
+Precisely, a spider is a tree with only one vertex of degree at least 3 (called the torso), or
+equivalently, a vertex with several paths (called legs) pendent to it, see the graph on the
+left of Figure 1.1. We should remark that in 2004 Levit and Mandrescu [17] proved that
+well-covered spiders have log-concave independence polynomials, where a graph is called
+well-covered if all of its maximal independent sets are also maximum.
+    Further, we give two symmetric function analogues of the following well-known recur-
+rence formula:
+
+                               IG (t) = IG−v (t) + tIG−N [v] (t),                        (1.1)
+
+where G − v is the graph obtained by deleting v from G and N[v] = {v} ∪ N(v) consists
+of v and all its neighbors. As an application, we prove that each pineapple graph also has
+a log-concave independence polynomial, which is obtained by joining a complete graph to
+the torso of a spider, see the graph on the right of Figure 1.1.
+    This paper is organized as follows. In Section 2 we give a proof of Theorem 1.3 and
+derive all the necessary tools. In Section 3 we prove that the independence polynomials
+
+                                               3
+            Figure 1.1: Spider S(3, 2, 2, 1) and pineapple graph P i(6, (3, 2, 2, 1))
+
+
+of all spiders are log-concave, present the symmetric function analogues of (1.1), and use
+these two results to deduce the log-concavity of independence polynomials of pineapple
+graphs.
+
+
+2     Schur-positivity and log-concavity
+In this section, we shall introduce some basic definitions and prove Theorem 1.3. After
+that, we give an explanation to our new method and derive the necessary tools for proving
+the main results in next section.
+    Let us first recall some basic terminology in the theory of symmetric functions. Let
+x = {x1 , x2 , . . .} be a set of countably infinite indeterminates. The algebra Q[[x]] is defined
+as the commutative algebra of formal power series in these indeterminates over the rational
+field Q. The algebra of symmetric functions ΛQ (x) is defined to be the subalgebra of Q[[x]]
+consisting of formal power series f (x) of bounded degree and satisfying
+
+                            f (x) = f (x1 , x2 , . . .) = f (xω(1) , xω(2) , . . .)
+
+for any permutation ω of positive integers.
+    The bases of ΛQ (x) are naturally indexed by (integer) partitions. A partition of n is
+a sequence λ = (λ1 , . . . , λℓ ) such that
+
+                    λ1 ≥ λ2 ≥ · · · ≥ λℓ > 0 and λ1 + λ2 + · · · + λℓ = n.
+
+The number ℓ = ℓ(λ) is called the length of λ. By identifying λ = (λ1 , . . . , λℓ ) with
+(λ1 , . . . , λℓ , 0, 0, . . .), the monomial symmetric function mλ (x) is defined as α xα , where
+                                                                                     P
+
+α ranges over all distinct permutations of (λ1 , . . . , λℓ , 0, 0, . . .) and xα = xα1 1 xα2 2 · · · for
+
+                                                      4
+α = (α1 , α2 , . . .). The elementary symmetric function eλ (x) is defined as
+                                   X
+                       ek (x) =          xj1 xj2 · · · xjk , if k ≥ 1 (e0 = 1)
+                             1≤j1 <j2 <···<jk
+
+                   eλ (x) = eλ1 (x)eλ2 (x) · · · eλℓ (x), if λ = (λ1 , . . . , λℓ ).
+
+The Schur function sλ (x) can be defined by the dual Jacobi-Trudi identity
+
+                                 sλ′ (x) = det(eλi −i+j (x))1≤i,j≤ℓ ,
+
+where λ′ denotes the conjugate partition of λ, defined by λ′i = #{j | λj ≥ i} for i ≥ 1,
+and ek (x) = 0 for k < 0. It is well known that {mλ (x)}, {eλ(x)} and {sλ (x)} are bases of
+ΛQ (x). We say that a symmetric function f (x) is Schur-positive or simply s-positive if it
+can be written as a nonnegative linear combination of Schur functions. As usual, given a
+basis {uλ (x)}, we use [uλ]f (x) to denote the coefficient of uλ (x) in the expansion of f (x)
+in terms of this basis. For more information on symmetric functions, see [19, 22].
+    Now we turn to prove Theorem 1.3. Recall that a polynomial a0 + a1 t + · · · + ad td is
+said to be log-concave if a2j ≥ aj−1 aj+1 for 1 ≤ j ≤ d − 1, and it is said to be strongly
+log-concave if am an ≥ ap aq for all 1 ≤ p < m ≤ n < q ≤ d with m + n = p + q. It is
+clear that strong log-concavity implies log-concavity. By definition we have the following
+lemma.
+
+Lemma 2.1. A polynomial a0 + a1 t + · · · + ad td with nonnegative coefficients is strongly
+log-concave if and only if all the minor of order at most 2 of the Toeplitz matrix (aj−i )i,j≥0
+is nonnegative (namely, (aj−i )i,j≥0 is 2-TP).
+
+   Along the lines of Stanley’s proof of Theorem 1.2, we next give a proof of Theorem 1.3.
+
+Proof of Theorem 1.3. We give a cyclic proof. Let us first prove that (i) is equivalent
+to (iv). Suppose that P (t) = dj=1(1 + θj t) with 0 6= θj ∈ C. Let y = {y1 , y2, . . .} and
+                                      Q
+
+θ = {θ1 , θ2 , . . . , θd }. By the Cauchy identity
+                                     Y                X
+                                       (1 + yj xi ) =   sλ′ (y)sλ (x)
+                                 i,j                       λ
+
+we have
+                                                  X
+                                       FP (x) =           sλ′ (θ)sλ (x),                 (2.1)
+                                                  λ
+
+where sλ′ (θ) stands for the specialization of sλ′ (y) by setting y1 = θ1 , . . . , yd = θd and
+yl = 0 for l ≥ d + 1. Note that the coefficient ai = [ti ]P (t) is equal to ei (θ). Moreover,
+by the dual Jacobi-Trudi identity, all sλ′ (θ) with ℓ(λ) ≤ 2 appear as minors of (aj−i )i,j≥0
+
+                                                      5
+of order 1 or 2. Conversely, by the Littlewood-Richardson rule (see [19, 22]), all minors
+of (aj−i )i,j≥0 of order 1 or 2 are equal to sµ′ /ν ′ (θ) for some µ and ν with ℓ(µ) ≤ 2, which
+is a nonnegative linear combination of sλ′ (θ) with ℓ(λ) ≤ 2. Hence sλ′ (θ) ≥ 0 for all λ
+with ℓ(λ) ≤ 2 if and only if (aj−i )i,j≥0 is 2-TP, and the latter is equivalent to the strong
+log-concavity of P (t) by Lemma 2.1.
+    The implication “(i) implies (ii)” is obvious. We now prove that (ii) implies (iii). By
+(2.1), we find that
+
+                                              ek (θ) ek+1 (θ)
+            [s(k,k)]FP (x) = s(k,k)′ (θ) =                    = a2k − ak−1 ak+1 ≥ 0.
+                                             ek−1 (θ) ek (θ)
+
+This proves (iii).
+    The final implication “(iii) implies (iv)” is also known. Indeed, if a2i − ai−1 ai+1 ≥ 0
+for all i ≥ 1, then
+                       a1    a2            ai     ai+1          ad
+                          ≥      ≥ ··· ≥       ≥       ≥ ··· ≥      ,
+                       a0    a1           ai−1     ai          ad−1
+since all ai are positive. Hence P (t) is strongly log-concave.
+
+    From now on we restrict our attention to the symmetric functions in the variables
+x = {x1 , x2 , . . .}. We shall abbreviate f (x) to f if no confusion will result. In order to
+apply the above theorem to independence polynomials, we shall first introduce the notions
+of multicolorings and clan graphs. Let G be a graph with vertex set V (G). Given a map
+α : V (G) → N, a multicoloring of type α is a map κ : V (G) → 2N+ such that |κ(v)| = α(v),
+where 2N+ denotes the set of all finite subsets of positive integers. A multicoloring is called
+proper if κ(u) ∩ κ(v) = ∅ for all uv ∈ E(G). Stanley [21] defined
+                                            X
+                                     XGα =      xa11 xa22 · · · ,
+
+where the sum ranges over all multicolorings κ of type α and ai is the number of vertices
+v such that i ∈ κ(v). In the special case of α = (1, 1, . . . , 1), XGα reduces to XG , the
+chromatic symmetric function of G defined by Stanley [20].
+   Given α as above, the clan graph Gα is defined to be the graph obtained from G by
+replacing each vi by the complete graph Kα(vi ) while preserving the adjacency, namely,
+each vertex in Kα(u) is adjacent to each vertex in Kα(v) if uv ∈ E(G). Stanley [21] noted
+that
+                                              Y
+                                 XGα = XGα         α(v)!,                             (2.2)
+                                                  v∈V (G)
+
+and we shall also call XGα the normalized chromatic symmetric function of XGα . The
+following corollary plays an essential role in the remaining part of this paper.
+
+                                                  6
+Corollary 2.2. Let G be a graph and
+                                                 X
+                                          YG =       XGα ,
+                                                 α
+
+where the sum ranges over all such maps α from V (G) to N. Then the following conditions
+are equivalent:
+
+   • [sλ ]YG ≥ 0 for all partitions with ℓ(λ) ≤ 2.
+
+   • [s(k,k) ]YG ≥ 0 for all k ≥ 1.
+
+   • The independence polynomial IG (t) is log-concave.
+
+   • The independence polynomial IG (t) is strongly log-concave.
+
+ By noting that in each proper (multi)coloring of G the vertices with the same color
+must be an independent set, Stanley [21, Corollary 2.12] directly presented the following
+identity                         X          Y
+                                      XGα =     IG (xi ).
+                                      α:V →N         i
+
+Then the corollary follows from Theorem 1.3.
+
+     Motivated by Theorem 1.3 and Corollary 2.2, we introduce the notion of 2-Schur-
+positivity. We shall call a symmetric function f 2-Schur-positive (or briefly 2-s-positive)
+if [sλ ]f ≥ 0 for all λ with ℓ(λ) ≤ 2. For convenience, we use f ≥2s 0 to denote that f is
+a 2-s-positive symmetric function. In particular, we write f =2s 0 and call f 2-s-zero if
+[sλ ]f = 0 for all λ with ℓ(λ) ≤ 2. In addition, if f − g =2s 0 we also write f =2s g.
+     Now by Corollary 2.2 the idea of our new method is rather simple: we just need to
+show that YG is 2-s-positive by analyzing the 2-s-positivity of each XGα . Further, Stanley
+noted that XG+H = XG XH , where G + H is the disjoint union of G and H (see [20,
+Proposition 2.3], and this identity also holds in general for XGα ). Hence the following
+lemma reduces this problem to consider the 2-s-positivity of each connected component
+of XGα .
+
+Lemma 2.3. If f and g are 2-s-positive, then so is f g.
+
+ By the Littlewood-Richardson rule, we see that
+                                          X
+                                  sλ sµ =    cνλµ sν ,
+                                                 ν
+
+where cνλµ ≥ 0 and cνλµ = 0 if ℓ(ν) < ℓ(λ) or ℓ(ν) < ℓ(µ). The desired result immediately
+follows.
+
+                                                 7
+    Next, for calculating the coefficients of sλ ’s in XG with ℓ(λ) ≤ 2, we have a simple for-
+mula that involves stable partitions of V (G). Let B = {B1 , B2 , . . . , Bk } be a set partition
+of V (G). Then B is said to be a stable partition of G if each block Bi is an independent
+set, and the type of B is defined to be the partition formed by |B1 |, |B2|, . . . , |Bk | in weakly
+decreasing order. A stable partition is called semi-ordered if the blocks of the same car-
+dinality are ordered. Then the formula is stated as follows, which could be deduced from
+a result of Wang and Wang [23, Theorem 3.1].
+
+Proposition 2.4. Let G be a graph with |V (G)| = n. Let (k, l) be a partition of n with
+k ≥ l ≥ 1 and let ã(k,l) denote the number of semi-ordered stable partition of G with type
+(k, l). Then
+                                                          
+                                                          1, if G consists of n isolated vertices;
+[s(k,l) ]XG = ã(k,l) − ã(k+1,l−1) , [s(n) ]XG = ã(n) =
+                                                          0, otherwise.
+
+   One may observe that the coefficient of s(n) in each XGα is always nonnegative, and
+hence from now on we shall only focus on the coefficients of partitions with length 2.
+Moreover, if a graph has a stable partition of length 2, then it must be a bipartite graph.
+More precisely, we have the following corollary, which also implies that most terms in YG
+are 2-s-zero and have no influence on the log-concavity of IG (t).
+
+Corollary 2.5. For a connected bipartite graph G, XG is 2-s-positive if and only if its
+unique bipartition is balanced, i.e., it has type (k, l) with l ≤ k ≤ l + 1. Equivalently,
+XG is not 2-s-positive if and only if its bipartition is of type (k, l) with k ≥ l + 2. In
+particular, XG =2s 0 for all non-bipartite graph G.
+
+ Note that any connected bipartite graph has a unique bipartition. If G consists of only
+one vertex, then the result follows trivially. Otherwise, if the bipartition of G has type
+(k, l) with k ≥ l + 2, then by Proposition 2.4, [s(k−1,l+1) ]XG = ã(k−1,l+1) − ã(k,l) = −1,
+where (k − 1, l + 1) is a valid partition since k − 1 ≥ l + 1.
+    Conversely, if [s(m,n) ]XG < 0 for some m ≥ n ≥ 1, then ã(m+1,n−1) > 0, which implies
+that there exists a stable partition of type (m + 1, n − 1), where m + 1 ≥ (n − 1) + 2 since
+m ≥ n.
+    Finally, if a graph is not bipartite, then it contains an odd cycle. One can observe
+that the vertices of any odd cycle cannot be divided into two independent subsets, which
+means that G cannot have a stable partition of length 2 and hence XG is 2-s-zero.
+
+    As stated before, Corollary 2.2 and Lemma 2.3 allow us to consider the 2-s-positivity
+of each connected component of each XGα , and now Proposition 2.4 and Corollary 2.5
+
+                                                 8
+provide the formula for calculating the coefficients of sλ ’s with ℓ(λ) ≤ 2. Hence in order
+to prove that YG is 2-s-positive we just need to show that all the (possible) negative terms
+will be eliminated in the summation α XGα .
+                                         P
+
+    To get some hints of the efficacy of this approach, let us first note a new proof of
+the log-concavity of independence polynomials of claw-free graphs, which was first proved
+by Hamidoune [11]. If a bipartite graph is claw-free, i.e., it has no induced subgraph
+isomorphic to K1,3 , then it consists of paths and even cycles, which are both 2-s-positive by
+direct calculation. (In fact, all paths and cycles are e-positive by Stanley [20, Propositions
+5.3 and 5.4].) Hence by Corollary 2.5 any claw-free graph G has 2-s-positive chromatic
+symmetric function, which yields the 2-s-positivity of YG since all clan graphs Gα are also
+claw-free. Then by Corollary 2.2, we obtain the log-concavity of independence polynomials
+of claw-free graphs. Hamidoune’s log-concavity result was strengthened to real-rootedness
+by Chudnovsky and Seymour [8], which is closely related to Stanley’s conjecture on s-
+positivity of all claw-free graphs in view of Theorem 1.2.
+
+
+3     Log-concavity of independence polynomials
+This section is devoted to presenting our main results. In the first subsection, we shall
+prove that independence polynomials of all spiders are log-concave. In the second subsec-
+tion, we shall give two symmetric function analogues of (1.1), and apply one of them to
+deduce the log-concavity of independence polynomials of pineapple graphs.
+
+
+3.1     Log-concavity of independence polynomials of spiders
+In this subsection we shall prove the log-concavity of independence polynomials of spiders.
+For convenience, we use S(λ) to represent the spider whose leg lengths form an integer
+partition λ = (λ1 , λ2 , . . . , λℓ(λ) ). In addition, we label the torso of the spider as v0 , and
+label the vertex adjacent to v0 in the i-th leg as vi for each 1 ≤ i ≤ ℓ(λ), see Figure 3.1.
+
+                                              v0
+
+                                       v1    v2        v3   v4
+
+
+
+
+                                Figure 3.1: Spider S(3, 2, 2, 1)
+
+                                                   9
+Theorem 3.1. Let λ be a partition and S(λ) be the corresponding spider. Then YS(λ) is
+2-s-positive, or equivalently, the independence polynomial IS(λ) (t) is strongly log-concave.
+
+    Let us first introduce the outline of this proof. At the first step, we need to analyze
+      α                                     α
+all XS(λ)  and find out the maps α with XS(λ)    being (possibly) not 2-s-positive. (This is
+different from the case of claw-free graphs G where all XGα are 2-s-positive.) Then we shall
+define an injection φ from the set of such map α’s to the set of remaining maps. Finally
+                  α       φ(α)
+we show that XS(λ)    + XS(λ) ≥2s 0, which means all the negative terms can be eliminated
+and hence YS(λ) ≥2s 0.
+
+Proof of Theorem 3.1. By the idea sketched above, our proof will be accomplished by the
+following three steps.
+                                α
+    Step 1: analyzing all XS(λ)
+    We list all the cases for S(λ)α , where we abbreviate α(vi ) as αi .
+
+ (1) α0 ≥ 3: XS(λ)α =2s 0 since there exists a triangle in Kα0 and hence the graph is not
+     bipartite (see Corollary 2.5).
+
+ (2) α0 = 2 and αi ≥ 1 for some 1 ≤ i ≤ ℓ(λ): XS(λ)α =2s 0 for the same reason as (1),
+     and here the triangle is formed by the vertices in Kα0 and Kαi .
+
+ (3) α0 = 2 and αi = 0 for all 1 ≤ i ≤ ℓ(λ): XS(λ)α ≥2s 0. Indeed, if S(λ)α is bipartite
+     in this case, then all of its components are paths or isolated points. Hence XS(λ)α
+     is 2-s-positive by Lemma 2.3 and Corollary 2.5.
+
+ (4) α0 = 1 and αi = 0 for all 1 ≤ i ≤ ℓ(λ): XS(λ)α ≥2s 0 for the same reason as (3).
+
+ (5) α0 = 1 and αi ≥ 1 for some 1 ≤ i ≤ ℓ(λ): we have the following subcases:
+
+     (5.1) αi ≥ 2 for some 1 ≤ i ≤ ℓ(λ): XS(λ)α =2s 0 for the same reason as (1).
+     (5.2) αi ≤ 1 for all 1 ≤ i ≤ ℓ(λ): this is the only possible case for XS(λ)α to be
+           non-2-s-positive.
+
+ (6) α0 = 0: XS(λ)α ≥2s 0 for the same reason as (3).
+
+   Next, we investigate the S(λ)α ’s of (5.2) in more details. We take the component
+containing v0 and call it C0 = C0 (λ, α), which is actually a smaller spider and hence
+bipartite. Moreover, the complement graph of C0 in S(λ)α is denoted by C0 . Then we
+have the following observation:
+Observation 3.2. If XS(λ)α is non-2-s-positive, then C0 is non-2-s-positive.
+
+                                             10
+    In fact, similar to Case (3), all the components of C0 are clan graphs of paths, which
+are either 2-s-positive or not bipartite. Hence if C0 is 2-s-positive, then XS(λ)α = XC0 XC0
+must be 2-s-positive by Lemma 2.3. This proves Observation 3.2.
+    Now we divide (5.2) into two subcases:
+
+(5.2.1) C0 is 2-s-positive. In this subcase XS(λ)α ≥2s 0.
+
+(5.2.2) C0 is non-2-s-positive. Then, by Corollary 2.5, its bipartition is of type (k, l) with
+        k − l ≥ 2.
+
+In the following by abuse of notation we will use (5.2.2) (resp. (6)) to represent the set
+of those maps α : V (S(λ)) → N satisfying the condition of (5.2.2) (resp. (6)).
+    Step 2: defining φ : (5.2.2) → (6) and proving that it is an injection
+    Now we shall give an injection φ from (5.2.2) to (6). Denote C0 by S(β) as a subgraph
+of S(λ), where β is a weak composition satisfying 0 ≤ βi ≤ λi for all 1 ≤ i ≤ ℓ(λ). (Here
+we do not require that β is a partition. Hence we keep the order of the original legs of
+S(λ), as well as the order of vertices on each leg.) Denote the set of legs of odd length and
+even length of S(β) by {L(βi1 ), . . . , L(βia )} and {L(βj1 ), . . . , L(βjb )} respectively. Then
+one can verify that the sizes of the two blocks of the bipartition of C0 are
+βi1 + 1        βi + 1 βj1        βj                     βi1 − 1        βi − 1 βj1        βj
+        + ··· + a    +    + ··· + b           and 1 +           + ··· + a    +    + ··· + b.
+   2              2    2          2                        2              2    2          2
+Therefore, if the difference of these two numbers is at least 2, then there must exist at
+least 3 legs of odd length in C0 = S(β), i.e., a ≥ 3. Further, for notational convenience,
+we shall use the following symbols:
+
+  +       βi1 + 1      βi + 1 −      βi − 1      βi − 1          βj          βj
+ βodd =           +···+ a    , βodd = 1     +···+ a     , βeven = 1 + · · · + b .
+             2            2             2           2             2           2
+   Take the first leg (using the order in β = (β1 , . . . , βℓ(λ) )) in the set of legs with the
+smallest odd length. Let this leg be L(βik ) = {vq1 , . . . , vqβi }. Then we define φ as follows:
+                                                                 k
+
+
+  (i) If βik = 1, then                        
+                                              0,    if i = 0;
+                                              
+                                              
+                                              
+                                  (φ(α))i =    2, if i = q1 = qβik ;
+                                              
+                                              
+                                              αi , otherwise.
+                                              
+
+      In terms of graphs, we just delete the vertex v0 and replace the vertex vq1 by a K2
+      in S(λ)α to obtain S(λ)φ(α) , see Figure 3.2.
+
+ (ii) If βik ≥ 3, then take the first leg in the other legs of odd length, say L(βil ) =
+      {vr1 , . . . , vrβi }. Note that βil ≥ βik by our choice. Let
+                    l
+
+
+                                                11
+                                  v0
+
+
+                       vβik−1           vβik+1             vβik−1 vβik vβ′            vβik+1
+                                                                                 ik
+
+                                                    φ
+                                                   →
+                                 vβik
+
+
+
+
+                         Figure 3.2: An example for Case (i) of φ
+
+                                        
+                                        
+                                        
+                                        0,      if i = 0;
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        2,      if i = q1 , q3 , . . . , qβik ;
+                                        
+                                        0,
+                                        
+                                                 if i = q2 , q4 , . . . , qβik −1 ;
+                          (φ(α))i =
+                                        
+                                        
+                                        2, if i = r1 , r3 , . . . , rβik −2 ;
+                                        
+                                        
+                                         0, if i = r2 , r4 , . . . , rβik −1 ;
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                         αi , otherwise.
+                                        
+
+In other words, we delete the vertex v0 , replace L(βik ) by (βik + 1)/2 K2 ’s, and replace
+the first βik − 1 vertices in L(βil ) by (βik − 1)/2 K2 ’s. See Figure 3.3 for an illustration,
+where il = ik+1 . We should remark that the operation of L(β(il )) labels the length of
+L(βik ), which plays an essential role for proving the injectivity of φ.
+
+
+                       vβik     vβik+1 vβik+2           vβik vβ′ i vβik+1vβ′ i        vβik+2
+                                                                 k           k+1
+
+                                                   φ
+                                                  →
+
+
+
+
+                         Figure 3.3: An example for Case (ii) of φ
+
+   It can be easily verified that in both cases φ preserves the number of vertices of XS(λ)α
+
+                                                   12
+and φ is exactly a map from (5.2.2) to (6). It remains to show that φ is actually an
+injection.
+    Note that case (i) and case (ii) are distinguished by the number of indices 1 ≤ i ≤ ℓ(λ)
+with αi = α(vi ) = 2. In case (i), there is only one such index and hence in order to get
+the preimage we just replace the corresponding K2 by one vertex vi and add v0 back. In
+case (ii), there are two such indices, say ik , il , and there are consecutive K2 ’s starting from
+αik = α(vik ) = 2 and αil = α(vil ) = 2 in the two corresponding legs respectively. These
+consecutive K2 ’s will appear as subsequences of the form 202020 · · · , where 2 represents
+K2 and 0 represents the empty graph. (In each leg we read the graphs from top to
+bottom.) The numbers of such consecutive K2 ’s are actually different in these two legs by
+the definition of φ. If we denote the smaller number by t, then there will be a subsequence
+2020 · · · 201 of length 2t + 1 in this leg and a subsequence 2020 · · · 202 of length 2t + 1 in
+the other leg, where the numbers of K2 ’s are t and t + 1 respectively. In order to construct
+the preimage we just need to replace these two subsequences by 11 · · · 1 of length 2t + 1.
+    Step 3: showing that all negative terms can be eliminated
+    As the final step, we give the proof of
+                                         α                 φ(α)
+                                        XS(λ) + XS(λ) ≥2s 0
+
+for each α satisfying the condition of (5.2.2). Note that the αi ’s are fixed under φ for
+vi ∈ C0 , and these αi ’s induce clan graphs of paths as mentioned in the explanation for
+Observation 3.2. To be precise, let α|C0 be the restriction of α to C0 , i.e., the vector
+obtained from α by replacing all αi with 0 for vi 6∈ C0 and keeping the αi for vi ∈ C0 . The
+                                            α|C       φ(α)|C
+notation α|C0 is defined similarly. Then XS(λ)0 = XS(λ) 0 and they are both 2-s-positive.
+Further, by (2.2) we have
+                  α           α|C    C0α|                      φ(α)   φ(α)|C0       φ(α)|
+                 XS(λ) = XS(λ)0 · XS(λ)          and XS(λ) = XS(λ)              · XS(λ) C0 .
+                         α              φ(α)
+Hence in order to prove XS(λ) + XS(λ) ≥2s 0, it suffices to show that
+                                        α|
+                                         C0            φ(α)|
+                                      XS(λ) + XS(λ) C0 ≥2s 0.                                    (3.1)
+
+    Note that S(λ)α|C0 is exactly the spider C0 . In C0 , there is only one stable partition
+                              +              −
+                                                            
+of length 2, and its type is βodd + βeven , βodd + βeven + 1 . Hence
+          α|C
+        XS(λ)0 = XS(λ)α|C0 =2s s(β + +βeven ,β − +βeven +1) − s(β + +βeven −1,β − +βeven +2) .
+                                      odd            odd                odd             odd
+
+                                        φ(α)|C
+Here is a key observation: since XS(λ) 0 is already 2-s-positive by the definition of φ, in
+order to prove (3.1) we only need to show
+                        h                              i
+                                                         φ(α)|
+                         s(β + +βeven −1,β − +βeven +2) XS(λ) C0 ≥ 1.
+                                odd            odd
+
+
+                                                      13
+    Now we have two cases for calculating this coefficient in XS(λ)φ(α)|C0 , according to the
+value of βik in the definition of the map φ:
+    (i) βik = 1. In this case there are 2b+1 ways to obtain a semi-ordered stable partition
+            +             −
+                                           
+of type βodd   + βeven , βodd + βeven + 1 . Indeed, to obtain the first block of this stable
+partition, we have to choose exactly one vertex vβik or vβ′ i in the K2 corresponding to
+                                                                       k
+L(βik ), choose (βit + 1)/2 vertices in each leg L(βit ) of odd length with 1 ≤ t ≤ a (t 6= k)
+in a unique way, and choose βjt /2 vertices in each leg L(βit ) of even length with 1 ≤ t ≤ b
+                                                                         +            −
+                                                                                                      
+in two ways. Thus, the number of stable partitions of type βodd            + βeven , βodd + βeven + 1
+is 2 · 2b = 2b+1 . Similarly, there are (a − 1)2b+1 ways to obtain a semi-ordered stable
+                          +                   −
+                                                               
+partition with type βodd      + βeven − 1, βodd   + βeven + 2 by exchanging the biparition of
+one leg L(βit ) of odd length for some 1 ≤ t ≤ a (t 6= k) . By Proposition 2.4 we get
+                             h                              i
+                                                                 φ(α)|
+                              s(β + +βeven −1,β − +βeven +2) XS(λ) C0
+                                 odd           odd
+                             h                              i1
+                          = s(β + +βeven −1,β − +βeven +2) XS(λ)φ(α)|C0
+                                 odd           odd            2
+                                     b
+                          =(a − 2)2 ≥ 1,
+
+which follows from a ≥ 3 and b ≥ 0.
+   (ii) βik ≥ 3. The calculation in this case is exactly analogous to case (i) and we shall
+only list the data. We have 2(βik +1)/2+(βik −1)/2+b = 2βik +b ways to obtain a semi-ordered
+                           +               −
+                                               + βeven + 1 . Moreover, we have (a − 1)2βik +b
+                                                           
+stable partition of type βodd  + βeven , βodd
+                                             +                  −
+                                                                             
+semi-ordered stable partitions of type βodd     + βeven − 1, βodd + βeven + 2 . Hence
+                         h                              i
+                                                           φ(α)|
+                          s(β + +βeven −1,β − +βeven +2) XS(λ) C0
+                             odd           odd
+                         h                              i 1
+                       = s(β + +βeven −1,β − +βeven +2) βi XS(λ)φ(α)|C0
+                             odd           odd            2 k
+                                 b
+                       =(a − 2)2 ≥ 1,
+
+which also follows from a ≥ 3 and b ≥ 0.
+   Combining the above steps, we complete the proof.
+
+
+3.2     Symmetric function analogues of the recurrence formula
+In this subsection we shall present two symmetric function analogues of the recurrence
+formula (1.1). Further, we apply these results to prove the log-concavity of independence
+polynomials of pineapple graphs.
+
+
+
+                                                  14
+Proposition 3.3. Let v be a vertex in G and G − v, N[v] = {v} ∪ N(v) be defined as in
+(1.1). Then we have
+                                                     X
+                      YG = YG−v + (Yv − 1)YG−N [v] +     XGα ,
+                                                             α
+
+where α ranges over all maps from V (G) to N such that α(v) ≥ 1 and α(u) ≥ 1 for some
+u ∈ N(v).
+
+ In order to prove this proposition we only need to divide the α’s into the following three
+classes:
+
+ (1) α(v) = 0;
+
+ (2) α(v) ≥ 1 and α(u) = 0 for all u ∈ N(v);
+
+ (3) α(v) ≥ 1 and α(u) ≥ 1 for some u ∈ N(v).
+
+Then it is straightforward to verify that the sum of all XGα in (1) is exactly YG−v . Similarly
+                                                      α(v)
+the α’s in (2) correspond to (Yv − 1)YG−N [v] since Xv = 1 for α(v) = 0. Then the proof
+follows.
+                                       α
+                                P
+Remark. The “error term”           α XG in this result to some extent illustrates why the
+real-rootedness (or log-concavity) of G − v and G − N[v] cannot directly yields that of G.
+    In the special case of clan graphs we have a slightly different result.
+
+Proposition 3.4. Let v be a leaf vertex of G and uv be the corresponding leaf edge. Let
+Gnv be the clan graph of G obtained by replacing v by a complete graph Kn (n ≥ 2). Then
+                                                          X
+                       YGnv = YG−v + (YKn − 1)YG−{u,v} +     XGαnv ,
+                                                                 α
+
+where α ranges over all maps from V (G) to N such that α(u) ≥ 1 and α(vi ) ≥ 1 for some
+1 ≤ i ≤ n.
+
+ Here we regard the vertices in Kn as a whole and label them as {v1 , v2 , . . . , vn }. The we
+divide the α’s according to the following three cases:
+
+ (1) α(vi ) = 0 for any 1 ≤ i ≤ n;
+
+ (2) α(u) = 0 and α(vi ) ≥ 1 for some 1 ≤ i ≤ n;
+
+ (3) α(u) ≥ 1 and α(vi ) ≥ 1 for some 1 ≤ i ≤ n.
+
+                                              15
+The remaining part of the proof is exactly similar to that of Proposition 3.3.
+
+    In general the 2-s-positivity of YG−v and YG−{u,v} do not imply the 2-s-positivity of
+YGnv since α XGαnv in Proposition 3.4 may not be 2-s-positive. However, in some special
+           P
+
+cases we are able to eliminate the negative terms in these XGαnv ’s. As an example, we
+proceed to show that each pineapple graph has a log-concave independence polynomial.
+Precisely, for any integer n ≥ 2 and partition λ, the pineapple graph P i(n, λ) is defined to
+be the graph obtained by identifying a vertex of the complete graph Kn with the torso of
+the spider S(λ). In addition, we label the torso as u and the other vertices in the complete
+graph Kn as v1 , . . . , vn−1 . as illustrated in Figure 3.4. Then we have the following result.
+
+
+                                              v3
+
+                                     v2                v4
+
+                                     v1                v5
+
+                                               u
+
+
+
+
+                       Figure 3.4: Pineapple graph P i(6, (3, 2, 2, 1))
+
+
+Theorem 3.5. For all n ≥ 1 and any partition λ, the independence polynomial of P i(n, λ)
+is log-concave.
+
+ In fact P i(n, λ) = S((λ, 1))vn−1, where S((λ, 1)) is the graph obtained by attaching an
+edge uv to the torso u in S(λ). Taking G = S((λ, 1)) in Proposition 3.4 leads to
+                                                             X
+                    YP i(n,λ) = YS(λ) + (YKn−1 − 1)YS(λ)−u +   XPαi(n,λ) ,
+                                                               α
+
+where α(u) ≥ 1 and α(vi ) ≥ 1 for some 1 ≤ i ≤ n − 1. Then we analyze these α’s more
+precisely.
+
+ (1) α(u) ≥ 1, α(vi ) ≥ 1 and α(vj ) ≥ 1 for some 1 ≤ i < j ≤ n − 1: XP i(n,λ)α =2s 0.
+
+ (2) α(u) ≥ 1, α(vi ) ≥ 1 for some 1 ≤ i ≤ n − 1 and α(vj ) = 0 for any 1 ≤ j ≤ n − 1
+     and j 6= i:
+
+                                              16
+     (2.1) α(u) ≥ 2 or α(vi ) ≥ 2. In this subcase XP i(n,λ)α =2s 0.
+     (2.2) α(u) = α(vi ) = 1. In this subcase XP i(n,λ)α is (possibly) not 2-s-positive.
+
+    Secondly, we shall define an injection from (2.2) to the α’s in (YKn−1 − 1)YS(λ)−u ,
+where we directly let φ(α)(u) = 0 and φ(α)(vi ) = 2. Actually, this is case (i) of the map
+φ (defined in proof of Theorem 3.1) restricted to the spider S((λ, 1)), where we regard uvi
+as a leg of u. Then by the proof of Theorem 3.1 all the negative terms in α XPαi(n,λ) will
+                                                                           P
+
+be eliminated. In addition, the terms not being images of φ are also 2-s-positive since
+S(λ) − u consists of only paths. Then the proof follows since YS(λ) is 2-s-positive.
+
+
+Acknowledgments. Ethan Li is supported by the Fundamental Research Funds for the
+Central Universities (GK202207023). Arthur Yang is supported by the National Science
+Foundation of China (12325111).
+
+
+References
+ [1] Y. Alavi, P. J. Malde, A. J. Schwenk, and P. Erdős. “The vertex independence
+     sequence of a graph is not constrained”. In: vol. 58. Eighteenth Southeastern
+     International Conference on Combinatorics, Graph Theory, and Computing (Boca
+     Raton, Fla., 1987). 1987, pp. 15–23.
+ [2] P. Bahls, B. Ethridge, and L. Szabo. “Unimodality of the independence polynomials
+     of non-regular caterpillars”. In: Australas. J. Combin. 71 (2018), pp. 104–112.
+ [3] A. Basit and D. Galvin. “On the independent set sequence of a tree”. In: Electron.
+     J. Combin. 28.3 (2021), Paper No. 3.23, 23. doi: 10.37236/9896.
+ [4] F. Bencs. “On trees with real-rooted independence polynomial”. In: Discrete Math.
+     341.12 (2018), pp. 3321–3330. doi: 10.1016/j.disc.2018.06.033.
+ [5] A. Bendjeddou and L. Hardiman. Lorentzian polynomials and the independence
+     sequences of graphs. 2024. arXiv: 2405.00511.
+ [6] J. I. Brown and B. Cameron. “On the unimodality of independence polynomials
+     of very well-covered graphs”. In: Discrete Math. 341.4 (2018), pp. 1138–1143. doi:
+     10.1016/j.disc.2017.10.007.
+ [7] J. I. Brown, C. A. Hickman, and R. J. Nowakowski. “On the location of roots of
+     independence polynomials”. In: J. Algebraic Combin. 19.3 (2004), pp. 273–282. doi:
+     10.1023/B:JACO.0000030703.39946.70.
+
+                                             17
+ [8] M. Chudnovsky and P. Seymour. “The roots of the independence polynomial of
+     a clawfree graph”. In: J. Combin. Theory Ser. B 97.3 (2007), pp. 350–357. doi:
+     10.1016/j.jctb.2006.06.001.
+ [9] D. Galvin and J. Hilyard. “The independent set sequence of some families of trees”.
+     In: Australas. J. Combin. 70 (2018), pp. 236–252.
+[10] I. Gutman and F. Harary. “Generalizations of the matching polynomial”. In: Utilitas
+     Math. 24 (1983), pp. 97–106.
+[11] Y. O. Hamidoune. “On the numbers of independent k-sets in a claw free graph”. In:
+     J. Combin. Theory Ser. B 50.2 (1990), pp. 241–244. doi: 10.1016/0095-8956(90)90079-F.
+[12] O. J. Heilmann and E. H. Lieb. “Theory of monomer-dimer systems”. In: Comm.
+     Math. Phys. 25 (1972), pp. 190–232.
+[13] D. T. Hoang, V. E. Levit, E. Mandrescu, and M. H. Pham. Log-concavity of the
+     independence polynomials of Wp graphs. 2024. arXiv: 2409.00827.
+[14] O. Kadrawi and V. E. Levit. The independence polynomial of trees is not always
+     log-concave starting from order 26. 2023. arXiv: 2305.01784.
+[15] O. Kadrawi, V. E. Levit, R. Yosef, and M. Mizrachi. “On Computing of Indepen-
+     dence Polynomials of Trees”. In: Recent Research in Polynomials. Ed. by F. Özger.
+     Rijeka: IntechOpen, 2023. Chap. 7. doi: 10.5772/intechopen.1001130.
+[16] V. E. Levit and E. Mandrescu. “On unimodality of independence polynomials of
+     some well-covered trees”. In: Discrete mathematics and theoretical computer science.
+     Vol. 2731. Lecture Notes in Comput. Sci. Springer, Berlin, 2003, pp. 237–256. doi:
+     10.1007/3-540-45066-1\_19.
+[17] V. E. Levit and E. Mandrescu. “Very well-covered graphs with log-concave inde-
+     pendence polynomials”. In: Carpathian J. Math. 20.1 (2004), pp. 73–80.
+[18] L. L. Liu, H. Tang, and J. Zhao. Trees with independence polynomials having only
+     real zeros. preprint.
+[19] I. G. Macdonald. Symmetric functions and Hall polynomials. Second. Oxford
+     Classic Texts in the Physical Sciences. With contribution by A. V. Zelevinsky and
+     a foreword by Richard Stanley. The Clarendon Press, Oxford University Press, New
+     York, 2015, pp. xii+475.
+[20] R. P. Stanley. “A symmetric function generalization of the chromatic polynomial of
+     a graph”. In: Adv. Math. 111.1 (1995), pp. 166–194. doi: 10.1006/aima.1995.1020.
+
+
+                                           18
+[21] R. P. Stanley. “Graph colorings and related symmetric functions: ideas and applica-
+     tions: a description of results, interesting applications, & notable open problems”.
+     In: vol. 193. 1-3. Selected papers in honor of Adriano Garsia (Taormina, 1994).
+     1998, pp. 267–286. doi: 10.1016/S0012-365X(98)00146-0.
+[22] R. P. Stanley. Enumerative combinatorics. Vol. 2. Vol. 62. Cambridge Studies in
+     Advanced Mathematics. With a foreword by Gian-Carlo Rota and appendix 1 by
+     Sergey Fomin. Cambridge University Press, Cambridge, 1999, pp. xii+581. doi:
+     10.1017/CBO9780511609589.
+[23] D. G. L. Wang and M. M. Y. Wang. “A combinatorial formula for the Schur
+     coefficients of chromatic symmetric functions”. In: Discrete Appl. Math. 285 (2020),
+     pp. 621–630. doi: 10.1016/j.dam.2020.07.005.
+[24] Y. Wang and B.-X. Zhu. “On the unimodality of independence polynomials of some
+     graphs”. In: European J. Combin. 32.1 (2011), pp. 10–20. doi: 10.1016/j.ejc.2010.08.003.
+[25] A. M.-Y. Zhu and B.-X. Zhu. “On real-rootedness of independence polynomials
+     of rooted products of graphs”. In: Acta Math. Appl. Sin. Engl. Ser. 39.4 (2023),
+     pp. 854–867. doi: 10.1007/s10255-023-1088-x.
+[26] A. M.-Y. Zhu and B.-X. Zhu. “Trees with real rooted independence polynomials”.
+     In: Front. Math. 19.3 (2024), pp. 495–508. doi: 10.1007/s11464-021-0468-x.
+[27] B.-X. Zhu. “Unimodality of independence polynomials of the cycle cover prod-
+     uct of graphs”. In: Acta Math. Sin. (Engl. Ser.) 38.5 (2022), pp. 858–868. doi:
+     10.1007/s10114-022-0503-1.
+[28] B.-X. Zhu and Q. Wang. “Unimodality of independence polynomials of rooted
+     products of graphs”. In: Proc. Roy. Soc. Edinburgh Sect. A 150.5 (2020), pp. 2573–
+     2585. doi: 10.1017/prm.2019.23.
+[29] Z.-F. Zhu. “The unimodality of independence polynomials of some graphs”. In:
+     Australas. J. Combin. 38 (2007), pp. 27–33.
+
+
+
+
+                                           19
+

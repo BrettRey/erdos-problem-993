@@ -1,14 +1,9 @@
 # Clan cancellation proves the two-branch-vertex theorem
 
-Date: 2026-08-20. Status updated 2026-08-21: theorem formally proved. Aristotle
-completed the direct LLYZ coefficient bridge, the arbitrary connector-state
-partition, both parity cases, recognition of the explicit models, and transport
-to arbitrary finite trees. The resulting Lean theorem states that every finite
-tree with at most two vertices of degree at least three has a log-concave
-independence polynomial. The 8,078-job project replays locally with no proof
-escape hatches; principal declarations use only `propext`, `Classical.choice`,
-and `Quot.sound`. The even-connector binomial lemma left open in the first draft
-is proved below. The 14,400-case exact audit of its Laurent core is in
+Date: 2026-08-20. Status: algebraic proof draft complete; exact core
+verification passing; global clan partition still open. The
+even-connector binomial lemma left open in the first draft is proved
+below. The 14,400-case exact audit of its Laurent core is in
 `verify_two_hub_B_logconcavity_20260820.py`.
 
 The even-connector lemma is also independently formalized for all
@@ -17,14 +12,15 @@ The even-connector lemma is also independently formalized for all
 range split below by a uniform Catalan bound and uses no bounded computation.
 
 An independent Aristotle audit subsequently proved the clan-normalization
-kernel, binary component multiplicativity, the canonical local transform,
-the arbitrary-arm scalar `c=2^e>=1`, the four-map identity on its valid range,
-and the exhaustive disjoint adjacent global partition. It refuted only the
-stronger statement for arbitrary positive rationals
-(`r=3,s=1,c=1/4,d=1`). See
-`formalization/clan_normalization_aristotle/RESULT.md`. Accordingly, all
-ingredients of the displayed connector algebra and the concluding C2 theorem
-are formally proved.
+kernel, binary component multiplicativity, the local `p=2` injection, the
+four-map identity, and its central unimodality when the derived scalars
+satisfy `c,d>=1`. It refuted the stronger statement for arbitrary positive
+rationals (`r=3,s=1,c=1/4,d=1`) and left two obligations explicit: deriving
+`c=2^e` for arbitrary additional even arms and proving that the global clan
+maps form the claimed exhaustive disjoint block partition. See
+`formalization/clan_normalization_aristotle/RESULT.md`. Accordingly, the
+displayed connector algebra is proved, but the concluding C2 theorem below
+remains conditional on those combinatorial obligations.
 
 This note starts from
 `notes/two_hub_B_logconcavity_proof_2026-08-20.md` and asks whether the

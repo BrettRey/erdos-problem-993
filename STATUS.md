@@ -113,7 +113,8 @@ or public surface changed.
   stars unconditionally. Its arbitrary-arm Lean theorem remains explicitly
   conditional on the cited Li--Li--Yang--Zhang spider theorem; this is a
   formalization-scope gap, not a gap in the mathematical proof.
-- **Adjacent two-hub degreewise clan positivity is formally proved.** The
+- **Every finite tree with at most two branch vertices is formally proved
+  log-concave.** The
   Li--Li--Yang--Zhang clan cancellation extends after replacing a false
   map-level injection by a disjoint block decomposition. A local hub
   pair has imbalance Laurent polynomial
@@ -124,18 +125,21 @@ or public surface changed.
   derived `c,d=2^e>=1`, exact block weights, and final normalized two-row
   nonnegativity at every degree. The 8,051-job Lean project replays locally,
   and its principal declarations use only `propext`, `Classical.choice`, and
-  `Quot.sound`. The remaining formal step from this clan theorem to ordinary
-  independence-polynomial log-concavity is the finite coefficient identity
-  behind Li--Li--Yang--Zhang Corollary 2.2; an Aristotle continuation now
-  targets that bridge directly. The
+  `Quot.sound`. Aristotle's final continuation proves the finite coefficient
+  identity behind Li--Li--Yang--Zhang Corollary 2.2, arbitrary connector-state
+  parity assembly, recognition of the explicit spider/connector models, and
+  transport to every finite tree with at most two degree-at-least-three
+  vertices. The resulting 8,078-job Lean project replays locally, has no proof
+  escape hatches, and its principal abstract-tree theorems use only the same
+  three standard axioms. The
   exact core verifier passes 129,600 four-map parameter cases and 3,330
   actual arm pairs. Proof:
   `notes/two_hub_B_logconcavity_proof_2026-08-20.md`; the collision and
   repair history is preserved in
   `notes/two_hub_clan_cancellation_attack_2026-08-20.md`; formal audit:
   `formalization/clan_normalization_aristotle/RESULT.md`.
-- **C2 connector theorem is assembled mathematically and is now under final
-  formal audit.** The algebraic continuation closes every odd
+- **The C2 connector theorem is closed, including the abstract graph-theoretic
+  wrapper.** The algebraic continuation closes every odd
   connector length. Even connector lengths reduce to the single
   binomial Laurent lemma
   `cd X^(r+s+1)+d X^s H_(r+1)+c X^r H_(s+1)+H_(r+s+1)` centrally
@@ -146,8 +150,8 @@ or public surface changed.
   Aristotle has formally derived the arbitrary-arm scalar `c=2^e>=1`
   and closed the adjacent global partition. The final continuation combines
   those results with connector-state parity and the direct LLYZ coefficient
-  bridge; completion would yield every tree with at most two
-  degree-at-least-three vertices log-concave, bypassing LAW-V/W.
+  bridge, and proves every finite tree with at most two degree-at-least-three
+  vertices log-concave, bypassing LAW-V/W.
   `notes/c2_connector_clan_reduction_2026-08-20.md`.
 - **Distance-3 frontier recoded as a defect CSP.** Contract any maximum
   matching into `alpha` one-/two-vertex bags. The independence
@@ -185,9 +189,8 @@ or public surface changed.
   `verify_erasure_shadow_poset_20260820.py`,
   `verify_pascal_smoothing_20260820.py`.
 
-Named next mathematical targets: complete the now-active formal assembly of the
-LLYZ coefficient bridge and arbitrary connector parity; express and bound the
-forced-path correction `b_2,b_3,b_4` against the proved Pascal reserve. Long
+Named next mathematical target: express and bound the forced-path correction
+`b_2,b_3,b_4` against the proved Pascal reserve. Long
 enumeration is deprioritized.
 
 ## 2026-08-19: Depth-3 window sized exactly; enumeration ladder ends at rung 3

@@ -2,9 +2,13 @@
 
 ## Grade
 
-**`ADJACENT_COMPLETE`** — the explicit global partition *and* the final degreewise
-nonnegativity theorem are both proved (see "The explicit global partition and the final
-degreewise theorem" below).
+**`C2_COMPLETE`** — the programme has been carried to its intended conclusion: every
+finite tree with at most two vertices of degree at least three has a log-concave
+independence polynomial (`ClanAudit.indepPoly_logConcave_of_isTree_of_branchVerts_card_le_two`).
+This supersedes the earlier `ADJACENT_COMPLETE` grade, which recorded the explicit global
+partition and the degreewise nonnegativity theorem for the adjacent two-hub tree (both
+still proved; see "The explicit global partition and the final degreewise theorem"
+below).
 
 The earlier grades stand unchanged: the full **`NORMALIZATION_KERNEL`**, the `p = 2` local
 package (**`P2_LOCAL`**) including the arbitrary-arm case of the weight theorem, and the
@@ -243,10 +247,78 @@ every side which is not active has a weight of the good shape.
 even positive active prefix.  So the missing normalized-weight theorem at `p ≥ 3` is
 formalized rather than assumed.
 
+## From degreewise nonnegativity to log-concavity
+
+The gap recorded in earlier versions of this note — the passage from 2-Schur-positivity to
+log-concavity of the independence polynomial — is now closed inside this development, and
+closed by *derivation* rather than by citing an equivalence.
+
+* `RequestProject/ClanAudit/Bridge.lean` defines independent sets, the independence counts
+  `i(G, j)` and the independence polynomial `I(G; x)`, and proves the coefficient identity
+
+  ```text
+  ∑ α with ∑_v α v = k + l,  normalizedTwoRowCoeff G α k l  =  i_k i_l - i_(k+1) i_(l-1)
+  ```
+
+  directly from the clan / multicolouring definitions (`sum_normalizedTwoRowCoeff_eq`).
+  Hence degreewise nonnegativity implies log-concavity of `i(G, ·)`, and of the
+  coefficients of `I(G; x)` (`indepCount_logConcave_of_degreewise_nonneg`,
+  `indepPoly_logConcave_of_degreewise_nonneg`).
+* Applied to the adjacent two-hub tree this gives `dgraph_indepPoly_logConcave`; applied to
+  the arbitrary-connector tree `connGraph t m a n b` — whose global partition, blockwise
+  weights and degreewise theorem are proved in `ConnectorPartition.lean`,
+  `ConnectorBlock.lean` and `ConnectorZero.lean` — it gives
+  `connGraph_indepPoly_logConcave` and `connectorGraph_indepPoly_logConcave`; applied to a
+  spider it gives `spider_indepPoly_logConcave`, and hence `pathGraph_indepPoly_logConcave`
+  for every path.
+
+## Trees with at most two branch vertices
+
+Call a vertex of degree at least three a *branch vertex*.  `IsC2Model G` says that `G` is
+isomorphic to a spider or to a connector tree, and every `C₂` model has log-concave
+independence counts and independence polynomial
+(`indepCount_logConcave_of_isC2Model`, `indepPoly_logConcave_of_isC2Model`, using the
+isomorphism invariance of `IsoTransport.lean`).
+
+The two *recognition* theorems make this intrinsic:
+
+* `spiderIsoOfTree` — a finite tree in which every vertex other than a chosen `h` has
+  degree at most two is isomorphic to `spider (G.neighborFinset h).card (hubArmLen hG h)`;
+  the vertex map sends `v` to the pair (arm of `h` containing `v`, depth of `v`).
+* `connIsoOfTree` — a finite tree with two distinct vertices `h1 ≠ h2` such that every
+  other vertex has degree at most two is isomorphic to
+  `connGraph (dist(h1,h2) - 1) …`, the connector model whose left/right arm data are the
+  arms of `h1` and `h2` other than the ones facing the other hub.  The vertex map is the
+  polar-coordinate map on each side, and injectivity, surjectivity and adjacency are all
+  proved by the five-way classification `toConn_classify` of the vertices.
+
+Combining them (`isC2Model_of_isTree_of_branchVerts_card_le_two`) with the `C₂`
+log-concavity theorem yields, with no hypothesis other than being a finite tree with at
+most two branch vertices,
+
+```text
+i(G, j) * i(G, j+2) ≤ i(G, j+1)^2      for all j
+```
+
+(`indepCount_logConcave_of_isTree_of_branchVerts_card_le_two`) and the same statement for
+the coefficients of `I(G; x)`
+(`indepPoly_logConcave_of_isTree_of_branchVerts_card_le_two`).
+
+The converse is proved as well: the explicit models really are trees whose only possible
+branch vertices are their hubs (`spider_isTree`, `connGraph_isTree`, via the rank/parent
+criterion `isTree_of_rank_parent`, together with `spider_branchVerts_card_le_one` and
+`connGraph_branchVerts_card_le_two`).  Hence, for a finite graph `G`,
+
+```text
+IsC2Model G  ↔  G.IsTree ∧ (branchVerts G).card ≤ 2
+```
+
+(`isC2Model_iff_isTree_branchVerts`): the class handled by this development is exactly the
+class of finite trees with at most two branch vertices.
+
 ## Remaining scope
 
-The theorem proved here is degreewise nonnegativity of the normalized two-row coefficients
-of the adjacent two-hub tree.  Turning that into the log-concavity of the independence
-polynomial `B` of `D(a,b)` — the C2 base fact the notes are ultimately aiming at — needs
-the Li–Li–Yang–Zhang equivalence between 2-Schur-positivity of `Y_G` and log-concavity of
-`I(G;x)`, which is *not* part of this development.
+The refutation above is unaffected: central unimodality of `F` for arbitrary `c, d > 0` is
+false, and the argument goes through only because the scalars it produces are derived to
+be powers of two.  Trees with three or more branch vertices, and graphs that are not
+trees, are outside the scope of this development.

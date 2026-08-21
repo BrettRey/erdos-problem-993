@@ -8,54 +8,58 @@ be replayed locally with `lake build`, searched for proof escape hatches, checke
 
 ## Active
 
-1. **Full `C₂` assembly.** Formalize the direct LLYZ diagonal coefficient bridge,
-   arbitrary connector-state partition, odd/even parity assembly, and (if feasible) the
-   graph-theoretic wrapper for every finite tree with at most two branch vertices. Packet:
-   `formalization/clan_normalization_aristotle/FOLLOWUP_FULL_C2_ASSEMBLY_20260821.md`.
-   Project `76e84c3b-9ce0-4fc6-9074-45ea38dbb576`, task
-   `147581ec-6d3a-423f-b359-85cababab583`. The proved even-connector Lean sources and
-   the LLYZ source text were attached.
+None. The remaining blocked-correction problem is not yet definition-complete enough for
+another Aristotle packet.
 
 ## Completed and locally replayed
 
-1. **Clan normalization continuation: arbitrary even arms.** The explicit finite-family
+1. **Full `C₂` assembly and abstract-tree wrapper.** The direct LLYZ coefficient bridge,
+   arbitrary connector-state partition, odd/even parity assembly, recognition of the
+   explicit models, and their transport to arbitrary finite trees are proved. In
+   particular, every finite tree with at most two vertices of degree at least three has a
+   log-concave independence polynomial. Project
+   `76e84c3b-9ce0-4fc6-9074-45ea38dbb576`, final task
+   `0c8f0365-f9a8-4a04-a709-81e14affcfc1`; local build: 8,078 jobs. A proof-escape scan
+   is empty, and the principal axiom audits report only `propext`, `Classical.choice`, and
+   `Quot.sound`.
+2. **Clan normalization continuation: arbitrary even arms.** The explicit finite-family
    component model proves `W(image)=2^e(z+z⁻¹)`, the full `p=2` block identity
    `A(1,2^e;z)`, and `2^e≥1`. Project
    `76e84c3b-9ce0-4fc6-9074-45ea38dbb576`, task
    `f2b3e260-0547-4694-b2a5-b103ab16d201`; local build: 8,038 jobs.
-2. **Universal Pascal smoothing.** Formalized
+3. **Universal Pascal smoothing.** Formalized
    `notes/pascal_smoothing_shadow_lemma_2026-08-20.md`, including the downward-closed
    incidence inequality, the `8/9` Pascal-transform bound, and its three stated
    consequences. Project `6519b82f-e80b-4c41-b633-990b72c7e3b9`, task
    `e6301287-ecb0-4d75-8b65-b6711945038f`.
-3. **Order-ideal projection and graph-transform identities.** Formalize the frozen
+4. **Order-ideal projection and graph-transform identities.** Formalize the frozen
    poset layer in `notes/matching_bag_poset_reduction_2026-08-20.md`, especially
    equations (3), (5), (8), (9), and (10), independently of the unresolved blocked
    correction. Project `2a2d691b-91bb-4204-bb00-ad47a51861ba`.
-4. **Poset/Pascal bridge.** The transported antichain family is proved downward closed
+5. **Poset/Pascal bridge.** The transported antichain family is proved downward closed
    and profile-preserving; equations (7)/(7a), depth-eight log-concavity, and the full
    `M≤33` result now follow inside the poset project. Project
    `2a2d691b-91bb-4204-bb00-ad47a51861ba`, task
    `3dfa9612-a379-45a7-9af2-40b697b9aba4`.
-5. **Even-connector Laurent block.** The uniform block is centrally unimodal for every
+6. **Even-connector Laurent block.** The uniform block is centrally unimodal for every
    `r,s≥1` and rational `c,d≥1`; Aristotle replaced the source's awkward range split
    with a uniform Catalan bound. Project `f9cd8c48-bd2e-4aa8-bc67-3a9316657b61`, task
    `dc1051b8-55b2-473f-9f3d-62a5f5e55e00`; local build: 8,029 jobs.
-6. **Exhaustive adjacent-two-hub global partition.** The arbitrary-arm degree-`N` map
+7. **Exhaustive adjacent-two-hub global partition.** The arbitrary-arm degree-`N` map
    space is partitioned by explicit idempotent representatives into blocks of size 4/2/1;
    disjointness, exhaustion, unique membership, total-order preservation, collision
    resolution, exact derived weights, and final degreewise normalized two-row
    nonnegativity are proved. Project `76e84c3b-9ce0-4fc6-9074-45ea38dbb576`, task
    `b78ed6c4-7595-43fd-b8d5-c2f236926a25`; local build: 8,051 jobs. Principal axiom
    audits report only `propext`, `Classical.choice`, and `Quot.sound`.
-7. **Tree maximum-matching to forest-poset bridge.** König is derived from Mathlib Hall;
+8. **Tree maximum-matching to forest-poset bridge.** König is derived from Mathlib Hall;
    matching contraction, forest comparison poset, solution/ideal equivalence, equations
    (2) and (6), and all tree-level Pascal inequalities are proved, in fact for arbitrary
    finite forests. Project `2a2d691b-91bb-4204-bb00-ad47a51861ba`, task
    `fcbe1949-5ec5-4c84-8e73-a085b2352297`. All new bridge modules replay directly and
    principal axiom audits report only the three standard Lean axioms. The unrelated old
    `ExhaustiveSmallCodes.lean` `native_decide` target was not awaited.
-8. **LAW-V with one trivial hub, internal Lean layers.** Path coefficients, LR convolution,
+9. **LAW-V with one trivial hub, internal Lean layers.** Path coefficients, LR convolution,
    `R ≤lr Q`, the shifted cross term, and conditional arbitrary-arm assembly are proved;
    paths with at most two arms and all stars are unconditional. The arbitrary-spider
    log-concavity theorem remains an explicit hypothesis in Lean, although the mathematical
