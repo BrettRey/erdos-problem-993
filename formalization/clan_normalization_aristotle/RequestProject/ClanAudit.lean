@@ -7,6 +7,7 @@ import RequestProject.ClanAudit.LocalMap
 import RequestProject.ClanAudit.Weight
 import RequestProject.ClanAudit.Spider
 import RequestProject.ClanAudit.P2Weight
+import RequestProject.ClanAudit.EvenArms
 
 /-!
 # `ClanAudit` — source-labelled summary of the audit
@@ -33,7 +34,10 @@ Layout:
 * `RequestProject/ClanAudit/Spider.lean` — the hub component of an active spider state
   and its imbalance `r = p - 1`;
 * `RequestProject/ClanAudit/P2Weight.lean` — the normalized weight of a `p = 2` two-arm
-  block.
+  block;
+* `RequestProject/ClanAudit/EvenArms.lean` — the same for a hub carrying, besides the two
+  odd arms, an arbitrary finite family of further arms with even prefixes, deriving the
+  scalar `c = 2^e`.
 
 See `README.md` for the traceability table and `RESULT.md` for the graded result note.
 -/
@@ -137,7 +141,7 @@ theorem two_row_zero_of_neighbour_multiplicity_two {G : SimpleGraph V} {alpha : 
 
 Source: request, "Published spider transformation", `localMapP2_preserves_total_order`
 and `localMapP2_injective`.  (`localMapP2_has_claimed_normalized_two_row_weight` is proved
-below in the two-arm case only; see `RESULT.md`.) -/
+below, in the general form allowing arbitrarily many further even arms; see `RESULT.md`.) -/
 theorem localMapP2_preserves_total_order' {s : HubState} {i₀ i₁ L : ℕ}
     (h : Admissible s i₀ i₁ L) : (localMapP2 s i₀ i₁ L).total = s.total :=
   localMapP2_preserves_total_order h
@@ -173,6 +177,43 @@ theorem p2_block_normalized_weight {L M : ℕ} (hL : L % 2 = 1) (hM : M % 2 = 1)
           (Sum.elim (fun _ => 2) (fun _ => 1))
       = Ablock 1 1 :=
   localMapP2_normalized_weight_two_arms hL hM hLM
+
+/-! ## The normalized weight of the `p = 2` block with arbitrary further even arms
+
+Source: request, "Published spider transformation",
+`localMapP2_has_claimed_normalized_two_row_weight`, general (arbitrary-arm) case; and the
+continuation task `FOLLOWUP_ARBITRARY_EVEN_ARMS_20260820.md`.
+
+The hub carries the two arms with odd positive prefixes `L ≤ M` and an arbitrary finite
+family of `e` further active arms with positive *even* prefixes `len i`.  The image clan
+graph is decomposed explicitly: the `L` cloned `K₂`s (whose orientation counts cancel the
+new factors `2!`), the untouched remainder of the arm `B`, and one balanced path component
+per even arm.  `even_arm_family_weight` is the reusable finite-family product theorem for
+those components, `image_state_normalized_weight` is the weight of the whole image state,
+and `p2_block_normalized_weight_even_arms` computes the two-state block, deriving the
+scalar `c = 2^e`; `p2_block_derived_scalar_one_le` records `1 ≤ c`, the hypothesis under
+which the adjacent two-hub conclusion is true. -/
+theorem even_arm_family_weight (e : ℕ) (len : Fin e → ℕ) (heven : ∀ i, len i % 2 = 0)
+    (hpos : ∀ i, 0 < len i) : Wpoly (armsGraph e len) (fun _ => 1) = 2 ^ e :=
+  Wpoly_armsGraph e len heven hpos
+
+theorem image_state_normalized_weight {e L M : ℕ} {len : Fin e → ℕ} (hL : L % 2 = 1)
+    (hM : M % 2 = 1) (hLM : L ≤ M) (heven : ∀ i, len i % 2 = 0) (hpos : ∀ i, 0 < len i) :
+    Wpoly (((⊥ : SimpleGraph (Fin L)).sum (spider 1 (fun _ => M - L))).sum (armsGraph e len))
+        (Sum.elim (Sum.elim (fun _ => 2) (fun _ => 1)) (fun _ => 1))
+      = 2 ^ e * Pw 1 :=
+  Wpoly_image_even_arms hL hM hLM heven hpos
+
+theorem p2_block_normalized_weight_even_arms {e L M : ℕ} {len : Fin e → ℕ} (hL : L % 2 = 1)
+    (hM : M % 2 = 1) (hLM : L ≤ M) (heven : ∀ i, len i % 2 = 0) (hpos : ∀ i, 0 < len i) :
+    Wpoly (spider (2 + e) (Fin.append ![L, M] len)) (fun _ => 1)
+      + Wpoly (((⊥ : SimpleGraph (Fin L)).sum (spider 1 (fun _ => M - L))).sum (armsGraph e len))
+          (Sum.elim (Sum.elim (fun _ => 2) (fun _ => 1)) (fun _ => 1))
+      = Ablock 1 ((2 : ℚ) ^ e) :=
+  localMapP2_normalized_weight_even_arms hL hM hLM heven hpos
+
+theorem p2_block_derived_scalar_one_le (e : ℕ) : (1 : ℚ) ≤ (2 : ℚ) ^ e :=
+  one_le_derived_scalar e
 
 /-! ## Adjacent two-hub target, item 5: the four-map identity
 

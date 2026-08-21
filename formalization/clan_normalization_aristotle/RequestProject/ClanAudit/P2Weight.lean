@@ -31,9 +31,11 @@ the two-state block is exactly `A(1, 1; z)`.  In particular the scalar `c` is he
 orientation count `2` and the factorial `2!`, which cancel (`Wpoly_bot_two`); this is the
 cancellation the request asks to be proved rather than assumed.
 
-Scope (partial, as the request requires such results to be labelled): only the two-arm
-case is treated.  With `e` further arms of *even* prefix length the same computation
-gives `c = 2^e`, but the `e`-fold disjoint union is not formalized here.
+Scope: only the two-arm case is treated in this file.  The general case — the same hub
+carrying, in addition, an arbitrary finite family of `e` further active arms of *even*
+prefix length, where the same computation gives `c = 2^e` — is proved in
+`RequestProject/ClanAudit/EvenArms.lean`
+(`localMapP2_normalized_weight_even_arms`); the theorem below is its case `e = 0`.
 -/
 
 namespace ClanAudit

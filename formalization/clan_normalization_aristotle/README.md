@@ -15,11 +15,10 @@ bookkeeping described in `clan_normalization_aristotle_input_20260820.md`
 graphs*, arXiv:2501.04245, Section 2 and Theorem 3.1).
 
 * Aristotle project: `76e84c3b-9ce0-4fc6-9074-45ea38dbb576`.
-* Independent local replay: `lake build` succeeded on 2026-08-20 (8,037 jobs).
-* Local `#print axioms` checks on the twelve principal declarations found only
-  `propext`, `Classical.choice`, and `Quot.sound`.
-
 * Build: `lake build` (Lean 4.28.0, Mathlib v4.28.0).
+* Independent local replay after the arbitrary-even-arm continuation succeeded on
+  2026-08-20 (8,038 jobs); local `#print axioms` checks on the new principal
+  declarations found only `propext`, `Classical.choice`, and `Quot.sound`.
 * The project contains **no** `sorry`, `admit`, `axiom`, or `implemented_by`.
   All theorems depend only on `propext`, `Classical.choice`, `Quot.sound`.
 * Graded result note: [`RESULT.md`](RESULT.md).
@@ -37,6 +36,7 @@ graphs*, arXiv:2501.04245, Section 2 and Theorem 3.1).
 | `RequestProject/ClanAudit/Weight.lean` | isomorphism invariance, multiplicativity of `W`, the cloned `K₂` cancellation |
 | `RequestProject/ClanAudit/Spider.lean` | the hub component of an active spider state, its bipartition and imbalance `r = p - 1` |
 | `RequestProject/ClanAudit/P2Weight.lean` | the normalized weight of a `p = 2` block with two active arms |
+| `RequestProject/ClanAudit/EvenArms.lean` | the normalized weight of a `p = 2` block with two odd arms and an arbitrary finite family of further even arms, deriving the scalar `c = 2^e` |
 | `RequestProject/ClanAudit.lean` | source-labelled summary of every audited item |
 
 ## Traceability table
@@ -65,6 +65,7 @@ the third column gives the file where the mathematics is proved.
 | local state at a hub (clan-map data read by the transformation) | `ClanAudit.HubState`, `ClanAudit.Admissible` | `LocalMap.lean` |
 | the `p = 2` local transformation | `ClanAudit.localMapP2` | `LocalMap.lean` |
 | hub component of an active spider state | `ClanAudit.spider` | `Spider.lean` |
+| disjoint union of the `e` even-arm components of the image state | `ClanAudit.ArmsV`, `ClanAudit.armsGraph` | `EvenArms.lean` |
 
 ### Theorems
 
@@ -84,10 +85,14 @@ the third column gives the file where the mathematics is proved.
 | `localMapP2_injective` | `ClanAudit.Audit.localMapP2_injective'` (`localMapP2_injective`) | proved |
 | cloned `K₂` orientation counts cancel the new factors of `2!` | `ClanAudit.Audit.cloned_K2_cancellation` (`Wpoly_bot_two`, `Wpoly_add_cloned_K2`) | proved |
 | the `z^r + z^(-r)` term of `A(r,c;z)`, with `r = p - 1` derived | `ClanAudit.Audit.active_hub_component_weight` (`Wpoly_spider`) | proved |
-| `localMapP2_has_claimed_normalized_two_row_weight` | `ClanAudit.Audit.p2_block_normalized_weight` (`localMapP2_normalized_weight_two_arms`) | proved **for a hub with exactly two active arms** (`c = 1` derived); general arms open |
+| `localMapP2_has_claimed_normalized_two_row_weight`, two active arms | `ClanAudit.Audit.p2_block_normalized_weight` (`localMapP2_normalized_weight_two_arms`) | proved (`c = 1` derived) |
+| `localMapP2_has_claimed_normalized_two_row_weight`, two odd arms and `e` further even arms | `ClanAudit.Audit.p2_block_normalized_weight_even_arms` (`localMapP2_normalized_weight_even_arms`) | proved (`c = 2^e` derived) |
+| finite family of even-arm components: `W = 2^e` | `ClanAudit.Audit.even_arm_family_weight` (`Wpoly_armsGraph`) | proved |
+| normalized weight of the whole image state, `2^e (z + z⁻¹)` | `ClanAudit.Audit.image_state_normalized_weight` (`Wpoly_image_even_arms`) | proved |
+| the derived scalar satisfies `1 ≤ c` | `ClanAudit.Audit.p2_block_derived_scalar_one_le` (`one_le_derived_scalar`) | proved |
 | Adjacent target 1: local pairing maps injective, including `p = 2` | `ClanAudit.Audit.localMapP2_injective'` | proved |
 | Adjacent target 2, 3: global exhaustive disjoint block partition | — | not formalized |
-| Adjacent target 4: each block has the claimed normalized contribution | `ClanAudit.Audit.p2_block_normalized_weight` | partial (two-arm `p = 2` block) |
+| Adjacent target 4: each block has the claimed normalized contribution | `ClanAudit.Audit.p2_block_normalized_weight_even_arms` | proved for the `p = 2` hub block (two odd arms, arbitrarily many further even arms) |
 | Adjacent target 5: the four-map identity | `ClanAudit.Audit.four_map_identity` (`Fblock_expand`) | proved |
 | Adjacent target 6: coefficients of `F` centrally unimodal for `c, d > 0` | `ClanAudit.Audit.central_unimodality_refuted` (`Fblock_not_centrally_unimodal`), `ClanAudit.Audit.central_unimodality_witness` | **refuted** |
 | repaired form of target 6 (`1 ≤ c`, `1 ≤ d`) | `ClanAudit.Audit.central_unimodality_of_one_le` (`Fblock_decr`) | proved |

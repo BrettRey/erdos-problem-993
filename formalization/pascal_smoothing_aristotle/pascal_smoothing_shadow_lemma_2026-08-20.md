@@ -1,13 +1,7 @@
 # A universal Pascal-smoothing lemma for erasure shadows
 
-Date: 2026-08-20. Status: independently formalized in Lean. Companion exact checks:
-`verify_pascal_smoothing_20260820.py`. Formalization:
-`formalization/pascal_smoothing_aristotle/RequestProject/PascalSmoothing.lean`.
-
-The Lean development proves the denominator-cleared form of (2), both log-concavity
-consequences, the quantitative depth-three bound, and the generating-function
-coefficient identity. The strict final inequality in (3) requires
-`E_2 E_4>0`; otherwise both sides can be zero.
+Date: 2026-08-20. Companion exact checks:
+`verify_pascal_smoothing_20260820.py`.
 
 ## Statement
 

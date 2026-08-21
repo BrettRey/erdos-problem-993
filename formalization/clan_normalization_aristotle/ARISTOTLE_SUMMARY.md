@@ -1,3 +1,19 @@
+# Summary of changes for run f2b3e260-0547-4694-b2a5-b103ab16d201
+Closed the layer specified in `FOLLOWUP_ARBITRARY_EVEN_ARMS_20260820.md`. The global adjacent-two-hub partition was deliberately not started.
+
+**New file `RequestProject/ClanAudit/EvenArms.lean`** (builds clean; the whole project builds with `lake build` and contains no `sorry`, `admit`, `axiom`, `implemented_by`, or `native_decide`):
+
+- `armsGraph` / `ArmsV` — an explicit model of the disjoint union of the `e` even-arm components of the image clan state: the `i`-th even arm becomes a separate path component with `len i` vertices, built with the project's existing `spider` and `SimpleGraph.sum`.
+- `Wpoly_armsGraph` — the reusable finite-family disjoint-union/product theorem: `e` path components with an even positive number of vertices each are balanced and contribute the factor `2`, so the family has normalized weight `2 ^ e`. Supporting general lemmas `imbalanceGF_isEmpty`, `Wpoly_isEmpty`, `Wpoly_path_even` were proved along the way.
+- `Wpoly_active_even_arms` — the active state's hub component is the spider with `2 + e` arms of lengths `L, M, len 0, …`; exactly two arms have odd prefix (`card_filter_odd_append`), so via the existing `Wpoly_spider` its normalized weight is `z + z⁻¹`, i.e. `z^r + z^(-r)` with `r = p − 1 = 1`.
+- `Wpoly_image_even_arms` — the image state (the `L` cloned `K₂`s, whose orientation counts cancel their new `2!` factors; the untouched remainder of the arm `B`; and the `e` balanced even-arm paths) has normalized weight `2^e · (z + z⁻¹)`.
+- `localMapP2_normalized_weight_even_arms` — the target block identity `W(active) + W(image) = A(1, 2^e; z)`, with the scalar **derived** to be `c = 2^e` rather than postulated; the earlier two-arm theorem is its case `e = 0`.
+- `one_le_derived_scalar` — `1 ≤ c = 2^e`, exactly the hypothesis under which the repaired adjacent two-hub conclusion (`Fblock_decr`) holds and which the earlier refutation showed to be indispensable.
+
+All component decompositions and weights are constructed and proved from the explicit graph models, not assumed as hypotheses. `#print axioms` for every new principal theorem reports only `propext`, `Classical.choice`, `Quot.sound`. Vertex-count checks confirm the models (e.g. for `L = 1, M = 3, len = ![2,4]` the active hub component has 11 vertices and the even-arm family 6).
+
+**Traceability updated**: source-labelled restatements `even_arm_family_weight`, `image_state_normalized_weight`, `p2_block_normalized_weight_even_arms`, `p2_block_derived_scalar_one_le` added to `RequestProject/ClanAudit.lean`; `README.md` file table and both traceability tables extended; `RESULT.md` now records the `p = 2` local package (including the arbitrary-arm case) as complete, with the first remaining obligation being the exhaustive global clan-map block partition (items 2 and 3 of the adjacent two-hub target). The header scope note in `P2Weight.lean` was updated to point at the general theorem. The overall grade in `RESULT.md` is unchanged (`REFUTED`, for the central-unimodality claim at general `c, d > 0`). All work is committed and pushed.
+
 # Summary of changes for run 5091518e-2cc5-4e66-a198-fd91e3d67268
 Completed the audit requested in `clan_normalization_aristotle_input_20260820.md`. The project builds with `lake build` and contains no `sorry`, `admit`, `axiom`, or `implemented_by`; all theorems depend only on `propext`, `Classical.choice`, `Quot.sound`.
 

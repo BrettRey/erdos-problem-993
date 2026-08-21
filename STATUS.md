@@ -137,7 +137,8 @@ No manuscript or public surface changed.
   `cd X^(r+s+1)+d X^s H_(r+1)+c X^r H_(s+1)+H_(r+s+1)` centrally
   unimodal. Constants reduce to `c=d=1`; a coefficient-range split plus
   two Vandermonde bounds proves that case, and 14,400 exact cores pass.
-  Once the global partition and arbitrary-arm weights are closed, this
+  Aristotle has now formally derived the arbitrary-arm scalar `c=2^e>=1`
+  from explicit clan-component models. Once the global partition is closed, this
   proves every tree with at most two degree-at-least-three vertices
   log-concave, bypassing LAW-V/W.
   `notes/c2_connector_clan_reduction_2026-08-20.md`.
@@ -162,13 +163,18 @@ No manuscript or public surface changed.
   `e_3^2 >= [32(M-2)/(27(M-3))] e_2 e_4`; the rung-3 extendable term is
   completely closed with quantitative slack. The only remaining term is
   the blocked alternating-path correction `b_d` in `s_d=e_d+b_d`.
+  Aristotle independently formalized the entire Pascal-smoothing theorem
+  and its consequences. A separate Lean project formalized the abstract
+  order-ideal projection formula, the graph `B(P)`, constant-coordinate
+  multiplication, and the antichain transform; the tree-to-forest-poset
+  construction itself remains to be formalized.
   `notes/matching_bag_poset_reduction_2026-08-20.md`,
   `notes/pascal_smoothing_shadow_lemma_2026-08-20.md`,
   `verify_erasure_shadow_poset_20260820.py`,
   `verify_pascal_smoothing_20260820.py`.
 
-Named next mathematical targets: independently audit the clan-state
-partition/normalization and the connector parity bookkeeping; express and
+Named next mathematical targets: close the now-active formal audit of the exhaustive
+global clan-state partition and the connector parity bookkeeping; express and
 bound the forced-path correction `b_2,b_3,b_4` against the proved Pascal
 reserve. Long enumeration is deprioritized.
 
