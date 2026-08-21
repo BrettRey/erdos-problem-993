@@ -2,9 +2,15 @@
 
 ## Grade
 
-**`REFUTED`** — with the full **`NORMALIZATION_KERNEL`** also completed, and the
-`p = 2` local package (**`P2_LOCAL`**) now completed, including the arbitrary-arm case of
-the weight theorem.
+**`ADJACENT_COMPLETE`** — the explicit global partition *and* the final degreewise
+nonnegativity theorem are both proved (see "The explicit global partition and the final
+degreewise theorem" below).
+
+The earlier grades stand unchanged: the full **`NORMALIZATION_KERNEL`**, the `p = 2` local
+package (**`P2_LOCAL`**) including the arbitrary-arm case of the weight theorem, and the
+**`REFUTED`** verdict on item 6 of the original adjacent two-hub target — the proposed
+central unimodality of `F` for arbitrary `c, d > 0` is false, and the global proof below
+works precisely because the scalars it produces are *derived* to be powers of two.
 
 * Items 1–3 of the mandatory normalization kernel are proved in full, from the
   definitions, with no axioms and no `sorry`.
@@ -18,7 +24,7 @@ the weight theorem.
 * **Item 6 of the adjacent two-hub target is false as stated** and is refuted with an
   explicit finite witness.
 * Items 2 and 3 of the adjacent two-hub target (the global exhaustive block partition)
-  are not formalized.
+  **are now formalized and proved**, together with the final degreewise theorem.
 
 Nothing is hidden: the project contains no `sorry`, `admit`, `axiom`, or
 `implemented_by`, and every theorem depends only on `propext`, `Classical.choice`,
@@ -129,16 +135,118 @@ The ingredients, all derived from the explicit graph models rather than assumed:
   path with `M - L + 1` vertices, contributing `z + z⁻¹`), and the `e` balanced even-arm
   paths — has normalized weight `2^e (z + z⁻¹)`.
 
-## First exact unfilled mathematical obligation
+## The explicit global partition and the final degreewise theorem
 
-The first obligation that is stated in the request and is *not* discharged here is items
-2 and 3 of the adjacent two-hub target: the **exhaustive global clan-map block
-partition** — that the global clan maps partition disjointly and exhaustively into
-four-state blocks, one-active two-state blocks, and individually nonnegative or
-two-row-zero maps, and that no partner map is used twice.  (Injectivity of the local
-pairing maps, which is the "no partner map is reused at a single hub" half of item 3, *is*
-proved: `localMapP2_injective`.)
+This is the content of `FOLLOWUP_GLOBAL_PARTITION_20260820.md`, and it is now proved in
+full, for the tree `dgraph m a n b` with **arbitrary** finite ordered families of
+positive-length pendant paths at both hubs and **arbitrary** total order `N`.  Nothing is
+bounded or enumerated.
 
-Note that this remaining obligation concerns only the global bookkeeping: the local
-`p = 2` package it would consume — the weight of each block, with its derived scalar
-`c = 2^e ≥ 1` — is complete.
+### The final theorem
+
+```text
+ClanAudit.sum_normalizedTwoRowCoeff_nonneg
+  (m : ℕ) (a : Fin m → ℕ) (n : ℕ) (b : Fin n → ℕ) (N k l : ℕ)
+  (hl : 1 ≤ l) (hkl : l ≤ k) (hN : k + l = N) :
+  0 ≤ ∑ α ∈ mapsOfOrder m a n b N, normalizedTwoRowCoeff (dgraph m a n b) α k l
+```
+
+restated as `ClanAudit.Audit.adjacent_two_hub_degreewise_nonneg`.  It is deduced from
+
+```text
+ClanAudit.isCU_totalW : IsCU (∑ α ∈ mapsOfOrder m a n b N, Wpoly (dgraph m a n b) α)
+```
+
+through the interior formula `normalizedTwoRowCoeff_eq`.
+
+### The partition
+
+The blocks are the fibres of an explicit, idempotent, order-preserving representative map
+`ClanAudit.rep`, computed side by side.  On one side:
+
+* `ActiveSide s` — hub of multiplicity one, initial positive runs made of ones, at least
+  two arms of odd active prefix;
+* `ImgSide s` — `s = transf t` for an active `t`; `transf` is the published transformation
+  with the published deterministic choices (shortest odd active prefix `idx0`, ties broken
+  by arm order; second such arm `idx1`; prefix length `plen`), proved well defined by
+  `canonical_spec`;
+* `repSide s` is `s` if `s` is active, the (unique, by `transf_injective`) source `t` if
+  `s` is an image, and `s` otherwise.
+
+Then `rep α := Sum.elim (repSide (α ∘ inl)) (repSide (α ∘ inr))`, and
+`block m a n b N β` is the fibre of `rep` over `β` inside `mapsOfOrder m a n b N`.
+
+* **Explicitness** (`fiber_eq_image`): the block of `β` is exactly the image of
+  `sideBlock (β ∘ inl) ×ˢ sideBlock (β ∘ inr)` under `Sum.elim`, where `sideBlock s` is
+  `{s, transf s}` at an active side and `{s}` otherwise.  So the blocks really are the
+  four-state, two-state and singleton blocks of the target.
+* **Sizes** (`card_block_cases`): `4`, `2` or `1`.
+* **Disjointness** (`blocks_pairwise_disjoint`) and **uniqueness of the block of a map**
+  (`block_unique`) are automatic for a fibre decomposition.
+* **Exhaustion** (`blocks_cover`): every map of order `N` is in the block of its
+  representative, which is itself of order `N`.
+* **Total order preserved** (`sum_rep`, from `sum_transf`, from
+  `localMapP2_preserves_total_order`), so each block lies inside a single degree.
+
+### The collision of `two_hub_clan_cancellation_attack_2026-08-20.md`
+
+The collision is **separated, not fatal**.  The reason is structural: `transf` switches the
+hub off, so an image can never be a source (`not_activeSide_of_imgSide`).  A map whose side
+is an image therefore does not open a second, competing block; it lies in the *same* block
+as its source (`collision_resolved_left`, `collision_resolved_right`).
+
+The concrete collision of the notes is formalized in
+`RequestProject/ClanAudit/Collision.lean`: three unit arms at `u`, five at `v`,
+
+```text
+collisionSource  = (hub 1; 1,1,1) ⊕ (hub 1; 1,1,1,1,1)
+collisionPartner = (hub 0; 2,1,1) ⊕ (hub 1; 1,1,1,1,1)
+```
+
+both of total order `10`.  `transf_onesSide` proves that `collisionPartner` is exactly the
+canonical image of the `u`-side of `collisionSource`, and `collision_block` proves that
+both maps lie in one and the same **four-element** block.  What the notes called a
+"single-hub source" is not a source at all.
+
+### The weight of each block
+
+All outside factors are carried explicitly; none is postulated.  Write
+`Tu = ∏ tailW u`, `Tv = ∏ tailW v`, `r = p - 1`, `s = q - 1`, where `p`, `q` count the arms
+of odd active prefix.
+
+* Both hubs active (`blockSum_both_active`): the four weights are
+  `Pw |r-s| · Tu·Tv`, `Pw r·Tu · d•(zz^s·Tv)`, `c•(zz^r·Tu) · Pw s·Tv`,
+  `c•(zz^r·Tu) · d•(zz^s·Tv)`, and they sum to `Fblock r s c d · (Tu·Tv)` by the four-map
+  identity `Fblock_expand`, with `r, s ≥ 1` and `c, d = 2^e ≥ 1` derived by
+  `Wpoly_side_image`.  Hence `Fblock_isCU` applies — and, by the refutation above, it
+  could not apply without `c, d ≥ 1`.
+* Exactly one hub active (`blockSum_left_active`, `blockSum_right_active`): the block sums
+  to `Ablock r c · (good factors)`, `Ablock (r+1) c · (…)` or `Ablock r (2c) · (…)`
+  according to the state of the inactive side, or to `c•(zz^r · good)`, or to `0`.
+  `Ablock_isCU` applies.
+* Neither hub active (`blockSum_neither_active`): the singleton weight is a product of
+  good factors `2^j (z+z⁻¹)^i`, or zero — in particular the two-hub component then has
+  imbalance at most one.
+
+### Classification and vanishing
+
+`Wpoly_eq_zero_of_mult_two`: a multiplicity `≥ 2` next to a positive vertex creates a
+triangle in the clan graph, so the whole normalized weight vanishes.  This handles every
+non-admissible map with a positive hub, and every map with two positive adjacent hubs one
+of which has multiplicity `≥ 2`.  `isGoodW_Wpoly_spider_of_not_active` then shows that
+every side which is not active has a weight of the good shape.
+
+### The `p ≥ 3` local transformation
+
+`Wpoly_side_image` is proved for **every** active side, i.e. for every `p ≥ 2`, not only
+`p = 2`; it produces the derived scalar `c = 2^e ≥ 1`, where `e` is the number of arms with
+even positive active prefix.  So the missing normalized-weight theorem at `p ≥ 3` is
+formalized rather than assumed.
+
+## Remaining scope
+
+The theorem proved here is degreewise nonnegativity of the normalized two-row coefficients
+of the adjacent two-hub tree.  Turning that into the log-concavity of the independence
+polynomial `B` of `D(a,b)` — the C2 base fact the notes are ultimately aiming at — needs
+the Li–Li–Yang–Zhang equivalence between 2-Schur-positivity of `Y_G` and log-concavity of
+`I(G;x)`, which is *not* part of this development.

@@ -1,10 +1,7 @@
 # Log-concavity of the adjacent two-hub independence polynomial
 
-Date: 2026-08-20. Status updated 2026-08-21: the exact core audit passes and
-Aristotle has formally proved the normalization kernel, arbitrary-arm weight
-derivation, exhaustive global partition, and final degreewise normalized
-two-row nonnegativity. The direct LLYZ coefficient bridge to ordinary
-independence-polynomial log-concavity is the only remaining Lean obligation.
+Date: 2026-08-20. Status: proof draft, exact core audit passing, with the
+normalization kernel formally verified but the global partition still open.
 Companion verifier: `verify_two_hub_B_logconcavity_20260820.py`. This repairs
 the map-level collision isolated in
 `notes/two_hub_clan_cancellation_attack_2026-08-20.md`.
@@ -13,16 +10,13 @@ separate finite audit in `verify_local_li_block_20260820.py`.
 
 The independent Aristotle audit in
 `formalization/clan_normalization_aristotle/RESULT.md` proves the clan
-normalization, normalized imbalance formula, binary product law, canonical
-local transform for every active side, derived scalars `c,d=2^e>=1`, the
-four-map identity, the repaired block inequality, and the exhaustive
-degree-preserving partition into explicit fibres of sizes 4/2/1. It also
-formalizes and resolves the collision recorded in the companion attack note.
-The project proves the resulting degreewise normalized two-row coefficient
-sum is nonnegative. It refutes only the unnecessarily broad local inequality
-for arbitrary positive rational `c,d`. A 2026-08-21 continuation is formalizing
-the finite coefficient identity behind LLYZ Corollary 2.2 and then instantiating
-it here.
+normalization, normalized imbalance formula, binary product law, local
+`p=2` injection, four-map identity, and the needed block inequality for
+derived scalars `c,d>=1`. It refutes the unnecessarily broad version for
+arbitrary positive rationals and does not formalize the arbitrary-even-arm
+weight derivation or the exhaustive global block partition asserted in
+Sections 3--5. Thus the theorem statement below remains the target of this
+proof draft rather than a fully independently closed theorem.
 
 ## Theorem
 

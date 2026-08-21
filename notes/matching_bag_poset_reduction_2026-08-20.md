@@ -1,15 +1,18 @@
 # The maximum layer is a forest-poset code
 
-Date: 2026-08-20. Status: abstract poset/code layer independently formalized; the
-tree-to-forest-poset bridge remains open. Companion exact checks:
+Date: 2026-08-20. Status updated 2026-08-21: the abstract poset/code layer and
+the complete tree/maximum-matching-to-forest-poset bridge are independently
+formalized. The blocked correction remains open. Companion exact checks:
 `verify_erasure_shadow_poset_20260820.py`. Formalization:
 `formalization/matching_bag_poset_aristotle/`.
 
 The Lean development proves the projection/induced-ideal identity (3), the `B(P)`
 identity (5), constant-coordinate multiplication, the antichain formulas (8)–(9),
-coefficient formula (10), and the matching-cover pigeonhole lemma. It does not yet
-formalize equation (2), namely the construction of the forest poset from an arbitrary
-tree and maximum matching, nor the blocked correction of Section 4.
+coefficient formula (10), and the matching-cover pigeonhole lemma. It now also derives
+König's theorem from Mathlib Hall, constructs the matching bags and forest comparison
+poset for every finite forest, proves the solution/order-ideal and tree-code equivalences,
+and closes equations (2), (6), (7), and (7a). It does not formalize the blocked
+correction of Section 4.
 
 ## 1. From a maximum matching to a poset
 

@@ -1,3 +1,19 @@
+# Summary of changes for run fcbe1949-5ec5-4c84-8e73-a085b2352297
+The task in `FOLLOWUP_TREE_TO_FOREST_POSET_20260820.md` is complete: the explicit tree/maximum-matching → forest-poset code bridge is formalized and consumes the existing `PascalBridge` results. The whole project builds with `lake build` and contains no `sorry`, `admit`, `axiom`, or `implemented_by`.
+
+**New source files** (all under `RequestProject/`):
+- `KonigHall.lean` — matchings, vertex covers, and **König's theorem derived from Mathlib's Hall theorem** (`konig`), not postulated.
+- `TreeMatching.lean` — the `TreeMatching` structure (forest + bipartition + maximum matching), `exists_treeMatching` showing the orientation of matched edges is no loss of generality, the bags (`Idx`/`Unm`/`Bag`) with full cardinality bookkeeping (`card_Bag : #bags = |V| - |M|`), the constraint system (`rel`, `ForcedZero`, `ForcedOne`, `IsSol`, `Sol`), `minCover_structure`, and the explicit mutually inverse maps `coverOf`/`solOf` between minimum covers and solutions (`minCovers_image_solOf`).
+- `ForestLemmas.lean` — the graph-theoretic core: contracting pairwise disjoint edges of a forest yields a forest (`bagGraph_isAcyclic`), and the directed comparison relation admits no closed chain (`no_closed_matching_chain`).
+- `BagPoset.lean` — forced/free variables, the poset `P` on the free variables whose **antisymmetry is proved** from forest acyclicity, the solution ↔ order-ideal bijection (`Sol_image_restrict`), and forest structure of both the comparison graph (`compGraph_isAcyclic`) and the cover graph (`coverGraph_isAcyclic`).
+- `TreeCodeBridge.lean` — the bag splitting `bagEquiv : Bag ≃ Free ⊕ Const`, **equation (2)** (`treeCode_eq_codeRelabel`), its independent-set form (`maxIndepCode_eq_flip_treeCode`), **equation (6)** coefficientwise and in polynomial form (`codeP_treeCode`, `codePoly_treeCode`: profile `= (1+t)^c · I(B(P);t)`), the identification of the tree erasure profile with the `PascalBridge` poset profile (`erasure_eq_erasureProfile`), and the four inequality consequences: depth-three `e₂e₄ ≤ e₃²`, the depth-three reserve `32(M-2)e₂e₄ ≤ 27(M-3)e₃²`, log-concavity through defect depth eight, and log-concavity at every interior defect for `M ≤ 33`.
+
+All six required checkpoints are met. `#print axioms` reports exactly `[propext, Classical.choice, Quot.sound]` for every principal bridge theorem; nothing in the bridge depends on the pre-existing `native_decide` enumeration in `ExhaustiveSmallCodes.lean`.
+
+Two honest notes on scope: connectedness of the tree is never used, so every statement is proved for arbitrary finite **forests**, which is strictly more general; and the "port-labelled quotient tree" of checkpoint 1 is realized as the contracted bag graph `SimpleGraph.fromRel` on matched bags, proved acyclic, together with the bag cardinality and cover/solution bijection results, rather than as a separately packaged labelled object.
+
+`FORMALIZATION_NOTES.md` now carries a full checkpoint-by-checkpoint traceability table naming the exact Lean declaration and file for each requirement, plus the conventions and soundness record. All work is committed and pushed.
+
 # Summary of changes for run 3dfa9612-a379-45a7-9af2-40b697b9aba4
 I integrated the uploaded Pascal theorem into the library and closed the abstract poset extendable-profile inequalities end to end.
 

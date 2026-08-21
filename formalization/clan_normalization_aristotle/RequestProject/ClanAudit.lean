@@ -8,6 +8,8 @@ import RequestProject.ClanAudit.Weight
 import RequestProject.ClanAudit.Spider
 import RequestProject.ClanAudit.P2Weight
 import RequestProject.ClanAudit.EvenArms
+import RequestProject.ClanAudit.GlobalPartition
+import RequestProject.ClanAudit.Collision
 
 /-!
 # `ClanAudit` — source-labelled summary of the audit
@@ -37,7 +39,28 @@ Layout:
   block;
 * `RequestProject/ClanAudit/EvenArms.lean` — the same for a hub carrying, besides the two
   odd arms, an arbitrary finite family of further arms with even prefixes, deriving the
-  scalar `c = 2^e`.
+  scalar `c = 2^e`;
+* `RequestProject/ClanAudit/PathClan.lean`, `Split.lean`, `Arms.lean` — the good-shape
+  weight of an arbitrary path clan map and the vertex-splitting toolkit;
+* `RequestProject/ClanAudit/DoubleSpider.lean` — the adjacent two-hub tree `dgraph` and
+  its exact imbalance law `|p - q|`;
+* `RequestProject/ClanAudit/Prefix.lean` — active prefixes, the exact weight of one side;
+* `RequestProject/ClanAudit/SideTransform.lean` — the canonical transformation `transf` of
+  a whole side, with the published shortest-odd-prefix choice; injectivity and order
+  preservation;
+* `RequestProject/ClanAudit/ImageWeight.lean` — the exact weight of a transformed side,
+  with the scalar `c = 2^e ≥ 1` derived at arbitrary `p ≥ 2`;
+* `RequestProject/ClanAudit/TwoHubWeight.lean` — the exact weight of a two-hub clan map;
+* `RequestProject/ClanAudit/BlockCU.lean` — central unimodality of `A(r,c)` and
+  `F(r,s;c,d)` on the derived range `c, d ≥ 1`;
+* `RequestProject/ClanAudit/Vanishing.lean` — the triangle/nonbipartite vanishing and the
+  good shape of every non-active side;
+* `RequestProject/ClanAudit/BlockWeight.lean` — the exact normalized Laurent sum of each
+  block of the partition;
+* `RequestProject/ClanAudit/GlobalPartition.lean` — the explicit global partition and the
+  final degreewise theorem;
+* `RequestProject/ClanAudit/Collision.lean` — the explicit collision of the proof notes,
+  resolved.
 
 See `README.md` for the traceability table and `RESULT.md` for the graded result note.
 -/
@@ -242,6 +265,145 @@ theorem central_unimodality_of_one_le {r s : ℕ} (hr : 1 ≤ r) (hs : 1 ≤ s) 
     (hc : 1 ≤ c) (hd : 1 ≤ d) (m : ℤ) (hm : 0 ≤ m) :
     coeffL (Fblock r s c d) (m + 2) ≤ coeffL (Fblock r s c d) m :=
   Fblock_decr hr hs hc hd m hm
+
+/-! ## Adjacent two-hub target, checkpoint 1: the global model
+
+Source: `FOLLOWUP_GLOBAL_PARTITION_20260820.md`, required checkpoint 1.
+
+`dgraph m a n b` is the adjacent two-hub tree with arbitrary finite ordered families of
+positive-length pendant paths at both hubs; `mapsOfOrder m a n b N` is the finite set of
+all clan maps of total order `N`; `pref` is the active prefix of an arm, `ActiveSide` the
+hub-active stratum, and `idx0`, `idx1`, `plen` the published deterministic choices
+(shortest odd prefix, ties by arm order), proved well defined by `canonical_spec`. -/
+theorem degree_map_space_membership {m n : ℕ} {a : Fin m → ℕ} {b : Fin n → ℕ} {N : ℕ}
+    {alpha : DV m a n b → ℕ} : alpha ∈ mapsOfOrder m a n b N ↔ ∑ x, alpha x = N :=
+  mem_mapsOfOrder
+
+theorem canonical_choices_well_defined {k : ℕ} {len : Fin k → ℕ} {s : SpiderV k len → ℕ}
+    (h : ActiveSide s) :
+    ∃ i₀ i₁ : Fin k, i₀.val = idx0 s ∧ i₁.val = idx1 s ∧ pref s i₀ = plen s ∧
+      pref s i₀ % 2 = 1 ∧ pref s i₁ % 2 = 1 ∧ i₀ ≠ i₁ ∧ plen s ≤ pref s i₁ :=
+  canonical_spec h
+
+/-! ## Adjacent two-hub target, checkpoint 2: classification
+
+Source: `FOLLOWUP_GLOBAL_PARTITION_20260820.md`, required checkpoint 2.  A multiplicity
+`≥ 2` next to a positive vertex makes the clan graph nonbipartite (it contains a
+triangle), so the whole normalized weight — and hence every two-row coefficient —
+vanishes.  Every side that is not active therefore has a weight of the good shape
+`2^j (z + z⁻¹)^i`, possibly zero. -/
+theorem two_row_zero_of_clan_triangle {V : Type*} [Fintype V] [DecidableEq V]
+    {G : SimpleGraph V} {alpha : V → ℕ} {u v : V} (huv : G.Adj u v) (hu : 2 ≤ alpha u)
+    (hv : 1 ≤ alpha v) : Wpoly G alpha = 0 :=
+  Wpoly_eq_zero_of_mult_two huv hu hv
+
+theorem inactive_side_good_shape {k : ℕ} {len : Fin k → ℕ} {s : SpiderV k len → ℕ}
+    (h : ¬ ActiveSide s) : IsGoodW (Wpoly (spider k len) s) :=
+  isGoodW_Wpoly_spider_of_not_active h
+
+/-! ## Adjacent two-hub target, checkpoint 3: the collision audit
+
+Source: `FOLLOWUP_GLOBAL_PARTITION_20260820.md`, required checkpoint 3, and
+`two_hub_clan_cancellation_attack_2026-08-20.md`, "the global collision".
+
+The source and image strata are disjoint because the transformation switches the hub off,
+so a map whose side is an image is not the start of a second, competing block: it lies in
+the *same* block as the untransformed map.  The explicit collision of the notes (three
+unit arms at `u`, five at `v`) is formalized and shown to lie in a single four-element
+block. -/
+theorem source_and_image_strata_disjoint {k : ℕ} {len : Fin k → ℕ} {s : SpiderV k len → ℕ}
+    (h : ImgSide s) : ¬ ActiveSide s :=
+  not_activeSide_of_imgSide h
+
+theorem single_and_double_hub_strata_do_not_compete {m n : ℕ} {a : Fin m → ℕ} {b : Fin n → ℕ}
+    {u : SpiderV m a → ℕ} (h : ActiveSide u) (v : SpiderV n b → ℕ) :
+    rep (Sum.elim (transf u) v) = rep (Sum.elim u v) :=
+  collision_resolved_left h v
+
+theorem notes_collision_in_one_block :
+    collisionSource ∈ block 3 (unitArms 3) 5 (unitArms 5) 10 collisionSource
+      ∧ collisionPartner ∈ block 3 (unitArms 3) 5 (unitArms 5) 10 collisionSource
+      ∧ (block 3 (unitArms 3) 5 (unitArms 5) 10 collisionSource).card = 4 :=
+  collision_block
+
+/-! ## Adjacent two-hub target, checkpoints 2–4: the explicit global partition
+
+Source: `FOLLOWUP_GLOBAL_PARTITION_20260820.md`, "Final target" 1–3 and required
+checkpoint 4.  The blocks are the fibres of the explicit idempotent representative map
+`rep`; each is exactly the set of maps obtained by keeping or transforming each side
+independently, so it has `4`, `2` or `1` elements.  Disjointness is automatic for a fibre
+decomposition, exhaustion is `blocks_cover`, and `sum_rep` is the preservation of the
+total order. -/
+theorem global_partition_blocks_explicit {m n : ℕ} {a : Fin m → ℕ} {b : Fin n → ℕ} {N : ℕ}
+    {beta : DV m a n b → ℕ} (hb : rep beta = beta) (hmem : beta ∈ mapsOfOrder m a n b N) :
+    block m a n b N beta
+      = ((sideBlock (fun x => beta (Sum.inl x))) ×ˢ (sideBlock (fun y => beta (Sum.inr y)))).image
+          (fun p => Sum.elim p.1 p.2) :=
+  fiber_eq_image hb hmem
+
+open scoped Classical in
+theorem global_partition_block_sizes {m n : ℕ} {a : Fin m → ℕ} {b : Fin n → ℕ} {N : ℕ}
+    {beta : DV m a n b → ℕ} (hb : rep beta = beta) (hmem : beta ∈ mapsOfOrder m a n b N) :
+    (block m a n b N beta).card
+      = if ActiveSide (fun x => beta (Sum.inl x)) then
+          (if ActiveSide (fun y => beta (Sum.inr y)) then 4 else 2)
+        else (if ActiveSide (fun y => beta (Sum.inr y)) then 2 else 1) :=
+  card_block_cases hb hmem
+
+theorem global_partition_disjoint {m n : ℕ} {a : Fin m → ℕ} {b : Fin n → ℕ} (N : ℕ)
+    {beta gamma : DV m a n b → ℕ} (h : beta ≠ gamma) :
+    Disjoint (block m a n b N beta) (block m a n b N gamma) :=
+  blocks_pairwise_disjoint N h
+
+theorem global_partition_exhaustive {m n : ℕ} {a : Fin m → ℕ} {b : Fin n → ℕ} {N : ℕ}
+    {alpha : DV m a n b → ℕ} (h : alpha ∈ mapsOfOrder m a n b N) :
+    alpha ∈ block m a n b N (rep alpha) ∧ rep alpha ∈ mapsOfOrder m a n b N :=
+  blocks_cover h
+
+theorem global_partition_preserves_total_order {m n : ℕ} {a : Fin m → ℕ} {b : Fin n → ℕ}
+    (alpha : DV m a n b → ℕ) : ∑ x, rep alpha x = ∑ x, alpha x :=
+  sum_rep alpha
+
+/-! ## Adjacent two-hub target, checkpoint 5: the weight of each block
+
+Source: `FOLLOWUP_GLOBAL_PARTITION_20260820.md`, required checkpoint 5.  The four-state
+block sums to `F(r,s;c,d)` times the product of all outside components, with `r, s ≥ 1`
+and the scalars `c, d = 2^e ≥ 1` *derived*; the two-state blocks sum to `A(r,c)` times
+outside components; the singletons are products of good factors.  `Wpoly_side_image` is
+the missing normalized-weight theorem at arbitrary `p ≥ 2` (in particular `p ≥ 3`). -/
+theorem transformed_side_weight {k : ℕ} {len : Fin k → ℕ} {s : SpiderV k len → ℕ}
+    (h : ActiveSide s) :
+    ∃ c : ℚ, 1 ≤ c ∧
+      Wpoly (spider k len) (transf s) = c • (zz ^ (pNum s - 1) * ∏ i : Fin k, tailW s i) :=
+  Wpoly_side_image h
+
+theorem four_state_block_weight {m n : ℕ} {a : Fin m → ℕ} {b : Fin n → ℕ}
+    {u : SpiderV m a → ℕ} {v : SpiderV n b → ℕ} (hu : ActiveSide u) (hv : ActiveSide v) :
+    IsCU (Wpoly (dgraph m a n b) (Sum.elim u v)
+      + Wpoly (dgraph m a n b) (Sum.elim u (transf v))
+      + (Wpoly (dgraph m a n b) (Sum.elim (transf u) v)
+        + Wpoly (dgraph m a n b) (Sum.elim (transf u) (transf v)))) :=
+  blockSum_both_active hu hv
+
+theorem blockwise_central_unimodality {m n : ℕ} {a : Fin m → ℕ} {b : Fin n → ℕ} {N : ℕ}
+    {beta : DV m a n b → ℕ} (hb : rep beta = beta) (hmem : beta ∈ mapsOfOrder m a n b N) :
+    IsCU (∑ alpha ∈ block m a n b N beta, Wpoly (dgraph m a n b) alpha) :=
+  isCU_sum_block hb hmem
+
+/-! ## Adjacent two-hub target, checkpoint 6: the final degreewise theorem
+
+Source: `FOLLOWUP_GLOBAL_PARTITION_20260820.md`, "the strongest desired final theorem"
+and required checkpoint 6.  Summed over *all* clan maps of total order `N = k + l`, every
+normalized two-row coefficient of the adjacent two-hub tree is nonnegative — for
+arbitrary arm families and arbitrary `N`. -/
+theorem total_degree_weight_centrally_unimodal (m : ℕ) (a : Fin m → ℕ) (n : ℕ)
+    (b : Fin n → ℕ) (N : ℕ) : IsCU (totalW m a n b N) :=
+  isCU_totalW m a n b N
+
+theorem adjacent_two_hub_degreewise_nonneg (m : ℕ) (a : Fin m → ℕ) (n : ℕ) (b : Fin n → ℕ)
+    (N k l : ℕ) (hl : 1 ≤ l) (hkl : l ≤ k) (hN : k + l = N) :
+    0 ≤ ∑ alpha ∈ mapsOfOrder m a n b N, normalizedTwoRowCoeff (dgraph m a n b) alpha k l :=
+  sum_normalizedTwoRowCoeff_nonneg m a n b N k l hl hkl hN
 
 end Audit
 

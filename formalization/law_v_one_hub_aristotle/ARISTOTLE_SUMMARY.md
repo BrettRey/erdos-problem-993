@@ -1,0 +1,16 @@
+# Summary of changes for run 9a6c6951-03eb-497b-bdb9-ed9f9013a1b7
+Continued and completed the formalization of `law_v_one_hub_aristotle_input_20260820.md` as far as the mathematics allows, and left the project in a clean, fully building state.
+
+**Project state** — `lake build` succeeds on all modules; there is no `sorry`, `admit`, `axiom`, `@[implemented_by]`, or `native_decide` anywhere in `RequestProject/`. `RequestProject/Main.lean` ends with a `#print axioms` audit; every audited theorem reports only `[propext, Classical.choice, Quot.sound]`.
+
+**What is proved unconditionally**
+- Layer 1 (`PathPoly.lean`): the path coefficient formula `[x^j] W n = choose (n-j) j` (`W_coeff`), the adjacent likelihood-ratio inequality in binomial form with all support boundaries (`path_choose_LR`), plus support/log-concavity facts and the splitting identity `W (a+b+2) = W(a+1)W(b+1) + x W a W b`.
+- Layer 2 (`LR.lean`): common-convolution preservation of the likelihood-ratio order by a Cauchy–Binet/TP2 computation (`LR.mul_left`), with the supporting minor and transitivity API.
+- Layer 3 (`Products.lean`): `Q`, `R` are log-concave with no internal zeros, and `R ≤lr Q` (`Rof_LR_Qof`), by replacing the factors one at a time.
+- Layer 5 (`Spider.lean`): the shifted cross term `c k * q (k-1) − c (k+1) * q (k-2) ≥ 0` (`cross_term_nonneg`), and the decomposition of `V k` into the Turán gap of `C` plus that cross term (`V_nonneg_of_logConcave`).
+- Final theorem, unconditionally, for two infinite families: all families of at most two arms, including the empty and one-arm boundary cases (`V_nonneg_of_length_le_two`, `V_nonneg_nil`, `V_nonneg_single` — such a spider is a path), and all stars `K_{1,m}` with arbitrarily many arms (`Cof_logConcave_star`, `V_nonneg_star`, new this session; the star case rests on the binomial inequality `choose m 3 * (m+1) ≤ (choose m 2)^2`).
+- The optional adversarial check (`two_hub_cross_term_counterexample`): for arms `(1,1,5)` and `(1,1)` the naive general two-hub cross term equals `−3`, proved by exact coefficient computation, with no decidability or numeric shortcut.
+
+**What remains** — Layer 4, log-concavity of the spider polynomial `C = Q + x·R` for arbitrary arms, is the only gap, so the general theorem is returned as the clearly labelled conditional core the request permits (`V_nonneg_conditional`, taking layer 4 as an explicit hypothesis, never an axiom). The exact remaining signature is `theorem Cof_logConcave (arms : List ℕ) : LogConcave (Cof arms)`. This session sharpened the gap: `Cof_logConcave_of_K` and `V_nonneg_of_K` show that the single inequality `LR (Qof arms) (X * Cof arms)` suffices, i.e. the coefficient statement `q(k+1) r(k-2) ≤ q k · r(k-1) + (q k ^ 2 − q(k+1) q(k-1))` about products of path polynomials alone.
+
+`README.md` documents all of this: build instructions, the per-layer status table, the full declaration/layer/source traceability table, the axiom-audit output, the exact remaining signature, and a record of which naive likelihood-ratio splittings are false (e.g. `Q ≤lr C`, `Q ≤lr x·R`, `Q ≤lr x²·R`), which is why the induction does not close. Exploratory numerical scripts used while searching for a proof of layer 4 were removed; only Lean-verified statements are presented as verified.

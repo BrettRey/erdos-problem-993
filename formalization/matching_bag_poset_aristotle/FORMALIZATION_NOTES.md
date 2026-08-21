@@ -40,11 +40,12 @@ All Lean sources live in `RequestProject/` and build without `sorry`.
 
 ## What is not formalized
 
-* The reduction of §1 from a tree with a maximum matching to a forest poset (equation (2))
-  is a construction sketched informally in the note; only the pigeonhole step above is
-  formalized.
 * §4 (the blocked-path correction `b_d`) is descriptive and contains no self-contained claim
   to formalize; the note lists it as future work.
+
+(The reduction of §1 from a tree with a maximum matching to a forest poset — equation (2) —
+was sketched informally in the note; it is now fully formalized, see the traceability table
+below.)
 
 ## The Pascal bridge (`PascalSmoothing.lean`, `PascalBridge.lean`)
 
@@ -71,3 +72,83 @@ every finite poset `P` and every `c`.
 All theorems in these two files depend only on `propext`, `Classical.choice` and `Quot.sound`
 (checked with `#print axioms`); in particular nothing here depends on the `native_decide`
 computation in `ExhaustiveSmallCodes.lean`.
+
+## The tree → forest-poset bridge (`FOLLOWUP_TREE_TO_FOREST_POSET_20260820.md`)
+
+Source files, in dependency order:
+
+* `KonigHall.lean` — matchings, vertex covers, König's theorem for bipartite graphs.
+* `TreeMatching.lean` — the `TreeMatching` structure (forest + bipartition + maximum
+  matching), the bags, the constraint system, and the cover ↔ solution bijection.
+* `ForestLemmas.lean` — the graph-theoretic core: contracting a matching of a forest gives a
+  forest, and the directed comparison relation has no closed chain.
+* `BagPoset.lean` — forced/free variables, the poset `P` on the free variables, the
+  solution ↔ order-ideal bijection, and acyclicity of the comparison and cover graphs.
+* `TreeCodeBridge.lean` — equation (2), equation (6), and the inequality corollaries.
+
+### Checkpoint traceability
+
+| Checkpoint | Statement | Lean declaration (file) |
+| --- | --- | --- |
+| 1. Matching bags | a forest with a maximum matching yields an oriented `TreeMatching` | `MatchingBag.exists_treeMatching` (`TreeMatching.lean`) |
+| 1 | the bag index type: matched edges plus unmatched singletons | `MatchingBag.TreeMatching.Idx`, `.Unm`, `.Bag` (`TreeMatching.lean`) |
+| 1 | bags are pairwise disjoint; every vertex lies in exactly one bag | `MatchingBag.TreeMatching.bags_disjoint`, `.vertex_cases` (`TreeMatching.lean`) |
+| 1 | an independent set contains at most one endpoint of a matched bag | `MatchingBag.TreeMatching.indep_not_both` (`TreeMatching.lean`) |
+| 1 | cardinality bookkeeping: `#bags = |V| - |M|`, `#matched = 2|M|` | `MatchingBag.TreeMatching.card_Bag`, `.card_matchedVerts`, `.card_unmatchedVerts`, `.card_Idx` (`TreeMatching.lean`) |
+| 1 | the feasible bag-assignment bijection: minimum covers ↔ solutions of the constraint system | `MatchingBag.TreeMatching.coverOf`, `.solOf`, `.coverOf_mem_minCovers`, `.solOf_mem_Sol`, `.solOf_coverOf`, `.coverOf_solOf`, `.minCovers_image_solOf` (`TreeMatching.lean`) |
+| 2. Maximum layer (König) | König's theorem, proved from Mathlib's Hall theorem — not postulated | `MatchingBag.konig` (`KonigHall.lean`), with `MatchingBag.card_matching_le_cover`, `MatchingBag.hall_side` |
+| 2 | a minimum cover has `|M|` vertices, hence exactly one endpoint of every matched edge and no unmatched vertex | `MatchingBag.TreeMatching.minCover_structure` (`TreeMatching.lean`), reusing `MatchingBag.cover_card_eq_matching_card` (`MatchingCover.lean`) |
+| 2 | maximum independent sets are exactly the complements of minimum covers | `MatchingBag.TreeMatching.maxIndepSets_eq_image_compl` (`TreeMatching.lean`) |
+| 3. Inequality system | equation (1): a non-matching edge `R_i — L_j` gives `x_i ≤ x_j` | `MatchingBag.TreeMatching.rel`, `.minCover_rel` (`TreeMatching.lean`) |
+| 3 | edges to unmatched vertices give unary forced values | `MatchingBag.TreeMatching.ForcedZero`, `.ForcedOne`, `.minCover_forcedZero`, `.minCover_forcedOne` (`TreeMatching.lean`) |
+| 3 | the constraint system and its solution set | `MatchingBag.TreeMatching.IsSol`, `.Sol` (`TreeMatching.lean`) |
+| 4. Consistency | the unary values are consistent (`Sol ≠ ∅`), derived from maximality of `M` through König | `MatchingBag.TreeMatching.Sol_nonempty` (`TreeMatching.lean`) |
+| 4. Forest structure | contracting pairwise disjoint edges of a forest gives a forest | `MatchingBag.bagGraph_isAcyclic` (`ForestLemmas.lean`) |
+| 4 | the directed comparison relation has no closed chain (antisymmetry input) | `MatchingBag.no_closed_matching_chain` (`ForestLemmas.lean`) |
+| 4 | the undirected comparison graph on matched bags is a forest | `MatchingBag.TreeMatching.compGraph_isAcyclic` (`BagPoset.lean`) |
+| 4 | propagating and deleting forced variables; the poset `P` on the remaining free variables, with antisymmetry *proved* | `MatchingBag.TreeMatching.Forced`, `.forcedVal`, `.Free`, `instPartialOrderFree` (`BagPoset.lean`) |
+| 4 | the cover graph of `P` is a forest | `MatchingBag.TreeMatching.coverGraph_isAcyclic` (`BagPoset.lean`), via `.rel_of_covBy` |
+| 5. Code equivalence | mutually inverse maps between solutions and order-ideal indicators of `P` | `MatchingBag.TreeMatching.restrictFree`, `.extendFree`, `.isIdealIndicator_restrictFree`, `.extendFree_mem_Sol`, `.restrictFree_extendFree`, `.extendFree_restrictFree`, `.Sol_image_restrict`, `.restrictFree_injOn` (`BagPoset.lean`) |
+| 5 | the bags split as free variables ⊕ constant coordinates | `MatchingBag.TreeMatching.Const`, `.numConst`, `.bagEquiv`, `.card_Bag_eq_card_Free_add_numConst` (`TreeCodeBridge.lean`) |
+| 5 | **equation (2)**: `treeCode = codeRelabel bagEquiv bagFlip (appendConsts (idealCode P) Const)` | `MatchingBag.TreeMatching.treeCode_eq_codeRelabel` (`TreeCodeBridge.lean`) |
+| 5 | the code of maximum independent sets is the bitwise complement of the cover code, with the same profile | `MatchingBag.TreeMatching.maxIndepCode_eq_flip_treeCode`, `.codeP_maxIndepCode` (`TreeCodeBridge.lean`) |
+| 6. Polynomial consequence | **equation (6)**, coefficientwise and as polynomials: profile `= (1+t)^c I(B(P);t)` | `MatchingBag.TreeMatching.codeP_treeCode`, `.codePoly_treeCode` (`TreeCodeBridge.lean`) |
+| 6 | the tree erasure profile equals the poset erasure profile of `PascalBridge.lean` | `MatchingBag.TreeMatching.erasure`, `.erasure_eq_erasureProfile` (`TreeCodeBridge.lean`) |
+| 6 | depth-three log-concavity `e_2 e_4 ≤ e_3^2` | `MatchingBag.TreeMatching.erasure_depth_three` (`TreeCodeBridge.lean`) |
+| 6 | depth-three reserve `32(M-2) e_2 e_4 ≤ 27(M-3) e_3^2` | `MatchingBag.TreeMatching.erasure_depth_three_reserve` (`TreeCodeBridge.lean`) |
+| 6 | log-concavity through defect depth eight | `MatchingBag.TreeMatching.erasure_log_concave_depth_le_eight` (`TreeCodeBridge.lean`) |
+| 6 | log-concavity at every interior defect when `M ≤ 33` | `MatchingBag.TreeMatching.erasure_log_concave_of_le_33` (`TreeCodeBridge.lean`) |
+
+### Conventions used by the bridge
+
+* A `TreeMatching V` packages a forest `G` on a finite vertex type, a proper Boolean
+  colouring `col`, and a maximum matching `M` given as a `Finset (V × V)` whose pairs are
+  oriented from the `true` side to the `false` side. `exists_treeMatching` shows this is no
+  loss of generality: any forest with any maximum matching can be so oriented, because a
+  forest is bipartite (`SimpleGraph.IsAcyclic.coloringTwo`) and reorienting pairs does not
+  change the cardinality of the matching. Connectedness of `T` is never used, so all
+  statements are proved for forests, which is strictly more general than trees.
+* `M` in the erasure statements denotes `Fintype.card D.Bag = |V| - |M|`, the independence
+  number of the forest, matching the note's use of `M` for the code length.
+* `bagFlip` records the coordinate complementations needed to turn the *cover* code into an
+  order-ideal code: a bag forced to `0` and every unmatched singleton bag is flipped.
+  `codeRelabel` (`CodeInvariance.lean`) is proved to preserve the profile `codeP`, so the
+  flips are harmless for every statement in §2, §3.
+* The poset `P = D.Free` carries the order generated by the comparison relation `rel`,
+  reflexive-transitively closed. Antisymmetry is *derived* from
+  `no_closed_matching_chain`, i.e. from acyclicity of the forest, rather than assumed.
+
+### Soundness
+
+`lake build` succeeds for every module. `RequestProject/` contains no `sorry`, `admit`,
+`axiom`, or `implemented_by`. `#print axioms` reports exactly
+`[propext, Classical.choice, Quot.sound]` for every principal bridge theorem, namely
+`treeCode_eq_codeRelabel`, `codeP_treeCode`, `codePoly_treeCode`,
+`maxIndepCode_eq_flip_treeCode`, `codeP_maxIndepCode`, `erasure_eq_erasureProfile`,
+`erasure_depth_three`, `erasure_depth_three_reserve`,
+`erasure_log_concave_depth_le_eight`, `erasure_log_concave_of_le_33`,
+`coverGraph_isAcyclic`, `compGraph_isAcyclic`, `Sol_image_restrict`, `konig`,
+`bagGraph_isAcyclic`, `no_closed_matching_chain`, `exists_treeMatching`, `card_Bag`.
+In particular no bridge theorem depends on `Lean.ofReduceBool`: the only `native_decide`
+in the project is the pre-existing, self-contained enumeration in
+`ExhaustiveSmallCodes.lean`, which nothing above imports.

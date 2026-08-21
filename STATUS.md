@@ -7,7 +7,7 @@ stage: complete
 external: in-review
 blocked_on:
 - venue-response
-updated: 2026-08-20
+updated: 2026-08-21
 source:
 - STATUS.md
 - PORTFOLIO.md
@@ -96,11 +96,11 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
 
-## 2026-08-20: Two-hub base proof, connector reduction, and matching-bag attack
+## 2026-08-20–21: Two-hub base proof, connector reduction, and matching-bag attack
 
-An inference-first session produced one proved LAW subfamily, a proof
-draft for the missing adjacent two-hub base fact, and two new reductions.
-No manuscript or public surface changed.
+An inference-first session produced one proved LAW subfamily, a formally
+closed adjacent two-hub clan theorem, and two new reductions. No manuscript
+or public surface changed.
 
 - **LAW-V with one trivial hub is proved.** For arbitrary arms,
   `C=Q+xR`, `B=C+xQ`. Path extension gives the likelihood-ratio order
@@ -108,30 +108,34 @@ No manuscript or public surface changed.
   `c_k b_k >= c_{k+1} b_{k-1}` at every index. This closes packet G3
   and its one-arm special case G1. Note and exact audit:
   `notes/law_v_one_hub_proof_2026-08-20.md`,
-  `verify_law_v_one_hub_20260820.py`.
-- **Adjacent two-hub B log-concavity has a proof draft with a formally
-  verified kernel but an open global-partition obligation.** The
+  `verify_law_v_one_hub_20260820.py`. Aristotle independently formalized
+  all internal path/LR/product/cross-term layers, plus paths and arbitrary
+  stars unconditionally. Its arbitrary-arm Lean theorem remains explicitly
+  conditional on the cited Li--Li--Yang--Zhang spider theorem; this is a
+  formalization-scope gap, not a gap in the mathematical proof.
+- **Adjacent two-hub degreewise clan positivity is formally proved.** The
   Li--Li--Yang--Zhang clan cancellation extends after replacing a false
   map-level injection by a disjoint block decomposition. A local hub
   pair has imbalance Laurent polynomial
   `c(z+z^-1)^r + z^r + z^-r`; two active hubs give the four-map product
-  minus only its two extreme monomials. Aristotle independently proved
-  the clan-normalization kernel, product law, local `p=2` injection,
-  four-map identity, and central unimodality on the derived range
-  `c,d>=1`; it also refuted the overbroad claim for merely positive
-  rational `c,d` using `r=3,s=1,c=1/4,d=1`. Its Lean project replays
-  locally with no `sorry`, `admit`, `axiom`, or `implemented_by`.
-  Arbitrary additional even arms (`c=2^e`) and the exhaustive disjoint
-  global block partition remain unformalized, so this is not yet a
-  final proof that `B=QaQb+x(RaQb+QaRb)` is log-concave. The
+  minus only its two extreme monomials. Aristotle proved the full
+  arbitrary-arm global partition: explicit representative fibres of size
+  4/2/1, disjointness, exhaustion, unique blocks, collision resolution,
+  derived `c,d=2^e>=1`, exact block weights, and final normalized two-row
+  nonnegativity at every degree. The 8,051-job Lean project replays locally,
+  and its principal declarations use only `propext`, `Classical.choice`, and
+  `Quot.sound`. The remaining formal step from this clan theorem to ordinary
+  independence-polynomial log-concavity is the finite coefficient identity
+  behind Li--Li--Yang--Zhang Corollary 2.2; an Aristotle continuation now
+  targets that bridge directly. The
   exact core verifier passes 129,600 four-map parameter cases and 3,330
   actual arm pairs. Proof:
   `notes/two_hub_B_logconcavity_proof_2026-08-20.md`; the collision and
   repair history is preserved in
   `notes/two_hub_clan_cancellation_attack_2026-08-20.md`; formal audit:
   `formalization/clan_normalization_aristotle/RESULT.md`.
-- **C2 connector theorem remains a proof draft pending that same global
-  clan partition.** The algebraic continuation closes every odd
+- **C2 connector theorem is assembled mathematically and is now under final
+  formal audit.** The algebraic continuation closes every odd
   connector length. Even connector lengths reduce to the single
   binomial Laurent lemma
   `cd X^(r+s+1)+d X^s H_(r+1)+c X^r H_(s+1)+H_(r+s+1)` centrally
@@ -139,10 +143,11 @@ No manuscript or public surface changed.
   two Vandermonde bounds proves that case, and 14,400 exact cores pass.
   Aristotle independently formalized the full `r,s>=1`, rational `c,d>=1`
   theorem, replacing the source range split by a uniform Catalan bound.
-  Aristotle has now formally derived the arbitrary-arm scalar `c=2^e>=1`
-  from explicit clan-component models. Once the global partition is closed, this
-  proves every tree with at most two degree-at-least-three vertices
-  log-concave, bypassing LAW-V/W.
+  Aristotle has formally derived the arbitrary-arm scalar `c=2^e>=1`
+  and closed the adjacent global partition. The final continuation combines
+  those results with connector-state parity and the direct LLYZ coefficient
+  bridge; completion would yield every tree with at most two
+  degree-at-least-three vertices log-concave, bypassing LAW-V/W.
   `notes/c2_connector_clan_reduction_2026-08-20.md`.
 - **Distance-3 frontier recoded as a defect CSP.** Contract any maximum
   matching into `alpha` one-/two-vertex bags. The independence
@@ -170,17 +175,20 @@ No manuscript or public surface changed.
   order-ideal projection formula, the graph `B(P)`, constant-coordinate
   multiplication, and the antichain transform, then formally transported
   the Pascal theorem to this poset profile and closed equations (7)/(7a)
-  end to end. The tree-to-forest-poset construction itself is now an active
-  Aristotle continuation.
+  end to end. Aristotle has now also formalized the tree/maximum-matching
+  construction itself (in fact for every finite forest), including König from
+  Mathlib Hall, the forest comparison poset, solution/ideal equivalence,
+  equation (2), equation (6), and the tree-level inequalities. The blocked
+  alternating-path correction remains the only open term.
   `notes/matching_bag_poset_reduction_2026-08-20.md`,
   `notes/pascal_smoothing_shadow_lemma_2026-08-20.md`,
   `verify_erasure_shadow_poset_20260820.py`,
   `verify_pascal_smoothing_20260820.py`.
 
-Named next mathematical targets: close the now-active formal audit of the exhaustive
-global clan-state partition and the connector parity bookkeeping; express and
-bound the forced-path correction `b_2,b_3,b_4` against the proved Pascal
-reserve. Long enumeration is deprioritized.
+Named next mathematical targets: complete the now-active formal assembly of the
+LLYZ coefficient bridge and arbitrary connector parity; express and bound the
+forced-path correction `b_2,b_3,b_4` against the proved Pascal reserve. Long
+enumeration is deprioritized.
 
 ## 2026-08-19: Depth-3 window sized exactly; enumeration ladder ends at rung 3
 

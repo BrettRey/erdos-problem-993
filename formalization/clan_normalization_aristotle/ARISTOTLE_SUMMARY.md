@@ -1,3 +1,22 @@
+# Summary of changes for run b78ed6c4-7595-43fd-b8d5-c2f236926a25
+The follow-up specification `FOLLOWUP_GLOBAL_PARTITION_20260820.md` is now met in full, and the graded verdict in `RESULT.md` has been raised to **`ADJACENT_COMPLETE`**: both the explicit global partition and the final degreewise theorem are proved in Lean, for the adjacent two-hub tree with arbitrary finite ordered families of pendant paths at both hubs and arbitrary total order `N` — nothing is bounded or enumerated.
+
+**Final theorem** (`ClanAudit.sum_normalizedTwoRowCoeff_nonneg`, restated as `ClanAudit.Audit.adjacent_two_hub_degreewise_nonneg`): for `1 ≤ l ≤ k`, `k + l = N`,
+`0 ≤ ∑ α ∈ mapsOfOrder m a n b N, normalizedTwoRowCoeff (dgraph m a n b) α k l`.
+It is deduced from `ClanAudit.isCU_totalW`, central unimodality of the total degree-`N` weight, via the interior formula `normalizedTwoRowCoeff_eq`.
+
+**The partition** is the fibre decomposition of an explicit idempotent, order-preserving representative map `rep`, computed side by side from `repSide` (a side is its own representative if active, its unique source if it is a canonical image, itself otherwise). Proved: explicitness (`fiber_eq_image` — each block is exactly the image of `sideBlock × sideBlock` under `Sum.elim`, i.e. genuinely four-state / two-state / singleton blocks), sizes `4 / 2 / 1` (`card_block_cases`), disjointness (`blocks_pairwise_disjoint`), exhaustion (`blocks_cover`), uniqueness of a map's block (`block_unique`), and preservation of the total order (`sum_rep`), so each block lies inside a single degree.
+
+**Blockwise weights** are computed exactly, with all outside factors derived rather than assumed: both hubs active gives `Fblock r s c d · (Tu·Tv)` with `r, s ≥ 1` and `c, d = 2^e ≥ 1` derived from `Wpoly_side_image` (which is proved for every `p ≥ 2`, covering the previously missing `p ≥ 3` local weight theorem); one hub active gives `Ablock`-shaped sums; neither gives a good-shape weight or zero. Central unimodality then follows blockwise (`isCU_sum_block`) and globally.
+
+**Audit of the proposed mathematics.** The collision recorded in the uploaded notes is *separated, not fatal*, and this is now formalized: the transformation switches the hub off, so an image is never a source (`not_activeSide_of_imgSide`), hence an image lies in the same block as its source rather than opening a competing block. The notes' concrete example (three unit arms at `u`, five at `v`; `(1;1,1,1)⊕(1;1^5)` and `(0;2,1,1)⊕(1;1^5)`, both of total order 10) is formalized in `RequestProject/ClanAudit/Collision.lean` and proved to lie in one and the same four-element block. The earlier **refutation** of item 6 of the adjacent target stands unchanged: central unimodality of `F` for arbitrary `c, d > 0` is false, with an explicit finite witness; the global proof works precisely because the scalars it produces are derived to be powers of two.
+
+**Honest remaining scope**, recorded in `RESULT.md`: what is proved is degreewise nonnegativity of the normalized two-row coefficients. Turning that into log-concavity of the independence polynomial of `D(a,b)` would additionally require the equivalence between 2-Schur-positivity and log-concavity, which is not part of this development.
+
+New files: `RequestProject/ClanAudit/TwoHubWeight.lean`, `Vanishing.lean`, `BlockWeight.lean`, `GlobalPartition.lean`, `Collision.lean`; `RequestProject/ClanAudit.lean` carries source-labelled restatements of every checkpoint of the specification, and `README.md` has updated traceability tables including a table for the follow-up target. `ARISTOTLE_SUMMARY.md` was not modified.
+
+Verification: the whole project builds cleanly (8051 jobs); there is no `sorry`, `admit`, `axiom`, `native_decide` or `implemented_by` anywhere in `RequestProject/`; and `#print axioms` on the principal results reports only `[propext, Classical.choice, Quot.sound]`. All work is committed and pushed.
+
 # Summary of changes for run f2b3e260-0547-4694-b2a5-b103ab16d201
 Closed the layer specified in `FOLLOWUP_ARBITRARY_EVEN_ARMS_20260820.md`. The global adjacent-two-hub partition was deliberately not started.
 

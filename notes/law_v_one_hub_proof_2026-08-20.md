@@ -151,3 +151,13 @@ summand, and LAW-V itself for all arm multisets of at most four arms,
 individual lengths at most 10, and total arm weight at most 24.  It also
 checks the stated failure of the naive two-hub lift.  These computations
 audit the proof; they are not used in place of its universal steps.
+
+An independent Lean 4 development is imported at
+`formalization/law_v_one_hub_aristotle/`. It proves the path coefficient
+formula, convolution preservation of likelihood-ratio order, `R <=_lr Q`,
+the shifted cross term, and the final assembly conditional on spider
+log-concavity. It also proves the result unconditionally for at most two arms
+and for all stars. It does not re-formalize the cited arbitrary-spider theorem
+of Li--Li--Yang--Zhang, so the general Lean declaration keeps that theorem as
+an explicit hypothesis; the mathematical theorem in this note remains
+unconditional by the cited published result.

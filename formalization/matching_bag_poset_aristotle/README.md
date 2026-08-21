@@ -1,18 +1,3 @@
-# Matching-bag poset-layer Lean formalization
-
-This project formalizes the abstract order-ideal/graph-transform layer and connects it
-to the universal Pascal-smoothing theorem.
-
-- Aristotle project: `2a2d691b-91bb-4204-bb00-ad47a51861ba`.
-- Independent local replay of the Pascal continuation succeeded through the structural
-  bridge; all principal bridge declarations depend only on `propext`,
-  `Classical.choice`, and `Quot.sound`.
-- The separate optional length-four code census retains its documented `native_decide`
-  dependency; no structural or Pascal-bridge theorem imports it.
-
-The tree-to-forest-poset construction is the active continuation; the blocked
-correction remains future work. See `FORMALIZATION_NOTES.md` for exact traceability.
-
 This project was edited by [Aristotle](https://aristotle.harmonic.fun).
 
 To cite Aristotle:
@@ -21,3 +6,16 @@ To cite Aristotle:
 ```
 Co-authored-by: Aristotle (Harmonic) <aristotle-harmonic@harmonic.fun>
 ```
+
+# Matching-bag forest-poset bridge
+
+Formalization of `matching_bag_poset_reduction_2026-08-20.md` and its two continuations.
+The declaration-by-declaration audit is in `FORMALIZATION_NOTES.md`.
+
+The completed 2026-08-21 continuation is Aristotle task
+`fcbe1949-5ec5-4c84-8e73-a085b2352297`. The new `KonigHall`, `TreeMatching`,
+`ForestLemmas`, `BagPoset`, and `TreeCodeBridge` modules replay locally. Direct axiom
+checks on König, equations (2) and (6), the code equivalence, the erasure bridge, and the
+depth-three reserve report only `propext`, `Classical.choice`, and `Quot.sound`. The old,
+unrelated `ExhaustiveSmallCodes.lean` target uses the already documented `native_decide`
+enumeration and was not awaited during this replay.

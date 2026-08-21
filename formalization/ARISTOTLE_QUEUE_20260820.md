@@ -1,6 +1,6 @@
 # Aristotle formalization queue
 
-Date: 2026-08-20.
+Date: 2026-08-21.
 
 This queue sends only frozen, definition-complete results. Every returned project must
 be replayed locally with `lake build`, searched for proof escape hatches, checked with
@@ -8,20 +8,13 @@ be replayed locally with `lake build`, searched for proof escape hatches, checke
 
 ## Active
 
-1. **Exhaustive adjacent-two-hub global partition.** Define the full degreewise clan-map
-   space and prove disjointness, exhaustion, collision-freedom, exact block weights,
-   and final normalized two-row nonnegativity. Packet:
-   `formalization/clan_normalization_aristotle/FOLLOWUP_GLOBAL_PARTITION_20260820.md`.
-   Project `76e84c3b-9ce0-4fc6-9074-45ea38dbb576`.
-2. **Tree maximum-matching to forest-poset bridge.** Construct the matching bags,
-   comparison poset, forced-coordinate propagation, code equivalence, and instantiate
-   the proved Pascal bridge. Packet:
-   `formalization/matching_bag_poset_aristotle/FOLLOWUP_TREE_TO_FOREST_POSET_20260820.md`.
-   Project `2a2d691b-91bb-4204-bb00-ad47a51861ba`.
-3. **LAW-V with one trivial hub.** Formalize the arbitrary-arm path likelihood-ratio
-   argument, including the spider log-concavity layer rather than assuming it. Packet:
-   `formalization/law_v_one_hub_aristotle_input_20260820.md`. Project
-   `059ba8f5-39e6-43f0-9944-8d1268d90740`.
+1. **Full `C₂` assembly.** Formalize the direct LLYZ diagonal coefficient bridge,
+   arbitrary connector-state partition, odd/even parity assembly, and (if feasible) the
+   graph-theoretic wrapper for every finite tree with at most two branch vertices. Packet:
+   `formalization/clan_normalization_aristotle/FOLLOWUP_FULL_C2_ASSEMBLY_20260821.md`.
+   Project `76e84c3b-9ce0-4fc6-9074-45ea38dbb576`, task
+   `147581ec-6d3a-423f-b359-85cababab583`. The proved even-connector Lean sources and
+   the LLYZ source text were attached.
 
 ## Completed and locally replayed
 
@@ -48,11 +41,27 @@ be replayed locally with `lake build`, searched for proof escape hatches, checke
    `r,s≥1` and rational `c,d≥1`; Aristotle replaced the source's awkward range split
    with a uniform Catalan bound. Project `f9cd8c48-bd2e-4aa8-bc67-3a9316657b61`, task
    `dc1051b8-55b2-473f-9f3d-62a5f5e55e00`; local build: 8,029 jobs.
-
-## Ready after the clan partition
-
-1. The complete adjacent and arbitrary-connector `C₂` theorem, assembled only after
-   the global partition and connector algebra have both replayed.
+6. **Exhaustive adjacent-two-hub global partition.** The arbitrary-arm degree-`N` map
+   space is partitioned by explicit idempotent representatives into blocks of size 4/2/1;
+   disjointness, exhaustion, unique membership, total-order preservation, collision
+   resolution, exact derived weights, and final degreewise normalized two-row
+   nonnegativity are proved. Project `76e84c3b-9ce0-4fc6-9074-45ea38dbb576`, task
+   `b78ed6c4-7595-43fd-b8d5-c2f236926a25`; local build: 8,051 jobs. Principal axiom
+   audits report only `propext`, `Classical.choice`, and `Quot.sound`.
+7. **Tree maximum-matching to forest-poset bridge.** König is derived from Mathlib Hall;
+   matching contraction, forest comparison poset, solution/ideal equivalence, equations
+   (2) and (6), and all tree-level Pascal inequalities are proved, in fact for arbitrary
+   finite forests. Project `2a2d691b-91bb-4204-bb00-ad47a51861ba`, task
+   `fcbe1949-5ec5-4c84-8e73-a085b2352297`. All new bridge modules replay directly and
+   principal axiom audits report only the three standard Lean axioms. The unrelated old
+   `ExhaustiveSmallCodes.lean` `native_decide` target was not awaited.
+8. **LAW-V with one trivial hub, internal Lean layers.** Path coefficients, LR convolution,
+   `R ≤lr Q`, the shifted cross term, and conditional arbitrary-arm assembly are proved;
+   paths with at most two arms and all stars are unconditional. The arbitrary-spider
+   log-concavity theorem remains an explicit hypothesis in Lean, although the mathematical
+   note closes it by the published LLYZ theorem. Project
+   `059ba8f5-39e6-43f0-9944-8d1268d90740`, task
+   `9a6c6951-03eb-497b-bdb9-ed9f9013a1b7`; local build: 8,032 jobs.
 
 ## Not ready
 
