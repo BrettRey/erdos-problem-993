@@ -1,20 +1,17 @@
 # Matching-bag poset-layer Lean formalization
 
-This project formalizes the abstract binary-code, order-ideal, bipartite-graph, constant
-coordinate, antichain-transform, and matching-cover identities from
-`matching_bag_poset_reduction_2026-08-20.md`.
+This project formalizes the abstract order-ideal/graph-transform layer and connects it
+to the universal Pascal-smoothing theorem.
 
 - Aristotle project: `2a2d691b-91bb-4204-bb00-ad47a51861ba`.
-- Independent local replay succeeded on 2026-08-20 (8,034 jobs), and the principal
-  structural declarations passed a separate `#print axioms` audit.
-- All principal structural declarations depend only on `propext`, `Classical.choice`,
-  and `Quot.sound`.
-- `ExhaustiveSmallCodes.lean` is deliberately separate: its length-four exhaustive
-  census uses `native_decide` and therefore `Lean.ofReduceBool`. No structural theorem
-  imports or depends on that file.
+- Independent local replay of the Pascal continuation succeeded through the structural
+  bridge; all principal bridge declarations depend only on `propext`,
+  `Classical.choice`, and `Quot.sound`.
+- The separate optional length-four code census retains its documented `native_decide`
+  dependency; no structural or Pascal-bridge theorem imports it.
 
-The tree-to-forest-poset construction and the blocked correction remain outside this
-project; see `FORMALIZATION_NOTES.md`.
+The tree-to-forest-poset construction is the active continuation; the blocked
+correction remains future work. See `FORMALIZATION_NOTES.md` for exact traceability.
 
 This project was edited by [Aristotle](https://aristotle.harmonic.fun).
 

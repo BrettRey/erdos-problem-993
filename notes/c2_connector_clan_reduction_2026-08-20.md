@@ -6,6 +6,11 @@ even-connector binomial lemma left open in the first draft is proved
 below. The 14,400-case exact audit of its Laurent core is in
 `verify_two_hub_B_logconcavity_20260820.py`.
 
+The even-connector lemma is also independently formalized for all
+`r,s>=1` and rational `c,d>=1` in
+`formalization/c2_even_connector_aristotle/`. The Lean proof replaces the
+range split below by a uniform Catalan bound and uses no bounded computation.
+
 An independent Aristotle audit subsequently proved the clan-normalization
 kernel, binary component multiplicativity, the local `p=2` injection, the
 four-map identity, and its central unimodality when the derived scalars

@@ -137,6 +137,8 @@ No manuscript or public surface changed.
   `cd X^(r+s+1)+d X^s H_(r+1)+c X^r H_(s+1)+H_(r+s+1)` centrally
   unimodal. Constants reduce to `c=d=1`; a coefficient-range split plus
   two Vandermonde bounds proves that case, and 14,400 exact cores pass.
+  Aristotle independently formalized the full `r,s>=1`, rational `c,d>=1`
+  theorem, replacing the source range split by a uniform Catalan bound.
   Aristotle has now formally derived the arbitrary-arm scalar `c=2^e>=1`
   from explicit clan-component models. Once the global partition is closed, this
   proves every tree with at most two degree-at-least-three vertices
@@ -166,8 +168,10 @@ No manuscript or public surface changed.
   Aristotle independently formalized the entire Pascal-smoothing theorem
   and its consequences. A separate Lean project formalized the abstract
   order-ideal projection formula, the graph `B(P)`, constant-coordinate
-  multiplication, and the antichain transform; the tree-to-forest-poset
-  construction itself remains to be formalized.
+  multiplication, and the antichain transform, then formally transported
+  the Pascal theorem to this poset profile and closed equations (7)/(7a)
+  end to end. The tree-to-forest-poset construction itself is now an active
+  Aristotle continuation.
   `notes/matching_bag_poset_reduction_2026-08-20.md`,
   `notes/pascal_smoothing_shadow_lemma_2026-08-20.md`,
   `verify_erasure_shadow_poset_20260820.py`,

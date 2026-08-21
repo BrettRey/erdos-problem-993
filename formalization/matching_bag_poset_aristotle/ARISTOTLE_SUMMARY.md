@@ -1,3 +1,26 @@
+# Summary of changes for run 3dfa9612-a379-45a7-9af2-40b697b9aba4
+I integrated the uploaded Pascal theorem into the library and closed the abstract poset extendable-profile inequalities end to end.
+
+**What changed**
+
+- `PascalSmoothing.lean` was moved into the library as `RequestProject/PascalSmoothing.lean` (unchanged content), so it is now a build target of the project.
+- New file `RequestProject/PascalBridge.lean` connects it to the poset development of `RequestProject/Antichain.lean`.
+
+**The bridge.** With `M = |P| + c`, the erasure profile `E d = Σ_j a_j · C(M-j, d)` is recorded as the natural-number sequence `MatchingBag.erasureProfile P c d`, and `erasureProfile_eq_coeff` proves `E d = [t^{M-d}]((1+t)^c · I(B(P);t))` for `d ≤ M` (so the definition of the note and the antichain sum agree). The Pascal development is phrased for subsets of `Fin M`, while `P` is an arbitrary finite type; rather than assuming `P = Fin r` or equality of the two profiles, the antichains of `P` are transported along an embedding `posetEmb P c : P ↪ Fin (|P| + c)`. The transported family `pascalFamily P c` is proved downward closed, nonempty, and face-number preserving (`faceCount_pascalFamily`), giving `erasureShadow (pascalFamily P c) d = erasureProfile P c d` — i.e. `E` is *precisely* the erasure shadow of a downward-closed family.
+
+**Results proved (all six requested items), with no log-concavity assumed:**
+
+1. `antichainsOf_downward_closed` — the antichains of `P` form a downward-closed family.
+2. `erasureProfile_eq_sum` / `erasureProfile_eq_coeff` — `E d = Σ_j antichainCount P j · C(M-j, d)`, equal to the coefficient of `(1+X)^c · indepPoly P` at `M-d`.
+3. `erasureProfile_pascal_smoothing` — the denominator-cleared inequality `8(d+1)(m+1)·E_{d-1}E_{d+1} ≤ 9dm·E_d²`, `m = M-d`, for `1 ≤ d ≤ M-1`.
+4. `erasureProfile_log_concave_depth_le_eight` — log-concavity through defect depth eight, arbitrary `M`.
+5. `erasureProfile_log_concave_of_M_le_33` — log-concavity at every interior defect when `M ≤ 33`.
+6. `erasureProfile_depth_three` — `32(M-2)·E_2E_4 ≤ 27(M-3)·E_3²` for `M ≥ 4` (equation (7a)), plus `erasureProfile_depth_three_strict` (strict `E_2E_4 < E_3²` under the positivity hypothesis), `erasureProfile_depth_three_log_concave` (equation (7)) and its coefficient form `coeff_erasure_depth_three_log_concave`.
+
+**Soundness.** `lake build` succeeds for the whole project; there is no `sorry`, `admit`, `axiom`, `implemented_by` or `native_decide` in the bridge or in the Pascal file, and no target was weakened. No definition mismatch arose — the displayed identities all hold as stated. `#print axioms` for `erasureShadow_pascalFamily`, `erasureProfile_eq_coeff`, `erasureProfile_pascal_smoothing`, `erasureProfile_log_concave_depth_le_eight`, `erasureProfile_log_concave_of_M_le_33`, `erasureProfile_depth_three`, `erasureProfile_depth_three_strict`, `erasureProfile_depth_three_log_concave`, `coeff_erasure_depth_three_log_concave` and `antichainsOf_downward_closed` each reports exactly `[propext, Classical.choice, Quot.sound]`; in particular nothing new depends on the documented `native_decide` computation in `ExhaustiveSmallCodes.lean`, which is untouched.
+
+`FORMALIZATION_NOTES.md` was updated: the traceability table now lists the Pascal lemma, the bridge, and equations (7)/(7a) (previously listed as not formalized), and a new section explains the transport argument. All work is committed and pushed.
+
 # Summary of changes for run 7353ac87-201d-4f7f-a697-817a6eff1e30
 I formalized the note `matching_bag_poset_reduction_2026-08-20.md` in Lean 4 (Mathlib). Everything in `RequestProject/` builds with no `sorry` and no added axioms; a table of the correspondence with the note, plus the conventions used, is in `FORMALIZATION_NOTES.md`.
 

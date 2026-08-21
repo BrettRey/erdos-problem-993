@@ -13,15 +13,15 @@ be replayed locally with `lake build`, searched for proof escape hatches, checke
    and final normalized two-row nonnegativity. Packet:
    `formalization/clan_normalization_aristotle/FOLLOWUP_GLOBAL_PARTITION_20260820.md`.
    Project `76e84c3b-9ce0-4fc6-9074-45ea38dbb576`.
-2. **Poset/Pascal bridge.** Transport the universal smoothing theorem to the arbitrary
-   finite ground type of the poset project and prove the extendable-profile
-   inequalities (7)/(7a) end to end. Packet:
-   `formalization/matching_bag_poset_aristotle/FOLLOWUP_PASCAL_BRIDGE_20260820.md`.
+2. **Tree maximum-matching to forest-poset bridge.** Construct the matching bags,
+   comparison poset, forced-coordinate propagation, code equivalence, and instantiate
+   the proved Pascal bridge. Packet:
+   `formalization/matching_bag_poset_aristotle/FOLLOWUP_TREE_TO_FOREST_POSET_20260820.md`.
    Project `2a2d691b-91bb-4204-bb00-ad47a51861ba`.
-3. **Even-connector Laurent block.** Prove central unimodality of the uniform
-   `c,d≥1` even-connector block without bounded computation. Packet:
-   `formalization/c2_even_connector_aristotle_input_20260820.md`. Project
-   `f9cd8c48-bd2e-4aa8-bc67-3a9316657b61`.
+3. **LAW-V with one trivial hub.** Formalize the arbitrary-arm path likelihood-ratio
+   argument, including the spider log-concavity layer rather than assuming it. Packet:
+   `formalization/law_v_one_hub_aristotle_input_20260820.md`. Project
+   `059ba8f5-39e6-43f0-9944-8d1268d90740`.
 
 ## Completed and locally replayed
 
@@ -39,16 +39,20 @@ be replayed locally with `lake build`, searched for proof escape hatches, checke
    poset layer in `notes/matching_bag_poset_reduction_2026-08-20.md`, especially
    equations (3), (5), (8), (9), and (10), independently of the unresolved blocked
    correction. Project `2a2d691b-91bb-4204-bb00-ad47a51861ba`.
+4. **Poset/Pascal bridge.** The transported antichain family is proved downward closed
+   and profile-preserving; equations (7)/(7a), depth-eight log-concavity, and the full
+   `M≤33` result now follow inside the poset project. Project
+   `2a2d691b-91bb-4204-bb00-ad47a51861ba`, task
+   `3dfa9612-a379-45a7-9af2-40b697b9aba4`.
+5. **Even-connector Laurent block.** The uniform block is centrally unimodal for every
+   `r,s≥1` and rational `c,d≥1`; Aristotle replaced the source's awkward range split
+   with a uniform Catalan bound. Project `f9cd8c48-bd2e-4aa8-bc67-3a9316657b61`, task
+   `dc1051b8-55b2-473f-9f3d-62a5f5e55e00`; local build: 8,029 jobs.
 
 ## Ready after the clan partition
 
-1. The even-connector Laurent/binomial theorem in
-   `notes/c2_connector_clan_reduction_2026-08-20.md`.
-2. The complete adjacent and arbitrary-connector `C₂` theorem, assembled only after
+1. The complete adjacent and arbitrary-connector `C₂` theorem, assembled only after
    the global partition and connector algebra have both replayed.
-3. The tree-to-matching-bag contraction and maximum-cover-to-forest-poset bridge in
-   `notes/matching_bag_csp_attack_2026-08-20.md`; the abstract order-ideal layer is
-   already active above.
 
 ## Not ready
 

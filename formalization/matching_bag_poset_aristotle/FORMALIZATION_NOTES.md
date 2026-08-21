@@ -17,6 +17,13 @@ All Lean sources live in `RequestProject/` and build without `sorry`.
 | §3 (10) | `E_d = ∑_j a_j C(M-j, d)` | `MatchingBag.coeff_erasure` |
 | §5 | the seven-bit code has profile `(1,14,80,187,220,145,52,8)`, is log-concave but not ultra-log-concave | `MatchingBag.counterCode_profile`, `MatchingBag.counterCode_logConcave`, `MatchingBag.counterCode_not_ultraLogConcave` (`UltraLogConcave.lean`) |
 | §5 | ordinary and normalized log-concavity for every nonempty binary code of length ≤ 4 | `MatchingBag.logConcave_length_one/two/three/four` (`ExhaustiveSmallCodes.lean`) |
+| companion note | universal Pascal-smoothing lemma for erasure shadows of downward-closed families on `Fin M` | `PascalSmoothing.pascal_smoothing_shadow_lemma` and its corollaries (`PascalSmoothing.lean`) |
+| §3 | the antichains of `P` form a downward-closed family | `MatchingBag.antichainsOf_downward_closed` (`PascalBridge.lean`) |
+| §3 (10) | `E_d = ∑_j a_j C(M-j,d)` over `ℕ`, and `E_d = [t^{M-d}]((1+t)^c I(B(P);t))` | `MatchingBag.erasureProfile`, `MatchingBag.erasureProfile_eq_sum`, `MatchingBag.erasureProfile_eq_coeff` (`PascalBridge.lean`) |
+| §3 | `E` is exactly the erasure shadow of a downward-closed family on `M` coordinates | `MatchingBag.erasureShadow_pascalFamily` (`PascalBridge.lean`) |
+| §3 (7) | `E_3^2 ≥ E_2 E_4` for `M ≥ 4` (also in coefficient form, and strict when `E_2E_4 > 0`) | `MatchingBag.erasureProfile_depth_three_log_concave`, `MatchingBag.coeff_erasure_depth_three_log_concave`, `MatchingBag.erasureProfile_depth_three_strict` (`PascalBridge.lean`) |
+| §3 (7a) | the reserve `27(M-3) E_3^2 ≥ 32(M-2) E_2 E_4` | `MatchingBag.erasureProfile_depth_three` (`PascalBridge.lean`) |
+| §3 | Pascal-smoothing inequality for adjacent `E` values, log-concavity through defect depth eight, and at every interior defect for `M ≤ 33` | `MatchingBag.erasureProfile_pascal_smoothing`, `MatchingBag.erasureProfile_log_concave_depth_le_eight`, `MatchingBag.erasureProfile_log_concave_of_M_le_33` (`PascalBridge.lean`) |
 
 ## Conventions
 
@@ -36,8 +43,31 @@ All Lean sources live in `RequestProject/` and build without `sorry`.
 * The reduction of §1 from a tree with a maximum matching to a forest poset (equation (2))
   is a construction sketched informally in the note; only the pigeonhole step above is
   formalized.
-* The log-concavity statements (7) and (7a) of §3 are attributed there to the companion note
-  `pascal_smoothing_shadow_lemma_2026-08-20.md`, which is not part of this project, and are
-  not proved here.
 * §4 (the blocked-path correction `b_d`) is descriptive and contains no self-contained claim
   to formalize; the note lists it as future work.
+
+## The Pascal bridge (`PascalSmoothing.lean`, `PascalBridge.lean`)
+
+`PascalSmoothing.lean` is the formalization of the companion note
+`pascal_smoothing_shadow_lemma_2026-08-20.md`: for a downward-closed family `Δ` of subsets
+of `Fin M` with face numbers `a_j`, the erasure shadow `E d = ∑_j a_j C(M-j,d)` satisfies
+the denominator-cleared inequality
+`8 (d+1)(m+1) E_{d-1} E_{d+1} ≤ 9 d m E_d^2` with `m = M - d`, together with its
+consequences (log-concavity through defect depth eight, log-concavity for `M ≤ 33`, and the
+depth-three reserve).  Its proof runs through the normalized face densities
+`b_j = a_j / C(M,j)`, which are nonincreasing by local LYM, and the absorption identity
+`E_d = C(M,d) · S_{M-d}` for the Pascal transform `S`.
+
+`PascalBridge.lean` connects this to the poset side.  The Pascal development is phrased for
+subsets of `Fin M`, whereas `P` is an arbitrary finite type, so the antichains of `P` are
+*transported* along an embedding `posetEmb P c : P ↪ Fin (|P| + c)` (which exists because
+`|P| ≤ M`).  Nothing is assumed about the two profiles: the transported family
+`pascalFamily P c` is proved downward closed (`pascalFamily_downward_closed`), nonempty, and
+face-number preserving (`faceCount_pascalFamily`), whence
+`erasureShadow (pascalFamily P c) d = erasureProfile P c d` (`erasureShadow_pascalFamily`).
+Transporting the Pascal inequalities across this identity gives equations (7) and (7a) for
+every finite poset `P` and every `c`.
+
+All theorems in these two files depend only on `propext`, `Classical.choice` and `Quot.sound`
+(checked with `#print axioms`); in particular nothing here depends on the `native_decide`
+computation in `ExhaustiveSmallCodes.lean`.
