@@ -100,7 +100,12 @@ The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapsho
 
 An inference-first session produced one proved LAW subfamily, a formally
 closed adjacent two-hub clan theorem, and two new reductions. No manuscript
-or public surface changed.
+changed. On 21 August, Brett deleted the four still-queued, overly dense
+Erdős Problems comments from 12 and 14 August and replaced them with one
+concise comment stating the unconditional `C₂` theorem, its consequence that
+any counterexample needs at least three degree-at-least-three vertices, and a
+commit-pinned link to the formal result note. The replacement is awaiting
+moderator approval.
 
 - **LAW-V with one trivial hub is proved.** For arbitrary arms,
   `C=Q+xR`, `B=C+xQ`. Path extension gives the likelihood-ratio order
