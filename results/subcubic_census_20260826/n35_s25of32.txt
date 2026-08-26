@@ -1,0 +1,7 @@
+STATS n=35 alpha_max=35 trees=347090510 passed=347090510 failures=0 alarms=0
+PASS_ALPHA n=35 alpha=18 count=27403848
+PASS_ALPHA n=35 alpha=19 count=148500251
+PASS_ALPHA n=35 alpha=20 count=138994567
+PASS_ALPHA n=35 alpha=21 count=30673182
+PASS_ALPHA n=35 alpha=22 count=1508264
+PASS_ALPHA n=35 alpha=23 count=10398

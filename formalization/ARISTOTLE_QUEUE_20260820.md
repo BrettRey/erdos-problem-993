@@ -8,10 +8,24 @@ be replayed locally with `lake build`, searched for proof escape hatches, checke
 
 ## Active
 
-None. The remaining blocked-correction problem is not yet definition-complete enough for
-another Aristotle packet.
+None.
 
 ## Completed and locally replayed
+
+0. **Matroid-representation lower bound.** If matroids `M₁..M_k` on `V(G)` have `IS(G)` as
+   their common independent sets, then `deg v ≤ k` at every vertex whose neighbourhood is
+   independent (`MatroidRep.le_card_of_represents`), with the triangle-free and tree
+   corollaries (`le_card_of_represents_cliqueFree`, `le_card_of_represents_isTree`) and the
+   ground-set-enlargement reduction (`represents_comap`,
+   `le_card_of_represents_of_embedding`, `le_card_of_represents_minor` for arbitrary minors
+   `(P i / C i) ↾ R i`). Project `546ab2b8-189c-4a4b-8316-3bbe6bfac967`, task
+   `d8843604-e4ab-4ac2-ad3c-3f7b706446cd`. **Replayed locally 2026-08-26**: `lake build`
+   clean, 8,027 jobs; escape-hatch grep empty; `#print axioms` reports only `propext`,
+   `Classical.choice`, `Quot.sound` on all 13 declarations (`indep_singleton_of_represents`
+   uses none); statements read and compared against the packet. Aristotle improved on the
+   packet by dropping the ground-set hypothesis, having noticed the singleton argument
+   already forces every vertex into every `(M i).E`. Source:
+   `formalization/matroid_representation_lower_bound_aristotle/`.
 
 1. **Full `C₂` assembly and abstract-tree wrapper.** The direct LLYZ coefficient bridge,
    arbitrary connector-state partition, odd/even parity assembly, recognition of the

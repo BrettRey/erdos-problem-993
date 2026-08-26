@@ -1,0 +1,7 @@
+STATS n=33 alpha_max=33 trees=64101987 passed=64101987 failures=0 alarms=0
+PASS_ALPHA n=33 alpha=17 count=6447338
+PASS_ALPHA n=33 alpha=18 count=29489897
+PASS_ALPHA n=33 alpha=19 count=23564297
+PASS_ALPHA n=33 alpha=20 count=4422133
+PASS_ALPHA n=33 alpha=21 count=177660
+PASS_ALPHA n=33 alpha=22 count=662

@@ -66,3 +66,11 @@ research/
 
 # Compiled census binary; rebuild with: cc -O3 -march=native -o scripts/lc_census scripts/lc_census.c
 scripts/lc_census
+
+# Aristotle-returned Lean projects: keep the source, never the 6.9 GB Mathlib build tree
+formalization/**/.lake/
+# Compiled census engines (the .c sources are tracked)
+scripts/lc_census
+scripts/lc_census_alpha
+# In-flight census shards
+*.txt.part

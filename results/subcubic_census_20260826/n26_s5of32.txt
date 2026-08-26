@@ -1,0 +1,6 @@
+STATS n=26 alpha_max=26 trees=212801 passed=212801 failures=0 alarms=0
+PASS_ALPHA n=26 alpha=13 count=7659
+PASS_ALPHA n=26 alpha=14 count=97525
+PASS_ALPHA n=26 alpha=15 count=94234
+PASS_ALPHA n=26 alpha=16 count=13225
+PASS_ALPHA n=26 alpha=17 count=158

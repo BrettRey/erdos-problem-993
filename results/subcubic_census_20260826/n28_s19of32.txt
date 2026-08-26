@@ -1,0 +1,7 @@
+STATS n=28 alpha_max=28 trees=1057444 passed=1057444 failures=0 alarms=0
+PASS_ALPHA n=28 alpha=14 count=26076
+PASS_ALPHA n=28 alpha=15 count=412149
+PASS_ALPHA n=28 alpha=16 count=509766
+PASS_ALPHA n=28 alpha=17 count=105662
+PASS_ALPHA n=28 alpha=18 count=3787
+PASS_ALPHA n=28 alpha=19 count=4

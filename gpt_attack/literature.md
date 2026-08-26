@@ -26,6 +26,11 @@ Annotated list of the papers a research mathematician would need to cite or rely
 
 - **Chudnovsky, Seymour (2007).** "The roots of the independence polynomial of a clawfree graph." Real-rootedness implies log-concavity. The two LC-failing trees at $n = 26$ have complex roots, so the Chudnovsky–Seymour framework doesn't apply directly to close the conjecture, but the technique is load-bearing when real-rootedness can be established.
 
+## Adjacent machinery (matroid-side boundary)
+
+- **Schweitzer (2026).** arXiv:2608.23262. "A note on the ultra log-concavity of matroid intersection." ULC holds for the common independent sets of any *two* matroids (Lorentzian proof, strengthening Ardila-Mantilla, Cristancho, Denham, Eur, Huh & Wang, arXiv:2601.02547) and fails for three partition matroids. Graph independence systems are intersections of one partition matroid per edge, so this is the theorem-boundary explaining why the Lorentzian/ULC lane stops short of graphs and trees. Unrefereed v1; pre-use checks (all run 2026-08-26; derivation replayed, witness verified exactly) and the graph reading of his counterexample: `notes/source-hooks/schweitzer-2026-matroid-intersection-ulc.md`. Cited in `paper/main_v2.tex` intro as `schweitzer2026`.
+- **Ardila-Mantilla, Cristancho, Denham, Eur, Huh & Wang (2026).** arXiv:2601.02547 (v2). "Tree metrics and log-concavity for matroids." Skimmed 2026-08-26; in `literature/`. Despite the title, matroid-side throughout: "tree metrics" are ultrametric leaf-distance matrices, whose rank-1 bound (refining Graham-Pollak) is the PSD base case for characterizing M♮-concave functions by Lorentzian generating polynomials (their Thm 1.5); also Mason M3 for M♮-concave functions (Thm 1.4, the statement Schweitzer strengthens) and the Dowling/Zhao coefficientwise conjectures (Thm 1.6). Nothing on tree independence sequences; no import for #993.
+
 ## AI-assisted combinatorics precedents (for framing)
 
 - **Nagda, Raghavan, Thakurta (2026).** "Reinforced Generation of Combinatorial Structures: Ramsey Numbers." arXiv:2603.09172. AlphaEvolve-based search improves lower bounds for several classical Ramsey numbers. Cited in Reynolds (2026) as broader context.
