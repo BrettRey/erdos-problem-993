@@ -1,6 +1,6 @@
 # Aristotle formalization queue
 
-Date: 2026-08-21.
+Date: 2026-08-26.
 
 This queue sends only frozen, definition-complete results. Every returned project must
 be replayed locally with `lake build`, searched for proof escape hatches, checked with
@@ -80,6 +80,15 @@ None.
    note closes it by the published LLYZ theorem. Project
    `059ba8f5-39e6-43f0-9944-8d1268d90740`, task
    `9a6c6951-03eb-497b-bdb9-ed9f9013a1b7`; local build: 8,032 jobs.
+10. **Log-concavity convolution and the $\pi/3$ root-sector criterion.** G0 proves
+    closure of nonnegative log-concave no-internal-zero sequences under convolution,
+    plus the polynomial corollary. G1 proves the linear factor and the sharp quadratic
+    iff; G2 proves the full root-sector theorem. A separate theorem exhibits the failure
+    without no-internal-zeros. Project `23421e64-d858-4065-be32-71ffbc8f64be`, task
+    `db1608bb-ed2f-4bbc-b353-aebec33f15fd`. **Replayed locally 2026-08-26**:
+    `lake build` completed 8,034 jobs; escape-hatch grep empty; all target axiom audits
+    report only `propext`, `Classical.choice`, and `Quot.sound`. Source:
+    `formalization/lc_convolution_sector_aristotle/`.
 
 ## Not ready
 

@@ -61,15 +61,63 @@ $\Delta$ induced partition matroids have common independent sets exactly
 $\mathrm{IS}(T)$. The code is in DECISIONS.md's entry for the day; the crude
 per-edge version is `scripts/verify_schweitzer_witness_20260826.py`.
 
-**Prior art: NOT CHECKED.** The construction is, from memory and therefore
-UNVERIFIED, what the literature calls the *equivalence covering number*
-$\mathrm{eq}(G)$ (Duchet; Alon, "Covering graphs by the minimum number of
-equivalence relations", c. 1986). The adversarial fork assigned to search for
-this died on a model usage limit before running any query, so **no search has
-been run and no novelty may be claimed for anything in this section.** Treat the
-lemma as folklore until searched. The likely-classical status does not weaken
-the lane: the *consequence* below is what matters, and it needs Schweitzer's
-2026 theorem.
+**Prior art: SEARCHED 2026-08-26** (queries and outcomes below, per the
+evidenced-negative rule). Two of the three components are classical and I was
+right to flag them:
+
+1. **$\mathrm{eqcov}$ is classical and correctly guessed.** It is the
+   **equivalence number** $\mathrm{eq}(G)$, the minimum size of an edge-cover
+   of $G$ by subgraphs that are disjoint unions of cliques. Alon's
+   "Covering graphs by the minimum number of equivalence relations",
+   *Combinatorica* 6(3) (1986), 201--206, DOI `10.1007/BF02579381`, uses this
+   definition. So
+   $\mathrm{eqcov}$ should be renamed $\mathrm{eq}$
+   throughout, and the memory-flagged guess in the earlier draft of this note was
+   correct.
+2. **The matroid-count invariant is also standard, with standard notation.**
+   $\mu(I)$ denotes the minimum number of matroids whose intersection is the
+   independence system $I$, and "every independence system is the intersection of
+   finitely many matroids" (one matroid per circuit) is textbook. So
+   $\mathrm{mi}$ should be renamed $\mu$, and the invariant is not new.
+3. **The identity $\mu(\mathrm{IS}(G)) = \mathrm{eq}(G)$: no source found.**
+   This is the part that would be the contribution, and the honest status is
+   "searched, not found", not "novel".
+
+**The interesting part of the negative.** Two adjacent literatures exist and, on
+the evidence checked, do not cite each other:
+
+- $\mu$ for **matching** systems: "Characterizing Matchings as the Intersection
+  of Matroids" (arXiv:`math/0212235`), which defines $\mu(G)$ as the minimum
+  number of matroids intersecting to the matchings of $G$, characterizes the
+  $\mu = 2$ case, and computes $\mu(n) = 4$ for $n = 5..12$, $5$ for
+  $n = 13,14,15$.
+- $\mathrm{eq}$ of **line graphs**: Esperet, Gimbel & King, "Covering line
+  graphs with equivalence relations" (arXiv:`1006.3692`, *Discrete Applied
+  Mathematics* 2010), with
+  $\tfrac13 \log_2\log_2 \chi(G) < \mathrm{eq}(L(G)) \le 2\log_2\log_2\chi(G) + 2$.
+
+The matchings of $G$ are exactly the independent sets of $L(G)$, so **under the
+lemma these two papers are measuring the same quantity**:
+$\mu(\text{matchings of } G) = \mu(\mathrm{IS}(L(G))) = \mathrm{eq}(L(G))$.
+Evidenced negative, narrow form: I fetched the full text of `math/0212235` and it
+contains no citation of Alon, no mention of equivalence covers, and no
+parallel-class lemma. If the identity were common currency, the bounds in one
+paper would transfer verbatim to the other, and someone would have said so.
+Worth one cheap consistency check before believing any of this: $\mu(15) = 5$
+against the Esperet-Gimbel-King upper bound at $\chi(K_{15}) = 15$, which gives
+$2\log_2\log_2 15 + 2 \approx 5.9$. Consistent, which is weak positive evidence
+that the identity is right and unnoticed.
+
+**Search strings run** (WebSearch, 2026-08-26): `"equivalence covering number"
+graph minimum number of equivalence relations cover edges`; `independence system
+"intersection of" matroids minimum number partition matroids graph stable sets`;
+`"every independence system" "intersection of" "partition matroids" minimum
+number invariant`; `graph independence system represented intersection matroids
+"equivalence number" parallel classes characterization`; `Esperet Gimbel
+"covering line graphs with equivalence relations" matroid intersection matchings
+connection`. Plus a full-text fetch of `math/0212235`. **Not run:** zbMATH,
+MathSciNet, or a forward-citation sweep of Alon 1986, any of which could still
+turn the identity up. Treat the novelty question as open, not settled.
 
 ## 2. What that buys against #993
 
@@ -116,8 +164,10 @@ Acyclicity, not the matroid count, would have to be doing that work.
   $\Delta \ge 4$).
 - $n = 34$: **one** LC failure (see §2.5, which refutes the conjecture above).
 - $n = 35$: **11,077,270,335 subcubic trees, zero LC failures.** So the $n=34$
-  witness is isolated so far, and subcubic failures are very sparse rather than
-  absent. $n = 36$ was still running at ship time. See
+  witness was isolated at this checkpoint, and subcubic failures were already
+  very sparse rather than absent. At this checkpoint, $n = 36$ was still
+  running; it subsequently completed with 15 failures, as recorded in §6.2
+  and the symmetric-family note. See
   `results/subcubic_census_20260826/` and the summary JSONs. Restartable,
   self-verifying against A000672.
 
@@ -340,3 +390,52 @@ or arXiv:2608.23262 exist as described and that everything it said was
 conditional on the packet's stipulations. That is the correct stance for a model
 with no retrieval, and it is the reason its citation-free output was usable at
 all.
+
+### 6.2 The witness motivates a symmetric slice (2026-08-26)
+
+Structural analysis of the $n = 34$ subcubic failure (§2.5), which I had recorded
+only as "7 branch vertices, 9 leaves, diameter 10":
+
+**Vertex 1 is a centre with three isomorphic arms of 11 vertices each**
+(`is_isomorphic` confirmed pairwise), and the tree has an automorphism group of
+order **48**. Each arm has diameter 8 and carries two of the seven branch
+vertices. This gives a compact structured seed for a targeted family. It does
+not by itself show that symmetry is enriched among failures.
+
+Consequences that motivated the next finite experiment:
+
+1. Max degree 3 caps the centre at three arms, so the symmetric slice scales in
+   *arm structure*, not arm count.
+2. A three-fold symmetric sweep covers a vanishing fraction of the census
+   population and was therefore a cheap way to test whether the witness extends.
+
+**Follow-up and correction.** The sweep was run through arm size 22 and found
+11,892 LC failures, but the completed $n=36$ census then found 15 failures with
+unequal arms. The symmetric construction is a productive finite slice, not an
+identified mechanism or a statistically enriched class. The full correction,
+including the failed gap extension and witness-seeded mixed-arm sweep, is in
+`notes/symmetric_subcubic_family_2026-08-26.md`.
+
+### 6.3 The external route retracted its own contraction proof (2026-08-26)
+
+Asked to self-audit, it withdrew the §6.1 contraction argument and supplied the
+counterexample to its own reasoning: if $\{e,u,v\}$ is a circuit, $\{u,v\}$ is
+independent in $M$ but $u,v$ become parallel in $M/e$, so contraction
+manufactures new dependences and the claimed "same pattern of pair-dependences"
+is false. **This matches the defect recorded in §6.1 hours earlier, reached
+independently**, which is the outcome that makes the check worth running rather
+than the retraction itself.
+
+Its replacement argument is better than either of ours: a 2-set is dependent in a
+matroid only by a loop or by parallelism, and parallelism is transitive among
+nonloops by the closure axiom, so *any* matroid on *any* ground set, restricted
+to $V$, forbids exactly the pairs inside its parallel classes ~-- with no analysis
+of how the matroid was built. That is the uniform version of the reduction.
+
+It does not change the status of anything, because the question was already
+closed by machine proof: `le_card_of_represents_minor` covers arbitrary minors
+$((P i)/C i) \restriction R i$, and the Lean development takes precisely the
+loop-or-parallel route (`isNonloop_of_represents`, `isCircuit_pair_of_represents`).
+Recorded because the episode is the cleanest example this campaign has of a
+right conclusion carried on a wrong proof, from a source fluent enough that tone
+gave no signal.

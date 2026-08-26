@@ -1,0 +1,14 @@
+# Summary of changes for run db1608bb-ed2f-4bbc-b353-aebec33f15fd
+Delivered a complete, `sorry`-free Lean 4 / Mathlib formalization of the request in `lc_convolution_sector_aristotle_input_20260826.md`. **All three goals — G0, G1 and G2 — are proved** in the stated generality; G2 (marked optional in the packet) was reached.
+
+**Representation.** Everything is in the sequence form `f : ℕ → ℝ`, with the four definitions stated exactly as given (`LC.Nonneg`, `LC.LogConcave`, `LC.NoInternalZeros`, `LC.Conv`, in `RequestProject/Defs.lean`). The `Fin n`-indexed vectors `![w, 1]` and `![ρ², 2ρ cos φ, 1]` of the G1 statements are read as sequences via a padding map `LC.ofVec` — the only device added to make those statements typecheck.
+
+**Results.**
+- **G0** `LC.logConcave_conv` (`RequestProject/Conv.lean`) — stated verbatim, including the finiteness hypotheses (kept because requested; the proof does not need them, as each value of `Conv f g` is already a finite sum). Polynomial corollary `LC.logConcave_coeff_mul` also delivered.
+- **G1** `LC.logConcave_linear` and `LC.logConcave_quadratic` (`RequestProject/Factors.lean`). The quadratic result is proved as an **iff** (`log-concave ↔ cos²φ ≥ 1/4`), so the sharpness of the π/3 threshold is on the record; `LC.logConcave_quadratic_of_abs_le_pi_div_three` packages the `|φ| ≤ π/3` consequence together with nonnegativity and the no-internal-zeros property.
+- **G2** `LC.logConcave_of_roots_in_sector` (`RequestProject/Sector.lean`) — the root-sector criterion, exactly as stated.
+- **Necessity of `NoInternalZeros`** `LC.conv_not_logConcave_without_noInternalZeros` (`RequestProject/Sharpness.lean`): with `f = (1,0,0,1)` and `g = (1,1)`, every other hypothesis holds while `Conv f g = (1,1,0,1,1)` fails log-concavity at `k = 1` (`c₂² = 0 < 1 = c₁c₃`). The hypothesis is nowhere weakened.
+
+**Proof routes.** G0 follows the total-positivity route: `LC.inner_mul_ge` (for `a ≤ b ≤ c ≤ d` with `a+d = b+c`, `f b · f c ≥ f a · f d`), proved by integer induction from a one-step shift inequality, combined with a `2 × 2` Cauchy–Binet identity `LC.cauchyBinet_two` and its positivity form `LC.cauchyBinet_two_nonneg`. All index bookkeeping runs on `ℤ`-indexed zero-extensions, avoiding truncated natural subtraction. G2 is by strong induction on the degree, extracting a complex root, splitting into a real linear factor or a real quadratic factor, and combining G1 with the induction hypothesis via G0; positivity of all coefficients up to the degree is carried along the induction.
+
+**Verification.** `lake build` is clean. No `sorry`, `admit`, `axiom`, `@[implemented_by]` or `native_decide` anywhere. `RequestProject/Main.lean` ends with an `#print axioms` audit of every named result; each depends only on `propext`, `Classical.choice`, `Quot.sound`. `README.md` contains the traceability table labelling each declaration as coming from the request or added here.

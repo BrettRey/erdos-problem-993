@@ -1,0 +1,488 @@
+{
+ "n": 36,
+ "shards": 32,
+ "trees": 25664800714,
+ "expected_trees_A000672": 25664800714,
+ "failures": 15,
+ "alarms": 0,
+ "duplicate_witness_pairs": [],
+ "rooted_shape_count_distribution": {
+  "2": 5,
+  "3": 10
+ },
+ "arm_gap_vector_distribution": {
+  "0,0,0": 9,
+  "1,1,1": 6
+ },
+ "arm_size_range": [
+  2,
+  25
+ ],
+ "records": [
+  {
+   "number": 1,
+   "shard": "n36_s5of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    11,
+    11,
+    13
+   ],
+   "arm_gaps": [
+    1,
+    1,
+    1
+   ],
+   "arm_shape_ids": [
+    "b11d40146fb5",
+    "b11d40146fb5",
+    "8d549ccbf8e3"
+   ],
+   "distinct_rooted_arm_shapes": 2,
+   "branch_vertices": 8,
+   "leaves": 10,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 2,
+   "shard": "n36_s5of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    11,
+    11,
+    13
+   ],
+   "arm_gaps": [
+    1,
+    1,
+    1
+   ],
+   "arm_shape_ids": [
+    "b11d40146fb5",
+    "f01d4fcb1f9a",
+    "fa140a6b500a"
+   ],
+   "distinct_rooted_arm_shapes": 3,
+   "branch_vertices": 7,
+   "leaves": 9,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 3,
+   "shard": "n36_s16of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    9,
+    13,
+    13
+   ],
+   "arm_gaps": [
+    1,
+    1,
+    1
+   ],
+   "arm_shape_ids": [
+    "fdd26bb1a979",
+    "8d549ccbf8e3",
+    "8d549ccbf8e3"
+   ],
+   "distinct_rooted_arm_shapes": 2,
+   "branch_vertices": 9,
+   "leaves": 11,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 4,
+   "shard": "n36_s16of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    9,
+    13,
+    13
+   ],
+   "arm_gaps": [
+    1,
+    1,
+    1
+   ],
+   "arm_shape_ids": [
+    "a71dce834892",
+    "8d549ccbf8e3",
+    "8d549ccbf8e3"
+   ],
+   "distinct_rooted_arm_shapes": 2,
+   "branch_vertices": 8,
+   "leaves": 10,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 5,
+   "shard": "n36_s16of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    11,
+    11,
+    13
+   ],
+   "arm_gaps": [
+    1,
+    1,
+    1
+   ],
+   "arm_shape_ids": [
+    "f01d4fcb1f9a",
+    "f01d4fcb1f9a",
+    "8d549ccbf8e3"
+   ],
+   "distinct_rooted_arm_shapes": 2,
+   "branch_vertices": 8,
+   "leaves": 10,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 6,
+   "shard": "n36_s18of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    2,
+    8,
+    25
+   ],
+   "arm_gaps": [
+    0,
+    0,
+    0
+   ],
+   "arm_shape_ids": [
+    "de9e2a5ed850",
+    "db686c0cf5c9",
+    "51c96e8d02ee"
+   ],
+   "distinct_rooted_arm_shapes": 3,
+   "branch_vertices": 8,
+   "leaves": 10,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 7,
+   "shard": "n36_s18of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    4,
+    6,
+    25
+   ],
+   "arm_gaps": [
+    0,
+    0,
+    0
+   ],
+   "arm_shape_ids": [
+    "16a2dc9c3e9d",
+    "3362e44d0410",
+    "51c96e8d02ee"
+   ],
+   "distinct_rooted_arm_shapes": 3,
+   "branch_vertices": 7,
+   "leaves": 9,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 8,
+   "shard": "n36_s18of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    4,
+    8,
+    23
+   ],
+   "arm_gaps": [
+    0,
+    0,
+    0
+   ],
+   "arm_shape_ids": [
+    "16a2dc9c3e9d",
+    "db686c0cf5c9",
+    "628378fb7110"
+   ],
+   "distinct_rooted_arm_shapes": 3,
+   "branch_vertices": 8,
+   "leaves": 10,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 9,
+   "shard": "n36_s18of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    6,
+    6,
+    23
+   ],
+   "arm_gaps": [
+    0,
+    0,
+    0
+   ],
+   "arm_shape_ids": [
+    "3362e44d0410",
+    "bbd1f8579a85",
+    "628378fb7110"
+   ],
+   "distinct_rooted_arm_shapes": 3,
+   "branch_vertices": 8,
+   "leaves": 10,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 10,
+   "shard": "n36_s19of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    11,
+    11,
+    13
+   ],
+   "arm_gaps": [
+    1,
+    1,
+    1
+   ],
+   "arm_shape_ids": [
+    "b11d40146fb5",
+    "f01d4fcb1f9a",
+    "2636cd7cebf9"
+   ],
+   "distinct_rooted_arm_shapes": 3,
+   "branch_vertices": 7,
+   "leaves": 9,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 11,
+   "shard": "n36_s26of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    4,
+    8,
+    23
+   ],
+   "arm_gaps": [
+    0,
+    0,
+    0
+   ],
+   "arm_shape_ids": [
+    "16a2dc9c3e9d",
+    "a623c882a0fd",
+    "9d60df723885"
+   ],
+   "distinct_rooted_arm_shapes": 3,
+   "branch_vertices": 7,
+   "leaves": 9,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 12,
+   "shard": "n36_s26of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    2,
+    10,
+    23
+   ],
+   "arm_gaps": [
+    0,
+    0,
+    0
+   ],
+   "arm_shape_ids": [
+    "de9e2a5ed850",
+    "ea64a62ec604",
+    "9d60df723885"
+   ],
+   "distinct_rooted_arm_shapes": 3,
+   "branch_vertices": 7,
+   "leaves": 9,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 13,
+   "shard": "n36_s26of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    4,
+    8,
+    23
+   ],
+   "arm_gaps": [
+    0,
+    0,
+    0
+   ],
+   "arm_shape_ids": [
+    "16a2dc9c3e9d",
+    "db686c0cf5c9",
+    "9d60df723885"
+   ],
+   "distinct_rooted_arm_shapes": 3,
+   "branch_vertices": 7,
+   "leaves": 9,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 14,
+   "shard": "n36_s26of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    6,
+    6,
+    23
+   ],
+   "arm_gaps": [
+    0,
+    0,
+    0
+   ],
+   "arm_shape_ids": [
+    "3362e44d0410",
+    "3362e44d0410",
+    "9d60df723885"
+   ],
+   "distinct_rooted_arm_shapes": 2,
+   "branch_vertices": 6,
+   "leaves": 8,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  },
+  {
+   "number": 15,
+   "shard": "n36_s26of32.txt",
+   "centre": 1,
+   "arm_sizes": [
+    6,
+    6,
+    23
+   ],
+   "arm_gaps": [
+    0,
+    0,
+    0
+   ],
+   "arm_shape_ids": [
+    "3362e44d0410",
+    "bbd1f8579a85",
+    "9d60df723885"
+   ],
+   "distinct_rooted_arm_shapes": 3,
+   "branch_vertices": 7,
+   "leaves": 9,
+   "alpha": 19,
+   "breaks": [
+    18
+   ],
+   "distances": [
+    5
+   ],
+   "unimodal": true
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+STATS n=36 alpha_max=36 trees=790121298 passed=790121298 failures=0 alarms=0
+PASS_ALPHA n=36 alpha=18 count=8011523
+PASS_ALPHA n=36 alpha=19 count=174261743
+PASS_ALPHA n=36 alpha=20 count=388982096
+PASS_ALPHA n=36 alpha=21 count=193901154
+PASS_ALPHA n=36 alpha=22 count=24329784
+PASS_ALPHA n=36 alpha=23 count=633797
+PASS_ALPHA n=36 alpha=24 count=1201

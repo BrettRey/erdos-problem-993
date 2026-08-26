@@ -7,7 +7,7 @@ stage: complete
 external: in-review
 blocked_on:
 - venue-response
-updated: 2026-08-21
+updated: 2026-08-26
 source:
 - STATUS.md
 - PORTFOLIO.md
@@ -53,11 +53,13 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 
   above as external_id, matching PORTFOLIO.md) and submission number 60492-1
 
-  (STATUS.md only). Extensive private mathematical research on the underlying
+  (STATUS.md only). The submitted E-JC PDF and Zenodo version remain unchanged.
 
-  conjecture continues in STATUS.md but has not touched the submitted
+  The repository''s live draft now diverges from them: commit c3fdabd added a
 
-  manuscript (paper/main_v2.tex unchanged throughout).
+  two-sentence Schweitzer/Lorentzian-boundary paragraph to paper/main_v2.tex on
+
+  2026-08-26.
 
 
   RESOLVED to in-review by ADJUDICATION 2026-07-30. This block is gap 4, and the
@@ -81,7 +83,6 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
   "combinatorics.org" returned nothing, which is suggestive but not conclusive,
 
   since portals sometimes write to Brett''s Humber or UofT addresses.
-
   '
 ---
 
@@ -95,6 +96,35 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 ## Source of truth
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
+
+## 2026-08-26: subcubic census, symmetric/mixed-arm slices, and convolution formalization
+
+- **The subcubic census is complete through $n=36$.** The final rung contains
+  25,664,800,714 trees, exactly A000672, with 15 log-concavity failures and zero
+  unimodality alarms. A separate DP rebuilds all certificates, matches every
+  polynomial, and confirms $\alpha=19$, one break at $k=18$, depth 5, and no
+  duplicate graphs. Run
+  `python3 scripts/verify_subcubic_n36_failures_20260826.py`.
+- **The symmetric conclusion was narrowed to its evidence.** The three-fold
+  symmetric sweep finds 11,892 LC failures through $n=67$, all top-corner and
+  none non-unimodal. This is finite negative evidence for #993, not a structural
+  exclusion of the infinite family. The completed census also refutes the
+  proposed unequal-arm gap extension: six witnesses have gap vector $(1,1,1)$
+  and nine have $(0,0,0)$. Arm sizes span 2..25, not 11..12.
+- **The corrected mixed-arm follow-up is bounded and replayable.** Its default
+  seed pool consists of the 17 distinct rooted arms in the certificates. Among
+  969 arm multisets/921 distinct trees it reproduces the exact 15-tree $n=36$
+  set and finds 126 LC failures through $n=76$, with no unimodality alarms.
+  Run `python3 scripts/witness_perturbation_20260826.py`.
+- **Convolution closure and the $\pi/3$ root-sector criterion are formally
+  proved.** Aristotle proves the exact G0/G1/G2 packet plus the sharpness
+  counterexample. Local `lake build` completed 8,034 jobs; the proof-escape scan
+  is empty and target axiom audits report only `propext`, `Classical.choice`, and
+  `Quot.sound`. Imported at `formalization/lc_convolution_sector_aristotle/`.
+- **Manuscript distinction.** The submitted E-JC PDF and Zenodo version are
+  unchanged. The repository live draft differs by the two-sentence Schweitzer
+  paragraph committed in c3fdabd; do not describe `paper/main_v2.tex` as still
+  identical to the submitted/Zenodo artifact.
 
 ## 2026-08-20–21: Two-hub base proof, connector reduction, and matching-bag attack
 
