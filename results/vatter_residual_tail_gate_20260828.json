@@ -1,0 +1,671 @@
+{
+  "candidate": "For every tree T, every leaf-peeling order, every residual H_j=R_j-N_Rj[v_j], and every k>=d(T), i_k(H_j)<=i_{k-1}(H_j).",
+  "argv": [
+    "scripts/probe_vatter_residual_tail.py",
+    "--suite",
+    "gate",
+    "--min-n",
+    "1",
+    "--max-n",
+    "14",
+    "--order-scope",
+    "all",
+    "--witness-orders",
+    "1000",
+    "--targeted-random-orders",
+    "1",
+    "--targeted-max-n",
+    "180",
+    "--seed",
+    "993",
+    "--out",
+    "results/vatter_residual_tail_gate_20260828.json"
+  ],
+  "seed": 993,
+  "suite": "gate",
+  "exhaustive": {
+    "totals": {
+      "trees": 5447,
+      "remaining_states": 3044450,
+      "residual_checks": 12180941,
+      "polynomials": 15362156,
+      "worst_ratio": {
+        "k": 6,
+        "numerator": 210,
+        "denominator": 252,
+        "ratio": 0.8333333333333334,
+        "remaining": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "vertex": 1,
+        "remaining_residual": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          12
+        ],
+        "residual_poly": [
+          1,
+          11,
+          46,
+          120,
+          210,
+          252,
+          210,
+          120,
+          45,
+          10,
+          1
+        ],
+        "n": 13,
+        "tree_index": 5,
+        "graph6": "L?????????[?f}",
+        "adj": null
+      }
+    },
+    "per_n": [
+      {
+        "n": 1,
+        "trees": 1,
+        "remaining_states": 1,
+        "residual_checks": 0,
+        "polynomials": 2,
+        "worst_ratio": null,
+        "elapsed_seconds": 0.003158541047014296
+      },
+      {
+        "n": 2,
+        "trees": 1,
+        "remaining_states": 1,
+        "residual_checks": 0,
+        "polynomials": 3,
+        "worst_ratio": null,
+        "elapsed_seconds": 0.002520832931622863
+      },
+      {
+        "n": 3,
+        "trees": 1,
+        "remaining_states": 6,
+        "residual_checks": 9,
+        "polynomials": 6,
+        "worst_ratio": null,
+        "elapsed_seconds": 0.002129207947291434
+      },
+      {
+        "n": 4,
+        "trees": 2,
+        "remaining_states": 21,
+        "residual_checks": 35,
+        "polynomials": 21,
+        "worst_ratio": {
+          "k": 2,
+          "numerator": 1,
+          "denominator": 2,
+          "ratio": 0.5,
+          "remaining": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "vertex": 0,
+          "remaining_residual": [
+            1,
+            2
+          ],
+          "residual_poly": [
+            1,
+            2,
+            1
+          ],
+          "tree_index": 1,
+          "graph6": "CF",
+          "adj": null
+        },
+        "elapsed_seconds": 0.002255292027257383
+      },
+      {
+        "n": 5,
+        "trees": 3,
+        "remaining_states": 52,
+        "residual_checks": 97,
+        "polynomials": 58,
+        "worst_ratio": {
+          "k": 3,
+          "numerator": 1,
+          "denominator": 3,
+          "ratio": 0.3333333333333333,
+          "remaining": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "vertex": 0,
+          "remaining_residual": [
+            1,
+            2,
+            3
+          ],
+          "residual_poly": [
+            1,
+            3,
+            3,
+            1
+          ],
+          "tree_index": 1,
+          "graph6": "D?{",
+          "adj": null
+        },
+        "elapsed_seconds": 0.002206958015449345
+      },
+      {
+        "n": 6,
+        "trees": 6,
+        "remaining_states": 165,
+        "residual_checks": 343,
+        "polynomials": 219,
+        "worst_ratio": {
+          "k": 3,
+          "numerator": 2,
+          "denominator": 5,
+          "ratio": 0.4,
+          "remaining": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "vertex": 1,
+          "remaining_residual": [
+            0,
+            2,
+            3,
+            4
+          ],
+          "residual_poly": [
+            1,
+            4,
+            5,
+            2
+          ],
+          "tree_index": 2,
+          "graph6": "E?bo",
+          "adj": null
+        },
+        "elapsed_seconds": 0.0023086670553311706
+      },
+      {
+        "n": 7,
+        "trees": 11,
+        "remaining_states": 466,
+        "residual_checks": 1074,
+        "polynomials": 750,
+        "worst_ratio": {
+          "k": 3,
+          "numerator": 4,
+          "denominator": 6,
+          "ratio": 0.6666666666666666,
+          "remaining": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "vertex": 1,
+          "remaining_residual": [
+            0,
+            2,
+            3,
+            4,
+            6
+          ],
+          "residual_poly": [
+            1,
+            5,
+            6,
+            4,
+            1
+          ],
+          "tree_index": 3,
+          "graph6": "F?BDo",
+          "adj": null
+        },
+        "elapsed_seconds": 0.0028117919573560357
+      },
+      {
+        "n": 8,
+        "trees": 23,
+        "remaining_states": 1489,
+        "residual_checks": 3800,
+        "polynomials": 2854,
+        "worst_ratio": {
+          "k": 4,
+          "numerator": 9,
+          "denominator": 16,
+          "ratio": 0.5625,
+          "remaining": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "vertex": 1,
+          "remaining_residual": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "residual_poly": [
+            1,
+            6,
+            14,
+            16,
+            9,
+            2
+          ],
+          "tree_index": 2,
+          "graph6": "G??CFw",
+          "adj": null
+        },
+        "elapsed_seconds": 0.004832749953493476
+      },
+      {
+        "n": 9,
+        "trees": 47,
+        "remaining_states": 4564,
+        "residual_checks": 12768,
+        "polynomials": 10648,
+        "worst_ratio": {
+          "k": 4,
+          "numerator": 15,
+          "denominator": 20,
+          "ratio": 0.75,
+          "remaining": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "vertex": 0,
+          "remaining_residual": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8
+          ],
+          "residual_poly": [
+            1,
+            7,
+            16,
+            20,
+            15,
+            6,
+            1
+          ],
+          "tree_index": 4,
+          "graph6": "H???E?~",
+          "adj": null
+        },
+        "elapsed_seconds": 0.012169625028036535
+      },
+      {
+        "n": 10,
+        "trees": 106,
+        "remaining_states": 15339,
+        "residual_checks": 46824,
+        "polynomials": 42781,
+        "worst_ratio": {
+          "k": 4,
+          "numerator": 26,
+          "denominator": 33,
+          "ratio": 0.7878787878787878,
+          "remaining": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "vertex": 2,
+          "remaining_residual": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            9
+          ],
+          "residual_poly": [
+            1,
+            8,
+            23,
+            33,
+            26,
+            11,
+            2
+          ],
+          "tree_index": 22,
+          "graph6": "I???C@wp_",
+          "adj": null
+        },
+        "elapsed_seconds": 0.04342029197141528
+      },
+      {
+        "n": 11,
+        "trees": 235,
+        "remaining_states": 50395,
+        "residual_checks": 166750,
+        "polynomials": 167906,
+        "worst_ratio": {
+          "k": 5,
+          "numerator": 56,
+          "denominator": 70,
+          "ratio": 0.8,
+          "remaining": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "vertex": 1,
+          "remaining_residual": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10
+          ],
+          "residual_poly": [
+            1,
+            9,
+            29,
+            56,
+            70,
+            56,
+            28,
+            8,
+            1
+          ],
+          "tree_index": 5,
+          "graph6": "J??????wC~?",
+          "adj": null
+        },
+        "elapsed_seconds": 0.15828583401162177
+      },
+      {
+        "n": 12,
+        "trees": 551,
+        "remaining_states": 174975,
+        "residual_checks": 625442,
+        "polynomials": 688183,
+        "worst_ratio": {
+          "k": 5,
+          "numerator": 71,
+          "denominator": 90,
+          "ratio": 0.7888888888888889,
+          "remaining": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "vertex": 0,
+          "remaining_residual": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11
+          ],
+          "residual_poly": [
+            1,
+            10,
+            37,
+            73,
+            90,
+            71,
+            34,
+            9,
+            1
+          ],
+          "tree_index": 35,
+          "graph6": "K??????o@_D}",
+          "adj": null
+        },
+        "elapsed_seconds": 0.6267852919409052
+      },
+      {
+        "n": 13,
+        "trees": 1301,
+        "remaining_states": 609334,
+        "residual_checks": 2337911,
+        "polynomials": 2803677,
+        "worst_ratio": {
+          "k": 6,
+          "numerator": 210,
+          "denominator": 252,
+          "ratio": 0.8333333333333334,
+          "remaining": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "vertex": 1,
+          "remaining_residual": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12
+          ],
+          "residual_poly": [
+            1,
+            11,
+            46,
+            120,
+            210,
+            252,
+            210,
+            120,
+            45,
+            10,
+            1
+          ],
+          "tree_index": 5,
+          "graph6": "L?????????[?f}",
+          "adj": null
+        },
+        "elapsed_seconds": 2.4900761670432985
+      },
+      {
+        "n": 14,
+        "trees": 3159,
+        "remaining_states": 2187642,
+        "residual_checks": 8985888,
+        "polynomials": 11645048,
+        "worst_ratio": {
+          "k": 6,
+          "numerator": 266,
+          "denominator": 322,
+          "ratio": 0.8260869565217391,
+          "remaining": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "vertex": 0,
+          "remaining_residual": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13
+          ],
+          "residual_poly": [
+            1,
+            12,
+            56,
+            151,
+            267,
+            322,
+            266,
+            148,
+            53,
+            11,
+            1
+          ],
+          "tree_index": 44,
+          "graph6": "M?????????W?K?B~_",
+          "adj": null
+        },
+        "elapsed_seconds": 10.200180416926742
+      }
+    ],
+    "failure": null
+  },
+  "witnesses": {
+    "source": "/Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/results/analysis_n26.json",
+    "rows": [
+      {
+        "index": 1,
+        "graph6": "Y???????????_?O?C??_?A??C??C??A???_??C???O?[?_?F`???^???",
+        "orders": 1002,
+        "stats": {
+          "remaining_states": 0,
+          "residual_checks": 26052,
+          "polynomials": 0,
+          "worst_ratio": null
+        },
+        "failure": null
+      },
+      {
+        "index": 2,
+        "graph6": "Y???????????_?O?C??_?A??C??C??A???_??C?C?O?K@_?F@???|???",
+        "orders": 1002,
+        "stats": {
+          "remaining_states": 0,
+          "residual_checks": 26052,
+          "polynomials": 0,
+          "worst_ratio": null
+        },
+        "failure": null
+      }
+    ],
+    "failure": null
+  },
+  "targeted": {
+    "cases": 711,
+    "orders_per_case": 3,
+    "max_n": 180,
+    "elapsed_seconds": 23.547079709009267,
+    "failure": null
+  },
+  "elapsed_seconds": 39.419049999909475,
+  "status": "pass"
+}

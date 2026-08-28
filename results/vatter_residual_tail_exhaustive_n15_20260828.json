@@ -1,0 +1,152 @@
+{
+  "candidate": "For every tree T, every leaf-peeling order, every residual H_j=R_j-N_Rj[v_j], and every k>=d(T), i_k(H_j)<=i_{k-1}(H_j).",
+  "argv": [
+    "scripts/probe_vatter_residual_tail.py",
+    "--suite",
+    "exhaustive",
+    "--min-n",
+    "15",
+    "--max-n",
+    "15",
+    "--order-scope",
+    "all",
+    "--seed",
+    "993",
+    "--out",
+    "results/vatter_residual_tail_exhaustive_n15_20260828.json"
+  ],
+  "seed": 993,
+  "suite": "exhaustive",
+  "exhaustive": {
+    "totals": {
+      "trees": 7741,
+      "remaining_states": 7917251,
+      "residual_checks": 34649026,
+      "polynomials": 48321203,
+      "worst_ratio": {
+        "k": 6,
+        "numerator": 357,
+        "denominator": 415,
+        "ratio": 0.8602409638554217,
+        "remaining": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "vertex": 2,
+        "remaining_residual": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "residual_poly": [
+          1,
+          13,
+          67,
+          188,
+          337,
+          415,
+          357,
+          211,
+          82,
+          19,
+          2
+        ],
+        "n": 15,
+        "tree_index": 384,
+        "graph6": "N?????????O?[?r?G^?",
+        "adj": null
+      }
+    },
+    "per_n": [
+      {
+        "n": 15,
+        "trees": 7741,
+        "remaining_states": 7917251,
+        "residual_checks": 34649026,
+        "polynomials": 48321203,
+        "worst_ratio": {
+          "k": 6,
+          "numerator": 357,
+          "denominator": 415,
+          "ratio": 0.8602409638554217,
+          "remaining": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "vertex": 2,
+          "remaining_residual": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            13,
+            14
+          ],
+          "residual_poly": [
+            1,
+            13,
+            67,
+            188,
+            337,
+            415,
+            357,
+            211,
+            82,
+            19,
+            2
+          ],
+          "tree_index": 384,
+          "graph6": "N?????????O?[?r?G^?",
+          "adj": null
+        },
+        "elapsed_seconds": 43.39871270803269
+      }
+    ],
+    "failure": null
+  },
+  "elapsed_seconds": 43.398746332968585,
+  "status": "pass"
+}
