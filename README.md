@@ -21,10 +21,13 @@ the proved Pascal reserve. Blocked-profile log-concavity, which held through
 `n <= 18`, is refuted by an exact `(n,alpha,deficiency)=(33,19,5)` matched-pair
 lift; the witness's full depth-three margin remains positive. A targeted
 500-lift probe finds 57 adverse combined corrections and no failure of the
-joint conditional reserve bound. This is bounded evidence, not a theorem or a
-refutation of Erdős #993. Ordered first-violation classes and path-event bounds
-remain possible inputs to the joint target; the direct nonpure-face
-log-concavity route is closed.
+joint conditional reserve bound. A second 600-lift probe covers all 12 actual
+target cells and finds 120 adverse combined corrections across every admissible
+cell with deficiency at least two, again with no conditional-bound failure;
+deficiencies zero and one did not enter the adverse regime. This is bounded
+targeted evidence, not a theorem or a refutation of Erdős #993. Ordered
+first-violation classes and path-event bounds remain possible inputs to the
+joint target; the direct nonpure-face log-concavity route is closed.
 
 The current active targets are:
 

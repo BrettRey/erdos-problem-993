@@ -191,7 +191,7 @@
       "slogan": "The proposed blocked-profile log-concavity lemma is false in the target rung.",
       "statement": "For the matching-bag decomposition of every tree in the target scope, b_3^2 >= b_2 b_4.",
       "status": "refuted",
-      "scope": "Refuted at (n,alpha,deficiency)=(33,19,5): one exact lift has (b_2,b_3,b_4)=(1,16,4216), hence b_3^2-b_2b_4=-3960.",
+      "scope": "Refuted by nine exact lifts at (n,alpha,deficiency)=(33,19,5) and two further lifts at (alpha,deficiency)=(19,3); the first exact witness has (b_2,b_3,b_4)=(1,16,4216), hence b_3^2-b_2b_4=-3960.",
       "falsification": "One tree and maximum-matching bag decomposition with b_3^2 < b_2 b_4 refutes the claim.",
       "evidence": [
         {
@@ -209,6 +209,14 @@
         {
           "type": "result",
           "ref": "results/cross_reserve_witness_lifts_20260904.json"
+        },
+        {
+          "type": "script",
+          "ref": "scripts/probe_cross_reserve_multicell_lifts_20260904.py"
+        },
+        {
+          "type": "result",
+          "ref": "results/cross_reserve_multicell_lifts_20260904.json"
         }
       ],
       "priority": {
@@ -286,7 +294,7 @@
       "slogan": "The Pascal reserve must absorb the mixed and blocked-profile deficits jointly.",
       "statement": "For every tree in the target scope, ((5 alpha+17)/(27(alpha-3)))e_2e_4+(b_3^2-b_2b_4)+(2e_3b_3-e_2b_4-e_4b_2) >= 0; together with the proved Pascal reserve and the depth-3 decomposition, this implies s_3^2-s_2s_4>=0.",
       "status": "verified_bounded",
-      "scope": "The remaining alpha 17--19, deficiency at most five rung; targeted evidence covers 500 lifts in the (33,19,5) cell, including 57 with adverse combined correction.",
+      "scope": "The remaining alpha 17--19, deficiency at most five rung; targeted evidence covers 500 lifts in the (33,19,5) cell with 57 adverse combined corrections, plus 600 lifts across all 12 target cells with 120 adverse cases covering every admissible cell of deficiency at least two. Deficiency-zero and deficiency-one lifts did not enter the adverse regime.",
       "falsification": "One target-scope tree whose displayed Pascal lower margin is negative refutes this sufficient bridge; a negative full margin would also refute the depth-3 rung itself.",
       "evidence": [
         {
@@ -296,6 +304,22 @@
         {
           "type": "result",
           "ref": "results/cross_reserve_witness_lifts_20260904.json"
+        },
+        {
+          "type": "script",
+          "ref": "scripts/mine_negative_correction_seeds_20260904.py"
+        },
+        {
+          "type": "result",
+          "ref": "results/negative_correction_seeds_n18_20260904.json"
+        },
+        {
+          "type": "script",
+          "ref": "scripts/probe_cross_reserve_multicell_lifts_20260904.py"
+        },
+        {
+          "type": "result",
+          "ref": "results/cross_reserve_multicell_lifts_20260904.json"
         }
       ],
       "priority": {

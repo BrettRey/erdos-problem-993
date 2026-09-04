@@ -204,6 +204,22 @@ The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapsho
   it is unnecessary, so it is not a universal inequality. Final runtime was
   56.66 seconds. Certificate:
   `results/cross_reserve_witness_lifts_20260904.json`.
+- A multicell follow-up removes the single-cell limitation for deficiencies
+  at least two. An exact seed scan of 149,239 relevant trees through `n<=18`
+  finds 419 negative combined corrections, distributed by deficiency
+  `0/1/2/3/4/5` as `3/0/17/154/190/55`. Fifty exact nonisomorphic matched-pair
+  lifts were then evaluated in each of the 12 actual-rung cells. There are 120
+  cases with `D<0`, covering all six admissible cells with deficiency at least
+  two, and zero failures of the corrected conditional bridge. The worst load
+  is `816345/11251072 = 0.072557086...` of the Pascal reserve. The 336 failures
+  of the same endpoint inequality outside `D<0` confirm that it is not
+  universal. The deficiency-zero and deficiency-one lifts never had `D<0`,
+  so those cells remain untested in the adverse regime. Two further
+  blocked-profile LC failures occur at `(alpha,deficiency)=(19,3)`; full
+  depth-three and unimodality failures remain zero. The final lift run took
+  927.52 seconds. Certificates:
+  `results/negative_correction_seeds_n18_20260904.json` and
+  `results/cross_reserve_multicell_lifts_20260904.json`.
 - None of the auxiliary refutations above is a refutation of Erdős #993. No
   non-unimodal tree was found and no manuscript claim changed.
 

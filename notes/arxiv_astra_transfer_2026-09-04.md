@@ -1,5 +1,5 @@
 # Weekly arXiv and GPT-6 Astra transfer audit
-<!-- SUMMARY: The arXiv watcher ran on 1--4 September and queued ten papers. The Astra-inspired obstruction experiment found an exact first-certificate partition, formal prefix closure, and exact induced-forest formulas for unary classes. Direct individual-class closure fails at n=6, and an n=17 counterexample closes the relative-ratio/grouped-summand route. A cross-reserve endpoint bound survives 204,995 relevant trees through n=18. A 600-tree random probe in the actual alpha=17--19, deficiency-at-most-5 rung found no adverse cases, but 500 targeted lifts of the n=17 witness produced 57. All 57 satisfy the endpoint bound. Nine lifts refute blocked-profile log-concavity, so the live sufficient bridge must absorb the mixed and blocked deficits jointly; the resulting stronger conditional bound also survives all 57 adverse lifts. None of these auxiliary results refutes Erdős #993. -->
+<!-- SUMMARY: The arXiv watcher ran on 1--4 September and queued ten papers. The Astra-inspired obstruction experiment found an exact first-certificate partition, formal prefix closure, and exact induced-forest formulas for unary classes. Direct individual-class closure fails at n=6, and an n=17 counterexample closes the relative-ratio/grouped-summand route. A cross-reserve endpoint bound survives 204,995 relevant trees through n=18. A 600-tree random probe in the actual alpha=17--19, deficiency-at-most-5 rung found no adverse cases, but 500 targeted lifts of the n=17 witness produced 57. Nine lifts refute blocked-profile log-concavity, so the live sufficient bridge must absorb the mixed and blocked deficits jointly. The corrected bound survives those 57 cases, while a separate cross-cell probe produces 120 adverse lifts spread across all six target cells with deficiency at least two and no failure; deficiency-zero and deficiency-one lifts did not enter the adverse regime. None of these auxiliary results refutes Erdős #993. -->
 
 Date: 2026-09-04. Status: source audit and recommended bounded experiments completed. No proof of Erdős #993, no all-tree claim, and no manuscript change.
 ## 1. arXiv watcher status
@@ -329,6 +329,48 @@ Indeed, (10) discards both favorable terms \(2e_3b_3\) and \(b_3^2\) before char
 
 The final corrected run took 56.66 seconds wall time. Exact generator and certificate: `../scripts/probe_cross_reserve_witness_lifts_20260904.py` and `../results/cross_reserve_witness_lifts_20260904.json`. The live proof-frontier graph was updated to mark `blocked_profile_depth3_lc` refuted and replace the old two-lemma assembly by the joint Pascal-margin target.
 
+### Multicell adverse-seed coverage
+
+The single-cell lift result leaves a natural coverage question: is (10) only easy in the deficiency-five construction? An exact seed census over the 149,239 relevant nonisomorphic trees through $n\le18$ found 419 trees with $D<0$. Their deficiency counts are
+
+\[
+(\delta=0,1,2,3,4,5)=(3,0,17,154,190,55).
+\]
+
+Thus same-deficiency adverse seeds exist for nine of the twelve target cells; the three missing cells all have deficiency one. Two simple bridges into deficiency one also lose adversity. Promoting either singleton in each of the five retained deficiency-two seeds gives ten valid deficiency-one seeds, all with $D>0$. Attaching a singleton leaf to the retained deficiency-zero seeds gives 24 valid deficiency-one constructions, again all with $D>0$. The final probe retained twelve of the latter constructions, interleaving the closest-to-adverse seeds with those having the heaviest endpoint load. This does not prove that $D\ge0$ at deficiency one.
+
+For each of the twelve admissible $(\alpha,\delta)$ cells, the probe appended enough pendant matched pairs to reach the target cell, rechecked that the prescribed matching was maximum, deduplicated by exact AHU tree code, and evaluated 50 nonisomorphic lifts. The final 600-lift counts of $D<0$ were
+
+\[
+\begin{array}{c|rrrrrr}
+ (\alpha,\delta)&(17,0)&(17,1)&(18,0)&(18,1)&(18,2)&(18,3)\\
+ \hline
+ \#(D<0)&0&0&0&0&23&19
+\end{array}
+\]
+
+and
+
+\[
+\begin{array}{c|rrrrrr}
+ (\alpha,\delta)&(19,0)&(19,1)&(19,2)&(19,3)&(19,4)&(19,5)\\
+ \hline
+ \#(D<0)&0&0&18&20&21&19.
+\end{array}
+\]
+
+Consequently, the corrected conditional bound (10) is exercised in all six admissible target cells with $\delta\ge2$: all 120 adverse lifts satisfy it. The worst combined endpoint load is
+
+\[
+\frac{816345}{11251072}=0.072557086\ldots
+\]
+
+of the guaranteed Pascal reserve, in the $(\alpha,\delta)=(19,5)$ cell. The other 336 lifts that fail the same endpoint inequality have $D\ge0$, where the inequality is unnecessary; this again shows why (10) must remain conditional. Two lifts in the $(19,3)$ cell also violate blocked-profile log-concavity. There are zero negative full depth-three margins and zero non-unimodal independence polynomials.
+
+Fresh graph6 replays of the worst-load adverse representative from each of the six exercised cells reproduced the saved $e$, $b$, and $s$ profiles, combined correction, joint margin, full margin, and unimodality verdict. The repository's 55-test suite also passed after the run.
+
+This is targeted family evidence, not a census of the target cells. In particular, the zero adverse cases for deficiencies zero and one do not test (10) there. The seed census took 119.80 seconds and the final 600-lift probe took 927.52 seconds wall time on one core. Exact generators and certificates: `../scripts/mine_negative_correction_seeds_20260904.py`, `../results/negative_correction_seeds_n18_20260904.json` (SHA-256 `6f5c202033b8ae53fbbbb523666a0a83ce65a1ac5ad58cbdbf97f3adde471484`), `../scripts/probe_cross_reserve_multicell_lifts_20260904.py`, and `../results/cross_reserve_multicell_lifts_20260904.json` (SHA-256 `fdd5f90e45de64663f7e93c5b093ffa4e1c0a1b67318153c5ed3e5728621c6bb`).
+
 The formula-augmented final pass took 110.81 seconds wall time. Four full structural development passes took 440.37 seconds (about 7.3 minutes) of laptop compute in total.
 
 ## 8. Time and compute estimate on this machine
@@ -373,6 +415,8 @@ The optimized profile scan through \(n=18\) is complete. Extending the full assi
 - The targeted lift probe found 57 \(C<0\) inputs in the actual rung and no failure of Equation (8), but it refuted blocked-profile log-concavity in nine cases.
 
 - Equation (10), the corrected conditional joint bound, has no failure among the 57 lifts with adverse combined correction; it remains unproved.
+
+- A second targeted probe found 120 adverse lifts across every target cell with deficiency at least two and no failure of Equation (10). The deficiency-zero and deficiency-one constructions produced no adverse cases, so the conditional claim was not exercised in those cells.
 
 - None of the weekly papers directly proves either open matching-bag frontier node.
 
@@ -422,3 +466,8 @@ comments:
     by: Codex
     at: 2026-09-04T15:10:13.000Z
     re: c7
+  c9:
+    body: The cross-cell follow-up mined adverse seeds through n<=18 and tested 50 nonisomorphic lifts in every actual-rung cell. Equation (10) survives all 120 adverse lifts, covering every target cell with deficiency at least two. Deficiencies zero and one did not enter the adverse regime. No counterexample to Erdős #993 was found.
+    by: Codex
+    at: 2026-09-04T16:10:11.000Z
+    re: c8

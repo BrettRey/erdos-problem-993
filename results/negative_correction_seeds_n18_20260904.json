@@ -1,0 +1,1153 @@
+{
+  "certificate_date": "2026-09-04",
+  "claim_status": "seed selection only, not theorem evidence",
+  "counters": {
+    "negative_combined_correction": 419,
+    "trees_evaluated": 149239
+  },
+  "kind": "negative_combined_correction_seed_mining",
+  "negative_combined_correction_by_deficiency": {
+    "0": 3,
+    "2": 17,
+    "3": 154,
+    "4": 190,
+    "5": 55
+  },
+  "scope": {
+    "arithmetic": "exact integers",
+    "enumeration": "networkx nonisomorphic trees",
+    "maximum_deficiency": 5,
+    "seeds_per_cell": 5,
+    "target_cells": [
+      {
+        "alpha": 17,
+        "deficiency": 0
+      },
+      {
+        "alpha": 17,
+        "deficiency": 1
+      },
+      {
+        "alpha": 18,
+        "deficiency": 0
+      },
+      {
+        "alpha": 18,
+        "deficiency": 1
+      },
+      {
+        "alpha": 18,
+        "deficiency": 2
+      },
+      {
+        "alpha": 18,
+        "deficiency": 3
+      },
+      {
+        "alpha": 19,
+        "deficiency": 0
+      },
+      {
+        "alpha": 19,
+        "deficiency": 1
+      },
+      {
+        "alpha": 19,
+        "deficiency": 2
+      },
+      {
+        "alpha": 19,
+        "deficiency": 3
+      },
+      {
+        "alpha": 19,
+        "deficiency": 4
+      },
+      {
+        "alpha": 19,
+        "deficiency": 5
+      }
+    ],
+    "tree_orders": [
+      2,
+      18
+    ]
+  },
+  "selection": "For each target cell, retain same-deficiency trees with adverse combined correction, ranked by combined endpoint load divided by the guaranteed Pascal reserve.",
+  "top_seeds_by_target_cell": {
+    "alpha_17_deficiency_0": [
+      {
+        "alpha": 4,
+        "b_0_to_4": [
+          0,
+          4,
+          3,
+          0,
+          0
+        ],
+        "blocked_turan": 0,
+        "combined_correction": -3,
+        "combined_endpoint_load_numerator": 81,
+        "combined_endpoint_load_ratio": 0.12162162162162163,
+        "cross_term": -3,
+        "deficiency": 0,
+        "e_0_to_4": [
+          5,
+          16,
+          18,
+          8,
+          1
+        ],
+        "full_margin": 43,
+        "graph6": "GpD?GC",
+        "n": 8,
+        "pascal_reserve_denominator": 666
+      },
+      {
+        "alpha": 4,
+        "b_0_to_4": [
+          0,
+          3,
+          2,
+          0,
+          0
+        ],
+        "blocked_turan": 0,
+        "combined_correction": -2,
+        "combined_endpoint_load_numerator": 54,
+        "combined_endpoint_load_ratio": 0.07681365576102418,
+        "cross_term": -2,
+        "deficiency": 0,
+        "e_0_to_4": [
+          6,
+          18,
+          19,
+          8,
+          1
+        ],
+        "full_margin": 43,
+        "graph6": "GpOI?C",
+        "n": 8,
+        "pascal_reserve_denominator": 703
+      },
+      {
+        "alpha": 4,
+        "b_0_to_4": [
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        "blocked_turan": 0,
+        "combined_correction": -1,
+        "combined_endpoint_load_numerator": 27,
+        "combined_endpoint_load_ratio": 0.03648648648648649,
+        "cross_term": -1,
+        "deficiency": 0,
+        "e_0_to_4": [
+          7,
+          20,
+          20,
+          8,
+          1
+        ],
+        "full_margin": 43,
+        "graph6": "Gp`?GC",
+        "n": 8,
+        "pascal_reserve_denominator": 740
+      }
+    ],
+    "alpha_17_deficiency_1": [],
+    "alpha_18_deficiency_0": [
+      {
+        "alpha": 4,
+        "b_0_to_4": [
+          0,
+          4,
+          3,
+          0,
+          0
+        ],
+        "blocked_turan": 0,
+        "combined_correction": -3,
+        "combined_endpoint_load_numerator": 81,
+        "combined_endpoint_load_ratio": 0.12162162162162163,
+        "cross_term": -3,
+        "deficiency": 0,
+        "e_0_to_4": [
+          5,
+          16,
+          18,
+          8,
+          1
+        ],
+        "full_margin": 43,
+        "graph6": "GpD?GC",
+        "n": 8,
+        "pascal_reserve_denominator": 666
+      },
+      {
+        "alpha": 4,
+        "b_0_to_4": [
+          0,
+          3,
+          2,
+          0,
+          0
+        ],
+        "blocked_turan": 0,
+        "combined_correction": -2,
+        "combined_endpoint_load_numerator": 54,
+        "combined_endpoint_load_ratio": 0.07681365576102418,
+        "cross_term": -2,
+        "deficiency": 0,
+        "e_0_to_4": [
+          6,
+          18,
+          19,
+          8,
+          1
+        ],
+        "full_margin": 43,
+        "graph6": "GpOI?C",
+        "n": 8,
+        "pascal_reserve_denominator": 703
+      },
+      {
+        "alpha": 4,
+        "b_0_to_4": [
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        "blocked_turan": 0,
+        "combined_correction": -1,
+        "combined_endpoint_load_numerator": 27,
+        "combined_endpoint_load_ratio": 0.03648648648648649,
+        "cross_term": -1,
+        "deficiency": 0,
+        "e_0_to_4": [
+          7,
+          20,
+          20,
+          8,
+          1
+        ],
+        "full_margin": 43,
+        "graph6": "Gp`?GC",
+        "n": 8,
+        "pascal_reserve_denominator": 740
+      }
+    ],
+    "alpha_18_deficiency_1": [],
+    "alpha_18_deficiency_2": [
+      {
+        "alpha": 9,
+        "b_0_to_4": [
+          0,
+          0,
+          1,
+          14,
+          49
+        ],
+        "blocked_turan": 147,
+        "combined_correction": -1319,
+        "combined_endpoint_load_numerator": 4622670,
+        "combined_endpoint_load_ratio": 0.1272862495704505,
+        "cross_term": -1466,
+        "deficiency": 2,
+        "e_0_to_4": [
+          27,
+          186,
+          560,
+          965,
+          1046
+        ],
+        "full_margin": 344146,
+        "graph6": "OpC_H?@O??_@?@O?G?A??",
+        "n": 16,
+        "pascal_reserve_denominator": 36317120
+      },
+      {
+        "alpha": 9,
+        "b_0_to_4": [
+          0,
+          0,
+          1,
+          12,
+          46
+        ],
+        "blocked_turan": 98,
+        "combined_correction": -3098,
+        "combined_endpoint_load_numerator": 4160484,
+        "combined_endpoint_load_ratio": 0.1222506069212827,
+        "cross_term": -3196,
+        "deficiency": 2,
+        "e_0_to_4": [
+          25,
+          175,
+          535,
+          935,
+          1026
+        ],
+        "full_margin": 322217,
+        "graph6": "OpC_I?@?G?_C?@O?G?A??",
+        "n": 16,
+        "pascal_reserve_denominator": 34032420
+      },
+      {
+        "alpha": 10,
+        "b_0_to_4": [
+          0,
+          0,
+          2,
+          25,
+          96
+        ],
+        "blocked_turan": 433,
+        "combined_correction": -1895,
+        "combined_endpoint_load_numerator": 21020580,
+        "combined_endpoint_load_ratio": 0.10335905394872173,
+        "cross_term": -2328,
+        "deficiency": 2,
+        "e_0_to_4": [
+          42,
+          323,
+          1099,
+          2174,
+          2762
+        ],
+        "full_margin": 1688943,
+        "graph6": "QpCKCA?O??_@?@?A?A??@?C???G",
+        "n": 18,
+        "pascal_reserve_denominator": 203374346
+      },
+      {
+        "alpha": 10,
+        "b_0_to_4": [
+          0,
+          0,
+          2,
+          23,
+          91
+        ],
+        "blocked_turan": 347,
+        "combined_correction": -4336,
+        "combined_endpoint_load_numerator": 19342071,
+        "combined_endpoint_load_ratio": 0.10013945436944184,
+        "cross_term": -4683,
+        "deficiency": 2,
+        "e_0_to_4": [
+          40,
+          310,
+          1063,
+          2119,
+          2712
+        ],
+        "full_margin": 1602969,
+        "graph6": "QpCG`?@O??_@?@?A??I??O?@???",
+        "n": 18,
+        "pascal_reserve_denominator": 193151352
+      },
+      {
+        "alpha": 10,
+        "b_0_to_4": [
+          0,
+          0,
+          1,
+          23,
+          99
+        ],
+        "blocked_turan": 430,
+        "combined_correction": -16107,
+        "combined_endpoint_load_numerator": 23696820,
+        "combined_endpoint_load_ratio": 0.09809804832208217,
+        "cross_term": -16537,
+        "deficiency": 2,
+        "e_0_to_4": [
+          51,
+          377,
+          1236,
+          2364,
+          2917
+        ],
+        "full_margin": 1966977,
+        "graph6": "QpC_H?@G??g??@??_?I??O?@???",
+        "n": 18,
+        "pascal_reserve_denominator": 241562604
+      }
+    ],
+    "alpha_18_deficiency_3": [
+      {
+        "alpha": 6,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          1,
+          3
+        ],
+        "blocked_turan": 1,
+        "combined_correction": -24,
+        "combined_endpoint_load_numerator": 8505,
+        "combined_endpoint_load_ratio": 0.20680851063829786,
+        "cross_term": -25,
+        "deficiency": 3,
+        "e_0_to_4": [
+          3,
+          16,
+          35,
+          40,
+          25
+        ],
+        "full_margin": 701,
+        "graph6": "HpOGOOG",
+        "n": 9,
+        "pascal_reserve_denominator": 41125
+      },
+      {
+        "alpha": 7,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          2,
+          6
+        ],
+        "blocked_turan": 4,
+        "combined_correction": -32,
+        "combined_endpoint_load_numerator": 49248,
+        "combined_endpoint_load_ratio": 0.14660633484162897,
+        "cross_term": -36,
+        "deficiency": 3,
+        "e_0_to_4": [
+          5,
+          30,
+          76,
+          105,
+          85
+        ],
+        "full_margin": 4533,
+        "graph6": "JpG`A?@?GA?",
+        "n": 11,
+        "pascal_reserve_denominator": 335920
+      },
+      {
+        "alpha": 7,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          1,
+          6
+        ],
+        "blocked_turan": 1,
+        "combined_correction": -245,
+        "combined_endpoint_load_numerator": 49248,
+        "combined_endpoint_load_ratio": 0.14660633484162897,
+        "cross_term": -246,
+        "deficiency": 3,
+        "e_0_to_4": [
+          5,
+          30,
+          76,
+          105,
+          85
+        ],
+        "full_margin": 4320,
+        "graph6": "Jp_I?CA?_C?",
+        "n": 11,
+        "pascal_reserve_denominator": 335920
+      },
+      {
+        "alpha": 8,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          4,
+          13
+        ],
+        "blocked_turan": 16,
+        "combined_correction": -27,
+        "combined_endpoint_load_numerator": 293085,
+        "combined_endpoint_load_ratio": 0.11842105263157894,
+        "cross_term": -43,
+        "deficiency": 3,
+        "e_0_to_4": [
+          9,
+          59,
+          167,
+          266,
+          260
+        ],
+        "full_margin": 27309,
+        "graph6": "LpG`A?@?GA?@?O",
+        "n": 13,
+        "pascal_reserve_denominator": 2474940
+      },
+      {
+        "alpha": 8,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          3,
+          12
+        ],
+        "blocked_turan": 9,
+        "combined_correction": -339,
+        "combined_endpoint_load_numerator": 254340,
+        "combined_endpoint_load_ratio": 0.11145510835913312,
+        "cross_term": -348,
+        "deficiency": 3,
+        "e_0_to_4": [
+          8,
+          54,
+          157,
+          256,
+          255
+        ],
+        "full_margin": 25162,
+        "graph6": "LpCcA?@?G@?C?G",
+        "n": 13,
+        "pascal_reserve_denominator": 2281995
+      }
+    ],
+    "alpha_19_deficiency_0": [
+      {
+        "alpha": 4,
+        "b_0_to_4": [
+          0,
+          4,
+          3,
+          0,
+          0
+        ],
+        "blocked_turan": 0,
+        "combined_correction": -3,
+        "combined_endpoint_load_numerator": 81,
+        "combined_endpoint_load_ratio": 0.12162162162162163,
+        "cross_term": -3,
+        "deficiency": 0,
+        "e_0_to_4": [
+          5,
+          16,
+          18,
+          8,
+          1
+        ],
+        "full_margin": 43,
+        "graph6": "GpD?GC",
+        "n": 8,
+        "pascal_reserve_denominator": 666
+      },
+      {
+        "alpha": 4,
+        "b_0_to_4": [
+          0,
+          3,
+          2,
+          0,
+          0
+        ],
+        "blocked_turan": 0,
+        "combined_correction": -2,
+        "combined_endpoint_load_numerator": 54,
+        "combined_endpoint_load_ratio": 0.07681365576102418,
+        "cross_term": -2,
+        "deficiency": 0,
+        "e_0_to_4": [
+          6,
+          18,
+          19,
+          8,
+          1
+        ],
+        "full_margin": 43,
+        "graph6": "GpOI?C",
+        "n": 8,
+        "pascal_reserve_denominator": 703
+      },
+      {
+        "alpha": 4,
+        "b_0_to_4": [
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        "blocked_turan": 0,
+        "combined_correction": -1,
+        "combined_endpoint_load_numerator": 27,
+        "combined_endpoint_load_ratio": 0.03648648648648649,
+        "cross_term": -1,
+        "deficiency": 0,
+        "e_0_to_4": [
+          7,
+          20,
+          20,
+          8,
+          1
+        ],
+        "full_margin": 43,
+        "graph6": "Gp`?GC",
+        "n": 8,
+        "pascal_reserve_denominator": 740
+      }
+    ],
+    "alpha_19_deficiency_1": [],
+    "alpha_19_deficiency_2": [
+      {
+        "alpha": 9,
+        "b_0_to_4": [
+          0,
+          0,
+          1,
+          14,
+          49
+        ],
+        "blocked_turan": 147,
+        "combined_correction": -1319,
+        "combined_endpoint_load_numerator": 4622670,
+        "combined_endpoint_load_ratio": 0.1272862495704505,
+        "cross_term": -1466,
+        "deficiency": 2,
+        "e_0_to_4": [
+          27,
+          186,
+          560,
+          965,
+          1046
+        ],
+        "full_margin": 344146,
+        "graph6": "OpC_H?@O??_@?@O?G?A??",
+        "n": 16,
+        "pascal_reserve_denominator": 36317120
+      },
+      {
+        "alpha": 9,
+        "b_0_to_4": [
+          0,
+          0,
+          1,
+          12,
+          46
+        ],
+        "blocked_turan": 98,
+        "combined_correction": -3098,
+        "combined_endpoint_load_numerator": 4160484,
+        "combined_endpoint_load_ratio": 0.1222506069212827,
+        "cross_term": -3196,
+        "deficiency": 2,
+        "e_0_to_4": [
+          25,
+          175,
+          535,
+          935,
+          1026
+        ],
+        "full_margin": 322217,
+        "graph6": "OpC_I?@?G?_C?@O?G?A??",
+        "n": 16,
+        "pascal_reserve_denominator": 34032420
+      },
+      {
+        "alpha": 10,
+        "b_0_to_4": [
+          0,
+          0,
+          2,
+          25,
+          96
+        ],
+        "blocked_turan": 433,
+        "combined_correction": -1895,
+        "combined_endpoint_load_numerator": 21020580,
+        "combined_endpoint_load_ratio": 0.10335905394872173,
+        "cross_term": -2328,
+        "deficiency": 2,
+        "e_0_to_4": [
+          42,
+          323,
+          1099,
+          2174,
+          2762
+        ],
+        "full_margin": 1688943,
+        "graph6": "QpCKCA?O??_@?@?A?A??@?C???G",
+        "n": 18,
+        "pascal_reserve_denominator": 203374346
+      },
+      {
+        "alpha": 10,
+        "b_0_to_4": [
+          0,
+          0,
+          2,
+          23,
+          91
+        ],
+        "blocked_turan": 347,
+        "combined_correction": -4336,
+        "combined_endpoint_load_numerator": 19342071,
+        "combined_endpoint_load_ratio": 0.10013945436944184,
+        "cross_term": -4683,
+        "deficiency": 2,
+        "e_0_to_4": [
+          40,
+          310,
+          1063,
+          2119,
+          2712
+        ],
+        "full_margin": 1602969,
+        "graph6": "QpCG`?@O??_@?@?A??I??O?@???",
+        "n": 18,
+        "pascal_reserve_denominator": 193151352
+      },
+      {
+        "alpha": 10,
+        "b_0_to_4": [
+          0,
+          0,
+          1,
+          23,
+          99
+        ],
+        "blocked_turan": 430,
+        "combined_correction": -16107,
+        "combined_endpoint_load_numerator": 23696820,
+        "combined_endpoint_load_ratio": 0.09809804832208217,
+        "cross_term": -16537,
+        "deficiency": 2,
+        "e_0_to_4": [
+          51,
+          377,
+          1236,
+          2364,
+          2917
+        ],
+        "full_margin": 1966977,
+        "graph6": "QpC_H?@G??g??@??_?I??O?@???",
+        "n": 18,
+        "pascal_reserve_denominator": 241562604
+      }
+    ],
+    "alpha_19_deficiency_3": [
+      {
+        "alpha": 6,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          1,
+          3
+        ],
+        "blocked_turan": 1,
+        "combined_correction": -24,
+        "combined_endpoint_load_numerator": 8505,
+        "combined_endpoint_load_ratio": 0.20680851063829786,
+        "cross_term": -25,
+        "deficiency": 3,
+        "e_0_to_4": [
+          3,
+          16,
+          35,
+          40,
+          25
+        ],
+        "full_margin": 701,
+        "graph6": "HpOGOOG",
+        "n": 9,
+        "pascal_reserve_denominator": 41125
+      },
+      {
+        "alpha": 7,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          2,
+          6
+        ],
+        "blocked_turan": 4,
+        "combined_correction": -32,
+        "combined_endpoint_load_numerator": 49248,
+        "combined_endpoint_load_ratio": 0.14660633484162897,
+        "cross_term": -36,
+        "deficiency": 3,
+        "e_0_to_4": [
+          5,
+          30,
+          76,
+          105,
+          85
+        ],
+        "full_margin": 4533,
+        "graph6": "JpG`A?@?GA?",
+        "n": 11,
+        "pascal_reserve_denominator": 335920
+      },
+      {
+        "alpha": 7,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          1,
+          6
+        ],
+        "blocked_turan": 1,
+        "combined_correction": -245,
+        "combined_endpoint_load_numerator": 49248,
+        "combined_endpoint_load_ratio": 0.14660633484162897,
+        "cross_term": -246,
+        "deficiency": 3,
+        "e_0_to_4": [
+          5,
+          30,
+          76,
+          105,
+          85
+        ],
+        "full_margin": 4320,
+        "graph6": "Jp_I?CA?_C?",
+        "n": 11,
+        "pascal_reserve_denominator": 335920
+      },
+      {
+        "alpha": 8,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          4,
+          13
+        ],
+        "blocked_turan": 16,
+        "combined_correction": -27,
+        "combined_endpoint_load_numerator": 293085,
+        "combined_endpoint_load_ratio": 0.11842105263157894,
+        "cross_term": -43,
+        "deficiency": 3,
+        "e_0_to_4": [
+          9,
+          59,
+          167,
+          266,
+          260
+        ],
+        "full_margin": 27309,
+        "graph6": "LpG`A?@?GA?@?O",
+        "n": 13,
+        "pascal_reserve_denominator": 2474940
+      },
+      {
+        "alpha": 8,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          3,
+          12
+        ],
+        "blocked_turan": 9,
+        "combined_correction": -339,
+        "combined_endpoint_load_numerator": 254340,
+        "combined_endpoint_load_ratio": 0.11145510835913312,
+        "cross_term": -348,
+        "deficiency": 3,
+        "e_0_to_4": [
+          8,
+          54,
+          157,
+          256,
+          255
+        ],
+        "full_margin": 25162,
+        "graph6": "LpCcA?@?G@?C?G",
+        "n": 13,
+        "pascal_reserve_denominator": 2281995
+      }
+    ],
+    "alpha_19_deficiency_4": [
+      {
+        "alpha": 5,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "blocked_turan": 0,
+        "combined_correction": -10,
+        "combined_endpoint_load_numerator": 540,
+        "combined_endpoint_load_ratio": 0.2571428571428571,
+        "cross_term": -10,
+        "deficiency": 4,
+        "e_0_to_4": [
+          1,
+          5,
+          10,
+          10,
+          5
+        ],
+        "full_margin": 40,
+        "graph6": "EiP?",
+        "n": 6,
+        "pascal_reserve_denominator": 2100
+      },
+      {
+        "alpha": 11,
+        "b_0_to_4": [
+          0,
+          0,
+          1,
+          27,
+          135
+        ],
+        "blocked_turan": 594,
+        "combined_correction": -2078,
+        "combined_endpoint_load_numerator": 17694072,
+        "combined_endpoint_load_ratio": 0.17399828374313922,
+        "cross_term": -2672,
+        "deficiency": 4,
+        "e_0_to_4": [
+          15,
+          140,
+          588,
+          1465,
+          2402
+        ],
+        "full_margin": 731771,
+        "graph6": "QpC_I?@?G?g??@??_?O?CO?@???",
+        "n": 18,
+        "pascal_reserve_denominator": 101691072
+      },
+      {
+        "alpha": 11,
+        "b_0_to_4": [
+          0,
+          0,
+          1,
+          28,
+          135
+        ],
+        "blocked_turan": 649,
+        "combined_correction": -803,
+        "combined_endpoint_load_numerator": 20434248,
+        "combined_endpoint_load_ratio": 0.15643409912690714,
+        "cross_term": -1452,
+        "deficiency": 4,
+        "e_0_to_4": [
+          18,
+          165,
+          680,
+          1661,
+          2668
+        ],
+        "full_margin": 943878,
+        "graph6": "QpD?GC@O??_@?A?AG???@O?@???",
+        "n": 18,
+        "pascal_reserve_denominator": 130625280
+      },
+      {
+        "alpha": 6,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "blocked_turan": 0,
+        "combined_correction": -25,
+        "combined_endpoint_load_numerator": 2025,
+        "combined_endpoint_load_ratio": 0.08617021276595745,
+        "cross_term": -25,
+        "deficiency": 4,
+        "e_0_to_4": [
+          2,
+          11,
+          25,
+          30,
+          20
+        ],
+        "full_margin": 375,
+        "graph6": "GqPAA?",
+        "n": 8,
+        "pascal_reserve_denominator": 23500
+      },
+      {
+        "alpha": 7,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "blocked_turan": 0,
+        "combined_correction": -102,
+        "combined_endpoint_load_numerator": 11016,
+        "combined_endpoint_load_ratio": 0.06390532544378698,
+        "cross_term": -102,
+        "deficiency": 4,
+        "e_0_to_4": [
+          3,
+          19,
+          51,
+          75,
+          65
+        ],
+        "full_margin": 2208,
+        "graph6": "IsaCA?@O?",
+        "n": 10,
+        "pascal_reserve_denominator": 172380
+      }
+    ],
+    "alpha_19_deficiency_5": [
+      {
+        "alpha": 9,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          5,
+          22
+        ],
+        "blocked_turan": 25,
+        "combined_correction": -39,
+        "combined_endpoint_load_numerator": 327888,
+        "combined_endpoint_load_ratio": 0.2161047780742178,
+        "cross_term": -64,
+        "deficiency": 5,
+        "e_0_to_4": [
+          3,
+          25,
+          92,
+          196,
+          266
+        ],
+        "full_margin": 13905,
+        "graph6": "LpGa?C@?a?G?O?",
+        "n": 13,
+        "pascal_reserve_denominator": 1517264
+      },
+      {
+        "alpha": 10,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          9,
+          45
+        ],
+        "blocked_turan": 81,
+        "combined_correction": -360,
+        "combined_endpoint_load_numerator": 1539405,
+        "combined_endpoint_load_ratio": 0.19291838678945697,
+        "cross_term": -441,
+        "deficiency": 5,
+        "e_0_to_4": [
+          5,
+          45,
+          181,
+          428,
+          658
+        ],
+        "full_margin": 63726,
+        "graph6": "NpGa?C@?_?_OO?O?G??",
+        "n": 15,
+        "pascal_reserve_denominator": 7979566
+      },
+      {
+        "alpha": 9,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          4,
+          19
+        ],
+        "blocked_turan": 16,
+        "combined_correction": -164,
+        "combined_endpoint_load_numerator": 283176,
+        "combined_endpoint_load_ratio": 0.18663594470046083,
+        "cross_term": -180,
+        "deficiency": 5,
+        "e_0_to_4": [
+          3,
+          25,
+          92,
+          196,
+          266
+        ],
+        "full_margin": 13780,
+        "graph6": "LpD?GCA?a?G?O?",
+        "n": 13,
+        "pascal_reserve_denominator": 1517264
+      },
+      {
+        "alpha": 9,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          5,
+          21
+        ],
+        "blocked_turan": 25,
+        "combined_correction": -38,
+        "combined_endpoint_load_numerator": 384426,
+        "combined_endpoint_load_ratio": 0.18229557389347337,
+        "cross_term": -63,
+        "deficiency": 5,
+        "e_0_to_4": [
+          4,
+          32,
+          113,
+          231,
+          301
+        ],
+        "full_margin": 19310,
+        "graph6": "LpGa?D??I?G?O?",
+        "n": 13,
+        "pascal_reserve_denominator": 2108806
+      },
+      {
+        "alpha": 10,
+        "b_0_to_4": [
+          0,
+          0,
+          0,
+          8,
+          41
+        ],
+        "blocked_turan": 64,
+        "combined_correction": -509,
+        "combined_endpoint_load_numerator": 1402569,
+        "combined_endpoint_load_ratio": 0.17577008574150524,
+        "cross_term": -573,
+        "deficiency": 5,
+        "e_0_to_4": [
+          5,
+          45,
+          181,
+          428,
+          658
+        ],
+        "full_margin": 63577,
+        "graph6": "NpCcA?@?G@?CO?O?G??",
+        "n": 15,
+        "pascal_reserve_denominator": 7979566
+      }
+    ]
+  }
+}
