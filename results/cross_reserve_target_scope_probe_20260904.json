@@ -1,0 +1,144 @@
+{
+  "by_cell": {
+    "alpha_17_deficiency_0": {
+      "accepted": 50,
+      "trials": 50
+    },
+    "alpha_17_deficiency_1": {
+      "accepted": 50,
+      "trials": 50
+    },
+    "alpha_18_deficiency_0": {
+      "accepted": 50,
+      "trials": 50
+    },
+    "alpha_18_deficiency_1": {
+      "accepted": 50,
+      "trials": 50
+    },
+    "alpha_18_deficiency_2": {
+      "accepted": 50,
+      "rejected_nonmaximum_proposed_matching": 18,
+      "trials": 68
+    },
+    "alpha_18_deficiency_3": {
+      "accepted": 50,
+      "rejected_nonmaximum_proposed_matching": 79,
+      "trials": 129
+    },
+    "alpha_19_deficiency_0": {
+      "accepted": 50,
+      "trials": 50
+    },
+    "alpha_19_deficiency_1": {
+      "accepted": 50,
+      "trials": 50
+    },
+    "alpha_19_deficiency_2": {
+      "accepted": 50,
+      "rejected_nonmaximum_proposed_matching": 21,
+      "trials": 71
+    },
+    "alpha_19_deficiency_3": {
+      "accepted": 50,
+      "rejected_nonmaximum_proposed_matching": 76,
+      "trials": 126
+    },
+    "alpha_19_deficiency_4": {
+      "accepted": 50,
+      "rejected_nonmaximum_proposed_matching": 162,
+      "trials": 212
+    },
+    "alpha_19_deficiency_5": {
+      "accepted": 50,
+      "rejected_nonmaximum_proposed_matching": 604,
+      "trials": 654
+    }
+  },
+  "candidate": "When C<0, (5*alpha+17)*e_2*e_4 >= 27*(alpha-3)*(e_2*b_4+e_4*b_2).",
+  "certificate_date": "2026-09-04",
+  "claim_status": "bounded random evidence, not a theorem",
+  "counters": {
+    "accepted": 600,
+    "blocked_lc_failures": 0,
+    "cross_reserve_failures": 0,
+    "full_depth3_failures": 0,
+    "negative_cross": 0,
+    "pascal_cross_bound_failures": 0,
+    "pascal_endpoint_bound_failures": 0,
+    "rejected_nonmaximum_proposed_matching": 960,
+    "trials": 1560,
+    "unimodality_failures": 0
+  },
+  "first_witnesses": {},
+  "kind": "random_target_scope_cross_reserve_probe",
+  "scope": {
+    "accepted_per_cell": 50,
+    "alpha_values": [
+      17,
+      18,
+      19
+    ],
+    "arithmetic": "exact integers",
+    "cells": [
+      {
+        "alpha": 17,
+        "deficiency": 0
+      },
+      {
+        "alpha": 17,
+        "deficiency": 1
+      },
+      {
+        "alpha": 18,
+        "deficiency": 0
+      },
+      {
+        "alpha": 18,
+        "deficiency": 1
+      },
+      {
+        "alpha": 18,
+        "deficiency": 2
+      },
+      {
+        "alpha": 18,
+        "deficiency": 3
+      },
+      {
+        "alpha": 19,
+        "deficiency": 0
+      },
+      {
+        "alpha": 19,
+        "deficiency": 1
+      },
+      {
+        "alpha": 19,
+        "deficiency": 2
+      },
+      {
+        "alpha": 19,
+        "deficiency": 3
+      },
+      {
+        "alpha": 19,
+        "deficiency": 4
+      },
+      {
+        "alpha": 19,
+        "deficiency": 5
+      }
+    ],
+    "max_trials_per_cell": 10000,
+    "maximum_deficiency": 5,
+    "sampling": "Random labeled quotient trees, random singleton locations, and random endpoint ports, conditioned on the proposed matching being maximum.",
+    "seed": 99320260904,
+    "tree_orders": [
+      33,
+      38
+    ]
+  },
+  "worst_cross_load": null,
+  "worst_endpoint_load": null
+}

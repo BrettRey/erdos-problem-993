@@ -1,0 +1,512 @@
+{
+  "schema_version": 1,
+  "graph_id": "erdos993_depth3_frontier_20260828",
+  "title": "Erdos #993 depth-3 proof frontier",
+  "updated": "2026-09-04",
+  "root_claim": "depth3_rung_lc",
+  "scope": "The remaining depth-3 log-concavity rung in the matching-bag approach; this graph is not a proof of full tree independence-sequence unimodality.",
+  "claims": [
+    {
+      "id": "depth3_rung_lc",
+      "kind": "bounded_goal",
+      "slogan": "The remaining alpha 17--19, deficiency at most five rung has no depth-3 log-concavity break.",
+      "statement": "For every tree T with alpha(T) in {17,18,19} and matching deficiency delta=2 alpha(T)-|V(T)| at most 5, if s_d=i_{alpha-d}(T), then s_3^2 >= s_2 s_4.",
+      "status": "open",
+      "scope": "Trees in the final enumeration-reachable depth-3 window only.",
+      "falsification": "One exact tree in the stated window with s_3^2 < s_2 s_4 refutes the claim.",
+      "evidence": [
+        {
+          "type": "note",
+          "ref": "notes/depth3_window_sizing_2026-08-19.md"
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "high"
+      },
+      "search_profiles": {
+        "direct": [
+          "near-maximum independent sets of a tree log-concave at defect three"
+        ],
+        "obstruction": [
+          "tree independent sets three below maximum violate a Turan inequality"
+        ]
+      }
+    },
+    {
+      "id": "matching_bag_representation",
+      "kind": "representation_theorem",
+      "slogan": "A maximum matching turns a tree independence polynomial into a port-labeled bag CSP with alpha bags.",
+      "statement": "Contracting the edges of a maximum matching M in a tree T gives alpha(T) one- or two-vertex bags, and independent sets of T are in weight-preserving bijection with feasible bag assignments.",
+      "status": "formalized",
+      "scope": "Every finite forest, hence every finite tree.",
+      "falsification": "A finite forest for which the bag construction fails to partition vertices or fails to preserve feasible-assignment weights refutes the claim.",
+      "evidence": [
+        {
+          "type": "note",
+          "ref": "notes/matching_bag_csp_attack_2026-08-20.md"
+        },
+        {
+          "type": "lean",
+          "ref": "formalization/matching_bag_poset_aristotle/RequestProject/TreeMatching.lean"
+        },
+        {
+          "type": "script",
+          "ref": "verify_matching_bag_csp_20260820.py"
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "low"
+      },
+      "search_profiles": {}
+    },
+    {
+      "id": "forest_poset_code",
+      "kind": "representation_theorem",
+      "slogan": "Maximum assignments form an order-ideal code of a forest-cover poset, times constant coordinates.",
+      "statement": "After complementing maximum independent sets to minimum vertex covers and gauging the matching-edge variables, the free assignments are the order ideals of a poset with forest cover graph; forced bags contribute constant coordinates.",
+      "status": "formalized",
+      "scope": "Every finite forest equipped with a maximum matching.",
+      "falsification": "A finite forest whose maximum-assignment code is not equivalent to the stated order-ideal code refutes the claim.",
+      "evidence": [
+        {
+          "type": "note",
+          "ref": "notes/matching_bag_poset_reduction_2026-08-20.md"
+        },
+        {
+          "type": "lean",
+          "ref": "formalization/matching_bag_poset_aristotle/RequestProject/TreeCodeBridge.lean"
+        },
+        {
+          "type": "script",
+          "ref": "verify_erasure_shadow_poset_20260820.py"
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "low"
+      },
+      "search_profiles": {}
+    },
+    {
+      "id": "extendable_pascal_reserve",
+      "kind": "quantitative_lemma",
+      "slogan": "The extendable erasure profile is log-concave with an explicit depth-3 Pascal reserve.",
+      "statement": "For M>=4, the extendable profile satisfies 27(M-3)e_3^2 >= 32(M-2)e_2e_4, hence e_3^2-e_2e_4 >= 0.",
+      "status": "formalized",
+      "scope": "Every downward-closed family after the Pascal transform; transported to every finite tree maximum-assignment code.",
+      "falsification": "A downward-closed family or transported tree code violating the displayed integer inequality refutes the claim.",
+      "evidence": [
+        {
+          "type": "note",
+          "ref": "notes/pascal_smoothing_shadow_lemma_2026-08-20.md"
+        },
+        {
+          "type": "lean",
+          "ref": "formalization/matching_bag_poset_aristotle/RequestProject/PascalBridge.lean"
+        },
+        {
+          "type": "script",
+          "ref": "verify_pascal_smoothing_20260820.py"
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "low"
+      },
+      "search_profiles": {}
+    },
+    {
+      "id": "blocked_path_classification",
+      "kind": "structural_lemma",
+      "slogan": "Every minimal blocked residual through defect four is an alternating comparison path.",
+      "statement": "For an erased bag set D with |D|<=4, every minimal unsatisfiable residual component is a path on erased bags whose endpoint forces collide; in the poset gauge it is a violated transitive comparison along the unique cover path.",
+      "status": "proved",
+      "scope": "Maximum-matching bag CSPs of trees, at defect at most four.",
+      "falsification": "A minimal blocked residual with at most four erased bags that is not a forced path refutes the classification.",
+      "evidence": [
+        {
+          "type": "note",
+          "ref": "notes/matching_bag_csp_attack_2026-08-20.md"
+        },
+        {
+          "type": "note",
+          "ref": "notes/matching_bag_poset_reduction_2026-08-20.md"
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "medium"
+      },
+      "search_profiles": {}
+    },
+    {
+      "id": "blocked_extendable_split",
+      "kind": "counting_identity",
+      "slogan": "Near-maximum independent sets split into extendable and blocked partial assignments.",
+      "statement": "For each defect d, s_d=i_{alpha-d}(T)=e_d+b_d, where e_d counts bag assignments extendable to a maximum assignment and b_d counts the remaining feasible assignments.",
+      "status": "proved",
+      "scope": "Every finite tree and every defect.",
+      "falsification": "Any tree, matching choice, and defect for which the two classes overlap, omit an assignment, or give the wrong coefficient refutes the identity.",
+      "evidence": [
+        {
+          "type": "note",
+          "ref": "notes/matching_bag_csp_attack_2026-08-20.md"
+        },
+        {
+          "type": "result",
+          "ref": "results/blocked_profile_depth3_probe_20260828.json"
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "low"
+      },
+      "search_profiles": {}
+    },
+    {
+      "id": "depth3_margin_decomposition",
+      "kind": "algebraic_identity",
+      "slogan": "The corrected Turan margin is the extendable reserve plus blocked reserve plus a mixed cross term.",
+      "statement": "s_3^2-s_2s_4=(e_3^2-e_2e_4)+(b_3^2-b_2b_4)+(2e_3b_3-e_2b_4-e_4b_2).",
+      "status": "proved",
+      "scope": "All nonnegative sequences satisfying s=e+b; no tree hypothesis is needed.",
+      "falsification": "One exact integer substitution satisfying s=e+b but violating the identity refutes the claim.",
+      "evidence": [
+        {
+          "type": "result",
+          "ref": "results/blocked_profile_depth3_probe_20260828.json"
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "low"
+      },
+      "search_profiles": {}
+    },
+    {
+      "id": "blocked_profile_depth3_lc",
+      "kind": "conjectured_lemma",
+      "slogan": "The proposed blocked-profile log-concavity lemma is false in the target rung.",
+      "statement": "For the matching-bag decomposition of every tree in the target scope, b_3^2 >= b_2 b_4.",
+      "status": "refuted",
+      "scope": "Refuted at (n,alpha,deficiency)=(33,19,5): one exact lift has (b_2,b_3,b_4)=(1,16,4216), hence b_3^2-b_2b_4=-3960.",
+      "falsification": "One tree and maximum-matching bag decomposition with b_3^2 < b_2 b_4 refutes the claim.",
+      "evidence": [
+        {
+          "type": "script",
+          "ref": "scripts/probe_blocked_profile_depth3_20260828.py"
+        },
+        {
+          "type": "result",
+          "ref": "results/blocked_profile_depth3_probe_20260828.json"
+        },
+        {
+          "type": "script",
+          "ref": "scripts/probe_cross_reserve_witness_lifts_20260904.py"
+        },
+        {
+          "type": "result",
+          "ref": "results/cross_reserve_witness_lifts_20260904.json"
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "medium"
+      },
+      "search_profiles": {
+        "direct": [
+          "independent sets not contained in any maximum independent set counted by size",
+          "nonextendable near-optimal independent sets log-concave"
+        ],
+        "obstruction": [
+          "rank sequence of faces not contained in a maximum-dimensional facet",
+          "minimal obstruction certificates imply log-concavity of nonextendable partial assignments"
+        ],
+        "generating_function": [
+          "generating polynomial for feasible partial assignments that do not extend to an optimal solution"
+        ],
+        "csp_sat": [
+          "minimally unsatisfiable tree CSPs counted by number of unassigned variables"
+        ],
+        "simplicial_complex": [
+          "rank sequence of the nonpure part of a simplicial independence complex"
+        ]
+      }
+    },
+    {
+      "id": "cross_reserve_depth3",
+      "kind": "conjectured_lemma",
+      "slogan": "The extendable Pascal reserve absorbs the adverse mixed blocked/extendable cross term.",
+      "statement": "For the matching-bag decomposition of every tree in the target scope, (e_3^2-e_2e_4)+(2e_3b_3-e_2b_4-e_4b_2) >= 0.",
+      "status": "verified_bounded",
+      "scope": "Exact evidence covers every nonisomorphic tree through n=18 and 500 targeted lifts in the (n,alpha,deficiency)=(33,19,5) cell, including 57 with a negative mixed term; the intended theorem scope is the remaining alpha 17--19 rung.",
+      "falsification": "One tree and maximum-matching bag decomposition with the displayed cross-reserve margin negative refutes the claim.",
+      "evidence": [
+        {
+          "type": "script",
+          "ref": "scripts/probe_blocked_profile_depth3_20260828.py"
+        },
+        {
+          "type": "result",
+          "ref": "results/blocked_profile_depth3_probe_20260828.json"
+        },
+        {
+          "type": "script",
+          "ref": "scripts/probe_cross_reserve_witness_lifts_20260904.py"
+        },
+        {
+          "type": "result",
+          "ref": "results/cross_reserve_witness_lifts_20260904.json"
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "medium"
+      },
+      "search_profiles": {
+        "direct": [
+          "log-concavity preserved when a correction sequence is partially synchronized with a sequence having quantitative Turan slack"
+        ],
+        "probabilistic_event": [
+          "quantitative second-order union bound for overlapping path obstruction events on a forest"
+        ],
+        "matching_poset": [
+          "charge violated transitive comparisons in a forest poset to order-preserving partial assignments"
+        ],
+        "obstruction": [
+          "negative mixed Turan cross term bounded by a base log-concavity reserve"
+        ]
+      }
+    },
+    {
+      "id": "depth3_margin_nonnegative",
+      "kind": "assembly_lemma",
+      "slogan": "The Pascal reserve must absorb the mixed and blocked-profile deficits jointly.",
+      "statement": "For every tree in the target scope, ((5 alpha+17)/(27(alpha-3)))e_2e_4+(b_3^2-b_2b_4)+(2e_3b_3-e_2b_4-e_4b_2) >= 0; together with the proved Pascal reserve and the depth-3 decomposition, this implies s_3^2-s_2s_4>=0.",
+      "status": "verified_bounded",
+      "scope": "The remaining alpha 17--19, deficiency at most five rung; targeted evidence covers 500 lifts in the (33,19,5) cell, including 57 with adverse combined correction.",
+      "falsification": "One target-scope tree whose displayed Pascal lower margin is negative refutes this sufficient bridge; a negative full margin would also refute the depth-3 rung itself.",
+      "evidence": [
+        {
+          "type": "script",
+          "ref": "scripts/probe_cross_reserve_witness_lifts_20260904.py"
+        },
+        {
+          "type": "result",
+          "ref": "results/cross_reserve_witness_lifts_20260904.json"
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "low"
+      },
+      "search_profiles": {}
+    }
+  ],
+  "edges": [
+    {
+      "from": "depth3_rung_lc",
+      "to": "matching_bag_representation",
+      "type": "depends_on"
+    },
+    {
+      "from": "depth3_rung_lc",
+      "to": "depth3_margin_nonnegative",
+      "type": "depends_on"
+    },
+    {
+      "from": "forest_poset_code",
+      "to": "matching_bag_representation",
+      "type": "depends_on"
+    },
+    {
+      "from": "extendable_pascal_reserve",
+      "to": "forest_poset_code",
+      "type": "depends_on"
+    },
+    {
+      "from": "blocked_extendable_split",
+      "to": "matching_bag_representation",
+      "type": "depends_on"
+    },
+    {
+      "from": "depth3_margin_decomposition",
+      "to": "blocked_extendable_split",
+      "type": "depends_on"
+    },
+    {
+      "from": "blocked_profile_depth3_lc",
+      "to": "blocked_path_classification",
+      "type": "depends_on"
+    },
+    {
+      "from": "blocked_profile_depth3_lc",
+      "to": "blocked_extendable_split",
+      "type": "depends_on"
+    },
+    {
+      "from": "cross_reserve_depth3",
+      "to": "extendable_pascal_reserve",
+      "type": "depends_on"
+    },
+    {
+      "from": "cross_reserve_depth3",
+      "to": "blocked_path_classification",
+      "type": "depends_on"
+    },
+    {
+      "from": "cross_reserve_depth3",
+      "to": "blocked_extendable_split",
+      "type": "depends_on"
+    },
+    {
+      "from": "depth3_margin_nonnegative",
+      "to": "depth3_margin_decomposition",
+      "type": "depends_on"
+    },
+    {
+      "from": "depth3_margin_nonnegative",
+      "to": "extendable_pascal_reserve",
+      "type": "depends_on"
+    },
+    {
+      "from": "matching_bag_representation",
+      "to": "forest_poset_code",
+      "type": "formalizes",
+      "note": "The Lean forest-poset project formalizes both layers; this non-dependency edge records the formal interface."
+    },
+    {
+      "from": "blocked_profile_depth3_lc",
+      "to": "depth3_margin_decomposition",
+      "type": "tests"
+    },
+    {
+      "from": "cross_reserve_depth3",
+      "to": "depth3_margin_decomposition",
+      "type": "tests"
+    }
+  ],
+  "bridges": [
+    {
+      "id": "ordered_cover_deletion_first_violation",
+      "title": "Ordered cover deletion and a canonical first violated comparison",
+      "status": "candidate",
+      "target_claims": [
+        "depth3_margin_nonnegative",
+        "cross_reserve_depth3"
+      ],
+      "source_theory": "P-partitions and ordered deletion of poset cover relations",
+      "shared_object": "A forest poset together with a weakening of its transitive comparison constraints.",
+      "translation": "Fix an order on the transitive comparisons missing from the retained cover-path CSP and assign each blocked partial assignment to its first violated comparison. This would disjointify the union of obstruction-path events.",
+      "missing_hypotheses": [
+        "The first-violation classes must admit exact defect-refined counts.",
+        "The ordered deletion must respect the erased-path interpretation rather than only the abstract relation set.",
+        "The resulting class formulas must yield a joint blocked-plus-cross reserve inequality."
+      ],
+      "expected_payoff": "Replace overlap inclusion-exclusion by a disjoint partition of b_2,b_3,b_4 and expose path-local summands that can be charged to the Pascal reserve.",
+      "kill_test": "Enumerate the canonical first-violation classes on every tree through n=15 and check that their disjoint counts reproduce b_2,b_3,b_4 exactly before proving any inequality.",
+      "falsification": "A blocked assignment with no unique first violated comparison under the frozen rule, or a mismatch between the class sum and b_d, kills the proposed translation.",
+      "evidence": [
+        {
+          "type": "citation",
+          "ref": "https://arxiv.org/abs/2006.10087",
+          "note": "TheoremGraph surfaced Lemmas 4.4 and 4.6; they motivate ordered deletion but do not prove the local counting claim."
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "low",
+        "translation_completeness": "partial"
+      }
+    },
+    {
+      "id": "minimal_unsat_tree_csp",
+      "title": "Minimally unsatisfiable tree CSPs and implication paths",
+      "status": "speculative",
+      "target_claims": [
+        "depth3_margin_nonnegative"
+      ],
+      "source_theory": "Constraint satisfaction and minimally unsatisfiable 2-CNF",
+      "shared_object": "A minimal unsatisfiable residual whose implication graph is a path between conflicting endpoint forces.",
+      "translation": "Encode each erased matched bag as a Boolean variable and each port constraint as a binary clause; minimal blocked residuals become path-shaped minimally unsatisfiable formulas.",
+      "missing_hypotheses": [
+        "Known minimal-unsatisfiability structure theorems do not count residuals by defect.",
+        "The clause encoding must preserve multiplicity of surrounding occupied assignments.",
+        "No retrieved theorem currently supplies log-concavity or the needed quantitative count."
+      ],
+      "expected_payoff": "Potentially provide a canonical certificate language or tree recurrence for the joint blocked-plus-cross correction, but the current path classification already captures most of the structural content.",
+      "kill_test": "Compare SAT-certificate classes with the existing alternating-path classes on all residual CSPs through four erased bags; abandon the bridge if it adds no sharper count or recurrence.",
+      "falsification": "Failure of the Boolean encoding to preserve minimality or assignment multiplicity, or absence of a new quantitative lemma, removes this bridge from the active queue.",
+      "evidence": [
+        {
+          "type": "citation",
+          "ref": "https://arxiv.org/abs/1905.08842",
+          "note": "Semantic-search analogue only."
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "medium",
+        "translation_completeness": "analogy"
+      }
+    },
+    {
+      "id": "nonpure_simplicial_faces",
+      "title": "Nonextendable faces in a nonpure independence complex",
+      "status": "refuted",
+      "target_claims": [
+        "blocked_profile_depth3_lc"
+      ],
+      "source_theory": "Simplicial complexes, pure skeleta, and face-number inequalities",
+      "shared_object": "b_d counts independent faces of size alpha-d that are not contained in any alpha-face.",
+      "translation": "View the extendable faces as the pure alpha-generated subcomplex and b_d as the rank sequence of its complement inside the tree independence complex.",
+      "missing_hypotheses": [
+        "The complement of the pure-generated subcomplex is not itself a simplicial complex.",
+        "No retrieved theorem gives log-concavity of this nonextendable rank profile.",
+        "Any algebraic invariant must retain the forest-poset path geometry."
+      ],
+      "expected_payoff": "This proposed route would have proved blocked-profile log-concavity, but that target is false in the intended rung.",
+      "kill_test": "Search for an exact theorem on the rank sequence of faces outside maximum facets; then test its hypotheses on the known tree complexes and small arbitrary complexes before adaptation.",
+      "falsification": "A small tree whose blocked profile violates the proposed imported inequality, or a theorem whose domain excludes the nonpure complement, kills the bridge.",
+      "evidence": [],
+      "priority": {
+        "falsifiability": "medium",
+        "verification_cost": "high",
+        "translation_completeness": "partial"
+      }
+    },
+    {
+      "id": "path_event_dependency_bounds",
+      "title": "Dependency-graph bounds for overlapping path-obstruction events",
+      "status": "speculative",
+      "target_claims": [
+        "cross_reserve_depth3"
+      ],
+      "source_theory": "Bonferroni, Hunter, Janson, and dependency-graph inequalities",
+      "shared_object": "b_d is the measure of a union of local path-obstruction events under the uniform counting measure on defect-d feasible assignments.",
+      "translation": "Treat each violated comparison path as an event and use the intersection graph of path events to control overlap terms in the union count.",
+      "missing_hypotheses": [
+        "The assignment measure is conditioned on feasibility and fixed defect, so standard independence assumptions may fail.",
+        "The path-event intersection graph need not be a forest.",
+        "A probability bound must be sharp enough to fit inside the explicit Pascal reserve."
+      ],
+      "expected_payoff": "Could bound overlap without exact inclusion-exclusion if local pair intersections dominate the adverse cross term.",
+      "kill_test": "Compute the best available first- and second-order union bounds for every n<=15 instance and compare their slack with the exact cross-reserve margin.",
+      "falsification": "If the sharp tested dependency-graph bound exceeds the reserve on a small tree, close this bridge unless a stronger tree-specific inequality is identified.",
+      "evidence": [
+        {
+          "type": "citation",
+          "ref": "https://arxiv.org/abs/1407.3381",
+          "note": "TheoremGraph surfaced a Hunter-type tree Bonferroni lemma; applicability here is unproved."
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "medium",
+        "translation_completeness": "analogy"
+      }
+    }
+  ]
+}

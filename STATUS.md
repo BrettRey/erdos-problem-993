@@ -7,7 +7,7 @@ stage: complete
 external: in-review
 blocked_on:
 - venue-response
-updated: 2026-08-26
+updated: 2026-09-04
 source:
 - STATUS.md
 - PORTFOLIO.md
@@ -95,7 +95,152 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 
 ## Source of truth
 
-The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`.
+The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`. The current depth-3 matching-bag frontier is tracked in `proof_graph/erdos993_frontier.json`; the 4 September arXiv/Astra transfer audit and next experiment are in `notes/arxiv_astra_transfer_2026-09-04.md`.
+
+## 2026-09-04: arXiv/Astra transfer audit and a sharper bounded target
+
+- The arXiv watcher produced daily digest entries on 1--4 September (ten new
+  papers total). The 4 September run had one failed query out of 22 but wrote
+  its digest and exited successfully; notification-path AppleScript errors are
+  separate from collection success.
+- Astra's solution to Erdős #74 reinforces the live canonical
+  first-violated-comparison attack: disjointify overlapping small path
+  certificates, then charge the exceptional classes against a clean reserve.
+  Astra #126 contributes the stronger methodological template of decomposing
+  positive kernels and comparing summands before addition, but its
+  conditional-negative-kernel theorem does not directly transfer to free
+  indicators. It already fails on the five-vertex star at `k=1`.
+- The exact depth-3 probe records the relative normalized margin
+  `R=b_3^2 e_2 e_4-b_2 b_4 e_3^2`. The initial `n<=15` implication
+  `C<0 => R>=0` is **refuted at `n=17`**. The first witness has graph6
+  ``PpG`A?@O??g??@O???I??O??``, `e_2..e_4=(584,1408,2241)`,
+  `b_2..b_4=(1,8,44)`, `C=-5409`, and `R=-3468800`. Its cross-reserve
+  margin is still positive at 668,311 and its full margin is 668,331.
+- The highest-value weekly-paper transfers are Guo--Kang's ballot/down-set
+  construction, conditional on an exact closure test, and Pahari's
+  summand-before-addition ratio proof. Baldi--Kummer tropicalization is a
+  downstream inequality-discovery tool after a fixed semialgebraic profile
+  model exists.
+- The first bounded gate is complete. A deterministic first-obstruction rule
+  exactly partitioned all 4,788,857 blocked assignments among 13,254,850
+  feasible defect-2/3/4 assignments through `n<=15`, reconstructing the full,
+  extendable, and blocked profiles on all 13,179 relevant trees. Of the blocked
+  assignments, 1,400,970 admitted multiple certificates, so the canonical rule
+  is genuinely disjointifying overlap. The run took 73.89 seconds wall time.
+  The follow-up therefore used unary-first and shortest-path-first pair order.
+- The structural follow-up is also complete through `n<=15`, but its ratio
+  evidence is superseded by the `n=17` kill test below. Individual
+  classes are not closed under filling erased bags: 694,084 of 12,059,848
+  feasible one-bag fillings change class, first at `n=6`. Cumulative prefixes
+  have zero failures, as follows formally because filling preserves the old
+  violation and may only introduce an earlier one. This is closure in the
+  feasible partial-assignment poset, not yet a multicomplex representation.
+- All 46,557 nonempty class profiles are log-concave, and all 41,427 classes
+  present at defects 2 and 4 satisfy the relative ratio inequality. Among
+  71,445 class pairs there are 9,991 negative cross-class contributions, but
+  only one occurs on a `C<0` tree; its positive class reserve absorbs the
+  deficit. Natural grouping removes the exception: the 223 adverse trees are
+  220 unary-only and three pair-only, all 224 unary/path-length group profiles
+  have nonnegative relative margin, and the sole adverse cross-group pair is
+  nonnegative. This is an exact description of the smaller corpus, not a live
+  proof route: `C<0 => R>=0` fails at `n=17`.
+- The proportional proof follow-up gives an exact three-level filtration. If
+  `U` is the set of vertices in no maximum independent set and
+  `J_d=[x^(alpha-d)]I(T-U)`, then the unary group is `u_d=s_d-J_d` and the pair
+  group is `p_d=J_d-e_d`. If `v_i` is the `i`-th forbidden vertex, its unary
+  class is `[x^(alpha-d-1)]I(F_i)`, where
+  `F_i=T-N[v_i]-{v_j:j<i}`. A formula-augmented replay checked 41,685 unary
+  certificates and 26,358 coarse group identities with zero mismatches.
+- The formula-augmented runtime was 110.81 seconds; exact result:
+  `results/obstruction_class_structure_probe_20260904.json`.
+- A proportional optimized extension checks 81,128 relevant trees through
+  `n<=17` in 46.98 seconds. It finds 812 negative-cross cases: 793 have
+  `b_2=0`, three have `b_4=0`, and 16 have `b_2b_4>0`. One of those 16 refutes
+  `C<0 => R>=0`. In that witness, the two unary classes separately satisfy
+  their ratio tests but have a cross-class contribution of -31,719,424, so
+  individual or grouped diagonal positivity cannot prove the aggregate ratio.
+  Close that route. Retain the induced-forest formulas only as possible input
+  to a future **direct cross-reserve** attack. Certificate:
+  `results/blocked_profile_depth3_probe_n17_20260904.json`.
+- The direct attack yields a sharper sufficient condition. The proved Pascal
+  reserve reduces the live target to
+  `b_2/e_2 + b_4/e_4 <= (5 alpha+17)/(27(alpha-3))` whenever `C<0`; this even
+  discards the favorable `2e_3b_3` term. An optimized 159.83-second scan checks
+  204,995 relevant trees through `n<=18` and all 1,539 negative-cross cases,
+  with zero failures of this stronger condition, the actual cross-reserve,
+  blocked-profile depth-three LC, or the full depth-three inequality. The
+  worst adverse `-C` consumes `9/35` of the guaranteed Pascal reserve.
+  Treat the conditional blocked-density inequality as a live cross-reserve
+  component, not as a theorem or a sufficient full bridge. Exact certificate:
+  `results/blocked_profile_depth3_probe_n18_20260904.json`.
+- That exhaustive census does not enter the intended
+  `alpha in {17,18,19}`, `deficiency<=5`, `n=33..38` rung. A bounded random
+  port-labeled bag-tree probe accepted 50 trees in each of its 12 admissible
+  cells (600 from 1,560 trials; 240.37 seconds). It found no `C<0` tree, so it
+  did not exercise the conditional blocked-density inequality. It also found
+  no blocked-LC, cross-reserve, full depth-three, or unimodality failure. This
+  is biased random evidence only. Stop untargeted scaling; a future
+  computational test must optimize for negative `C` within the rung. Exact
+  record: `results/cross_reserve_target_scope_probe_20260904.json`.
+- A targeted construction resolves the random probe's coverage failure. The
+  `n=17`, `alpha=11`, deficiency-5 adverse witness can be lifted by eight
+  pendant matched pairs directly into `(n,alpha,deficiency)=(33,19,5)`.
+  Among 500 nonisomorphic fan/chain/distributed/adaptively mutated lifts, 57
+  have `C<0`. The endpoint bound has zero failures, with worst load 0.0250234
+  of the Pascal reserve; cross-reserve, full depth-three, and unimodality
+  failures are also zero.
+- The same targeted corpus **refutes blocked-profile depth-three LC** in nine
+  cases. The first has `e_2..e_4=(325632,1245184,3337984)` and
+  `b_2..b_4=(1,16,4216)`, hence `b_3^2-b_2b_4=-3960`. Its mixed term is
+  `-1336356608`, but its cross-reserve and full margins remain positive at
+  462,192,431,360 and 462,192,427,400. A fresh maximum-matching replay
+  reconstructs the certificate exactly. This closes only the auxiliary
+  blocked-LC route.
+- The corrected live sufficient bridge charges the two deficits jointly. If
+  `D=(b_3^2-b_2b_4)+C<0`, it is enough to prove
+  `e_2b_4+e_4b_2+b_2b_4 <= ((5alpha+17)/(27(alpha-3)))e_2e_4`. All 57 adverse
+  lifts satisfy this stronger conditional bound; the worst combined load is
+  0.0250394 of the guaranteed reserve. It fails 380 times when `D>=0`, where
+  it is unnecessary, so it is not a universal inequality. Final runtime was
+  56.66 seconds. Certificate:
+  `results/cross_reserve_witness_lifts_20260904.json`.
+- None of the auxiliary refutations above is a refutation of Erdős #993. No
+  non-unimodal tree was found and no manuscript claim changed.
+
+Full source and warrant record:
+`notes/arxiv_astra_transfer_2026-09-04.md`. No manuscript claim changed.
+
+## 2026-08-28: TheoremGraph-guided frontier and blocked-profile split
+
+- **A typed local proof-frontier graph now records the live depth-3 lane.**
+  `proof_graph/erdos993_frontier.json` contains 10 claims, 17 typed edges, and
+  four bridge candidates. `scripts/frontier_graph.py` validates status/evidence
+  consistency, bridge completeness, and acyclicity; it also reports ready
+  claims and emits compact search packets. The current ready frontier is
+  `blocked_profile_depth3_lc` and `cross_reserve_depth3`.
+- **The matching-bag correction is split at the exact algebraic joint.** For
+  `s_d=e_d+b_d`, depth-3 log-concavity decomposes into the proved extendable
+  reserve, the blocked-profile term `b_3^2-b_2 b_4`, and the mixed reserve
+  `2e_3b_3-e_2b_4-e_4b_2`. This split replaces the coarser request to control
+  the whole correction at once.
+- **A bounded exact probe supports both new subclaims but proves neither.** Over
+  all 13,179 relevant non-isomorphic trees through `n <= 15`, there are zero
+  failures of blocked-profile log-concavity, zero failures of the extendable
+  plus mixed cross-reserve, and zero failures of the full depth-3 inequality.
+  The mixed term alone is negative for 223 trees, while the stronger shortcut
+  that discards positive `b_3` terms fails 9,743 times. Replay with
+  `python3 scripts/probe_blocked_profile_depth3_20260828.py`; the result is
+  `results/blocked_profile_depth3_probe_20260828.json`.
+- **Bridge search is now representation-first and explicitly gated.** The first
+  candidate is ordered cover deletion / first violated comparison, because it
+  preserves the tree-poset code and has a cheap kill test. Minimal-unsatisfiable
+  tree CSPs, dependency-graph bounds, and nonpure simplicial faces remain
+  speculative until a complete source-to-local translation and bounded test
+  pass. The workflow is recorded in
+  `notes/theoremgraph_attack_and_bridge_workflow_2026-08-28.md`.
+- **Warrant boundary.** TheoremGraph supplied candidates and nearby language,
+  not missing theorems. No manuscript claim changed, and no bounded result here
+  may be cited as an all-tree theorem.
 
 ## 2026-08-26: subcubic census, symmetric/mixed-arm slices, and convolution formalization
 

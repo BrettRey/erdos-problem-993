@@ -1,0 +1,381 @@
+{
+  "assigned_certificate_kind": {
+    "pair": 226396,
+    "unary": 4562461
+  },
+  "assigned_certificate_kind_on_negative_cross_trees": {
+    "pair": 6,
+    "unary": 3133
+  },
+  "assigned_pair_path_length": {
+    "2": 210289,
+    "3": 15375,
+    "4": 714,
+    "5": 18
+  },
+  "atomic_group_pair_tests": {
+    "all_levels_positive_profiles": 0,
+    "lc_failures": 0,
+    "profiles": 3693,
+    "profiles_on_negative_cross_trees": 1,
+    "relative_ratio_failures": 424,
+    "relative_ratio_failures_on_negative_cross_trees": 0,
+    "two_sided_profiles": 0
+  },
+  "atomic_group_tests": {
+    "all_levels_positive_profiles": 15459,
+    "lc_failures": 0,
+    "lc_failures_on_negative_cross_trees": 0,
+    "profiles": 16030,
+    "profiles_on_negative_cross_trees": 224,
+    "relative_ratio_failures": 5,
+    "relative_ratio_failures_on_negative_cross_trees": 0,
+    "two_sided_profiles": 15459
+  },
+  "by_defect": {
+    "2": {
+      "blocked": 626518,
+      "extendable": 1553104,
+      "feasible": 2179622,
+      "feasible_fillings": 0,
+      "prefix_fill_failures": 0,
+      "same_class_fill_failures": 0
+    },
+    "3": {
+      "blocked": 1651663,
+      "extendable": 3006848,
+      "feasible": 4658511,
+      "feasible_fillings": 3658776,
+      "prefix_fill_failures": 0,
+      "same_class_fill_failures": 197040
+    },
+    "4": {
+      "blocked": 2510676,
+      "extendable": 3906041,
+      "feasible": 6416717,
+      "feasible_fillings": 8401072,
+      "prefix_fill_failures": 0,
+      "same_class_fill_failures": 497044
+    }
+  },
+  "certificate_date": "2026-09-04",
+  "claim_status": "exact bounded computation, not a theorem",
+  "closure_tests": {
+    "cumulative_prefix": "Every feasible filling of one erased bag has first-certificate rank no later than the source assignment.",
+    "individual_class": "Every feasible filling of one erased bag retains the exact same first certificate."
+  },
+  "coarse_group_pair_tests": {
+    "all_levels_positive_profiles": 0,
+    "lc_failures": 0,
+    "profiles": 2178,
+    "profiles_on_negative_cross_trees": 0,
+    "relative_ratio_failures": 220,
+    "relative_ratio_failures_on_negative_cross_trees": 0,
+    "two_sided_profiles": 0
+  },
+  "coarse_group_tests": {
+    "all_levels_positive_profiles": 14820,
+    "lc_failures": 0,
+    "lc_failures_on_negative_cross_trees": 0,
+    "profiles": 15258,
+    "profiles_on_negative_cross_trees": 223,
+    "relative_ratio_failures": 5,
+    "relative_ratio_failures_on_negative_cross_trees": 0,
+    "two_sided_profiles": 14820
+  },
+  "counters": {
+    "assignments_with_same_class_fill_failure": 615159,
+    "assignments_without_feasible_filling": 63407,
+    "blocked_assignments": 4788857,
+    "blocked_fillings_missing": 0,
+    "extendable_assignments": 8465993,
+    "feasible_assignments": 13254850,
+    "feasible_one_bag_fillings": 12059848,
+    "full_relative_ratio_failures": 49,
+    "negative_cross_trees": 223,
+    "negative_cross_with_full_relative_ratio_failure": 0,
+    "prefix_fill_failures": 0,
+    "same_class_fill_failures": 694084,
+    "tree_local_classes": 46557,
+    "trees_checked": 13179
+  },
+  "cumulative_prefix_tests": {
+    "all_levels_positive_profiles": 44272,
+    "lc_failures": 0,
+    "lc_failures_on_negative_cross_trees": 0,
+    "profiles": 46557,
+    "profiles_on_negative_cross_trees": 335,
+    "relative_ratio_failures": 125,
+    "relative_ratio_failures_on_negative_cross_trees": 0,
+    "two_sided_profiles": 44272
+  },
+  "exact_formulas": {
+    "forbidden_vertex_set": "U is the set of vertices contained in no maximum independent set.",
+    "ordered_unary_class": "For the i-th forbidden vertex v_i, c_{i,d} is the coefficient of x^(alpha-d-1) in I(T-N[v_i]-{v_j:j<i};x).",
+    "pair_group": "p_d = i_{alpha-d}(T-U) - e_d",
+    "unary_group": "u_d = i_{alpha-d}(T) - i_{alpha-d}(T-U)"
+  },
+  "first_witnesses": {
+    "pairwise_class_relative_ratio_failure": {
+      "bags": [
+        [
+          1,
+          5
+        ],
+        [
+          0
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "blocked_2_to_4": [
+        4,
+        6,
+        6
+      ],
+      "extendable_2_to_4": [
+        15,
+        20,
+        15
+      ],
+      "full_cross_term": 90,
+      "graph6": "GsaA?C",
+      "left_certificate": [
+        0,
+        0,
+        0
+      ],
+      "left_profile_2_to_4": [
+        0,
+        0,
+        2
+      ],
+      "n": 8,
+      "pair_relative_ratio_margin": -3200,
+      "right_certificate": [
+        0,
+        5,
+        0
+      ],
+      "right_profile_2_to_4": [
+        4,
+        6,
+        4
+      ]
+    },
+    "pairwise_class_relative_ratio_failure_on_negative_cross_tree": {
+      "bags": [
+        [
+          1
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          13
+        ]
+      ],
+      "blocked_2_to_4": [
+        1,
+        7,
+        29
+      ],
+      "extendable_2_to_4": [
+        258,
+        575,
+        833
+      ],
+      "full_cross_term": -265,
+      "graph6": "NpG`A?@O??g??@O?G??",
+      "left_certificate": [
+        0,
+        1,
+        0
+      ],
+      "left_profile_2_to_4": [
+        1,
+        7,
+        21
+      ],
+      "n": 15,
+      "pair_relative_ratio_margin": -2645000,
+      "right_certificate": [
+        0,
+        2,
+        0
+      ],
+      "right_profile_2_to_4": [
+        0,
+        0,
+        8
+      ]
+    },
+    "prefix_relative_ratio_failure": {
+      "bags": [
+        [
+          1,
+          5
+        ],
+        [
+          0
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "blocked_2_to_4": [
+        4,
+        6,
+        6
+      ],
+      "certificate": [
+        0,
+        5,
+        0
+      ],
+      "class_lc_margin": 12,
+      "extendable_2_to_4": [
+        15,
+        20,
+        15
+      ],
+      "full_cross_term": 90,
+      "graph6": "GsaA?C",
+      "n": 8,
+      "prefix_index": 1,
+      "profile_2_to_4": [
+        4,
+        6,
+        6
+      ],
+      "relative_ratio_margin": -1500
+    },
+    "same_class_fill_failure": {
+      "assignment": [
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "defect": 3,
+      "filled_assignment": [
+        0,
+        -1,
+        -1,
+        0
+      ],
+      "graph6": "EsOG",
+      "n": 6,
+      "source_certificate": [
+        0,
+        3,
+        0
+      ],
+      "source_rank": 1,
+      "target_certificate": [
+        0,
+        0,
+        0
+      ],
+      "target_rank": 0
+    }
+  },
+  "formula_checks": {
+    "coarse_groups_checked": 26358,
+    "pair_group_formula_failures": 0,
+    "unary_class_formula_failures": 0,
+    "unary_classes_checked": 41685,
+    "unary_group_formula_failures": 0
+  },
+  "individual_class_tests": {
+    "all_levels_positive_profiles": 41427,
+    "lc_failures": 0,
+    "lc_failures_on_negative_cross_trees": 0,
+    "profiles": 46557,
+    "profiles_on_negative_cross_trees": 335,
+    "relative_ratio_failures": 0,
+    "relative_ratio_failures_on_negative_cross_trees": 0,
+    "two_sided_profiles": 41427
+  },
+  "kind": "bounded_obstruction_class_structure_probe",
+  "negative_cross_group_signatures": {
+    "atomic:pair_path_2": 2,
+    "atomic:pair_path_2+pair_path_3": 1,
+    "atomic:unary": 220,
+    "coarse:pair": 3,
+    "coarse:unary": 220
+  },
+  "pairwise_class_tests": {
+    "all_levels_positive_profiles": 0,
+    "lc_failures": 0,
+    "profiles": 71445,
+    "profiles_on_negative_cross_trees": 129,
+    "relative_ratio_failures": 9991,
+    "relative_ratio_failures_on_negative_cross_trees": 1,
+    "two_sided_profiles": 0
+  },
+  "ratio_test": "For profile c, test c_3^2*e_2*e_4 >= c_2*c_4*e_3^2.",
+  "scope": {
+    "arithmetic": "exact integers",
+    "certificate_order": "unary lexicographic first, then pair comparisons by increasing quotient-skeleton path length and lexicographic order",
+    "defects": [
+      2,
+      3,
+      4
+    ],
+    "enumeration": "networkx nonisomorphic trees",
+    "matching_choice": "networkx maximum-cardinality matching",
+    "minimum_alpha_bag_count": 4,
+    "tree_orders": [
+      2,
+      15
+    ]
+  }
+}

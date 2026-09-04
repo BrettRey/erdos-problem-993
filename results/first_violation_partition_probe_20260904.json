@@ -1,0 +1,94 @@
+{
+  "assigned_certificate_kind": {
+    "pair": 226396,
+    "unary": 4562461
+  },
+  "assigned_pair_path_length": {
+    "2": 206132,
+    "3": 19342,
+    "4": 892,
+    "5": 29,
+    "6": 1
+  },
+  "by_defect": {
+    "2": {
+      "blocked": 626518,
+      "candidates": 9716373,
+      "extendable": 1553104,
+      "feasible": 2179622,
+      "partitioned": 626518
+    },
+    "3": {
+      "blocked": 1651663,
+      "candidates": 15052771,
+      "extendable": 3006848,
+      "feasible": 4658511,
+      "partitioned": 1651663
+    },
+    "4": {
+      "blocked": 2510676,
+      "candidates": 15778738,
+      "extendable": 3906041,
+      "feasible": 6416717,
+      "partitioned": 2510676
+    }
+  },
+  "certificate_date": "2026-09-04",
+  "claim_status": "exact bounded computation, not a theorem",
+  "counters": {
+    "blocked_assignments": 4788857,
+    "candidate_assignments": 40547882,
+    "distinct_tree_local_classes": 46558,
+    "extendable_assignments": 8465993,
+    "feasible_assignments": 13254850,
+    "multiply_certified_blocked_assignments": 1400970,
+    "partitioned_assignments": 4788857,
+    "total_violations_on_blocked_assignments": 6594346,
+    "trees_checked": 13179
+  },
+  "first_witnesses": {
+    "multiply_certified_blocked_assignment": {
+      "assignment": {
+        "0": 0,
+        "3": 0
+      },
+      "defect": 2,
+      "empty_bags": [
+        1,
+        2
+      ],
+      "graph6": "EsOG",
+      "n": 6,
+      "violations": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ]
+      ]
+    }
+  },
+  "kind": "bounded_first_violation_partition_probe",
+  "partition_rule": "Assign each blocked feasible partial bag assignment to the first unary or pair projection obstruction of the maximum-assignment code.",
+  "scope": {
+    "arithmetic": "exact integers",
+    "certificate_order": "unary before pair, then bag/value lexicographic order",
+    "defects": [
+      2,
+      3,
+      4
+    ],
+    "enumeration": "networkx nonisomorphic trees",
+    "matching_choice": "networkx maximum-cardinality matching",
+    "minimum_alpha_bag_count": 4,
+    "tree_orders": [
+      2,
+      15
+    ]
+  }
+}

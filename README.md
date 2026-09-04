@@ -14,6 +14,18 @@ This is known to be false for general graphs. The tree case remains open.
 
 This repository does not contain a proof of Erdos Problem #993.
 
+For the current depth-3 matching-bag lane, a validated local claim graph now
+tracks the exact dependencies, evidence, and external bridge candidates. Its
+ready frontier is a joint charge of the blocked and mixed corrections against
+the proved Pascal reserve. Blocked-profile log-concavity, which held through
+`n <= 18`, is refuted by an exact `(n,alpha,deficiency)=(33,19,5)` matched-pair
+lift; the witness's full depth-three margin remains positive. A targeted
+500-lift probe finds 57 adverse combined corrections and no failure of the
+joint conditional reserve bound. This is bounded evidence, not a theorem or a
+refutation of Erdős #993. Ordered first-violation classes and path-event bounds
+remain possible inputs to the joint target; the direct nonpure-face
+log-concavity route is closed.
+
 The current active targets are:
 
 1. Signed-reserve/hub-bouquet route. The one-sided low-probability
@@ -125,6 +137,14 @@ Optional: install [nauty](https://pallini.di.uniroma1.it/) for fast tree enumera
 # Unit tests (55 tests)
 python3 -m unittest test_all.py -v
 
+# Validate and inspect the current proof frontier
+python3 scripts/frontier_graph.py validate proof_graph/erdos993_frontier.json
+python3 scripts/frontier_graph.py report proof_graph/erdos993_frontier.json
+python3 -m unittest test_frontier_graph.py -v
+
+# Replay the bounded depth-3 blocked-profile probe
+python3 scripts/probe_blocked_profile_depth3_20260828.py
+
 # Exhaustive search, n <= 26 locally (8 workers, requires geng)
 python3 search.py --max-n 26 --workers 8
 
@@ -188,6 +208,11 @@ cmp "$audit_dir/c2-bounded.json" \
 | `notes/double_broom_log_concavity.md` | Proof note for log-concavity of every double broom, plus the bounded two-hub companion |
 | `verify_connector_partial_sync_route_20260808.py` | Exact audit of the double-broom formulas and coefficient identities |
 | `verify_c2_bounded_pendant_core_20260808.py` | Exact bounded-pendant-core enumerator and certificate generator |
+| `proof_graph/erdos993_frontier.json` | Validated claim/dependency graph for the current depth-3 matching-bag lane |
+| `scripts/frontier_graph.py` | Proof-graph validator, frontier report, and search-packet generator |
+| `notes/theoremgraph_attack_and_bridge_workflow_2026-08-28.md` | Workflow for finding and ranking high-value attacks and cross-field bridges |
+| `scripts/probe_blocked_profile_depth3_20260828.py` | Exact bounded probe of the blocked-profile split through `n <= 15` |
+| `results/blocked_profile_depth3_probe_20260828.json` | Replayable bounded-probe summary and failure certificates |
 | `indpoly.py` | Core DP + analysis functions |
 | `search.py` | Exhaustive parallel search |
 | `targeted.py` | Structured family search |

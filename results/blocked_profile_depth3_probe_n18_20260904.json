@@ -1,0 +1,330 @@
+{
+  "abstract_kill_test": {
+    "alpha": 5,
+    "b_2_to_4": [
+      1,
+      10,
+      100
+    ],
+    "blocked_lc_margin": 0,
+    "cross_term": -620,
+    "e_2_to_4": [
+      10,
+      20,
+      20
+    ],
+    "extendable_reserve_lhs": 21600,
+    "extendable_reserve_rhs": 19200,
+    "relative_normalized_lc_margin": -20000,
+    "scope": "Positive numerical profiles showing that the proved extendable reserve and blocked log-concavity alone do not imply R>=0 when C<0; these are not asserted to be tree profiles."
+  },
+  "certificate_date": "2026-08-28",
+  "claim_status": "bounded computational evidence, not a theorem",
+  "counters": {
+    "blocked_b3_positive": 204188,
+    "blocked_profile_depth3_failures": 0,
+    "bruteforce_extendable_profile_checks": 192,
+    "cross_reserve_depth3_failures": 0,
+    "cross_term_negative": 1539,
+    "decomposition_identity_failures": 0,
+    "discard_positive_b3_bound_failures": 169355,
+    "full_depth3_failures": 0,
+    "negative_cross_actual_reserve_without_positive_b3_failures": 0,
+    "negative_cross_pascal_reserve_failures": 0,
+    "negative_cross_pascal_reserve_without_positive_b3_failures": 0,
+    "negative_cross_with_b2_b4_positive": 49,
+    "negative_cross_with_b2_positive_b4_zero": 3,
+    "negative_cross_with_b2_zero": 1487,
+    "negative_cross_with_relative_normalized_lc_failure": 1,
+    "relative_normalized_lc_failures": 177,
+    "relative_normalized_lc_failures_with_nonnegative_cross": 176,
+    "trees_checked": 204995
+  },
+  "first_witnesses": {
+    "cross_term_negative": {
+      "alpha_bag_count": 5,
+      "b_0_to_4": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "blocked_turan": 0,
+      "cross_reserve_margin": 40,
+      "cross_term": -10,
+      "e_0_to_4": [
+        1,
+        5,
+        10,
+        10,
+        5
+      ],
+      "extendable_turan": 50,
+      "full_margin": 40,
+      "graph6": "EiP?",
+      "n": 6,
+      "relative_normalized_lc_margin": 0,
+      "s_0_to_4": [
+        1,
+        5,
+        10,
+        10,
+        6
+      ]
+    },
+    "discard_positive_b3_bound_failure": {
+      "alpha_bag_count": 5,
+      "b_0_to_4": [
+        0,
+        3,
+        11,
+        11,
+        3
+      ],
+      "blocked_turan": 88,
+      "cross_reserve_margin": 185,
+      "cross_term": 135,
+      "e_0_to_4": [
+        1,
+        5,
+        10,
+        10,
+        5
+      ],
+      "extendable_turan": 50,
+      "full_margin": 273,
+      "graph6": "GpH?GC",
+      "n": 8,
+      "relative_normalized_lc_margin": 2750,
+      "s_0_to_4": [
+        1,
+        8,
+        21,
+        21,
+        8
+      ]
+    },
+    "negative_cross_with_b2_b4_positive": {
+      "alpha_bag_count": 10,
+      "b_0_to_4": [
+        0,
+        0,
+        1,
+        7,
+        29
+      ],
+      "blocked_turan": 20,
+      "cross_reserve_margin": 115446,
+      "cross_term": -265,
+      "e_0_to_4": [
+        8,
+        68,
+        258,
+        575,
+        833
+      ],
+      "extendable_turan": 115711,
+      "full_margin": 115466,
+      "graph6": "NpG`A?@O??g??@O?G??",
+      "n": 15,
+      "relative_normalized_lc_margin": 942661,
+      "s_0_to_4": [
+        8,
+        68,
+        259,
+        582,
+        862
+      ]
+    },
+    "negative_cross_with_relative_normalized_lc_failure": {
+      "alpha_bag_count": 11,
+      "b_0_to_4": [
+        0,
+        0,
+        1,
+        8,
+        44
+      ],
+      "blocked_turan": 20,
+      "cross_reserve_margin": 668311,
+      "cross_term": -5409,
+      "e_0_to_4": [
+        16,
+        144,
+        584,
+        1408,
+        2241
+      ],
+      "extendable_turan": 673720,
+      "full_margin": 668331,
+      "graph6": "PpG`A?@O??g??@O???I??O??",
+      "n": 17,
+      "relative_normalized_lc_margin": -3468800,
+      "s_0_to_4": [
+        16,
+        144,
+        585,
+        1416,
+        2285
+      ]
+    },
+    "relative_normalized_lc_failure": {
+      "alpha_bag_count": 6,
+      "b_0_to_4": [
+        0,
+        1,
+        4,
+        6,
+        6
+      ],
+      "blocked_turan": 12,
+      "cross_reserve_margin": 265,
+      "cross_term": 90,
+      "e_0_to_4": [
+        1,
+        6,
+        15,
+        20,
+        15
+      ],
+      "extendable_turan": 175,
+      "full_margin": 277,
+      "graph6": "GsaA?C",
+      "n": 8,
+      "relative_normalized_lc_margin": -1500,
+      "s_0_to_4": [
+        1,
+        7,
+        19,
+        26,
+        21
+      ]
+    }
+  },
+  "identities": {
+    "margin": "s_3^2-s_2*s_4 = (e_3^2-e_2*e_4) + (b_3^2-b_2*b_4) + (2*e_3*b_3-e_2*b_4-e_4*b_2)",
+    "relative_normalized_lc_margin": "b_3^2*e_2*e_4-b_2*b_4*e_3^2",
+    "split": "s_d = e_d + b_d"
+  },
+  "kind": "bounded_blocked_profile_depth3_probe",
+  "last_extended": "2026-09-04",
+  "scope": {
+    "arithmetic": "exact integers",
+    "enumeration": "networkx nonisomorphic trees",
+    "independent_cross_check": "brute-force containment in a maximum independent set through n=10",
+    "minimum_alpha_bag_count": 4,
+    "tree_orders": [
+      2,
+      18
+    ]
+  },
+  "smallest_cross_reserve_margin": {
+    "alpha_bag_count": 4,
+    "b_0_to_4": [
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "blocked_turan": 1,
+    "cross_reserve_margin": 18,
+    "cross_term": 8,
+    "e_0_to_4": [
+      1,
+      4,
+      6,
+      4,
+      1
+    ],
+    "extendable_turan": 10,
+    "full_margin": 19,
+    "graph6": "DiO",
+    "n": 5,
+    "relative_normalized_lc_margin": 6,
+    "s_0_to_4": [
+      1,
+      4,
+      6,
+      5,
+      1
+    ]
+  },
+  "smallest_pascal_cross_reserve_numerator": {
+    "actual_reserve_without_positive_b3": 43,
+    "alpha_bag_count": 4,
+    "b_0_to_4": [
+      0,
+      4,
+      3,
+      0,
+      0
+    ],
+    "blocked_turan": 0,
+    "cross_reserve_margin": 43,
+    "cross_term": -3,
+    "e_0_to_4": [
+      5,
+      16,
+      18,
+      8,
+      1
+    ],
+    "extendable_turan": 46,
+    "full_margin": 43,
+    "graph6": "GpD?GC",
+    "n": 8,
+    "negative_endpoint_terms": 3,
+    "pascal_cross_reserve_numerator": 585,
+    "pascal_load_denominator": 666,
+    "pascal_load_numerator": 81,
+    "pascal_without_positive_b3_numerator": 585,
+    "relative_normalized_lc_margin": 0,
+    "s_0_to_4": [
+      5,
+      20,
+      21,
+      8,
+      1
+    ]
+  },
+  "worst_pascal_reserve_load": {
+    "actual_reserve_without_positive_b3": 40,
+    "alpha_bag_count": 5,
+    "b_0_to_4": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "blocked_turan": 0,
+    "cross_reserve_margin": 40,
+    "cross_term": -10,
+    "e_0_to_4": [
+      1,
+      5,
+      10,
+      10,
+      5
+    ],
+    "extendable_turan": 50,
+    "full_margin": 40,
+    "graph6": "EiP?",
+    "n": 6,
+    "negative_endpoint_terms": 10,
+    "pascal_cross_reserve_numerator": 1560,
+    "pascal_load_denominator": 2100,
+    "pascal_load_numerator": 540,
+    "pascal_without_positive_b3_numerator": 1560,
+    "relative_normalized_lc_margin": 0,
+    "s_0_to_4": [
+      1,
+      5,
+      10,
+      10,
+      6
+    ]
+  }
+}
