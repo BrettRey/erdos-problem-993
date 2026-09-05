@@ -1,0 +1,145 @@
+{
+  "certificate_date": "2026-09-04",
+  "claim_status": "bounded exact evidence and kill tests, not a theorem",
+  "counters": {
+    "base_trees_with_b1_b2_zero": 196,
+    "eligible_rooted_extensions": 838,
+    "h3_boundary_failures": 0,
+    "h4_boundary_failures": 0,
+    "lifted_five_b3_le_e3_failures": 0,
+    "lifted_five_b4_le_e4_failures": 0,
+    "roots_tested_on_candidate_bases": 2469,
+    "trees_evaluated": 5446
+  },
+  "eligibility": "b_1=b_2=h_2=0, equivalently b_2^+=0",
+  "extrema": {
+    "largest_h3_boundary_ratio": {
+      "alpha": 5,
+      "b_0_to_4": [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "e_0_to_4": [
+        2,
+        9,
+        16,
+        14,
+        6
+      ],
+      "graph6": "FqPA?",
+      "h3_boundary_lhs": 5,
+      "h3_boundary_rhs": 26,
+      "h4_boundary_lhs": 5,
+      "h4_boundary_rhs": 5,
+      "h_0_to_4": [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "lifted_b_0_to_4": [
+        0,
+        0,
+        0,
+        2,
+        3
+      ],
+      "lifted_e_0_to_4": [
+        3,
+        16,
+        35,
+        40,
+        25
+      ],
+      "n": 7,
+      "q_0_to_4": [
+        1,
+        5,
+        10,
+        10,
+        5
+      ],
+      "ratio": 0.19230769230769232,
+      "root": 1
+    },
+    "largest_h4_boundary_ratio": {
+      "alpha": 5,
+      "b_0_to_4": [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "e_0_to_4": [
+        2,
+        9,
+        16,
+        14,
+        6
+      ],
+      "graph6": "FqPA?",
+      "h3_boundary_lhs": 5,
+      "h3_boundary_rhs": 26,
+      "h4_boundary_lhs": 5,
+      "h4_boundary_rhs": 5,
+      "h_0_to_4": [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "lifted_b_0_to_4": [
+        0,
+        0,
+        0,
+        2,
+        3
+      ],
+      "lifted_e_0_to_4": [
+        3,
+        16,
+        35,
+        40,
+        25
+      ],
+      "n": 7,
+      "q_0_to_4": [
+        1,
+        5,
+        10,
+        10,
+        5
+      ],
+      "ratio": 1.0,
+      "root": 1
+    }
+  },
+  "first_witnesses": {},
+  "kind": "pendant_p2_root_conditioned_boundary_audit",
+  "recurrence": {
+    "blocked_polynomial": "B_plus=(1+x)B+xH",
+    "extendable_polynomial": "E_plus=(1+x)E+xQ",
+    "rooted_remainder": "H=I(T-root)-Q"
+  },
+  "scope": {
+    "arithmetic": "exact integers",
+    "base_tree_orders": [
+      2,
+      14
+    ],
+    "enumeration": "networkx nonisomorphic trees and every root",
+    "minimum_base_alpha": 4
+  },
+  "tested_candidates": {
+    "h3_boundary": "5*h_3<=e_2+q_3",
+    "h4_boundary": "5*h_4<=q_4",
+    "lifted_b3": "5*b_3^+<=e_3^+",
+    "lifted_b4": "5*b_4^+<=e_4^+"
+  }
+}

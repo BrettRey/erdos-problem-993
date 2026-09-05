@@ -1,0 +1,157 @@
+{
+  "certificate_date": "2026-09-04",
+  "claim_status": "bounded exact evidence and kill tests, not a theorem",
+  "counters": {
+    "alpha_ge_5_b2_zero": 586,
+    "b2_zero_b3_positive": 234,
+    "b2_zero_b4_positive": 422,
+    "b2_zero_conditional_endpoint_failures": 0,
+    "b2_zero_five_b3_le_e3_failures": 0,
+    "b2_zero_five_b4_le_e4_equalities": 1,
+    "b2_zero_five_b4_le_e4_failures": 0,
+    "conditional_endpoint_failures": 0,
+    "low_deficiency_alpha_ge_5_negative_combined": 0,
+    "negative_combined_correction": 419,
+    "negative_combined_with_b2_positive": 32,
+    "negative_combined_with_b2_zero": 387,
+    "trees_evaluated": 149239
+  },
+  "extrema": {
+    "largest_b2_density_on_negative_combined": {
+      "alpha": 4,
+      "b2_density": 0.16666666666666666,
+      "b4_density": 0.0,
+      "b_0_to_4": [
+        0,
+        4,
+        3,
+        0,
+        0
+      ],
+      "combined_correction": -3,
+      "combined_endpoint_load_numerator": 81,
+      "combined_endpoint_load_ratio": 0.12162162162162163,
+      "deficiency": 0,
+      "e_0_to_4": [
+        5,
+        16,
+        18,
+        8,
+        1
+      ],
+      "graph6": "GpD?GC",
+      "n": 8,
+      "pascal_reserve_denominator": 666,
+      "ratio_denominator": 18,
+      "ratio_numerator": 3
+    },
+    "largest_b4_density_on_negative_combined": {
+      "alpha": 5,
+      "b2_density": 0.0,
+      "b4_density": 0.2,
+      "b_0_to_4": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "combined_correction": -10,
+      "combined_endpoint_load_numerator": 540,
+      "combined_endpoint_load_ratio": 0.2571428571428571,
+      "deficiency": 4,
+      "e_0_to_4": [
+        1,
+        5,
+        10,
+        10,
+        5
+      ],
+      "graph6": "EiP?",
+      "n": 6,
+      "pascal_reserve_denominator": 2100,
+      "ratio_denominator": 5,
+      "ratio_numerator": 1
+    },
+    "largest_b4_over_e4_when_b2_zero": {
+      "alpha": 5,
+      "b2_density": 0.0,
+      "b4_density": 0.2,
+      "b_0_to_4": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "combined_correction": -10,
+      "combined_endpoint_load_numerator": 540,
+      "combined_endpoint_load_ratio": 0.2571428571428571,
+      "deficiency": 4,
+      "e_0_to_4": [
+        1,
+        5,
+        10,
+        10,
+        5
+      ],
+      "graph6": "EiP?",
+      "n": 6,
+      "pascal_reserve_denominator": 2100,
+      "ratio_denominator": 5,
+      "ratio_numerator": 1
+    }
+  },
+  "first_witnesses": {
+    "b2_zero_five_b4_le_e4_equality": {
+      "alpha": 5,
+      "b2_density": 0.0,
+      "b4_density": 0.2,
+      "b_0_to_4": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "combined_correction": -10,
+      "combined_endpoint_load_numerator": 540,
+      "combined_endpoint_load_ratio": 0.2571428571428571,
+      "deficiency": 4,
+      "e_0_to_4": [
+        1,
+        5,
+        10,
+        10,
+        5
+      ],
+      "graph6": "EiP?",
+      "n": 6,
+      "pascal_reserve_denominator": 2100
+    }
+  },
+  "kind": "joint_density_analytic_subcase_audit",
+  "negative_combined_by_deficiency": {
+    "0": 3,
+    "2": 17,
+    "3": 154,
+    "4": 190,
+    "5": 55
+  },
+  "scope": {
+    "arithmetic": "exact integers",
+    "enumeration": "networkx nonisomorphic trees",
+    "maximum_deficiency": 5,
+    "minimum_alpha": 4,
+    "tree_orders": [
+      2,
+      18
+    ]
+  },
+  "tested_candidates": {
+    "b2_zero_five_b3_bound": "alpha>=5 and b_2=0 implies 5*b_3<=e_3",
+    "b2_zero_five_bound": "alpha>=5 and b_2=0 implies 5*b_4<=e_4",
+    "conditional_joint_bound": "D<0 implies 27(alpha-3)(e_2b_4+e_4b_2+b_2b_4) <= (5alpha+17)e_2e_4",
+    "low_deficiency_nonadversity": "alpha>=5 and deficiency<=1 implies D>=0"
+  }
+}

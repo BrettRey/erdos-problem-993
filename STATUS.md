@@ -99,6 +99,18 @@ The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapsho
 
 ## 2026-09-04: arXiv/Astra transfer audit and a sharper bounded target
 
+- **Fivefold auxiliary theorem now independently reviewed and Lean-verified.**
+  For every finite forest with `alpha >= 5` and `b_2 = 0`, the universal
+  bounds `5 b_3 <= e_3` and `5 b_4 <= e_4` hold. Aristotle's resumed job
+  completed; all twelve returned Lean modules rebuilt locally (3,144 jobs).
+  A separate count/statement read-back and the main theorem plus twenty
+  supporting lemmas use only `propext`, `Classical.choice`, `Quot.sound`.
+  No proof holes or extra graph/profile hypotheses remain. This closes only
+  the `b_2 = 0` branch; `b_2 > 0`, the full depth-three closure, and #993
+  remain open. Verification record:
+  `formalization/fivefold_forest_20260904/STATUS.md`. No manuscript change or
+  novelty claim. Brett authorized repository shipping on 5 September;
+  this does not publish a Prove2Me mission or alter the submitted paper.
 - The arXiv watcher produced daily digest entries on 1--4 September (ten new
   papers total). The 4 September run had one failed query out of 22 but wrote
   its digest and exited successfully; notification-path AppleScript errors are
@@ -222,6 +234,24 @@ The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapsho
   `results/cross_reserve_multicell_lifts_20260904.json`.
 - None of the auxiliary refutations above is a refutation of Erdős #993. No
   non-unimodal tree was found and no manuscript claim changed.
+- The analytic follow-up isolates a sharp majority subcase. If \(b_2=0\),
+  blocked defect-three sets are maximal and every blocked defect-four set
+  \(S\) has \(T-N[S]\) equal to \(\varnothing\), \(K_1\), or \(K_2\).
+  The candidate bounds \(5b_3\le e_3\) and \(5b_4\le e_4\) have zero failures
+  in 586 relevant cases through \(n\le18\); the latter is sharp at
+  \(K_{1,5}\) and would close the \(b_2=0\) branch in the live window.
+  Sequential Cohen--Macaulay theory cannot prove it: an explicit split/chordal
+  family violates the bound. The obvious five-repair exchange injection also
+  fails exactly on a 9-vertex tree while the global bound survives.
+- A pendant-\(P_2\) extension has the exact recurrences
+  \(E^+=(1+x)E+xQ\) and \(B^+=(1+x)B+xH\). Under \(b_2^+=0\), the two
+  fivefold bounds propagate from the base tree if
+  \(5h_3\le e_2+q_3\) and \(5h_4\le q_4\). An exact rooted audit through base
+  order 14 tests 838 eligible extensions with zero failures; the \(h_4\)
+  boundary is attained. This rooted pair became the next proof-sized target
+  and was subsequently handled by the written forest induction above.
+  The \(b_2>0\) branch still requires the full joint density inequality.
+  Full record: notes/joint_density_analytic_sprint_2026-09-04.md.
 
 Full source and warrant record:
 `notes/arxiv_astra_transfer_2026-09-04.md`. No manuscript claim changed.

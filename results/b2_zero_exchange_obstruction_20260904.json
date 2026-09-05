@@ -1,0 +1,69 @@
+{
+  "alpha": 7,
+  "b_0_to_4": [
+    0,
+    0,
+    0,
+    2,
+    6
+  ],
+  "certificate_date": "2026-09-04",
+  "claim_status": "exact counterexample to this injection, not to 5*b_4<=e_4",
+  "e_0_to_4": [
+    1,
+    7,
+    21,
+    35,
+    35
+  ],
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      5,
+      8
+    ]
+  ],
+  "global_five_bound_lhs": 30,
+  "global_five_bound_rhs": 35,
+  "graph6": "Hs`?GGC",
+  "kind": "naive_b2_zero_exchange_injection_obstruction",
+  "maximum_distinct_repair_slots": 26,
+  "n": 9,
+  "repair_neighborhood_sizes": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+  ],
+  "repair_rule": "For each blocked defect-4 set S and every maximum set M, replace S\\M by an equally large subset of M\\S, retaining S intersection M.",
+  "required_distinct_repair_slots": 30
+}

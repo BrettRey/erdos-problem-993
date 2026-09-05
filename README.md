@@ -27,7 +27,13 @@ cell with deficiency at least two, again with no conditional-bound failure;
 deficiencies zero and one did not enter the adverse regime. This is bounded
 targeted evidence, not a theorem or a refutation of Erdős #993. Ordered
 first-violation classes and path-event bounds remain possible inputs to the
-joint target; the direct nonpure-face log-concavity route is closed.
+joint target; the direct nonpure-face log-concavity route is closed. The
+analytic follow-up now proves the `b_2=0` branch: every finite forest with
+`alpha >= 5` and `b_2=0` satisfies `5b_3 <= e_3` and `5b_4 <= e_4`.
+The written proof received independent reviews, and the complete Lean
+formalization builds locally with only the three standard axioms. See the
+[verification record](formalization/fivefold_forest_20260904/STATUS.md).
+The `b_2>0` branch still requires the full joint inequality; #993 remains open.
 
 The current active targets are:
 
@@ -214,6 +220,9 @@ cmp "$audit_dir/c2-bounded.json" \
 | `proof_graph/erdos993_frontier.json` | Validated claim/dependency graph for the current depth-3 matching-bag lane |
 | `scripts/frontier_graph.py` | Proof-graph validator, frontier report, and search-packet generator |
 | `notes/theoremgraph_attack_and_bridge_workflow_2026-08-28.md` | Workflow for finding and ranking high-value attacks and cross-field bridges |
+| `notes/joint_density_analytic_sprint_2026-09-04.md` | Written fivefold forest proof and chronological search record |
+| `formalization/fivefold_forest_20260904/STATUS.md` | Complete Lean proof, pinned build, independent statement/axiom audit, and review provenance |
+| `scripts/audit_pendant_p2_boundary_20260904.py` | Exact rooted audit of the two pendant-`P_2` boundary inequalities |
 | `scripts/probe_blocked_profile_depth3_20260828.py` | Exact bounded probe of the blocked-profile split through `n <= 15` |
 | `results/blocked_profile_depth3_probe_20260828.json` | Replayable bounded-probe summary and failure certificates |
 | `indpoly.py` | Core DP + analysis functions |

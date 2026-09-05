@@ -1,0 +1,49 @@
+run: fivefold-20260904-182512
+source_original: notes/joint_density_analytic_sprint_2026-09-04.md
+source_snapshot: source.md
+source_git_head: cfd88a5d704599644f930c7ad34c9169433968d0
+source_uncommitted: true
+source_sha256: 6b554778d602baa14bcb1db59650d940efb9b0689988286ca3caae566566ff19
+scope: independent correctness review of Section 12 and its displayed dependencies
+panel_note: Two focused clean-room reviews to respect the user's proportionality constraint.
+reviewers:
+  - reviewer: codex-proof-reviewer
+    model: inherited-primary-model
+    provider: OpenAI
+    prompt: prompt-codex.md
+    prompt_sha256: 127737a4a6c9538bba428c53619ca77d8aeb34eb3ab0e53184955a32217f343b
+    output: codex-review.md
+    output_sha256: 92217f2af81e0b6a86c0c3d1fbcaedb0b21a4d949fc91491980fa60164ea54d2
+    agent: /root/fivefold_review
+    dependence_cluster: codex-family-shared-artifact-and-review-goal
+    status: complete
+    verdict: VALID AS WRITTEN
+  - reviewer: opus-proof-reviewer
+    model_requested: opus
+    model_actual: claude-opus-5
+    effort: max
+    provider: Anthropic
+    prompt: prompt-opus.md
+    prompt_sha256: a4d3eee2aa8b2261121d281edd7f0ae292333f0ccbcbb624809aa0daa0727346
+    output: opus-review.json
+    output_sha256: cc00f8a105614571ebac1e061e11b42268f86a8c91f3e7642b4964fb75915341
+    review_text: opus-review.md
+    review_text_sha256: 5bddc9d5c2d2b5ef0edc827581807c922794a2c64ab4589284487f78c663efbe
+    dependence_cluster: opus-family-shared-artifact-and-review-goal
+    status: complete
+    verdict: VALID WITH EXPLICIT REPAIR
+    provider_session_id: 6e24e86c-d632-4b6a-931c-3f30f6456191
+    duration_seconds: 914.203
+    reported_output_tokens: 85803
+    reported_thinking_tokens: 83871
+    cli_reported_cost_usd: 2.3338420000000006
+    local_pid: 25231
+    exec_session_id: 88998
+    raw_output_note: Complete JSON and review text collected; do not relaunch.
+formalization:
+  project_id: a4a50054-798f-4d51-b4e7-87f8b9f029d0
+  task_id: 7b254d22-2403-4b14-a5d5-e11ddd91f8a8
+  status_path: ../../formalization/fivefold_forest_20260904/STATUS.md
+  resumed_task_id: dd8a1e5b-085b-40b9-a8f7-cfac6e926293
+  theorem_lean_verified: true
+  result_sha256: 07ce5a45aa4f8c0a0645f56f7619ebf49b100e85e8312138fd055f0022b405cd
