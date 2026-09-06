@@ -1,0 +1,62 @@
+{
+  "best_adverse": {
+    "alpha": 19,
+    "b4_over_e4": "16283/706415",
+    "b_0_to_4": [
+      0,
+      6,
+      119,
+      2016,
+      16283
+    ],
+    "combined_correction": -394650,
+    "deficiency": 5,
+    "density_over_threshold": "65132/706415",
+    "e_0_to_4": [
+      480,
+      7240,
+      51356,
+      227622,
+      706415
+    ],
+    "full_depth3_margin": 15532731494,
+    "graph6": "`OW`??@O?_g??A????I??????G???G?O???@?A???C??C???????AA@a?C????@????@?????????@G????_??G??",
+    "high_density_adverse": false,
+    "n": 33,
+    "proved_density_threshold": "1/4",
+    "unimodal": true
+  },
+  "certificate_date": "2026-09-05",
+  "claim_status": "bounded adaptive search, not exhaustive evidence or a theorem",
+  "counters": {
+    "b1_positive_adverse_visits": 254,
+    "best_improvements": 13,
+    "distinct_labeled_graph6_profiles": 3085,
+    "in_window_profile_checks": 3369,
+    "mutation_attempts": 5000,
+    "outside_window": 1631,
+    "seed_trees": 6
+  },
+  "elapsed_seconds": 3.815,
+  "first_target_found": null,
+  "kind": "high_b4_adverse_targeted_probe",
+  "scope": {
+    "alpha": [
+      17,
+      18,
+      19
+    ],
+    "archive_sources": [
+      "cross_reserve_witness_lifts_20260904.json",
+      "cross_reserve_multicell_lifts_20260904.json",
+      "negative_correction_seeds_n18_20260904.json"
+    ],
+    "delta_max": 5,
+    "n": [
+      33,
+      38
+    ],
+    "requested_mutations": 5000,
+    "seed": 20260905
+  }
+}

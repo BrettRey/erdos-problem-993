@@ -1,0 +1,44 @@
+Command: lake build
+Working directory: formalization/depth3_b1_zero_20260906/local-build
+Exit: 0
+
+ℹ [8026/8049] Built RequestProject.DepthThreeSpec (2.6s)
+info: RequestProject/DepthThreeSpec.lean:47:0: DepthThree.BlockedShadowTarget.{u_2} : Prop
+info: RequestProject/DepthThreeSpec.lean:48:0: DepthThree.LowDensityTarget.{u_2} : Prop
+info: RequestProject/DepthThreeSpec.lean:49:0: DepthThree.B1ZeroWindowTarget.{u_2} : Prop
+✔ [8027/8049] Built RequestProject.Fivefold.Defs (3.9s)
+⚠ [8028/8049] Built RequestProject.DepthThreeAlgebra (7.2s)
+warning: RequestProject/DepthThreeAlgebra.lean:9:20: unused variable `he3`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: RequestProject/DepthThreeAlgebra.lean:10:35: unused variable `hb4`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: RequestProject/DepthThreeAlgebra.lean:24:0: 'DepthThree.low_density_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/DepthThreeAlgebra.lean:40:0: 'DepthThree.four_forbidden_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8029/8049] Built RequestProject.Fivefold.Basic (3.4s)
+✔ [8030/8049] Built RequestProject.Fivefold.Paths (2.5s)
+✔ [8031/8049] Built RequestProject.Fivefold.Union (2.0s)
+✔ [8032/8049] Built RequestProject.Codes (17s)
+✔ [8033/8049] Built RequestProject.Main (17s)
+✔ [8034/8049] Built RequestProject.MatchingCover (18s)
+✔ [8035/8049] Built RequestProject.ForestLemmas (18s)
+✔ [8036/8049] Built RequestProject.PascalSmoothing (20s)
+ℹ [8037/8049] Built RequestProject.ParameterCertificate (21s)
+info: RequestProject/ParameterCertificate.lean:50:0: 'DepthThree.ParameterCertificate.all_small_forbidden_rays' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/ParameterCertificate.lean:51:0: 'DepthThree.ParameterCertificate.five_ray_cone' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8038/8049] Built RequestProject.CodeInvariance (6.2s)
+✔ [8039/8049] Built RequestProject.PosetCode (6.3s)
+✔ [8040/8049] Built RequestProject.ConstantCoordinate (6.4s)
+✔ [8041/8049] Built RequestProject.KonigHall (5.6s)
+✔ [8042/8049] Built RequestProject.TreeMatching (4.8s)
+✔ [8043/8049] Built RequestProject.Antichain (5.1s)
+✔ [8044/8049] Built RequestProject.BagPoset (3.0s)
+✔ [8045/8049] Built RequestProject.PascalBridge (3.8s)
+✔ [8046/8049] Built RequestProject.UltraLogConcave (18s)
+✔ [8047/8049] Built RequestProject.TreeCodeBridge (3.9s)
+ℹ [8048/8049] Built RequestProject.RootedForestCertificate (36s)
+info: RequestProject/RootedForestCertificate.lean:105:0: 'DepthThree.RootedForestCertificate.enumeration_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/RootedForestCertificate.lean:106:0: 'DepthThree.RootedForestCertificate.rooted_forest_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/RootedForestCertificate.lean:107:0: 'DepthThree.RootedForestCertificate.enumerated_count' does not depend on any axioms
+Build completed successfully (8049 jobs).

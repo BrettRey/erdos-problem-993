@@ -1,0 +1,225 @@
+ℹ [8026/8078] Built RequestProject.DepthThreeSpec (6.0s)
+info: RequestProject/DepthThreeSpec.lean:47:0: DepthThree.BlockedShadowTarget.{u_2} : Prop
+info: RequestProject/DepthThreeSpec.lean:48:0: DepthThree.LowDensityTarget.{u_2} : Prop
+info: RequestProject/DepthThreeSpec.lean:49:0: DepthThree.B1ZeroWindowTarget.{u_2} : Prop
+✔ [8027/8078] Built RequestProject.Fivefold.Defs (10s)
+✔ [8028/8078] Built RequestProject.B1Zero.ForestCount (11s)
+⚠ [8029/8078] Built RequestProject.DepthThreeAlgebra (14s)
+warning: RequestProject/DepthThreeAlgebra.lean:9:20: unused variable `he3`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: RequestProject/DepthThreeAlgebra.lean:10:35: unused variable `hb4`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: RequestProject/DepthThreeAlgebra.lean:24:0: 'DepthThree.low_density_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/DepthThreeAlgebra.lean:40:0: 'DepthThree.four_forbidden_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+warning: RequestProject/DepthThreeAlgebra.lean:48:5: unused variable `hu`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: RequestProject/DepthThreeAlgebra.lean:61:0: 'DepthThree.small_forbidden_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8030/8078] Built RequestProject.Fivefold.Basic (3.3s)
+ℹ [8031/8078] Built RequestProject.FivefoldBridge (2.9s)
+info: RequestProject/FivefoldBridge.lean:73:0: 'DepthThree.FivefoldBridge.e_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/FivefoldBridge.lean:74:0: 'DepthThree.FivefoldBridge.b_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8032/8078] Built RequestProject.Fivefold.Paths (2.0s)
+✔ [8033/8078] Built RequestProject.Codes (19s)
+✔ [8034/8078] Built RequestProject.Main (12s)
+✔ [8035/8078] Built RequestProject.MatchingCover (9.9s)
+✔ [8036/8078] Built RequestProject.ForestLemmas (21s)
+✔ [8037/8078] Built RequestProject.Fivefold.Union (4.5s)
+✔ [8038/8078] Built RequestProject.PascalSmoothing (23s)
+✔ [8039/8078] Built RequestProject.PosetCode (6.0s)
+✔ [8040/8078] Built RequestProject.ConstantCoordinate (6.2s)
+✔ [8041/8078] Built RequestProject.CodeInvariance (5.8s)
+✔ [8042/8078] Built RequestProject.KonigHall (5.4s)
+✔ [8043/8078] Built RequestProject.Antichain (5.4s)
+✔ [8044/8078] Built RequestProject.TreeMatching (5.2s)
+✔ [8045/8078] Built RequestProject.PascalBridge (5.2s)
+✔ [8046/8078] Built RequestProject.BagPoset (5.1s)
+✔ [8047/8078] Built RequestProject.UltraLogConcave (20s)
+✔ [8048/8078] Built RequestProject.B1Zero.Numeric (40s)
+✔ [8049/8078] Built RequestProject.TreeCodeBridge (4.6s)
+ℹ [8050/8078] Built RequestProject.ParameterCertificate (42s)
+info: RequestProject/ParameterCertificate.lean:50:0: 'DepthThree.ParameterCertificate.all_small_forbidden_rays' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/ParameterCertificate.lean:51:0: 'DepthThree.ParameterCertificate.five_ray_cone' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/ParameterCertificate.lean:66:0: 'DepthThree.ParameterCertificate.all_small_forbidden_density_rays' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+✔ [8051/8078] Built RequestProject.GraphBridge (3.4s)
+ℹ [8052/8078] Built RequestProject.RootedForestCertificate (45s)
+info: RequestProject/RootedForestCertificate.lean:105:0: 'DepthThree.RootedForestCertificate.enumeration_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/RootedForestCertificate.lean:106:0: 'DepthThree.RootedForestCertificate.rooted_forest_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/RootedForestCertificate.lean:107:0: 'DepthThree.RootedForestCertificate.enumerated_count' does not depend on any axioms
+ℹ [8053/8078] Built RequestProject.PolynomialCertificate (2.3s)
+info: RequestProject/PolynomialCertificate.lean:56:0: 'DepthThree.PolynomialCertificate.concentration_coeff_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/PolynomialCertificate.lean:57:0: 'DepthThree.PolynomialCertificate.profile_eq_firstFive' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8054/8078] Built RequestProject.BlockedCertificate (3.8s)
+✔ [8055/8078] Built RequestProject.ExtendableCount (3.9s)
+✔ [8056/8078] Built RequestProject.BlockedShadow (3.3s)
+✔ [8057/8078] Built RequestProject.LowDensity (4.2s)
+✔ [8058/8078] Built RequestProject.B1Zero.Allowed (3.6s)
+ℹ [8059/8078] Built RequestProject.DepthThreeTargets (3.9s)
+info: RequestProject/DepthThreeTargets.lean:36:0: 'DepthThree.blocked_shadow_of_forest' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/DepthThreeTargets.lean:37:0: 'DepthThree.low_density_of_forest' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8060/8078] Built RequestProject.B1Zero.BagCount (3.0s)
+ℹ [8061/8078] Built RequestProject.B1Zero.SimpleCertificate (20s)
+info: RequestProject/B1Zero/SimpleCertificate.lean:37:0: 'DepthThree.RootedForestCertificate.rooted_forest_simple_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+✔ [8062/8078] Built RequestProject.B1Zero.Pendant (3.6s)
+✔ [8063/8078] Built RequestProject.B1Zero.WellCovered (3.0s)
+✔ [8064/8078] Built RequestProject.B1Zero.ForcedDegree (3.5s)
+✔ [8065/8078] Built RequestProject.B1Zero.Decompose (3.1s)
+✔ [8066/8078] Built RequestProject.B1Zero.FlexCone (3.3s)
+✔ [8067/8078] Built RequestProject.B1Zero.EBounds (3.3s)
+✔ [8068/8078] Built RequestProject.B1Zero.DensitySmall (3.5s)
+⚠ [8069/8078] Built RequestProject.B1Zero.Convolution (3.6s)
+warning: RequestProject/B1Zero/Convolution.lean:28:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.IndepOn.subset`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Convolution.lean:39:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.mem_revSets`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8070/8078] Built RequestProject.B1Zero.Reach (3.1s)
+warning: RequestProject/B1Zero/Reach.lean:39:8: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.ReachIn.refl`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Reach.lean:41:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.ReachIn.single`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Reach.lean:43:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.ReachIn.trans`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Reach.lean:46:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.ReachIn.symm`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Reach.lean:50:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.ReachIn.mem_right`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Reach.lean:75:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.exists_walk_of_reachIn`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Reach.lean:140:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.mem_compIn`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Reach.lean:143:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.compIn_subset`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Reach.lean:168:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.IsTransversal.nonempty`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Reach.lean:173:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.IsTransversal.eq_empty`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8071/8078] Built RequestProject.B1Zero.Corona (3.0s)
+warning: RequestProject/B1Zero/Corona.lean:58:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.CoronaData.mem_cor`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Corona.lean:72:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.CoronaData.cor_union`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Corona.lean:78:8: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.CoronaData.cor_empty`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Corona.lean:82:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.CoronaData.cor_insert`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Corona.lean:93:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.CoronaData.pinv_pend`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/Corona.lean:98:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.CoronaData.pinv_base`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8072/8078] Built RequestProject.B1Zero.CoronaCount (3.2s)
+warning: RequestProject/B1Zero/CoronaCount.lean:28:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.cntRev_succ_succ`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/CoronaCount.lean:59:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.CoronaData.vecAt_empty_avoid`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/B1Zero/CoronaCount.lean:63:0: automatically included section variable(s) unused in theorem `MatchingBag.B1Zero.CoronaData.vec_congr`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8073/8078] Built RequestProject.B1Zero.CoronaRepr (3.1s)
+✔ [8074/8078] Built RequestProject.B1Zero.CoronaMove (3.1s)
+✔ [8075/8078] Built RequestProject.B1Zero.FlexCorona (3.3s)
+✔ [8076/8078] Built RequestProject.B1Zero.FourStructure (3.5s)
+ℹ [8077/8078] Built RequestProject.B1Zero.Target (3.3s)
+info: RequestProject/B1Zero/Target.lean:107:0: 'DepthThree.b1_zero_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8078 jobs).

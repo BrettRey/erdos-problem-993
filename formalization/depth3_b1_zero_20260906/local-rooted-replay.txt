@@ -1,0 +1,26 @@
+Command: /usr/bin/time -l lake env lean /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/formalization/depth3_b1_zero_20260906/input/RequestProject/RootedForestCertificate.lean
+Working directory: formalization/fivefold_forest_20260904/output-final_aristotle
+Lean: 4.28.0
+Exit: 0
+
+'DepthThree.RootedForestCertificate.enumeration_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DepthThree.RootedForestCertificate.rooted_forest_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DepthThree.RootedForestCertificate.enumerated_count' does not depend on any axioms
+       22.68 real        21.48 user         1.28 sys
+          8277655552  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              613782  page reclaims
+                 138  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                  54  voluntary context switches
+                6747  involuntary context switches
+          3591928505  instructions retired
+          1194785092  cycles elapsed
+           138940824  peak memory footprint

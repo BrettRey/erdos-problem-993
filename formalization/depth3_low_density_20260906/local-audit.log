@@ -1,0 +1,31 @@
+def DepthThree.BlockedShadowTarget.{u_2} : Prop :=
+∀ {V : Type u_2} [inst : Fintype V] (G : SimpleGraph V),
+  G.IsAcyclic → 4 ≤ G.indepNum → (G.indepNum - 4) * DepthThree.b G 2 ≤ 6 * DepthThree.b G 3
+def DepthThree.LowDensityTarget.{u_2} : Prop :=
+∀ {V : Type u_2} [inst : Fintype V] (G : SimpleGraph V),
+  G.IsAcyclic →
+    17 ≤ G.indepNum →
+      G.indepNum ≤ 19 →
+        3 * (G.indepNum - 3) * DepthThree.b G 4 ≤ (G.indepNum - 7) * DepthThree.e G 4 → DepthThree.DepthThreeStrict G
+def DepthThree.DepthThreeStrict.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Prop :=
+fun {V} [Fintype V] G => DepthThree.s G 2 * DepthThree.s G 4 < DepthThree.s G 3 ^ 2
+def DepthThree.Extendable.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Finset V → Prop :=
+fun {V} [Fintype V] G S => ∃ M, G.IsMaximumIndepSet M ∧ S ⊆ M
+def DepthThree.e.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → ℕ → ℕ :=
+fun {V} [Fintype V] G d =>
+  if d ≤ G.indepNum then {S | S.card = G.indepNum - d ∧ G.IsIndepSet ↑S ∧ DepthThree.Extendable G S}.card else 0
+def DepthThree.b.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → ℕ → ℕ :=
+fun {V} [Fintype V] G d =>
+  if d ≤ G.indepNum then {S | S.card = G.indepNum - d ∧ G.IsIndepSet ↑S ∧ ¬DepthThree.Extendable G S}.card else 0
+'DepthThree.blocked_shadow_of_forest' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DepthThree.low_density_of_forest' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.exists_treeMatching_of_isAcyclic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.TreeMatching.indepNum_eq_card_Bag' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.TreeMatching.isMaximumIndepSet_iff_mem_maxIndepSets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'MatchingBag.TreeMatching.card_extSets_fiber' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.TreeMatching.e_eq_erasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.TreeMatching.exists_small_blocked_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.TreeMatching.blocked_shadow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.TreeMatching.extendable_incidence' depends on axioms: [propext, Classical.choice, Quot.sound]

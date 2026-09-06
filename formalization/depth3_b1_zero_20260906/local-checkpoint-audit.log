@@ -1,0 +1,29 @@
+def DepthThree.B1ZeroWindowTarget.{u_2} : Prop :=
+∀ {V : Type u_2} [inst : Fintype V] (G : SimpleGraph V),
+  G.IsTree →
+    33 ≤ Fintype.card V →
+      Fintype.card V ≤ 38 →
+        17 ≤ G.indepNum →
+          G.indepNum ≤ 19 → 2 * G.indepNum ≤ Fintype.card V + 5 → DepthThree.b G 1 = 0 → DepthThree.DepthThreeStrict G
+def DepthThree.DepthThreeStrict.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Prop :=
+fun {V} [Fintype V] G => DepthThree.s G 2 * DepthThree.s G 4 < DepthThree.s G 3 ^ 2
+def DepthThree.Extendable.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → Finset V → Prop :=
+fun {V} [Fintype V] G S => ∃ M, G.IsMaximumIndepSet M ∧ S ⊆ M
+def DepthThree.e.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → ℕ → ℕ :=
+fun {V} [Fintype V] G d =>
+  if d ≤ G.indepNum then {S | S.card = G.indepNum - d ∧ G.IsIndepSet ↑S ∧ DepthThree.Extendable G S}.card else 0
+def DepthThree.b.{u_1} : {V : Type u_1} → [Fintype V] → SimpleGraph V → ℕ → ℕ :=
+fun {V} [Fintype V] G d =>
+  if d ≤ G.indepNum then {S | S.card = G.indepNum - d ∧ G.IsIndepSet ↑S ∧ ¬DepthThree.Extendable G S}.card else 0
+'DepthThree.b1_zero_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DepthThree.blocked_shadow_of_forest' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DepthThree.low_density_of_forest' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.TreeMatching.density_window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.TreeMatching.density_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.TreeMatching.density_four_aux' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.TreeMatching.flex_certificate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.B1Zero.exists_forest_repr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MatchingBag.B1Zero.CoronaData.cntRev_move_roots' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DepthThree.RootedForestCertificate.rooted_forest_simple_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

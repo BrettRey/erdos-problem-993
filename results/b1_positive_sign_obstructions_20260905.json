@@ -1,0 +1,160 @@
+{
+  "certificate_date": "2026-09-05",
+  "conclusion": "Neither pair-only nor unary-only defect-one obstruction makes D nonnegative. Both full polynomials remain unimodal, with positive depth-three margins.",
+  "discovery": "Ninth admissible single-leaf reattachment tested from archived b1-positive adverse seeds",
+  "kind": "b1_positive_sign_obstruction_replay",
+  "mutation": {
+    "leaf": 3,
+    "new_parent": 10,
+    "old_parent": 2
+  },
+  "scope": "Actual n=33, alpha=19, deficiency=5 trees; auxiliary refutations only",
+  "seed": {
+    "alpha": 19,
+    "b_0_to_4": [
+      0,
+      8,
+      117,
+      994,
+      7141
+    ],
+    "combined_correction": -56227048,
+    "deficiency": 5,
+    "e_0_to_4": [
+      1544,
+      21380,
+      139266,
+      567167,
+      1618881
+    ],
+    "forbidden_vertices": [
+      1,
+      2
+    ],
+    "forced_vertices": [
+      0,
+      3,
+      4,
+      5,
+      6,
+      15,
+      16
+    ],
+    "full_depth3_margin": 96167097495,
+    "graph6": "`pG`A?@O??g??@O???I??O???G???G?O???@?A?????_@?????@?A??????G?O??????C?G???????G????O????@",
+    "independence_polynomial": [
+      1,
+      33,
+      496,
+      4537,
+      28460,
+      130689,
+      457488,
+      1253883,
+      2739350,
+      4826143,
+      6902166,
+      8029910,
+      7580296,
+      5761680,
+      3476018,
+      1626022,
+      568161,
+      139383,
+      21388,
+      1544
+    ],
+    "joint_margin_numerator": 24739160100192,
+    "n": 33,
+    "pair_b_0_to_4": [
+      0,
+      8,
+      116,
+      786,
+      3303
+    ],
+    "unary_b_0_to_4": [
+      0,
+      0,
+      1,
+      208,
+      3838
+    ],
+    "unimodal": true
+  },
+  "unary_b1_positive_counterexample": {
+    "alpha": 19,
+    "b_0_to_4": [
+      0,
+      8,
+      132,
+      2739,
+      22070
+    ],
+    "combined_correction": -178212783,
+    "deficiency": 5,
+    "e_0_to_4": [
+      1536,
+      21248,
+      138240,
+      562176,
+      1601856
+    ],
+    "forbidden_vertices": [
+      1,
+      2,
+      10
+    ],
+    "forced_vertices": [
+      0,
+      3,
+      4,
+      5,
+      6,
+      9,
+      15,
+      16
+    ],
+    "full_depth3_margin": 94423068753,
+    "graph6": "`oG`A?@O?_g??@O???I??O???G???G?O???@?A?????_@?????@?A??????G?O??????C?G???????G????O????@",
+    "independence_polynomial": [
+      1,
+      33,
+      496,
+      4541,
+      28547,
+      131538,
+      462440,
+      1273217,
+      2792813,
+      4933890,
+      7062063,
+      8203512,
+      7714248,
+      5829723,
+      3493509,
+      1623926,
+      564915,
+      138372,
+      21256,
+      1536
+    ],
+    "joint_margin_numerator": 23390728131456,
+    "n": 33,
+    "pair_b_0_to_4": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "unary_b_0_to_4": [
+      0,
+      8,
+      132,
+      2739,
+      22070
+    ],
+    "unimodal": true
+  }
+}

@@ -1,0 +1,6 @@
+**/.lake/
+*.tar.gz
+
+# Preserve the verification record, not generated dependency/build caches.
+!/local-build.log
+!/local-audit.log

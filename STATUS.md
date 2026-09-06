@@ -7,7 +7,7 @@ stage: complete
 external: in-review
 blocked_on:
 - venue-response
-updated: 2026-09-04
+updated: 2026-09-06
 source:
 - STATUS.md
 - PORTFOLIO.md
@@ -16,7 +16,7 @@ venue: Electronic Journal of Combinatorics
 external_id: '15526'
 preprints:
 - zenodo/19100781
-next_action: Wait; E-JC requests no status enquiries before six months elapse (submitted 2026-04-25).
+next_action: Wait; E-JC requests no status enquiries before six months elapse (submitted 2026-04-25). Exploratory proof work is parked at the verified 6 September milestone.
 notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-polynomial
 
   unimodality), not a linguistics paper -- flagging per the task''s "consider
@@ -96,6 +96,100 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 ## Source of truth
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`. The current depth-3 matching-bag frontier is tracked in `proof_graph/erdos993_frontier.json`; the 4 September arXiv/Astra transfer audit and next experiment are in `notes/arxiv_astra_transfer_2026-09-04.md`.
+
+## 2026-09-06: research session closed at the verified milestone
+
+Brett chose to wrap up after the independent reviews, local Lean verification,
+and an assessment of the distance to a full resolution. Both new graph
+theorems and the general blocked-shadow lemma are verified; the review reports,
+frozen source, build logs, and axiom audits are retained below. All review
+agents have finished and the redundant Aristotle continuation was stopped.
+No further search or proving run is queued by this session.
+
+The remaining `b_1>0`, high-density, adverse-correction regime belongs to the
+bounded depth-three window, not to a one-lemma reduction of Erdős #993.
+Even closing that window would leave the missing argument for arbitrary
+sizes and coefficient positions. This is the resumption boundary, not a
+claim that the problem is nearly solved. The manuscript and external
+submission are unchanged. After shutdown, Brett explicitly requested a
+scoped commit and push of this completed research work. Source snapshots,
+review lineage, certificates, and verification logs are included; generated
+Lean caches, local download archives, and unrelated work are excluded.
+
+## 2026-09-05: b1-zero forbidden-core reduction
+
+- A new written proof shows that, for a forest with `b_1=0`, deleting the
+  forbidden vertices leaves a well-covered forest. Each forbidden vertex
+  has at least three forced neighbours; if any exist, their number satisfies
+  `r <= delta-1`, where `delta=2 alpha-n`.
+- In the current `n=33..38`, `alpha=17..19`, `delta<=5` window, exact
+  coefficient bounds plus the existing Pascal reserve prove
+  `s_3^2 > s_2 s_4` throughout the `b_1=0` subcase. The initial rational
+  certificate closes `r<=3`; the follow-up also closes the sole remaining
+  `(n,alpha,delta,r)=(33,19,5,4)` family. A dominating core and concentration
+  of attachments reduce it to 1,842 rooted forests on ten base vertices.
+  Every representative satisfies `b_4/e_4 <= 52513/217404 < 7/27`.
+  Retaining `b_3 >= 11 b_2` closes the full margin even in the 17 cases
+  where the stronger joint endpoint bound fails.
+- Both independent enumerators recover the same 1,842 canonical types;
+  subset enumeration, graph-polynomial DP, and matching-bag profile counts
+  agree on every representative. A further 2,692 small and 1,000 order-33
+  decoration checks have zero domination failures. Certificate:
+  `results/four_forbidden_concentration_20260905.json`.
+- The separate `b_1>0` branch remains open. A single-leaf mutation of an
+  archived witness gives unary-only blocked counts `(b_1,b_2,b_3,b_4)=
+  (8,132,2739,22070)` with `D=-178212783`. Thus neither unary nor pair
+  defect-one obstructions can be discarded by a nonadversity shortcut.
+  Its full depth-three margin is positive at `94423068753`; this is not
+  a #993 counterexample. Replay: `results/b1_positive_sign_obstructions_20260905.json`.
+- A general two-point obstruction/deletion bound gives
+  `6b_3 >= (alpha-4)b_2`. Restoring the favorable term in the Pascal
+  argument therefore proves the target whenever
+  `b_4/e_4 <= (alpha-7)/(3(alpha-3))`, namely `5/21`, `11/45`, or `1/4`
+  at `alpha=17,18,19`. The remaining regime requires `b_1>0`, `D<0`, and
+  density above that threshold. A bounded 5,000-mutation test found none;
+  its highest adverse ratio is `16283/706415`, about 9.22% of its threshold.
+  This is search evidence, not a proof that the remaining regime is empty.
+  Record: `results/high_b4_adverse_probe_20260905.json`.
+- The structural/coefficient checks passed on 5,446 small trees, 105
+  disconnected forests, and 109 archived profiles; all 55 repository tests
+  passed. Both new results subsequently passed independent AI mathematical
+  review, with separate exact reconstruction of all 1,842 rows and 13
+  parameter cases. Both graph theorems are now Lean-verified (6 September).
+  No full-window, #993, or novelty claim; no manuscript change.
+  Proof and next bounded target: `notes/b1_zero_forbidden_core_2026-09-05.md`.
+  Exact certificate: `results/b1_zero_forbidden_core_20260905.json`.
+
+### Independent review and formalization follow-up (6 September UTC)
+
+- Review record: `reviews/review-board-20260906-014743/synthesis.md`.
+  Scope clarifications preserve connectedness for the sharp four-forbidden
+  bound and the forest/rank hypotheses for the general blocked-shadow lemma.
+- The Lean audience review rebuilt the twelve-module code-reserve dependency
+  chain, but identified the explicit actual-graph-count/code bijection as
+  still unproved at review time. That bridge is now fully Lean-proved,
+  including maximum matching/rank identification and the partial-set/code
+  bijection that counts each set once.
+- **The low-density forest theorem and general blocked-shadow lemma are now
+  Lean-verified.** The returned source passed a fresh local default build
+  (8,049 jobs), exact frozen-target ascriptions, and an audit showing only
+  `propext`, `Classical.choice`, and `Quot.sound`. There are no proof holes or
+  native-decide shortcuts. The provider's COMPLETE_WITH_ERRORS status did not
+  match its report, but the actual local source replay passed.
+- **The b1-zero tree-window theorem is now also Lean-verified.** The saved
+  checkpoint from task `a5f2e62f-3d9e-49e2-a9e6-ce29a5673346` passed a fresh
+  local build (8,078 jobs), the unchanged frozen-target check, and the exact
+  theorem/bridge axiom audit with only the standard three axioms. All actual
+  graph-count, structural, corona, domination, and evaluator bridges are
+  proved. In the last four-forbidden case, a kernel-checked union bound over
+  16,796 plane rooted forests proves `4 b_4 <= e_4`; the low-density theorem
+  then finishes. This verifies the requested theorem, not the written route's
+  sharper graph maximum `52513/217404` or its special `b_3 >= 11 b_2` bound.
+  The provider task exhausted its budget, but its saved source was complete;
+  local replay establishes the result. The b1-positive high-density adverse
+  regime, the full depth-three window, and #993 remain open.
+  Exact verification records: `formalization/depth3_low_density_20260906/STATUS.md`
+  and `formalization/depth3_b1_zero_20260906/STATUS.md`.
 
 ## 2026-09-04: arXiv/Astra transfer audit and a sharper bounded target
 

@@ -1,0 +1,42 @@
+ℹ [8025/8057] Replayed RequestProject.DepthThreeSpec
+info: RequestProject/DepthThreeSpec.lean:47:0: DepthThree.BlockedShadowTarget.{u_2} : Prop
+info: RequestProject/DepthThreeSpec.lean:48:0: DepthThree.LowDensityTarget.{u_2} : Prop
+info: RequestProject/DepthThreeSpec.lean:49:0: DepthThree.B1ZeroWindowTarget.{u_2} : Prop
+ℹ [8026/8057] Replayed RequestProject.RootedForestCertificate
+info: RequestProject/RootedForestCertificate.lean:105:0: 'DepthThree.RootedForestCertificate.enumeration_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/RootedForestCertificate.lean:106:0: 'DepthThree.RootedForestCertificate.rooted_forest_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/RootedForestCertificate.lean:107:0: 'DepthThree.RootedForestCertificate.enumerated_count' does not depend on any axioms
+ℹ [8029/8057] Replayed RequestProject.FivefoldBridge
+info: RequestProject/FivefoldBridge.lean:73:0: 'DepthThree.FivefoldBridge.e_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/FivefoldBridge.lean:74:0: 'DepthThree.FivefoldBridge.b_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+⚠ [8032/8057] Replayed RequestProject.DepthThreeAlgebra
+warning: RequestProject/DepthThreeAlgebra.lean:9:20: unused variable `he3`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: RequestProject/DepthThreeAlgebra.lean:10:35: unused variable `hb4`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: RequestProject/DepthThreeAlgebra.lean:24:0: 'DepthThree.low_density_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/DepthThreeAlgebra.lean:40:0: 'DepthThree.four_forbidden_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+warning: RequestProject/DepthThreeAlgebra.lean:48:5: unused variable `hu`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: RequestProject/DepthThreeAlgebra.lean:61:0: 'DepthThree.small_forbidden_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8033/8057] Replayed RequestProject.ParameterCertificate
+info: RequestProject/ParameterCertificate.lean:50:0: 'DepthThree.ParameterCertificate.all_small_forbidden_rays' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/ParameterCertificate.lean:51:0: 'DepthThree.ParameterCertificate.five_ray_cone' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/ParameterCertificate.lean:66:0: 'DepthThree.ParameterCertificate.all_small_forbidden_density_rays' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [8034/8057] Replayed RequestProject.PolynomialCertificate
+info: RequestProject/PolynomialCertificate.lean:56:0: 'DepthThree.PolynomialCertificate.concentration_coeff_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/PolynomialCertificate.lean:57:0: 'DepthThree.PolynomialCertificate.profile_eq_firstFive' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8051/8057] Built RequestProject.GraphBridge (3.2s)
+✔ [8052/8057] Built RequestProject.ExtendableCount (3.5s)
+✔ [8053/8057] Built RequestProject.BlockedCertificate (3.5s)
+✔ [8054/8057] Built RequestProject.BlockedShadow (3.1s)
+✔ [8055/8057] Built RequestProject.LowDensity (3.0s)
+ℹ [8056/8057] Built RequestProject.DepthThreeTargets (3.2s)
+info: RequestProject/DepthThreeTargets.lean:36:0: 'DepthThree.blocked_shadow_of_forest' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/DepthThreeTargets.lean:37:0: 'DepthThree.low_density_of_forest' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8057 jobs).

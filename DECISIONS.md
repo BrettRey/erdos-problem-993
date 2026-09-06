@@ -550,3 +550,108 @@ Format: `## YYYY-MM-DD` then bullet points with **bold topic** and brief rationa
 - **Retire blocked-profile log-concavity and replace the old assembly route by a joint blocked-plus-cross charge.** Eight pendant matched-pair lifts take the exact `n=17`, `alpha=11`, deficiency-5 negative-cross witness into the live `(n,alpha,deficiency)=(33,19,5)` cell. A 56.66-second targeted search evaluates 500 nonisomorphic lifts, including 57 with `C<0`. The conditional cross-endpoint bound survives all 57, with worst load 0.0250234 of the Pascal reserve, but nine lifts refute `b_3^2>=b_2b_4`. The first has `b_2..b_4=(1,16,4216)` and blocked margin `-3960`; its full margin is still positive at 462,192,427,400, and independent graph6 replay is exact. The new sufficient target, needed only when `D=(b_3^2-b_2b_4)+C<0`, is `e_2b_4+e_4b_2+b_2b_4 <= ((5alpha+17)/(27(alpha-3)))e_2e_4`; it survives all 57 adverse combined-correction lifts with worst load 0.0250394. It fails outside the adverse regime and is not a universal inequality. Update the proof frontier accordingly. This auxiliary refutation is not a refutation of Erdős #993; no non-unimodal tree or negative full depth-three margin was found. Certificate: `results/cross_reserve_witness_lifts_20260904.json`.
 - **Keep the corrected conditional joint bridge after cross-cell targeting, then stop scaling this lift family.** The seed census finds 419 negative combined corrections among 149,239 relevant trees through `n<=18`, but none at deficiency one. The final actual-rung probe evaluates 50 exact nonisomorphic matched-pair lifts in each of 12 cells. It reaches `D<0` 120 times across every admissible cell with deficiency at least two and finds zero conditional-bound failures; the worst combined load is `816345/11251072` (about 7.26%) of the guaranteed Pascal reserve. Deficiency-zero and deficiency-one target lifts do not reach `D<0`, so they do not supply adverse-regime evidence. The unconditional endpoint inequality fails 336 times, two more blocked-profile LC failures occur, and full depth-three/unimodality failures remain zero. The 927.52-second final run closes the planned coverage experiment: retain the inequality as the proof target, do not scale the same lift family further, and do not treat any auxiliary failure as a refutation of Erdős #993. Certificates: `results/negative_correction_seeds_n18_20260904.json` and `results/cross_reserve_multicell_lifts_20260904.json`.
 - **Split off the \(b_2=0\) branch and prioritize the rooted pendant-\(P_2\) boundary pair.** If \(b_2=0\), blocked defect-three sets are maximal and every blocked defect-four set \(S\) has residual \(T-N[S]\) equal to \(\varnothing\), \(K_1\), or \(K_2\). The candidate bounds \(5b_3\le e_3\) and \(5b_4\le e_4\) have zero failures in 586 relevant trees through \(n\le18\), with the latter sharp at \(K_{1,5}\); it would close this branch in the live \(\alpha=17,18,19\) window. Do not pursue the naive local five-repair injection (exactly obstructed at \(n=9\)) or treat sequential Cohen--Macaulay/\(h\)-triangle theory as sufficient (an explicit split/chordal family violates the global fivefold bound). Use instead the exact recurrences \(E^+=(1+x)E+xQ\), \(B^+=(1+x)B+xH\): the global pair propagates under \(b_2^+=0\) from the rooted boundaries \(5h_3\le e_2+q_3\) and \(5h_4\le q_4\). These have zero failures in 838 eligible rooted extensions through base order 14, and the \(h_4\) bound is attained. The next analytic sprint should prove or refute that rooted pair, using computation only to kill proposed local maps. Retain the full joint density inequality for \(b_2>0\). This remains an auxiliary proof program, not a depth-three closure or a result on #993. Full record: `notes/joint_density_analytic_sprint_2026-09-04.md`.
+
+## 2026-09-05
+
+- **Organize the next b2-positive tranche by forbidden vertices.** Under
+  `b_1=0`, the allowed induced forest is well-covered, so the existing
+  ordered unary formula accounts for all blocked sets. Each forbidden
+  vertex has at least three forced neighbours, giving `r<=delta-1` when
+  `r>0`. Coefficient bounds and an exact 13-case rational certificate close
+  all 12 cases with `r<=3` in the `n=33..38`, `alpha=17..19`, `delta<=5`
+  window. Written proof and exact checks only; no independent review or
+  new Lean verification. Record: `notes/b1_zero_forbidden_core_2026-09-05.md`.
+- **Keep the two remaining branches explicit.** Within `b_1=0`, only the
+  33-vertex, four-forbidden family remains; its 13-vertex bipartite core
+  carries ten flexible matching pairs. Recommend restoring the attachment
+  restrictions discarded by the coarse density bound in a bounded exact
+  rooted-component calculation. Separately, `b_1>0 => D>=0` is refuted by
+  five archived trees, so that branch cannot be discarded by sign.
+  Stop at this checkpoint; no further search, formalizer dispatch,
+  manuscript change, publication, commit, or push in this tranche.
+- **After Brett continued the work, close the four-forbidden family by
+  domination, but retain the positive defect-three term.** Concentrating
+  the flexible components at one forbidden vertex in a dominating core
+  reduces the endpoint calculation to all 1,842 rooted forests on ten
+  base vertices. Exact independent enumeration and three coefficient
+  methods agree. The sharp `b_4/e_4` bound is `52513/217404 < 7/27`;
+  `b_3>=11b_2` completes the reserve argument. This closes the whole
+  `b_1=0` part of the current window, not `b_1>0` or #993. The stronger
+  joint endpoint bound fails on 17 representatives, so do not discard
+  the favorable term again. Written computer-assisted proof only, not
+  independently reviewed or Lean-verified. No manuscript edit or push.
+- **Reject a unary-versus-pair sign split for the remaining branch.**
+  The ninth admissible leaf reattachment from the archived adverse seeds
+  produces a unary-only `b_1>0` tree with `D=-178212783` and positive full
+  depth-three margin. Together with the existing pair-defect-one witness,
+  this requires both obstruction types to remain in the `b_1>0` target.
+  Exact replay: `scripts/replay_b1_positive_sign_obstructions_20260905.py`.
+- **Replace the discarded-positive-term target by a low-b4-density
+  closure, and isolate the genuinely unhandled regime.** The two-point
+  certificate property gives `6b_3 >= (alpha-4)b_2`; together with the
+  extendable shadow count and Pascal reserve, this proves the target for
+  `b_4/e_4 <= (alpha-7)/(3(alpha-3))`. Only `b_1>0`, `D<0`, and density
+  above that threshold now need work. A bounded 5,000-mutation probe has
+  no such case and reaches only 9.22% of the threshold, but does not prove
+  that the regime is empty. Preserve this distinction; do not scale the
+  same sampler merely to accumulate another negative result.
+
+## 2026-09-06
+
+- **Review and formalize both new results at Brett's request.** Two isolated
+  mathematical reviewers accept both results and separately reconstruct every
+  finite coefficient row. The audience-proxy Lean review identifies a missing
+  explicit bridge from graph-set counts to the already formalized code reserve.
+  Preserve the mathematical result but do not label either graph theorem
+  Lean-verified until every graph, incidence, and enumeration bridge is proved.
+  Record: `reviews/review-board-20260906-014743/synthesis.md`.
+- **Keep exact graph targets, not conditional surrogates.** The low-density
+  packet requires the universal finite-forest shadow lemma and the actual
+  strict graph inequality at alpha=17..19. The b1-zero packet requires the
+  connected-tree window theorem, including completeness of its finite
+  reduction. Local scalar proofs are supporting steps only. Aristotle accepted
+  the low-density project `be8de245-5246-41b8-aa5e-ca01f73d8008`; its concurrency
+  limit deferred the second packet. No unrelated running job was canceled.
+- **Promote the low-density and blocked-shadow graph targets after local
+  replay, not from the provider label.** The first task returned
+  COMPLETE_WITH_ERRORS but claimed both exact targets complete. A fresh
+  8,049-job local build, source inspection, unchanged-specification comparison,
+  and explicit target/bridge axiom audit passed with only the standard three
+  axioms. The actual graph/count/code bijection is now proved. Record:
+  `formalization/depth3_low_density_20260906/STATUS.md`.
+- **Reuse the verified project for b1-zero and shorten its assembly.** Continue
+  the same Aristotle project with the unchanged B1ZeroWindowTarget. The new
+  low-density graph theorem makes the special b2 and b3 bounds unnecessary:
+  locally kernel-checked r<=3 cone-ray densities are below its threshold, and
+  52513/217404 is below the r=4 threshold 1/4. Structural and graph/domination/
+  evaluator bridges remain required; the encoded finite certificate alone is
+  not completion. Resume actual timeouts automatically, as Brett requested.
+- **Promote the exact b1-zero graph target after source replay, despite the
+  provider timeout.** The saved source from the 04:50 UTC budget cutoff
+  already contains `DepthThree.b1_zero_window : DepthThree.B1ZeroWindowTarget`.
+  After the morning resumption, it passed a fresh 8,078-job local build,
+  unchanged-specification checks, exact target ascriptions, and a target/bridge
+  audit with only `propext`, `Classical.choice`, and `Quot.sound`. The final
+  graph proof includes structural and count/evaluator bridges; its r=4 route
+  uses a weaker union-bound numerator and kernel-checks all 16,796 plane
+  rooted forests to establish `4 b_4 <= e_4`, then invokes low density.
+  Do not promote the sharper written `52513/217404` graph bound or the special
+  `b_3 >= 11 b_2` estimate to Lean-verified status. The b1-positive adverse
+  high-density regime remains open. Record:
+  `formalization/depth3_b1_zero_20260906/STATUS.md`.
+- **2026-09-06 — Close the current research session at the verified milestone.**
+  After asking for a candid assessment of proximity to resolving #993, Brett
+  chose to wrap up. Preserve the completed independent reviews and exact
+  graph-level Lean results; start no further search or proving run now.
+  The remaining obstruction is within a bounded auxiliary window, and a
+  separate uniform argument is still needed for the full conjecture. The
+  assistant's 10--20% near-term resolution estimate was explicitly subjective,
+  not a measured completion fraction or a user-endorsed research forecast.
+  No manuscript change, commit, push, or external publication is implied.
+- **2026-09-06 — Ship the completed depth-three research artifacts at Brett's
+  explicit request.** Commit the two new verified Lean packets, independent
+  review lineage, written proof, exact certificates and replay scripts, and
+  the corresponding proof-frontier/status updates. Include the verification
+  logs but not generated Lean caches or local download archives. Keep the
+  unrelated Mason work, literature notes, and manuscript plans out of this
+  commit. The manuscript and submitted versions remain unchanged.

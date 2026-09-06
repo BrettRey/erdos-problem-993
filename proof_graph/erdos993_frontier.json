@@ -2,7 +2,7 @@
   "schema_version": 1,
   "graph_id": "erdos993_depth3_frontier_20260828",
   "title": "Erdos #993 depth-3 proof frontier",
-  "updated": "2026-09-04",
+  "updated": "2026-09-06",
   "root_claim": "depth3_rung_lc",
   "scope": "The remaining depth-3 log-concavity rung in the matching-bag approach; this graph is not a proof of full tree independence-sequence unimodality.",
   "claims": [
@@ -95,7 +95,7 @@
       "slogan": "The extendable erasure profile is log-concave with an explicit depth-3 Pascal reserve.",
       "statement": "For M>=4, the extendable profile satisfies 27(M-3)e_3^2 >= 32(M-2)e_2e_4, hence e_3^2-e_2e_4 >= 0.",
       "status": "formalized",
-      "scope": "Every downward-closed family after the Pascal transform; transported to every finite tree maximum-assignment code.",
+      "scope": "Every downward-closed family after the Pascal transform; transported to every finite forest maximum-assignment code and, as of the 6 September local Lean replay, to the actual graph-set counts via the proved rank/maximum-set identification and fibrewise partial-set/code bijection.",
       "falsification": "A downward-closed family or transported tree code violating the displayed integer inequality refutes the claim.",
       "evidence": [
         {
@@ -105,6 +105,10 @@
         {
           "type": "lean",
           "ref": "formalization/matching_bag_poset_aristotle/RequestProject/PascalBridge.lean"
+        },
+        {
+          "type": "lean",
+          "ref": "formalization/depth3_low_density_20260906/output-first/input_aristotle/RequestProject/ExtendableCount.lean"
         },
         {
           "type": "script",
@@ -392,6 +396,94 @@
       }
     },
     {
+      "id": "b1_zero_window_closure",
+      "kind": "computer_assisted_theorem",
+      "slogan": "The whole b_1=0 subcase of the current n=33..38 depth-three window has positive margin.",
+      "statement": "For every tree with 33<=n<=38, alpha in {17,18,19}, delta=2alpha-n<=5, and b_1=0, s_3^2>s_2s_4.",
+      "status": "formalized",
+      "scope": "Independently AI-reviewed and graph-level Lean-verified on 6 September: fresh 8,078-job local build, unchanged frozen specification, exact target ascriptions, and standard-three-axiom audit. The r<=3 forbidden-vertex cases close by cone-ray density bounds. For the remaining connected-tree (n,alpha,delta,r)=(33,19,5,4) family, proved structural/graph-count/corona/evaluator bridges and a kernel-checked union bound over all 16,796 plane rooted forests give 4b_4<=e_4; low density completes the target. The sharper written graph bound 52513/217404 and b_3>=11b_2 are independently reviewed but not claimed Lean-verified. The b_1>0 branch and #993 remain open.",
+      "falsification": "A target-window b_1=0 tree with nonpositive full depth-three margin, or a failure of the stated structural/domination reductions, refutes this strict claim.",
+      "evidence": [
+        {
+          "type": "note",
+          "ref": "notes/b1_zero_forbidden_core_2026-09-05.md"
+        },
+        {
+          "type": "script",
+          "ref": "scripts/audit_b1_zero_forbidden_core_20260905.py"
+        },
+        {
+          "type": "result",
+          "ref": "results/b1_zero_forbidden_core_20260905.json"
+        },
+        {
+          "type": "script",
+          "ref": "scripts/audit_four_forbidden_concentration_20260905.py"
+        },
+        {
+          "type": "result",
+          "ref": "results/four_forbidden_concentration_20260905.json"
+        },
+        {
+          "type": "lean",
+          "ref": "formalization/depth3_b1_zero_20260906/checkpoint-timeout-1/RequestProject/B1Zero/Target.lean"
+        },
+        {
+          "type": "note",
+          "ref": "formalization/depth3_b1_zero_20260906/STATUS.md"
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "low"
+      },
+      "search_profiles": {}
+    },
+    {
+      "id": "low_b4_density_window_closure",
+      "kind": "quantitative_lemma",
+      "slogan": "Keeping the positive defect-three contribution closes the low-b4-density regime without assuming b_1=0.",
+      "statement": "For a finite forest with alpha in {17,18,19}, if 3(alpha-3)b_4 <= (alpha-7)e_4, then s_3^2>s_2s_4. The two-point obstruction property gives 6b_3>=(alpha-4)b_2, and (alpha-3)e_3>=4e_4 supplies the required reserve compensation.",
+      "status": "formalized",
+      "scope": "Independently AI-reviewed and graph-level Lean-verified on 6 September: fresh local build and exact frozen-target/bridge axiom audit passed with only the standard three axioms. Thresholds are 5/21, 11/45, and 1/4. The matching-code/graph-count bridge and general blocked-shadow bound are proved. In the current n=33..38 window, combining this with the now Lean-verified b1-zero closure leaves only b_1>0, D<0, and b_4/e_4 above the threshold. A bounded probe is not a proof that the residual regime is empty.",
+      "falsification": "A forest violating either incidence bound, or a stated-rank forest below the density threshold with nonpositive full margin, refutes the claim.",
+      "evidence": [
+        {
+          "type": "note",
+          "ref": "notes/b1_zero_forbidden_core_2026-09-05.md"
+        },
+        {
+          "type": "note",
+          "ref": "notes/matching_bag_poset_reduction_2026-08-20.md"
+        },
+        {
+          "type": "script",
+          "ref": "scripts/audit_b1_zero_forbidden_core_20260905.py"
+        },
+        {
+          "type": "result",
+          "ref": "results/b1_zero_forbidden_core_20260905.json"
+        },
+        {
+          "type": "result",
+          "ref": "results/high_b4_adverse_probe_20260905.json"
+        },
+        {
+          "type": "lean",
+          "ref": "formalization/depth3_low_density_20260906/output-first/input_aristotle/RequestProject/DepthThreeTargets.lean"
+        },
+        {
+          "type": "note",
+          "ref": "formalization/depth3_low_density_20260906/STATUS.md"
+        }
+      ],
+      "priority": {
+        "falsifiability": "high",
+        "verification_cost": "low"
+      },
+      "search_profiles": {}
+    },
+    {
       "id": "pendant_p2_profile_recurrence",
       "kind": "counting_identity",
       "slogan": "A pendant matched pair gives exact recurrences for the extendable and blocked face enumerators.",
@@ -541,6 +633,41 @@
     },
     {
       "from": "b2_zero_fivefold_density",
+      "to": "depth3_margin_nonnegative",
+      "type": "tests"
+    },
+    {
+      "from": "b1_zero_window_closure",
+      "to": "matching_bag_representation",
+      "type": "depends_on"
+    },
+    {
+      "from": "b1_zero_window_closure",
+      "to": "extendable_pascal_reserve",
+      "type": "depends_on"
+    },
+    {
+      "from": "b1_zero_window_closure",
+      "to": "depth3_margin_nonnegative",
+      "type": "tests"
+    },
+    {
+      "from": "low_b4_density_window_closure",
+      "to": "matching_bag_representation",
+      "type": "depends_on"
+    },
+    {
+      "from": "low_b4_density_window_closure",
+      "to": "forest_poset_code",
+      "type": "depends_on"
+    },
+    {
+      "from": "low_b4_density_window_closure",
+      "to": "extendable_pascal_reserve",
+      "type": "depends_on"
+    },
+    {
+      "from": "low_b4_density_window_closure",
       "to": "depth3_margin_nonnegative",
       "type": "tests"
     },

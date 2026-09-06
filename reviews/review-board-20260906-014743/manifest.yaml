@@ -1,0 +1,60 @@
+run: review-board-20260906-014743
+status: complete
+goal: Independently review both new graph-count theorems before Lean formalization.
+source_commit: c1abc1ac7b4ebfedfc28d482ec7440e2da5a3bec
+source_path: notes/b1_zero_forbidden_core_2026-09-05.md
+source_snapshot: source/b1_zero_forbidden_core_2026-09-05.md
+source_sha256: 4d77890b084b1a7aec056217b84d2606f17c78b4ec5772aff2401426d300a8bb
+model_note: Opus preset unavailable through collaboration interface; isolated inherited-model Codex agents used. Same-family independence is limited.
+reviewers:
+  - reviewer: math-a
+    persona: Clean-room mathematical reviewer
+    model: inherited session model
+    provider: OpenAI
+    prompt: prompt-math-a.md
+    prompt_sha256: 5e04fbe075ad8e48145487c2cd0161a0356f42d624280840ece6e3040ca5ad6d
+    raw_output: math-a.md
+    raw_output_sha256: 7dcceeeb775c9eb4b3f3de00c8dc171fc5d5335671ac8e8bcdf012d4b29de901
+    agent: /root/review_math_a
+    dependence_cluster: openai-inherited-clean-room-shared-artifact
+  - reviewer: math-b
+    persona: Clean-room mathematical reviewer
+    model: inherited session model
+    provider: OpenAI
+    prompt: prompt-math-b.md
+    prompt_sha256: 2f7e29f1dfe3e49f233bd20f19d93f621075fa8d061c4551055e1e298ede8d92
+    raw_output: math-b.md
+    raw_output_sha256: 6adde30838b38792993a47987a416d4fb631434b9ad51369f5f166d874fc3372
+    agent: /root/review_math_b
+    dependence_cluster: openai-inherited-clean-room-shared-artifact
+  - reviewer: lean-reader
+    persona: Audience-proxy Lean formalizer
+    model: inherited session model
+    provider: OpenAI
+    prompt: prompt-lean-reader.md
+    prompt_sha256: 1ecbb3cddb044c0052ea4c94b034df6de905acd03a75a6a588eb035e2a707baf
+    raw_output: lean-reader.md
+    raw_output_sha256: d3d043ba67213da07286a9c65903739d86012cc27bc2fcf1dbd4fcf10e4a085e
+    agent: /root/review_lean_reader
+    dependence_cluster: openai-inherited-audience-proxy-shared-artifact
+followups:
+  - reviewer: lean-reader-checkpoint
+    persona: Independent source-semantic audit of completed B1Zero checkpoint
+    model: inherited session model
+    provider: OpenAI
+    agent: /root/review_lean_reader
+    prompt: prompt-lean-checkpoint-followup.md
+    prompt_sha256: 98ae0369e7b9ad97b96b55ef4733ff60bb4272448f61ccab8ac8173322f3c27c
+    prompt_dispatched_at: '2026-09-06T10:01:48Z'
+    prompt_preservation_note: Exact dispatched task text preserved after dispatch; initial review prompts were preserved before dispatch.
+    raw_output: lean-checkpoint-followup.md
+    raw_output_sha256: 937d22df46b1445793b7cd486f1bb49050b8686d774c3570b11c5d8271c6a94f
+    source_commit: c1abc1ac7b4ebfedfc28d482ec7440e2da5a3bec
+    source_path: formalization/depth3_b1_zero_20260906/checkpoint-timeout-1/
+    source_state: Uncommitted returned checkpoint; source hashes, not the repository commit, identify the reviewed files.
+    source_manifest: formalization/depth3_b1_zero_20260906/returned-checkpoint-source-sha256.txt
+    source_manifest_sha256: 03581ad8f2d8230c646b6105c6de456f3376ab36ebe4d32056619a61a52f7110
+    frozen_specification_sha256: aaf283ca986d1119706e68169cff73fab3c050f99b66ce68736b353e6a6da090
+    target_module_sha256: aa7be0df446ceea33b4ca6f670d3f899bf2fd6ec8a4ef8dba1324820f75252fe
+    dependence_cluster: openai-inherited-followup-to-audience-reader
+    verification_role: Source semantics only; main agent separately performed fresh build and axiom audit.

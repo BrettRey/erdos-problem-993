@@ -1,0 +1,36 @@
+ℹ [8026/8049] Built RequestProject.DepthThreeSpec (1.8s)
+info: RequestProject/DepthThreeSpec.lean:47:0: DepthThree.BlockedShadowTarget.{u_2} : Prop
+info: RequestProject/DepthThreeSpec.lean:48:0: DepthThree.LowDensityTarget.{u_2} : Prop
+info: RequestProject/DepthThreeSpec.lean:49:0: DepthThree.B1ZeroWindowTarget.{u_2} : Prop
+⚠ [8027/8049] Built RequestProject.DepthThreeAlgebra (4.7s)
+warning: RequestProject/DepthThreeAlgebra.lean:9:20: unused variable `he3`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: RequestProject/DepthThreeAlgebra.lean:10:35: unused variable `hb4`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: RequestProject/DepthThreeAlgebra.lean:24:0: 'DepthThree.low_density_algebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8028/8049] Built RequestProject.Main (5.2s)
+✔ [8029/8049] Built RequestProject.Codes (5.4s)
+✔ [8030/8049] Built RequestProject.MatchingCover (5.6s)
+✔ [8031/8049] Built RequestProject.ForestLemmas (6.6s)
+✔ [8032/8049] Built RequestProject.PascalSmoothing (7.6s)
+✔ [8033/8049] Built RequestProject.CodeInvariance (5.3s)
+✔ [8034/8049] Built RequestProject.KonigHall (5.2s)
+✔ [8035/8049] Built RequestProject.PosetCode (5.5s)
+✔ [8036/8049] Built RequestProject.ConstantCoordinate (5.6s)
+✔ [8037/8049] Built RequestProject.TreeMatching (4.3s)
+✔ [8038/8049] Built RequestProject.Antichain (4.5s)
+✔ [8039/8049] Built RequestProject.BagPoset (3.6s)
+✔ [8040/8049] Built RequestProject.PascalBridge (3.5s)
+✔ [8041/8049] Built RequestProject.UltraLogConcave (16s)
+✔ [8042/8049] Built RequestProject.TreeCodeBridge (3.6s)
+✔ [8043/8049] Built RequestProject.GraphBridge (3.3s)
+✔ [8044/8049] Built RequestProject.ExtendableCount (3.6s)
+✔ [8045/8049] Built RequestProject.BlockedCertificate (3.6s)
+✔ [8046/8049] Built RequestProject.BlockedShadow (3.2s)
+✔ [8047/8049] Built RequestProject.LowDensity (4.2s)
+ℹ [8048/8049] Built RequestProject.DepthThreeTargets (3.3s)
+info: RequestProject/DepthThreeTargets.lean:36:0: 'DepthThree.blocked_shadow_of_forest' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: RequestProject/DepthThreeTargets.lean:37:0: 'DepthThree.low_density_of_forest' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (8049 jobs).
