@@ -15,7 +15,7 @@ venue: none
 external_id: '15526'
 preprints:
 - zenodo/19100781
-next_action: Parked. Brett to decide whether to send the outreach draft to the authors of arXiv:2609.20961 (outreach/fang_et_al_2609_20961_2026-09-25.md). If the paper is ever reactivated, the referee's short-note path now has to be positioned against 2609.20961 (asymptotic #993, Lean-replayed 2026-09-25); see the 2026-09-13 and 2026-09-25 DECISIONS entries.
+next_action: Parked. Email to the authors of arXiv:2609.20961 sent 2026-09-25 (outreach/fang_et_al_2609_20961_2026-09-25.md); await a reply, no chase planned. If the paper is ever reactivated, the referee's short-note path now has to be positioned against 2609.20961 (asymptotic #993, Lean-replayed 2026-09-25); see the 2026-09-13 and 2026-09-25 DECISIONS entries.
 notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-polynomial
 
   unimodality), not a linguistics paper -- flagging per the task''s "consider
@@ -92,7 +92,7 @@ claim:
 ---
 
 # Erdos Problem #993 -- Independent Set Sequence Unimodality for Trees
-<!-- SUMMARY: Tree independence-sequence unimodality; manuscript declined by E-JC 2026-09-13 and parked; arXiv:2609.20961 proves #993 for forests above an unspecified N0 (Lean replayed 2026-09-25); outreach draft to its authors unsent · status: parked · updated: 2026-09-25 -->
+<!-- SUMMARY: Tree independence-sequence unimodality; manuscript declined by E-JC 2026-09-13 and parked; arXiv:2609.20961 proves #993 for forests above an unspecified N0 (Lean replayed 2026-09-25); email to its authors sent 2026-09-25 · status: parked · updated: 2026-09-25 -->
 
 ## 2026-09-25: #993 proved for large forests (external); Primus trial closed
 
@@ -108,9 +108,9 @@ claim:
   `notes/fang_lu_nevo_yao_zheng_2026_large_forests_2026-09-25.md`.
 - **Primus trial (23-24 September): no advance.** Re-verified independently
   (DECISIONS 2026-09-25). No rerun.
-- **Outreach draft** to the authors, pointing to the n <= 32 log-concavity
-  census as evidence for their `b_lc = 1` question: local in `outreach/`,
-  not sent.
+- **Email to the authors**, pointing to the n <= 32 log-concavity census as
+  evidence for their `b_lc = 1` question: sent 2026-09-25 (draft kept
+  local in `outreach/`).
 - Research and manuscript remain parked.
 
 ## 2026-09-13 Electronic Journal of Combinatorics: decline, then parked
