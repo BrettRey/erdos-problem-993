@@ -673,3 +673,34 @@ ZIPs, the same brief was provided as paste-ready text; that version does not
 include executable checks or the full Lean project. Approval record:
 `gpt_attack/primus_2026-09-23_review.md` and Brett's explicit approval in
 chat; delivered text: `gpt_attack/primus_handoff_2026-09-23.txt`.
+
+2026-09-25 — Primus result recorded as NO ADVANCE, independently
+re-verified. Its Conjecture 16 (`D < 0 => b_1 = b_2 = 0`) fails on all three
+supplied witnesses (packet `replay.py`: `b_1 = 8` on two; `b_1 = 0`,
+`b_2 = 1`, `D = -1336360568` on the third), and the returned report quotes
+those `D` values itself; its `confirm/witnesses.py` reads `e`, `b` from
+constants and recomputes only `s`. No rerun and no further spend on the
+depth-three lane. Posting the feedback draft is Brett's call (the draft is
+kept local and gitignored). The delivered `.txt` brief is byte-identical to
+the tracked `gpt_attack/primus_handoff_2026-09-23.md`. Recommendation by
+Claude Code (Opus 5.5); no rerun is authorized in any case.
+
+2026-09-25 — Log arXiv:2609.20961 (Fang, Lu, Nevo, Yao, Zheng; posted
+2026-09-17; partial proof claim on erdosproblems.com 2026-09-21) as the
+asymptotic resolution of #993 for forests on at least an unspecified `N0`
+vertices; the finite range stays open (their p. 16). Their Lean development
+was replayed locally at commit `b2a1d3e`: builds, no `sorry`, headline
+theorems on the three standard axioms only, statement checked faithful.
+Corpus adjudication: their free-vertex identity (8.1) is our `mu_k` identity
+(standard double count, **adopted** as common ground, no priority claim);
+their deterministic `ceil(n/4)` prefix bound is **adopted** for any rebuild;
+`main_v2`'s mode-mean route is **deliberately distinguished** (bypassed for
+large `n`, kept for finite `n` and peak location); the depth-three window
+lane is **deferred** indefinitely. Correction to the week's working claim:
+the finite floor is the thread's `n <= 32` unimodality record
+(tylersatchelorden), not our `n <= 29`. Research and manuscript stay parked;
+an outreach draft to the authors is local in `outreach/`. Note:
+`notes/fang_lu_nevo_yao_zheng_2026_large_forests_2026-09-25.md`. Logging
+directed by Brett ("take the three steps"); the adjudications above are
+Claude's proposals and await his review. Assisting system: Claude Code
+(Opus 5.5).

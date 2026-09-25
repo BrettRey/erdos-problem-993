@@ -6,7 +6,7 @@ title: Mean bounds, structural reductions, and exhaustive verification for tree 
 stage: complete
 external: rejected
 blocked_on: []
-updated: 2026-09-13
+updated: 2026-09-25
 source:
 - STATUS.md
 - PORTFOLIO.md
@@ -15,7 +15,7 @@ venue: none
 external_id: '15526'
 preprints:
 - zenodo/19100781
-next_action: Parked at Brett's direction after the E-JC decline (2026-09-13). No rebuild now. If reactivated, the referee's path is a short note; see reviews/ejc-decision-2026-09-13.md and the 2026-09-13 DECISIONS entry.
+next_action: Parked. Brett to decide whether to send the outreach draft to the authors of arXiv:2609.20961 (outreach/fang_et_al_2609_20961_2026-09-25.md). If the paper is ever reactivated, the referee's short-note path now has to be positioned against 2609.20961 (asymptotic #993, Lean-replayed 2026-09-25); see the 2026-09-13 and 2026-09-25 DECISIONS entries.
 notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-polynomial
 
   unimodality), not a linguistics paper -- flagging per the task''s "consider
@@ -86,12 +86,31 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 claim:
   argues: >-
     Mathematical paper (combinatorics), not linguistics. n=29 exhaustive verification.
-    Under review at *Electronic Journal of Combinatorics*.
+    Declined by *Electronic Journal of Combinatorics* (2026-09-13); parked.
   provenance: drafted-from-map
-  claim_updated: 2026-09-04
+  claim_updated: 2026-09-25
 ---
 
 # Erdos Problem #993 -- Independent Set Sequence Unimodality for Trees
+
+## 2026-09-25: #993 proved for large forests (external); Primus trial closed
+
+- **arXiv:2609.20961** (Fang, Lu, Nevo, Yao, Zheng; posted 17 September;
+  partial proof claim on erdosproblems.com 21 September) proves that every
+  forest on at least N0 vertices has a unimodal independence sequence, for an
+  absolute N0 that is never computed. The authors state that the conjecture
+  for all sizes remains open (p. 16). Their Lean development was replayed
+  locally at commit `b2a1d3e`: it builds, has no `sorry`, and its headline
+  theorems use only the three standard axioms. The open part of #993 is the
+  range between the thread's n <= 32 unimodality record and an explicit N0.
+  Reading note and replay record:
+  `notes/fang_lu_nevo_yao_zheng_2026_large_forests_2026-09-25.md`.
+- **Primus trial (23-24 September): no advance.** Re-verified independently
+  (DECISIONS 2026-09-25). No rerun.
+- **Outreach draft** to the authors, pointing to the n <= 32 log-concavity
+  census as evidence for their `b_lc = 1` question: local in `outreach/`,
+  not sent.
+- Research and manuscript remain parked.
 
 ## 2026-09-13 Electronic Journal of Combinatorics: decline, then parked
 
