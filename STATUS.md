@@ -4,19 +4,18 @@ kind: paper
 title: Mean bounds, structural reductions, and exhaustive verification for tree independence polynomial
   unimodality
 stage: complete
-external: in-review
-blocked_on:
-- venue-response
-updated: 2026-09-06
+external: rejected
+blocked_on: []
+updated: 2026-09-13
 source:
 - STATUS.md
 - PORTFOLIO.md
 - paper/main_v2.tex
-venue: Electronic Journal of Combinatorics
+venue: none
 external_id: '15526'
 preprints:
 - zenodo/19100781
-next_action: Wait; E-JC requests no status enquiries before six months elapse (submitted 2026-04-25). Exploratory proof work is parked at the verified 6 September milestone.
+next_action: Parked at Brett's direction after the E-JC decline (2026-09-13). No rebuild now. If reactivated, the referee's path is a short note; see reviews/ejc-decision-2026-09-13.md and the 2026-09-13 DECISIONS entry.
 notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-polynomial
 
   unimodality), not a linguistics paper -- flagging per the task''s "consider
@@ -84,9 +83,19 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 
   since portals sometimes write to Brett''s Humber or UofT addresses.
   '
+claim:
+  argues: >-
+    Mathematical paper (combinatorics), not linguistics. n=29 exhaustive verification.
+    Under review at *Electronic Journal of Combinatorics*.
+  provenance: drafted-from-map
+  claim_updated: 2026-09-04
 ---
 
 # Erdos Problem #993 -- Independent Set Sequence Unimodality for Trees
+
+## 2026-09-13 Electronic Journal of Combinatorics: decline, then parked
+
+Declined (Id=15526, editor Bruce Sagan) on one referee report; verbatim in `reviews/ejc-decision-2026-09-13.md` (gitignored: public repo). Recorded and parked at Brett's direction, no rebuild now. The math is not refuted: Reviewer A calls the ≤n/3 mean bound's proof a "potentially valuable new technique" and the edge-contraction mode/mean conjecture "intriguing." The rejection is on presentation: undefined terminology at first use and a manuscript that "reads far more like a very detailed, carefully maintained research journal than a finished manuscript"; the referee's constructive path is "a short compelling note." One factual fix for any rebuild: the unimodality question is Alavi et al.'s *question*, and the conjecture must not be attributed to them. Preprint (Zenodo 19100781) stands. Forecast p_accept was 0.30 (Brett and claude); decision within Brett's 2026-09-15 predicted window.
 
 **Problem:** Is the independent set sequence of every tree unimodal?
 
@@ -96,6 +105,67 @@ notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-poly
 ## Source of truth
 
 The current manuscript is `paper/main_v2.tex` (XeLaTeX + biber). Numeric snapshots live in `results/*.json` where available. The main proof-status references are `notes/one_private_status.md` and `notes/conjecture_A_analysis.md`; subdivision identity details live in `subdivision_correct.py` and `verify_subdivision_formula.py`. The current depth-3 matching-bag frontier is tracked in `proof_graph/erdos993_frontier.json`; the 4 September arXiv/Astra transfer audit and next experiment are in `notes/arxiv_astra_transfer_2026-09-04.md`.
+
+## 2026-09-07: what studying #993 has taught us
+
+Brett asked to retain the application of Tao's research framing, supplied in
+a screenshot: assess what is learned from studying a problem, not only
+proximity to its final answer. The organizing question for this project is:
+**What structure can prevent a second peak when stronger forms of coefficient
+regularity fail?** This is a research question, not a claim that #993 is proved.
+
+- Retained mathematical outputs include the manuscript's mean bound and
+  subdivision-contraction identity, the matching-bag/count representations,
+  and the later Lean-verified blocked-shadow and scoped depth-three theorems.
+  Their value does not depend on a future resolution of #993; broad external
+  usefulness and novelty still require separate assessment.
+- The work separates mean control from mode localization, component behavior
+  from cross-component interactions, and bounded coefficient windows from
+  uniform all-size control. These are distinct proof obligations.
+- Failed auxiliary inequalities identify a precise boundary: blocked-profile
+  log-concavity and satisfactory individual classes need not survive their
+  interactions, even when the full target inequality holds. The current route
+  must control adverse terms against available positive margin, not require
+  each term to be nonnegative.
+- Independent follow-up questions concern extension opportunities, blocked-set
+  counts, bounded certificate charge, and mode alignment under tree operations.
+  The #625 and Mazur connections below are possible mechanisms, not transfers
+  already established.
+- The progress standard is a theorem, exact representation, precise obstruction,
+  or demonstrated mechanism. A failed attempt counts when it establishes a
+  boundary; a reformulation counts when it exposes structure or enables a result.
+  Neither activity nor a larger finite census alone establishes uniform progress.
+
+This reframes the value of the completed work, not the decision to resume it.
+Research remains parked; no new task, manuscript revision, or proof run is queued.
+
+## 2026-09-07: methodological leads retained, research still parked
+
+Brett asked to retain the 7 September assessment of the new solutions on
+erdosproblems.com. [Problem #625](https://www.erdosproblems.com/625), updated
+5 September, is a modest methodological lead: Petkov's
+[proof, Sections 8–9](https://github.com/SamPetkov/Erdos/blob/main/625/arxiv/main.tex)
+uses a canonical overlap decomposition and an injective restriction to bound
+weighted configurations by a product. A bounded transfer check could ask
+whether our blocked-set certificates admit comparable reconstruction without
+overcounting. No such injection has been established for #993; restriction
+of ordinary independent sets is not generally injective. The companion Lean
+development has not been independently replayed here. #477 offers no concrete
+transfer identified in this check. This records a possible follow-up, not
+authorization for a new proof campaign; the verified frontier remains unchanged.
+
+Brett also asked to retain Mazur's
+[_Explicit Positive-Density Collatz Convergence in Logarithmic Time_](https://www.proofatlas.ai/formalizations/positive-density-log-time-collatz/),
+v2.1 (6 September), as a secondary proof-design reference, below #625 for
+immediate transfer. Potential: preserving admissibility restrictions while
+converting weighted histories into distinct-object counts (Sections 5–6),
+and controlling accumulated losses uniformly with coverage of every large
+scale (Sections 3–4 and Lemma 6.2). A possible #993 analogue is a bound on
+total certificate weight charged to each independent set. No such bound or
+all-tree transfer has been established; positive-density success does not
+imply a result for every tree. The public Lean statement and reported evidence
+were inspected, not independently replayed. Brett explicitly reaffirmed:
+stay parked. No experiment, proof run, or formalization replay is queued.
 
 ## 2026-09-06: research session closed at the verified milestone
 
@@ -349,6 +419,39 @@ Lean caches, local download archives, and unrelated work are excluded.
 
 Full source and warrant record:
 `notes/arxiv_astra_transfer_2026-09-04.md`. No manuscript claim changed.
+
+## 2026-09-02: Free-count reformulation; Mason's inequality below the threshold
+
+A direct proof-or-disproof session. No proof, no counterexample, no manuscript
+change. Kept: exact identities and one surviving conjecture.
+
+- **Exact.** `mu_k = (k+1) i_{k+1}/i_k` equals the mean number of free vertices
+  over uniform `k`-independent sets; unimodality is equivalent to "`mu_k` never
+  re-crosses the line `k+1` upward"; and
+  `mu_k = 2(alpha-k) - E_k[2 gap + def]` is the exact form of the
+  Levit–Mandrescu tail bound (verified: DP assertions on all trees `n<=16`,
+  brute force on all trees `n<=10`).
+- **Conjecture (bounded evidence).** `mu_k` is decreasing for
+  `k <= ceil((2 alpha-1)/3) - 2`. That is Mason's inequality (b),
+  `i_{k+1}^2 >= (1+1/(k+1)) i_k i_{k+2}`, restricted to the prefix; it implies
+  #993 both directly and through Levit–Kadrawi Cor. 2.20. It holds at every
+  index for all 23,942,356 trees `n<=23` (the star is extremal, slope `-2/n`);
+  at `n=24` exactly one of the 39,299,897 trees fails it, the Kadrawi–Levit
+  `T_{3,3,4}` at `k = alpha-2 = theta+2`, two orders before the first
+  log-concavity failure. Below the threshold it holds in every LC-failing
+  family on file (census failures, `TG_{m,t}`, `T_{m,t}`, Bautista–Ramos),
+  where the first failures sit at distance `>= 3` above the threshold.
+- **Refuted strengthening.** The universal "slope at most 1" version fails:
+  `T_{80,12}` reaches slope 2.40 at `k = 961`, `alpha = 1040`, far inside the
+  tail where `mu_k = 0.45`.
+- **Adversarial search.** Two hill-climbs maximising the descending-prefix
+  slope (11.2M exact evaluations, `n<=50`) stayed at `<= -0.78`, zero alarms.
+- **Warrant.** The conjecture reduces to
+  `Var_k(f) <= E_k[f] + 2E_k[free edges]`, a sub-Poisson dispersion bound; no
+  proof route is offered, and pairwise negative correlation is false (stars).
+  Note: `notes/mason_free_count_reformulation_2026-09-02.md`; scripts
+  `scripts/*_20260902.py`; numbers
+  `results/mason_free_count_evidence_20260902.json`.
 
 ## 2026-08-28: TheoremGraph-guided frontier and blocked-profile split
 

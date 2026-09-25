@@ -1,0 +1,60 @@
+{
+  "date": "2026-09-02",
+  "claim_status": "bounded computational evidence and exact identities; not a theorem",
+  "definitions": {
+    "mu_k": "(k+1) i_{k+1} / i_k = mean number of free vertices over uniform k-independent sets",
+    "slope_k": "mu_{k+1} - mu_k",
+    "theta": "ceil((2 alpha - 1)/3), the Levit-Mandrescu threshold",
+    "mason_b": "slope_k <= 0, i.e. (k+2) i_{k+2} i_k <= (k+1) i_{k+1}^2",
+    "S1": "slope_k <= 1",
+    "prefix": "k <= theta - 2"
+  },
+  "identities_verified": {
+    "(k+1) i_{k+1} = sum_S f(S); (k+1)(k+2) i_{k+2} = sum_S (f^2 - f - 2e)": "asserted by DP on all 32,507 trees n<=16",
+    "(k+1) i_{k+1} = 2(alpha-k) i_k - sum_S (2 gap + def)": "brute force, all 200 trees n<=10"
+  },
+  "exhaustive_mason_b_all_indices": {
+    "n_range": [4, 23],
+    "trees": 23942356,
+    "failures": 0,
+    "per_n_trees": {"4": 2, "5": 3, "6": 6, "7": 11, "8": 23, "9": 47, "10": 106, "11": 235, "12": 551, "13": 1301, "14": 3159, "15": 7741, "16": 19320, "17": 48629, "18": 123867, "19": 317955, "20": 823065, "21": 2144505, "22": 5623756, "23": 14828074},
+    "max_prefix_slope": "-2/n, attained by the star K_{1,n-1} at k=1",
+    "n24_status": "checked separately, see n24"
+  },
+  "n24": {
+    "trees": 39299897,
+    "shards": 8,
+    "generator": "gentreeg -p 24 r/8",
+    "mason_b_failures": 1,
+    "unique_failure": {
+      "name": "Kadrawi-Levit T_{3,3,4} (root with hubs carrying 4, 3, 3 pendant P2 legs)",
+      "gentreeg_parent_array": [0, 1, 2, 3, 2, 5, 2, 7, 2, 9, 1, 11, 12, 11, 14, 11, 16, 1, 18, 19, 18, 21, 18, 23],
+      "poly": [1, 24, 253, 1553, 6193, 16912, 32389, 43650, 40711, 25144, 9348, 1653, 42, 1],
+      "alpha": 13, "theta": 9, "failing_k": 11, "k_minus_theta": 2,
+      "check": "13*1*1653 = 21489 > 12*42^2 = 21168; LC still holds at 12 (42^2 = 1764 >= 1653)",
+      "slope": 0.0046
+    },
+    "raw": "results/mason_b_census_n24_20260902.txt"
+  },
+  "families": {
+    "census_lc_failures_n_le_32": {"trees": 1228, "min_first_positive_slope_minus_theta": 3, "min_first_slope_gt1_minus_theta": null, "max_prefix_slope": -1.5398, "max_slope_any_index": 0.1037},
+    "TG_mt_m_le_20_t_le_10": {"trees": 200, "min_first_positive_slope_minus_theta": 4, "min_first_slope_gt1_minus_theta": null, "max_prefix_slope": -1.1488},
+    "T_mt_t_le_14_m_le_100": {"trees": 288, "min_first_positive_slope_minus_theta": 4, "min_first_slope_gt1_minus_theta": 29, "max_prefix_slope": -1.5479, "universal_S1_refuted_by": {"T_14_8": 1.083, "T_80_12": {"slope": 2.4047, "k": 961, "alpha": 1040, "theta": 693, "mu_k": 0.45, "mu_k+1": 3.857}}},
+    "bautista_ramos_m_families": {"trees": 111, "min_first_positive_slope_minus_theta": 12, "min_first_slope_gt1_minus_theta": null, "max_prefix_slope": -1.8200},
+    "evolutionary_champions_20260814": {"trees": 30, "min_first_positive_slope_minus_theta": 3, "min_first_slope_gt1_minus_theta": null, "max_prefix_slope": -0.8139}
+  },
+  "adversarial_hill_climb": {
+    "objective_desc": "max slope_k over k<=theta-2 with mu_k<k+1 (valley needs > 1)",
+    "runs_desc": [{"seed": 1, "ncap": 50, "evals": 2151699, "best": -0.8225, "best_n": 40, "best_alpha": 28, "alarms": 0},
+                  {"seed": 2, "ncap": 50, "evals": 9094157, "best": -0.7837, "best_n": 13, "best_alpha": 10, "alarms": 0}],
+    "objective_pref": "max slope_k over k<=theta-2 (Mason-b prefix; star gives -2/n)",
+    "runs_pref": [{"seed": 3, "ncap": 50, "evals": 1085874, "best": -0.04, "best_n": 50, "best_alpha": 49, "note": "the star K_{1,49}", "alarms": 0}]
+  },
+  "descending_prefix_max_slope_n_le_16": -0.7700,
+  "literature_check": {
+    "arxiv_queries": ["all:\"Mason\" AND all:\"independence polynomial\" -> 0", "all:\"Mason's conjecture\" AND all:\"independence complex\" -> 0", "abs:\"independent set\" AND abs:\"Mason\" AND abs:\"tree\" -> 1806.02675, 2601.02547 (matroids)", "abs:\"ultra log-concave\" AND abs:\"independence polynomial\" -> 0"],
+    "openalex": "\"independence polynomial\" \"Mason\" trees -> 4 unrelated",
+    "semantic_scholar": "HTTP 429",
+    "local_grep_mason": ["notes/literature/arxiv_2608_07342.txt", "notes/matroid_nonunimodality_2026-08-14.md"]
+  }
+}
