@@ -92,6 +92,7 @@ claim:
 ---
 
 # Erdos Problem #993 -- Independent Set Sequence Unimodality for Trees
+<!-- SUMMARY: Tree independence-sequence unimodality; manuscript declined by E-JC 2026-09-13 and parked; arXiv:2609.20961 proves #993 for forests above an unspecified N0 (Lean replayed 2026-09-25); outreach draft to its authors unsent · status: parked · updated: 2026-09-25 -->
 
 ## 2026-09-25: #993 proved for large forests (external); Primus trial closed
 
