@@ -111,6 +111,9 @@ claim:
 - **Email to the authors**, pointing to the n <= 32 log-concavity census as
   evidence for their `b_lc = 1` question: sent 2026-09-25 (draft kept
   local in `outreach/`).
+- **Comment on their erdosproblems.com proof claim** reporting the Lean
+  replay in plain terms: posted 2026-09-25, awaiting moderation (text in
+  `outreach/erdosproblems_993_proofclaim_comment_2026-09-25.md`).
 - Research and manuscript remain parked.
 
 ## 2026-09-13 Electronic Journal of Combinatorics: decline, then parked
