@@ -704,3 +704,15 @@ an outreach draft to the authors is local in `outreach/`. Note:
 directed by Brett ("take the three steps"); the adjudications above are
 Claude's proposals and await his review. Assisting system: Claude Code
 (Opus 5.5).
+
+2026-09-26 — Primus rerun (same brief, after the platform's announced
+changes) audited as NO ADVANCE on the open case. It adds one correct, minor
+exclusion (spiders, via Li–Li–Yang–Zhang's published log-concavity theorem)
+and an elementary extendability lemma. Every checkable number reproduces
+(`scripts/primus_rerun_checks_20260926.py`). One statement contradicts the
+supplied data (it says `b_1 = 0` does not occur in the window trees
+examined, but the third supplied witness, which it quotes, has `b_1 = 0`).
+No code was returned, so whether its code recomputes or reads stored
+counts can't be judged. Clearly better than the first run on honesty and
+accuracy. Audit: `gpt_attack/primus_rerun_audit_2026-09-26.md`. No further
+run of this brief is recommended. Assisting system: Claude Code (Opus 5.5).
