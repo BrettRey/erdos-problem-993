@@ -1,9 +1,11 @@
 # Primus rerun audit, 26 September 2026
-<!-- SUMMARY: Audit of the second Primus run on the depth-three window brief, after the platform's announced changes: no advance on the open case; one correct but minor exclusion (spiders, via a published theorem); all checkable numbers reproduce; one statement contradicts the supplied data; no code returned · status: audited · updated: 2026-09-26 -->
+<!-- SUMMARY: Audit of the second Primus run on the depth-three window brief: no advance; its one new exclusion (spiders) removes no tree from the open case, since an exhaustive census finds none of the 24,343 window spiders there; all checkable numbers reproduce; one statement contradicts the supplied data; no code returned · status: audited · updated: 2026-09-26 -->
 
-**Input.** Same brief as the first run (`primus_handoff_2026-09-23.md`,
-pasted as text), rerun by Brett after Primus said it had changed the
-platform. **Output.** A 9-page report, "Near-top coefficients of tree
+**Input.** Intended to be the same brief as the first run
+(`primus_handoff_2026-09-23.md`, pasted as text); **not yet confirmed with
+Brett**, so the comparison with the first run is provisional. Rerun after a
+Primus staff member (Deep Gandhi, on X) said the platform had been changed
+to keep agents focused on the supplied work. **Output.** A 9-page report, "Near-top coefficients of tree
 independence sequences in a bounded order window", in Brett's `pdf-inbox`
 (`paper-2.pdf`, SHA-256 `e4120f2e…`; `paper-2.md`, SHA-256 `7d0df7df…`).
 No code bundle: the report says "Artifacts are available from the authors on
@@ -33,18 +35,23 @@ request". Brett reports the run took hours.
 
 ## Mathematical content
 
-- **New and correct, but minor.** Spiders are removed from the open case by
+- **New and correct, but empty.** Spiders are removed from the open case by
   citing Li, Li, Yang and Zhang (arXiv:2501.04245), whose abstract says "all
   spiders have log-concave independence polynomials". Log-concavity at every
-  index includes the target, so this is a valid exclusion. It removes a small
-  class already settled in print.
+  index includes the target, so the exclusion is valid. But no spider was
+  ever in the open case: an exhaustive census of all 24,343 spiders in the
+  window (every leg pattern with at least three legs), using the packet's
+  exact analyzer, finds 24,292 with `b_1 > 0` and 43 with `D < 0`, but none
+  meeting all three conditions. The six paths `P_33`–`P_38`, which the
+  report also counts as spiders, are not in it either
+  (`scripts/primus_rerun_spider_census_20260926.py`). So the report's
+  main-theorem extension removes nothing.
 - **Correct and elementary.** Lemma 6: an independent set of size `alpha - d`
   whose closed neighbourhood leaves at least `2d` vertices uncovered extends
   to a maximum independent set. It's the standard halving argument; brute
   force over all trees with `n <= 12` found 0 violations in 9,159 cases.
 - **Unchanged.** The open case (`b_1 > 0`, high density, `D < 0`) is exactly
-  where it was, minus spiders. The stated obstruction is the one the brief
-  already gave.
+  where it was. The stated obstruction is the one the brief already gave.
 
 ## Checks run (`scripts/primus_rerun_checks_20260926.py`)
 
@@ -77,7 +84,9 @@ request". Brett reports the run took hours.
 
 ## Verdict
 
-**No advance on the open case.** It's a clear improvement over the first run
-in honesty and computational accuracy. One statement still contradicts the
-supplied data, and without returned code the "recompute or read" question
-can't be answered.
+**No advance.** The only new exclusion is empty on the window, and the open
+case is untouched. It's a clear improvement over the first run in honesty and
+computational accuracy. One statement still contradicts the supplied data,
+which is the same kind of failure as the first run and isn't addressed by a
+fix aimed at attention to supplied work. Without returned code, the
+"recompute or read" question can't be answered.
