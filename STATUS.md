@@ -15,7 +15,7 @@ venue: none
 external_id: '15526'
 preprints:
 - zenodo/19100781
-next_action: Parked. Email to the authors of arXiv:2609.20961 sent 2026-09-25 (outreach/fang_et_al_2609_20961_2026-09-25.md); await a reply, no chase planned. If the paper is ever reactivated, the referee's short-note path now has to be positioned against 2609.20961 (asymptotic #993, Lean-replayed 2026-09-25); see the 2026-09-13 and 2026-09-25 DECISIONS entries.
+next_action: Parked. Email to the authors of arXiv:2609.20961 sent 2026-09-25; reply received 2026-09-26 (private; local in outreach/fang_et_al_2609_20961_2026-09-25.md). Nothing owed. If the paper is ever reactivated, the referee's short-note path now has to be positioned against 2609.20961 (asymptotic #993, Lean-replayed 2026-09-25); see the 2026-09-13 and 2026-09-25 DECISIONS entries.
 notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-polynomial
 
   unimodality), not a linguistics paper -- flagging per the task''s "consider
