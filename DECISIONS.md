@@ -705,9 +705,9 @@ directed by Brett ("take the three steps"); the adjudications above are
 Claude's proposals and await his review. Assisting system: Claude Code
 (Opus 5.5).
 
-2026-09-26 — Primus rerun (intended as the same brief, not yet confirmed
-with Brett; after a Primus staff member said on X that the platform had
-changed) audited as NO ADVANCE. Its one new exclusion (spiders, via
+2026-09-26 — Primus rerun (given the GitHub repository URL rather than the
+pasted brief, so not a clean comparison with the first run; after a Primus
+staff member said on X that the platform had changed) audited as NO ADVANCE. Its one new exclusion (spiders, via
 Li–Li–Yang–Zhang's published log-concavity theorem) is valid but empty: an
 exhaustive census finds none of the 24,343 window spiders, and none of the
 six window paths, in the open case

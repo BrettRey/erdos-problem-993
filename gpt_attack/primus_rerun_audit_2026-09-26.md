@@ -1,11 +1,14 @@
 # Primus rerun audit, 26 September 2026
-<!-- SUMMARY: Audit of the second Primus run on the depth-three window brief: no advance; its one new exclusion (spiders) removes no tree from the open case, since an exhaustive census finds none of the 24,343 window spiders there; all checkable numbers reproduce; one statement contradicts the supplied data; no code returned · status: audited · updated: 2026-09-26 -->
+<!-- SUMMARY: Audit of the second Primus run (given the repo URL, not pasted text): no advance; its one new exclusion (spiders) removes no tree from the open case, since an exhaustive census finds none of the 24,343 window spiders there; all checkable numbers reproduce; one statement contradicts the supplied data; no code returned · status: audited · updated: 2026-09-26 -->
 
-**Input.** Intended to be the same brief as the first run
-(`primus_handoff_2026-09-23.md`, pasted as text); **not yet confirmed with
-Brett**, so the comparison with the first run is provisional. Rerun after a
-Primus staff member (Deep Gandhi, on X) said the platform had been changed
-to keep agents focused on the supplied work. **Output.** A 9-page report, "Near-top coefficients of tree
+**Input.** The GitHub repository URL, not the pasted brief (Brett,
+2026-09-26). The first run got pasted text with no code; this one could
+reach the whole packet, including `replay.py`, which prints the counts for
+all three supplied trees. So this is not a clean before/after comparison:
+any improvement may come from the richer input rather than the platform
+change. Rerun after a Primus staff member (Deep Gandhi, on X) said the
+platform had been changed to keep agents focused on the supplied work.
+**Output.** A 9-page report, "Near-top coefficients of tree
 independence sequences in a bounded order window", in Brett's `pdf-inbox`
 (`paper-2.pdf`, SHA-256 `e4120f2e…`; `paper-2.md`, SHA-256 `7d0df7df…`).
 No code bundle: the report says "Artifacts are available from the authors on
@@ -22,7 +25,8 @@ request". Brett reports the run took hours.
    quotes in Section 2 (`(b_2, b_3, b_4) = (1, 16, 4216)`), has `b_1 = 0`
    (packet `replay.py`: `b_0..b_4 = [0, 0, 1, 16, 4216]`). The error does no
    mathematical damage, but it is the same kind as the first run's: a claim
-   contradicted by input the report itself quotes.
+   contradicted by input the report itself quotes. With the repository in
+   hand, running the supplied `replay.py` would have shown `b_1 = 0` directly.
 2. **Does its code recompute the counts or read stored numbers?** Not
    assessable. No code was returned.
 3. **If there's no advance, does it say so?** Much better than the first run.
