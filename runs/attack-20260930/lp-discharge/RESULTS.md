@@ -69,7 +69,10 @@ output is in `raw/`; the progress log is `s23_progress.log`.
 
 Because n = 27 is also clean, the smallest counterexample to the pointwise
 lemma has exactly **n = 28**: H(9,2) is known there, and nothing smaller
-exists. The n = 28 census was still running when this was written.
+exists. The n = 28 census was stopped at the background time limit before any shard
+finished (nothing recorded). No rerun is needed: the n = 28 claim rests on
+the exhaustive n <= 27 check plus the known H(9,2) violation (wave 1,
+rechecked by brute force), and S23 is already refuted at n = 451.
 
 ## Adversary: constant rules refuted (`adversary/`)
 
