@@ -185,3 +185,17 @@ wanted. Restarting the wave-2 workflow (`resumeFromRunId`) would replay all
 four agents from scratch, because none had completed. If R1 is dead, the
 deterministic route has no live target, and the remaining live item is the
 fixed-accuracy smoothing route in `route-lclt`.
+
+## Follow-up: tree-shift test (same day)
+
+After the attack, Brett asked whether mathematicians have established
+techniques for generating ideas. One extremal-graph-theory idea came out of
+that discussion: push each tree toward the star with Csikvári's generalized
+tree shift, and show the central margin never rises on the way. It was tested
+exactly and is **weak, not pursued**:
+
+- the one-step and two-step forms are false;
+- some trees are stuck even though they come within 2% of the star's margin;
+- hub constructions need up to 5 shifts, with no uniform bound in sight.
+
+Details: `gts-test/RESULTS.md`.

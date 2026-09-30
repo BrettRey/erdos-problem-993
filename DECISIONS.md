@@ -754,3 +754,16 @@ untouched. Record: `runs/attack-20260930/SUMMARY.md`.
   finite certificate, is low value.
 Assisting system: Claude Code (Opus 5.5) with multi-agent workflows;
 assessments are Claude's, for Brett's review.
+
+2026-09-30 — Tree-shift route to central log-concavity tested at Brett's
+direction and graded weak; not pursued. The idea: show that Csikvári's
+generalized tree shift (Def. 2.1 of "On a poset of trees") never raises the
+central margin on the way to the star, the census's extremal tree.
+- The strong and one-step forms are false. Stuck trees include near-star
+  two-hub trees within 2–3% of the star's margin.
+- Two steps fail on stars of stars.
+- Hub constructions need up to 5 steps (n = 225), with no sign of a
+  uniform bound.
+- The margin is not monotone along the poset.
+Record: `runs/attack-20260930/gts-test/RESULTS.md`. Assisting system:
+Claude Code (Opus 5.5).

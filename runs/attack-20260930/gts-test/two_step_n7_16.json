@@ -1,0 +1,54 @@
+{
+ "7": {
+  "stuck_one_step": 1,
+  "repaired_two_step": 1,
+  "still_stuck": []
+ },
+ "8": {
+  "stuck_one_step": 1,
+  "repaired_two_step": 1,
+  "still_stuck": []
+ },
+ "9": {
+  "stuck_one_step": 3,
+  "repaired_two_step": 3,
+  "still_stuck": []
+ },
+ "10": {
+  "stuck_one_step": 6,
+  "repaired_two_step": 6,
+  "still_stuck": []
+ },
+ "11": {
+  "stuck_one_step": 5,
+  "repaired_two_step": 5,
+  "still_stuck": []
+ },
+ "12": {
+  "stuck_one_step": 5,
+  "repaired_two_step": 5,
+  "still_stuck": []
+ },
+ "13": {
+  "stuck_one_step": 11,
+  "repaired_two_step": 10,
+  "still_stuck": [
+   "Ls`?GGCO??_A?C"
+  ]
+ },
+ "14": {
+  "stuck_one_step": 14,
+  "repaired_two_step": 14,
+  "still_stuck": []
+ },
+ "15": {
+  "stuck_one_step": 20,
+  "repaired_two_step": 20,
+  "still_stuck": []
+ },
+ "16": {
+  "stuck_one_step": 38,
+  "repaired_two_step": 38,
+  "still_stuck": []
+ }
+}
