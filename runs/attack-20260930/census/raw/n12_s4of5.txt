@@ -1,0 +1,42 @@
+TOP5 rank=0 n=12 alpha=9 k=5 q=6 num=13752 den=42436 par=0,1,2,2,2,2,1,7,7,7,7,1 poly=1,12,55,133,202,206,142,64,17,2
+TOP5 rank=1 n=12 alpha=9 k=5 q=6 num=14356 den=44100 par=0,1,2,2,2,2,1,7,1,1,1,1 poly=1,12,55,136,208,210,143,64,17,2
+TOP5 rank=2 n=12 alpha=9 k=5 q=6 num=8655 den=25921 par=0,1,2,2,2,2,1,7,7,1,10,10 poly=1,12,55,129,178,161,97,38,9,1
+TOP5 rank=3 n=12 alpha=9 k=5 q=6 num=9896 den=29584 par=0,1,2,2,2,2,1,7,7,7,1,11 poly=1,12,55,130,184,172,107,43,10,1
+TOP5 rank=4 n=12 alpha=9 k=4 q=6 num=22533 den=67081 par=0,1,2,1,4,1,1,1,1,1,1,1 poly=1,12,55,148,259,301,231,113,32,4
+TOP5 rank=5 n=12 alpha=9 k=5 q=6 num=10456 den=30976 par=0,1,2,3,3,3,3,2,2,2,1,11 poly=1,12,55,132,190,176,108,43,10,1
+TOP5 rank=6 n=12 alpha=9 k=5 q=6 num=10429 den=30625 par=0,1,2,3,3,3,3,2,1,9,9,9 poly=1,12,55,130,187,175,108,43,10,1
+TOP5 rank=7 n=12 alpha=9 k=5 q=6 num=9291 den=27225 par=0,1,2,3,3,3,3,2,2,1,10,10 poly=1,12,55,130,183,165,98,38,9,1
+TOP5 rank=8 n=12 alpha=9 k=5 q=6 num=11257 den=32761 par=0,1,2,2,2,2,1,7,7,7,1,1 poly=1,12,55,132,192,181,112,44,10,1
+TOP5 rank=9 n=12 alpha=9 k=5 q=6 num=11396 den=33124 par=0,1,2,2,2,2,1,7,7,1,1,1 poly=1,12,55,133,194,182,112,44,10,1
+TOP5 rank=10 n=12 alpha=8 k=4 q=5 num=12299 den=33489 par=0,1,2,3,3,3,3,2,1,9,1,1 poly=1,12,55,130,183,163,91,29,4
+TOP5 rank=11 n=12 alpha=8 k=5 q=5 num=5212 den=14161 par=0,1,2,3,4,4,2,2,1,9,10,9 poly=1,12,55,125,157,119,57,16,2
+TOP4 rank=0 n=12 alpha=9 k=5 q=6 num=13752 den=42436 par=0,1,2,2,2,2,1,7,7,7,7,1 poly=1,12,55,133,202,206,142,64,17,2
+TOP4 rank=1 n=12 alpha=9 k=5 q=6 num=14356 den=44100 par=0,1,2,2,2,2,1,7,1,1,1,1 poly=1,12,55,136,208,210,143,64,17,2
+TOP4 rank=2 n=12 alpha=9 k=5 q=6 num=8655 den=25921 par=0,1,2,2,2,2,1,7,7,1,10,10 poly=1,12,55,129,178,161,97,38,9,1
+TOP4 rank=3 n=12 alpha=9 k=5 q=6 num=9896 den=29584 par=0,1,2,2,2,2,1,7,7,7,1,11 poly=1,12,55,130,184,172,107,43,10,1
+TOP4 rank=4 n=12 alpha=9 k=4 q=6 num=22533 den=67081 par=0,1,2,1,4,1,1,1,1,1,1,1 poly=1,12,55,148,259,301,231,113,32,4
+TOP4 rank=5 n=12 alpha=9 k=5 q=6 num=10456 den=30976 par=0,1,2,3,3,3,3,2,2,2,1,11 poly=1,12,55,132,190,176,108,43,10,1
+TOP4 rank=6 n=12 alpha=9 k=5 q=6 num=10429 den=30625 par=0,1,2,3,3,3,3,2,1,9,9,9 poly=1,12,55,130,187,175,108,43,10,1
+TOP4 rank=7 n=12 alpha=9 k=5 q=6 num=9291 den=27225 par=0,1,2,3,3,3,3,2,2,1,10,10 poly=1,12,55,130,183,165,98,38,9,1
+TOP4 rank=8 n=12 alpha=9 k=5 q=6 num=11257 den=32761 par=0,1,2,2,2,2,1,7,7,7,1,1 poly=1,12,55,132,192,181,112,44,10,1
+TOP4 rank=9 n=12 alpha=9 k=5 q=6 num=11396 den=33124 par=0,1,2,2,2,2,1,7,7,1,1,1 poly=1,12,55,133,194,182,112,44,10,1
+TOP4 rank=10 n=12 alpha=8 k=4 q=5 num=12299 den=33489 par=0,1,2,3,3,3,3,2,1,9,1,1 poly=1,12,55,130,183,163,91,29,4
+TOP4 rank=11 n=12 alpha=8 k=5 q=5 num=5212 den=14161 par=0,1,2,3,4,4,2,2,1,9,10,9 poly=1,12,55,125,157,119,57,16,2
+VDMIN_FLOAT n=12 value=0.585558203403 k=5 alpha=7 q=5 lambda=3.10955188418 V=1.0426606186 delta=0.5616 par=0,1,2,3,4,2,6,6,1,9,10,11 poly=1,12,55,122,137,75,18,1
+PERK n=12 alpha=9 k=3 q=6 num=7659 den=21904 par=0,1,2,1,4,1,1,1,1,1,1,1
+PERK n=12 alpha=9 k=4 q=6 num=13406 den=40804 par=0,1,2,2,2,2,1,7,7,7,7,1
+PERK n=12 alpha=9 k=5 q=6 num=13752 den=42436 par=0,1,2,2,2,2,1,7,7,7,7,1
+PERK n=12 alpha=9 k=6 q=6 num=7009 den=20449 par=0,1,2,2,2,2,1,7,1,1,1,1
+PERALPHA n=12 alpha=6 k=3 q=4 num=7439 den=16129 par=0,1,2,3,2,5,2,7,2,1,10,1
+PERALPHA n=12 alpha=7 k=4 q=5 num=11889 den=27889 par=0,1,2,3,2,1,6,7,6,1,1,1
+PERALPHA n=12 alpha=8 k=4 q=5 num=12299 den=33489 par=0,1,2,3,3,3,3,2,1,9,1,1
+PERALPHA n=12 alpha=9 k=5 q=6 num=13752 den=42436 par=0,1,2,2,2,2,1,7,7,7,7,1
+TOPQ n=12 alpha=9 k=6 q=6 num=7009 den=20449 par=0,1,2,2,2,2,1,7,1,1,1,1
+NEWTON n=12 alpha=9 k=6 q=6 num=196252 den=204490 par=0,1,2,2,2,2,1,7,1,1,1,1
+NEWTONFAIL_DIST n=12 q_minus_k=0 trees=9
+NEWTONFAIL_DIST n=12 q_minus_k=1 trees=1
+NEWTONFAIL_DIST n=12 q_minus_k=2 trees=1
+NEWTONFAIL_DIST n=12 q_minus_k=3 trees=1
+VDBIN_FLOAT n=12 bin_lo=0 value=0.585558203403 k=5 alpha=7 q=5 lambda=3.10955188418 V=1.0426606186 delta=0.5616 par=0,1,2,3,4,2,6,6,1,9,10,11
+VDBIN_FLOAT n=12 bin_lo=2 value=0.697635269583 k=6 alpha=9 q=6 lambda=1.93383992042 V=2.03537503605 delta=0.342755146951 par=0,1,2,2,2,2,1,7,1,1,1,1
+STATS n=12 trees=112 viol5=0 viol4=0 zero5=0 zero4=0 nonunimodal=0 sampled=0 newton_fail_trees=12

@@ -1,0 +1,94 @@
+{
+  "steps": [
+    {
+      "step": "1. Lemma 4.2, the scalar inequality y q^p/log(1+r) <= rho < 1 (sets p, rho, and hence the exponent a = 2 - 2/p used everywhere after)",
+      "location": "Section 4, pp. 5-6, eqs. (4.4)-(4.5); Lean RootMoments.lean numeric_b, exists_scalar_two, exists_scalar_p",
+      "constants_status": "explicit-in-principle",
+      "dependence": "The text says 'choose b in (0,1) close to 1 that 12e^{-1-3b/2} < b' (possible only because 12 < e^{5/2} = 12.18), then 'p close enough to 2' with rho = (2*sqrt12/e)^{4-2p} b^{2p-3}. That forces b > b_min = 0.99397, and rho < 1 forces s = 2-p < |ln b|/(2(ln A + |ln b|)) <= 0.00321, so 1-a = 2/p - 1 < 1.61e-3 for any choice the proof allows. Lean fixes b = 999/1000, uses a cruder exponent-3/2 bound (5 instead of 2*sqrt12/e = 2.549), theta = 1-(1-b)/8, p = 31999/16000, a = 31998/31999, 1-a = 1/31999, rho = 0.999201. Every later n-requirement scales as log10 n ~ K/(1-a). SHARPENING, certified with Arb: for fixed r the factor y = log(lam/r) increases with lam, so the sup is at lam = 12. Certified: p = 19/10 with rho <= 199/200 (a = 18/19, 1-a = 0.0526); p = 193/100 with rho <= 49/50; p = 39/20 with rho <= 97/100; at p = 2, sup <= 23/25, where the paper uses b >= 0.994. A float scan puts p* at about 1.892, so this Hoelder route caps 1-a at about 0.057 when lam_max = 12.",
+      "n_needed_order": "No threshold by itself. It is the multiplier on the exponent: with 1-a ~ 1.5e-3 (PDF) or 3.1e-5 (Lean), every later tolerance is raised to the power 1/(1-a)."
+    },
+    {
+      "step": "2. Proposition 4.1, root-moment bounds q(1-q)delta^2 <= C n^a and q(1-q)gamma^2 <= C n^{2a}",
+      "location": "Section 4, p. 5, eq. (4.3); proof pp. 6-7 (constants C0, G, H, C1); Lean root_moments, abs_varDiff_le",
+      "constants_status": "explicit-in-principle",
+      "dependence": "C0 = 1/(1-rho). The text says 'choose G sufficiently large', 'choose constant H', and 'choose C1 so that C1(G^{1/u} - L^{1/u}) >= H^{1/u}', with u = p/(2-p). My explicit forms: C_delta = 12 sup_y e^{-y}(1+C0 y)^{2/p}, and C_gamma = 12 C1^2 sup_y e^{-y}(1+Gy)^{2/u}. Values: at the PDF's best parameters C0 = 8.7e3, C_delta = 3.9e4, C_gamma = 3.0e12. In Lean, the witness (1+cn)^n from exists_poly_mul_exp_le with n = 32001 gives Hc ~ 10^243293, C1 = 3.2e15, and a single joint C = 12(M1 + C1^2 M2) = 3.1e39. With the sharpened lemma (p = 19/10): C_delta = 1.2e3, C_gamma = 2.1e9.",
+      "n_needed_order": "No threshold by itself. These constants enter N0 only logarithmically, through the tolerances in steps 4 and 8."
+    },
+    {
+      "step": "3. Variance bounds c n <= sigma^2 <= C_up n",
+      "location": "Section 5, Prop 5.1, pp. 7-9, eqs. (5.1), (5.3), and the 'Choose b = 1' paragraph on p. 9; Lean linear_variance, hcVar_le_linear",
+      "constants_status": "explicit-in-principle",
+      "dependence": "Lower bound, explicit: c_sigma = lam/(2(1+lam)^4) >= 12/(2*13^4) = 2.10e-4. Lean uses 1/(8*13^4) = 4.38e-6, a paper-Lean discrepancy. Upper bound, written as n/4 + O(n): C_up = 1/4 + C_delta/(1-2^{a-1}). Values: PDF best 3.8e7, Lean 1.4e44, sharpened lemma 3.3e4. C_up inherits the same 1/(1-a) blow-up and feeds c' = c_F/(pi^2 C_up) in step 7.",
+      "n_needed_order": "No threshold by itself. It is the hidden driver of the tail cut R in step 8 (R ~ sqrt(log/c'))."
+    },
+    {
+      "step": "4. Centroid decomposition to components of size b, martingale sums (5.5)-(5.6): mean shift E(M-mu)^2 and variance shift E|S-sigma^2|",
+      "location": "Section 5, pp. 8-9, eqs. (5.4)-(5.6), with b = ceil(n^{1/4}) on p. 9; Lean terminal_stability and stdCharFn_tendsto_gaussian (which uses a constant b = ceil(eta^{1/(a-1)})+1)",
+      "constants_status": "explicit-in-principle",
+      "dependence": "(5.5) is explicit: sum n_j^a <= n b^{a-1}/(1-2^{a-1}). (5.6) hides K_M = C_delta/(1-2^{a-1}) and K_S = sqrt(C_gamma/(1-2^{1-2a})). Mean-shift term: E|h| <= sqrt(K_M b^{a-1}/c_sigma). On the PDF route (b = n^{1/4}), each term must fall below d_K/4 with d_K ~ 2.2e-40, which gives log10 n ~ 4*(2/(1-a))*log10(sqrt(K_M/(pi c_sigma))/(d_K/4)). On the Lean route, n ~ Lambda^2/c with Lambda ~ b*R^3/eps1 and b = eta^{-1/(1-a)}, where eta = min((eps1/(4R))^2 c/K1, eps1 c/(2R^2 K2)); the first term (the L2 mean shift) binds in every scenario. Paper-Lean difference: the PDF uses b = n^{1/4} with a Kolmogorov CLT, while Lean uses a constant b with a direct characteristic-function CLT, so n ~ b^2 instead of b^4.",
+      "n_needed_order": "DOMINANT. PDF best: mean shift log10 n ~ 2.44e5; variance shift via b^{a-1} ~ 1.39e5; via n^{a-1} ~ 3.4e4. Lean: log10 b = 8.39e6, log10 N0 = 1.68e7 (eta = 6.9e-263). Sharpened lemma (p = 19/10): 2.1e3 on the Lean route, 5.4e3 on the PDF route."
+    },
+    {
+      "step": "5. Berry-Esseen for the conditional sum of independent bounded variables",
+      "location": "Section 5, p. 9 ('O(b/sqrt S) <= O(b/sqrt n)', citing Raic [19, Thm 1.1, d = 1]); Raic arXiv:1802.06475v4, p. 2, eq. (1.2); Lean uses Esseen smoothing (vendored abs_measure_Iic_sub_le_charFun) instead",
+      "constants_status": "explicit",
+      "dependence": "Raic's constant is 42 d^{1/4} + 16 = 58 for d = 1, so the error is <= 58 b/sqrt(S) <= 58 sqrt(2/c_sigma) n^{-1/4} with b = n^{1/4} and S >= sigma^2/2 >= c_sigma n/2. Requirement: n >= (58 sqrt(2/c_sigma)/(d_K/4))^4.",
+      "n_needed_order": "About 10^176 on the PDF route (d_K ~ 2.2e-40), 10^141 with the sharpened lemma, 10^97 at the idealised floor. Even this benign step exceeds 10^100 because the tolerance handed down from step 8 is so small."
+    },
+    {
+      "step": "6. Comparison of normal laws with shifted mean and scaled variance, and the complementary event S < sigma^2/2",
+      "location": "Section 5, p. 9-10, eq. (5.7) and the final display of the proof of Prop 5.1",
+      "constants_status": "explicit",
+      "dependence": "Written out, the shift term is <= |h|/sqrt(2 pi r) <= |h|/sqrt(pi) for r >= 1/2, and the scale term is <= |r-1|/sqrt(2 pi e). The complementary event costs 2E|S-sigma^2|/sigma^2 (Markov). All constants are O(1); these terms carry the step-4 quantities into the Kolmogorov bound.",
+      "n_needed_order": "No threshold beyond step 4's variance-shift terms (log10 n ~ 1.4e5 via b^{a-1} and 3.4e4 via n^{a-1} on the PDF route)."
+    },
+    {
+      "step": "7. Characteristic-function bound |E e^{itX}| <= exp(-c n sin^2(t/2)) and the Gaussian majorant (6.6)",
+      "location": "Section 6, Lemma 6.1, pp. 10-11, eqs. (6.1)-(6.3), and (6.6) in the proof of Prop 6.2 on p. 11; Lean charFn_bound, norm_charFn_std_le",
+      "constants_status": "explicit",
+      "dependence": "c = (inf_{lam in K} beta)/338 with beta = min(lam/(1+lam), 2 lam/(1+lam)^2). The infimum is 24/169 at lam = 12, so c_F = 24/57122 = 4.20e-4. Lean has 1/114244 = 1/338^2 = 8.75e-6, a discrepancy. Then (6.6): c' = c_F/(pi^2 C_up), explicit through C_up. Values: 1.1e-12 (PDF best), 6.2e-51 (Lean), 1.3e-9 (sharpened lemma).",
+      "n_needed_order": "No threshold by itself. Through c' it fixes the tail cut R of step 8, which is what makes the tolerances tiny."
+    },
+    {
+      "step": "8. Local limit / curvature step sigma^3(2p_k - p_{k-1} - p_{k+1}) -> 1/sqrt(2 pi), Prop 6.2",
+      "location": "Section 6, pp. 11-12, eq. (6.4) and (6.5); Lean curvature_limit, exists_tail_small, mean_lc",
+      "constants_status": "explicit-in-principle",
+      "dependence": "As written it is limit-only: 'Proposition 5.1 implies chi(t) tends to e^{-t^2/2} uniformly on compacts', followed by dominated convergence. Made explicit as in Lean with error budget eps = 1/(2 sqrt(2 pi)): tail cut R with 2 int_R^inf t^2 e^{-c0 t^2} dt <= pi eps/3, c0 = min(c', 1/2); ch.f. accuracy eps1 = pi eps/(4R^3) on |t| <= R; and sigma^2 >= X = R^2 + 5R^5/(12 pi eps). The PDF route also needs Kolmogorov -> ch.f. by clipping at R_c = sqrt(8/eps1) (|chi - e^{-t^2/2}| <= 2 R_c |t| d_K + 4/R_c^2), so d_K = eps1/(4 R R_c). Lean's only non-constructive witness (exists_tail_small) was replaced by the minimal integer R, computed in closed form with erfc. Architecture difference: the PDF goes Kolmogorov -> ch.f.; Lean proves ch.f. convergence directly and derives Kolmogorov via Esseen smoothing. The CLT.lean header and the Curvature.lean charFn_tendsto_gaussian docstring still describe the PDF route.",
+      "n_needed_order": "Values: R = 6.3e6, eps1 = 6.3e-22, d_K = 2.2e-40 (PDF best); R = 1.7e26, eps1 = 3.2e-80 (Lean); R = 1.6e5, eps1 = 3.7e-17 (sharpened lemma). The sigma^2 >= X condition alone forces about 10^37.5 (PDF) or 10^136 (Lean). Its real cost is the tolerance it hands to steps 4 and 5."
+    },
+    {
+      "step": "9. Range of the mean: E_{1/4}X <= n/5 and E_{12}X > 17 alpha/25",
+      "location": "Section 7, Prop 7.1, pp. 12-13, eqs. (7.1)-(7.4); Lean MeanRange.lean (proves 64 alpha/95) and Central.lean",
+      "constants_status": "explicit",
+      "dependence": "No n. E_{12}X >= alpha log13/Q*(12) = 0.6809 alpha against 17/25 = 0.68, a margin of 0.0009. This knife edge is why lam_max = 12, and lam_max = 12 is what puts Lemma 4.2 against e^{5/2}. Lean proves only 64/95 = 0.6737, via rational roundings Q(12) < 19/5 and log 13 > 64/25, and states Theorem 1.2 up to floor(64 alpha/95): a discrepancy, harmless for Thm 1.1 since 64/95 > 2/3. Float scan of (7.4): the ratio exceeds 2/3 once lam >= 10.31, so lam_max could drop to about 10.3, and the sharpened lemma would then give 1-a of about 0.09.",
+      "n_needed_order": "None: every forest, no threshold."
+    },
+    {
+      "step": "10. End segments and patching: i_k nondecreasing through ceil(n/4), nonincreasing from ceil((2 alpha-1)/3), overlap with the log-concave window",
+      "location": "Section 8, Lemma 8.1 and Prop 8.2, pp. 14-16, eqs. (8.1)-(8.9), and the proof of Thm 1.1 on p. 16; Lean Main.lean (N0 = max 1000 N1, index_interleave)",
+      "constants_status": "explicit",
+      "dependence": "Deterministic and valid for every forest. A valley at j needs ceil(n/4) < j < ceil((2 alpha-1)/3). An exact integer check for every n < 400 and alpha in [n/2, n] shows all such j lie in [ceil(n/5), floor(c alpha)] for both c = 17/25 and c = 64/95. In general, ceil((2 alpha-1)/3) - 1 <= (2 alpha-2)/3 <= 17 alpha/25 - 24/25 once alpha >= 22. Lean adds n >= 1000 for convenience.",
+      "n_needed_order": "None beyond Theorem 1.2's threshold (Lean's 1000 is cosmetic)."
+    }
+  ],
+  "n0_order_of_magnitude": "PDF as written: N0 ~ 10^(2.4 x 10^5), taking the best parameters its own Lemma 4.2 argument allows. Across my parameter grid it ranges up to 10^(2.5 x 10^7), which reflects sensitivity to parameter choice, not uncertainty about the paper. The Lean formalisation's witnesses give N0 ~ 10^(1.7 x 10^7). With the Arb-certified sharpening of Lemma 4.2: ~10^(2 x 10^3) to 10^(5 x 10^3). The floor for this architecture with idealised constants is ~10^127 to 10^540.",
+  "n0_reasoning": "All magnitudes are what the proof certifies once its constants are made explicit with my stated choices (mpmath, 60 digits, n0_chains.py). They are not the true threshold, and nothing in the paper argues the true threshold is large: the project census through n = 32 finds every log-concavity failure at k = alpha - 1, far above the central window. [Clause referring to private correspondence removed before publication, 2026-09-30.] The proof as written gives far more than 10^100. The PDF contains no numerical N0: I read every page, and grep of the pdftotext output for N0 finds only the statement of Theorem 1.1 on p. 2.\n\nMechanism. Section 5 reveals centroids down to components of size b and treats the conditional mean M as an error, E(M-mu)^2 <= C_delta n b^{a-1}/(1-2^{a-1}) (eq. 5.6). So the mean shift costs b^{(a-1)/2}. The curvature step (6.4) needs the characteristic function correct to eps1 ~ R^-3 on |t| <= R, where R is the tail cut of the Gaussian majorant e^{-c't^2} with c' = c_F/(pi^2 C_up). The tolerance is therefore eta ~ (eps1/R)^2 ~ R^-8 times constants, and b ~ eta^{-1/(1-a)}, with n ~ b^2 (Lean route) or b^4 (PDF route, b = n^{1/4}). Two effects compound. First, 1-a is tiny because Lemma 4.2's interpolation is pinned by lam_max = 12 < e^{5/2} = 12.18, and lam_max = 12 is itself forced by the 0.6809 vs 0.68 margin in Section 7. Second, C_up = 1/4 + C_delta/(1-2^{a-1}) carries the same 1/(1-a) blow-up, which inflates R. Net effect: log10 N0 ~ 2 log10(1/eta)/(1-a).\n\nScenarios (log10 N0):\n(L) Lean at b2a1d3e, witnesses as its proofs construct them: 1-a = 1/31999, joint root constant C = 3.1e39, C_v = 1.4e44, c' = 6.2e-51, R = 1.7e26, eta = 6.9e-263, log10 N0 = 1.68e7.\n(P) PDF route with best Lemma 4.2 parameters (b = 0.99427, s = 0.00299): 1-a = 1.5e-3, C_delta = 3.9e4, C_up = 3.8e7, R = 6.3e6, d_K = 2.2e-40. Per-step log10 n: mean shift 2.44e5 (dominant), variance shift via b 1.39e5, via n 3.4e4, Berry-Esseen 176, sigma^2 >= X 37.5.\n(S) Certified p = 19/10, rho <= 199/200: 1-a = 0.053, giving 2.1e3 on the Lean-style route and 5.4e3 on the PDF route; p = 193/100 gives 2.8e3 and 7.4e3.\n(F) Floor, with a = 2/3 and unit root constants: 240 (Lean-style) or 537 (PDF route) with the paper's c_sigma and c_F; 127 or 299 with c_sigma = c_F = 1/4; with a = 0.82, 233 to 1031.\n\nNo step is purely existential. Every 'sufficiently large' and O(.) is constructive; the only non-constructive witness in Lean (exists_tail_small) is computable, and that is why a finite N0 can be written down at all. Since exact tree counts (A000055, Python ints) are 109,972,410,221 at n = 32 and 3.64e14 at n = 40, no tightening of this CLT architecture comes within 100 orders of magnitude of the enumeration frontier. Closing #993 for trees needs a different, non-CLT proof of log-concavity on [ceil(n/4)+1, ceil((2 alpha-1)/3)-1] with a threshold below about 40.",
+  "bottleneck": "The mean-shift term E(M-mu)^2 <= C_delta n b^{a-1}/(1-2^{a-1}) of the Section 5 CLT forces the decomposition size b >= (tolerance)^{-2/(1-a)}. With the exponent a from Lemma 4.2 within 1.5e-3 of 1 (PDF) or 3.1e-5 (Lean), and a tolerance of 1e-40 to 1e-263 inherited from the curvature step's tail cut, this alone produces log10 N0 ~ 2.4e5 (PDF) or 1.7e7 (Lean).",
+  "cheapest_improvements": [
+    "Replace the interpolation in the proof of Lemma 4.2 with a certified supremum (done here with Arb: p = 19/10, rho <= 199/200, at lam = 12, which is the worst case). This takes 1-a from <= 1.6e-3 (PDF) or 3.1e-5 (Lean) to 0.053, and log10 N0 from 2.4e5 to 5.4e3 (PDF route) or from 1.7e7 to 2.1e3 (Lean route). Cost: one page of certified computation.",
+    "Use a constant decomposition threshold b with a direct characteristic-function CLT, as Lean's stdCharFn_tendsto_gaussian already does, instead of b = ceil(n^{1/4}) + Kolmogorov + clipping. n then scales as b^2 rather than b^4, which roughly halves log10 N0 (5.4e3 to 2.1e3 at p = 19/10).",
+    "Improve the upper variance constant C_up (currently 1/4 + C_delta/(1-2^{a-1}), which is 3.3e4 even after sharpening). It fixes R ~ sqrt(log/c') and so eps1 ~ R^-3 and eta ~ R^-8; with C_up = O(1), log10(1/eta) drops from about 53 to about 33.",
+    "Stop treating the conditional-mean fluctuation M - mu as an L2 error. The binding tolerance eta1 is proportional to (eps1/R)^2, and absorbing M into a martingale CLT would remove the square.",
+    "Lower lam_max from 12 to about 10.3, the most Section 7's bound (7.4) permits for exceeding 2/3; after sharpening this gives 1-a of about 0.09 instead of 0.057. A small gain.",
+    "Better constants c_sigma = 12/(2*13^4) and c_F = (24/169)/338 (Lean's are 1/(8*13^4) and 1/338^2). This matters only logarithmically: even at 1/4 each, with unit root constants and a = 2/3, N0 stays around 10^127. Every improvement on this list leaves N0 at 10^127 or more, far above the n <= 32 enumeration record."
+  ],
+  "uncertainties": [
+    "Exponent growth, a heuristic finding (floats, hill-climb, spherically symmetric trees only). The delta recursion was checked exactly against brute force on 4 small trees. q(1-q)delta^2 stays <= 2.4 on complete d-ary trees (d <= 6, n up to 1e18). On irregular-arity trees, where the root is a centroid, it grows roughly like n^0.8: least-squares slope 0.82 over sizes 1e5 to 1e15, with local slopes scattered from -0.06 to 1.97. Each value is only a lower bound on the supremum at that size. If this is representative, the exponent in Prop 4.1 is at least about 0.8, and the 1/(1-a) amplification belongs to this decomposition architecture, not only to loose constants.",
+    "The Kolmogorov-to-characteristic-function conversion (clipping) and the curvature error budget (Lean's eps = 1/(2 sqrt(2 pi)), tail target pi eps/3, eps1 = pi eps/(4R^3)) are my explicit choices where the PDF gives only limits. Other reasonable choices should move log10 N0 by a factor of about 2 or 3, not change its order.",
+    "The PDF-route constants G, H, C1 are my instantiation of the text's 'choose ... sufficiently large'. The optimum over (b, s) was taken on a grid; across the grid log10 N0 spans 2.4e5 to 2.5e7.",
+    "Lean scenario: for exists_tail_small I used the minimal integer R. Lean's witness comes from a limit statement and is only guaranteed to be some valid R, so the Lean figure is the best case for that chain.",
+    "Not assessed: entirely different analytic routes (cluster expansion, other local CLTs, a smarter decomposition that does not stop at a fixed size). The zero-free-sector route is excluded per notes/real_collar_conjecture_2026-07-16.md section 1. No literature claims are made beyond the two PDFs read (arXiv:2609.20961 and Raic arXiv:1802.06475v4).",
+    "Tooling: REPORT.md was not written because the harness refused .md report files from this subagent, and I did not work around that refusal. This structured return is the report; manifest.yaml records the refusal and the SHA-256 of every input, script and output. Grades: Lemma 4.2 sharpening certified (python-flint 0.9.0 Arb, 120 bits); tree counts and patching exact (Python ints); all N0 magnitudes and delta-growth figures diagnostic."
+  ],
+  "report_path": "NOT WRITTEN: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/audit-b/REPORT.md was refused by the harness (subagents may not write .md report files). The full content is in this structured return, and /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/audit-b/manifest.yaml records why, plus hashes for all scripts and data in that directory."
+}

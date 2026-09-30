@@ -1,0 +1,30 @@
+{
+ "a=0.6667,paper_c": {
+  "lean_style_log10_N0": "240.155",
+  "R": "1573.0",
+  "eta": "1.77364e-33",
+  "paper_route_log10_N0": "537.077",
+  "paper_route_dominant": "mean_shift"
+ },
+ "a=0.6667,ideal_c=1/4": {
+  "lean_style_log10_N0": "127.148",
+  "R": "47.0",
+  "eta": "3.32258e-18",
+  "paper_route_log10_N0": "298.919",
+  "paper_route_dominant": "mean_shift"
+ },
+ "a=0.82,paper_c": {
+  "lean_style_log10_N0": "423.039",
+  "R": "2105.0",
+  "eta": "9.80546e-35",
+  "paper_route_log10_N0": "1030.96",
+  "paper_route_dominant": "mean_shift"
+ },
+ "a=0.82,ideal_c=1/4": {
+  "lean_style_log10_N0": "232.735",
+  "R": "64.0",
+  "eta": "1.59811e-19",
+  "paper_route_log10_N0": "591.778",
+  "paper_route_dominant": "mean_shift"
+ }
+}

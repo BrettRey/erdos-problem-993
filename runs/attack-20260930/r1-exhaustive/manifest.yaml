@@ -1,0 +1,105 @@
+# manifest for runs/attack-20260930/r1-exhaustive
+written: 2026-09-30T14:50:43-0400
+model: claude-opus-5-5 (Claude Code subagent)
+git_head: e94d47f6b421de8b8641542a138e3af936f33ea7
+compiler: Apple clang version 21.0.0 (clang-2100.3.34.2)
+build: cc -O3 -o r1_census r1_census.c
+inputs:
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/route-freecount/pv_lib.py
+    sha256: 07ccba836c30bfef8ca5fbaa228565c748f1703310bb38e79f1b072ae0912140
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/route-freecount/RETURN.json
+    sha256: 3d0259d93670d54b9233d5c081f5dbb5a1b3e3928df613cf3ac12814be51de23
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/route-freecount/k1_census.py
+    sha256: eb9855b21ae24013b9370ce98ef0b8a2c1f2d68012fb8cf245ab6c2fef1e68ab
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/route-freecount/k2_aggregate.py
+    sha256: 32ccf1b48840d3cc39713d41e83910cdb0f02a29d364bc2b701f5f9133618d47
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/route-freecount/k4_hillclimb.py
+    sha256: 1da41c7df47aa202a2dbb60a65a7009b769ae408aa21746a15db085a2394928b
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/route-freecount/k3_families.py
+    sha256: ce57181f0136f9bf1d40ec68c2bdc1ee91e24cf7b12c73b436d6a5d49a513ef1
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/census/central_margin.c
+    sha256: ad23a11418230ad895f4be6728e402b6347c95ea2784a25aac535fdbb9b76b17
+  - path: /opt/homebrew/bin/gentreeg
+    sha256: 404f9fedd52ebd0504d87e611668066de9e99b02bea73b17801f831a8837145e
+scripts_and_binaries:
+  - path: crosscheck_pvlib.py
+    sha256: 49cfa3f106de01836f7cddd2d6a8798e40bf37a571adaa730b27f5ce9c813f27
+  - path: family_trend.py
+    sha256: 26a99eb3969e2c5677e49f74fa81e4a03f56760deca6cffc05e155e1e46a9767
+  - path: make_manifest.py
+    sha256: c48d5f2cefc2e238417868739fb8121c88fc5e65f5abb35a79eacfe394f7b0fd
+  - path: merge.py
+    sha256: 3bf6c97584a9ebd55409b0ff9a00b195e825872f9e2fe799f55f9a2c2b20a2aa
+  - path: r1_census
+    sha256: 2f2602686f2b0ed19c587ea2cfef28af8c151d15e084ba863d18c84fe79df35a
+  - path: r1_census.c
+    sha256: 0c59cfd0475f1189a6ced629e026f06d416d3e7315aa87166bbd416aad87c4ba
+  - path: r1_ext.c
+    sha256: 1c473cff4797005b2614a82e8ec92b4cc07f07bf23615238f95607b13e0f521e
+  - path: run_census.py
+    sha256: 0e142fa9e4daf78f9ce1ac4e63f5554d11350881f5e6e9a6b0816f3009abb2c8
+  - path: summarize.py
+    sha256: 0c2fc516e3a620e819e563c0c7f7968a9bd3678c5a0aadf0b115670d6a6239c0
+outputs:
+  - path: crosscheck_n2_13.json
+    sha256: 107d8cac78d15d9a8c3a032fce962bbe81deb5620cf6e2457e08a86d130da00d
+  - path: family_trend.json
+    sha256: 8178ba899298f85460119bf40651d669c16afab4e7ac25da8136d5e55be9c248
+  - path: family_trend.log
+    sha256: 38e0bf326adca349201bc2a94b5dcfcb3db5b463a79430ef286b56c0803c0aa3
+  - path: h92.txt
+    sha256: d02531a3943095f2c448fb4acf3c9e3fae49314d39d66d3297e17d7486fc26c9
+  - path: lcfail_n28.txt
+    sha256: f395ddd76da233ea7513eb36d08f5fbc7713c1082695da996a30fb3f074f4d4d
+  - path: raw/n19_s0of4.txt
+    sha256: 9e9b5efdb93eaeb8fcc1a134c48985c1d23da09c70bab6da3d7e7f303e842be2
+  - path: raw/n19_s1of4.txt
+    sha256: a8096e385c1f98b9b8e813b2b237b34464998ba5fcb35370dfdfbfba3ff2d6ed
+  - path: raw/n19_s2of4.txt
+    sha256: 1755aa64bf80ce3b0aa5d217935b7203c9b6850e1ecc5d3202e740ce8377012f
+  - path: raw/n19_s3of4.txt
+    sha256: 2c3ea398e8ec1d2993393ba55458b62a66b3024066b1992b91cf7e2afe796e07
+  - path: raw/n20_s0of4.txt
+    sha256: a7530171e756b44b948c70cfe832f1c2475b717c3ae601a66c6a478bd174544c
+  - path: raw/n20_s1of4.txt
+    sha256: 09ea85f7564a848f484a591888b2eab426a883bd2846d23e4d03e5baff6b22e5
+  - path: raw/n20_s2of4.txt
+    sha256: 96020158a8b8c60a1144db8a26c4d19c07494181bb70ab730fddfc5a85a8131b
+  - path: raw/n20_s3of4.txt
+    sha256: c0a6d95ddb6781f7c1662c0e91145ed32c9e533ac0b721812e739df1a4899afa
+  - path: raw/n21_s0of4.txt
+    sha256: 71da75a231899fa6b6697080afadd780a7baa46385a25f71db06f438de5144ea
+  - path: raw/n21_s1of4.txt
+    sha256: 281355fb45e5cd94fe6857a71c64561dbf806bb2fc87871ab9ddc0775f0f5b35
+  - path: raw/n21_s2of4.txt
+    sha256: 90fbf53bf7a4eb28ccf9ed5a722865be49e0b32f75019ef2a756fd185249fdea
+  - path: raw/n21_s3of4.txt
+    sha256: 5f4f2a7a691384e4e18d812eee4a6ead35760925f4b74dcd51bea88871b56b71
+  - path: raw/n22_s0of4.txt
+    sha256: 424d215b111807a4109176f692b20be4064b86facdd1f883f8bb79d526c14ff4
+  - path: raw/n22_s1of4.txt
+    sha256: e9bea8315b8c4812678255742798b9c1804e602293f2b29a10302703d616446f
+  - path: raw/n22_s2of4.txt
+    sha256: 3fa3468e7669589ac43da580756555b602d42bf1f240fdb7a962766375d6caa1
+  - path: raw/n22_s3of4.txt
+    sha256: 33013139647ee95c5c84073a865875da7b8ecfa3a33979ca2cb03fd774fea995
+  - path: raw/n23_s0of4.txt
+    sha256: 96f41dfa99c48b134baf76a2e168806fe979a7d4638161b7a0bbbe0827322b99
+  - path: raw/n23_s1of4.txt
+    sha256: 614fb8e8948265e75bb8b949a9a342570959ca6397a295335310d16eccc16277
+  - path: raw/n23_s2of4.txt
+    sha256: db1f2a0c29abcbc319600a5c2f1de565244f085d059268fca5286932b381102a
+  - path: raw/n23_s3of4.txt
+    sha256: c6b8835a4e378a33305004d9356fa354caacfb018b310f460de08f06195966bf
+  - path: raw/n24_s0of4.txt
+    sha256: fad9d0a6afc20b93225ab82a5a136829e8b351643ab052f12746c5cf6fba3135
+  - path: raw/n24_s1of4.txt
+    sha256: d12250b813eb79add5f12d1e06912bc54e3b9551041ce331ce8cc9aa485a3a8c
+  - path: raw/n24_s2of4.txt
+    sha256: 80f583543a21cb39c91d5fa82b42047559ae2615996f1b6cf583c668fee13819
+  - path: raw/n24_s3of4.txt
+    sha256: 77b3d087e9b55cc241a666dc96c40bcb14cd7a58c3596dca6f3cbd3eb8c8c9fb
+  - path: run_19_26.log
+    sha256: 6c155d6a3f78e77f3c65398e060c21f00da3210b8685affdb8002935d2d1d99e
+  - path: run_ext_25_26.log
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855

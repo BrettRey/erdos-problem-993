@@ -1,0 +1,80 @@
+{
+ "e^{5/2}": "[12.1824939607 +/- 3.48e-12]",
+ "12 < e^{5/2}": true,
+ "paper_b_min (12e^{-1-3b/2}=b)": "[0.993969961555507 +/- 1.98e-16]",
+ "2sqrt12/e": "[2.54874353268 +/- 4.07e-12]",
+ "paper_relaxation_p_min": "[1.99678845629 +/- 1.72e-12]",
+ "paper_relaxation_1-a_max": "[0.0016083545 +/- 4.54e-12]",
+ "paper_relaxation_u_min=1/(1-a)": "[621.75347 +/- 3.62e-6]",
+ "true_sup": {
+  "12": {
+   "F(2)_lower": "[0.91025870 +/- 8.96e-10]",
+   "p*_certified_lower": 1.8914871061188387,
+   "F(p_lower)_lower": "[1.0000000 +/- 2e-12]",
+   "p_certified_admissible": 1.89348710611973,
+   "F(p_admissible)_upper": "[0.99999209 +/- 2.52e-9]",
+   "1-a at p_admissible": 0.05625224145230323,
+   "u=1/(1-a) at p_admissible": 17.777069396388566
+  },
+  "11": {
+   "F(2)_lower": "[0.88146279 +/- 4.68e-9]",
+   "p*_certified_lower": 1.858847883159069,
+   "F(p_lower)_lower": "[1.0000000 +/- 2e-12]",
+   "p_certified_admissible": 1.8608478831599602,
+   "F(p_admissible)_upper": "[0.99998881 +/- 2.03e-9]",
+   "1-a at p_admissible": 0.07477887800465544,
+   "u=1/(1-a) at p_admissible": 13.372760152107995
+  },
+  "8": {
+   "F(2)_lower": "[0.77848266 +/- 1.57e-9]",
+   "p*_certified_lower": 1.7502343778143403,
+   "F(p_lower)_lower": "[1.0000000 +/- 2e-12]",
+   "p_certified_admissible": 1.7522343778152318,
+   "F(p_admissible)_upper": "[0.99996506 +/- 2.37e-9]",
+   "1-a at p_admissible": 0.14139981803900792,
+   "u=1/(1-a) at p_admissible": 7.072144885816825
+  },
+  "6": {
+   "F(2)_lower": "[0.68914306 +/- 3.86e-9]",
+   "p*_certified_lower": 1.6656160140891192,
+   "F(p_lower)_lower": "[1.0000000 +/- 2e-12]",
+   "p_certified_admissible": 1.6676160140900105,
+   "F(p_admissible)_upper": "[0.99999964 +/- 3.22e-9]",
+   "1-a at p_admissible": 0.1993168589780938,
+   "u=1/(1-a) at p_admissible": 5.017137060693428
+  },
+  "4": {
+   "F(2)_lower": "[0.57031080 +/- 2.68e-9]",
+   "p*_certified_lower": 1.5656120913869382,
+   "F(p_lower)_lower": "[1.0000000 +/- 2e-12]",
+   "p_certified_admissible": 1.5676120913878295,
+   "F(p_admissible)_upper": "[0.99997043 +/- 3.22e-9]",
+   "1-a at p_admissible": 0.2758258315227533,
+   "u=1/(1-a) at p_admissible": 3.6254762452062375
+  },
+  "3": {
+   "F(2)_lower": "[0.49187738 +/- 2.91e-9]",
+   "p*_certified_lower": 1.5067143843216946,
+   "F(p_lower)_lower": "[1.0000000 +/- 2e-12]",
+   "p_certified_admissible": 1.5087143843225859,
+   "F(p_admissible)_upper": "[0.99999578 +/- 3.55e-9]",
+   "1-a at p_admissible": 0.3256319557780327,
+   "u=1/(1-a) at p_admissible": 3.0709516749076395
+  },
+  "5/2": {
+   "F(2)_lower": "[0.44503103 +/- 2.48e-9]",
+   "p*_certified_lower": 1.4739770505841259,
+   "F(p_lower)_lower": "[1.0000000 +/- 3e-12]",
+   "p_certified_admissible": 1.4759770505850172,
+   "F(p_admissible)_upper": "[0.99995518 +/- 1.02e-10]",
+   "1-a at p_admissible": 0.3550346187342692,
+   "u=1/(1-a) at p_admissible": 2.816626737880072
+  }
+ },
+ "log13/Q*(12)": "[0.6808910441 +/- 4.87e-11]",
+ "log13/Q*(12) > 17/25": true,
+ "margin log13/Q*(12) - 17/25": "[0.000891044 +/- 1.49e-10]",
+ "log13/Q*(12) > 64/95 (Lean)": true,
+ "least lambda with log(1+l)/Q*(l) > 2/3 (Sec. 7 method)": "[10.30829217 +/- 4.54e-9]",
+ "ratio at lambda=11": "[0.67286364 +/- 1.96e-10]"
+}

@@ -90,3 +90,17 @@ formalization/*/aristotle_input_aristotle/
 gpt_attack/primus_depth3_2026-09-23.zip
 gpt_attack/primus_handoff_2026-09-23.txt
 gpt_attack/primus_feedback_*.md
+
+# 2026-09-30 attack run: other authors' texts and code copied in by agents,
+# compiled binaries, Python caches
+runs/attack-20260930/**/fang.txt
+runs/attack-20260930/**/raic*
+runs/attack-20260930/**/*.pdf
+runs/attack-20260930/**/lean_src/
+runs/attack-20260930/**/lean_repo/
+runs/attack-20260930/census/central_margin
+runs/attack-20260930/census/central_margin_q
+runs/attack-20260930/r1-exhaustive/r1_census
+runs/attack-20260930/r1-exhaustive/r1_ext
+runs/attack-20260930/audit-b/paper.txt
+runs/attack-20260930/census/sources/

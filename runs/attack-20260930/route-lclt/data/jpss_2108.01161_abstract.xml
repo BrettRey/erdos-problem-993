@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/Sr3WdWmpWz/XMUtkXIwkooGIfvc</id>
+  <title>arXiv Query: search_query=&amp;id_list=2108.01161&amp;start=0&amp;max_results=10</title>
+  <updated>2026-09-30T16:42:23Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=2108.01161" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2108.01161v1</id>
+    <title>Approximate counting and sampling via local central limit theorems</title>
+    <updated>2021-08-02T20:39:06Z</updated>
+    <link href="https://arxiv.org/abs/2108.01161v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2108.01161v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We give an FPTAS for computing the number of matchings of size $k$ in a graph $G$ of maximum degree $Δ$ on $n$ vertices, for all $k \le (1-δ)m^*(G)$, where $δ&gt;0$ is fixed and $m^*(G)$ is the matching number of $G$, and an FPTAS for the number of independent sets of size $k \le (1-δ) α_c(Δ) n$, where $α_c(Δ)$ is the NP-hardness threshold for this problem. We also provide quasi-linear time randomized algorithms to approximately sample from the uniform distribution on matchings of size $k \leq (1-δ)m^*(G)$ and independent sets of size $k \leq (1-δ)α_c(Δ)n$.
+  Our results are based on a new framework for exploiting local central limit theorems as an algorithmic tool. We use a combination of Fourier inversion, probabilistic estimates, and the deterministic approximation of partition functions at complex activities to extract approximations of the coefficients of the partition function. For our results for independent sets, we prove a new local central limit theorem for the hard-core model that applies to all fugacities below $λ_c(Δ)$, the uniqueness threshold on the infinite $Δ$-regular tree.</summary>
+    <category term="cs.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.CO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math.PR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2021-08-02T20:39:06Z</published>
+    <arxiv:comment>26 pages; comments welcome!</arxiv:comment>
+    <arxiv:primary_category term="cs.DS"/>
+    <author>
+      <name>Vishesh Jain</name>
+    </author>
+    <author>
+      <name>Will Perkins</name>
+    </author>
+    <author>
+      <name>Ashwin Sah</name>
+    </author>
+    <author>
+      <name>Mehtaab Sawhney</name>
+    </author>
+  </entry>
+</feed>

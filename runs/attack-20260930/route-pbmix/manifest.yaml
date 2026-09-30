@@ -1,0 +1,44 @@
+lane: route-pbmix
+date: 2026-09-30
+model: claude-opus-5-5 (Claude Opus 5.5), subagent of workflow run attack-20260930
+dependence_cluster: attack-20260930 (shares inputs with sibling lanes; audit-a/fang.txt produced by a sibling)
+repo: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993
+git_head: e94d47f6b421de8b8641542a138e3af936f33ea7
+report: >-
+  REPORT.md NOT WRITTEN: the harness refused a report-file write from this subagent
+  ("Subagents should return findings as text"). The full report is carried in the
+  structured return to the parent; persist it from there if wanted.
+inputs_read_sha256:
+  paper/poisson_binomial/main.tex: fb4fab84d5f9b6db1530582da55ddbeae217ad0890337004c65822918fd85724
+  literature/fang_2026_unimodality_large_forests.pdf: 5f18690883cc007852fed9082fe415b7fdd43ec8aa40d5091d59b39945a0278b
+  runs/attack-20260930/audit-a/fang.txt: a5ee6e30a036a68f8bfa92483bcfab737e18e0f1f18e3e791eb8916ae9542c27
+  formalization/pb_effective_drop_aristotle/ARISTOTLE_RESULT.md: 806166e9015eb5583762194446da35a1f4af4e36494b092bf71a9bc3448e5c6e
+  formalization/pb_effective_drop_aristotle/PROMPT.md: ceca96e54f76f7f12703e3cea7256ddeb3e74e6c6308229ef67b834edc8ec424
+  notes/literature/hub_bouquet_variance_reserve_proof_schema_2026-07-03.md: 17a665eb5c49f2e28210072152e0b441010853fc8b355cbbb958737b7bc83e2e
+  notes/karlin_lr_order_toolkit_2026-08-12.md: d0d0a1af45b14bd4a383fbfd103d038d67468bc96ca81b2cc11001c06e6c8da4
+  notes/fixed_arm_effective_unimodality_2026-08-08.md: e238e75f366134ce286e6b8be023b478783913ecb61474f18ef0a5353e473bcb
+  notes/law_v_one_hub_proof_2026-08-20.md: a8b22c54af2e2a64fd15182d8b41d8286e53b139bc13f623a9bda02d53a2f952
+  notes/two_hub_B_logconcavity_proof_2026-08-20.md: d81e4bba257e8faf6506a053c36daa04a8daae2f581d44e8e1cfd3563caab693
+  notes/c2_single_index_laws_2026-08-11.md: 5303d398174acc290abf1c513a51eaeb024fb28cbaf0c9a9fef14ab4d1bd2830
+  notes/mason_free_count_reformulation_2026-09-02.md: 294cd34eb13e686f47591d9462bf4e1ed71537a6b84df491d0207f538b480d85
+outputs_sha256:
+  pbmix_killtest.py: 07074597775b1be1baab2bceaac20050addf78acfc3fc1c34dfdd823ee7e6252
+  pbmix_families2.py: 76f8a128a3257921b36f6693e65f53b022b0c91e39f92215cacc5105502a3aed
+  pbmix_bipartition.py: e9cf4aa0b4926aff93750a8360a461915f21135c371db827b6795128c9bb1869
+  pbmix_hillclimb.py: 34ac6888985dc0a7c386b3fbd02625f163d5a8ed4a657a990ecac00f0d0edf05
+  results_census.json: 7e69dc6b3c4eb84c4f546c70406acf483668eb5a307e1530737ec821d7f3548c
+  results_spider.json: 261828653cdedec404e8254058c891dd0af3be10876a9f82e26a115dd041eadd
+  results_cbt.json: 757e67490e2840d89492763432fb20d444f00b73be72b51fba9cb8988ddb5818
+  results_rand.json: 9c3d37cf890d31899ecd3c2baca9c8d3454f07bf3872d4089c29cab7fcf0190b
+  results_families2.json: b3cd2e5e697fbc88d0a29891228902c7a30c9116e16855399ab55f0d597f92a4
+  results_bipartition.json: cb0ec7350a9c4e2b31c4265503c43c327a69d10706549196e8542d6daee65be1
+  results_hillclimb_n22_s1.json: 38bf4cda6c32a7f717bf95d5ebdea7a3ec12abb79ec05bff60f7ec6e400777b6
+  log_census.txt: 5b40c3f94cff22e0721fe0ab8671f09724baf562805e9a6808de6f8369f4106b
+  log_cbt.txt: 4c958d651d6ce075d1f963d048edbe97d444fbc705c8e5df7d4685c2637cc194
+  log_cbt_rerun.txt: 21fcf9b79c89a670cb5502fe088af78b5987ed8e4c054d9ce8ce5c18ecd9e1da
+  log_rand.txt: f44e0e9784fc16c8e6d76b57e916b3929372f7be8a8f73a912ae5970a46ac092
+  log_families2.txt: 5d646739ccdf1094855923ad87f736e3d85eece9d033d479435864d1740b053e
+notes:
+  - All inequality claims computed in exact int/Fraction arithmetic; *_float JSON columns are diagnostics.
+  - Complete binary depth-7 (n=255) run killed at ~16 min under the compute cap; not reported.
+  - rand n=120/160 and comb runs with B=non-leaves did not compute the certificate (cert fields null).

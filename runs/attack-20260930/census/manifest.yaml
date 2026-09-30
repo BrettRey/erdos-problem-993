@@ -1,0 +1,185 @@
+# manifest for the central-window margin census (attack-20260930/census)
+model: claude-opus-5-5 (Claude Code subagent)
+date: 2026-09-30
+project_git_head: e94d47f6b421de8b8641542a138e3af936f33ea7
+tools: [gentreeg (nauty, /opt/homebrew/bin/gentreeg), cc -O3 (central_margin.c, central_margin_q.c), python3 (Fractions; networkx for the independent cross-check)]
+dependence_cluster: single agent; exhaustive results cross-checked by an independent Python/networkx enumeration for n<=14; tilted diagnostics cross-checked C (Newton) vs Python (bisection)
+inputs_read_sha256:
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/scripts/lc_census.c
+    sha256: 5448e4c47c55f2d9a247caa2b807cd0911a3fc6a1d434d4ef0f138a3b88a2564
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/scripts/probe_absorption_margin_20260811.py
+    sha256: b8369cc8005e62968b2f9e3eb21bb6b2887626b197e938a0d6cc7e6d989bd800
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/scripts/search_break_depth_20260814.py
+    sha256: 250660ce7a3124ecac874305c3b6f17110f70ec99b4d2dc0481698c6b0adfb03
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/mason_free_count_reformulation_2026-09-02.md
+    sha256: 294cd34eb13e686f47591d9462bf4e1ed71537a6b84df491d0207f538b480d85
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/literature/arxiv_2603_17114.txt
+    sha256: 6c0d762ed0f129575d706641b1a250f299bbe813c3476e69ae7abe19e6aadd12
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/literature/arxiv_2511_00334.txt
+    sha256: ae01d177392122198f9e19c17813342ee482d4a3b35808b04199be20947d8ea9
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/paper/poisson_binomial/main.tex
+    sha256: fb4fab84d5f9b6db1530582da55ddbeae217ad0890337004c65822918fd85724
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/literature/fang_2026_unimodality_large_forests.pdf
+    sha256: 5f18690883cc007852fed9082fe415b7fdd43ec8aa40d5091d59b39945a0278b
+outputs_sha256:
+  - path: census_10_24.log
+    sha256: 5665607cac726ebd25c86e74a1097b64b64e2efc47f8487bf2544abf46ceafdf
+  - path: census_10_27.log
+    sha256: d5e47c90b243874c8cd5413c3258fc20202357f755057e5ce48930dadb1bc90a
+  - path: census_25_27.log
+    sha256: 392f00cd1035b85a962a136da52d3d1e5baf103f91550f0c3e95ba1e819cc5c0
+  - path: census_27.log
+    sha256: b6a0b16b9176351ccd04b0482d411ccd252fdd821f6b99de24d611a8a6d93d8e
+  - path: central_margin
+    sha256: efebad07ffe79d776e01cb75e9dc17bf7088e24f143b6160ab9ae82f46493854
+  - path: central_margin.c
+    sha256: ad23a11418230ad895f4be6728e402b6347c95ea2784a25aac535fdbb9b76b17
+  - path: central_margin_q
+    sha256: 1adb9ec037ace67cd72903b5ba048a2a46c7cebc263e0f85975982f671386182
+  - path: central_margin_q.c
+    sha256: 8939584fdf4de5d4ac7b60b706884ee9d1029047f0a2add89b3179503b13f9a3
+  - path: crosscheck_python.py
+    sha256: ab9e8e4072ef00af75df6be1592de66117256c60cbd846f1f573ee6f1e6897d2
+  - path: data/census_n10.json
+    sha256: 19b24b11a928b20db52ded317cf4c53b29bd372e34423ad6f8687dd7ac92d23f
+  - path: data/census_n11.json
+    sha256: 191eba3ad1cb5e62f9f0e02a24c2c606d334bf047d371ae39eec24c5692453d9
+  - path: data/census_n12.json
+    sha256: 9a18fb46a3d9f2622dfd53b152162f649c5a44efaa3287f547e01b0c51f75af5
+  - path: data/census_n13.json
+    sha256: 6529ad18dd2c5642f127550b3304ce3579e4a864ff14e72fcd1fc05b26562b15
+  - path: data/census_n14.json
+    sha256: c8f35fbeff46cb2a0c02545f00482ab6d3f48796ac880a64660aba8812f35a4f
+  - path: data/census_n15.json
+    sha256: be9455cc4fde9d5a4efda5a2ff1023532bcffe7d1b1d664d0587d325c91dc4c9
+  - path: data/census_n16.json
+    sha256: de5de9ced999fc0d5c8c9a193d76bdb3a26e7e4afe5508d75b401861bcf9d750
+  - path: data/census_n17.json
+    sha256: 2a276dc2eecd7ae1754e314e860a8290912721b6786547abd31b5ed441d84530
+  - path: data/census_n18.json
+    sha256: ec390a2d29389656a55bed0b7ac3191526a481d7bc87824b18634046a4a4abc0
+  - path: data/census_n19.json
+    sha256: 5b567c69e77d7b61bb8a9db014123250f77b10e9707e66c2ebce355823cb7d5f
+  - path: data/census_n20.json
+    sha256: b31fe565d6fd42218507914a4dda64f3dc9d154b48e889869ef912cea996fc57
+  - path: data/census_n21.json
+    sha256: 6c2dd4b6b689466317b5c3291f3d0a569cddc3b462f75141889ad621829b158e
+  - path: data/census_n22.json
+    sha256: efd370bd5a5271f051a27b8fb879a4ff692754a430d23504fe9eb781831adec2
+  - path: data/census_n23.json
+    sha256: a762bda96287bc45cda2dfb718b8837fcbd06f63efdf5d1e1d1ddd0a73a05db5
+  - path: data/census_n24.json
+    sha256: b1feadeaf7eef98b817d1b09df4c00b8f917cf2fa02ac43b2e29af0d8273014d
+  - path: data/census_n25.json
+    sha256: 1a8b1592a13d5ef4e14a99e8dd947d75e93670bdc4176fae28d1a45da7e1b3ab
+  - path: data/census_n26.json
+    sha256: a84c728fc06d7113db275c935a3a5e4ee3f48ebe065275650141af6325c15237
+  - path: data/census_n27.json
+    sha256: c124373503c8fb022d9c55f5f1b49458f9d425bd7f9f9733c5559421dbb77cbd
+  - path: data/crosscheck_python_n10_14.json
+    sha256: 7a542987bea01f4a12e5e0a60c465731f5f7e9a8d16f78f00c02cbcb0d9471d9
+  - path: data/families.json
+    sha256: 76b182a8fe5d56b2f5c8018bc117d115852892114dfe24678a9f7b29e601fd21
+  - path: data/hillclimb/Q4_n30_s1.json
+    sha256: 07be760b8bfba6cbae8958bf6dfd1e0161ca818ff3e2a160a092c2c15be757c5
+  - path: data/hillclimb/Q4_n50_s4.json
+    sha256: 95255067ee3c4318b3ad2e17b1f8277d531af298a1b11a42ce68d9b1575e6e90
+  - path: data/hillclimb/delta_n30_s1.json
+    sha256: a2843f7161b0d6d086caef93ba59a976feeff727b5c1d5e937cc18d404b0a8b0
+  - path: data/hillclimb/delta_n40_s1.json
+    sha256: 09e92b87b618ef719f606872e95019c024f323c396c44381a5568cde8691c84f
+  - path: data/hillclimb/delta_n80_s2.json
+    sha256: 16b81fb8b903a176f0ccea6454e23086154dbfbd467a52e421aac4fba0e07c71
+  - path: data/hillclimb/newton_n50_s3.json
+    sha256: 1145376d05a488368de1af42c33972dc9c8c6b4d3a2943c0c31a77ba6f1cc30c
+  - path: data/qstat_n10.json
+    sha256: 6749888dc065100e3d84874d93d789560c24f6d70a8b44fabb280264e1acce1b
+  - path: data/qstat_n11.json
+    sha256: 7da6a52deb2881284369b123bdeec62289714dc6fdd1a0bc2c32ebc1760aa364
+  - path: data/qstat_n12.json
+    sha256: 52cb32be90a9d0173b3f5fe99e2d2bf12f4bb390cf9dcaddaf5c78d49e85c698
+  - path: data/qstat_n13.json
+    sha256: ab1058887b7fc1928e46fd863a1c1b58ed6c61a8ed402f69593abd43fcd2b0d1
+  - path: data/qstat_n14.json
+    sha256: 79dd152e21135daa3a8faff3fad6652c4fad42ecfc36d17b0aacc7bffc316ce6
+  - path: data/qstat_n15.json
+    sha256: a9e9cf8a6ff002faeaf0d510d1c958402d49d58c32cb41d02cca97d142793ae6
+  - path: data/qstat_n16.json
+    sha256: 125c4bf5d24fb861101a2d543aa35087318b936fcd9c9101521bf40797d4a95b
+  - path: data/qstat_n17.json
+    sha256: e1f5247779e936f0e94f2d7864bf6c74098f53b10a5146d487b1bfb9c61b4617
+  - path: data/qstat_n18.json
+    sha256: 71da8f6482647b81b01069279f2fa1ac205b276d6d7ebbd8326d3896bc1e5d70
+  - path: data/qstat_n19.json
+    sha256: 2462a10cbb1bb4a20422cf73a6a931f192a4a942e2410e59a319c12c1084a7e5
+  - path: data/qstat_n20.json
+    sha256: 5b262972f62131f114e7351e28ed921817dc5c52882cdd5b970d68b93e429a5a
+  - path: data/qstat_n21.json
+    sha256: d42eefce149ada06bc66229cd8bc8b6adfaf8e08cf1c53d9bde08b4490ac3c57
+  - path: data/qstat_n22.json
+    sha256: 71457327d76be624aa2c4159ad53397653c884a03779ae80223eba948a57b590
+  - path: data/qstat_n23.json
+    sha256: 4f7f1ee4aa7f9aeab02575893d0bacb4a480bdf6956cb673b850afb5570dbc0f
+  - path: data/qstat_n24.json
+    sha256: f3692e08190081a8e527db8f7c9e33f9a1816813b24c864f74658cdd85e6bb07
+  - path: data/qstat_n25.json
+    sha256: 9c76c49a412b832782e46f425793e764e8fe7ccb6895295f1ef892c3933e6f8c
+  - path: data/qstat_n26.json
+    sha256: edd209071bb14b0b0e5bedb1b174419a54f202b83d8acb6bb81587e1d102ac92
+  - path: data/sample_n16.jsonl
+    sha256: b00484fbb3a44e0f5aa9b73862e17ae2ef2465ad1314cf5a9274b6b2b27cb1d2
+  - path: data/sample_n20.jsonl
+    sha256: 32c1e0ffb1031f7da6012ad30ad247643dc7c9c9be162f9761ebd6d0a85167d1
+  - path: data/sample_n24.jsonl
+    sha256: c8868c66d6e49d332f04ab6ac06c26a1cad11e11d6e1bd4de72f72917b3bf322
+  - path: data/tilted_sample_n16.json
+    sha256: 1b74227d8428ce87bf29501228cc6a99d9cbbe528621a956dd529b4d34622abf
+  - path: data/tilted_sample_n20.json
+    sha256: b51d82ddaf1efc363218ecc1ece3da45c97e150bbb9519a5a324fca90ece54fa
+  - path: data/tilted_sample_n24.json
+    sha256: 9457efad74f00562152f230b151c2a4f90bbdfa1acc0e8ef8f09fce0c8e29b26
+  - path: data/tilted_summary.json
+    sha256: 1a70a124237eed2cdc07482c6b3e501a7445e015ee1bcf5ae87607506e8cd821
+  - path: families.log
+    sha256: 879a400377caff7b3361977b26f4245a7ff5501616a8b289bbd9ff7bb442395e
+  - path: families.py
+    sha256: 333f37f5f872a8b50e5ff92fc55f7f6d30eb67f6c3f344d23eb21873401f68f3
+  - path: hc_Q4_50.log
+    sha256: bcc5f5f586b454ac0f6948bba9c7b08235742acb8ed825a1ce13149ae8c5a5fa
+  - path: hc_delta_40.log
+    sha256: ab258741f448a622b44c6a66c0a255ddd0290b74137f3da824d560a34fcfd84e
+  - path: hc_delta_80.log
+    sha256: fe9d6afa90da51351677965b559c8a206fb9e193c851c85ed7463597182b75be
+  - path: hc_newton_50.log
+    sha256: 5bec99461f0b38fc739e65afcba48a6698a05c7b5dd09017d56107c80b77fdb0
+  - path: hillclimb.py
+    sha256: c5493a766f85449ff1848fd7129ac68729b3cf46583f5114b39ed892c7083222
+  - path: lc_census_original_copy.c
+    sha256: 5448e4c47c55f2d9a247caa2b807cd0911a3fc6a1d434d4ef0f138a3b88a2564
+  - path: make_manifest.py
+    sha256: 8609f01dc93e031508d0e239bfe56f75e8720df04c673c2210e63093bfef0636
+  - path: make_tables.py
+    sha256: 01cfdec1344be73cf5da3e80cd72d3f1a94dfb195b5a08f7197e59d4f6879ffb
+  - path: qstat_10_22.log
+    sha256: 099d814fc20db6b1a13c8c6703507e8cf1ee92550279c076fb7e8f98f84e3033
+  - path: qstat_23_24.log
+    sha256: 9a27eaee2a19f059c07b5e2197e20a1e74174e4377bf64b4b6814a36043e9c8b
+  - path: qstat_25.log
+    sha256: 3579b5452c8b2e71cde37c908be43ffce14faf6afbdf76d406582dc5b0999923
+  - path: qstat_26.log
+    sha256: f2e62ec09a2198e0195fa6d81ce3d156f8db963df6d483b4595ad889104cf91e
+  - path: run_census.py
+    sha256: ad0826dc81681c036c0ce81493d7d588b0741b2665440d22d039e4b209f0158c
+  - path: run_census_waves.py
+    sha256: 92170cf27110fbcc5fa50452b2f39852595e1f2405dd7db68be8457a90c513f7
+  - path: run_q.py
+    sha256: 2d0ffeb8d59fa59966a07c47f2f1a0749f2da960e7244e45b2d47204dbc0aafe
+  - path: sources/fang_2026.txt
+    sha256: a5ee6e30a036a68f8bfa92483bcfab737e18e0f1f18e3e791eb8916ae9542c27
+  - path: tilted.log
+    sha256: c708dd8a611625ef48e248e773f453c90a501f81e2270e94ad096d77b9b0e88e
+  - path: tilted.py
+    sha256: f86114178c8022d855b7e9a2e2228864e9774ed7499d911313cc013cf7ffda65
+  - path: treepoly.py
+    sha256: b8dcf7e5cf14e3ea49ea0ea2509d06ce65a7688f07896ac2db81907ee14151d6
+raw_shard_outputs: raw/ and raw_q/ (not hashed individually; merged results in data/)

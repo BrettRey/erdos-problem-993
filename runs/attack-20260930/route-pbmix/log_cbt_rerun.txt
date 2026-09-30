@@ -1,0 +1,10 @@
+CBT d=2 B=deg3 7 [2, 3] pairs 2 cert_pb_fail 0 rho_max 0.1786 allLC True
+CBT d=2 B=nonleaf 7 [2, 3] pairs 2 cert_pb_fail 0 rho_max 0.2660 allLC True
+CBT d=3 B=deg3 15 [4, 7] pairs 4 cert_pb_fail 0 rho_max 0.2302 allLC True
+CBT d=3 B=nonleaf 15 [4, 7] pairs 4 cert_pb_fail 0 rho_max 0.2567 allLC True
+CBT d=4 B=deg3 31 [8, 14] pairs 7 cert_pb_fail 3 rho_max 0.3068 allLC True
+CBT d=4 B=nonleaf 31 [8, 14] pairs 7 cert_pb_fail 3 rho_max 0.3373 allLC True
+CBT d=5 B=deg3 63 [16, 28] pairs 13 cert_pb_fail 5 rho_max 0.3049 allLC True
+CBT d=5 B=nonleaf 63 [16, 28] pairs 13 cert_pb_fail 5 rho_max 0.3149 allLC True
+CBT d=6 B=deg3 127 [32, 57] pairs 26 cert_pb_fail 11 rho_max 0.3371 allLC True
+CBT d=6 B=nonleaf 127 [32, 57] pairs 26 cert_pb_fail 12 rho_max 0.3452 allLC True

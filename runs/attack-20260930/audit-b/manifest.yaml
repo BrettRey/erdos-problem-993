@@ -1,0 +1,44 @@
+run: attack-20260930/audit-b (effective-constant audit of arXiv:2609.20961)
+date: 2026-09-30T12:41:29-0400
+model: claude-opus-5-5 (Claude Code subagent)
+project_git_head: e94d47f6b421de8b8641542a138e3af936f33ea7
+lean_repo_commit: b2a1d3ede8aef259b1de6e319e7fd6cb56481ac1
+dependence_cluster: independent of audit-a (audit-a directory not opened)
+report_md: not written; the harness refused .md report files from subagents; the full report is returned in the structured output
+inputs_sha256:
+  - {path: "/Users/brettreynolds/projects/LLM-CLI-projects/literature/fang_2026_unimodality_large_forests.pdf", sha256: 5f18690883cc007852fed9082fe415b7fdd43ec8aa40d5091d59b39945a0278b}
+  - {path: "raic_1802.06475.pdf", sha256: bb8b18a25438b2381a50175e63c12fcb40e9ada666c394c3a9d7c85b6255a51e}
+  - {path: "/Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/fang_lu_nevo_yao_zheng_2026_large_forests_2026-09-25.md", sha256: dfc95c137d3256e359626c4e5ce22771efda7b643e787edb511258b8c6a21b0f}
+  - {path: "lean_repo/ErdosProblem993/RootMoments.lean", sha256: 0ebbb994d089e6c89948ce75f101a16a264e459b528a854e9a1d6844c15cfe8d}
+  - {path: "lean_repo/ErdosProblem993/CLT.lean", sha256: 39b02c8323becf208a7e67d036c9943889fc01858348f2d70f40d2363b490250}
+  - {path: "lean_repo/ErdosProblem993/Curvature.lean", sha256: bd8f28d5936abae183969987d2889b9c36c8c6675b1cf965ffc52bb53cbbdf99}
+  - {path: "lean_repo/ErdosProblem993/Fourier.lean", sha256: cb6fcb101a859a07feaddf66f8f7a3744abee769e8a8138fae3c85adda7c0fad}
+  - {path: "lean_repo/ErdosProblem993/MeanRange.lean", sha256: 1614413146552126722285352a1da66ceda7b589d5b457da5ecf9bd85d3cac07}
+  - {path: "lean_repo/ErdosProblem993/Central.lean", sha256: 124708b1dbb6a3dfe44cffb84aa5097c21b8a72722f5380485b87fe28848a324}
+  - {path: "lean_repo/ErdosProblem993/Main.lean", sha256: 617a019938cf0f4fd759afca1c682a2cd394fcc26d8179394d25dd9d43d24a0d}
+scripts_sha256:
+  - {path: "certify_lemma42.py", sha256: 5654e398e95b7905d59d303bb8cb48945c44365998213d7dd0164ce737df6b1e}
+  - {path: "n0_chains.py", sha256: 6e85a1183f5b6a50fbc7fd6bff11c451817e059f93ecc349d9e0fb5c62ca65d2}
+  - {path: "explore_pstar.py", sha256: 6429e9f80900995567bc9ad9a6aefa9b2deed77782b47781376799bf1f623b9f}
+  - {path: "explore_lammax.py", sha256: 784e0f0dddd2c6e06d6a25db4f2dce054551312167a261265fa0e2cbbc88a958}
+  - {path: "exact_checks.py", sha256: 498818b51000ec21824c679344f8ea33fd3d3fa321aa5ea6346b1d0eaf4b5dd6}
+  - {path: "delta_diag.py", sha256: 581b5c9ce74e512d5d188f48a97594273c2f5922ad385733b09b6deb3f93db7f}
+  - {path: "delta_search.py", sha256: 49251eab8a894c3e8aa8f541ac10818cfe9325fedaf33d2d29a22c73896eb2d6}
+  - {path: "delta_search2.py", sha256: 171af5f6024a757b2c2ca8dc69395af6a10ac29beee7793deb0001190f1e4a7e}
+  - {path: "delta_check_exact.py", sha256: f6477e1a60bf7595e99bfff5aec6bc6b31aff7ea73ff362bdceb4c8ad90afefc}
+  - {path: "floor_ideal.py", sha256: b5862debdf71dcd250db00969e19144522afb216ffe3afb21cb7e1d298577595}
+outputs_sha256:
+  - {path: "data/floor_ideal.json", sha256: 47c6cec11aed19e4fd8769c0c49aba61ee35410f2995e56ae4b9a204bed66268}
+  - {path: "data/delta_diag.json", sha256: 1294d72e65e1d94562db54052e5b17dc18991a95e6cbdfc8d80e7cd09eb5c10f}
+  - {path: "data/delta_search.json", sha256: 10ce1676731eef41d9584bd778422517e9f89e2904b0d4012fb2802502825372}
+  - {path: "data/delta_search2.json", sha256: 4361f44d2c4c3c022f15c4a41f09bc88a69fd337976d06e76445e6e273aba128}
+  - {path: "data/exact_checks.json", sha256: 7f56d058199afbff97eca53fc1736cb67ff47c3604b35eac752f34977869d0a2}
+  - {path: "data/lemma42_certificates.json", sha256: 4dc409ff039c4bfb0ed6bad01d524e41609de1b90a70840f9d0ff1c41b38324e}
+  - {path: "data/n0_chains.json", sha256: a7b195d9123f7d7861bd1b505e11268b0ea0b1618a11fc71b1229d61d7ac0fda}
+  - {path: "data/n0_chains_stdout.txt", sha256: 72e8c82e8c5bdab7277062ce41b5e3f8efb76f7a48085a1db222bec5d553bad2}
+  - {path: "paper.txt", sha256: a5ee6e30a036a68f8bfa92483bcfab737e18e0f1f18e3e791eb8916ae9542c27}
+  - {path: "raic.txt", sha256: 62909be1a0f11159cf6123c63340eb99a0e9d720ce4bb088dacfe8ae07bb764e}
+grades:
+  certified: data/lemma42_certificates.json (python-flint 0.9.0 Arb, 120-bit; venv/bin/python)
+  exact: data/exact_checks.json (Python ints)
+  diagnostic: data/n0_chains.json (mpmath 1.3.0, 60 digits), data/delta_*.json (floats; delta_check_exact is exact Fractions)

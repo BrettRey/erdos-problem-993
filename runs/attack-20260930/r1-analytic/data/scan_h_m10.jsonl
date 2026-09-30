@@ -1,0 +1,5 @@
+{"fam": "SH(12,10,2)", "n": 373, "window": [94, 168], "z_fail_k": [150, 168, 19], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": 0.42356, "z_worst_k": 168, "z_worst_k_per_unit": 14.0}
+{"fam": "SH(15,10,2)", "n": 466, "window": [117, 210], "z_fail_k": [182, 210, 29], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": 0.51772, "z_worst_k": 205, "z_worst_k_per_unit": 13.6667}
+{"fam": "SH(20,10,2)", "n": 621, "window": [156, 280], "z_fail_k": [244, 271, 28], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": 0.43728, "z_worst_k": 262, "z_worst_k_per_unit": 13.1}
+{"fam": "SH(30,10,2)", "n": 931, "window": [233, 420], "z_fail_k": [], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": -1.0, "z_worst_k": 233, "z_worst_k_per_unit": 7.7667}
+{"fam": "SH(50,10,2)", "n": 1551, "window": [388, 700], "z_fail_k": [], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": -1.0, "z_worst_k": 388, "z_worst_k_per_unit": 7.76}

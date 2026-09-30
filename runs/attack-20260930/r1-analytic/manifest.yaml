@@ -1,0 +1,78 @@
+lane: r1-analytic (wave 2, attack-20260930)
+model: claude-opus-5-5 (Claude Opus 5.5)
+date: 2026-09-30
+git_head: e94d47f6b421de8b8641542a138e3af936f33ea7
+python: Python 3.14.7, python-flint 0.9.0
+exactness: all inequality claims via python ints / Fractions (flint fmpz_poly exact); floats only in fields named *_norm / *_float / eps_* (diagnostics)
+headline: R1 refuted; explicit counterexamples data/recheck_MSH_4x9_4x10_generic.json (n=237) and data/recheck_SH_8_10_2_generic.json (n=249), each rechecked by wave-1 generic DP pv_lib
+inputs:
+  - path: ../route-freecount/pv_lib.py
+    sha256: 07ccba836c30bfef8ca5fbaa228565c748f1703310bb38e79f1b072ae0912140
+  - path: ../route-freecount/RETURN.json
+    sha256: 3d0259d93670d54b9233d5c081f5dbb5a1b3e3928df613cf3ac12814be51de23
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/literature/fang_2026_unimodality_large_forests.pdf
+    sha256: 5f18690883cc007852fed9082fe415b7fdd43ec8aa40d5091d59b39945a0278b
+scripts:
+  - path: check_small.py
+    sha256: e6fea9b2cf1335b9db3825db5a38c7d71730b45ec0205e36ca6d14b6b2c06081
+  - path: fam.py
+    sha256: 389c02639690566f8ef8b7e85b5d84ddf050e42416c0e2bc314ef4d7d768ecfc
+  - path: limits_H.py
+    sha256: e3d90ae6c8e1e58ebfce7a1c4ee7191a244dfe457fd73e8c1cdfb842bcde3e66
+  - path: limits.py
+    sha256: 2028e4fb37ebfbd7df7a8c6208ea5b297dd0e8c5f085905dfae353d68e8420d6
+  - path: minscan_sh.py
+    sha256: e184419b2877ff26ed1cfe546e317ea075167e3c7382db4cf21798e45dd89327
+  - path: mixed.py
+    sha256: 85a89e44c32b564e434987be79f3759a447b8809de66e1d4f4b78c9a215d586a
+  - path: mixed3.py
+    sha256: d9e0f83ea5d209a8838437c7d9a612d09fde3e797f7e677f182663fb3bf5868a
+  - path: premode.py
+    sha256: 762a34482552fd37d55cb8ebb7ce2211b7360912397c4903c6f3de36cbc75c7f
+  - path: recheck_generic.py
+    sha256: 2d3c3d9e271700a92825fd524d3820310b0770114f4d9aeb319c469a594616c1
+  - path: recheck_mixed.py
+    sha256: 9839474f7ecb9881e32d6f32b5a1916955f247dd64c44bd22d4202af94ed4b3a
+  - path: scan_h.py
+    sha256: 84c5cfca16f405473979780c967d326897958ba53a1654bfee56730aec9084af
+  - path: scan_large_m.py
+    sha256: bd7fbb89ca6e501402453200b8491afd8fdf8a655722dcb601c9480022c2315d
+  - path: scan_sh.py
+    sha256: 4aaedea774e470b1853f83ff1047e430c5e5c60d5512470a4a8ff21676eaa8c3
+data:
+  - path: data/limits_H.jsonl
+    sha256: ece90cea4c18eb464719d4852fec543ac4260b65a054ca301142303bc3a547ce
+  - path: data/limits_sh.jsonl
+    sha256: f2ec737166a1439ff9fe2ec2f5c111e1b93e9ec8350492507a4b7c728e42cd04
+  - path: data/minscan_sh.jsonl
+    sha256: 7bfc0dac8861b814f6abd935705a17285847cf88e0c6b13abc2361cc8569e028
+  - path: data/mixed_search.jsonl
+    sha256: 38f176af9fbe29ac33ba45286ff024a81bcb627ee5354d281682a6980c0b0601
+  - path: data/mixed3_search.jsonl
+    sha256: f20ad2e540a45d34ac008b7504f200f6339d10c09a8b37148792b9aae303c396
+  - path: data/premode.jsonl
+    sha256: 21ba621e05be6491ec4606f1c9d5703ec4dab30b4ae9547024a6653da5993df2
+  - path: data/recheck_MSH_4x9_4x10_generic.json
+    sha256: 376c02fc70f4d52e4d799e78686a995ba95e0e680472c75898aa453b8b381bec
+  - path: data/recheck_SH_8_10_2_generic.json
+    sha256: a57eae5d0fb9e7d1451d310bbc3a570a47f97081a0ba901ff8528150e382111c
+  - path: data/recheck_SH_8_10_2_generic.out
+    sha256: d4cd98ffaed077ddf57e200d925c2e06d491b78843ebae2a8607d9998d29c144
+  - path: data/recheck_SH_9_9_2_generic.json
+    sha256: a3466008702da9ea62ac6a10f9a0d387544f628db04f16b168db063aa29caccf
+  - path: data/recheck_SH_9_9_2_generic.out
+    sha256: a662fc11d5eebbea3411d461371a7286c7740991361cc543ec8132026774128a
+  - path: data/scan_h_m10.jsonl
+    sha256: 565fcd86d1665c4a28dd4854cac17fb3da7edc33494380e526de6a1967184201
+  - path: data/scan_h_m11.jsonl
+    sha256: 74a78c0405f0633f88368463e14ee4b9a3d2eac90c51f59f587e82a2e56f019d
+  - path: data/scan_h_m9.jsonl
+    sha256: dcda1a32dd35a7925907033b044e9fbf14eaf31929df8dda6afbed39205a452a
+  - path: data/scan_H.err
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - path: data/scan_H.jsonl
+    sha256: a04c8ea071b3b30a19ea02acbee92092acaddde6a6d167faba0086acf59db8f7
+  - path: data/scan_TH.err
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - path: data/scan_TH.jsonl
+    sha256: 285adbd1b553e084fffb4e566e84021599313f69ec5a554e7b9a1453be2f5478

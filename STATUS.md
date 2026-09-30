@@ -94,6 +94,26 @@ claim:
 # Erdos Problem #993 -- Independent Set Sequence Unimodality for Trees
 <!-- SUMMARY: Tree independence-sequence unimodality; manuscript declined by E-JC 2026-09-13 and parked; arXiv:2609.20961 proves #993 for forests above an unspecified N0 (Lean replayed 2026-09-25); email to its authors sent 2026-09-25 · status: parked · updated: 2026-09-25 -->
 
+## 2026-09-30: attack on effective central log-concavity (Brett-authorized)
+
+This was a research-only multi-agent run; the manuscript is still parked.
+Record: `runs/attack-20260930/SUMMARY.md`.
+
+- **The reduction.** After Fang et al., #993 for trees reduces to
+  log-concavity on `[ceil(n/4), q]`.
+- **Census.** That window has no log-concavity failure in any of the 1.2e9
+  trees with n <= 27. The star is the worst case, with margin about 4/n.
+- **What current proofs can reach.**
+  - Fang's threshold is computable: `10^(1.68e7)` as formalised, about
+    `10^2070` after a certified sharpening.
+  - The binomial-smoothing hybrid brings that to about `10^495`.
+  - Neither comes near the enumeration record.
+- **R1 refuted.** The one deterministic candidate (R1) holds for every tree
+  n <= 24 but fails at n = 237, confirmed by three independent
+  implementations.
+- **What's missing.** Closing #993 needs a new idea for central
+  log-concavity at moderate n.
+
 ## 2026-09-25: #993 proved for large forests (external); Primus trial closed
 
 - **arXiv:2609.20961** (Fang, Lu, Nevo, Yao, Zheng; posted 17 September;

@@ -1,0 +1,85 @@
+# route-lclt run manifest
+generated: 2026-09-30T13:04:01
+model: claude-opus-5-5 (Claude Opus 5.5, workflow subagent)
+repo_head: e94d47f6b421de8b8641542a138e3af936f33ea7
+report_md: NOT WRITTEN (harness blocked report-file writes; full report returned inline to the parent)
+tools: python3 (system, 3.14) with mpmath 1.3.0, numpy 2.4.2, scipy 1.17.0; nauty gentreeg
+exactness: kt12_census, check_identity_exact are exact (int/Fraction); kt12_families LC sign exact, Gamma/rho 60-digit mpmath diagnostics; kt3 80-digit mpmath diagnostic; kt4/kt5 float64 diagnostics
+inputs_read:
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/literature/fang_2026_unimodality_large_forests.pdf
+    sha256: 5f18690883cc007852fed9082fe415b7fdd43ec8aa40d5091d59b39945a0278b
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/hard_core_attack.md
+    sha256: 1e29e2753a218ec8c5de49a07a592a67fe8c5b8b0fc8dc05d8b9a20004fdee7f
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/tie_fugacity_leaf_decomp_analysis.md
+    sha256: 78dc80589b8d87fb60804d5db315b352141e66449853d119415501f699736ed8
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/mode_mean_tiepoint_2026-02-18.md
+    sha256: bfe3926dafe9bfacbe1893500272df80697c40b70a47b1d998cd685b35ac762d
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/real_collar_conjecture_2026-07-16.md
+    sha256: af0f95c9e19ebb352422ae50fb742715749bed51447a32d257acc10c651939ac
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/mason_free_count_reformulation_2026-09-02.md
+    sha256: 294cd34eb13e686f47591d9462bf4e1ed71537a6b84df491d0207f538b480d85
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/fang_lu_nevo_yao_zheng_2026_large_forests_2026-09-25.md
+    sha256: dfc95c137d3256e359626c4e5ce22771efda7b643e787edb511258b8c6a21b0f
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/why_trees_resist_2026-07-16.md
+    sha256: 8bf6a500c97839fd59a6b279aed41335e79a15fe62dd65f9cceea789a2d38c64
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/beurling_majorant_difference_test_lead_2026-08-12.md
+    sha256: 216cbfa6b51923282807aa7face4079c130ccfbd38640c91c8946d2efd3a644b
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/gpt_attack/bridge_window_unimodality/outcome_2026-07-16/bridge_lemma_report.md
+    sha256: cc98f6aff599769c2cff7d63b6438cc89e6d96b4c624b56dcc365754b7b4d11f
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/scripts/mason_b_census_gentreeg_20260902.py
+    sha256: 9c437586a49ebe5e4dbfef97942db9006ceb46370904b342dd09bbcb53d82b8e
+outputs:
+  - path: data/identity_check_n11.txt
+    sha256: 6e481c8241bff564e2e414db4392cee922906c94f47aa444977262a37cf56bd6
+  - path: data/jpss_2108.01161_abstract.xml
+    sha256: b8ecdaa0466561cf3212571116e319e6f51af84a07d86e72689f75ea1b553545
+  - path: data/kt12_census_n15_20_s0.jsonl
+    sha256: fee6afff9550f85c5468c6ec60b46d692b01ba140bbf655dc52dc8ef3be6b632
+  - path: data/kt12_census_n15_20_s1.jsonl
+    sha256: 50a2a6dd206e82e1f0d9090952b5e0b085573eb7a44a981a2378ebd136d2ca05
+  - path: data/kt12_census_n4_14.jsonl
+    sha256: 96e7c10c3d0c8f804a9db50400201e7d5dce3b5a282d89e0cf6d6866f96795b5
+  - path: data/kt12_census_summary.txt
+    sha256: d6104d04fa1bb4213510f5f769ba936f56342dd0138b1ba7f9c8372d01b29c6e
+  - path: data/kt12_families.err
+    sha256: 1f9812dde072dee78830c7d507d93b04a716df10ac42ba29e5095e2e13071aae
+  - path: data/kt12_families.jsonl
+    sha256: dd79ed409cf1e8c049da6a427ae64973f87579543fb7de94f9716aa66f8cab05
+  - path: data/kt3_fang_exponent.json
+    sha256: e3e9b5eb0854a4719a95518e2279bfe8b4adbe6fc0c60a4e780d1642bc909f21
+  - path: data/kt5_census.err
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - path: data/kt5_census_n8_16.jsonl
+    sha256: d033e0fef9eaa8832093f01db228b383e96d73bd7eda6add91da37988dbb647e
+  - path: data/kt5_failure_anatomy.txt
+    sha256: 36aa4d60df8eb617773ce25bdf8fa4ed8f35fcdd468ed1b28c1f6d636b48e77a
+  - path: data/kt5_failure_count_n14.json
+    sha256: b9c703e961efa6a9a870aace5ceddb6b9a20e8ad6126de4f595a98eb2941c48f
+  - path: data/kt5_families.err
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - path: data/kt5_families.jsonl
+    sha256: 7688f119f5579bbdbe2c1b5b670233a7d4f760858367d1c324f391f427634469
+  - path: data/summary.txt
+    sha256: 9dad25c7f77c5b42978085e9141d258dd7d830a917cb5af19320bb35975e37bd
+  - path: fang.txt
+    sha256: 2900369b28e7badb3d2d43fe8ef213832a9d998c598b30f22ef00789bd4534d8
+  - path: scripts/check_identity_exact.py
+    sha256: 580c078e154565517e9a77e3a2832a92a990fcd02adb801d862b717e80cc6791
+  - path: scripts/kt12_census.py
+    sha256: c2b7fc5c5cb8e8d6994e3fcef29c60add6e4fc7c7dd631d1d5dc59db79909736
+  - path: scripts/kt12_families.py
+    sha256: f7011771f8827ec494df37eaa53da7df1639ac027ad6f618cb5447de931e0a7e
+  - path: scripts/kt3_fang_exponent.py
+    sha256: 4dae91d11745e088eaf60e2b2f1d1d4608d89223424add8bed70cf953408382a
+  - path: scripts/kt4_mixing_clt.py
+    sha256: aedcca4b01790020ace3a3fe9fcc882c1535334984c0e4b55c7205e848610f9c
+  - path: scripts/kt5_drivers.py
+    sha256: cce9fafe0e27ec6ace437a71a0bd98655aa76f417d6311ef1b7127b708c7001c
+  - path: scripts/kt5_failure_count.py
+    sha256: 50ec2ccb216e3e5bc7f0c578856ad5037d3adc5c6ec2a4fde6c7ee249f1ac124
+  - path: scripts/lclt_lib.py
+    sha256: 6a18dd5b607398c702462688d38220689efef5d06e31f3eea59885d4c3df4787
+  - path: scripts/make_manifest.py
+    sha256: cafcf22878dae73c29f644c40349d6172d35e522dd1032c2a7e12da1be67cecb
+  - path: scripts/summarise.py
+    sha256: 89d92f6cf7962a2b70c95a525d2bdd02a4109b5d592aa5293ba87f2ac2314a94

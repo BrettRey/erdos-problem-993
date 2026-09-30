@@ -1,0 +1,40 @@
+TOP5 rank=0 n=10 alpha=8 k=5 q=5 num=1180 den=3364 par=0,1,2,2,2,2,1,1,1,1 poly=1,10,36,68,78,58,28,8,1
+TOP5 rank=1 n=10 alpha=7 k=3 q=5 num=1656 den=4356 par=0,1,2,3,3,3,3,3,1,9 poly=1,10,36,66,75,51,19,3
+TOP5 rank=2 n=10 alpha=7 k=4 q=5 num=1642 den=4225 par=0,1,2,3,3,3,3,1,8,1 poly=1,10,36,63,65,41,14,2
+TOP5 rank=3 n=10 alpha=7 k=3 q=5 num=1593 den=3969 par=0,1,2,3,3,3,3,1,8,8 poly=1,10,36,63,66,41,14,2
+TOP5 rank=4 n=10 alpha=7 k=4 q=5 num=1551 den=3721 par=0,1,2,3,3,3,3,1,8,9 poly=1,10,36,62,61,35,10,1
+TOP5 rank=5 n=10 alpha=7 k=4 q=5 num=1639 den=3844 par=0,1,2,3,3,3,3,2,1,9 poly=1,10,36,63,62,35,10,1
+TOP5 rank=6 n=10 alpha=7 k=4 q=5 num=1317 den=3025 par=0,1,2,3,3,2,2,1,8,8 poly=1,10,36,61,55,28,8,1
+TOP5 rank=7 n=10 alpha=7 k=4 q=5 num=1584 den=3600 par=0,1,2,3,3,2,2,2,1,9 poly=1,10,36,63,60,32,9,1
+TOP5 rank=8 n=10 alpha=6 k=4 q=4 num=1103 den=2401 par=0,1,2,3,4,4,4,1,8,9 poly=1,10,36,59,49,22,4
+TOP5 rank=9 n=10 alpha=6 k=3 q=4 num=1864 den=3844 par=0,1,2,3,2,5,2,2,1,9 poly=1,10,36,62,55,24,4
+TOP5 rank=10 n=10 alpha=6 k=3 q=4 num=1864 den=3844 par=0,1,2,3,2,2,1,7,1,1 poly=1,10,36,62,55,24,4
+TOP5 rank=11 n=10 alpha=6 k=3 q=4 num=1849 den=3721 par=0,1,2,3,3,2,2,1,8,1 poly=1,10,36,61,52,21,3
+TOP4 rank=0 n=10 alpha=8 k=5 q=5 num=1180 den=3364 par=0,1,2,2,2,2,1,1,1,1 poly=1,10,36,68,78,58,28,8,1
+TOP4 rank=1 n=10 alpha=7 k=3 q=5 num=1656 den=4356 par=0,1,2,3,3,3,3,3,1,9 poly=1,10,36,66,75,51,19,3
+TOP4 rank=2 n=10 alpha=7 k=4 q=5 num=1642 den=4225 par=0,1,2,3,3,3,3,1,8,1 poly=1,10,36,63,65,41,14,2
+TOP4 rank=3 n=10 alpha=7 k=3 q=5 num=1593 den=3969 par=0,1,2,3,3,3,3,1,8,8 poly=1,10,36,63,66,41,14,2
+TOP4 rank=4 n=10 alpha=7 k=4 q=5 num=1551 den=3721 par=0,1,2,3,3,3,3,1,8,9 poly=1,10,36,62,61,35,10,1
+TOP4 rank=5 n=10 alpha=7 k=4 q=5 num=1639 den=3844 par=0,1,2,3,3,3,3,2,1,9 poly=1,10,36,63,62,35,10,1
+TOP4 rank=6 n=10 alpha=7 k=4 q=5 num=1317 den=3025 par=0,1,2,3,3,2,2,1,8,8 poly=1,10,36,61,55,28,8,1
+TOP4 rank=7 n=10 alpha=7 k=4 q=5 num=1584 den=3600 par=0,1,2,3,3,2,2,2,1,9 poly=1,10,36,63,60,32,9,1
+TOP4 rank=8 n=10 alpha=6 k=4 q=4 num=1103 den=2401 par=0,1,2,3,4,4,4,1,8,9 poly=1,10,36,59,49,22,4
+TOP4 rank=9 n=10 alpha=6 k=3 q=4 num=1864 den=3844 par=0,1,2,3,2,5,2,2,1,9 poly=1,10,36,62,55,24,4
+TOP4 rank=10 n=10 alpha=6 k=3 q=4 num=1864 den=3844 par=0,1,2,3,2,2,1,7,1,1 poly=1,10,36,62,55,24,4
+TOP4 rank=11 n=10 alpha=6 k=3 q=4 num=1849 den=3721 par=0,1,2,3,3,2,2,1,8,1 poly=1,10,36,61,52,21,3
+VDMIN_FLOAT n=10 value=0.580254480711 k=3 alpha=5 q=3 lambda=1.04776931756 V=1.00225773941 delta=0.578947368421 par=0,1,2,3,4,3,6,1,8,9 poly=1,10,36,57,38,7
+PERK n=10 alpha=8 k=2 q=5 num=616 den=1296 par=0,1,2,2,2,2,1,1,1,1
+PERK n=10 alpha=7 k=3 q=5 num=1656 den=4356 par=0,1,2,3,3,3,3,3,1,9
+PERK n=10 alpha=8 k=4 q=5 num=2140 den=6084 par=0,1,2,2,2,2,1,1,1,1
+PERK n=10 alpha=8 k=5 q=5 num=1180 den=3364 par=0,1,2,2,2,2,1,1,1,1
+PERALPHA n=10 alpha=5 k=3 q=3 num=1908 den=3600 par=0,1,2,3,2,5,2,1,8,1
+PERALPHA n=10 alpha=6 k=4 q=4 num=1103 den=2401 par=0,1,2,3,4,4,4,1,8,9
+PERALPHA n=10 alpha=7 k=3 q=5 num=1656 den=4356 par=0,1,2,3,3,3,3,3,1,9
+PERALPHA n=10 alpha=8 k=5 q=5 num=1180 den=3364 par=0,1,2,2,2,2,1,1,1,1
+TOPQ n=10 alpha=8 k=5 q=5 num=1180 den=3364 par=0,1,2,2,2,2,1,1,1,1
+NEWTON n=10 alpha=8 k=5 q=5 num=28320 den=30276 par=0,1,2,2,2,2,1,1,1,1
+NEWTONFAIL_DIST n=10 q_minus_k=0 trees=2
+NEWTONFAIL_DIST n=10 q_minus_k=1 trees=2
+NEWTONFAIL_DIST n=10 q_minus_k=2 trees=1
+VDBIN_FLOAT n=10 bin_lo=0 value=0.580254480711 k=3 alpha=5 q=3 lambda=1.04776931756 V=1.00225773941 delta=0.578947368421 par=0,1,2,3,4,3,6,1,8,9
+STATS n=10 trees=18 viol5=0 viol4=0 zero5=0 zero4=0 nonunimodal=0 sampled=0 newton_fail_trees=5

@@ -1,0 +1,11 @@
+CBT d=2 B=deg3 n 7 |B| 2 groups 3 window [2, 3] allLC True rho[min,max] (-0.0444, 0.1786) betweenfrac[min,max] (0.0638, 0.1287) cert_pb_fail 0 secs 0.0
+CBT d=2 B=nonleaf n 7 |B| 3 groups 4 window [2, 3] allLC True rho[min,max] (0.0441, 0.266) betweenfrac[min,max] (0.2359, 0.2948) cert_pb_fail 0 secs 0.0
+CBT d=3 B=deg3 n 15 |B| 6 groups 9 window [4, 7] allLC True rho[min,max] (0.0523, 0.2302) betweenfrac[min,max] (0.0978, 0.2782) cert_pb_fail 0 secs 0.01
+CBT d=3 B=nonleaf n 15 |B| 7 groups 11 window [4, 7] allLC True rho[min,max] (0.1235, 0.2567) betweenfrac[min,max] (0.1669, 0.3047) cert_pb_fail 0 secs 0.01
+CBT d=4 B=deg3 n 31 |B| 14 groups 48 window [8, 14] allLC True rho[min,max] (0.1298, 0.3068) betweenfrac[min,max] (0.158, 0.3107) cert_pb_fail 3 secs 0.05
+CBT d=4 B=nonleaf n 31 |B| 15 groups 36 window [8, 14] allLC True rho[min,max] (0.1657, 0.3373) betweenfrac[min,max] (0.1983, 0.3469) cert_pb_fail 3 secs 0.04
+CBT d=5 B=deg3 n 63 |B| 30 groups 221 window [16, 28] allLC True rho[min,max] (0.1626, 0.3049) betweenfrac[min,max] (0.1762, 0.3172) cert_pb_fail 5 secs 1.11
+CBT d=5 B=nonleaf n 63 |B| 31 groups 133 window [16, 28] allLC True rho[min,max] (0.1809, 0.3149) betweenfrac[min,max] (0.1953, 0.3268) cert_pb_fail 5 secs 0.65
+CBT d=6 B=deg3 n 127 |B| 62 groups 946 window [32, 57] allLC True rho[min,max] (0.1832, 0.3371) betweenfrac[min,max] (0.1906, 0.3412) cert_pb_fail 11 secs 46.22
+CBT d=6 B=nonleaf n 127 |B| 63 groups 516 window [32, 57] allLC True rho[min,max] (0.1927, 0.3452) betweenfrac[min,max] (0.2004, 0.3497) cert_pb_fail 12 secs 24.19
+d=7 (n=255) run killed at ~16 min wall (compute-etiquette cap); d<=6 rerun below writes results_cbt.json

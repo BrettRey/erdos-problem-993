@@ -1,0 +1,129 @@
+lane: lclt-check (independent check of route-lclt claims A, B, C; hybrid N1; Lemma L gap)
+model: claude-opus-5-5 (Claude Code subagent; first attempt stopped after 19 min, resumed 2026-09-30 15:50 EDT)
+project_git_head: d15121a1c494b860a1f158f21a11de4a70123cd6
+date: 2026-09-30
+provenance: files at top level were written by the stopped first attempt and re-verified (rerun/ holds the reruns; census and exact_large outputs byte-identical). New in the resumed run: kernel_check_exact.py, tv_exact_point.py, tv_sup_scan.py, n1_check.py, exact_large2.py, census_range.py (n=13,14), make_manifest2.py, rerun/*. kt5_sharp.py (first attempt) reuses route-lclt joint_JB/cert_one, so its n=16 rerun is NOT independent of route-lclt code. n1_hybrid.py/json are the first attempt's; n1_check.py recomputes them without importing audit-b code. make_manifest.py/return_draft.json are first-attempt leftovers.
+arithmetic: EXACT (Fraction/int): exact_AC.py, exact_large.py, exact_large2.py, kernel_check_exact.py TV rows, tv_exact_point.py; CERTIFIED (python-flint 0.9.0 Arb, 200 bits): I3 and c_* in kernel_check_exact.py; DIAGNOSTIC (floats): kernel_constants.py (mpmath), tv_sup_scan.py, n1_check.py, n1_hybrid.py, kt5_sharp.py
+report_note: full report is the subagent's final message (harness blocks .md report files)
+inputs:
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/route-lclt/RETURN.json
+    sha256: b95ebdfa797f1cd064c3e5f79fcaed8e76c10c8bbddd493e1b7b3b7673cf6a34
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/route-lclt/fang.txt
+    sha256: 2900369b28e7badb3d2d43fe8ef213832a9d998c598b30f22ef00789bd4534d8
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/route-lclt/scripts/kt4_mixing_clt.py
+    sha256: aedcca4b01790020ace3a3fe9fcc882c1535334984c0e4b55c7205e848610f9c
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/route-lclt/scripts/lclt_lib.py
+    sha256: 6a18dd5b607398c702462688d38220689efef5d06e31f3eea59885d4c3df4787
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/audit-a/RETURN.json
+    sha256: 6ee42d5023028602b5dab87ed751069b3ba7ad6d9668e0325ceed4f14257d324
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/audit-b/RETURN.json
+    sha256: f17511dddcdda3a2c625f2a3d7f35388b2e234cab9b46937cb5e18faa77d0966
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/audit-b/n0_chains.py
+    sha256: 6e85a1183f5b6a50fbc7fd6bff11c451817e059f93ecc349d9e0fb5c62ca65d2
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/SUMMARY.md
+    sha256: aecc686a8f250d5a688d91c75b6d3450bd9d6dd1bbaaf11d81255a0782bf9b34
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/literature/fang_2026_unimodality_large_forests.pdf
+    sha256: 5f18690883cc007852fed9082fe415b7fdd43ec8aa40d5091d59b39945a0278b
+outputs:
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/census_n3_12.json
+    sha256: 73d790c805f1cb6002b33de467c26b605caa79b09971d71381fb3f9d4fa7c95b
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/census_n3_12.time
+    sha256: b62167965a710bdc9f840d2f5bad4926c4f3be9352e76724f60a7f28cc90f47b
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/census_range.py
+    sha256: 6cceec1f3837f823f7f61945020e986800ec9af21453196293ffb5acfdcbd101
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/exact_AC.py
+    sha256: f8b724740d96fad9ecb08856f7b07d9f355eb6d459aa139d4c70ba74f9a2d297
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/exact_large.json
+    sha256: fe27b35e217d159327139d90ff47879c475317939c6d784ef8649bbaf1f90c7e
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/exact_large.out
+    sha256: d335f5f8af587211e493e5edf9802299e2b3f40470dca21fd6c9376d6080bc7d
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/exact_large.py
+    sha256: 5ee1a2c10bcae1869450294dc7404a4cd3f78700ef40ef46fe35cf033283e50a
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/exact_large.time
+    sha256: f673451132f5adab055306f18ae8df480741be0dc8b3284a7f70200f8e0994ec
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/exact_large2.py
+    sha256: ab3061935f6b6b714a084e75c76eb79b012e810475a65472dd93693685106dec
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/kernel_arb.txt
+    sha256: df312e50aeb5703eecdc308eef6e22e4980286b6ed831a8775eb12fea204e4c1
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/kernel_check_exact.py
+    sha256: b7e927d9e27de6b5e76d364bf65f180280114369e573682b8bb119a419026078
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/kernel_constants.json
+    sha256: 0b37b63da5a57daa4586d5758848ba3e2fa39df94fb391e535cc2c4a3649c79d
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/kernel_constants.py
+    sha256: 4d19438502ee2af44910f2d2d30488136f28ef36405ac85f7c04a31455c35a77
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/kt5_sharp.py
+    sha256: 92ad0293f094763cabd3761307da331528fdd9229c3e824e61874835ee41ecb4
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/kt5_sharp_n12.json
+    sha256: 7c67acb46585fd9132a8661d31e6cdc57c9397361d5a997e8484a025344758c9
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/kt5_sharp_n14.err
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/kt5_sharp_n14.json
+    sha256: 63e804f7fc99fb45c5e162dfecf962d688e4143f053614eb9b5d541592680e9a
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/kt5_sharp_n16.err
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/kt5_sharp_n16.json
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/kt5_sharp_n8.json
+    sha256: 2b0963734891d82771ce84faf7cca5e6947dd80cac74c4bbc7068ffcc92b1a25
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/make_manifest.py
+    sha256: 734f617804f4c81a7a9a49a43b05753cd33dc3e7eaea065331e8c203f959c6e5
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/make_manifest2.py
+    sha256: a8298c7a364e939e664537b254acf95f7331eb47f282460e884115c336c6d3cd
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/n1_check.py
+    sha256: b677048829e31bec1573ca3684df706300b9b75ec4244fa6cda47f0c3e8c6552
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/n1_hybrid.json
+    sha256: 9c468453197a11ed3e74b5835c16eabe3a6293afa44b15b3d1a57a5ddade5c24
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/n1_hybrid.py
+    sha256: 0cde3d0225c2d086a422b82463a4ad699bc8d5e9f1e98ed5bb03b9569b7580fa
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/census_n13.json
+    sha256: 9fc6286aa745a9c65877f5ed1a51cd4eba9a80ab7959b63cca463f2fb1c382cf
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/census_n13.time
+    sha256: 0da34058e6ba56d4bf93f383c5ec164747ce6c5ae6eede1b50302ed0db49a8df
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/census_n14.json
+    sha256: ad077d4eda1dc5eae3b75fee9eea7b5b7f7de3ae8172f1ec1b4b0dd3ca63098a
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/census_n14.time
+    sha256: 81e38889e895b7e614c5a0f617ee48f8edb64c7f97f785e93d851eb59705b5b1
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/census_n3_12.json
+    sha256: 73d790c805f1cb6002b33de467c26b605caa79b09971d71381fb3f9d4fa7c95b
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/census_n3_12.time
+    sha256: f1505dfaae85cdb399b4c31b804e868e191ec6ff7b1141cafd4ac25632283493
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/exact_large.out
+    sha256: d335f5f8af587211e493e5edf9802299e2b3f40470dca21fd6c9376d6080bc7d
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/exact_large.time
+    sha256: ffbbed590dc045ce8127c109c256187d47b407c86278f6792b577ef755d60285
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/exact_large2.err
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/exact_large2.json
+    sha256: b1eec46a7dbeea0a3fc1be81ff449e16d514e73416ec8782cea40bf780daf53b
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/exact_large2.out
+    sha256: 886cb2c1d2ef58143b040dd9dbfbad3a32514cc00026d9102b65b74d67d6a3fd
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/exact_large2.time
+    sha256: bdf68783fef1d9faaba78b6580d2f379732ea62f27112e4e903e7b401833323a
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/exact_large_partial_copy.json
+    sha256: fe27b35e217d159327139d90ff47879c475317939c6d784ef8649bbaf1f90c7e
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/kernel_check_exact.json
+    sha256: 8aa72e11b54107238bc57c7b861d73a91b3a6747ce14da8d284222fbffe1602f
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/kt5_sharp_n16.err
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/kt5_sharp_n16.json
+    sha256: c15d17379715a61307bccbd1bfc3bb00d947dab2609e5f98209ef8d93b0b9397
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/kt5_sharp_n16.time
+    sha256: 7a8a7b675d17f796617dd37f21bc833e5f79b7a929b80fc78bbf85a264fecc81
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/n1_check.json
+    sha256: 5e9e88824c9ff22b6e7c38d75394966ed13cc9a77d84b0599028fb469e5e3b20
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/n1_check.out
+    sha256: ce44dc16ad48f2f44b1223b38f4ae59b5e0c118c4fc823d84087e1728b6c0186
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/tv_exact_point.json
+    sha256: 6891a60696057652097f8b757b570203c1e9fde84682083a2262d46a621a3493
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/tv_sup_scan.json
+    sha256: 2a56b53e31e4d68a16eed18a60936a8cbea5c65b680b96a196bc3ff8b8e6787e
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/tv_sup_scan.out
+    sha256: 49e4ad79f1cf8b867d06ee12c11d0bc000727d318eeb70e8bdbe3754540a1d09
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/rerun/tv_sup_scan.time
+    sha256: b660c22315096976cde0951d169d37864fcdb809b351c76a123a7b0f4618b641
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/return_draft.json
+    sha256: d6a732d624e45833e8ee65d83ef22c77b6df932d403d01e4524273e64383adba
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/tv_exact_point.py
+    sha256: 047a5307c593ef9e16f15cfecc1e7ba7c42ccc216972f6596a248189aebd39c4
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/lclt-check/tv_sup_scan.py
+    sha256: e81f253431fc1f8df323a1d341c908c2f235cb4cd35aeff343e31886e6ddfdde

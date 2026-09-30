@@ -1,0 +1,118 @@
+{
+  "steps": [
+    {
+      "step": "Occupation and absence bounds (hard-core setup)",
+      "location": "Sec. 3, Eq. (3.3), p. 4",
+      "constants_status": "explicit",
+      "dependence": "P(v in I) <= lambda/(1+lambda); P(I cap A empty) >= (1+lambda)^{-|A|}. No n.",
+      "n_needed_order": "none (holds for all n)"
+    },
+    {
+      "step": "Scalar lemma fixing the Hoelder exponent p (hence a = 2 - 2/p, 1-a = (2-p)/p)",
+      "location": "Lemma 4.2, Eqs. (4.4)-(4.5), pp. 5-6",
+      "constants_status": "explicit-in-principle",
+      "dependence": "Paper: 'choose b close to 1' with 12e^{-1-3b/2} < b (certified least b = 0.993970), 'choose p close enough to 2'; its interpolation rho = (2sqrt12/e)^{4-2p} b^{2p-3} < 1 forces p > 1.996788, so 1-a <= 0.0016084 (u = 1/(1-a) >= 621.8). Lean pins b = 999/1000, theta = 1-1/8000, p = 31999/16000, a = 31998/31999 (RootMoments.lean:446,535,538,1133). The lemma's true requirement is F_L(p) = sup_{0<r<=L} log(L/r)(r/(1+r))^p/log(1+r) < 1; certified F_12(1.89349) < 1 (p* in [1.89149,1.89349]), i.e. 1-a ~ 0.056 is admissible.",
+      "n_needed_order": "none directly; sets the exponent: log N0 ~ (2/(1-a)) log K (fixed-b route) or (8/(1-a)) log K (paper's b = n^{1/4} route)"
+    },
+    {
+      "step": "Root-moment bounds q(1-q)delta^2 <= C n^a, q(1-q)gamma^2 <= C n^{2a}",
+      "location": "Prop. 4.1, Eq. (4.3), with (4.6)-(4.7), pp. 5-7",
+      "constants_status": "explicit-in-principle",
+      "dependence": "Paper: G 'sufficiently large', H a closed-form sup, C1 by formula, C by absorbing y-polynomials into 12e^{-y}; all constructive. Lean: C = 12(M1 + C1^2 M2) = 10^{39.49} (Hc = (1+C0*32001)^{32001} = 10^{243293}, C1 = 3.21e15); paper's own formulas at the Lean's p give 10^{10.8}. Diagnostic beam search (floats) finds trees at lambda=12 with q(1-q)delta^2 ~ 3.9e4 at n ~ 8.4e6 and local log-log slope ~0.88 on n in [1e5,1e7] (0.69 at lambda=4, ~0.13 at lambda=1/4), so an exponent near 1 is essentially forced at lambda_max = 12.",
+      "n_needed_order": "none directly; C enters log K polylogarithmically"
+    },
+    {
+      "step": "Lower variance bound sigma^2 >= cn",
+      "location": "Prop. 5.1, Eq. (5.3), pp. 7-8",
+      "constants_status": "explicit",
+      "dependence": "Paper c = inf_K lambda/(2(1+lambda)^4) = 6/28561 = 2.10e-4 (at lambda=12); Lean 1/(8*13^4) = 4.38e-6 (CLT.lean:1080).",
+      "n_needed_order": "none (all n)"
+    },
+    {
+      "step": "Upper variance bound sigma^2 <= C_up n (centroid decomposition with b = 1)",
+      "location": "Prop. 5.1, p. 9, via (5.5)-(5.6)",
+      "constants_status": "explicit",
+      "dependence": "C_up = 1/4 + C/(1 - 2^{a-1}) ~ C/((1-a) ln 2). Lean 10^{44.16} (CLT.lean:1067). Shrinks the Gaussian-majorant constant c' = c_char/(pi^2 C_up).",
+      "n_needed_order": "none directly"
+    },
+    {
+      "step": "Centroid decomposition to threshold b and terminal stability of conditional mean/variance",
+      "location": "Eqs. (5.4)-(5.6), pp. 8-9 (paper b = ceil(n^{1/4}), p. 9)",
+      "constants_status": "explicit",
+      "dependence": "E(M-mu)^2 <= C n b^{a-1}/(1-2^{a-1}); E|S-sigma^2| <= sqrt(C/(1-2^{1-2a})) n^a + C n b^{a-1}/(1-2^{a-1}). Needs b^{1-a} >= K/eta, so b >= (K/eta)^{1/(1-a)}. Lean: eta = 10^{-262.16}, b = 10^{8.389e6} (CLT.lean:1874,1887). Paper: b = n^{1/4} and E|h| enters via a square root, so n ~ (K/D^2)^{4/(1-a)}.",
+      "n_needed_order": "DOMINANT: Lean route n ~ 10^{1.678e7}; paper route with Lean constants ~10^{4.2e7}; paper route with best p its Lemma 4.2 allows ~10^{3.6e5}"
+    },
+    {
+      "step": "Conditional Berry-Esseen",
+      "location": "p. 9, citing Raic [19, Thm 1.1, d=1]",
+      "constants_status": "explicit",
+      "dependence": "Raic arXiv:1802.06475v4 Thm 1.1 (p. 3, Eq. 1.2): constant 42 d^{1/4} + 16 = 58 at d = 1. Error <= 58 b/sqrt(S) <= 58 sqrt2 b/sqrt(cn). Not used by the Lean main chain (direct characteristic-function comparison instead).",
+      "n_needed_order": "paper route: n >= (58 sqrt2/(sqrt(c) D))^4 ~ 10^{260} at the relevant Kolmogorov target; never the bottleneck"
+    },
+    {
+      "step": "Normal comparison (5.7) and complementary event S < sigma^2/2",
+      "location": "Eq. (5.7) and p. 10",
+      "constants_status": "explicit",
+      "dependence": "sup Phi' = 1/sqrt(2pi) (mean shift, r >= 1/2 gives factor 1/sqrt(pi)); scale term 1/sqrt(2 pi e); Markov for P(S < sigma^2/2). The n^{a-1} term needs n >= (K/D)^{1/(1-a)}; the Lean's L1 argument drops the n^a term (CLT.lean:2073).",
+      "n_needed_order": "dominated by the b^{(a-1)/2} term of the centroid step"
+    },
+    {
+      "step": "Characteristic-function bound |E e^{itX}| <= exp(-c n sin^2(t/2))",
+      "location": "Lemma 6.1, Eqs. (6.1)-(6.3), pp. 10-11",
+      "constants_status": "explicit",
+      "dependence": "Paper c = (inf_K beta)/338 = (24/169)/338 = 4.20e-4; Lean 1/114244 = 1/338^2 (Fourier.lean:700). With (5.1): |chi(t)| <= e^{-c' t^2}, c' = c/(pi^2 C_up) (Lean 10^{-50.2}); fixes the Gaussian tail cutoff R ~ sqrt(log(1/c')/c') (Lean R = 10^{26.23}).",
+      "n_needed_order": "none directly; drives R, hence the accuracy eps1 ~ R^{-3} demanded of the CLT step"
+    },
+    {
+      "step": "Local limit / curvature: sigma^3(2p_k - p_{k-1} - p_{k+1}) -> 1/sqrt(2pi)",
+      "location": "Prop. 6.2, Eqs. (6.4)-(6.6), pp. 11-12",
+      "constants_status": "explicit-in-principle",
+      "dependence": "Qualitative as written ('tends uniformly', dominated convergence; the Kolmogorov-to-chi step is one sentence on p. 11). Quantifiable: clipping gives |chi - e^{-t^2/2}| <= 2R'|t|D + 4/R'^2. Lean quantifies it (Curvature.lean:334-500): eps = 1/(2sqrt(2pi)), eps1 = pi eps/(4R^3), sigma^2 >= R^2 + 5R^5/(12 pi eps); the only Lean existential is R (exists_tail_small, a limit), which has a closed form. Floor: even with ideal a = 0, C = 1 this machinery needs n ~ 10^{103} (lambda_max=12), N ~ R^{28}/c^3.",
+      "n_needed_order": "own requirement n >= X/c ~ 10^{136} (Lean instantiation); indirectly sets eta for the centroid step"
+    },
+    {
+      "step": "Range of the mean: E_{1/4}X <= n/5, E_{12}X > 17 alpha/25",
+      "location": "Prop. 7.1, Eqs. (7.1)-(7.4), pp. 12-13",
+      "constants_status": "explicit",
+      "dependence": "Deterministic. Certified log13/Q*(12) = 0.6808910441 > 17/25 (margin 8.91e-4). The Q* method needs lambda_max >= 10.30829 (certified), which is what pins lambda_max = 12 against Lemma 4.2's relaxed limit e^{5/2} = 12.18. Lean uses 64/95 via Q(12) < 19/5.",
+      "n_needed_order": "none (all n)"
+    },
+    {
+      "step": "Prefix nondecreasing through ceil(n/4); tail nonincreasing from ceil((2alpha-1)/3)",
+      "location": "Lemma 8.1, Prop. 8.2, Eqs. (8.1)-(8.9), pp. 14-16",
+      "constants_status": "explicit",
+      "dependence": "Deterministic extension counting; no constants beyond the indices.",
+      "n_needed_order": "none (all n)"
+    },
+    {
+      "step": "Patching the three ranges",
+      "location": "Proof of Thm 1.1, p. 16; Lean index_interleave (Main.lean:151)",
+      "constants_status": "explicit",
+      "dependence": "Need L <= P < m <= U with alpha >= n/2. Exact check: n >= 45 with 17/25, n >= 93 with the Lean's 64/95 (Lean uses 1000 for convenience).",
+      "n_needed_order": "n >= 45 (paper) / 93 (Lean constants); negligible"
+    }
+  ],
+  "n0_order_of_magnitude": "log10 N0 ~ 3.6e5 to 1.7e7: N0 ~ 10^(360,000) using the best exponent the paper's own Lemma 4.2 allows (paper route), and N0 = 10^(16,778,044) instantiating the Lean proof's own witnesses (commit b2a1d3e); ~10^(4.2e7) for the paper's route with the Lean's pinned constants. Computable, not existential.",
+  "n0_reasoning": "FULL REPORT (REPORT.md could not be written: the harness refused subagent report files; all numbers are durable in the *.out.json files listed in manifest.yaml).\n\n1. N0 is computable. No step of arXiv:2609.20961 is existential in the compactness sense. The paper's non-numerical steps are constructive ('choose b close to 1', 'choose p close to 2', 'G sufficiently large', H a sup, and the qualitative local-limit step of Prop. 6.2), all with closed-form witnesses. The Lean development (b2a1d3e) pins every constant except one Gaussian tail cutoff R (Curvature.lean:304, from a limit), which has a closed form. [Sentence referring to private correspondence removed before publication, 2026-09-30.]\n\n2. Lean chain, instantiated with the witnesses the proof constructs (lean_chain_n0.py, arb 400-bit balls): b=999/1000, theta=1-1/8000, p=31999/16000, rho=0.9992011, u=p/(2-p)=31999, a=31998/31999; C0=1251.8, Gc=2503.5; Hc=(1+C0*32001)^32001=10^243293 (k=2u/p=32000 exactly); C1=3.21e15, M1=5.30e10, M2=2.51e7; C=12(M1+C1^2 M2)=10^39.49; potL=10^4.66; C_up=10^44.16; c=1/(8*13^4)=4.38e-6; c_char=1/114244; c'=10^-50.21; least valid R=10^26.23; eps1=pi eps/(4R^3)=10^-79.49 with eps=1/(2sqrt(2pi)); eta=10^-262.16; b_thr=ceil(eta^{1/(a-1)})+1=10^(8.389e6); N1=ceil(Lambda^2/c)+1=10^(1.6778e7). So N0=10^16,778,044. Decomposition: log10 N0 ~ 2u * 262.16 = 63998 * 262.16. The Lean's main chain (main_fin <- central <- mean_lc <- curvature_limit <- stdCharFn_tendsto_gaussian) never uses Berry-Esseen or a Kolmogorov bound; uniform_clt (Kolmogorov via vendored Esseen smoothing) is a side theorem nothing in the chain consumes. The CLT.lean and Curvature.lean header docstrings describe the paper's route, not the code's (documentation drift, not a soundness issue).\n\n3. Scenarios (route_n0_scenarios.py; log10 N0): S1 Lean as formalised 1.68e7. S2 paper route (b=ceil(n^{1/4}), Raic BE constant 58, Kolmogorov-to-chi clipping, curvature quantified as in Lean) with Lean's Sec.-4 constants 4.24e7; S2b same with paper's C formula at Lean's p (C=10^10.8) 1.82e7. S3 paper route, best p the paper's Lemma 4.2 relaxation allows (p=1.99691, 1-a=0.00155, C=10^12.0): 3.6e5. S4 paper route with Lemma 4.2's exact supremum at lambda_max=12 (p=1.8969, F_12(p) <= 0.99518 certified, 1-a=0.0543, C=10^9.36): 8.2e3. S5 fixed-b (Lean-style) route, same constants: 3.2e3. S6 hypothetical sharper Section 7: lambda_max=4 gives 527 (fixed-b) / 1.2e3 (paper route); lambda_max=6 gives 787 / 1.86e3; lambda_max=3 (421) is refuted, see 5. S7 floor with hypothetical ideal root moments: a=0.5,C=10 gives 198 (lambda_max 12); a=0,C=1 gives 103 (lambda_max 12) or 81 (lambda_max 3). Paper-route modelling is my quantification of steps the paper leaves qualitative; alternative choices move log(1/D) by O(1) factors and never the exponent 8/(1-a).\n\n4. Why 1-a is tiny (scalar_and_meanrange.py, certified with arb). Lemma 4.2 needs sup_{lambda in K, y>=0} y q^p/log(1+r) < 1. The paper relaxes log(1+r) >= q + q^2/2 and needs 12e^{-1-3b/2} < b, 'possible because 12 < e^{5/2}': e^{5/2}=12.1824939607, least b=0.993969961555507, and rho=(2sqrt12/e)^{4-2p} b^{2p-3} < 1 only for p > 1.99678845629, i.e. 1-a <= 0.0016084, u >= 621.75. The exact requirement is one-dimensional: F_L(p)=sup_{0<r<=L} log(L/r)(r/(1+r))^p/log(1+r) < 1 (increasing in lambda at fixed r, so the sup is at lambda_max=L). Certified: F_12(2) >= 0.91026; p* in [1.89149, 1.89349], so 1-a = 0.056 is admissible at L=12 (u=17.8, versus 622 for the relaxation and 31999 in the Lean). Other L: p* ~ 1.859 (11), 1.750 (8), 1.666 (6), 1.566 (4), 1.507 (3). Section 7's bound E_lambda X >= log(1+lambda) alpha/Q*(lambda) gives log13/Q*(12)=0.6808910441 (> 17/25, margin 8.91e-4) and needs lambda >= 10.30829217 (certified). So lambda_max is squeezed into [10.31, 12.18] by the two relaxed arguments, which is what drives p to 2.\n\n5. Lowering lambda_max. Exhaustive exact check of all trees n <= 18 (mean_alpha_ratio.py, gentreeg, Fractions): min E_lambda X/alpha is 0.5625 (lambda=2), 0.6165 (2.5); at lambda=3 it is below 2/3 at n=15,16,17 (0.66485, 0.66494, 0.65418). E and alpha are additive over components, so disjoint copies of the 17-vertex tree (parent array 0 1 2 3 4 5 6 6 4 1 10 11 12 13 14 14 1) give forests of every size divisible by 17 with E_3 X <= 0.6542 alpha: lambda_max=3 is impossible for forests (for trees, joining copies by edges almost certainly does the same, not proved). At lambda=4 the n<=18 minimum is 0.71119 and still falling; open. Extremal trees are long paths with forks, not stars.\n\n6. Diagnostic (floats, heuristic beam search, rootmoment_growth_probe.py): max q(1-q)delta^2 over rooted trees grows polynomially at high fugacity: at lambda=12 it reaches 3.85e4 at n=8.4e6 with local log-log slope 0.88 over n in [1.3e5, 8.4e6]; at lambda=4 slope 0.69; at lambda=1/4 slope ~0.13 (0.64 to 1.10). If these persist, any bound of form (4.3) uniform over K=[1/4,12] needs a >= ~0.88, so the exact-sup exponent (a=0.944) is within about a factor 2 in 1-a of the best possible, and the exponent lever at lambda_max=12 is nearly exhausted after removing the relaxation.\n\n7. Floor of the local-limit machinery. Even with a=0, C=1 the fixed-b chain needs n ~ 10^103 at lambda_max=12: C_up ~ 2.25, c'=c_char/(pi^2 C_up) ~ 1.9e-5 (c_char=4.2e-4), R ~ 10^3, eps1 ~ R^{-3}, eta ~ (eps1/R)^2 c ~ 10^-31, b ~ 1/eta, sigma >= bR^3/eps1; overall N ~ R^28/c^3. A threshold near the exhaustive frontier (n <= 32) needs a different local-limit argument, not a constant chase. Under any lever with some support (lambda_max=4 is unproven), the method stays above ~10^500; at lambda_max=12 with the exact-sup exponent, ~10^3200 (fixed-b) to ~10^8200 (paper route).\n\n8. Paper-versus-Lean deltas (findings, not errors): 17/25 vs 64/95 (patching needs n>=45 vs n>=93; Lean uses 1000); c=6/28561 vs 1/(8*13^4); c_char=24/57122 vs 1/338^2; Lean drops the n^a term in E|S-sigma^2|; Lean fixes p about 50x further (in u) from optimal than the paper's own relaxation allows; Lean route avoids BE and Kolmogorov entirely. No error found in the paper's constants: 0.6808 on p. 13 checks (0.680891), inf beta = 24/169 checks, Raic's d=1 constant is 58.\n\nNegative claim with search: the paper computes no numerical N0 and does not discuss effectivity; search = full read of all 18 pages plus grep of fang.txt for 'explicit|effective|not optimal|sufficiently large|large enough|N0|convenience' (hits: pp. 1-2 statements, p. 2 'constants ... not optimal', p. 5 'mostly for convenience', p. 6 'G sufficiently large', p. 9 Raic 'explicit version', pp. 11-12, 16-17 'sufficiently large'). Nothing beyond that.\n\nFiles (all in /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/audit-a/): lean_chain_n0.py/.out.json, scalar_and_meanrange.py/.out.json, route_n0_scenarios.py/.out.json, patching_threshold.py/.out.json, mean_alpha_ratio.py/.out.json, rootmoment_growth_probe.py/.out.json (diagnostic), fang.txt, raic.txt, raic_1802.06475v4.pdf (public arXiv download; could be moved to literature/ under a descriptive stem), lean_src/ (plain copy of the Lean repo at b2a1d3e with its .git removed so the project repo does not acquire an embedded gitlink; third-party, not audit output), manifest.yaml (model, project HEAD e94d47f6b421de8b8641542a138e3af936f33ea7, SHA-256 of inputs, scripts, outputs).",
+  "bottleneck": "The centroid-decomposition error b^{a-1} in (5.6) with the root-moment exponent a of Prop. 4.1/Eq. (4.3), which Lemma 4.2's relaxation pins at 1-a <= 0.0016 (Lean: 1/31999) because lambda_max = 12 sits just below e^{5/2}, forces b >= (K/eta)^{1/(1-a)} and hence N0 ~ K^{2/(1-a)} (fixed-b) or K^{8/(1-a)} (paper's b = n^{1/4}).",
+  "cheapest_improvements": [
+    "Replace Lemma 4.2's relaxation log(1+r) >= q + q^2/2 by the exact one-dimensional supremum F_12(p) = sup_{0<r<=12} log(12/r)(r/(1+r))^p/log(1+r); certified F_12(1.89349) < 1 and F_12(1.8969) <= 0.99518, so 1-a goes from <= 0.0016 to ~0.054 and log10 N0 from ~3.6e5 to ~8.2e3 (paper route). One page of calculus plus certified numerics.",
+    "Use a fixed decomposition threshold b and compare characteristic functions directly (as the Lean's stdCharFn_tendsto_gaussian already does) instead of b = ceil(n^{1/4}) + Berry-Esseen + Kolmogorov-to-chi clipping: exponent 8/(1-a) becomes 2/(1-a); log10 N0 ~8.2e3 -> ~3.2e3.",
+    "Use the paper's closed-form constants for (4.3) rather than the Lean's crude (1+cn)^n bound (exists_poly_mul_exp_le): C drops from 10^39.5 to 10^10.8 at the same p; small effect (moves log K, not the exponent).",
+    "Lower lambda_max with a sharper Section 7 bound E_lambda X > (2/3+eps) alpha: lambda_max = 4 would give log10 N0 ~ 530 (fixed-b), 6 gives ~790. lambda_max = 3 is refuted for forests (a 17-vertex tree has E_3 X/alpha = 0.6542); lambda = 4 holds for all trees n <= 18 (min 0.7112) but is unproven.",
+    "Replace the qualitative Prop. 6.2 passage (CLT on compacts + Gaussian tail with c' = c_char/(pi^2 C_up)) by a quantitative local limit theorem with an O(1) Gaussian majorant on |t| <= delta*sigma from the conditionally independent bounded terminal components, or an Edgeworth/saddle-point estimate; this is the only lever on the ~10^80-10^103 floor that remains even with ideal root moments.",
+    "Do not expect much more from the exponent at lambda_max = 12: a diagnostic search finds q(1-q)delta^2 growing with local slope ~0.88 at lambda = 12 (0.69 at lambda = 4), so a proof strategy avoiding a uniform root-moment bound at high fugacity (e.g. decompositions adapted to the tree, or smaller lambda_max) is needed for further gains."
+  ],
+  "uncertainties": [
+    "REPORT.md was NOT written: the Claude Code harness refused the Write ('Subagents should return findings as text, not write report files'), and I did not route around it. The full report text is in n0_reasoning; manifest.yaml records this; every number is durable in the *.out.json files. The parent may write REPORT.md from n0_reasoning if that is authorized.",
+    "The paper-route numbers (S2-S4, S6) rest on my quantification of steps the paper leaves qualitative (Kolmogorov-to-characteristic-function clipping; the curvature integral quantified as in Curvature.lean). Other reasonable choices change log(1/D) by O(1) factors, not the exponent 8/(1-a).",
+    "The Section-4 constant C for the paper route is my reconstruction of the proof on pp. 5-7 (G optimised on a grid, sups in closed form); order of magnitude only.",
+    "In S4-S6 the optimisation over p used float evaluations of F_L; the rho actually used is certified (F_L(p) <= rho by adaptive ball covering plus an analytic tail).",
+    "The Lean witness chain was reproduced from the statements and witness constructions at the cited lines, not by rebuilding; soundness rests on the 2026-09-25 local replay recorded in notes/fang_lu_nevo_yao_zheng_2026_large_forests_2026-09-25.md. I did not read every auxiliary lemma body for hidden size requirements; the witness for R is taken as the least valid natural.",
+    "lambda_max = 4 and 6 scenarios assume a sharpened Section 7 that does not exist; the lambda = 4 exhaustive minimum of E/alpha is still falling at n = 18. The lambda = 3 refutation is proved for forests (additivity); for trees it is near-certain but unproved.",
+    "The root-moment growth probe is a float heuristic beam search over structured rooted trees up to n ~ 10^7; its local slopes (0.88 at lambda=12, 0.69 at lambda=4, ~0.13 at lambda=1/4) are lower-bound evidence, not certified exponents, and could change with wider search.",
+    "All N0 values are the sizes at which this proof starts to apply; they say nothing about where unimodality actually holds.",
+    "Raič's constant 58 was read from arXiv:1802.06475v4 (p. 3, Eq. 1.2); a sharper univariate constant (e.g. Shevtsova's) was not source-checked and would not change the order of magnitude."
+  ],
+  "report_path": "/Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/audit-a/manifest.yaml"
+}

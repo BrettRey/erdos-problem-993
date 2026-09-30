@@ -1,0 +1,11 @@
+{"fam": "SH(5,11,2)", "n": 171, "window": [43, 77], "z_fail_k": [], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": -0.6118, "z_worst_k": 77, "z_worst_k_per_unit": 15.4}
+{"fam": "SH(8,11,2)", "n": 273, "window": [69, 123], "z_fail_k": [], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": -0.00535, "z_worst_k": 123, "z_worst_k_per_unit": 15.375}
+{"fam": "SH(9,11,2)", "n": 307, "window": [77, 138], "z_fail_k": [134, 138, 5], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": 0.14165, "z_worst_k": 138, "z_worst_k_per_unit": 15.3333}
+{"fam": "SH(10,11,2)", "n": 341, "window": [86, 153], "z_fail_k": [144, 153, 10], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": 0.26646, "z_worst_k": 153, "z_worst_k_per_unit": 15.3}
+{"fam": "SH(12,11,2)", "n": 409, "window": [103, 184], "z_fail_k": [166, 184, 19], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": 0.47715, "z_worst_k": 184, "z_worst_k_per_unit": 15.3333}
+{"fam": "SH(15,11,2)", "n": 511, "window": [128, 230], "z_fail_k": [198, 230, 33], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": 0.67816, "z_worst_k": 230, "z_worst_k_per_unit": 15.3333}
+{"fam": "SH(20,11,2)", "n": 681, "window": [171, 307], "z_fail_k": [256, 307, 52], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": 0.87181, "z_worst_k": 307, "z_worst_k_per_unit": 15.35}
+{"fam": "SH(30,11,2)", "n": 1021, "window": [256, 460], "z_fail_k": [390, 460, 71], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": 0.9908, "z_worst_k": 460, "z_worst_k_per_unit": 15.3333}
+{"fam": "SH(40,11,2)", "n": 1361, "window": [341, 613], "z_fail_k": [544, 613, 70], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": 0.99961, "z_worst_k": 613, "z_worst_k_per_unit": 15.325}
+{"fam": "SH(60,11,2)", "n": 2041, "window": [511, 920], "z_fail_k": [828, 920, 93], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": 1.0, "z_worst_k": 920, "z_worst_k_per_unit": 15.3333}
+{"fam": "SH(100,11,2)", "n": 3401, "window": [851, 1533], "z_fail_k": [1382, 1533, 152], "other_fail": [], "lc_fail_levels": 0, "z_worst_nbhd_norm": 1.0, "z_worst_k": 1533, "z_worst_k_per_unit": 15.33}

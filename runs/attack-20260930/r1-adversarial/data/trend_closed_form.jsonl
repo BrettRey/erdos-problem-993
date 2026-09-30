@@ -1,0 +1,25 @@
+{"m": 10, "h": 30, "n": 931, "alpha": 630, "window": [233, 420], "n_viol_levels": 0, "viol_k_range": null, "F_centre_max": -0.14440343990780025, "F_at_k": 401, "secs": 0.0}
+{"m": 10, "h": 50, "n": 1551, "alpha": 1050, "window": [388, 700], "n_viol_levels": 0, "viol_k_range": null, "F_centre_max": -0.16938116954905066, "F_at_k": 675, "secs": 0.0}
+{"m": 10, "h": 100, "n": 3101, "alpha": 2100, "window": [776, 1400], "n_viol_levels": 0, "viol_k_range": null, "F_centre_max": -0.17576564008625872, "F_at_k": 1350, "secs": 0.0}
+{"m": 10, "h": 200, "n": 6201, "alpha": 4200, "window": [1551, 2800], "n_viol_levels": 0, "viol_k_range": null, "F_centre_max": -0.178914490955317, "F_at_k": 2699, "secs": 0.2}
+{"m": 10, "h": 400, "n": 12401, "alpha": 8400, "window": [3101, 5600], "n_viol_levels": 0, "viol_k_range": null, "F_centre_max": -0.1804855908153165, "F_at_k": 5398, "secs": 1.2}
+{"m": 11, "h": 30, "n": 1021, "alpha": 690, "window": [256, 460], "n_viol_levels": 71, "viol_k_range": [390, 460], "F_centre_max": 0.24251375967014205, "F_at_k": 440, "secs": 0.0}
+{"m": 11, "h": 50, "n": 1701, "alpha": 1150, "window": [426, 767], "n_viol_levels": 80, "viol_k_range": [688, 767], "F_centre_max": 0.1919330554177491, "F_at_k": 753, "secs": 0.0}
+{"m": 11, "h": 100, "n": 3401, "alpha": 2300, "window": [851, 1533], "n_viol_levels": 152, "viol_k_range": [1382, 1533], "F_centre_max": 0.18463303906978953, "F_at_k": 1505, "secs": 0.1}
+{"m": 11, "h": 200, "n": 6801, "alpha": 4600, "window": [1701, 3067], "n_viol_levels": 304, "viol_k_range": [2764, 3067], "F_centre_max": 0.18111070633569729, "F_at_k": 3010, "secs": 0.3}
+{"m": 11, "h": 400, "n": 13601, "alpha": 9200, "window": [3401, 6133], "n_viol_levels": 605, "viol_k_range": [5529, 6133], "F_centre_max": 0.1793542599850255, "F_at_k": 6018, "secs": 1.7}
+{"m": 12, "h": 30, "n": 1111, "alpha": 750, "window": [278, 500], "n_viol_levels": 95, "viol_k_range": [406, 500], "F_centre_max": 0.698263170841121, "F_at_k": 471, "secs": 0.0}
+{"m": 12, "h": 50, "n": 1851, "alpha": 1250, "window": [463, 833], "n_viol_levels": 130, "viol_k_range": [704, 833], "F_centre_max": 0.5763901978913315, "F_at_k": 831, "secs": 0.0}
+{"m": 12, "h": 100, "n": 3701, "alpha": 2500, "window": [926, 1667], "n_viol_levels": 234, "viol_k_range": [1434, 1667], "F_centre_max": 0.5677897847124013, "F_at_k": 1662, "secs": 0.1}
+{"m": 12, "h": 200, "n": 7401, "alpha": 5000, "window": [1851, 3333], "n_viol_levels": 466, "viol_k_range": [2868, 3333], "F_centre_max": 0.5638597237927543, "F_at_k": 3322, "secs": 0.4}
+{"m": 12, "h": 400, "n": 14801, "alpha": 10000, "window": [3701, 6667], "n_viol_levels": 932, "viol_k_range": [5736, 6667], "F_centre_max": 0.5618977311129769, "F_at_k": 6643, "secs": 2.0}
+{"m": 16, "h": 30, "n": 1471, "alpha": 990, "window": [368, 660], "n_viol_levels": 112, "viol_k_range": [549, 660], "F_centre_max": 3.29354452814189, "F_at_k": 652, "secs": 0.0}
+{"m": 16, "h": 50, "n": 2451, "alpha": 1650, "window": [613, 1100], "n_viol_levels": 236, "viol_k_range": [865, 1100], "F_centre_max": 2.3954463493509874, "F_at_k": 1056, "secs": 0.0}
+{"m": 16, "h": 100, "n": 4901, "alpha": 3300, "window": [1226, 2200], "n_viol_levels": 474, "viol_k_range": [1727, 2200], "F_centre_max": 2.1718864423237942, "F_at_k": 2200, "secs": 0.2}
+{"m": 16, "h": 200, "n": 9801, "alpha": 6600, "window": [2451, 4400], "n_viol_levels": 854, "viol_k_range": [3547, 4400], "F_centre_max": 2.1671456753122507, "F_at_k": 4400, "secs": 0.8}
+{"m": 16, "h": 400, "n": 19601, "alpha": 13200, "window": [4901, 8800], "n_viol_levels": 1698, "viol_k_range": [7103, 8800], "F_centre_max": 2.1651136908476105, "F_at_k": 8800, "secs": 4.7}
+{"m": 24, "h": 30, "n": 2191, "alpha": 1470, "window": [548, 980], "n_viol_levels": 2, "viol_k_range": [979, 980], "F_centre_max": 0.0636678972944259, "F_at_k": 980, "secs": 0.0}
+{"m": 24, "h": 50, "n": 3651, "alpha": 2450, "window": [913, 1633], "n_viol_levels": 146, "viol_k_range": [1488, 1633], "F_centre_max": 5.46639365228837, "F_at_k": 1633, "secs": 0.1}
+{"m": 24, "h": 100, "n": 7301, "alpha": 4900, "window": [1826, 3267], "n_viol_levels": 591, "viol_k_range": [2677, 3267], "F_centre_max": 7.719477193829935, "F_at_k": 3267, "secs": 0.5}
+{"m": 24, "h": 200, "n": 14601, "alpha": 9800, "window": [3651, 6533], "n_viol_levels": 1464, "viol_k_range": [5070, 6533], "F_centre_max": 5.460780461065747, "F_at_k": 6533, "secs": 2.1}
+{"m": 24, "h": 400, "n": 29201, "alpha": 19600, "window": [7301, 13067], "n_viol_levels": 3112, "viol_k_range": [9956, 13067], "F_centre_max": 5.075860008017018, "F_at_k": 13067, "secs": 11.5}

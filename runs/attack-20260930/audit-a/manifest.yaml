@@ -1,0 +1,43 @@
+# Manifest for audit-a (effective-constant audit of arXiv:2609.20961)
+run: attack-20260930/audit-a
+date: 2026-09-30 12:46 EDT
+model: claude-opus-5-5 (Claude Opus 5.5), Claude Code subagent; no external model routes used
+project_git_head: e94d47f6b421de8b8641542a138e3af936f33ea7
+lean_commit_audited: b2a1d3ede8aef259b1de6e319e7fd6cb56481ac1 (lean_src/ is a plain copy of that commit; its .git directory was removed so the project repo does not acquire an embedded gitlink)
+dependence_cluster: independent of audit-b (no contact); shares only the brief and public sources
+report_md: NOT WRITTEN. The Claude Code harness refused the Write of REPORT.md ('Subagents should return findings as text, not write report files'); the full report is in the subagent's structured return and final message. Numbers are durable in the *.out.json files below.
+compute: python-flint 0.9.0 arb ball arithmetic (venv/bin/python), Python Fractions, nauty gentreeg; all runs < 2 min, 1 core
+inputs_sha256:
+  fang_2026_unimodality_large_forests.pdf: 5f18690883cc007852fed9082fe415b7fdd43ec8aa40d5091d59b39945a0278b
+  fang.txt: a5ee6e30a036a68f8bfa92483bcfab737e18e0f1f18e3e791eb8916ae9542c27
+  raic_1802.06475v4.pdf: bb8b18a25438b2381a50175e63c12fcb40e9ada666c394c3a9d7c85b6255a51e
+  raic.txt: 62909be1a0f11159cf6123c63340eb99a0e9d720ce4bb088dacfe8ae07bb764e
+  fang_lu_nevo_yao_zheng_2026_large_forests_2026-09-25.md: dfc95c137d3256e359626c4e5ce22771efda7b643e787edb511258b8c6a21b0f
+lean_src_sha256 (third-party clone of github.com/junwei-lu/Erdos_993_Tree_Independent_Set_Unimodality, not audit output):
+  Main.lean: 617a019938cf0f4fd759afca1c682a2cd394fcc26d8179394d25dd9d43d24a0d
+  Central.lean: 124708b1dbb6a3dfe44cffb84aa5097c21b8a72722f5380485b87fe28848a324
+  Curvature.lean: bd8f28d5936abae183969987d2889b9c36c8c6675b1cf965ffc52bb53cbbdf99
+  CLT.lean: 39b02c8323becf208a7e67d036c9943889fc01858348f2d70f40d2363b490250
+  RootMoments.lean: 0ebbb994d089e6c89948ce75f101a16a264e459b528a854e9a1d6844c15cfe8d
+  Fourier.lean: cb6fcb101a859a07feaddf66f8f7a3744abee769e8a8138fae3c85adda7c0fad
+  MeanRange.lean: 1614413146552126722285352a1da66ceda7b589d5b457da5ecf9bd85d3cac07
+  Ends.lean: 473d0a262b07f3b5f48be27adff8a978fc4c69d0ba4c67833a77dc911df909c4
+scripts_sha256:
+  lean_chain_n0.py: 71856bab09b984f5addb9b9f25bef1f248a497418e2907793f61c38d1538c47d
+  scalar_and_meanrange.py: c5eddfb93ab7e90f3d7688f4f9ecec25d5397cc3f3e421d4447a40956c2d8122
+  route_n0_scenarios.py: cba076edbd96a04678b38b6aeb71022554f61c9d56164f92f5834633a0e59ede
+  patching_threshold.py: a47257292b55307e9b365f009c4c5ef515f0a3e1e6e0fb17d9df8bf9f1218dfd
+  rootmoment_growth_probe.py: df100dd2f12e7f5ab0a6ff734537af8d7be830dd5c8843db7a976b77e94a403b
+  mean_alpha_ratio.py: a1e51ee8e58fb97a18aaf8eea99cd19c9e4f21fbf4a9dea935ee80798206c004
+outputs_sha256:
+  lean_chain_n0.out.json: 7798584434e6044894704740338f6f4dfb9a191237272202416e6577ab188b09
+  scalar_and_meanrange.out.json: 73ad7e3f098828b746d6254ea00fe79aa8f131d28450d1e203236df41c791c65
+  route_n0_scenarios.out.json: c6cb96e1f242c52534231d2517976cad7d009ad4f176c86f10c49cb7275c4c81
+  patching_threshold.out.json: 7a2da346321f8257d74293633b9fa7688e176ff38756bd9631d9b3c91384721b
+  rootmoment_growth_probe.out.json: c58e7eb5fd78adec5e84d39ef99bc03d15935ad254a49a854bfb8182260cc796   # DIAGNOSTIC: floats, heuristic beam search
+  mean_alpha_ratio.out.json: bc846e70daedeb837592a3acc2f990ae49be7049260ba6c0b713773a068a2abb
+commands:
+  - venv/bin/python runs/attack-20260930/audit-a/lean_chain_n0.py   # from project root
+  - venv/bin/python runs/attack-20260930/audit-a/scalar_and_meanrange.py
+  - venv/bin/python runs/attack-20260930/audit-a/route_n0_scenarios.py
+  - python3 patching_threshold.py; python3 mean_alpha_ratio.py 18; python3 rootmoment_growth_probe.py   # from this directory

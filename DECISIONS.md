@@ -720,3 +720,37 @@ No code was returned, so whether its code recomputes or reads stored
 counts can't be judged. Clearly better than the first run on honesty and
 accuracy. Audit: `gpt_attack/primus_rerun_audit_2026-09-26.md`. No further
 run of this brief is recommended. Assisting system: Claude Code (Opus 5.5).
+
+2026-09-30 — Attack on effective central log-concavity, authorized by Brett
+("attack whatever you think is worth attacking"); research only, manuscript
+untouched. Record: `runs/attack-20260930/SUMMARY.md`.
+- **Target recorded.** After Fang et al., unimodality of every tree follows
+  from log-concavity on `[ceil(n/4), q]`, `q = ceil((2 alpha - 1)/3)`.
+- **Fang's N0 quantified.** Two independent audits agree it is computable:
+  `10^(1.68e7)` as formalised; about `10^(2e3-8e3)` after a certified
+  sharpening of their Lemma 4.2; at least `10^80` for the architecture
+  however good the constants. Not sent to the authors.
+- **Central-margin census, exact, all 1,198,737,961 trees 10 <= n <= 27.**
+  No log-concavity failure on `[ceil(n/5), q]`; the star is the unique
+  minimizer, with margin `4/(n+2)` for even n.
+- **Lemma R1 refuted.** R1 is the closed-neighbourhood-averaged free-count
+  defect lemma, which would have given unimodality with no size threshold.
+  It holds exhaustively for all 63,037,252 trees 19 <= n <= 24, but fails
+  at n = 237: a degree-8 centre joined to 8 hub-stars, `k = q = 107`, with
+  log-concavity still holding there. Confirmed by three independent
+  implementations. The pointwise version was already false at n = 28
+  (hub-star H(9,2)).
+- The deterministic free-count route therefore has no live target.
+- The remaining candidate is the fixed-accuracy binomial-smoothing route
+  (`route-lclt`); its independent check was re-run after the pause.
+- **That check came back sound, marginal gain**
+  (`runs/attack-20260930/lclt-check/REPORT.md`).
+  - Its identities are exact and verified on all trees n <= 14.
+  - It lowers the explicit threshold from about 10^2070 to about 10^495,
+    but the root-moment exponent keeps it above 10^100.
+  - Nothing known reaches the enumeration record. Closing #993 needs a
+    genuinely new idea for central log-concavity at moderate n.
+- No Aristotle packet sent: the only formalizable candidate, the exact
+  finite certificate, is low value.
+Assisting system: Claude Code (Opus 5.5) with multi-agent workflows;
+assessments are Claude's, for Brett's review.

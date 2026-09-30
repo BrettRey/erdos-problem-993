@@ -1,0 +1,12 @@
+rand n=40 rep=0 B=nonleaf |B| 27 groups 111 window [10, 15] allLC True rho[min,max] (0.3719, 0.3991) betweenfrac[min,max] (0.4161, 0.4338) cert_pb_fail 6 secs 0.08
+rand n=40 rep=1 B=nonleaf |B| 26 groups 112 window [10, 15] allLC True rho[min,max] (0.3307, 0.3774) betweenfrac[min,max] (0.3684, 0.405) cert_pb_fail 6 secs 0.08
+rand n=40 rep=2 B=nonleaf |B| 23 groups 106 window [10, 16] allLC True rho[min,max] (0.2825, 0.2996) betweenfrac[min,max] (0.3117, 0.3296) cert_pb_fail 5 secs 0.13
+rand n=80 rep=0 B=nonleaf |B| 51 groups 358 window [20, 29] allLC True rho[min,max] (0.3336, 0.368) betweenfrac[min,max] (0.3533, 0.3823) cert_pb_fail 10 secs 1.5
+rand n=80 rep=1 B=nonleaf |B| 49 groups 429 window [20, 31] allLC True rho[min,max] (0.3386, 0.3548) betweenfrac[min,max] (0.3561, 0.3726) cert_pb_fail 12 secs 2.31
+rand n=80 rep=2 B=nonleaf |B| 52 groups 476 window [20, 31] allLC True rho[min,max] (0.383, 0.409) betweenfrac[min,max] (0.404, 0.4317) cert_pb_fail 12 secs 2.16
+rand n=120 rep=0 B=nonleaf |B| 75 groups 962 window [30, 46] allLC True rho[min,max] (0.3469, 0.3673) betweenfrac[min,max] (0.359, 0.3769) cert_pb_fail 0 secs 14.75
+rand n=120 rep=1 B=nonleaf |B| 75 groups 848 window [30, 46] allLC True rho[min,max] (0.3423, 0.3618) betweenfrac[min,max] (0.3548, 0.3717) cert_pb_fail 0 secs 17.03
+rand n=120 rep=2 B=nonleaf |B| 75 groups 956 window [30, 45] allLC True rho[min,max] (0.3248, 0.3588) betweenfrac[min,max] (0.3367, 0.3672) cert_pb_fail 0 secs 20.44
+rand n=160 rep=0 B=nonleaf |B| 98 groups 1688 window [40, 62] allLC True rho[min,max] (0.3421, 0.3624) betweenfrac[min,max] (0.3509, 0.3692) cert_pb_fail 0 secs 191.54
+rand n=160 rep=1 B=nonleaf |B| 105 groups 1579 window [40, 59] allLC True rho[min,max] (0.3699, 0.3988) betweenfrac[min,max] (0.3803, 0.4068) cert_pb_fail 0 secs 119.02
+rand n=160 rep=2 B=nonleaf |B| 110 groups 1712 window [40, 59] allLC True rho[min,max] (0.4186, 0.4481) betweenfrac[min,max] (0.4306, 0.4572) cert_pb_fail 0 secs 112.81

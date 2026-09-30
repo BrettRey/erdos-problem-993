@@ -1,0 +1,108 @@
+# Manifest for route-freecount (attack-20260930)
+model: claude-opus-5-5
+git_head: e94d47f6b421de8b8641542a138e3af936f33ea7
+report: REPORT.md not written (the harness blocks report files from subagents); the full report is the structured return of this run
+compute: python3 (exact integer / Fraction arithmetic), at most 2 cores, each run under 20 minutes
+inputs_read:
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/mason_free_count_reformulation_2026-09-02.md
+    sha256: 294cd34eb13e686f47591d9462bf4e1ed71537a6b84df491d0207f538b480d85
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/attack3_mean_lift_2026-02-19.md
+    sha256: f8779c8dfaeb68d290da022cd64d69572406bed9cf996c59bce17a9c5481a217
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/decimation_weighted_whnc_2026-02-18.md
+    sha256: 94dc362dd9423b9527b831e0f4803a0703eeaf5d17316f646ce3594c818f3ba2
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/fang_lu_nevo_yao_zheng_2026_large_forests_2026-09-25.md
+    sha256: dfc95c137d3256e359626c4e5ce22771efda7b643e787edb511258b8c6a21b0f
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/ratio_dominance_discovery_2026-03-01.md
+    sha256: 5b17fd64b97ab0efabad86eb477abf8c829afb83dba45e0b29bb343a5fd23c9a
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/condition_C_proof_structure_2026-02-28.md
+    sha256: cbd3ba7a1d0e6dc0b803d139d636d31f5ed381bd1e71f84d7ab4a27a6ca3d660
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/scc_false_n28_2026-03-01.md
+    sha256: 03d1fefd68af99d478be8e8b25c92d5abd39c7cbdbad304151f8ec85e4d7545e
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/d22_global_switching_obstruction_packet_2026-07-11.md
+    sha256: fb0a7cba0afd8a7f926609e2aa87d34c8e90b0f3ba05871870fffc4c6f7943e1
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/joint_density_analytic_sprint_2026-09-04.md
+    sha256: 647d7961a2c96cc01fce63f19bdee685f80f99800083afc1b99597baa2845ae4
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/notes/arxiv_astra_transfer_2026-09-04.md
+    sha256: 158e68363dca424605666c0d3994867128f9e8e5b519f25b9e8db1dde351b233
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/literature/fang_2026_unimodality_large_forests.pdf
+    sha256: 5f18690883cc007852fed9082fe415b7fdd43ec8aa40d5091d59b39945a0278b
+  - path: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/route-freecount/fang.txt
+    sha256: a5ee6e30a036a68f8bfa92483bcfab737e18e0f1f18e3e791eb8916ae9542c27
+census_shards_concatenated:
+  glob: /Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/results/lc_census_20260814/n*_s*of64.txt
+  count: 384
+  sha256_of_sorted_concatenation: 1adca7ccd2ad6370358a30afd0e3896b7c7614c92ad8bce477487fdff26ce722
+scripts:
+  - path: k1_census.py
+    sha256: eb9855b21ae24013b9370ce98ef0b8a2c1f2d68012fb8cf245ab6c2fef1e68ab
+  - path: k2_aggregate.py
+    sha256: 32ccf1b48840d3cc39713d41e83910cdb0f02a29d364bc2b701f5f9133618d47
+  - path: k3_families.py
+    sha256: ce57181f0136f9bf1d40ec68c2bdc1ee91e24cf7b12c73b436d6a5d49a513ef1
+  - path: k4_hillclimb.py
+    sha256: 1da41c7df47aa202a2dbb60a65a7009b769ae408aa21746a15db085a2394928b
+  - path: k5_repair_families.py
+    sha256: 3e8e48686828954db79f5918b5f09a474f34269414e03099a5c03b9a5aa94c79
+  - path: k6_star_of_hubs.py
+    sha256: 4e0c94c88da8808a298c0ecedec9f072c750913605735d3f46b46a08bb2abc1f
+  - path: make_manifest.py
+    sha256: 5aece3708f3701933f9bafec16978cdb3a2f107e564a3ca72ab791185aceb3d0
+  - path: pv_lib.py
+    sha256: 07ccba836c30bfef8ca5fbaa228565c748f1703310bb38e79f1b072ae0912140
+data:
+  - path: data/counterexample_hubstars_9_2.txt
+    sha256: 727443b3718f19f04df45316fd1451df67aa1dc7062c97658b5dbdd33f3bc5a8
+  - path: data/counterexample_recheck_bruteforce.txt
+    sha256: d8ff6fbae86fd4117feb123cda052e410751b6da29c96dddc7b21ad1a5b59d32
+  - path: data/jobA.done
+    sha256: 7cc2348e65c2723877bfed05cfda0adb941bfd98905405d4e8dc4e8f5c6932f3
+  - path: data/jobB.done
+    sha256: eed4ab71e86694aadd5cc8a6b9ef7dfb26852b6bfb8b82c8d982dc0c427f0200
+  - path: data/k1_n10.json
+    sha256: 24f9815281d2ecc7fa5f664d93cb208f8e39cd06c600f62d081473fe5f23d3d2
+  - path: data/k1_n11.json
+    sha256: ba965d0af7895b54f274be852438f8dc28cf2e2a33966bdf32ea1fea862bc591
+  - path: data/k1_n12.json
+    sha256: f88110a6dbce07ac17d0f36ca0770b4113a9a32889c1abce369dd1e4896e471c
+  - path: data/k1_n13.json
+    sha256: 1608135f390f955e304fc40d38b8700946fc96fe74ecc83ee85e489f42934105
+  - path: data/k1_n14.json
+    sha256: da2920e02e9d5adfa4080ed713d5a5fda72b431c3ac733aff54cace5cb6c2c1e
+  - path: data/k1_n15.json
+    sha256: d8687131ac822acf88c7330f77ba9c0026a979262138d10e6e39f4dc6b7da514
+  - path: data/k1_n16.json
+    sha256: 94f57ba704a5c4521baea541171d322c788913e4681ab0c8dc5281349bc2c651
+  - path: data/k1_n17.json
+    sha256: 18e4bb9902578f16194bd3d85e7f505ec74d945c1aef1ef02d1a89c505b97561
+  - path: data/k1_n18.json
+    sha256: 81fb25b666d755f7c7a1b6d05e45b4f62f984959cf909f5c89201f40287abfaf
+  - path: data/k1_n4.json
+    sha256: 4a29216185068622dd630d6b4d00353c322723a647f943b8b818ef5012562160
+  - path: data/k1_n5.json
+    sha256: 23bbdaa1c20555b1f3844d9b45f6573e329f80f43afbb6062d2ca87be5afdc59
+  - path: data/k1_n6.json
+    sha256: 6fae2a103d0d1a7eb39bb0afb15db590c8b2560f37f567e7ea6f4e6a94482d15
+  - path: data/k1_n7.json
+    sha256: c626aeef7e156a4d5aa11f309e8ff6462344a4255c32566112d88c6f7e120965
+  - path: data/k1_n8.json
+    sha256: e810cb0c208a62c05bdc217644508e178d3bc64f405dc2a59819bf62161c49c5
+  - path: data/k1_n9.json
+    sha256: 1d9ca6901ed5a9aa157bc5c34ba428e0b99232d79519f2ffce28a24ec725b23c
+  - path: data/k2_census.jsonl
+    sha256: 2a6c54ac3f5adfdedc1dd8e3443e797ab9c09356e90f28381f6691142dfaf765
+  - path: data/k2_hubstars.jsonl
+    sha256: 19a6e588b81da53c0db14327a5777f14ab4d48857e14ee2206c74d7db555cea4
+  - path: data/k2census.done
+    sha256: dc51b8c96c2d745df3bd5590d990230a482fd247123599548e0632fdbf97fc22
+  - path: data/k3_families.jsonl
+    sha256: c8eaf909e8f18a77d8f0a2abe95e7c25cb87ee49097492a177501d8b41f48533
+  - path: data/k4_pv_n19-27.json
+    sha256: e7a4a4bc49180cb95669bcd04a8a4a3a75a8f10cf7a548a531dd05000f7afa76
+  - path: data/k4_r1_n20-50.json
+    sha256: c98c8bbdc4d4c10f2c96c3779254f94d559ad8c2e3c2c345bfcdffe5116ea01a
+  - path: data/k4_r2_n20-50.json
+    sha256: 1e647a5ba4359b2025529c186229f989e4e98c8b38c7cde814ec8a70a2fe77a5
+  - path: data/k5_repair_families.jsonl
+    sha256: 30aaebbd26a79e9a7cb0ed1e25f7828b4394392a8a567847a98534a8052a9f95
+  - path: data/k6_star_of_hubs.jsonl
+    sha256: 557441a728c02d4cef7d2ff4cdec334027fa178cbcf75368171ed73026675307

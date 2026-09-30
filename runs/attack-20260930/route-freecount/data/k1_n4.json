@@ -1,0 +1,49 @@
+{
+ "n": 4,
+ "shard": [],
+ "trees": 2,
+ "window_checks_vk": 12,
+ "window_levels": 3,
+ "lc_fail_window": 0,
+ "pv_fail_window": 0,
+ "pv0_fail_window": 0,
+ "rds_fail_window": 0,
+ "wlc_fail_window": 0,
+ "mediant_implication_violations": 0,
+ "pv_fail_anywhere": 0,
+ "pv_fail_anywhere_trees": 0,
+ "pv_fail_offsets_k_minus_alpha": {},
+ "pv_fail_offsets_k_minus_q": {},
+ "lc_fail_anywhere": 0,
+ "max_pv_ratio_window": "4/9",
+ "max_pv_ratio_window_float": 0.4444444444444444,
+ "max_pv_ratio_witness": {
+  "parent_array": [
+   "0",
+   "1",
+   "1",
+   "1"
+  ],
+  "v": 1,
+  "deg_v": 1,
+  "k": 2,
+  "alpha": 3,
+  "q": 2,
+  "lo": 1,
+  "I": [
+   1,
+   4,
+   3,
+   1
+  ],
+  "J_v": [
+   1,
+   2,
+   1
+  ]
+ },
+ "max_pv0_ratio_window_float": 0.6666666666666666,
+ "min_window_k_minus_q_of_pv_fail": null,
+ "empty_window_trees": 0,
+ "seconds": 0.01
+}

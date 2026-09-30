@@ -1,0 +1,106 @@
+{
+ "I3_closed": "[1.510013000130477132617541 +/- 1.02e-25]",
+ "I3_quad": "[1.510013000130477132617541 +/- 1.02e-25]",
+ "c_star": "[0.2641979111219313291032677 +/- 1.80e-26]",
+ "c_star_closed_form_1_over_2_plus_8e_minus_3half": "[0.2641979111219313291032677 +/- 1.80e-26]",
+ "I3_below_151002e_5": true,
+ "arb_note": "python-flint 0.9.0, prec 200 bits",
+ "TV_exact_rows": [
+  {
+   "B": 256,
+   "p": "12/13",
+   "v": "3072/169",
+   "TVv32_float_diag": 1.5136370956697967,
+   "exceeds_U": true,
+   "delta3_sign_changes": 3
+  },
+  {
+   "B": 128,
+   "p": "12/13",
+   "v": "1536/169",
+   "TVv32_float_diag": 1.509970357318683,
+   "exceeds_U": false,
+   "delta3_sign_changes": 3
+  },
+  {
+   "B": 200,
+   "p": "12/13",
+   "v": "2400/169",
+   "TVv32_float_diag": 1.4919650441086603,
+   "exceeds_U": false,
+   "delta3_sign_changes": 3
+  },
+  {
+   "B": 300,
+   "p": "12/13",
+   "v": "3600/169",
+   "TVv32_float_diag": 1.502989691638697,
+   "exceeds_U": false,
+   "delta3_sign_changes": 3
+  },
+  {
+   "B": 64,
+   "p": "12/13",
+   "v": "768/169",
+   "TVv32_float_diag": 1.4953621303568692,
+   "exceeds_U": false,
+   "delta3_sign_changes": 3
+  },
+  {
+   "B": 256,
+   "p": "1/2",
+   "v": "64",
+   "TVv32_float_diag": 1.4987723199173457,
+   "exceeds_U": false,
+   "delta3_sign_changes": 3
+  },
+  {
+   "B": 256,
+   "p": "1/4",
+   "v": "48",
+   "TVv32_float_diag": 1.495914113943444,
+   "exceeds_U": false,
+   "delta3_sign_changes": 3
+  },
+  {
+   "B": 64,
+   "p": "1/2",
+   "v": "16",
+   "TVv32_float_diag": 1.466380988454383,
+   "exceeds_U": false,
+   "delta3_sign_changes": 3
+  },
+  {
+   "B": 16,
+   "p": "1/2",
+   "v": "4",
+   "TVv32_float_diag": 1.3271484375,
+   "exceeds_U": false,
+   "delta3_sign_changes": 3
+  },
+  {
+   "B": 1,
+   "p": "1/2",
+   "v": "1/4",
+   "TVv32_float_diag": 0.375,
+   "exceeds_U": false,
+   "delta3_sign_changes": 3
+  },
+  {
+   "B": 2,
+   "p": "1/2",
+   "v": "1/2",
+   "TVv32_float_diag": 0.7071067811865476,
+   "exceeds_U": false,
+   "delta3_sign_changes": 3
+  },
+  {
+   "B": 4,
+   "p": "1/2",
+   "v": "1",
+   "TVv32_float_diag": 1.0,
+   "exceeds_U": false,
+   "delta3_sign_changes": 3
+  }
+ ]
+}

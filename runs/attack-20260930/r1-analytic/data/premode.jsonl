@@ -1,0 +1,5 @@
+{"fam": "SH(8,15,3)", "n": 489, "window": [123, 245], "mode": 175, "z_fail_range": [213, 227], "n_fail": 15, "fail_levels_strictly_ascending": []}
+{"fam": "SH(20,16,3)", "n": 1301, "window": [326, 653], "mode": 467, "z_fail_range": [417, 614], "n_fail": 198, "fail_levels_strictly_ascending": [417, 466, 50]}
+{"fam": "SH(40,16,3)", "n": 2601, "window": [651, 1307], "mode": 934, "z_fail_range": [817, 1225], "n_fail": 409, "fail_levels_strictly_ascending": [817, 933, 117]}
+{"fam": "SH(30,11,2)", "n": 1021, "window": [256, 460], "mode": 332, "z_fail_range": [390, 460], "n_fail": 71, "fail_levels_strictly_ascending": []}
+{"fam": "SH(40,20,2)", "n": 2441, "window": [611, 1093], "mode": 801, "z_fail_range": [945, 1093], "n_fail": 149, "fail_levels_strictly_ascending": []}

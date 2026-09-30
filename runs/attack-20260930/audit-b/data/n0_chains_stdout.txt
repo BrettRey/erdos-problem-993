@@ -1,0 +1,9 @@
+L (Lean): 1-a = 1/31999  C = 3.1038e+39  C_v = 1.4329e+44  c' = 6.1896e-51  R = 1.6938e+26  eps1 = 3.224e-80  eta = 6.9167e-263 mean-shift (eta1)  log10 b = 8.38886e+6  log10 N0 = 1.6778e+7
+P (paper): best bL = 0.99427146  s = 0.0029905  1-a = 0.0014975  C0 = 8703.7  C_delta = 38953.0  C_gamma = 3.019e+12
+   C_up = 3.7548e+7  c' = 1.1338e-12  R = 6.2815e+6  dK target = 2.2361e-40
+   per-step log10 n: {'berry_esseen': '176.021', 'mean_shift': '243772.0', 'var_shift_b': '139319.0', 'var_shift_n': '34039.3', 'curvature_sigma': '37.4907', 'patching': '3.0'}
+   log10 N0 = 243772.0  dominant: mean_shift
+S p=193/100: 1-a = 0.036269 C0 = 50.0 C_delta = 259.68 C_gamma = 1.068e+8 | Lean-style log10 N0 = 2827.88 (mean-shift (eta1)), paper-route log10 N0 = 7430.42 (mean_shift)
+S p=19/10: 1-a = 0.052632 C0 = 200.0 C_delta = 1174.3 C_gamma = 2.0827e+9 | Lean-style log10 N0 = 2069.69 (mean-shift (eta1)), paper-route log10 N0 = 5375.03 (mean_shift)
+S p=39/20: 1-a = 0.025641 C0 = 33.333 C_delta = 165.95 C_gamma = 4.5713e+7 | Lean-style log10 N0 = 3954.57 (mean-shift (eta1)), paper-route log10 N0 = 10462.5 (mean_shift)
+F floor: Lean-style log10 N0 = 240.155  R = 1573.0 | paper-route log10 N0 = 537.077 mean_shift {'berry_esseen': '96.792', 'mean_shift': '537.08', 'var_shift_b': '305.52', 'var_shift_n': '75.352', 'curvature_sigma': '19.484', 'patching': '3.0'}

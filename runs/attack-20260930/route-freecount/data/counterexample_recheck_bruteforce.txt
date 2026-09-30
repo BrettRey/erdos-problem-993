@@ -1,0 +1,4 @@
+Independent recheck (branching count over bitmasks, no tree DP), hub-star H(9,2), n=28, v=hub:
+k=12: D_hub = 23677056 > 0
+k=13: D_hub = 301182336 > 0
+I[:5] = [1, 28, 351, 2637, 13326]; J_hub[:5] = [1, 18, 153, 816, 3060]

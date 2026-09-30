@@ -1,0 +1,222 @@
+{
+  "exhaustive_range": "DEVIATION: REPORT.md was not written. The harness refuses report .md files from subagents (\"Subagents should return findings as text\"), and I did not work around that. So the narrative is in this structured return and the data are in data/, with hashes in manifest.yaml. EXHAUSTIVE (exact): n = 10..27, every tree from gentreeg -p -q n r/mod, run through central_margin.c, which is the DP of scripts/lc_census.c (copied unmodified as lc_census_original_copy.c) plus exact __int128 cross-multiplied margins. That is 1,198,737,961 trees, and every count equals OEIS A000055 (reference values from CLAUDE.md, the brief, and total_trees fields in results/*.json). Recorded per n: min m(T) over W5 and W4 (top-12 minimisers), counts of delta<0 and delta=0 in W5/W4, per-k minima, per-alpha minima, the window-top (k=q) minimum, and the exact min Newton ratio r_k = delta_k (k+1)(alpha-k+1)/(alpha+1) (n<=28 enforced for __int128 safety). FLOAT tilted diagnostics were also taken: min V_k*delta_k binned by V. The Fang statistic Q_k = V^{3/2}(2p_k - p_{k-1} - p_{k+1}) was run exhaustively for n = 10..26 with central_margin_q.c. CHECKS: an independent Python run (networkx nonisomorphic_trees, Fractions) for 10<=n<=14 reproduces counts, both minima, violation counts, every per-k minimum, the window-top minimum and the Newton minimum exactly (data/crosscheck_python_n10_14.json all_ok). The C (safeguarded Newton) and Python (bisection) tilt solvers agree on the V*delta minimum to 9 digits at every n. census_10_24.log and census_25_27.log come from the superseded first binary; their data files were overwritten by the refined run in census_10_27.log and census_27.log. COMPUTE: at most 5 cores, apart from about 25 s of smoke tests on a 6th. n=26 took 6.5 min on 5 shards. n=27 took 20.6 min on 4 shards under heavy external load, slightly over the 20-min guideline. n=28 was not run. Total wall clock was about 2h10m against the 60-75 min target.",
+  "central_lc_violations": 0,
+  "per_n": [
+    {
+      "n": 10,
+      "trees": 106,
+      "min_delta": "1/3",
+      "n_times_min_delta": "10/3 = 3.333333",
+      "argmin_description": "star K_{1,9} (parent array 0,1,1,...,1), alpha=9, k=4 (mode; k=5 ties); runner-up 128/375 (n*m=3.4133, alpha=8). Same minimum on W4"
+    },
+    {
+      "n": 11,
+      "trees": 235,
+      "min_delta": "11/36",
+      "n_times_min_delta": "121/36 = 3.361111",
+      "argmin_description": "star K_{1,10}, alpha=10, k=5; runner-up 641/2048 (3.4429)"
+    },
+    {
+      "n": 12,
+      "trees": 551,
+      "min_delta": "2/7",
+      "n_times_min_delta": "24/7 = 3.428571",
+      "argmin_description": "star K_{1,11}, alpha=11, k=5 (k=6 ties); runner-up 3.4760 (double star, alpha=10)"
+    },
+    {
+      "n": 13,
+      "trees": 1301,
+      "min_delta": "13/49",
+      "n_times_min_delta": "169/49 = 3.448980",
+      "argmin_description": "star K_{1,12}, alpha=12, k=6; runner-up 3.5236"
+    },
+    {
+      "n": 14,
+      "trees": 3159,
+      "min_delta": "1/4",
+      "n_times_min_delta": "7/2 = 3.500000",
+      "argmin_description": "star K_{1,13}, alpha=13, k=6; runner-up 3.5704"
+    },
+    {
+      "n": 15,
+      "trees": 7741,
+      "min_delta": "15/64",
+      "n_times_min_delta": "225/64 = 3.515625",
+      "argmin_description": "star K_{1,14}, alpha=14, k=7; runner-up 3.6194"
+    },
+    {
+      "n": 16,
+      "trees": 19320,
+      "min_delta": "2/9",
+      "n_times_min_delta": "32/9 = 3.555556",
+      "argmin_description": "star K_{1,15}, alpha=15, k=7; runner-up 3.6712"
+    },
+    {
+      "n": 17,
+      "trees": 48629,
+      "min_delta": "17/81",
+      "n_times_min_delta": "289/81 = 3.567901",
+      "argmin_description": "star K_{1,16}, alpha=16, k=8; runner-up 3.7006"
+    },
+    {
+      "n": 18,
+      "trees": 123867,
+      "min_delta": "1/5",
+      "n_times_min_delta": "18/5 = 3.600000",
+      "argmin_description": "star K_{1,17}, alpha=17, k=8; runner-up 3.7259"
+    },
+    {
+      "n": 19,
+      "trees": 317955,
+      "min_delta": "19/100",
+      "n_times_min_delta": "361/100 = 3.610000",
+      "argmin_description": "star K_{1,18}, alpha=18, k=9; runner-up 3.7494"
+    },
+    {
+      "n": 20,
+      "trees": 823065,
+      "min_delta": "2/11",
+      "n_times_min_delta": "40/11 = 3.636364",
+      "argmin_description": "star K_{1,19}, alpha=19, k=9; runner-up 149773/797449 (3.7563): two stars joined through a middle vertex, alpha=18"
+    },
+    {
+      "n": 21,
+      "trees": 2144505,
+      "min_delta": "21/121",
+      "n_times_min_delta": "441/121 = 3.644628",
+      "argmin_description": "star K_{1,20}, alpha=20, k=10; runner-up 3.7754"
+    },
+    {
+      "n": 22,
+      "trees": 5623756,
+      "min_delta": "1/6",
+      "n_times_min_delta": "11/3 = 3.666667",
+      "argmin_description": "star K_{1,21}, alpha=21, k=10; runner-up 3.7798"
+    },
+    {
+      "n": 23,
+      "trees": 14828074,
+      "min_delta": "23/144",
+      "n_times_min_delta": "529/144 = 3.673611",
+      "argmin_description": "star K_{1,22}, alpha=22, k=11; runner-up 3.7958"
+    },
+    {
+      "n": 24,
+      "trees": 39299897,
+      "min_delta": "2/13",
+      "n_times_min_delta": "48/13 = 3.692308",
+      "argmin_description": "star K_{1,23}, alpha=23, k=11; runner-up 347497/2195200 (3.7992)"
+    },
+    {
+      "n": 25,
+      "trees": 104636890,
+      "min_delta": "25/169",
+      "n_times_min_delta": "625/169 = 3.698225",
+      "argmin_description": "star K_{1,24}, alpha=24, k=12; runner-up 19090249/125171917 (3.8128), tied by the double star S(18,5) and the midpoint-joined bistar"
+    },
+    {
+      "n": 26,
+      "trees": 279793450,
+      "min_delta": "1/7",
+      "n_times_min_delta": "26/7 = 3.714286",
+      "argmin_description": "star K_{1,25}, alpha=25, k=12; runner-up 475118807/3237710450 (3.8154)"
+    },
+    {
+      "n": 27,
+      "trees": 751065460,
+      "min_delta": "27/196",
+      "n_times_min_delta": "729/196 = 3.719388",
+      "argmin_description": "star K_{1,26}, alpha=26, k=13; runner-up 9454385/66699889 (3.8271, alpha=25): parent array 0,1,2x19,1,22x5 (stars K_{1,19} and K_{1,5} joined through vertex 1), tied by double star S(19,6)"
+    }
+  ],
+  "tilted_V_delta": "All values in this field are FLOAT diagnostics. lambda_k is the hard-core fugacity with mean exactly k; V_k is the variance there.\n\n(1) V_k*delta_k over every tree with n<=27 and every k in W5 is at least 0.5122, reached at n=13 by a tree with alpha=7 at k=q=5, V=0.89. Per-n minima: 0.548, 0.516, 0.574, 0.512, 0.606, 0.637, 0.652, 0.645, 0.644, 0.649, 0.678, 0.712, 0.685, 0.712, 0.681, 0.718, 0.738, 0.748 for n=10..27. The minimum always sits at the window top k=q, in trees with small alpha where V is about 0.9-2.3 (the discrete O(1)-variance regime).\n\nRestricted to V>=4, V*delta >= 0.81 for n=17..27 (0.8098 at n=26). In the families to n~300, the minimum of V*delta by V bin is 0.516 (V>=0), 0.705 (V>=2), 0.812 (V>=4), 0.896 (V>=8) and 0.942 (V>=16). At each family's delta-minimiser at the largest n, V*delta is 0.963-0.990. So V*delta -> 1 (delta ~ 1/V, the Gaussian value). The star at its argmin gives V*delta = 0.750 at n=10 rising to 0.895 at n=27 (-> (n-1)/(n+2)).\n\nSamples (Bernoulli by a hash of the parent array; 2,099 / 1,992 / 1,992 trees at n=16/20/24) sit inside the exhaustive extremes: min V*delta 0.652 / 0.702 / 0.741, medians 0.714 / 0.764 / 0.800, min at k=q in 91/72/82% of trees, none below 1/4.\n\nSo V_k*delta_k is bounded below by about 1/2 on the central window in everything seen. That is well above the Poisson-binomial Theorem thm:main value 1/4, and above its bracket 1/4 <= c* <= 1/3 (paper/poisson_binomial/main.tex). The comparison is not like-for-like: that theorem uses the first descent of the untilted law with V>=1, while here k is the exact tilted mean.\n\n(2) Fang et al. arXiv:2609.20961, Proposition 6.2, Eq. (6.4), p.11 (read from my own pdftotext extraction, sources/fang_2026.txt): sigma^3(2P(X=k) - P(X=k-1) - P(X=k+1)) -> 1/sqrt(2 pi) uniformly over forests on n vertices and lambda in K=[1/4,12] (K defined p.3), with mu=k. LC (6.5) then follows by AM-GM. Their p.3 overview says the mean is at most n/5 at lambda=1/4 and exceeds 17alpha/25 at lambda=12, so W5 lies inside their range.\n\nMeasured Q_k: Q_k > 0 for EVERY tree n<=26 and every k in W5 (0 trees with Q<=0), so their pointwise criterion never fails in the data, even at n=10. Min Q is 0.2116 at n=10 (star at the boundary k=2), 0.286 at n=24, 0.305 at n=25, 0.309 at n=26. With V>=4, min Q >= 0.332 (n=17..26). In the families, Q at the delta-argmin at the largest n is 0.387-0.396, against the limit 0.3989. Evaluated at each family member's Q-minimising k (not at every window k), (1/sqrt(2pi) - Q)*V <= 0.369, and in the exhaustive bins with V>=4 it is <= 0.28. So the observed convergence in (6.4) is O(1/V) with a small constant.\n\n(3) The Newton ratio (exact) fails inside W5, but mildly. The min is 0.923-0.945 for 11<=n<=27 (0.844 at n=10 from the star's k=2 term, where i_1=n). At n=27, 4,841,128 trees (0.64%) have some r_k<1, and 58% of them fail first at k=q. The minimisers are star-of-stars shapes (a root joined to the centres of several K_{1,3}). The families' minimum is 0.883 (n=10), and the star-of-K_{1,3} family stays >= 0.917 to n=289.\n\n(4) Hill-climbs, simulated annealing, 300 s each. Minimising n*m(T) at n=40 (1.66M exact evaluations) and n=80 (0.54M) converged to the star exactly and found nothing below it. Minimising Q over V>=4 at n=50 reached 0.354. The Newton-ratio climb at n=50 reached only 0.958, worse than the known family value 0.921 at n=49, so it is a failed kill-test for that objective and counts as no evidence.",
+  "families": [
+    {
+      "family": "star K_{1,n-1}",
+      "max_n": 301,
+      "min_delta_scaling": "exact: 4/(n+2) (n even), 4n/(n+1)^2 (n odd); n*min delta = 3.9736 at n=301, -> 4 from below",
+      "notes": "Worst family and the exhaustive argmin at every n. Newton ratio exactly 1 for k>=3. V*delta at argmin 0.990 at n=301; Q at argmin 0.3960 (limit 0.3989); min Q over members 0.305"
+    },
+    {
+      "family": "double star S(a,a) and S(a,3a)",
+      "max_n": 298,
+      "min_delta_scaling": "n*min delta 3.9866 at n=298; two-point extrapolation (assumes c - b/n) gives 4.000, from above the star",
+      "notes": "Near-star; runner-up shape in the census. Newton min 0.935 (a,a); Q at argmin 0.3959; never below the star at equal n"
+    },
+    {
+      "family": "two stars joined through a midpoint (bistar_mid a,a and 4a,a)",
+      "max_n": 299,
+      "min_delta_scaling": "n*min delta 3.9867 at n=299; extrapolated limit 4.000 from above",
+      "notes": "The exhaustive runner-up shape at n=20-27 (tied with a double star). Newton min 0.939"
+    },
+    {
+      "family": "broom (path P_p plus s leaves at one end), s=p and s=3p",
+      "max_n": 300,
+      "min_delta_scaling": "n*min delta 5.79 (s=p, n=300) and 4.70 (s=3p, n=288); extrapolated limits 5.87 and 4.76",
+      "notes": "Newton >= 1.017; Q at argmin 0.395"
+    },
+    {
+      "family": "caterpillars (1, 2, 4 leaves per spine vertex)",
+      "max_n": 300,
+      "min_delta_scaling": "n*min delta 8.57 / 6.92 / 4.92 at max n; extrapolated limits 8.74 / 7.03 / 4.99",
+      "notes": "The 4-leaf caterpillar has Newton ratio 0.951-0.970 (flat, below 1)"
+    },
+    {
+      "family": "spiders S(2^m), S(3^m), S(1^a 2^a)",
+      "max_n": 301,
+      "min_delta_scaling": "n*min delta 7.86 / 7.41 / 6.11 at max n; extrapolated limits 8.00 / 7.50 / 6.18",
+      "notes": "S(2^m) attains the global family min V*delta 0.516 and min Q 0.227 at n=11 (V=0.88); at n=291, V*delta at argmin is 0.980 and Q is 0.393"
+    },
+    {
+      "family": "stars of paths / long spiders S(5^m), S(10^m), S(L,L,L)",
+      "max_n": 291,
+      "min_delta_scaling": "n*min delta 8.64 / 9.39 / 10.08 at max n; extrapolated limits 8.78 / 9.56 / 10.38",
+      "notes": "'Stars of paths' read as spiders with equal long legs. Newton >= 1.17"
+    },
+    {
+      "family": "path P_n",
+      "max_n": 301,
+      "min_delta_scaling": "n*min delta 10.13 at n=301; extrapolated limit 10.38",
+      "notes": "Argmin at the window bottom; Newton >= 1.25"
+    },
+    {
+      "family": "complete binary / complete ternary trees",
+      "max_n": 255,
+      "min_delta_scaling": "n*min delta 6.72 (binary, n=255; extrapolated 6.95) and 5.06 (ternary, n=121)",
+      "notes": "Ternary Newton min 0.923; binary 0.958"
+    },
+    {
+      "family": "edge-subdivided complete binary trees (1 and 2 subdivisions)",
+      "max_n": 253,
+      "min_delta_scaling": "n*min delta 9.18 (n=253) and 9.35 (n=187); extrapolated 9.38 / 9.66",
+      "notes": "Newton >= 1.15"
+    },
+    {
+      "family": "star of stars (root joined to centres of m copies of K_{1,s}), s=2,3,4,6",
+      "max_n": 301,
+      "min_delta_scaling": "n*min delta 7.41 / 5.57 / 4.82 / 4.46 at max n; extrapolated limits 7.50 / 5.67 / 5.04 / 4.50",
+      "notes": "The Newton-ratio minimiser shape of the exhaustive census (s=3 reproduces the n=25 minimum 0.92885 exactly). Newton min 0.883 (s=2, n=10) and 0.917 (s=3, n~65-81), rising towards 1 by n~289; the largest (1/sqrt(2pi)-Q)*V at the Q-minimising k, 0.369, occurs here"
+    },
+    {
+      "family": "Galvin T_{m,t} (Bautista-Ramos arXiv:2511.00334 Def. 1(iii)), t=2,3,4,6",
+      "max_n": 301,
+      "min_delta_scaling": "n*min delta 8.65-8.89 at n~300; extrapolated limits 8.78-9.05",
+      "notes": "Known non-LC family, harmless centrally: T_{3,4} (n=28) breaks at q+4; T_{3,t} at n=280 breaks at q+46 (n*min delta 7.89, extrapolated 8.00). Newton >= 1.01; Q at argmin 0.392-0.394"
+    },
+    {
+      "family": "Kadrawi-Levit T_{3,m,m} and T_{3,m,m+1} (Levit-Kadrawi arXiv:2603.17114 Def. 3.1(1))",
+      "max_n": 294,
+      "min_delta_scaling": "n*min delta 7.906 (n=294); extrapolated limit 8.00",
+      "notes": "LC breaks at q+11 (n=70) growing to q+48 (n=294), far above the window. T_{3,3,4} (n=24) is LC, as recorded in the project notes. Newton >= 1.01"
+    },
+    {
+      "family": "Bautista-Ramos TG_{m,t} (arXiv:2511.00334 Def. 1(iv)), t=3,5",
+      "max_n": 288,
+      "min_delta_scaling": "n*min delta 8.96 (t=3) and 8.50 (t=5) at max n; extrapolated 9.16 / 8.67",
+      "notes": "TG_{m,5} breaks at q+5 (n=36) to q+19,q+21 (n=138); TG_{2,5} has two breaks, matching the paper. Newton >= 1.11"
+    }
+  ],
+  "scaling_hypothesis": "Two scales, kept separate. Evidence only, no theorem.\n\n(A) On the delta scale: min over trees T on n vertices of min_{k in W5(T)} delta_k equals the star's value, 4/(n+2) for n even and 4n/(n+1)^2 for n odd, so n*min delta -> 4 from below. This holds exactly, with the star as unique minimiser, at every n from 10 to 27 (1.2e9 trees). No family member (0 of 473, n<=301) and no hill-climb (n=40, 80) goes below it. Near-star families approach n*m -> 4 from above; every other family has a constant between about 4.5 and 10.4. The same minimum holds on W4. This is the number an effective argument must beat: delta ~ 4/n. The extremal law is the binomial C(n-1,k), which saturates Newton's inequality.\n\n(B) On the local-limit scale, the scale-free forms stay bounded away from zero everywhere seen. V_k*delta_k >= 0.51 overall, >= 0.81 for V>=4, and -> 1. The Fang et al. Prop. 6.2 statistic satisfies Q_k >= 0.21 overall, >= 0.33 for V>=4, is > 0 for every tree n<=26, and tends to 1/sqrt(2pi) with deficit at most about 0.37/V at each member's worst k.\n\nConclusion (evidence): if N0 is as large as the audits find [wording changed before publication, 2026-09-30, to remove a reference to private correspondence], the obstruction lies in the proof's constants (e.g. c = inf beta/338 in Lemma 6.1, p.10, and the Berry-Esseen step), not in any tree or family approaching failure in the central window. An explicit rate |Q - 1/sqrt(2pi)| <= C/V with V >= c'n would give N0 of order C/(0.4 c'); C ~ 0.4 fits all the data. Newton's inequality itself fails on W5 (min ratio about 0.92), so a real-rootedness route cannot work as stated. delta_k >= 0.9(alpha+1)/((k+1)(alpha-k+1)) held on W5 for every tree seen.",
+  "extremal_family": "The star K_{1,n-1}: independence polynomial (1+x)^{n-1} + x and delta_k = n/((k+1)(n-k)) for k>=3, minimised at the mode. It gives min central margin 4/(n+2) (n even) or 4n/(n+1)^2 (n odd), ~4/n. It is the unique exhaustive minimiser for 10<=n<=27 and is never beaten by any family member to n~300 or by the hill-climbs. Runners-up are near-stars: a double star, or two stars joined through a midpoint vertex, with n*m -> 4 from above. The known non-log-concave families (Galvin T_{m,t}, Kadrawi-Levit T_{3,m,n}, Bautista-Ramos TG_{m,t}) have central constants of about 8-9 and LC breaks at q+4 or above. For the Newton ratio, the worst shapes are 'star of stars' (a root joined to the centres of several K_{1,3}), at about 0.92.",
+  "report_path": "/Users/brettreynolds/projects/LLM-CLI-projects/papers/queue/erdos-problem-993/runs/attack-20260930/census. No REPORT.md: the harness refused the subagent report file, so the narrative is in this return. Machine-readable summary: data/per_n_summary.csv. Per-n exact records: data/census_n{10..27}.json. Q statistic: data/qstat_n{10..26}.json. Families: data/families.json. Tilted samples: data/tilted_summary.json and data/tilted_sample_n{16,20,24}.json. Hill-climbs: data/hillclimb/*.json. Cross-check: data/crosscheck_python_n10_14.json. Hashes, git HEAD e94d47f6b421de8b8641542a138e3af936f33ea7 and input SHA-256s: manifest.yaml. Scripts: central_margin.c, central_margin_q.c, run_census.py, run_census_waves.py, run_q.py, treepoly.py, families.py, tilted.py, hillclimb.py, crosscheck_python.py, make_tables.py, make_manifest.py. Fang text: sources/fang_2026.txt."
+}
