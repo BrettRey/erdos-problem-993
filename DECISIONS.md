@@ -787,3 +787,20 @@ route.
   only in hub constructions with hundreds to thousands of vertices.
 Record: `runs/attack-20260930/lp-discharge/RESULTS.md`. Assisting system:
 Claude Code (Opus 5.5) with one adversarial subagent.
+
+2026-09-30 — Radius pre-test run at Brett's direction ("do the cheap
+check"); the hypothesis that deeper nesting forces multi-hop certificates is
+refuted on layered trees.
+- **Where the positive defect sits.** In 13,444 layered trees (depth 2–6,
+  up to n about 7,000), positive defect occupies isolated depths next to
+  negative ones.
+- **Every positive case is locally payable.** In all 387,969 positive
+  cases, each positive vertex can be paid by its own children and
+  grandchildren with at least 5x surplus. Every killer is covered (H(75,5)
+  602x, MSH(38;11,2) 1062x).
+- **Consequence.** One-hop failures come from uniform shares, not distance.
+  A larger multi-hop search is not warranted. The next candidate is
+  short-range transfers with structure-aware shares, and it has not been
+  run.
+Record: `runs/attack-20260930/radius-check/RESULTS.md`. Assisting system:
+Claude Code (Opus 5.5).

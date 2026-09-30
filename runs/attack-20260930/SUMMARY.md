@@ -221,3 +221,18 @@ Details: `lp-discharge/RESULTS.md`.
 - **Verdict.** One-hop discharging is exhausted as a route. Small trees
   predict nothing here: every candidate rule holds through `n <= 27` and
   fails only in constructions with hundreds to thousands of vertices.
+
+## Follow-up: radius check (same day)
+
+Before any larger multi-hop search, a cheap exact test asked whether deeper
+nesting pushes positive defect farther from negative defect. It doesn't:
+
+- in 13,444 layered trees of depth 2–6, positive defect sits only at
+  isolated depths next to negative ones;
+- every positive vertex, including those in all the killers, can be paid by
+  its own children and grandchildren with at least 5x surplus.
+
+So one-hop rules fail through uniform shares, not distance. A future search
+should use short-range transfers with structure-aware shares, not more hops.
+Details: `radius-check/RESULTS.md`, which also records a float-overflow trap
+in networkx max-flow.
