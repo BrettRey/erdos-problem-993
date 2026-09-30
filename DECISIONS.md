@@ -767,3 +767,23 @@ central margin on the way to the star, the census's extremal tree.
 - The margin is not monotone along the poset.
 Record: `runs/attack-20260930/gts-test/RESULTS.md`. Assisting system:
 Claude Code (Opus 5.5).
+
+2026-09-30 — One-hop discharging certificates for window log-concavity
+searched by LP at Brett's direction ("proceed"); graded exhausted as a
+route.
+- **Constant rule refuted.** "Keep 2/3 of your defect, give 1/3 equally to
+  neighbours" holds for every tree with n <= 27 (about 1.2e9 trees,
+  exhaustive, 0 violations) but fails at H(75,5), n = 451. That failure
+  was found by an adversarial agent and confirmed with independent code.
+- **No constant share works.** MSH(38;11,2), n = 1293, gives exact
+  contradictory bounds.
+- **Degree-based shares survive the hub families only with zero slack.**
+  The float optimum fails an exact check at the 1e-20 scale.
+- **By-product: smallest pointwise-lemma counterexample.** The pointwise
+  lemma holds for every tree with n <= 27, so its smallest counterexample
+  has exactly n = 28, with H(9,2) the known instance.
+- **Lesson recorded.** For this problem, exhaustive small-n survival
+  (n <= 27) is weak evidence: every local rule tried held there and failed
+  only in hub constructions with hundreds to thousands of vertices.
+Record: `runs/attack-20260930/lp-discharge/RESULTS.md`. Assisting system:
+Claude Code (Opus 5.5) with one adversarial subagent.

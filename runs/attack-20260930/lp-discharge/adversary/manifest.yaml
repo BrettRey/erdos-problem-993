@@ -1,0 +1,73 @@
+# lp-discharge adversary run, 2026-09-30
+model: claude-opus-5-5 (Claude Code subagent)
+git_head: 16254847e0dfc7e801ccac8e36f457a667cf795a
+python: venv/bin/python (python-flint 0.9.0)
+cores_used: <=3
+arithmetic: exact integers/Fractions for every violation and interval claim; floats only in *_f ranking fields
+inputs_reused:
+  - {path: ../../r1-adversarial/r1lib.py, sha256: 58669eb838856149567578e187709fad5300e5b5c867d329fa247d9a60df490e}
+  - {path: ../../r1-adversarial/sa_r1.py, sha256: 3c46f9bc3aeb90aa9b0e8ff70935dd00f1986b84d30623e6f17c7c494864514d}
+  - {path: ../../r1_third_check_20260930.py, sha256: 69e7fd213196c49b3a8325ebdf03a723a0fa7271b958d46f30f7f6ebda220ec6}
+  - {path: ../dlib.py, sha256: 5f38094f63f428fb1f9c08e32f71c413def9cf19317bae7c1676369aa7aeb267}
+  - {path: ../../route-freecount/pv_lib.py, sha256: 07ccba836c30bfef8ca5fbaa228565c748f1703310bb38e79f1b072ae0912140}
+files:
+  - {path: closed_form_H.py, bytes: 1658, sha256: 31302a9db4df4c3a6b4f76fb2786bba6a273341db6ec6e55813b1022b65598cc}
+  - {path: data/H_75_5_edges.json, bytes: 5126, sha256: edca0f7b57fff484302b6fa75e616f90229935983d636daab192654020533485}
+  - {path: data/MSH_25_11_2_edges.json, bytes: 9993, sha256: bb2596a5fa8e4dd8aae750d5e505443161ec40b9c8bd31f4587b3382c1d388da}
+  - {path: data/MSH_38_11_2_edges.json, bytes: 18095, sha256: fc19e1ff18398bd9cd967c202eb5ca9974c1521ff0dce609dbea712ef8291c7b}
+  - {path: data/fam_p0.jsonl, bytes: 2800828, sha256: c1b13ea68dd9b868a016133785fd61199672c49fca1198a85d8ced164b4f9636}
+  - {path: data/fam_p0.log, bytes: 0, sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+  - {path: data/fam_p1.jsonl, bytes: 2787617, sha256: 37ee04aed51501b493f62300cc44a20d7926b4b566a6f0d3358d4eef93af792a}
+  - {path: data/fam_p1.log, bytes: 0, sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+  - {path: data/fam_p2.jsonl, bytes: 2784353, sha256: 9c555ddff8df71e9a537b85af40fdaecbd2850c4946558b889a36c067e07da2a}
+  - {path: data/fam_p2.log, bytes: 0, sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+  - {path: data/grid_H.jsonl, bytes: 878602, sha256: b902c9cebf257d18b2558468d45c02329903e38ef96ae6c8136a92735960764d}
+  - {path: data/grid_H.txt, bytes: 9627, sha256: 95ad4ef95d878bfeb6d6cdad9183ff45842b25822188efdc1ed98f744816ce41}
+  - {path: data/grid_MSH.jsonl, bytes: 519401, sha256: 37e747e1fdcbb2e48d18f834c1239cce3a13fce2fe59185321da20f312bcc303}
+  - {path: data/grid_MSH.txt, bytes: 31119, sha256: e5f63708cf040b2da320f97168bb01917555d01b675d2f4a845695f786d4ae9f}
+  - {path: data/key_results.json, bytes: 3647, sha256: 908ca744e9de91bbc80bf0167e794bc89609a7f41487beed79a3e2f99d0ae963}
+  - {path: data/recheck_H_75_5.json, bytes: 32630, sha256: b2ed173b6eb6080ee8baf5d43fba75000be027671a795a84077ca6b25246b342}
+  - {path: data/recheck_H_75_5.out, bytes: 573, sha256: 5f1c0c7e054471b3e4b1a3b44866853cc0a66ebfdf312b04720c8b6410204e65}
+  - {path: data/recheck_MSH_25_11_2.json, bytes: 865, sha256: a27ba0d378f05dc0d04b41616adb6a367fe8868a335710606fedfce794a4f019}
+  - {path: data/recheck_MSH_25_11_2.out, bytes: 235, sha256: 8a73309424f9aa93d9c9f4ba3c0719b89e2a719bd203526258076450e8974f7d}
+  - {path: data/recheck_MSH_38_11_2.json, bytes: 2371, sha256: 5b4328d4fd0808dd3c502e3fd54782df4245e6dd37f68881aa1797e552ca21c4}
+  - {path: data/recheck_MSH_38_11_2.out, bytes: 345, sha256: 3155d3a8ecd57adf86fed0947706bedfac2b8bb9e440177baeb4c0b318ef0b98}
+  - {path: data/sa_L23.json, bytes: 4215, sha256: 9ccc84aae1628d5cf17d1883331aac85e4d360477f55fed38a1ff260cc1dc91d}
+  - {path: data/sa_L23.log, bytes: 0, sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+  - {path: data/sa_up.json, bytes: 4090, sha256: d437f668021860e4f81c54af2cdb4cb6f542dc4338f987901b7b2053123f4949}
+  - {path: data/sa_up.log, bytes: 0, sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+  - {path: data/scanH_a.jsonl, bytes: 33497, sha256: 72af477728dc0dc22108721820ba285efd92213bb13d693a030809616ac8081d}
+  - {path: data/scanH_big.jsonl, bytes: 159302, sha256: 49ac77ccf0c4564fc4943b1d4c8917f8e9dc656d38261b1a912f7b55d2995ece}
+  - {path: data/scanH_min.jsonl, bytes: 1045634, sha256: 67440ca492273007a52c3181eb5cf0695d1e2ccc333f23db07409f9bd9f0ebf6}
+  - {path: data/scanH_min.txt, bytes: 55418, sha256: a4e5f3b3f4bd3a1f6da89938cad0ffc9fe1983e13c609b1112f0b3a8c902c06e}
+  - {path: data/scan_empty.jsonl, bytes: 4020577, sha256: 29e0668cc800ee10992568a801463d571a45a70a7fcf169bb5f5863396b488fc}
+  - {path: data/scan_empty.log, bytes: 0, sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+  - {path: data/spec_centre_L23_850.json, bytes: 2207, sha256: 7c260dbec8bb06da235ed81c4889a1dc18e0491e7e436e122de1a46ea455df06}
+  - {path: data/spec_centre_L23_850.log, bytes: 0, sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+  - {path: data/spec_centre_low_800.json, bytes: 2069, sha256: 72f849553ab8aad0e2ed680505d3e5e3c8d6d5587a1259f75c0ab65b42d80bcc}
+  - {path: data/spec_centre_low_800.log, bytes: 0, sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+  - {path: data/spec_hub_L23_300.json, bytes: 957, sha256: 42afad2fe62dc543e8fe38db1e5b7ce809d3240220f8a7f7ed82cf1519f3d268}
+  - {path: data/spec_hub_L23_300.log, bytes: 0, sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+  - {path: data/spec_hub_L23_400.json, bytes: 1187, sha256: fb356a0e5ac92bc6853333acebf133e466b85b3cdc9b1334de10eb0d762ba3a9}
+  - {path: data/spec_hub_L23_400.log, bytes: 0, sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+  - {path: data/spec_hub_L23_450.json, bytes: 1299, sha256: 63c75c1ff9441b2596fe6a015cea9d4199987c6574da516279929e60910e9d9d}
+  - {path: data/spec_hub_L23_450.log, bytes: 0, sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+  - {path: data/spec_hub_up_1300.json, bytes: 2957, sha256: 4778b9be2fbb011130259a55267cfcca7b2e9457669c704c193f0bdcb99c0414}
+  - {path: data/spec_hub_up_1300.log, bytes: 0, sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855}
+  - {path: data/summary_buckets.txt, bytes: 1278, sha256: f413a0d6c37400ade71cf2dd248549ecbb4881e869f56c368d49e24c74980cf0}
+  - {path: data/trend_tables.txt, bytes: 2229, sha256: d58d323305ac113c53463794c2a1f9236a9fe368eca3181c06a95bc640e389e7}
+  - {path: families.py, bytes: 5736, sha256: 58ec9e60d39140766653bafd1c4192822a071f6a1a6324f070c2ac1037caa571}
+  - {path: make_manifest.py, bytes: 2170, sha256: 0dc5bbc439fd046c3f27b1ffdfa5a7d34e841463385da07645e2faf07239a53b}
+  - {path: orbit.py, bytes: 4876, sha256: c89a5d78d1a0f82a9a41d145bc775457c6fd9f2a8391f56b710a2e2979e91d23}
+  - {path: recheck_const.py, bytes: 3479, sha256: bf7f530c23ff0bd5cb060b05c8709d1ca0298e898dca17ba2efb2895f2412a8a}
+  - {path: recheck_rows.py, bytes: 3694, sha256: d49a1d6e06b8b6080f593eea0c3765ebe653ad5e07c88ce068a34946bfac1649}
+  - {path: sa_const.py, bytes: 3158, sha256: 0869eae9ea673bc87e197dde306602db81a61eb45a3fc45d6574ee1e941ef528}
+  - {path: scan_H.py, bytes: 623, sha256: ba14b709098f4535da6261e6058f9d1d5def65bb5c5c21dfaa458c48dfd15c0f}
+  - {path: scan_empty.py, bytes: 720, sha256: 263f54b241ae42858775b19a173233af84449ed331b19bc3a5f1880e9a62199b}
+  - {path: scan_grid.py, bytes: 1088, sha256: 7e045f95c1d00f529c7da717d4f27bd58c798c234486178039369e8896c82e15}
+  - {path: slib.py, bytes: 4723, sha256: b69383e9607159ed85787ddcb8f268ba2b1e3c3632e4bdb1222dfc6bf298974b}
+  - {path: spec_search.py, bytes: 3249, sha256: 303ffd732df23aca25583e502df8a8ce08bb28957951f6f067bb0a73455d73a3}
+  - {path: summarize.py, bytes: 1081, sha256: 93aa022a29e3edffead7e4e5f1cf3cff1f11726819e4a0808f2220163f7a4480}
+  - {path: validate.py, bytes: 2576, sha256: 8f54369179d1b4336a412952234fd5374aaf5008811c535fdc21c48a1f40d843}
+  - {path: validate_orbit.py, bytes: 911, sha256: 63e6b68fc91e8283d0e41956ecf3171803b9474a031074ecbff77a4b449ae25d}
+  - {path: data/key_results.json, bytes: 3647, sha256: 908ca744e9de91bbc80bf0167e794bc89609a7f41487beed79a3e2f99d0ae963}

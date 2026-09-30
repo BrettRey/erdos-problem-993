@@ -199,3 +199,25 @@ exactly and is **weak, not pursued**:
 - hub constructions need up to 5 shifts, with no uniform bound in sight.
 
 Details: `gts-test/RESULTS.md`.
+
+## Follow-up: LP search for discharging certificates (same day)
+
+This came from the second idea-generation technique, certificate search.
+Details: `lp-discharge/RESULTS.md`.
+
+- **Constant rules fit everything tested, at first.** An LP over 1.8M
+  constraints found simple one-hop rules certifying window LC on all trees
+  `n <= 16` and on every hub family, including the n = 237 R1 killer. With
+  the constant rule "keep 2/3, give 1/3 equally to neighbours", every tree
+  with `n <= 27` passes: about 1.2e9 trees exhaustively, 0 violations. The
+  pointwise lemma also holds through n = 27, so its smallest counterexample
+  is exactly n = 28.
+- **Then the adversary refuted every constant rule.**
+  - The 2/3 rule fails at the hub-star H(75,5), n = 451. I confirmed this
+    independently.
+  - A single tree with n = 1293 excludes every constant.
+- **Degree-based rules survive the hub families only with zero slack.** The
+  float LP optimum fails an exact check at the `1e-20` scale.
+- **Verdict.** One-hop discharging is exhausted as a route. Small trees
+  predict nothing here: every candidate rule holds through `n <= 27` and
+  fails only in constructions with hundreds to thousands of vertices.

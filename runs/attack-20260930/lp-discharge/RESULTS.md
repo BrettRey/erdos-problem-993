@@ -1,5 +1,5 @@
 # LP search for a local discharging certificate of central log-concavity
-<!-- SUMMARY: An LP over 1.8M exact constraints finds simple one-hop discharging rules certifying window log-concavity; the constant rule "keep 2/3, give 1/3 equally to neighbours" (S23) holds for every tree n<=26 exhaustively (about 448M trees) and on all hub families incl. the R1 killer; n=27-28 census and an adversarial search are running · status: in progress · updated: 2026-09-30 -->
+<!-- SUMMARY: An LP over 1.8M exact constraints finds simple one-hop discharging rules certifying window log-concavity; the constant rule "keep 2/3, give 1/3 equally to neighbours" (S23) holds for every tree n<=27 exhaustively (about 1.2e9 trees) but is refuted at H(75,5), n=451, and no constant rule survives MSH(38;11,2), n=1293; degree-based rules survive the hub families only with zero slack (float LP optimum fails exact check at 1e-20) · status: constant rules refuted; degree-based knife-edge · updated: 2026-09-30 -->
 
 Run on 30 September 2026 at Brett's direction ("proceed"). It follows the
 refutation of R1 (`../SUMMARY.md`) and the failed tree-shift test
@@ -62,17 +62,74 @@ every count equals A000055:
 | 24 | 39,299,897 | 0 | 0 |
 | 25 | 104,636,890 | 0 | 0 |
 | 26 | 279,793,450 | 0 | 0 |
+| 27 | 751,065,460 | 0 | 0 |
 
 The tightest normalized S23 load at n = 24–26 is about -0.030. Raw shard
 output is in `raw/`; the progress log is `s23_progress.log`.
 
-**Running:** the exhaustive census for n = 27–28, where the pointwise lemma
-first fails, and an adversarial search in `adversary/` trying to shrink the
-feasible `sigma` interval to empty and to break S23, up to n of about 300.
+Because n = 27 is also clean, the smallest counterexample to the pointwise
+lemma has exactly **n = 28**: H(9,2) is known there, and nothing smaller
+exists. The n = 28 census was still running when this was written.
+
+## Adversary: constant rules refuted (`adversary/`)
+
+The adversarial search worked in exact arithmetic and rechecked every claim
+with three implementations.
+
+- **S23 refuted.** At H(75,5) (n = 451: a hub with 75 supports, 5 leaves
+  each), the hub row is positive for `k = 220..224`, with maximum normalized
+  load `+8.34e-6` at `k = 222`. LC holds throughout. I confirmed this
+  separately with fresh code built from the construction
+  (`my_check_H75_5.py`).
+- **No constant rule works.** The single tree MSH(38;11,2), n = 1293,
+  needs `sigma >= 0.98755` at the centre (`k = 583`) and
+  `sigma <= 0.98587` at a hub (`k = 579`). The bounds are exact rationals,
+  and the gap is 0.013 at MSH(48;11,2), n = 1633.
+- **How the bounds move.** Hub-stars H(m,s) push the upper end down (to
+  0.406 at H(1200,12)). Stars of hub-stars MSH push the lower end up
+  (towards 1 as the centre degree grows). The two ends cross between
+  n = 700 and n = 900.
+
+## Degree-based rules: a knife-edge (`symrows.py`, `gen_sym.py`, `lp_degree_*.py`, `exact_check_degree.py`)
+
+Closed forms for H(m,s) and MSH(h;m,s) were built with python-flint and
+checked against the generic DP (`check_symrows.py`). They give 623,055 rows:
+
+- H with `m <= 200`, `s <= 8`;
+- MSH with `h <= 120`, `m <= 14`, `s <= 3`, up to n = 6841.
+
+Every level passes the exact identity check.
+
+**LP result.** A degree-based `sigma(d)` is feasible only with **zero
+margin**: the best relative margin is 0 to within about 1e-12.
+
+**Mechanism.** Near the top of the window, the centre's defect is
+essentially 0 (about `-4e-18` normalized) and each hub's is small and
+positive. The centre row can only reach 0, and only if every hub keeps its
+whole defect (`sigma(m+1) = 1`), so that nothing positive flows to the
+centre.
+
+**Exact check.** The float optimum, rationalized and snapped to 0 or 1,
+still fails 3 of the 623,055 rows exactly (centre rows of MSH(8;9,2),
+MSH(10;10,2) and MSH(4;9,2), at about `1e-20`).
+
+**Verdict.** A degree-based rule, if one exists on these families at all,
+must hit exact equalities at particular degrees. That is not a credible
+proof route, and any family in which one degree plays two roles would
+likely make it infeasible. Not pursued.
 
 ## Status
 
-S23 is a deterministic candidate lemma with no size threshold. If it holds
-for every tree, #993 follows. It was fitted using hub families that had
-already killed R1, and it has survived out-of-sample exhaustive testing
-through n = 26. No proof mechanism is known yet.
+One-hop discharging certificates are exhausted as a proof route. Fixed
+weights (R1) fail at n = 237. Constant shares (S23 and every other constant)
+fail at n = 451 and n = 1293. Degree-based shares survive the hub families
+only with zero slack.
+
+In every case the obstruction is the same: hub constructions whose centre
+and hubs have near-zero or positive defects near the top of the window, so
+the negative defect that could pay for them sits one level further out.
+Every such rule nonetheless holds for all trees with `n <= 27`, which shows
+how badly small cases predict large ones here.
+
+A certificate that could work would have to move defect across several
+hops with structure-aware weights, or use a non-local argument.
