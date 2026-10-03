@@ -48,3 +48,4 @@
 {"event": "override", "pass": "figures", "reason": "The manuscript has no figures or charts.", "gate": "submission", "ts": "2026-10-03T09:37:06-04:00"}
 {"event": "override", "pass": "lakoffian-metaphor", "reason": "Pure mathematics paper: no conceptual-metaphor argument.", "gate": "submission", "ts": "2026-10-03T09:37:06-04:00"}
 {"event": "override", "pass": "rhetoric-and-humour", "reason": "Pure mathematics paper in terse journal register; the de-ai-prose and scar-tissue passes covered its prose.", "gate": "submission", "ts": "2026-10-03T09:37:06-04:00"}
+{"event": "config", "manuscript": "paper/poisson_binomial/variance-scaled-turan-first-descent.tex", "ts": "2026-10-03T09:54:05-04:00"}

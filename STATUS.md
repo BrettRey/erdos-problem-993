@@ -15,7 +15,7 @@ venue: none
 external_id: '15526'
 preprints:
 - zenodo/19100781
-next_action: '#993 line dropped by Brett 2026-10-03 (no short-note rebuild of main_v2). Live work is the Poisson-binomial paper (paper/poisson_binomial/main.tex) for Electronic Communications in Probability: revision pass done, gates rerun. Owed by Brett before submission: Zenodo upload of the rebuilt supplement (paper prints ZENODO-DOI-PENDING), EJMS account, ECP/IMS AI-policy check on submission day, decision to proceed without independent human audit. See DECISIONS 2026-10-03 (drop) and submission/portal-fields-ECP-*.md.'
+next_action: '#993 line dropped by Brett 2026-10-03 (no short-note rebuild of main_v2). Live work is the Poisson-binomial paper (paper/poisson_binomial/variance-scaled-turan-first-descent.tex) for Electronic Communications in Probability: revision pass done, gates rerun. Owed by Brett before submission: Zenodo upload of the rebuilt supplement (paper prints ZENODO-DOI-PENDING), EJMS account, ECP/IMS AI-policy check on submission day, decision to proceed without independent human audit. See DECISIONS 2026-10-03 (drop) and submission/portal-fields-ECP-*.md.'
 notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-polynomial
 
   unimodality), not a linguistics paper -- flagging per the task''s "consider
@@ -97,7 +97,7 @@ claim:
 ## 2026-10-03 (later): #993 dropped; the Poisson–binomial paper is prepared for ECP
 
 - **Brett dropped the #993 line.** He also added the project's verification practice to the Language-Mediated Control book as a case candidate (book commit `95b8898`, `notes/case-candidate-erdos-993-ai-assisted-proof.md`).
-- **`paper/poisson_binomial/main.tex` revised for readability.** A full referee-style read reported the E-JC problems in milder form, at the edges rather than in §§2–3. The paper went from 12 pages to 11. An independent verifier found the new mathematics correct and caught one false sentence, which was fixed. The cold-read gate passed 4/4 on the final opening, and the submission pass gate is clear.
+- **`paper/poisson_binomial/variance-scaled-turan-first-descent.tex` (formerly `main.tex`) revised for readability.** A full referee-style read reported the E-JC problems in milder form, at the edges rather than in §§2–3. The paper went from 12 pages to 11. An independent verifier found the new mathematics correct and caught one false sentence, which was fixed. The cold-read gate passed 4/4 on the final opening, and the submission pass gate is clear.
 - **Supplement rebuilt.** It now includes `scripts/verify_pb_large_h_range.py` for H ≥ 16. Archive SHA-256 `69dc523b…17af`; it replays from a clean extraction.
 - **Owed by Brett:** see `submission/portal-fields-ECP-2026-10-03.md` §11. The cover letter is `submission/cover-letter-ECP-2026-10-03.md`. Run records: `runs/pb-submission-gate-20261003/`. Decisions: DECISIONS 2026-10-03 (two entries).
 

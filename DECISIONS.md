@@ -944,3 +944,5 @@ Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
 - **Still owed by Brett:** the items in `submission/portal-fields-ECP-2026-10-03.md` §11, plus the exact model name in the AI disclosure. The acknowledgement says "GPT-5.6", while project records also say "GPT-5.6 sol" and "GPT-5.6-sol Ultra".
 
 Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 — PB manuscript renamed `paper/poisson_binomial/main.tex` → `variance-scaled-turan-first-descent.tex` at Brett's instruction ("never use main.xxx. Give it a real name"). Bundle script, portal record, STATUS and the passes pin updated; gate still clear. Pre-DOI PDF SHA-256 is now `0b207438…535d` (the filename enters the PDF metadata).
