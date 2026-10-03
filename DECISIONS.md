@@ -1077,3 +1077,16 @@ Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
 - **Page cap:** 13 pages; Brett: "13pp is fine." This supersedes the project's 12-page safety cap from the 2026-07-16 venue decision. The journal's stated limit (IMS 2025 editorial report, as recorded there) is within 12, at most 13.
 
 Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 — Aristotle's Lean proof of Proposition 3.1 replayed locally and accepted as verified. Project bd2ed5ea, self-graded COMPLETE.
+- **Replay:** `lake build` passes on Lean 4.28.0 with Mathlib v4.28.0, and `#print axioms` gives only `propext`, `Classical.choice` and `Quot.sound` for all three theorems.
+- **Audit:** no escape hatches; definitions and theorem signatures identical to the packet; inputs byte-identical.
+- **New route for 3 < H ≤ 16:** A(δ,K) and the target both decrease in δ for fixed K, so one check per interval needs only 32 exact rational inequalities. Re-checked independently in Python: all pass, tightest ratio 1.0079.
+- **Paper's certificate:** cross-checked separately in Lean (275 coefficients positive, identities exact), but for m ≥ 4 it isn't linked to A.
+- **Not formalized:** §§2–3 and Theorem 1.1.
+- **Record:** `formalization/pb_scalar_inequality_aristotle_result/LOCAL_REPLAY.md`.
+- **Open for Brett:**
+  - whether the paper now mentions the formalization: supplement description, acknowledgement credit, and the Lean project added to the archive before the Zenodo upload;
+  - whether §4.1 adopts the simpler monotonicity route.
+
+Assisting system: Claude Code (Opus 5.5); formal proof by Aristotle (Harmonic).
