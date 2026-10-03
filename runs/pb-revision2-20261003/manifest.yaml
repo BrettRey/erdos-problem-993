@@ -26,3 +26,4 @@ output_sha256:
   ./INPUT_external_review.md: 44cddba09beeec7d76ae9b7f00e917f0fa46f8cd951594b6d6483e7b7881b9ee
   ./RETURN_math_verifier.md: 494d29a9ecf1aab9a380cdeecf5a73e89018de88f3c7f0723ec3ec22d3f42f84
   ./RETURN_prose_review.md: 2533b2982ad0bc4a4e8d4356ac43c7fc098288f4f14625743b1ff47509a3a24e
+  ./RETURN_verifier_sec41_monotone.md: 9111c57b6736407c5a9911d1ce43eec5833a7987717707602871066b3f6a265e  # 2026-10-03, responsibility-verifier (claude-opus-5-5, same family as parent), saved verbatim by parent; reviewed the post-switch working tree on top of 35a6fd0

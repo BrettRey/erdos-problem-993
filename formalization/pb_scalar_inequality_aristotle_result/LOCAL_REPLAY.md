@@ -68,3 +68,20 @@ Scope and limits:
 - **Not formalized:** the deduction of Theorem 1.1 from Proposition 3.1
   (§§2–3: the Hillion–Johnson recurrence, the mass bounds, the
   maximal-mass bound), Example 1.6, and Theorem 1.1 itself.
+
+## Note added 2026-10-03, after the manuscript adopted this route
+
+After this replay, the manuscript's §4.1 switched to the monotonicity route
+proved here in `PBScalar/Compact.lean`. The Bernstein certificate became the
+supplement's independent second check of 3 < H ≤ 16.
+
+So the comments in Aristotle's files that describe "the paper's" route for the
+compact range now describe the earlier draft. That covers `README.md`,
+`ARISTOTLE_SUMMARY.md`, `Compact.lean`, `Statement.lean`,
+`PaperIdentities.lean` and `PaperCells/Defs.lean`, and their references to the
+identity $A-Q=P(H)/(4H^5(H+1)^3)$ and the polynomials $P_m$. These files are
+left unchanged, because the provenance claims above depend on that.
+
+The ratios in item 6 are rounded to nearest: 1.0079 and 3.517. The manuscript
+prints the same values rounded down, 1.0078 and 3.516. The exact values are
+1.00786… and 3.51664….

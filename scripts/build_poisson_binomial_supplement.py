@@ -26,6 +26,10 @@ LEAN_PROJECT_ROOT: Final = (
     REPOSITORY_ROOT / "formalization" / "pb_effective_drop_aristotle"
 )
 
+SCALAR_LEAN_ROOT: Final = (
+    REPOSITORY_ROOT / "formalization" / "pb_scalar_inequality_aristotle_result"
+)
+
 ARCHIVE_MEMBERS: Final = (
     (
         "CERTIFICATE.md",
@@ -87,6 +91,10 @@ ARCHIVE_MEMBERS: Final = (
         / "check_universal_pb_finite_bernstein_certificate.py",
     ),
     (
+        "scripts/verify_pb_compact_monotone.py",
+        REPOSITORY_ROOT / "scripts" / "verify_pb_compact_monotone.py",
+    ),
+    (
         "scripts/verify_pb_cue_threshold.py",
         REPOSITORY_ROOT / "scripts" / "verify_pb_cue_threshold.py",
     ),
@@ -100,6 +108,12 @@ ARCHIVE_MEMBERS: Final = (
         / "scripts"
         / "verify_universal_pb_finite_bernstein.py",
     ),
+) + tuple(
+    (f"formalization/pb_scalar_inequality_aristotle_result/{path.relative_to(SCALAR_LEAN_ROOT).as_posix()}", path)
+    for path in sorted(SCALAR_LEAN_ROOT.rglob("*"))
+    if path.is_file()
+    and ".lake" not in path.relative_to(SCALAR_LEAN_ROOT).parts
+    and path.suffix in {".lean", ".md", ".toml", ".json", ".py", ".sh", ""}
 )
 
 

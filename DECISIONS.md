@@ -1090,3 +1090,23 @@ Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
   - whether §4.1 adopts the simpler monotonicity route.
 
 Assisting system: Claude Code (Opus 5.5); formal proof by Aristotle (Harmonic).
+
+2026-10-03 — Brett: formalize §§2–3, mention the formalizations in the paper, and switch §4.1 to the monotonicity route.
+- **§4.1 rewritten.**
+  - A_K(δ) and the target both decrease in δ, so one endpoint check per interval suffices: 32 exact rational inequalities, with rounded-down margins printed.
+  - The P(H) and P_m Bernstein certificate left the paper. It stays in the supplement as an independent second check, and its 275 coefficients still replay.
+  - The symmetrization (R_r ≥ b_r, A ≥ ST) moved to the start of §4.2, the only place it is used. The Bernstein conversion formula moved there too.
+  - New program `scripts/verify_pb_compact_monotone.py` (standard library) checks the 32 inequalities, the printed ratios, and ST < Q at H = 7/2.
+- **Formalizations in the paper.**
+  - The abstract says the one-variable inequality is verified in Lean.
+  - The outline and the supplement description both say so too.
+  - The acknowledgement credits Aristotle for both Lean proofs and for supplying the monotonicity argument.
+  - Supplement zip rebuilt (44 members, now including the Lean project): sha256 `0393dd23…3246` (rebuilt after the verifier fixes).
+  - CERTIFICATE.md updated.
+  - Portal fields and cover letter updated. The paper remains 13 pages.
+- **§§2–3 packet submitted to Aristotle:** project `e7a03302-49a3-4402-b8a8-9f88ed293b55`, packet `formalization/pb_deduction_aristotle/`.
+  - G1: the deduction, conditional on the HJ cubics, strict log-concavity and the maximal-mass bound.
+  - G2: the maximal-mass bound. G3: the Poisson–binomial basics. G4: the HJ cubic inequalities. G0: Theorem 1.1 for Poisson–binomial laws.
+  - Every statement was tested beforehand on random instances in exact arithmetic, with no violations. The supplement text says §§2–3 are formalized only conditionally; update it when the return is replayed.
+
+Decision owner: Brett. Assisting system: Claude Code (Opus 5.5); monotonicity route from Aristotle (Harmonic).

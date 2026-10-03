@@ -34,8 +34,9 @@
   $1/\log N$, against order $1/N$ from ultra-log-concavity. The proof combines
   the cubic inequalities with a maximal-mass bound of Bobkov, Marsiglietti, and
   Melbourne to reduce the main inequality to a one-variable inequality, which
-  is proved by Bernstein expansions, with a computer-assisted step in exact
-  rational arithmetic.}
+  is proved by a monotonicity argument and Bernstein expansions, with a
+  computer-assisted step in exact rational arithmetic, and is verified in the
+  Lean proof assistant.}
 
 \hypersetup{
   pdftitle={Variance and local log-concavity of Poisson-binomial laws},
@@ -400,16 +401,17 @@ about $\delta^{-1/2}$ of the mode are comparable to $M$, and $A(\delta)$ is
 of order $\delta^{-2}$. With $V(1+12V)\geq A(\delta)$, this makes $V$ of
 order at least $1/\delta$.
 
-Section~\ref{sec:scalar} proves the one-variable inequality by Bernstein
-expansions. For $1/17\leq\delta<1/4$ the proof rests on 275 rational
-coefficients computed by a program and recomputed by an independent checker
-(supplement); for $1/22\leq\delta\leq1/17$ on five rational coefficients
-printed in the text; and for $\delta\leq1/22$ on coefficients that are
-polynomials in an integer parameter, all of whose coefficients are positive.
-Several steps can lose a constant, among them the mass bounds, the
-maximal-mass bound, the symmetrization in Section~\ref{sec:scalar} that
-replaces each $R_r$ by $L_r$, and the replacement of $b_r$ by $\lambda_r$ for
-$H\geq16$; they need not be tight simultaneously.
+Section~\ref{sec:scalar} proves the one-variable inequality. For
+$1/17\leq\delta<1/4$ a monotonicity argument reduces it to 32 rational
+inequalities, checked by a program in exact arithmetic (supplement), whose
+margins are printed in the text (for the 20 pieces at $K=3$, the smallest); for $1/22\leq\delta\leq1/17$ the proof rests
+on five rational Bernstein coefficients printed in the text, and for
+$\delta\leq1/22$ on Bernstein coefficients that are polynomials in an integer
+parameter, all of whose coefficients are positive. Section~\ref{sec:scalar}
+is also formalized in Lean (supplement). Several steps can lose a constant,
+among them the mass bounds, the maximal-mass bound, the symmetrization for
+$H\geq16$ that replaces each $R_r$ by $L_r$, and the replacement of $b_r$ by
+$\lambda_r$; they need not be tight simultaneously.
 
 \section{The recurrence for normalized Tur\'an deficits}
 \label{sec:propagation}
@@ -654,21 +656,66 @@ Then $K=\max\{r\in\mathbb Z_{\geq1}:r<H\}$, and the bounds $L_r$ of
 \begin{equation}\label{eq:b-def}
   L_r=b_r:=\prod_{s=1}^r\left(1-\frac{s}{H}\right),
 \end{equation}
-which are nonnegative because $r\leq K<H$. For $1\leq r\leq K$, the bounds
-$R_r$ of \eqref{eq:right-mass-bound} satisfy $R_r\geq b_r$. Indeed, if
-$C_r=R_r/L_r$, then $C_1=1$ and, for $1\leq r<K$ (so that $H-r-1>0$),
+which are positive because $r\leq K<H$. With $K$ fixed, the form
+\eqref{eq:A-def} is a quadratic polynomial in the weights with nonnegative
+coefficients, so its value does not decrease when nonnegative weights are
+increased componentwise.
+Under \eqref{eq:H-def}, the right-hand side of \eqref{eq:scalar-target} is
+\begin{equation}\label{eq:Q-def}
+  Q(H)=\frac{(3H+4)(H+1)}4.
+\end{equation}
+Section~\ref{sec:compact} treats $3<H\leq16$ with the weights as they stand,
+and Section~\ref{sec:large} symmetrizes them to treat $H\geq16$.
+
+\subsection{The range \texorpdfstring{$3<H\leq16$}{3 < H <= 16}}
+\label{sec:compact}
+
+We do not symmetrize here (the symmetrized bound of
+Section~\ref{sec:large} fails near $H=3$: $ST<Q(H)$ at $H=7/2$, for example, with $S$ and $T$ as in
+\eqref{eq:S-T}).
+For an integer $K\geq3$ and $0<\delta\leq1/(K+1)$, let $A_K(\delta)$ denote
+the right-hand side of \eqref{eq:A-def} with $K$ held fixed, so that
+$A(\delta)=A_K(\delta)$ when $K$ is given by \eqref{eq:K-a}. On this range
+every weight is nonnegative and nonincreasing in $\delta$: $a=1-\delta/(1-\delta)$
+and the factors $1-j\delta$, $j<K$, are nonnegative and decreasing, so $R_r$
+is; and $L_r=\prod_{s=1}^r\bigl(1-s\delta/(1-\delta)\bigr)$ by
+\eqref{eq:b-def}, with factors in $[0,1]$, because $(s+1)\delta\leq1$, and
+decreasing. Since $A_K$ does not decrease when nonnegative weights increase, $A_K(\delta)$
+is nonincreasing in $\delta$, and so is $(3+\delta)/(4\delta^2)$. Hence, if
+$0<\delta_-<\delta_+\leq1/(K+1)$ and
+\begin{equation}\label{eq:endpoint-check}
+  \frac{3+\delta_-}{4\delta_-^2}\leq A_K(\delta_+),
+\end{equation}
+then $A_K(\delta)\geq A_K(\delta_+)\geq(3+\delta_-)/(4\delta_-^2)
+\geq(3+\delta)/(4\delta^2)$ for every $\delta\in[\delta_-,\delta_+]$.
+
+For $m=4,\ldots,15$, the range $m<H\leq m+1$ is $1/(m+2)\leq\delta<1/(m+1)$,
+where $K=m$. We apply \eqref{eq:endpoint-check} with $K=m$,
+$\delta_-=1/(m+2)$ and $\delta_+=1/(m+1)$. The ratios of its right-hand side
+to its left-hand side, rounded down, are
+\[
+  1.072,\ 1.439,\ 1.763,\ 2.050,\ 2.304,\ 2.531,\ 2.735,\ 2.920,\ 3.089,\
+  3.243,\ 3.385,\ 3.516
+\]
+for $m=4,\ldots,15$. For $3<H\leq4$, that is $1/5\leq\delta<1/4$, we have
+$K=3$; we split $[1/5,1/4]$ into $20$ intervals of length $1/400$ and apply
+\eqref{eq:endpoint-check} on each, and the smallest ratio, on the interval
+ending at $1/4$, is $1.0078$ rounded down. A program in the supplement checks
+these $32$ inequalities in exact rational arithmetic, and the Lean
+formalization described there checks them in the Lean kernel. This proves
+\eqref{eq:scalar-target} for $3<H\leq16$, that is, for $1/17\leq\delta<1/4$.
+
+\subsection{The range \texorpdfstring{$H\geq16$}{H >= 16}}
+\label{sec:large}
+
+For $1\leq r\leq K$, the bounds $R_r$ of \eqref{eq:right-mass-bound} satisfy
+$R_r\geq b_r$. Indeed, if $C_r=R_r/L_r$, then $C_1=1$ and, for $1\leq r<K$
+(so that $H-r-1>0$),
 \begin{equation}\label{eq:C-ratio}
   \frac{C_{r+1}}{C_r}
   =\frac{(H-1)(H+1-r)}{(H+1)(H-r-1)}
   =1+\frac{2r}{(H+1)(H-r-1)}\geq1.
 \end{equation}
-
-Since every weight is nonnegative, the form \eqref{eq:A-def} is
-nondecreasing in each weight: with $K$ fixed,
-\[
-  \frac{\partial A}{\partial w_\ell}
-  =\sum_{j=-K}^K w_j(\ell-j)^2\geq0.
-\]
 Replacing every $R_r$ by $b_r$ therefore does not increase $A$; denote the
 resulting value by $A_{\mathrm{sym}}$. For the symmetric weights $w_0=1$ and
 $w_{\pm r}=b_r$, put
@@ -686,69 +733,19 @@ The pairwise identity gives
   =ST,
 \]
 because the final sum vanishes by symmetry. Hence
-$A(\delta)\geq A_{\mathrm{sym}}=ST$. Under \eqref{eq:H-def}, the right-hand
-side of \eqref{eq:scalar-target} is
-\begin{equation}\label{eq:Q-def}
-  Q(H)=\frac{(3H+4)(H+1)}4.
-\end{equation}
-For $H\geq4$, it remains to prove $ST\geq Q(H)$.
-Section~\ref{sec:compact} treats $3<H\leq16$ cell by cell, and
-Section~\ref{sec:large} treats $H\geq16$.
+$A(\delta)\geq A_{\mathrm{sym}}=ST$, and it remains to prove $ST\geq Q(H)$
+for $H\geq16$.
 
-\subsection{The range \texorpdfstring{$3<H\leq16$}{3 < H <= 16}}
-\label{sec:compact}
-
-On $3<H\leq4$ we have $K=3$, and we keep the unsymmetrized bounds $L_r$ and
-$R_r$, $r=1,2,3$, because the symmetrized bound fails there: $ST<Q(H)$ at
-$H=7/2$, for example. A SymPy computation (in the supplement) gives
-\begin{equation}\label{eq:asymmetric-P}
-  A(\delta)-Q(H)=\frac{P(H)}{4H^5(H+1)^3},
-\end{equation}
-where
-\begin{align*}
-  P(H)={}&-3H^{10}-16H^9+750H^8-3676H^7+6613H^6
-  -5460H^5\\
-  &+800H^4+4696H^3-7176H^2+4272H-912.
-\end{align*}
-We substitute $H=3+t$ and expand $P(3+t)$ in the degree-ten Bernstein basis
-on $0\leq t\leq1$.
-
-We call each interval $[m,m+1]$ a cell. For $m=4,\ldots,15$ and $H$ in the
-cell $[m,m+1]$, define
-\begin{equation}\label{eq:compact-ST}
-  S_m=1+2\sum_{r=1}^m b_r,
-  \qquad
-  T_m=2\sum_{r=1}^m r^2b_r,
-\end{equation}
-and
-\begin{equation}\label{eq:compact-P}
-  P_m(H)=4H^{2m}\bigl(S_mT_m-Q(H)\bigr).
-\end{equation}
-For $m<H\leq m+1$, we have $K=m$. At $H=m$, we have $K=m-1$ and $b_m=0$.
-Hence $S_m=S$ and $T_m=T$ on the whole cell. Each $P_m$ is an integer
-polynomial of degree $2m+2$, and we expand $P_m(m+t)$ in the
-degree-$(2m+2)$ Bernstein basis.
-
-If $G(t)=\sum_{j=0}^d a_jt^j$ has degree $d$, the Bernstein conversion used
-here is
+If $G(t)=\sum_{j=0}^d a_jt^j$ has degree $d$, its coefficients in the
+Bernstein basis on $[0,1]$ are
 \begin{equation}\label{eq:bernstein-conversion}
   \beta_i=\sum_{j=0}^i a_j
   \frac{\binom{i}{j}}{\binom{d}{j}},
   \qquad
-  G(t)=\sum_{i=0}^d \beta_i\binom di t^i(1-t)^{d-i}.
+  G(t)=\sum_{i=0}^d \beta_i\binom di t^i(1-t)^{d-i},
 \end{equation}
-The expansions of $P(3+t)$ and of the twelve polynomials $P_m(m+t)$,
-$4\leq m\leq15$, have $11$ and $264$ coefficients respectively, and all
-$275$ are positive rationals. Since the Bernstein basis polynomials are
-nonnegative on $[0,1]$, this proves \eqref{eq:scalar-target} for
-$3<H\leq16$. A SymPy program computes each numerator and its Bernstein
-coefficients. An independently written checker, using only exact rational
-arithmetic from the Python standard library, recomputes them from the
-defining formulas. Both programs and the
-exact coefficients are in the supplement.
-
-\subsection{The range \texorpdfstring{$H\geq16$}{H >= 16}}
-\label{sec:large}
+and $G\geq0$ on $[0,1]$ when every $\beta_i$ is nonnegative, since the basis
+polynomials are nonnegative there.
 
 We cover $H\geq16$ by the intervals between consecutive triangular numbers:
 choose an integer $J\geq5$ such that
@@ -834,25 +831,35 @@ exact arithmetic.
 \par\bigskip
 \begin{supplement}
 \stitle{Code and exact certificate data}
-\sdescription{The archive, at \url{ZENODO-DOI-PENDING}, contains a SymPy
-program that generates all $275$ Bernstein coefficients for $3<H\leq16$, an
-independently written checker that recomputes those coefficients using only
-the Python standard library, and a SymPy program that checks the expansions
-for $H\geq16$, and a program that evaluates $V_{1996}$ and $V_{1998}$ in
-Example~\ref{ex:cue} with rational bounds on $\pi$; a manifest gives the
-software versions and the commands to rerun the checks. The proof of
+\sdescription{The archive, at \url{ZENODO-DOI-PENDING}, contains a program
+that checks the $32$ inequalities of Section~\ref{sec:compact} using only
+exact rational arithmetic from the Python standard library, a SymPy program
+that checks the expansions for $H\geq16$, and a program that evaluates
+$V_{1996}$ and $V_{1998}$ in Example~\ref{ex:cue} with rational bounds on
+$\pi$; a manifest gives the software versions and the commands to rerun the
+checks. As a second check of $3<H\leq16$, it also contains a certificate by
+Bernstein expansions of $A(\delta)-Q(H)$ on $3<H\leq4$ and of $ST-Q(H)$ on
+$4\leq H\leq16$: $275$ positive rational coefficients, generated by a SymPy
+program and recomputed by an independently written checker. The proof of
 Proposition~\ref{prop:scalar} consists of the arguments of
-Section~\ref{sec:scalar} together with the exact computations these programs
-perform; the deduction of Theorem~\ref{thm:main} from
+Section~\ref{sec:scalar} together with the exact computations performed by
+the first two programs (the $32$ inequalities of Section~\ref{sec:compact}
+and the expansions for $H\geq16$); the second-check certificate is not
+needed; the deduction of Theorem~\ref{thm:main} from
 Proposition~\ref{prop:scalar} (Sections~\ref{sec:propagation}
 and~\ref{sec:variance}) is given in full in the text and uses no
-computation. The archive also contains a
-Lean formalization, conditional on a one-sided form of the recurrence
-\eqref{eq:deficit-recurrence} for an abstract nonnegative sequence, of the
+computation. The archive also contains two formalizations in the Lean 4
+proof assistant with the Mathlib library. The first proves
+Proposition~\ref{prop:scalar} in full, by the route of
+Section~\ref{sec:scalar}, and depends only on Lean's three standard axioms.
+The second, conditional on a one-sided form of the recurrence
+\eqref{eq:deficit-recurrence} for an abstract nonnegative sequence, covers the
 deficit bound in Lemma~\ref{lem:propagation} and the exclusion of deficit one
-within its window, the bound $q_D\geq a$, and the deduction of \eqref{eq:adjacent-ratio-drop}
-from \eqref{eq:main-bound}. Proposition~\ref{prop:scalar}, its computations,
-and Theorem~\ref{thm:main} itself are not formalized.}
+within its window, the bound $q_D\geq a$, and the deduction of
+\eqref{eq:adjacent-ratio-drop} from \eqref{eq:main-bound}. The rest of
+Sections~\ref{sec:propagation} and~\ref{sec:variance}, and so the deduction
+of Theorem~\ref{thm:main} from Proposition~\ref{prop:scalar}, is not
+formalized.}
 \end{supplement}
 
 \medskip
@@ -867,16 +874,17 @@ checked, by exact computation on test laws and by independent model-based
 proof review, before it was adopted. The referee report pointed out the bound
 on $\delta_k$ that follows from Pitman's equation~(20) and its behaviour in
 Table~\ref{tab:balanced}, and its independent reconstruction of the
-computations of Section~\ref{sec:scalar} and Example~\ref{ex:cue} agreed
-exactly with ours. A referee
+Bernstein-expansion computations for Proposition~\ref{prop:scalar} and of
+Example~\ref{ex:cue} agreed exactly with ours. A referee
 report from Elicit prompted clarifications of the supplement description and
 of Example~\ref{ex:cue}. Claude Opus 5.5 (Anthropic), through Claude Code, assisted
 with revision, exact-verification code, and source checking, and other
 sessions with Claude, ChatGPT and Codex (both OpenAI), and Gemini (Google)
 assisted with computational exploration, proof critique, formalization
 support, literature searching, and drafting. Aristotle (Harmonic), an
-automated theorem prover, produced the Lean proofs in the conditional
-formalization described in the supplement. The author remains responsible for
+automated theorem prover, produced the Lean proofs in both formalizations
+described in the supplement, and its proof of Proposition~\ref{prop:scalar}
+supplied the monotonicity argument of Section~\ref{sec:compact}. The author remains responsible for
 the mathematics, sources, wording, and released files.
 \end{acks}
 
