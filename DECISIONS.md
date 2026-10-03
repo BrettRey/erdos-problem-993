@@ -1144,3 +1144,11 @@ Assisting systems: Codex (OpenAI) as reviewer; Claude Code (Opus 5.5) applying t
 2026-10-03 — Affiliations: Humber and the University of Toronto (Brett). The author footnote now reads "Faculty of Liberal Arts and Sciences, Humber Polytechnic, Toronto, Canada, and Department of Linguistics, University of Toronto, Toronto, Canada", replacing the outdated "Humber College". The forms come from Brett's other papers. The portal-fields author row and the cover-letter signature are updated; only the postal code is still open.
 
 2026-10-03 — Acknowledgement now credits the Codex review specifically. It names the Codex (OpenAI) session with GPT-6.1-sol, 3 October 2026; what it checked (it redid the Section 4 computations and compared the Lean statements with the paper); and the three corrections it prompted (zero extension, formalization scope, interval rounding). Prompted by a side-agent note: under Brett's rule, credit goes in the same round as the contribution, and I had missed it. The portal-fields AI disclosure is updated to match.
+
+2026-10-03 — Brought the abstract and keywords into line with ECP practice, after a comparison with the ECP template and three recent ECP papers (`submission/ecp-comparator-check-2026-10-03.md`).
+- **Abstract:** cut from 210 to about 120 words. It keeps the problem, Theorem 1.1, the 1/4–1/3 bracket, the support-wide bound, the ultra-log-concavity contrast, the Haar-unitary example and the Lean verification. The δ_c bound and the details of the proof method went. One sentence was split, because a colon had made the Haar-unitary example look like proof of the ultra-log-concavity claim.
+- **Keywords:** cut from 9 to 6.
+- **Acknowledgements:** moved after the bibliography, the order in ECP's sample file.
+- **Cold read:** Brett decided against a new one.
+
+Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).

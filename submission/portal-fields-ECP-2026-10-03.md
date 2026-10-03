@@ -14,7 +14,7 @@
 - [x] Pre-submission checklist path: `runs/pb-submission-gate-20261003/` (referee read, revision verifier, cold reads) and DECISIONS 2026-10-03
 - [x] Paper assurance record path: `paper/poisson_binomial/CERTIFICATE.md` (inside the supplement)
 - [x] Canonical source file: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex`
-- [ ] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (after the prose passes and the switch of Section 4.1 to the monotonicity route) has SHA-256 `4de2a37f37acaad8f91fc1205f050e488ec464f6f5344bbf32c13e09687fbd42`, 13 pages (Brett accepted 13, the journal's stated maximum, on 2026-10-03), and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
+- [ ] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (after the prose passes and the switch of Section 4.1 to the monotonicity route) has SHA-256 `3de860531fc8a715590f1411fe1e4b8135599665ce6269661c656e63048b185e`, 13 pages (Brett accepted 13, the journal's stated maximum, on 2026-10-03), and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
 - [ ] Account the submission is made under: Brett's EJMS account (not yet created)
 - [x] Decision owner: Brett Reynolds
 - [x] Assisting agent/model: Claude Code (Opus 5.5)
@@ -46,14 +46,14 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 
 **Abstract.** Plain text with LaTeX math, as EJMS accepts TeX in the abstract box; confirm on login.
 
-> Let $W$ be a finite sum of independent Bernoulli variables with probability mass function $f$ and variance $V\geq1$, and let $D$ be the first index at which $f$ decreases. The normalized Turán deficit $\delta_k=1-f_{k-1}f_{k+1}/f_k^2$ is a bounded transform of the discrete curvature of $\log f$ at $k$, and for a normal density of variance $V$ that curvature is $1/V$. We prove $V\delta_D\geq1/4$, and an explicit family of binomial laws shows that no constant above $1/3$ is possible, so the best constant lies between $1/4$ and $1/3$. Combined with cubic inequalities of Hillion and Johnson, this gives $\delta_k\geq1/(4V+|k-D|)$ at every $k$ in the support, and at the rightmost mode $c$ we have $1/(4V+1)\leq\delta_c<2/V$. Ultra-log-concavity alone gives no variance-scaled lower bound on $\delta_D$. For the number of eigenvalues of an $N\times N$ Haar unitary matrix in a half circle, the bound at $D$ is of order $1/\log N$, against order $1/N$ from ultra-log-concavity. The proof combines the cubic inequalities with a maximal-mass bound of Bobkov, Marsiglietti, and Melbourne to reduce the main inequality to a one-variable inequality, which is proved by a monotonicity argument and Bernstein expansions, with a computer-assisted step in exact rational arithmetic. The main inequality, including the cubic inequalities and the maximal-mass bound it uses, is verified in the Lean proof assistant.
+> Let $W$ be a sum of independent Bernoulli variables with probability mass function $f$ and variance $V\geq1$, and let $D$ be the first index at which $f$ decreases. The normalized Turán deficit $\delta_k=1-f_{k-1}f_{k+1}/f_k^2$ is a bounded transform of the discrete curvature of $\log f$, which for a normal density of variance $V$ is $1/V$. We prove $V\delta_D\geq1/4$, and binomial laws show that no constant above $1/3$ is possible. With cubic inequalities of Hillion and Johnson, this gives $\delta_k\geq1/(4V+|k-D|)$ on the whole support. Ultra-log-concavity alone gives no variance-scaled lower bound on $\delta_D$. For the number of eigenvalues of a Haar unitary matrix in a half circle, our bound at $D$ is of order $1/\log N$, against order $1/N$ from ultra-log-concavity. The proof is computer-assisted and is verified in the Lean proof assistant.
 
 - Source: `variance-local-log-concavity-poisson-binomial.tex` `\ABSTRACT{...}` (no displayed formula in the current abstract).
 - [ ] Recheck word for word against `pdftotext -f 1 -l 1 variance-local-log-concavity-poisson-binomial.pdf` at the final build.
 
 **Keywords**
 
-> Poisson–binomial law; Bernoulli sum; log-concavity; Turán inequality; ultra-log-concavity; modal index; random unitary matrix; computer-assisted proof; formal verification
+> Poisson–binomial law; log-concavity; Turán inequality; ultra-log-concavity; computer-assisted proof; formal verification
 
 - Source: `variance-local-log-concavity-poisson-binomial.tex:15–17`, semicolon-separated as in the class
 

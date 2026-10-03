@@ -13,33 +13,24 @@
     \EMAIL{brett.reynolds@humber.ca}}%
   \orcid{0000-0003-2407-9448}}
 
-\KEYWORDS{Poisson--binomial law; Bernoulli sum; log-concavity; Tur\'an
-  inequality; ultra-log-concavity; modal index; random unitary matrix;
-  computer-assisted proof; formal verification}
+\KEYWORDS{Poisson--binomial law; log-concavity; Tur\'an inequality;
+  ultra-log-concavity; computer-assisted proof; formal verification}
 
 \AMSSUBJ{60E15}
 \AMSSUBJSECONDARY{60C05; 05A20}
 
-\ABSTRACT{Let $W$ be a finite sum of independent Bernoulli variables with
-  probability mass function $f$ and variance $V\geq1$, and let $D$ be the
-  first index at which $f$ decreases. The normalized Tur\'an deficit
+\ABSTRACT{Let $W$ be a sum of independent Bernoulli variables with
+  probability mass function $f$ and variance $V\geq1$, and let $D$ be the first
+  index at which $f$ decreases. The normalized Tur\'an deficit
   $\delta_k=1-f_{k-1}f_{k+1}/f_k^2$ is a bounded transform of the discrete
-  curvature of $\log f$ at $k$, and for a normal density of variance $V$ that
-  curvature is $1/V$. We prove
-  $V\delta_D\geq1/4$, and an explicit family of binomial laws shows that no
-  constant above $1/3$ is possible, so the best constant lies between $1/4$
-  and $1/3$. Combined with cubic inequalities of Hillion and Johnson, this
-  gives $\delta_k\geq1/(4V+|k-D|)$ at every $k$ in the support, and at the
-  rightmost mode $c$ we have $1/(4V+1)\leq\delta_c<2/V$. Ultra-log-concavity
-  alone gives no variance-scaled lower bound on $\delta_D$. For the number of eigenvalues of an $N\times N$
-  Haar unitary matrix in a half circle, the bound at $D$ is of order
-  $1/\log N$, against order $1/N$ from ultra-log-concavity. The proof combines
-  the cubic inequalities with a maximal-mass bound of Bobkov, Marsiglietti, and
-  Melbourne to reduce the main inequality to a one-variable inequality, which
-  is proved by a monotonicity argument and Bernstein expansions, with a
-  computer-assisted step in exact rational arithmetic. The main inequality,
-  including the cubic inequalities and the maximal-mass bound it uses, is
-  verified in the Lean proof assistant.}
+  curvature of $\log f$, which for a normal density of variance $V$ is $1/V$.
+  We prove $V\delta_D\geq1/4$, and binomial laws show that no constant above
+  $1/3$ is possible. With cubic inequalities of Hillion and Johnson, this gives
+  $\delta_k\geq1/(4V+|k-D|)$ on the whole support. Ultra-log-concavity alone
+  gives no variance-scaled lower bound on $\delta_D$. For the number of
+  eigenvalues of a Haar unitary matrix in a half circle, our bound at $D$ is of
+  order $1/\log N$, against order $1/N$ from ultra-log-concavity. The proof is
+  computer-assisted and is verified in the Lean proof assistant.}
 
 \hypersetup{
   pdftitle={Variance and local log-concavity of Poisson-binomial laws},
@@ -868,7 +859,11 @@ deduction of \eqref{eq:adjacent-ratio-drop} from \eqref{eq:main-bound}. The
 other results of Section~\ref{sec:introduction} are not formalized.}
 \end{supplement}
 
-\medskip
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+
+\bigskip
 \begin{acks}[AI use and author responsibility]
 OpenAI's GPT-5.6 model, accessed through Codex, supplied substantial
 proof-search assistance for Theorem~\ref{thm:main}. Two ChatGPT (OpenAI)
@@ -898,8 +893,5 @@ described in the supplement, and its proof of Proposition~\ref{prop:scalar}
 supplied the monotonicity argument of Section~\ref{sec:compact}. The author remains responsible for
 the mathematics, sources, wording, and released files.
 \end{acks}
-
-\bibliographystyle{amsplain}
-\bibliography{references}
 
 \end{document}
