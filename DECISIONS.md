@@ -1140,3 +1140,5 @@ Assisting system: Claude Code (Opus 5.5); formal proofs by Aristotle (Harmonic).
 - **Rebuilt:** supplement sha256 `19345971…5388`. This supersedes `7c397184…47cb` in the Theorem 1.1 entry above.
 
 Assisting systems: Codex (OpenAI) as reviewer; Claude Code (Opus 5.5) applying the fixes.
+
+2026-10-03 — Affiliations: Humber and the University of Toronto (Brett). The author footnote now reads "Faculty of Liberal Arts and Sciences, Humber Polytechnic, Toronto, Canada, and Department of Linguistics, University of Toronto, Toronto, Canada", replacing the outdated "Humber College". The forms come from Brett's other papers. The portal-fields author row and the cover-letter signature are updated; only the postal code is still open.

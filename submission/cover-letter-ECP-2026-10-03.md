@@ -13,6 +13,6 @@ The manuscript is not under consideration elsewhere. Its source is visible in a 
 Sincerely,
 
 Brett Reynolds
-Humber College, Toronto
+Humber Polytechnic and University of Toronto
 brett.reynolds@humber.ca
 ORCID 0000-0003-2407-9448

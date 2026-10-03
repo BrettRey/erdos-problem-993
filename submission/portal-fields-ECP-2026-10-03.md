@@ -14,7 +14,7 @@
 - [x] Pre-submission checklist path: `runs/pb-submission-gate-20261003/` (referee read, revision verifier, cold reads) and DECISIONS 2026-10-03
 - [x] Paper assurance record path: `paper/poisson_binomial/CERTIFICATE.md` (inside the supplement)
 - [x] Canonical source file: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex`
-- [ ] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (after the prose passes and the switch of Section 4.1 to the monotonicity route) has SHA-256 `775923392f42a631fc4eaae07a69149b7fbb794f8a1316ded095096e9c61445c`, 13 pages (Brett accepted 13, the journal's stated maximum, on 2026-10-03), and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
+- [ ] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (after the prose passes and the switch of Section 4.1 to the monotonicity route) has SHA-256 `8ec74e8536b777092574a9b19c9491aae877c33d3b542988de6722db07b46533`, 13 pages (Brett accepted 13, the journal's stated maximum, on 2026-10-03), and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
 - [ ] Account the submission is made under: Brett's EJMS account (not yet created)
 - [x] Decision owner: Brett Reynolds
 - [x] Assisting agent/model: Claude Code (Opus 5.5)
@@ -67,7 +67,7 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 
 | # | Name | Email | Institution | Department | Postal code | Country | ORCID | Corresponding |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Brett Reynolds | brett.reynolds@humber.ca | Humber College, Toronto | **open** | **open** | Canada | 0000-0003-2407-9448 | yes |
+| 1 | Brett Reynolds | brett.reynolds@humber.ca | Humber Polytechnic, Toronto; University of Toronto | Faculty of Liberal Arts and Sciences (Humber); Department of Linguistics (U of T) | **open** | Canada | 0000-0003-2407-9448 | yes |
 
 - Source: `variance-local-log-concavity-poisson-binomial.tex:10–13`
 - Single author; no coauthor approvals needed.
@@ -132,7 +132,7 @@ None suggested. Leave the field to the editor unless the portal requires names. 
 | Supplement DOI | Zenodo upload of `poisson_binomial_certificate_supplement.zip` (reserve the DOI first, then replace `ZENODO-DOI-PENDING` in `variance-local-log-concavity-poisson-binomial.tex` and rebuild) | Brett (his account) | no |
 | EJMS account | not yet created | Brett | no |
 | Author instructions | live check of the imstat author page, including field limits, source-file rules, and any AI-use rule | Brett (browser) | no |
-| Department and postal code | not in the manuscript | Brett | no |
+| Postal code | not in the manuscript (affiliations and departments now are, 2026-10-03) | Brett | no |
 | Competing interests and funding | composed defaults above need confirmation | Brett | no |
 | Independent human audit | no human mathematician has reviewed the paper; a cross-family model check (ChatGPT Pro, 2026-10-03) found no error and reconstructed all 275 coefficients of the Bernstein certificate (now the supplement's second check of 3 < H ≤ 16; the paper's Section 4.1 uses the monotonicity route, kernel-checked in Lean but not reviewed by ChatGPT Pro); proceeding without a human audit is Brett's call and should be recorded in DECISIONS | Brett | no |
 | MathSciNet novelty search | optional; needs an institutional login | Brett | no |
