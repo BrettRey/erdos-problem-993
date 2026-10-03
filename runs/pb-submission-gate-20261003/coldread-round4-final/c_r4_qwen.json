@@ -1,0 +1,8 @@
+{
+"problem": "To establish a universal lower bound for the variance-scaled Turán deficit at the first descent index of a Poisson–binomial mass function, specifically proving that $V \\delta_D \\ge 1/4$ when the variance $V \\ge 1$.",
+"debate": "The literature on log-concavity and Turán inequalities for Poisson–binomial distributions, specifically addressing the limitations of existing bounds that depend on $n$ or individual success probabilities.",
+"gap": "Existing lower bounds on the Turán deficit $\\delta_k$ depend on the number of summands $n$ or specific success probabilities and degenerate when summands with probabilities near 0 or 1 accumulate at fixed variance, failing to provide a universal constant bound relative to variance alone.",
+"contribution": "A proof that $V \\delta_D \\ge 1/4$ for $V \\ge 1$, implying geometric decay of the pmf tail, along with a sharpness example showing the constant cannot exceed 1/3, using cubic inequalities and computer-assisted exact arithmetic.",
+"decision": "advance",
+"note": "The result is a clean, non-trivial refinement of log-concavity bounds with a clear sharpness analysis, fitting the journal's scope for short, self-contained probability results."
+}

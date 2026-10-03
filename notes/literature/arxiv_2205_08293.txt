@@ -1,0 +1,1570 @@
+                                                   Concentration inequalities for log-concave sequences
+                                                                   Arnaud Marsiglietti and James Melbourne
+
+
+                                                                                        Abstract
+
+
+
+
+arXiv:2205.08293v4 [math.PR] 17 Feb 2026
+                                                    We investigate quantitative implications of the notion of log-concavity through a prob-
+                                                abilistic interpretation. In particular, we derive concentration inequalities, moment and
+                                                entropy bounds for random variables satisfying a precise degree of log-concavity. Along
+                                                the way, we recover, improve, and simplify several results existing in the literature. Our
+                                                approach is based on majorization in the convex order.
+
+
+                                               Keywords: Log-concave, Concentration inequality, Majorization, intrinsic volumes, En-
+                                           tropy maximization.
+
+
+                                           1    Introduction
+                                           There has been tremendous recent success demonstrating the log-concavity of important
+                                           combinatorial and geometric sequences [1, 4, 5, 6, 13, 16, 19, 20, 22, 23, 24], for background
+                                           see [12, 21, 42]. The intention of this article is to investigate the quantitative implications
+                                           of log-concavity through probabilistic interpretation, and in particular to shed light on the
+                                           level of concentration implied by varying degrees of log-concavity, in the form of tail bounds,
+                                           moment comparison inequalities, and the identification of maximum entropy distributions.
+                                           A key notion will be that of relative log-concavity.
+
+                                           Definition 1.1. A function f : R → [0, ∞) is log-concave when
+
+                                                                           f ((1 − t)x + ty) ≥ f 1−t (x)f t (y)
+
+                                           holds for x, y ∈ R and t ∈ [0, 1]. Equivalently f = e−V for convex V : R → R ∪ {∞}.
+
+                                           Definition 1.2. A function g : A → [0, ∞) defined on a subset A ⊆ R is log-concave when
+                                           there exists a log-concave function f : R → [0, ∞) such that
+
+                                                                                      f (x) = g(x),
+
+                                           for x ∈ A.
+
+                                           Thus a non-negative sequence x on N is log-concave when it satisfies
+
+                                                                                     x2k ≥ xk−1 xk+1
+
+                                           and has “no internal zeros”, in the sense that xn xm > 0 implies xk > 0 for n ≤ k ≤ m. We
+                                           will only consider sequences that satisfy the no internal zeros property and omit mention of
+                                           this criteria going forward.
+
+
+
+                                                                                            1
+Definition 1.3. A measure ν is log-concave with respect to µ if there exists a Radon-Nikodym
+            dν
+derivative dµ  that is log-concave. For random variables X ∼ ν and Z ∼ µ, we write X ≺lc Z
+when ν is log-concave with respect to µ. In this case we say that X is log-concave with respect
+to Z.
+                                                                                 P
+     We will identify a non-negative sequence x with measure µ{k} = xk . When k xk = 1, µ
+is a probability distribution, and we associate a random variable X with P(X = k) := xk . Our
+definitions are slightly more abstract than strictly necessary to handle the discrete setting,
+but they allow a unified approach to sequences and the continuous setting (as we will explore
+in Section 6). Let us consider some examples.
+
+  1. A sequence on N = {0, 1, 2, . . . } is log-concave, exactly when, considered as a measure, it
+     is relatively log-concave with respect to the distribution of a geometric random variable
+     on N. Recall µ ∼ Geometric(p), when µ{k} = (1 − p)k p for k ∈ N and p ∈ (0, 1). To
+     match previous literature, we will consider at times log-concave sequences on N \ {0},
+     for which they are relatively log-concave with respect to the distribution of a geometric
+     random variable on N \ {0}, defined as µ{k} = (1 − p)k−1 p for k ≥ 1 and p ∈ (0, 1).
+
+  2. Conventionally a sequence x on N is ultra log-concave (ULC) when it satisfies
+                                               
+                                    2         1
+                                  xk ≥ 1 +        xk−1 xk+1 .
+                                              k
+
+     This corresponds to the case that x is relatively log-concave with respect to the distri-
+                                                              k
+     bution µ of a Poisson(λ) random variable, µ{k} = e−λ λk! .
+
+  3. A sequence x on [n] := {0, 1, . . . , n} is ultra log-concave of order n (ULC(n)) when it
+     satisfies                                            
+                             2                 1           1
+                            xk ≥ 1 +                   1+      xk−1 xk+1 .
+                                            n−k            k
+     This corresponds to relative   log-concavity with respect to the distribution µ of a
+     binomial(n, p), µ{k} = nk pk (1 − p)n−k .
+                              
+
+  4. When x is the sequence of intrinsic volumes associated to a convex body in Rd , by the
+     Alexandrov-Fenchel inequality x is relatively log-concave with respect tothe intrinsic
+     volume sequence µ of d-dimensional Euclidean ball, given by µ{k} = Cd,λ kd Γ d2 + 1 λk
+                                                                                        
+
+     for k ∈ [d] and Cd,λ a normalizing constant.
+
+    In the continuous setting the implications of log-concavity have been thoroughly explored
+(see, e.g., [40]). However, the perspective of relative log-concavity still gives some strength-
+enings of previous known results through very simple proofs.
+
+  1. In the continuous setting a function f : (0, ∞) → [0, ∞) is log-concave when it is log-
+     concave with respect to the distribution of an exponential(λ) ∼ λe−λx .
+
+  2. The log-concave random variables of order p > 0, introduced by Bobkov in [8] (see
+     also [7, 9, 31]), coincide exactly with those that are log-concave with respect to a
+     Gamma(p, β) distribution.
+
+
+
+
+                                               2
+    Log-concavity is related to and in some ways parallel to the study of total positivity
+[2, 27], or the study of Pólya frequency sequences. A Pólya frequency sequence x of order r,
+which we abbreviate as P Fr , is one such that the matrix (Mij ) = (xi−j ) is totally positive
+of order r, in the sense that any k × k minor has positive determinant for k ≤ r. The class
+P F2 corresponds to log-concave sequences. When a sequence belongs to P Fr for every r it
+is called a Pólya Frequency sequence (P F ). We direct the reader to [14, 15, 38] for further
+background on the appearance and utility of positivity in combinatorics.
+
+                     Figure 1: Relations between log-concavity notions
+
+
+
+
+    Our work in particular takes inspiration from [38], where Pitman uses the explicit proba-
+bilistic realization (as the distribution of an independent Bernoulli sum) of normalized Pólya
+frequency sequences, to derive combinatorial relevant inequalities. The main ingredient is
+the notion of convex majorization.
+Definition 1.4. A random variable X is majorized by Z in the convex order, written X ≺cx
+Z, when
+                                  E[φ(X)] ≤ E[φ(Z)]
+holds for any convex function φ.
+    Our approach will be to identify extremal elements in the convex order of a relevant
+class of variables (those with densities log-concave with respect to a chosen density, typically
+constrained to satisfy a certain linear constraint), and use direct computations on said ex-
+tremizers to derive concentration type inequalities. This idea is not new. The observation
+that relative log-concavity of random variables with matching expectation implies domina-
+tion in the convex order was observed explicitly by Whitt [43], and is an immediate corollary
+
+
+                                               3
+of (and essentially implicit in) Karlin and Novikoff [28]. Moreover, Karlin and Novikoff do
+not attribute novelty to their “crossings of density” arguments in [28] which they claim are
+implicit in “Inequalities” book of Hardy, Littlewood, and Pólya originally published in 1934.
+For example, see [17, Exercise 249], where a characterization of the convex order is given,
+that is easily implied from the assumption of a two crossing.
+    As a consequence we will deliver many sharp and optimal inequalities for the varying
+classes of variables. Before detailing these results, let us state that our non-technical message
+is the following: Ultra log-concave variables of order n enjoy at least Gaussian concentration
+phenomena, ultra log-concave variables provide Poisson-type concentration, and intrinsic
+volumes are subject to concentration at least as strong as the sequences of the Euclidean
+ball, while log-concave variables give exponential-type concentration.
+    Through a (to be proven) extension of Whitt [43] (see Theorem 2.6), we will derive new
+sharp moment comparison results between the expectation and other moments of discrete
+log-concave random variables.
+    The article is organized as follows. The background on convex majorization and the proof
+techniques are presented in Section 2, where a generalization of Whitt’s convex majorization
+argument is extended to increase the range of application of this technique. Section 3 demon-
+strates concentration, moment, and entropy bounds for log-concave probability sequences,
+and shows that these distributions satisfy exponential-type concentration. In particular this
+generalizes and extends the results of Janson [26] on the tail bounds of sums of independent
+geometric random variables. Section 4 establishes Poisson-type and Gaussian concentration
+for ULC and ULC(n) log-concave probability sequences. For example, thanks to the resolu-
+tion of the Mason conjecture [1, 13], this gives sharp Gaussian concentration for the size of an
+independent set in a matroid. In Section 5, concentration inequalities for intrinsic volumes
+are presented, and our approach immediately and easily implies all the results of [3] and [32]
+as special cases. In particular, we identify the Euclidean ball as a maximizer of the “intrin-
+sic entropy” for fixed “central intrinsic volume”, correcting the claim of [32] that the cube
+enjoyed such a distinction. Section 6 presents similar results for the “continuous” setting,
+where we extend Janson’s results on sums of independent exponential random variables [26],
+as well as Bobkov’s concentration results [8] for distributions that are log-concave of order p.
+
+
+2     Background on Convex Majorization
+2.1   Majorization of Log-Concave Distributions
+For subsets A, B ⊆ R we introduce the notation A ≺ B when sup A ≤ inf B.
+Definition 2.1. For a set S ⊆ R, a function F : S → R has no more than k-zero crossings
+                                                                                     k
+                    Snpreserving ordered partition of S of size k + 1, that is, {Si }i=0 , with
+if there exists a sign
+S0 ≺ · · · ≺ Sk and i=0 Si = S, such that
+                                F (x)F (y) ≥ 0,       for x, y ∈ Si .                        (1)
+If F has no more than k-zero crossings for some finite k, we say that it has n-zero crossings
+if n is minimum over all k, such that F has no more than k-zero crossings. In this case,
+{Si }ni=0 satisfying (1) is called a minimal partition.
+   The following theorem describes a simple sufficient condition for convex majorization.
+Intuitively, it says that majorization holds for random variables of matched mean, when their
+density functions cross twice.
+
+
+                                                  4
+Theorem 2.2. Let µ be a measure on [0, +∞). Suppose that f and g are Borel measurable
+functions on [0, +∞) such that
+                             Z ∞              Z ∞
+                                 f (x)dµ(x) =     g(x)dµ(x)
+                                        0                    0
+
+and
+                                Z ∞                         Z ∞
+                                            xf (x)dµ(x) =         xg(x)dµ(x)
+                                    0                        0
+
+and the integrals are finite. If there exists an interval I := [a, b] ⊆ (0, ∞) such that g(y) ≤ f (y)
+for y ∈ I while g(y) ≥ f (y) for y ∈ / I, then φ : (0, ∞) → R convex implies,
+                            Z ∞                      Z ∞
+                                 φ(x)f (x)dµ(x) ≤         φ(x)g(x)dµ(x).
+                            0                                0
+
+Proof. Taking φ̃(x) = φ(x) − (mx + k) with m, k chosen such that φ̃(a) = φ̃(b) = 0 (explicitly
+m := φ(b)−φ(a)
+        b−a    and k := φ(a)b−φ(b)a
+                            b−a     ), then
+                                Z                      Z
+                                    [g − f ]φ dµ =          [g − f ]φ̃ dµ ≥ 0.
+
+The above equality holds since φ̃−φ is an affine function and hence f dµ and gdµ have identical
+integrals. The inequality follows since (g − f )φ̃ is a non-negative function, by assumptions
+on f and g, and by construction.
+
+    The next theorem describes a large class of random variables satisfying convex majoriza-
+tion.
+
+Theorem 2.3. Let µ be a measure on [0, +∞). For X a non-negative random variable that
+is log-concave with respect to µ, and Z a non-negative random variable that is log-affine with
+respect to µ on the entire support of µ, and satisfying E[Z] = E[X], we have
+
+                                                   X ≺cx Z.
+
+Proof. We will show that the probability density function of X and Z with respect to µ have
+exactly 2 crossings and apply Theorem 2.2. Let us denote by f the p.d.f. of X and by a
+the p.d.f. of Z. Since f is log-concave, and a is log-affine, f and a have no more than two
+crossings.
+    If f = a, there is nothing to prove, so let us assume that there exists x such that f (x) ̸=
+a(x). In this case, we claim f and a must have exactly two crossings. If there are no crossings
+then we have f (x) ≤ a(x) for allR x or f (x) ≥ a(x)
+                                                 R for all x with strict inequality for some y.
+In either case, this contradicts f (x)dµ(x) = a(x)dµ(x) = 1.
+    To have exactly one crossing, would contradict E[X] = E[Z]. Indeed, say a(x) ≥ f (x) for
+x ≤ x1 and a(x) ≤ f (x) for x > x1 . But this would imply P(Z > t) ≤ P(X > t) for all t > 0,
+with a strict inequality for some t (else X and Z would be the same distribution) and hence
+                               Z ∞                Z ∞
+                       E[Z] =      P(Z > t)dt <        P(X > t)dt = E[X]
+                                    0                        0
+
+gives the contradiction. Thus applying Theorem 2.2, we obtain X ≺cx Z.
+
+
+                                                       5
+   If µ and ν are measures on a measurable space (E, F), we consider the pushforward
+measures T∗ µ and T∗ ν as measures on the measurable space induced by T , (T (E), T (F)),
+where the σ-algebra T (F) is defined by A ⊆ T (E) belongs to T (F) if and only if T −1 (A) ∈ F.
+                                                                dν
+Theorem 2.4. Let ν and µ be measures on R such that dµ              exists and let T be a non-
+decreasing function. Then, on T (supp(µ)), T∗ ν has a density with respect to T∗ µ which can
+be expressed by
+                                        ( ν(T −1 ({y}))
+                  dT∗ ν                       −1 ({y})) for #{T −1 ({y})} > 1
+                        (y) := f ∗ (y) = µ(T
+                 dT∗ µ                    dν
+                                             (x)
+                                             dµ         for #{T −1 ({y})} = 1,
+
+where x is the unique point such that T (x) = y and we use the convention that 00 := 0.
+
+Proof. Since T is non-decreasing, we have that for y ∈ T (R), T −1 ({y}) = {x ∈ R : T (x) = y}
+is an interval (possibly reduced to a singleton). Therefore, there are only countably many y’s
+such that #T −1 ({y}) > 1. Let us enumerate such y’s as {yi }i∈I , for some index set I ⊆ N,
+and let us denote K = {y ∈ T (R) : #T −1 ({y}) = 1}. Note that for all i ∈ I,
+
+                                                    ν({T −1 ({yi })})
+             T∗ ν({yi }) = ν({T −1 ({yi })}) =                         µ({T −1 ({yi })})
+                                                    µ({T −1 ({yi })})
+                                                  = f ∗ (yi )µ({T −1 ({yi })})
+                                                    Z
+                                                  =         f ∗ dT∗ µ.
+                                                          {yi }
+
+Therefore, for any Borel set A ⊂ R,
+                            X                             X       Z                    Z
+                                                                          ∗
+                    c
+         T∗ ν(A ∩ K ) =               T∗ ν({yi }) =                      f dT∗ µ =              f ∗ dT∗ µ.
+                          i∈I:yi ∈A                   i∈I:yi ∈A {yi }                   A∩K c
+
+
+On the other hand, since T −1 defines an injective map on K, one may write for y ∈ K,
+T −1 ({y}) = T −1 (y) ∈ R, so that if x ∈ T −1 (K), we have T −1 (T (x)) = x, and thus
+
+                             dν       dν −1
+                                (x) =    (T (T (x))) = f ∗ (T (x)).
+                             dµ       dµ
+Therefore, for any Borel set A ⊂ R,
+                                                           Z
+                                  −1                                               dν
+             T∗ ν(A ∩ K) = ν(T          (A ∩ K)) =                1A∩K (T (x))        (x)dµ(x)
+                                                                                   dµ
+                                                           Z
+                                                      =           1A∩K (T (x))f ∗ (T (x))dµ(x)
+                                                           Z
+                                                      =               f ∗ dT∗ µ.
+                                                              A∩K
+
+We conclude by writing
+                                                  Z                           Z                     Z
+    T∗ ν(A) = T∗ ν(A ∩ K) + T∗ ν(A ∩ K c ) =                f ∗ dT∗ µ +               f ∗ dT∗ µ =       f ∗ dT∗ µ.
+                                                      A∩K                     A∩K c                 A
+
+
+
+
+                                                      6
+Theorem 2.5. Suppose that ν and γ have densities f and g on a set S ⊆ R with respect to
+µ, and that f − g has no more than n-zero crossings, and that T is a non-decreasing function.
+Then T∗ ν and T∗ γ have densities f ∗ and g ∗ on T (S) with respect to T∗ µ, and f ∗ − g ∗ has no
+more than n-zero crossings.
+
+Proof. Using the densities f ∗ and g ∗ supplied by Theorem 2.4,
+                                     ( ν(T −1 ({y}))−γ(T −1 ({y}))
+                                               µ(T −1 ({y}))
+                                                                   for #{T −1 ({y})} > 1
+          F ∗ (y) := f ∗ − g ∗ (y) =                                                     ,    (2)
+                                      (f − g)(x)                   for #{T −1 ({y})} = 1
+
+where again, x is the unique point such that T (x) = y. Let {Si }ni=0 denote a sign preserving
+ordered partition of S with respect to F := f − g, see Definition 2.1, so that for all x, y ∈ Si ,
+F (x)F (y) ≥ 0. Define a partition of T (S) inductively by J0 = T (S0 ), and for 1 ≤ i ≤ n,
+                                                         i−1
+                                                         [
+                                       Ji = T (Si ) \          T (Sk ) .
+                                                         k=0
+
+The Ji are by definition a partition of T (S) and satisfy Ji ≺ Ji+1 by the monotonicity of
+T . It remains to check that the partition respects the changes of sign. If y1 , y2 ∈ Ji and
+#{T −1 ({yk })} = 1, then there exist unique xk ∈ Si such that T (xk ) = yk . Thus,
+
+                                  F ∗ (y1 )F ∗ (y2 ) = F (x1 )F (x2 ) ≥ 0.
+
+If only one of the yk , say y1 , satisfies #{T −1 ({y1 })} = 1 then
+                                             R
+                                              T −1 ({y2 }) F (x1 )F (x)dµ(x)
+                        F ∗ (y1 )F ∗ (y2 ) =                                 ≥ 0,
+                                                     µ(T −1 ({y2 }))
+
+since x, x1 ∈ Si . Finally if neither yk is the image of a unique point,
+                                                                       ′           ′
+                                  R             R
+                  ∗      ∗          T −1 ({y1 }) T −1 ({y2 }) F (x)F (x ) dµ(x)dµ(x )
+               F (y1 )F (y2 ) =                                                       ≥ 0,
+                                              µ(T −1 ({y1 }))µ(T −1 ({y2 }))
+
+since x, x′ ∈ Si .
+
+   The following generalization of Theorem 2.3 is needed in some applications, such as mo-
+ments comparison (see Section 2.2.2).
+
+Theorem 2.6. Let µ be a measure on [0, +∞). Suppose that X is log-concave with respect
+to µ and that Z is log-affine with respect to µ on the entirety of the support of µ. If T is a
+non-decreasing function such that E[T (X)] = E[T (Z)], then
+
+                                            T (X) ≺cx T (Z).
+
+Proof. If X is log-concave and Z is log-affine with respect to a reference measure µ, then their
+densities have at most two crossings. Since T is non-decreasing, the densities of T (X) and
+T (Z) have at most two crossings by Theorem 2.5. We can then repeat the proof of Theorem
+2.3. If T (X) = T (Z) the proof is trivial, hence we may assume there is at least one crossing
+of T (X) and T (Z), and since exactly one crossing would again contradict E[T (X)] = E[T (Z)]
+the proof is complete.
+
+
+                                                     7
+2.2     Quantitative implications
+2.2.1    Concentration inequalities
+The first application of convex majorization is used toward deriving concentration inequal-
+ities. Let X be a log-concave random variable with respect to a reference measure µ. Ac-
+cording to Theorem 2.3, if Z is µ-log-affine supported on the whole {µ > 0} such that
+E[Z] = E[X], then X ≺cx Z. As the result, for all convex function φ,
+                                     E[φ(X)] ≤ E[φ(Z)].                                    (3)
+    The following result demonstrates that Chernoff-type tail bounds on a random variable
+can be transferred to a random variable it majorizes. To this end we define for a random
+variable X,
+                                     ΛX (λ) := log E[eλX ].
+For a real-valued function f defined on an interval I, we denote by f ∗ the Legendre transform,
+                                   f ∗ (t) = sup{λt − f (λ)},                              (4)
+                                              λ∈I
+defined on I ∗ the set of t such that the supremum is finite.
+Theorem 2.7. For X ≺cx Z,
+                  P(X ≥ t) ≤ exp[ −Λ∗+ (t)],            P(X ≤ t) ≤ exp[ −Λ∗− (t)],
+where Λ+ is the function ΛZ (λ) = log E[eλZ ] restricted to λ > 0 while Λ− is the restriction
+of ΛZ to λ < 0.
+Proof. For λ > 0, the standard approach through Markov’s inequality gives
+                           P(X ≥ t) = P(eλX ≥ eλt ) ≤ eΛX (λ)−λt .
+Since ΛX (t) ≤ ΛZ (t) follows from X ≺cx Z, taking the infimum over λ > 0 yields the result.
+Similarly, for λ < 0,
+                           P(X ≤ t) = P(eλX ≥ eλt ) ≤ eΛX (λ)−λt .
+Taking the infimum over λ < 0 completes the proof.
+   The above method is sometimes referred to as the Cramér-Chernoff method in the liter-
+ature (see, e.g., [11]).
+
+2.2.2    Moment Bounds
+The next application of majorization is used to provide comparisons between moments.
+Theorem 2.8. Let 0 < α < β. For a random variable X log-concave with respect to Z, and
+satisfying E[Z α ] = E[X α ], we have
+                                          1                         1
+                                   E[X β ] β ≤ Aα,β E[X α ] α                              (5)
+where
+                                                           1
+                                                    E[Z β ] β
+                                       Aα,β =               1   .
+                                                    E[Z α ] α
+                                                                                     β
+Proof. The result is obtained by taking T (x) = xα , the convex function φ(x) = x α , and µ
+the distribution of Z in Theorem 2.6.
+
+
+                                                    8
+2.2.3   Maximum Entropy Distributions
+Lastly, convex majorization can be used to provide entropy bounds. Let us recall the defini-
+tion of the Rényi entropy.
+
+Definition 2.9 (Rényi Entropy). For a random variable X with probability mass function
+xk := P(X = k), and α ∈ (0, 1) ∪ (1, ∞),
+                                                        !
+                                          1      X
+                                                      α
+                              Hα (X) :=      log    xk .
+                                         1−α
+                                                                k
+
+
+                     P |{xn > 0}| with | · | denoting cardinality, H1 (X) = H(X) is the usual
+Further, H0 (X) := log
+Shannon entropy − k xk log xk , and H∞ (X) = − log ∥x∥∞ , with ∥x∥∞ := maxk xk . When
+X is a continuous random variable with density function f with respect to Lebesgue measure,
+we write                                           Z           
+                                            1
+                             hα (X) :=         log     f α (x)dx ,
+                                          1−α
+                                                                            R
+with h0 (X) := log |{f > 0}| where | · | denotes volume, h1 (X) = h(X) = − f (x) log f (x)dx,
+and h∞ (X) = − log ∥f ∥∞ , with ∥f ∥∞ denoting the essential supremum of f with respect to
+Lebesgue measure.
+
+   An application of Theorem 2.3 together with the following lemma easily yield Rényi
+entropy maximization within subclasses of log-concave distributions.
+
+Lemma 2.10. Let X ∼ f , Z ∼ g be random variables where f, g are densities with respect to
+the geometric distribution in the discrete case, or with respect to the exponential distribution
+in the continuous case. In order to prove Hα (X) ≤ Hα (Z) or hα (X) ≤ hα (Z), it suffices to
+prove
+
+                         E[g α−1 (X)] ≤ E[g α−1 (Z)],               if α ∈ (0, 1),
+                      −E[log(g(X))] ≤ −E[log(g(Z))],                   if α = 1,
+                               α−1                α−1
+                         E[g         (X)] ≥ E[g         (Z)],       if α ∈ (1, ∞).
+
+   The proof is an application of Hölder’s inequality, and the non-negativity of the relative
+entropy. A proof can be found in detail in [33, Lemma 3.25].
+
+Theorem 2.11. Let α ≤ 1. Let Z be a discrete or continuous log-concave random variable.
+If X is such that X ≺lc Z and E[X] = E[Z], then
+
+                           Hα (X) ≤ Hα (Z)        or     hα (X) ≤ hα (Z).
+
+Proof. In the discrete setting, denote by g the probability mass function of Z. Consider
+ge the piecewise linear extension of g so that ge is a log-concave function on [0, +∞) (see,
+e.g., [10] Proposition 5.1). Therefore the functions φ(x) = geα−1 (x) when α ∈ (0, 1) and
+ψ(x) = − log(eg (x)) are convex. It remains to apply Theorem 2.3 together with Lemma 2.10.
+The proof in the continuous setting is similar and more straightforward.
+
+    As a consequence, with α ≤ 1, the geometric distribution and exponential distribution
+have maximum α-entropy among non-negative discrete and continuous log-concave distribu-
+tions with fixed expectation, extending the classical fact that the geometric and exponential
+
+
+                                                  9
+distributions have maximum Shannon entropy among all positive distributions of fixed ex-
+pectation. Further the Poisson distribution has maximum α-entropy for fixed expectation
+extending [45], and the binomial(p, n) has maximum α-entropy among ULC(n) variables with
+expectation pn, extending the result in the Shannon case given by Yu [44] proven through
+“thinning techniques”, which extended Harremoës [18] who had proven the same result for
+the subset of ULC(n) consisting of independent Bernoulli sums of length n.
+
+
+3    Log-concave Sequences
+As discussed in the introduction, log-concavity of a non-negative sequence {xk } can be written
+as the inequality
+                                        x2k ≥ xk−1 xk+1                                     (6)
+with the additional assumption that the sequence has no internal zeros, in the sense that
+xn xm > 0 implies xk > 0 for n < k < m. Constructing f = e−V with V the linear
+interpolation of the points (k, − log xk ) yields V convex and hence x being log-concave as
+a sequence agrees with that of Defintion 1.2 (see, e.g., [10, Proposition 5.1]). A useful
+and thematic observation is that for a non-negative integer-valued random variable X, the
+sequence xk := P(X = k) is log-concave if and only if X ≺lc Z where Z is a geometric
+random variable (on the appropriate support). Typically we will consider a sequence to be
+defined on N = {0, 1, 2, . . . } or N \ {0}, however in the context of the translation invariant
+inequality (6), other subspaces of the integers can be used without complication depending
+on the application.
+    In the next theorem, to match previous literature, we consider log-concave random vari-
+ables on N \ {0}. Recall that Z is geometric(p) on N \ {0} if there exists p ∈ (0, 1) such that
+P(Z = k) = (1 − p)k−1 p for k ≥ 1. Our first main result extends the tail bounds for sums of
+independent geometric random variables due to Janson [26], to sums of positive log-concave
+random variables.
+
+                          . , Xn , n ≥ 1, be independent discrete log-concave random variables
+Theorem 3.1. Let X1 , . . P
+on N \ {0}. Denote Sn = ni=1 Xi . Then, for all t ≥ 1,
+                                                      E[S ]
+                                                       n
+                                                 − max E[X   (t−1−log(t))
+                           P(Sn ≥ tE[Sn ]) ≤ e         i   ]  i             ,
+
+and for all t ≤ 1,
+                                                      E[S ]
+                                                       n
+                                                 − max E[X   (t−1−log(t))
+                           P(Sn ≤ tE[Sn ]) ≤ e         i   ]  i             .
+
+    Taking Xi to be geometric random variables on N \ {0} recovers [26, Theorem 2.1] and
+[26, Theorem 3.1].
+    To establish Theorem 3.1, we will have use for the following elementary lemma. Recall
+that an exponential(p) random variable has density function f (x) = pe−px for x ≥ 0 and
+p > 0.
+
+Lemma 3.2. For G a geometric(p) random variable on N \ {0} and W an exponential(p)
+random variable, and θ < λ ≤ p,
+                                                  p     − λ log 1− θ
+                           E[eθG ] ≤ E[eθW ] =       ≤ e p [ λ ].
+                                                 p−θ
+
+
+
+
+                                                 10
+Proof. When W is exponential(p),
+                                                                  h       i
+                                        p    − log 1− pθ    − λ log 1− θ
+                           E[e θW
+                                    ]=     =e            ≤ e p [ λ ].
+                                       p−θ
+
+When G is geometric(p),
+                                                  p         p
+                            E[eθG ] =                 −θ
+                                                         ≤     = E[eθW ],
+                                            p − (1 − e )   p−θ
+
+which gives the result.
+
+Proof of Theorem 3.1. Let Zi , i = 1, . . . , n, be independent geometric distributions on N\{0}
+                        1
+with parameter pi = E[X   i]
+                             , chosen so that E[Xi ] = E[Zi ]. Thus, by Theorem 2.3, Xi ≺cx Zi .
+Hence, the result follows from estimates of the moment generating function of ni=1 Zi .
+                                                                                    P
+   For all 0 < θ < λ := mini pi = (maxi E[Xi ])−1 , applying the product structure of the
+moment generating function, Xi ≺cx Zi applied to the convex function x 7→ eθx , and then
+Lemma 3.2,
+                                                      Pn      λ
+                                                 −        i=1 pi log   (1− λθ )                        θ
+             E[eθSn ] ≤ Πni=1 E[eθZi ] ≤ e                                        = e−λE[Sn ] log(1− λ ) .
+
+Therefore, by Markov’s inequality
+                                                                                            θ
+                            P(Sn ≥ tE[Sn ]) ≤ e−θtE[Sn ]−λE[Sn ] log(1− λ ) .
+
+Taking θ = λ(1 − 1t ) yields the result for the large deviation bound. A similar argument
+applied to negative θ yields the small deviation bound.
+
+   Taking n = 1 in Theorem 3.1 gives the following corollary.
+
+Corollary 3.3. Let X be a discrete log-concave random variable on N \ {0}. Then, for all
+t ≥ 1,
+                                P(X ≥ tE[X]) ≤ te1−t ,
+and for all t ≤ 1,
+                                            P(X ≤ tE[X]) ≤ te1−t .
+
+Remark 3.4. One may obtain concentration bounds for ni=1 ai Xi , ai > 0, via the same
+                                                            P
+majorization approach since if Xi ≺cx Zi , then for all θ ∈ R,
+
+                                             E[eθai Xi ] ≤ E[eθai Zi ].
+
+For example, for log-concave distributions on N \ {0}, following the proof of Theorem 3.1
+yields
+                n               n
+                                         !
+               X                X                               Pn
+           P       ai Xi ≥ t E[   ai Xi ] ≤ e−(mini ai E[Xi ])E[ i=1 ai Xi ](t−1−log(t)) ,
+                 i=1                  i=1
+
+and for all t ≤ 1,
+                 n                    n
+                                                      !
+                 X                    X                                               Pn
+             P         ai Xi ≤ t E[         ai Xi ]       ≤ e−(mini ai E[Xi ])E[         i=1 ai Xi ](t−1−log(t))   .
+                 i=1                  i=1
+
+
+
+
+                                                             11
+Remark 3.5. One may obtain similar concentration bounds for log-concave distributions on
+N by applying the majorization argument with the geometric distribution on N, P(Z = k) =
+p(1 − p)k , k ≥ 0.
+   We now move on to discuss moment bounds for discrete log-concave distributions on
+N. To establish such bounds, by Theorem 2.8 we need to estimate the quantity Aα,β =
+      1         1
+E[Z β ] β /E[Z α ] α , with β ≥ α, where Z is a geometric distribution on N. First, we note that
+there is no absolute comparison for all Z geometric. For example, taking β = 2 and α = 1,
+we have for Z ∼ (1 − p)k p, k ≥ 0,
+                                         1−p                     (1 − p)(2 − p)
+                                E[Z] =       ,       E[Z 2 ] =                  .
+                                          p                            p2
+Therefore,                    p                    √
+                 E[Z 2 ]1/2    (1 − p)(2 − p) p      2−p
+                            =                    =√        −−−→ +∞.
+                   E[Z]             p        1−p     1 − p p→1
+Hence, the supremum over all Z geometric on N is +∞. Nonetheless, we can establish the
+following moment bound.
+Proposition 3.6. Let X be a discrete log-concave random variable on N. Then, for all
+0 < α ≤ β, we have
+                                                     Γ(α+1)1/α
+                            1
+                          β β   Γ(β + 1)1/β     α α1
+                                                          α ]1/α
+                      E[X ] ≤               E[X ] e  αE[X        .
+                                Γ(α + 1)1/α
+                        1
+In particular, if E[X α ] α ≥ 1, we have
+                                                 1                   1
+                                          E[X β ] β ≤ cα,β E[X α ] α ,
+                                                                                       Γ(α+1)1/α Γ(β+1)1/β
+where cα,β depends only on α and β. Moreover, one may take cα,β = e                        α
+                                                                                                 Γ(α+1)1/α
+                                                                                                             .
+Proof. Note that for Z geometric on N,
+                                 X                  X
+                     E[Z α ] = p   k α (1 − p)k = p   k α e−k log(1/(1−p)) .
+                                     k∈N                      k∈N
+
+Also, we have           Z +∞
+                                                                     Γ(α + 1)
+                                  xα e−x log(1/(1−p)) dx =                         .
+                            0                                    log(1/(1 − p))α+1
+On the other hand,
+     Z +∞                          X Z k+1
+            α −x log(1/(1−p))
+          x e                 dx =         xα e−x log(1/(1−p)) dx
+       0                                   k∈N k
+                                            X                       Z k+1
+                                                 −k log(1/(1−p))
+                                      ≤          e                          xα dx
+                                           k∈N                       k
+                                                     "                                                #
+                                              1    X                        X
+                                      =               (k + 1)α+1 (1 − p)k −     k α+1 (1 − p)k
+                                            α+1
+                                                   k∈N                      k∈N
+                                                       α+1         α+1
+                                                                        
+                                              1    E[Z     ] E[Z       ]
+                                      =                     −
+                                            α + 1 p(1 − p)        p
+                                              1     1
+                                      =                E[Z α+1 ].
+                                            α+11−p
+
+
+                                                         12
+Therefore,
+                                                                  1−p
+                            E[Z α+1 ] ≥ Γ(α + 2)                              .
+                                                            log(1/(1 − p))α+1
+Similarly, we have
+   Z +∞                            X                      Z k+1
+          xα e−x log(1/(1−p)) dx ≥   e−(k+1) log(1/(1−p))       xα dx
+    0                                  k∈N                                k
+                                                "                                                           #
+                                        1  X                         X
+                               =             (k + 1)α+1 (1 − p)k+1 −   k α+1 (1 − p)k+1
+                                       α+1
+                                                    k∈N                                 k∈N
+                                        1
+                               =           E[Z α+1 ].
+                                       α+1
+Finally, we have the comparison
+                     1             1                                           1                  1
+             (1 − p) α+1 Γ(α + 2) α+1 ≤ log(1/(1 − p))E[Z α+1 ] α+1 ≤ Γ(α + 2) α+1 .
+
+We deduce that for all 0 < α ≤ β,
+                                                    1
+                                        E[Z β ] β                1    Γ(β + 1)1/β
+                         1 ≤ Aα,β =                 1 ≤             1             .                             (7)
+                                        E[Z α ] α           (1 − p) α Γ(α + 1)1/α
+Now, let X be a discrete log-concave random variable on N and assume that β ≥ α > 0.
+Then, the constraint E[X α ] = E[Z α ] implies
+                                                                               1
+                                α 1/α               α 1/α        Γ(α + 1) α
+                           E[X ]         = E[Z ]             ≤                .
+                                                               log(1/(1 − p))
+Therefore,
+                                                                     1
+                                                     Γ(α+1) α
+                                              1
+                                                 ≤ e E[X α ]1/α .                                               (8)
+                                             1−p
+From convex majorization (Theorem 2.8), we also have that the constraint E[X α ] = E[Z α ]
+implies E[X β ] ≤ E[Z β ]. We finally deduce from (7) and (8) that
+                                                        1
+                1          1             1 E[Z
+                                                    β] β                 1     Γ(β + 1)1/β          1
+              β β        β β           α α
+          E[X ] ≤ E[Z ] = E[X ]                         1    ≤               1          1/α
+                                                                                            E[X α ] α           (9)
+                                              E[Z α ] α              (1 − p) α Γ(α + 1)
+                                                                                                      1
+                                                                     Γ(β + 1)1/β     α α1
+                                                                                             Γ(α+1) α
+                                                                                            αE[X α ]1/α .
+                                                             ≤                   E[X  ]   e                 (10)
+                                                                     Γ(α + 1)1/α
+
+
+    We note that Proposition 3.6 recovers the following well-known inequality in the continu-
+ous setting that can be traced back to Karlin-Proschan-Barlow [29], see also Bobkov-Madiman
+[9, Corollary 3.2].
+Corollary 3.7 (Karlin-Proschan-Barlow [29]). Let X be a non-negative continuous log-
+concave random variable, then
+                                         1       Γ(β + 1)1/β     α α1
+                               E[X β ] β ≤                   E[X  ]   .
+                                                 Γ(α + 1)1/α
+
+
+                                                        13
+Proof. If E[X] = 0, then X = 0 and the proof is complete. Consider E[X] > 0, and denote
+by f the density of X. For ε > 0 define the log-concave probability sequence fε : N → R
+by fε (n) = P f (εn)      and let Xε be a random variable with such probability mass function.
+                 m f (εm)
+With the definition                                          1
+                                                     E[X p ] p
+                                         ψp (ε) =             1 ,
+                                                    εE[Xεp ] p
+we have
+                                                                           "            1
+                                                                                          #
+               1                  1           Γ(β   + 1) 1/β          1      Γ(α +  1)  α
+       E[X β ] β = εψβ (ε)E[Xεβ ] β ≤ εψβ (ε)                E[Xεα ] α exp             1
+                                              Γ(α + 1)1/α                    α E[Xεα ] α
+                                                                          "           1
+                                                                                                   #
+                                      ψβ (ε)Γ(β + 1)1/β             1       Γ(α +  1) α εψα (ε)
+                                    =                      E[X α ] α exp                         1   .
+                                      ψα (ε)Γ(α + 1)1/α                         α        E[X α ] α
+                                                                                             p
+                                                                                   P
+Taking ε → 0 completes the proof        as
+                                     R∞ p   ψ p (ε) →  1  for   any  p  > 0, since     n (nε) f (nε)ε is a
+Riemann sum approximation of 0 x f (x)dx.
+
+Remark 3.8. Corollary 3.7 can be derived directly by majorization as well (Theorem 2.8).
+It remains to note that                      1            1
+                                     E[Z β ] β   Γ(β + 1) β
+                             Aα,β =          1 =          1 ,
+                                     E[Z α ] α   Γ(α + 1) α
+when Z is an exponential random variable.
+    The next result complements Proposition 3.6.
+Proposition 3.9. Let X be a discrete log-concave random variable on N. Let 0 < α ≤ 1.
+Then, for all β ≥ α, we have
+                                       1         Γ(β + 1)1/β                1
+                                E[X β ] β ≤               1/α
+                                                              (E[X α ] + 1) α .
+                                                 Γ(α + 1)
+Proof. Assume that α ≤ 1 and let β ≥ α. Note that for all integer-valued random variables
+X with p.m.f. f , we have
+                                    X             X
+                          E[X α ] =   k α f (k) ≤   kf (k) = E[X].
+                                           k≥1               k≥1
+
+Therefore, the constraint E[X α ] = E[Z α ], for Z geometric on N, implies
+                                                                1−p
+                                        E[X α ] ≤ E[Z] =            ,
+                                                                 p
+and thus
+                                             1        1
+                                                ≤1+         .
+                                            1−p     E[X α ]
+Since the constraint E[X α ] = E[Z α ] also implies
+                                                 E[X β ] ≤ E[Z β ],
+we have
+                  1         1    Γ(β + 1)1/β      α α1   Γ(β + 1)1/β                1
+           E[X β ] β ≤          1         1/α
+                                              E[X  ]   ≤          1/α
+                                                                      (E[X α ] + 1) α .
+                         (1 − p) Γ(α + 1)
+                                α                        Γ(α + 1)
+
+
+
+
+                                                        14
+     For integer moments we derive sharp bounds for discrete log-concave random variables.
+One of several results in this direction is the following theorem of Keilson [30], which we
+improve upon in the ultra log-concave case (see Section 4). These can be considered dis-
+        R +∞ p of the well known fact that in the continuous setting, the function p 7→
+crete analogs
+   1
+Γ(p+1) 0     t f (t)dt is log-concave whenever f is log-concave. This also complements the
+recent confirmation in [36] of the conjectured log-concavity of the map p 7→ p k xpk for xk
+                                                                               P
+                                                                              m!
+a monotone log-concave sequence (see [37]). We use the notation (m)n = (m−n)!     , with the
+convention that (m)n = 0 if m < n.
+
+Theorem 3.10 (Keilson [30]). Let X be a discrete log-concave random variable supported on
+N. Then the function
+                                           1
+                                  Φ : p 7→ E[(X)p ]
+                                           p!
+is log-concave on N, where E[(X)p ] is the p-th factorial moment of X.
+
+   We provide a new proof of Theorem 3.10 based on convex majorization.
+
+Proof of Theorem 3.10. Denote by f the probability mass function of X. Denote, for p ∈ N,
+Φ(p) = p!1 E[(X)p ] ≥ 0. We want to prove that for all p ∈ N,
+                                                  p
+                                   Φ(p + 1) ≥      Φ(p)Φ(p + 2).
+
+For this, fix p ∈ N. Assume Φ(p+2) > 0, otherwise the result is trivial. Therefore E[(X)p+2 ] >
+0, which implies that there exists k0 ≥ p + 2 such that f (k0 ) > 0, and thus Φ(p), Φ(p + 1) > 0.
+Consider the log-affine function g(k) = cak , k ∈ N, where c and a are chosen such that
+                                                                       p+1
+                  Φ(p + 1)                                    Φ(p)              Φ(p)Φ(p + 1)
+          a=                   ∈ (0, 1)     and    c=                                          .
+               Φ(p) + Φ(p + 1)                               Φ(p + 1)          Φ(p) + Φ(p + 1)
+
+Such a choice ensures that
+                 X                                     X
+                     (k)p cak = E[(X)p ]     and        (k)p+1 cak = E[(X)p+1 ],                   (11)
+                     k≥0                               k≥0
+
+since for all l ∈ N,
+                     X               X                                          l!
+                      (k)l cak = cal   k · · · (k − l + 1)ak−l = cal                   ,
+                                                                            (1 − a)l+1
+                     k≥0              k≥l
+                                                                         P       k   1
+where the last identity follows by taking the l-th derivative of            k≥0 a = 1−a . In particular,
+                                                             p+2
+                                                                                 Φ(p + 1)2
+                                                  
+               X                             c         a
+                (k)p+2 cak = (p + 2)!                               = (p + 2)!             .       (12)
+                                            1−a       1−a                          Φ(p)
+               k≥0
+
+Define
+                                      (k)p f                    (k)p g
+                                fe =              and ge =              .
+                                     E[(X)p ]                  E[(X)p ]
+Clearly fe defines a distribution and ge as well by (11). Denote X e (resp. Z)e the random
+                                                        e ≺lc Z
+variable with distribution fe (resp. ge), and note that X     e since f is log-concave and g
+
+
+
+                                                  15
+                                                                       (k)
+is log-affine. Define the non-decreasing function T (k) = (k)p+1
+                                                               p
+                                                                 = (k − p)1{k≥p+1} , and note
+that
+                                          E[(X)p+1 ]
+                              E[T ( e
+                                   X)] =             = E[T ( e
+                                                            Z)],
+                                           E[(X)p ]
+where the last equality follows by (11). Therefore, taking µ to be the distribution of Z,
+                                                                                       e one
+may apply Theorem 2.6 to deduce that T (X) ≺cx T (Z), and thus for any convex function φ,
+                                           e          e
+
+                                         e ≤ E[φ(T (Z))].
+                                  E[φ(T (X))]       e                                       (13)
+
+Choosing the convex function φ(k) = k(k − 1) yields
+
+                                                                                 (k)p+2
+                     φ(T (k)) = (k − (p + 1))(k − p)1{k≥p+2} =                          ,
+                                                                                  (k)p
+
+hence inequality (13) yields
+                                     X                                       Φ(p + 1)2
+                      E[(X)p+2 ] ≤         (k)p+2 g(k) = (p + 2)!                      ,
+                                                                               Φ(p)
+                                     k≥0
+
+where the last identity follows from (12). This gives the desired result.
+
+Remark 3.11. One easily deduces from Theorem 3.10 the following sharp moment inequal-
+ities                            1             1
+                       E[(X)r+1 ] r+1     E[(X)r ] r
+                                      ≤              , r ∈ N,
+                        (r + 1)!             r!
+holding for all discrete log-concave random variables.
+
+   We end this section with entropy bounds for discrete log-concave random variables.
+
+Theorem 3.12. For α ≤ 1 and X a log-concave distribution on N with E[X] = µ
+
+                                     log ((1 + µ)α − µα )                log α
+                Hα (X) ≤ Hα (Z) =                         < log(1 + µ) +
+                                             α−1                         α−1
+                                                             µ
+where Z is a geometric distribution on N with parameter p = 1+µ .
+
+Proof. The proof follows immediately from Lemma 2.10 and Theorem 2.11. The strict in-
+equality follows from (1 + µ)α − µα > α(1 + µ)α−1 by the Lagrange mean value theorem.
+
+    Note that the geometric distribution maximizes the Shannon entropy among all N-valued
+random variables with fixed mean, so the above theorem is only interesting for α < 1. When
+α > 1, the situation is more intricate. In fact, it turns out that Theorem 3.12 does not hold
+for α > 1. Indeed, let Z be a geometric distribution on N with parameter p ∈ ( 12 , 1) and let
+X be a Bernoulli distribution with parameter 1−p  p , so that E[X] = E[Z]. We have
+                                                        α                   α
+                            (1−α)Hα (X)            1−p                2p − 1
+                          e                =                  +                     ,
+                                                    p                   p
+
+                                                          pα
+                                 e(1−α)Hα (Z) =                   .
+                                                     1 − (1 − p)α
+
+
+
+                                                    16
+We claim that as p → 1,
+                                     α                    α
+                                                                         pα
+                                             
+                               1−p                2p − 1
+                                          +                     <                ,
+                                p                   p               1 − (1 − p)α
+and therefore Hα (X) > Hα (Z). Indeed, the above inequality is equivalent to
+                        p2α − [(1 − p)α + (2p − 1)α ](1 − (1 − p)α ) > 0.
+L’Hôpital’s rule can be used to show that
+                         p2α − [(1 − p)α + (2p − 1)α ](1 − (1 − p)α )
+                     lim                                              = α,
+                     p→1                  (p − 1)2
+and the result follows.
+   Similarly, comparisons of matched mean Bernoulli, Poisson, and Binomial, show that for
+small enough fixed means, neither the Poisson in the class of ultra log-concave distributions,
+nor the Binomial in the class of ultra log-concave distributions of order n, are maximizers of
+the α-Rényi entropy for α > 1, which we summarize in the following remark.
+Remark 3.13. Let α > 1. There exists µ > 0 and a Bernoulli random variable X such that
+                           Hα (X) > max{Hα (Z1 ), Hα (Z2 ), Hα (Z3 )}
+where Z1 is a geometric, Z2 a Poisson, and Z3 a Binomial satisfying E[Zi ] = E[X] = µ.
+
+
+4    Ultra log-concavity of order n and ULC
+Theorem 4.1. Let X be a ULC(n) random variable. Let p = E[X]/n. Then for t ≥ 0,
+                                P(X ≥ (p + t)n) ≤ e−nD(p+t||p) ,
+                                P(X ≤ (p − t)n) ≤ e−nD(p−t||p) .
+Here, D(α||β) := α log αβ + (1 − α) log 1−α
+                                        1−β .
+
+Proof. Let X be ULC(n). Then by Theorem 2.3, X ≺cx Z where Z is Binomial(n, p) with
+p = E[X]/n. By Theorem 2.7,
+                                                                  n
+                P(X ≥ (p + t)n) ≤ inf (1 − p)e−λ(p+t) + pe−λ(p+t−1) .
+                                          λ>0
+
+Evaluating the right side at its minimizer, that is when eλ = (1−p)(p+t)
+                                                               (1−p−t)p if p + t < 1 and when
+λ → +∞ if p + t ≥ 1, gives the result. The lower bound is derived similarly.
+
+   Note that by Pinsker’s inequality (see, e.g., [39, Theorem 7.10]) one has D(p + t||p) and
+D(p − t||p) larger than 2t2 , so that
+                                                 √          2
+                                P |X − E[X]| ≥ λ n ≤ 2e−2λ ,
+and one recovers more transparently Gaussian concentration of ultra log-concave variables of
+order n.
+    We also recover the recent concentration inequalities derived for ULC random variables in
+[3] used to generalize and improve the concentration inequalities for intrinsic volume random
+variables in [32] (see also [25]). See Section 5 for further comments on the concentration of
+intrinsic volumes.
+
+
+                                                      17
+Theorem 4.2. Let X be an ultra log-concave random variable. Then, for all t ≥ 0,
+                                                                      t  2
+                                                                − 2(t+E[X])
+                                  P(X − E[X] ≥ t) ≤ e                            ,
+
+and                                                                          2
+                                                                        t
+                                                                     − 2E[X]
+                                  P(X − E[X] ≤ −t) ≤ e                           .
+Proof. Let Z be a Poisson distribution with parameter λ = E[X]. Choosing the convex
+function x 7→ etx for arbitrary t ∈ R yields a pointwise dominance of moment generating
+functions
+                                                          t
+                               E[etX ] ≤ E[etZ ] = eE[X](e −1) .
+The result then follows from a standard application of Markov’s inequality (see [3] for the
+details).
+
+    The next result provides a strengthening of Keilson’s result in Theorem 3.10 under ultra
+log-concavity.
+Theorem 4.3. For X a ULC(n) random variable,
+                                                        E[(X)p ]
+                                             Φ : p 7→
+                                                         (n)p
+is log-concave, or equivalently
+
+                             E[(X)p ]2 ≥ cn (p)E[(X)p+1 ] E[(X)p−1 ]                          (14)
+                   1
+with cn (p) = 1 + n−p . When X is ULC, this is interpreted as p 7→ E[(X)p ] is log-concave, or
+that (14) holds with c∞ (p) = 1 for all p.
+Proof. The proof of Theorem 3.10 can be repeated, one needs only to utilize that Z binomial(n, q)
+satisfies
+                                     E[(Z)l ] = (n)r q l ,
+for the ULC(n) case; while Z Poisson(λ) satisfies
+
+                                              E[(Z)l ] = λl ,
+
+for the ULC case.
+
+Remark 4.4. We easily deduce from Theorem 4.3 the following sharp moment bounds for
+ULC(n) random variables,
+                                      1                      1
+                         E[(X)r+1 ]    r+1           E[(X)r ]    r
+                                             ≤                       ,   0 ≤ r ≤ n − 1.
+                          (n)r+1                      (n)r
+                                                                                     1    1
+In particular, ultra log-concave random variables satisfy E[(X)r+1 ] r+1 ≤ E[(X)r ] r , for r ∈ N.
+    We end this section with a sharp entropy bound for ULC(n) random variables, which is
+an immediate application of Lemma 2.10 and Theorem 2.11.
+Theorem 4.5. Let α ≤ 1 and let X be a ULC(n) (resp. ULC) random variable. Then,
+
+                                             Hα (X) ≤ Hα (Z)
+
+where Z is a binomial (resp. Poisson) distribution with E[Z] = E[X].
+
+
+                                                       18
+5    Log-concavity of intrinsic volumes
+Together with Aravinda in [3], the authors proved the pointwise domination of the mo-
+ment generating function of ultra log-concave random variables with a fixed mean to derive
+concentration inequalities (using significantly more complicated techniques consisting in the
+identification of extreme points satisfying a linear constraint, see [34]). Using the fact that
+all intrinsic volume random variables are log-concave with respect to the Poisson of the same
+mean, one can conclude that intrinsic volumes exhibit at least “Poisson-type Concentration”.
+The approach here immediately and easily implies all the results of [3] as well as [32] as
+special cases.
+     Given convex bodies K1 , K2 , . . . , Kn in Rd the function f : [0, ∞)n → [0, ∞) defined by
+
+                                      f (t) = Vold (t1 K1 + · · · + tn Kn )
+
+is a d-homogeneous polynomial, and as such can be written as
+                                             n
+                                             X
+                                f (t) =                   V (Ki1 , . . . , Kid )ti1 · · · tid
+                                          i1 ,...,id =1
+
+with coefficients V (Ki1 , . . . , Kid ) that are symmetric under permutation of (i1 , . . . , id ). The
+coefficient V (Ki1 , . . . , Kid ) is the mixed volume of Ki1 , . . . , Kid . For example when Ki = K,
+by the homogeneity of the Lebesgue measure, we have
+
+                                         Vold (tK) = td V (K, . . . , K)
+
+so that V (K, . . . , K) = Vold (K).
+
+Theorem 5.1 (Alexandrov-Fenchel). For d-dimensional convex bodies K1 , . . . , Kd we have
+the following inequality for mixed volumes
+
+           V 2 (K1 , K2 , K3 , . . . , Kd ) ≥ V (K1 , K1 , K3 , . . . , Kd )V (K2 , K2 , K3 , . . . , Kd ).
+
+    Denote by Bj the j-dimensional Euclidean unit ball and letting ωj = Volj (Bj ), and B
+the d-dimensional unit ball. Associate to a single d-dimensional convex body K the sequence
+of intrinsic volumes given by {V0 (K), . . . , Vd (K)} where Vj (K) are the coefficients of the
+polynomial
+                                                 X d
+                            Vold (K + tBd ) =        Vj (K)td−j ωd−j .
+                                                                j=0
+
+Comparing with the expression of Vold (K + tB) in terms of mixed volumes with t = t2 ,
+K1 = K and K2 = B = Bd we can write Vold (K + tB) as,
+                                                             2
+                                                             X
+                  Vold (t1 K1 + t2 K2 )            =                      V (Ki1 , . . . , Kid )ti1 . . . tid
+                                           t1 =1          i1 ,...,id =1
+
+                                                     d                                     n−j times
+                                                     X  d                   z }| {
+                                                   =      V (K, . . . , K , B, . . . , B)td−j .
+                                                        j    | {z }
+                                                          j=0                   j times
+
+
+
+
+                                                                19
+                                                 n−j times
+                                                   z }| {
+Writing V (K (j) , B (n−j) ) for V (K, . . . , K , B, . . . , B) and equating the coefficients
+                                    | {z }
+                                      j times
+
+                                                 d
+                                                  
+                                                 j
+                                    Vj (K) =           V (K (j) , B (n−j) ).
+                                                ωd−j
+
+Note that the subscript d is omitted in the expression of Vj (K). Intrinsic volumes of a convex
+body are independent of the ambient space in which they are embedded, see [35, 41]. Note
+that by Alexandrov-Fenchel j 7→ V (K (j) , B (n−j) ) is log-concave, which will be used to derive
+the following observation.
+
+Corollary 5.2. Given a d-dimensional convex body K, and B the d-dimensional unit ball,
+the sequence
+                                         Vj (K)
+                                    j 7→
+                                         Vj (λB)
+is log-concave for λ > 0. That is every intrinsic volume sequence is log-concave with respect
+to the intrinsic volume sequence of a ball. In particular
+                      r                   
+               2              1          1
+             Vj (K) ≥ 1 −            1+      Vj−1 (K)Vj+1 (K), j = 1, . . . , d − 1.     (15)
+                            d−j          j
+
+Thus the intrinsic volume sequence of a convex body is strictly ultra log-concave. Moreover,
+                             r                      
+                      2                1           1
+                    Vj (B) ≤ 1 +               1+      Vj−1 (B)Vj+1 (B).                (16)
+                                   d−j−1           j
+
+Proof. Note that again comparing coefficients of the homogeneous polynomial f (t) yields
+V (λK1 , K2 , . . . , Kn ) = λV (K1 , K2 , . . . , Kn ) which by symmetry gives Vj (λB) = λj Vj (B).
+Since j 7→ λj is log-affine it suffices to consider the case that λ = 1. We have
+
+                                 (dj)    (j)  (n−j) )
+                        Vj (K)  ωd−j V (K , B           V (K (j) , B (n−j) )
+                               = d                    =                      ,
+                        Vj (B)   (j )    (j)  (n−j)            ωd
+                                ωd−j V (B , B       )
+
+which is log-concave by the Alexandrov-Fenchel inequality. To prove (15), we follow the
+computations of McMullen [35],
+
+                                    Vj2 (λB)               j+1
+                                                 = αd,j :=     βd−j
+                              Vj−1 (λB)Vj+1 (λB)            j
+
+where, after use of the identity xΓ(x) = Γ(1 + x),
+
+                                                Γ(s/2)Γ(1 + s/2)
+                                       βs :=                     .
+                                                  Γ2 ((1 + s)/2)
+
+                                                                   j           V 2 (K)
+Note that by the log-concavity of the first sequence we have Vj−1 (K)Vj+1 (K)
+                                                                              ≥ αd,j , and in
+                                                                                         V 2 (Bd )
+particular for j < d, by considering Bd ⊂ Rd+1 , we have αd+1,j ≤ Vj−1 (Bjd )Vj+1 (Bd ) = αd,j .
+
+
+
+                                                       20
+Thus βs is decreasing in s. Thus βs2 ≥ βs βs+1 = s+1          2
+                                                    s ≥ βs+1 . Thus, we have for Euclidean
+Balls, and hence for any convex body K ⊆ Rd ,
+                               r                   
+                        2              1          1
+                      Vj (K) ≥ 1 −           1+         Vj−1 (K)Vj+1 (K).
+                                     d−j          j
+                                                  Vj2 (λB)
+               q
+The inequality 1 + s−1 1
+                          ≥ βs coupled with Vj−1 (λB)V  j+1 (λB)
+                                                                 = j+1
+                                                                    j βd−j yields (16).
+
+   For a convex body K, we define its intrinsic volume random variable XK to be one given
+by the distribution
+                                                      Vj (K)
+                         P(XK = j) = ṼK (j) := Pd              .
+                                                     i=0 Vi (K)
+The central intrinsic volume of K is defined to be
+                                                      d
+                                                      X
+                                 ∆(K) = E[XK ] =            j ṼK (j).
+                                                      j=0
+
+Proposition 5.3. For a convex body K the central intrinsic volume increases from 0 to d
+with scaling, that is the function
+                                    λ 7→ ∆(λK)
+is strictly increasing for λ ≥ 0, limλ→0 ∆(λK) = 0 and limλ→∞ ∆(λK) = d.
+                                                             P            −1
+                                                                d
+Proof. By homogeneity, ṼλK (j) = C(λ)λj V (K) for C(λ) :=      i=0 Vi (λK)    . Thus for
+λ′ > λ the function                                       ′ j
+                                         Ṽλ′ K (j)       λ
+                                    j 7→            =C          ,
+                                         ṼλK (j)         λ
+with C = C(λ′ )/C(λ), is strictly increasing. Since by definition j ṼλK (j) = j Ṽλ′ K (j) = 1
+                                                                     P             P
+
+it follows that there exits k < d such that Ṽλ′ K (j) ≤ ṼλK (j) for j ≤ k and Ṽλ′ K (j) > ṼλK (j)
+otherwise. Thus for Φ : J0, dK → R strictly increasing,
+                                           d
+                                           X
+            E[Φ(Xλ′ K )] − E[Φ(XλK )] =      (Φ(j) − Φ(k))(Ṽλ′ K (j) − ṼλK (j)) > 0,
+                                           j=0
+
+
+as the terms in the summands Φ(j) − Φ(k) and Ṽλ′ K (j) − ṼλK (j) always have the same sign.
+The case that Φ(x) = x gives our first result. The limiting arguments are an easy exercise.
+
+Definition 5.4 (Intrinsic Entropy). For α ∈ [0, ∞] and a convex body K, define the intrinsic
+entropy of order α of K as
+                                 IntEntα (K) := Hα (XK )
+
+   That is the intrinsic entropy of order α associated to a convex body is just the α-Rényi
+entropy of XK . The case that α = 1 was studied in [32].
+
+Theorem 5.5. For α ≤ 1, among convex bodies K in Rd such that ∆(K) = ∆, the intrinsic
+entropy                                                       
+                                             log EṼKα−1 (XK )
+                    IntEntα (K) = Hα (XK ) =                                     (17)
+                                                  1−α
+
+
+                                                 21
+is maximized when K is a d-dimensional Euclidean ball. The optimal inequality independent
+of dimension is
+                                IntEntα (K) < Hα (Z),                                (18)
+where Z ∼ Poisson(∆(K)).
+    We note that this corrects [32, Theorem 6.1.13] where it is claimed that the cube, whose
+intrinsic volume random variables correspond to binomial distributions, maximizes intrinsic
+entropy (of order α = 1) for fixed expectation. The error in the proof of [32, Theorem
+6.1.13] is the conflation of the spaces ULC(d) and the ultra log-concave distributions with
+finite support on [0, d] which we denote ULC[d] (∞). As mentioned in [32], the binomial
+distribution does maximize entropy among ULC(d) distributions with fixed expectation, see
+[44], however from (16) we see that while Vj (B) is ULC(∞), it does not belong to ULC(d). In
+summary, all intrinsic volumes sequences are log-concave with respect to the intrinsic volume
+of a ball, which is in turn log-concave with respect to a Poisson, however the intrinsic volume
+sequence of a ball is not log-concave with respect to a binomial. We mention in passing that
+the entropy maximizers of ULC[d] (∞) for fixed expectation are the truncations of Poisson
+distributions, as can be proved by similar methods to that below.
+
+Proof of Theorem 5.5. Note that the existence of λ such that ∆(λB) = ∆ is given by Propo-
+sition 5.3. By Corollary 5.2 the sequence ṼK (j) is log-concave with respect to ṼλB (j) as each
+is just a constant multiple of Vj (K) and Vj (λB) respectively. From log-concavity it follows
+that {ṼK (j) ≥ ṼλB (j)} is an interval [a, b], and by the argument of Proposition 5.3 we must
+have [a, b] ⊂ (0, d) else we would have contradiction on ∆(K) = ∆(λB). It follows that
+XK ≺cx XλB since the densities “cross twice” and have matching expectation. For the α = 1
+case, since ṼλB is log-concave, − log ṼλB is convex,
+
+                 H(XλB ) = −E log ṼλB (XλB ) ≥ −E log ṼλB (XK ) ≥ H(XK ),
+
+where the last inequality is Gibbs’ inequality. The case α < 1 follows similarly. From log-
+concavity and the monotonicity of Lp norms for probability measures (since α − 1 < 0),
+                                                                                ! 1
+                                                     α−1          α−1             α−1
+                   p                                VλB  (j − 1) VλB  (j + 1)
+          VλB (j) ≥ VλB (j − 1)VλB (j + 1) ≥                    +                       ,
+                                                         2            2
+                  α−1                            α−1               α−1
+which yields VλB       to be convex, so that E[ṼλB  (XλB )] ≥ E[ṼλB  (XK )] with Lemma 2.10
+completes the proof.
+    As every intrinsic volume sequence is log-concave with respect to the Poisson, (18) follows
+similarly. Equality can be obtained asymptotically in (18), as a Poisson distribution is the
+limit of Ṽλd B d with d → ∞ for λd chosen to fix ∆(λd B d ).
+
+
+6    Continuous setting
+Let us recall the notion of log-concavity of order p.
+Definition 6.1 (Bobkov [8]). A non-negative random variable X is log-concave of order
+p > 0, if it possesses a density function f that admits a decomposition such that
+
+                                       f (x) = xp−1 g(x)
+
+for a non-negative, log-concave function g.
+
+
+                                               22
+    Strictly speaking, log-concavity of order p was defined in [8] (see also [7, 9, 40]) only
+for p ≥ 1. In this case, xp−1 is log-concave, and the log concavity of order p is a stronger
+assumption than log-concavity. Such distributions arise as the distribution from the norm of a
+spherically symmetric log-concave vectors. More explicitly if X is log-concave and spherically
+symmetric in Rd with d ≥ 2, then ∥X∥2 has a density on (0, ∞) that is log-concave of order
+d − 1.
+    For our purposes it is convenient to extend the definition of log-concavity of order p to
+p ∈ (0, 1), as this class corresponds exactly to the densities that are log-concave with respect
+to a Gamma distribution. We recall that the Gamma(p, β) distribution is to be given by the
+density
+                                          β p p−1 −βx
+                                 f (x) =      x e      , x > 0.
+                                         Γ(p)
+Thus with Definition 6.1 a random variable X is log-concave of order p exactly when it
+is log-concave with respect to a Gamma(p, β) distribution. Notice that the statement is
+independent of the choice of β and that the case p = 1 corresponds to ordinary log-concavity.
+Recall also that for Z ∼ Gamma(p, β), and q > −p,
+
+                                                  Γ(p + q)
+                                      E[Z q ] =            .
+                                                   Γ(p)β p
+
+   The next result provides a bound on the moment generating function of random variables
+that are log-concave of order p > 0.
+
+Theorem 6.2. For X log-concave of order p > 0, with mean µ = E[X], Z ∼ Gamma(p, µp ),
+and t < µp
+                                     µ −p
+                                                              
+                                                               µt
+             E[etX ] ≤ E[etZ ] = 1 − t     = exp −p log 1 −          .
+                                     p                         p
+   Theorem 6.2 extends and sharpens Bobkov’s result [8, Proposition 3.1] where it is proven
+that for |t| < p/2µ and p ≥ 1,
+                                            2 2       
+                                  tX        t µ
+                               E[e ] ≤ exp       + tµ .
+                                              p
+
+Through the standard application of Markov’s inequality discussed in section 2.2.1, we obtain
+the following sharpenings of the tail bounds in [8].
+
+Theorem 6.3. For X log-concave of order p > 0, µ := E[X], and λ ≥ 1,
+
+                            P(X ≥ λµ) ≤ exp {−p (λ − log λ − 1)}.
+
+For λ ∈ (0, 1),
+                            P(X ≤ λµ) ≤ exp {−p (λ − log λ − 1)}.
+Equivalently, for h ≥ 0,
+
+                           P(X − µ ≥ hµ) ≤ exp{−p(h − log(1 + h)}
+
+and with the constraint that h ≤ 1
+
+                           P(X − µ ≤ −hµ) ≤ exp{p(h + log(1 − h)}.
+
+
+                                              23
+    In particular when p = 1, and similarly to the discrete setting, we extend the tail bounds
+for sums of independent exponential random variables due to Janson [26], to sums of positive
+log-concave random variables.
+
+Theorem 6.4. Let X1 , . . . , Xn , n ≥ 1, be independentPpositive continuous
+                                                                           Plog-concave ran-
+dom variables, with E[Xi ] = 1, and λi > 0 with λ := ni=1 λi and Sn := ni=1 λi Xi . Then,
+for all t ≥ 1,
+                              P(Sn ≥ t λ) ≤ e−λ(mini λi )(t−1−log(t)) ,
+and for all t ≤ 1,
+                                P(Sn ≤ t λ) ≤ e−λ(mini λi )(t−1−log(t)) .
+
+     Note that taking Xi to be i.i.d. exponential(1), and λi = a1i recovers [26, Theorem 5.1
+(i)] and [26, Theorem 5.1 (iii)].
+     We end this section with sharp moment and entropy bounds.
+
+Theorem 6.5. For X log-concave of order p > 0, and r > q > −p,
+                                                 1                   1
+                                       E[X r ] r ≤ C(p, q, r)E[X q ] q ,
+                            1     1
+                                      − r1
+where C(p, q, r) = Γ(p+r) 1 Γ(p) q
+                            r
+                                             .
+                     Γ(p+q) q
+
+Theorem 6.6. For α ∈ [0, 1], among X log-concave of order p ≥ 1, with mean E[X] = µ,
+Z ∼ Gamma(p, µp ) has maximum α-Rényi entropy. That is, when α ∈ [0, 1),
+                                                                                  
+                                           1                   Γ(1 + α(p − 1))
+                        hα (X) ≤ hα (Z) =     log                                      ,
+                                          1−α                  Γ(p)α β 1−α α1+pα
+
+and
+                                                     p
+                       h(X) ≤ h(Z) = p − log           + log Γ(p) + (1 − p)ψ(p),
+                                                     µ
+                                                                           ′
+where ψ(p) denotes the digamma function given by ψ(p) := ΓΓ(p)
+                                                           (p)
+                                                               .
+
+   We omit the proofs of the results in this section, as the proofs are based on convex
+majorization (Theorems 2.7, 2.8 and 2.11), similarly as to the rest of the article.
+
+Acknowledgments. We thank Mokshay Madiman for pointing out to us the article of
+Yaming Yu [45]. The second author extends his gratitude to Artem Zvavich for introducing
+him to the Alexandrov-Fenchel inequality, as well as to Arturo Jaramillo for fruitful discus-
+sions. Finally, we thank the anonymous referees for their helpful comments that improved
+the presentation of the article.
+
+
+References
+ [1] N. Anari, K. Liu, S. O. Gharan, and C. Vinzant. Log-concave polynomials iii: Ma-
+     son’s ultra-log-concavity conjecture for independent sets of matroids. Proceedings of the
+     American Mathematical Society, 152(05):1969–1981, 2024.
+
+ [2] T. Ando. Totally positive matrices. Linear Algebra and its Applications, 90:165–219,
+     1987.
+
+
+                                                      24
+ [3] H. Aravinda, A. Marsiglietti, and J. Melbourne. Concentration inequalities for ultra
+     log-concave distributions. Studia Mathematica, 265:111–120, 2022.
+
+ [4] F. Ardila, G. Denham, and J. Huh. Lagrangian geometry of matroids. Journal of the
+     American Mathematical Society, 36(3):727–794, 2023.
+
+ [5] S. Backman, C. Eur, and C. Simpson. Simplicial generation of chow rings of matroids.
+     Journal of the European Mathematical Society, 26(11):4491–4535, 2023.
+
+ [6] A. Berget, H. Spink, and D. Tseng. Log-concavity of matroid h-vectors and mixed
+     eulerian numbers. Duke Mathematical Journal, 172(18):3475–3520, 2023.
+
+ [7] S. G Bobkov. Spectral gap and concentration for some spherically symmetric probability
+     measures. In Geometric Aspects of Functional Analysis: Israel Seminar 2001-2002, pages
+     37–43. Springer, 2003.
+
+ [8] S. G. Bobkov. Gaussian concentration for a class of spherically invariant measures.
+     Journal of Mathematical Sciences, 167:326–339, 2010.
+
+ [9] S. G. Bobkov and M. Madiman. Concentration of the information in data with log-
+     concave distributions. The Annals of Probability, pages 1528–1543, 2011.
+
+[10] S. G. Bobkov, A. Marsiglietti, and J. Melbourne. Concentration functions and entropy
+     bounds for discrete log-concave distributions. Combinatorics, Probability and Comput-
+     ing, 31(1):54–72, 2022.
+
+[11] S. Boucheron, G. Lugosi, and P. Massart. Concentration Inequalities: A Nonasymptotic
+     Theory of Independence. Oxford University Press, 2013.
+
+[12] P. Brändén. Unimodality, log-concavity, real-rootedness and beyond. Handbook of enu-
+     merative combinatorics, 87:437, 2015.
+
+[13] P. Brändén and J. Huh. Lorentzian polynomials. Annals of Mathematics, 192(3):821–
+     891, 2020.
+
+[14] F. Brenti. Unimodal, log-concave and pólya frequency sequences in combinatorics. Mem-
+     oirs of the American Mathematical Society, 81(413), 1989.
+
+[15] F. Brenti. Combinatorics and total positivity. Journal of Combinatorial Theory, Series
+     A, 71(2):175–218, 1995.
+
+[16] S. H. Chan and I. Pak. Log-concave poset inequalities. Journal of the Association for
+     Mathematical Research, 2(1):53–153, 2024.
+
+[17] G.H. Hardy, J.E. Littlewood, and G. Pólya. Inequalities. New York, The Macmillan
+     Company, 1934.
+
+[18] P. Harremoës. Binomial and Poisson distributions as maximum entropy distributions.
+     IEEE Trans. Inform. Theory, 47(5):2039–2041, 2001.
+
+[19] J. Huh. Milnor numbers of projective hypersurfaces and the chromatic polynomial of
+     graphs. Journal of the American Mathematical Society, 25(3):907–927, 2012.
+
+
+
+
+                                            25
+[20] J. Huh. H-vectors of matroids and logarithmic concavity. Advances in mathematics,
+     270:49–59, 2015.
+
+[21] J. Huh. Combinatorics and hodge theory. In Proceedings of the international congress
+     of mathematicians, volume 1, pages 212–239, 2022.
+
+[22] J. Huh and E. Katz. Log-concavity of characteristic polynomials and the bergman fan
+     of matroids. Mathematische Annalen, 354:1103–1116, 2012.
+
+[23] J. Huh, J. Matherne, K. Mészáros, and A. St Dizier. Logarithmic concavity of schur and
+     related polynomials. Transactions of the American Mathematical Society, 375(6):4411–
+     4427, 2022.
+
+[24] J. Huh, B. Schröter, and B. Wang. Correlation bounds for fields and matroids. Journal
+     of the European Mathematical Society, 24(4):1335–1351, 2021.
+
+[25] J. Jakimiuk, D. Murawski, P. Nayar, and S. Slobodianiuk. Log-concavity and discrete
+     degrees of freedom. Discrete Mathematics, 347(6):114020, 2024.
+
+[26] S. Janson. Tail bounds for sums of geometric and exponential variables. Statistics &
+     Probability Letters, 135:1–6, 2018.
+
+[27] S. Karlin. Total positivity. Stanford Univ. Press, Stanford, 1968.
+
+[28] S. Karlin and A. Novikoff. Generalized convex inequalities. Pacific J. Math., 13(4):1251–
+     1279, 1963.
+
+[29] S. Karlin, F. Proschan, and R.E. Barlow. Moment inequalities of pòlya frequency func-
+     tions. Pacific J. Math., 11:1023–1033, 1961.
+
+[30] J. Keilson. A threshold for log-concavity for probability generating functions and asso-
+     ciated moment inequalities. The Annals of Mathematical Statistics, pages 1702–1708,
+     1972.
+
+[31] B. Klartag. A central limit theorem for convex sets.         Inventiones mathematicae,
+     168(1):91–131, 2007.
+
+[32] M. Lotz, M. B. McCoy, I. Nourdin, G. Peccati, and J. A. Tropp. Concentration of the
+     intrinsic volumes of a convex body. In Geometric Aspects of Functional Analysis, pages
+     139–167. Springer, 2020.
+
+[33] M. Madiman, J. Melbourne, and P. Xu. Forward and reverse entropy power inequalities
+     in convex geometry. Convexity and Concentration, pages 427–485, 2017.
+
+[34] A. Marsiglietti and J. Melbourne. Geometric and functional inequalities for log-concave
+     probability sequences. Discrete & Computational Geometry, 71(2):556–586, 2023.
+
+[35] P. McMullen. Inequalities between intrinsic volumes. Monatshefte für Mathematik,
+     111:47–53, 1991.
+
+[36] J. Melbourne and G. Palafox-Castillo. A discrete complement of Lyapunov’s inequal-
+     ity and its information theoretic consequences. The Annals of Applied Probability,
+     33(6A):4322–4340, 2023.
+
+
+
+                                             26
+[37] J. Melbourne and T. Tkocz. Reversal of Rényi entropy inequalities under log-concavity.
+     IEEE Transactions on Information Theory, 67(1):45–51, 2020.
+
+[38] J. Pitman. Probabilistic bounds on the coefficients of polynomials with only real zeros.
+     Journal of Combinatorial Theory, Series A, 77(2):279–303, 1997.
+
+[39] Y. Polyanskiy and Y. Wu. Information theory: From coding to learning. Cambridge
+     university press, 2025.
+
+[40] A. Saumard and J. A. Wellner. Log-concavity and strong log-concavity: a review. Statis-
+     tics surveys, 8:45, 2014.
+
+[41] R. Schneider. Convex bodies: the Brunn–Minkowski theory. Number 151 in Encyclopedia
+     of Mathematics and its Applications. Cambridge University Press, 2014.
+
+[42] R. P. Stanley. Log-concave and unimodal sequences in algebra, combinatorics, and
+     geometry. Ann. New York Acad. Sci, 576(1):500–535, 1989.
+
+[43] W. Whitt. Uniform conditional variability ordering of probability distributions. Journal
+     of Applied Probability, 22(3):619–633, 1985.
+
+[44] Y. Yu. On the maximum entropy properties of the binomial distribution. IEEE trans-
+     actions on information theory, 54(7):3351–3353, 2008.
+
+[45] Y. Yu. On the entropy of compound distributions on nonnegative integers. IEEE Trans.
+     Inform. Theory, 55(8):3645–3650, 2009.
+
+
+
+Arnaud Marsiglietti
+Department of Mathematics
+University of Florida
+Gainesville, FL 32611, USA
+E-mail: a.marsiglietti@ufl.edu
+
+
+James Melbourne
+Probabilidad y Estadı́sticas
+Centro de Investigaciónes en Matemáticas
+Guanajuato, GTO 36023, MX
+E-mail: james.melbourne@cimat.mx
+
+
+
+
+                                             27
+

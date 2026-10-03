@@ -1,8 +1,8 @@
 # Supplementary audit and replay manifest
 
-This release candidate supports the compact-range computation in Proposition 3.1 of *A variance-scaled Turán inequality at the first descent of a Poisson–binomial mass function*. It certifies the strict positivity of 275 exact Bernstein coefficients in thirteen scalar cells. It does not machine-verify the probabilistic reduction or Theorem 1.1.
+This release candidate supports the computations in Proposition 3.1 of *A variance-scaled Turán inequality at the first descent of a Poisson–binomial mass function*. For 3 < H ≤ 16 it certifies the strict positivity of 275 exact Bernstein coefficients in thirteen cells. For H ≥ 16 a separate program checks, in exact arithmetic, every symbolic expansion printed in the manuscript's subsection "The range H ≥ 16". It does not machine-verify the probabilistic reduction or Theorem 1.1.
 
-The archive also contains the complete conditional Lean project discussed in the manuscript's acknowledgement. That project formalizes recurrence propagation, endpoint exclusion, the first-crossing ratio bound, and the raw-from-effective corollary. It assumes the normalized Hillion–Johnson recurrence and does not formalize Proposition 3.1 or Theorem 1.1.
+The archive also contains the complete conditional Lean project described in the manuscript's supplement description. In the manuscript's numbering, that project formalizes Lemma 2.1 (the bound (2.7) and the endpoint exclusion), the bound q_D ≥ a, and the deduction of (1.5) from (1.3); its Lean names are `curvature_propagation`, `endpoint_exclusion`, `crossing_ratio_lower_bound`, `raw_drop_ge_effective`, and `raw_quarter_of_effective`. It assumes the recurrence (2.4) and does not formalize Proposition 3.1 or Theorem 1.1.
 
 ## Archive contents
 
@@ -10,6 +10,7 @@ The archive also contains the complete conditional Lean project discussed in the
 |---|---|
 | `scripts/verify_universal_pb_finite_bernstein.py` | SymPy generator; reconstructs the source identities and writes the compact and full certificates |
 | `scripts/check_universal_pb_finite_bernstein_certificate.py` | Independently implemented standard-library checker |
+| `scripts/verify_pb_large_h_range.py` | SymPy check of every expansion in the range H ≥ 16 (closed forms, the quartic N_J, the J = 5 coefficients, and β_i = μ_i π_i(u)/2880 identically in u) |
 | `scripts/build_poisson_binomial_supplement.py` | Deterministic archive builder and post-build verifier |
 | `results/universal_pb_finite_bernstein_certificate_2026-07-10.json` | Compact summary certificate |
 | `results/universal_pb_finite_bernstein_full_certificate_2026-07-16.json` | Full exact certificate |
@@ -23,11 +24,11 @@ The checker does not import the generator, SymPy, or formula strings from the ce
 ## Reference environment
 
 - Python 3.14.6
-- SymPy 1.14.0 for the generator
+- SymPy 1.14.0 for the generator and the H ≥ 16 check
 - Python standard library only for the checker and archive builder
 - Lean 4.28.0 and Mathlib 4.28.0 for the conditional formalization
 
-All three Python programs require Python 3.10 or later because their source uses modern type-annotation syntax. The exact replays below were completed with the reference versions listed above.
+All four Python programs require Python 3.10 or later because their source uses modern type-annotation syntax. The exact replays below were completed with the reference versions listed above.
 
 ## Exact replay
 
@@ -52,6 +53,14 @@ The two `cmp` commands must produce no output and return status 0. The checker m
 ```text
 64cacd6c220fc3b67250de8c761adbd4cf451fdf025e1c6579db5c052999629a
 ```
+
+Check the range H ≥ 16 with:
+
+```bash
+python3 scripts/verify_pb_large_h_range.py
+```
+
+It must print `ALL CHECKS PASSED` and exit with status 0.
 
 Build and verify the deterministic supplementary archive with:
 
@@ -102,7 +111,8 @@ Whole-file digests before packaging:
 |---|---|
 | `scripts/verify_universal_pb_finite_bernstein.py` | `7913038a93a18cc9df0fbe770238543d80655de82c35fac9a48247ed1f8e1b61` |
 | `scripts/check_universal_pb_finite_bernstein_certificate.py` | `f5762de3d7990f82d62e63d5f7007b6f9ec62b60eea325f6b68354b34ee146a7` |
-| `scripts/build_poisson_binomial_supplement.py` | `d42d0bcb37bf45f9e34371d3bfddb38137efea380bec41187c70d99abdb060c2` |
+| `scripts/build_poisson_binomial_supplement.py` | `0521baa2c55bc2bc9f6e699250e2c2289606536a9592b2dde1650b03460f443c` |
+| `scripts/verify_pb_large_h_range.py` | `0a5e18d2605f79b348891b249cb1b86899b13ce247c48cb061e9cd5e48c0a81d` |
 | `results/universal_pb_finite_bernstein_certificate_2026-07-10.json` | `6b91554d9ab1f43151e36c94c5c8c427c7bb057130b7f39d233b14c7ab3860c6` |
 | `results/universal_pb_finite_bernstein_full_certificate_2026-07-16.json` | `5fbe0570403d3e49161e60371a8208e916895f002b15f68602c12bce9ed3aa69` |
 | `LICENSE` | `8c6cac9c3f9dc235a38e5700048e097286a3f1e2cf5797aeee4577e0ca6970f0` |

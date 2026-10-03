@@ -1,0 +1,215 @@
+You are a desk editor at Electronic Communications in Probability (a selective journal of short probability papers) with forty submissions this week and a 12% acceptance rate. You will read ONLY the opening below -- the title, abstract, and first pages, as extracted from the PDF (some displayed formulas are broken across lines by the extraction). You will NOT be charitable, you will NOT reconstruct a generous version, and you will NOT give the benefit of the doubt. If something is not on the page, it is missing.
+
+State each of the following in ONE sentence, or write exactly MISSING if the opening does not make it plain:
+  problem      -- the specific problem this paper solves
+  debate       -- the named debate or literature it enters
+  gap          -- what is wrong or absent in existing approaches
+  contribution -- what this paper adds
+
+Then decide: advance to review, or reject at desk?
+
+Return ONLY JSON, no prose:
+{"problem": "...", "debate": "...", "gap": "...", "contribution": "...", "decision": "advance" or "reject", "note": "one blunt sentence to the author"}
+
+
+=== OPENING ===
+A variance-scaled Turán inequality at the first descent of a
+Poisson–binomial mass function*
+Brett Reynolds†
+
+Abstract
+Let W be a finite sum of independent Bernoulli summands with probability mass
+function (pmf) f = (fk ), where fk = P(W = k), and variance V = Var(W ) ≥ 1. If D
+is the first-descent index of this pmf (the least k with fk < fk−1 ), we prove
+
+V
+
+
+
+fD−1 fD+1
+1
+1−
+≥ .
+2
+fD
+4
+
+2
+The bracket is the normalized slack in the log-concavity (Turán) inequality fD
+≥
+fD−1 fD+1 . Consequently fD+r /fD ≤ exp(−r/(4V )) for every support index D + r
+with r ≥ 1. An explicit family of binomial laws shows that no universal constant larger
+than 1/3 is possible. The proof uses cubic inequalities of Hillion and Johnson to bound
+the masses near the mode from below, turns these bounds into a lower bound on V ,
+and closes with a maximal-mass bound of Bobkov, Marsiglietti, and Melbourne. The
+resulting one-variable inequality is proved symbolically for large arguments and by
+exact Bernstein expansions on a compact range.
+
+Keywords: Poisson–binomial law; Bernoulli sum; probability mass function; log-concavity; Turán
+inequality; modal index; computer-assisted proof.
+MSC2020 subject classifications: Primary 60E15, Secondary 60C05; 05A20.
+
+1
+
+Introduction and main results
+Let
+
+W =
+
+n
+X
+
+Bi ,
+
+Bi ∼ Bernoulli(pi ),
+
+i=1
+
+where the summands are independent. The law of W is Poisson–binomial; see [9] for a
+recent survey.
+Summands with pi = 0 can be deleted, and summands with pi = 1 only translate the
+law; Section 2.1 checks that neither operation changes the quantities defined below. We
+therefore assume throughout that every success probability satisfies 0 < pi < 1. Put
+
+fk = P(W = k),
+
+V = Var(W ) =
+
+n
+X
+
+pi (1 − pi ),
+
+i=1
+* Generative AI systems assisted with this work; see the acknowledgements at the end.
+†
+
+Humber College, Toronto, Canada. E-mail: brett.reynolds@humber.ca
+
+A variance-scaled Turán inequality at first descent
+
+and call (fk )n
+of W . Extend the pmf by f−1 =
+k=0 the probability mass function (pmf)
+Pn
+fn+1 = 0. The probability-generating polynomial k=0 fk xk has only negative real zeros,
+so Newton’s inequalities make the pmf log-concave [8, equation (1)]: fk2 ≥ fk−1 fk+1 for
+every k , an inequality of Turán type. For 0 ≤ k ≤ n, its normalized slack is the normalized
+Turán deficit
+
+δk := 1 −
+
+fk−1 fk+1
+.
+fk2
+
+(1.1)
+
+We have 0 ≤ δk ≤ 1 and δ0 = δn = 1.
+Let
+
+D := min{1 ≤ k ≤ n : fk < fk−1 }.
+
+(1.2)
+
+When V ≥ 1 this set is nonempty (Section 2.1), and by log-concavity c := D − 1 is the
+rightmost modal index.
+Ordinary log-concavity gives only δD ≥ 0. Summands with pi near 0 or 1 increase n
+but add little to V , and the known lower bounds on δk , which scale with n or with the
+success probabilities, degenerate as such summands accumulate at fixed variance (see
+the discussion after Corollary 1.3). We ask whether V δD is bounded below. Such a bound
+says that the pmf turns over at its peak at a rate set by the variance alone; Corollary 1.3
+converts it into a drop of at least 1/(4V ) in the first step past the mode and geometric
+decay beyond. The answer is yes once V ≥ 1.
+Theorem 1.1. Under the standing notation above, suppose V ≥ 1 and let D be defined
+by (1.2). Then
+
+
+
+fD−1 fD+1
+2
+fD
+
+1−
+
+V δD = V
+
+≥
+
+1
+.
+4
+
+(1.3)
+
+A positive universal bound without a lower variance threshold is impossible. If
+
+W ∼ Bernoulli(p) with 0 < p < 1/2, then D = 1, δD = 1, and V δD = p(1 − p) → 0 as p ↓ 0.
+Let κ⋆ denote the infimum of V δD over all finite Poisson–binomial laws with V ≥ 1,
+where D and δD are defined from each law’s pmf as above. The theorem and the next
+proposition give
+
+1
+1
+≤ κ⋆ ≤ .
+4
+3
+
+(1.4)
+
+Proposition 1.2. For every n ≥ 5, there exists a binomial law of variance one whose
+pmf has first-descent index D = 2 and for which
+
+δD =
+
+n+1
+.
+3(n − 1)
+
+This gives κ⋆ ≤ 1/3.
+Proof. Set
+
+p
+
+1 − 4/n
+,
+Wn ∼ Bin(n, pn ).
+2
+Then npn (1 − pn ) = 1. Write f = (fk ) for the pmf of Wn and put qk = fk /fk−1 . Then
+pn =
+
+1−
+
+qk =
+
+n − k + 1 pn
+.
+k
+1 − pn
+
+Since pn (1 − pn ) = 1/n, we have pn > 1/n, so q1 = npn /(1 − pn ) > 1. As the smaller root
+of x(1 − x) = 1/n, pn lies in (0, 1/2), where x 7→ x(1 − x) is increasing. For n ≥ 5 we have
+n2 − 4n − 1 > 0, which is equivalent to
+
+2
+n+1
+
+
+1−
+
+2
+n+1
+
+
+=
+
+2(n − 1)
+1
+> ,
+2
+(n + 1)
+n
+
+Page 2/11
+
+

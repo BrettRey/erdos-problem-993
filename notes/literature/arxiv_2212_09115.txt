@@ -1,0 +1,1474 @@
+                                           Entropy-variance inequalities for discrete log-concave random
+                                                         variables via degree of freedom
+                                                                                 Heshan Aravinda
+
+
+
+
+arXiv:2212.09115v4 [math.PR] 7 Sep 2023
+                                                                                      Abstract
+                                                   We utilize a discrete version of the notion of degree of freedom to prove a sharp
+                                               min-entropy-variance inequality for integer valued log-concave random variables. More
+                                               speciﬁcally, we show that the geometric distribution minimizes the min-entropy within
+                                               the class of log-concave probability sequences with ﬁxed variance. As an application, we
+                                               obtain a discrete Rényi entropy power inequality in the log-concave case, which improves
+                                               a result of Bobkov, Marsiglietti, and Melbourne (2022).
+
+
+                                          Keywords: Log-concave distributions, degree of freedom, extreme points, Rényi entropy,
+                                          entropy power inequalities.
+
+
+                                          1    Introduction
+                                          Recall an integer valued random variable X is said to be log-concave if its probability mass
+                                          function p satisﬁes
+                                                                     p2 (z) ≥ p(z − 1)p(z + 1) for all z ∈ Z
+                                          and the support of X is contiguous. The log-concave assumption provides a broad, yet
+                                          natural, convolution-stable class of distributions on Z. Examples include Bernoulli, sums
+                                          of independent Bernoulli, geometric, binomial, negative binomial and Poisson. We refer to
+                                          [29, 30, 14, 28, 3] for more details about discrete log-concavity. In recent years, there has
+                                          been a great deal of interest in studying these distributions and producing results, in analogy
+                                          with log-concave distributions in the continuous setting [17, 15, 23, 26]. The purpose of this
+                                          article is to investigate information-theoretic properties of such random variables using a
+                                          sophisticated localization-type argument. More speciﬁcally, we adapt the notion of degree of
+                                          freedom to explore sharp entropy-variance inequalities in the log-concave setting.
+                                              The notion of degree of freedom of a log-concave function was ﬁrst introduced in [8] by
+                                          Fradelizi and Guédon. Therein, the authors used it to develop a localization technique, which
+                                          provides a powerful tool for proving geometric and functional inequalities for log-concave
+                                          measures in Rn . A discrete analog of localization has been developed in [24]. Applications
+                                          include dilation inequalities, a discrete Prékopa-Leindler, concentration for ultra log-concave
+                                          distributions [2] and a proof of a strengthened version of a conjecture of Feige [1]. Broadly
+                                          speaking, these problems were treated as optimization problems with one constraint where
+                                          the reduction of proofs to a certain type of distribution was possible due to the identiﬁcation
+                                          of extreme points and the use of the Krein-Milman theorem. However, one needs a more
+                                          general approach to deal with problems involving more than one constraint. In such cases,
+                                          discrete degree of freedom can be leveraged. In particular, this notion can be used to describe
+
+
+
+                                                                                          1
+extreme points of a subset of integer valued log-concave probabilities satisfying more than
+one constraint.
+   For completeness, let us ﬁrst recall the notion of degree of freedom of a log-concave
+function on R.
+Definition 1.1 ([8]). Let U : R → R ∪ {+∞} be convex, denote by E the domain of U (i.e.
+E = {x : U (x) < +∞}. The degree of freedom of e−U is the largest integer k such that there
+exist α > 0 and linearly independent continuous functions        PkU1 , U2 , . . . , Uk defined on E such
+                                                            −U
+that for all ǫ1 , ǫ2 , . . . , ǫk ∈ [−α, α] , the function e (1 + i=1 ǫi Ui ) is log-concave.
+   The idea is to adapt this deﬁnition to log-concave functions on integers. Let us begin
+with the notion of discrete convexity. A function V : Z → R ∪ {+∞} is said to be convex if
+
+                    ∆2 V (z) := V (z − 1) − 2V (z) + V (z + 1) ≥ 0 for all z ∈ Z.
+
+     Equivalently, V is convex on Z if and only if there exists a continuous and convex1 function
+V̄ such that V̄ = V on Z. A function V is concave on Z if and only if −V is convex on Z. A
+function is aﬃne (discrete) if it is both discrete convex and concave. If the support of V only
+contains two points, say {z −1, z} for some z ∈ Z, then V is necessarily aﬃne, since V̄ is aﬃne
+on [z − 1, z]. A function f is said to be log-concave if log(f ) is concave, or equivalently, if
+f 2 (z) ≥ f (z − 1)f (z + 1) for all z ∈ Z. Similarly, one can deﬁne the log-convexity of functions
+deﬁned on integers.
+    We now deﬁne the notion of degree of freedom in the discrete setting. For our purpose,
+it suﬃces to consider compactly supported log-concave functions. Let a, b ∈ Z with a < b.
+Denote by Ja, bK, an interval of integer points from a to b. [a, b] ⊂ R is the smallest closed
+convex set containing Ja, bK. Suppose f is log-concave supported on Ja, bK, i.e. f is of the
+form e−V , where V is convex and V (z) < ∞ on Ja, bK.
+Definition 1.2. The degree of freedom of e−V is the largest k such that there exist α > 0 and
+linear independent functions WP1 , W2 , . . . , Wk defined on Ja, bK such that for all ǫ1 , ǫ2 , . . . , ǫk ∈
+[−α, α] , the function e−V (1 + ki=1 ǫi Wi ) is log-concave on Ja, bK.
+    Our ﬁrst main result (see also [12]2 ) is as follows. One may view this as a discrete analog
+of [8, Proposition 2], where the authors have established a necessary and suﬃcient condition
+for the ﬁniteness of degree of freedom of a continuous log-concave function.
+Theorem 1.3. If the degree of freedom of e−V is k + 1, then there exist k number of affine
+                                                             k
+functions ψ1 , ψ2 , . . . , ψk on Ja, bK such that V = max ψi .
+                                                            i=1
+
+    The proof of the theorem relies on the continuous case. In fact, we prove a stronger result.
+Namely, we will show that the degrees of freedom of e−V and its continuous linear extension
+are equal (Lemma 2.1). This result allows one to determine the degree of freedom of a given
+discrete log-concave function, whereas Theorem 1.3 only provides a necessary condition for
+degree of freedom to be ﬁnite.
+    Let us recall [8, Proposition 2], which states that the degree of freedom of a continuous
+log-concave function e−U is k + 1 if and only if there exist k (but not less than k) continuous
+   1
+      Let E ⊆ R be convex. A function U : E → R is convex iff for all 0 ≤ t ≤ 1 and x, y ∈ E, U (tx + (1 − t)y) ≤
+tU (x) + (1 − t)U (y).
+    2
+      In their recent work, Jakimiuk et al. have independently developed results that overlap with Theorem
+1.3.
+
+
+
+                                                       2
+aﬃne functions φ1 , φ2 , . . . , φk such that U = max{φ1 , φ2 , . . . , φk }. In general, this is false
+in the discrete setting, as can be seen by taking f = e−V , where V = {3, 2, 43 , 2} deﬁned
+on J0, 3K. The log-concavity of f follows directly from the deﬁnition. In order to determine
+the degree of freedom, let us ﬁrst construct V̄ by extending V linearly on each sub-interval
+[z − 1, z] for z = 1, 2, 3. V̄ is as follows.
+                                              
+                                              3 − x  x ∈ [0, 1]
+                                              
+                                              
+                                                8  2
+                                     V̄ (x) = 3 − 3 x x ∈ [1, 2]
+                                              2x
+                                              
+                                                      x ∈ [2, 3]
+                                              
+                                                3
+
+Clearly, V̄ is convex on [0, 3]. It follows from [8, Proposition 2] that the degree of freedom of
+e−V̄ is 4. By Lemma 2.1 (to be proved), e−V has 4 degrees of freedom. However, V can be
+written as the maximum of ψ1 (z) = 3 − z and ψ2 (z) = 32 z deﬁned on J0, 3K.
+    As mentioned, the main goal of this paper is to investigate the relationship between
+entropy and variance within the class of discrete log-concave probabilities. In particular, it is
+interesting to understand entropy minimizers among these random variables when variance is
+ﬁxed. Such problems have been considered in the continuous setting [20, 4, 6, 22]. However,
+the work in the discrete setting is limited. First, let us recall the following: given an integer
+valued random variable X with the mass function p, the Rényi entropy of order α > 0, α 6= 1,
+is deﬁned by,
+                                             −1       X
+                                Hα (X) =          log     p(z)α .
+                                           α−1
+                                                        z∈Z
+If α → ∞, one obtains the min-entropy H∞ (X) = − log
+                                                 P maxz p(z). The limiting case α → 1
+recovers the Shannon entropy H(X) = H1 (X) = − z∈Z p(z) log p(z). The Rényi entropy
+power of order α is,
+                                                       −2
+                                                         α−1
+                                               X
+                                    2Hα (X)           α
+                          Nα (X) = e        =    p(z)       .
+                                                       z∈Z
+
+Similarly, one can deﬁne the Rényi entropy for absolutely continuous random variables with
+densities with respect to the Lebesgue measure.
+    Entropy inequalities are a central topic of study in information theory. They have found
+striking applications in combinatorics [16, 18, 27]. We refer the reader to [25, 13, 9] for
+recent works on discrete Rényi entropy inequalities for log-concave random variables and
+their variants.
+    Our next main result is motivated by the work of Bobkov-Marsiglietti-Melbourne [7],
+in which they have utilized a majorization technique to establish variance bounds for min-
+entropy. Namely, it has been shown that N∞ (X) ≥ 41 + Var(X) for X- discrete log concave
+(see [7, Theorem 1.1]). We will show the following:
+Theorem 1.4. If X is a discrete log-concave random variable, then
+                                      N∞ (X) ≥ 1 + Var(X).                                         (1)
+This bound is asymptotically attained for geometric distributions.
+    For a geometric distribution with the probability mass function p(z) = θ(1 − θ)z , z ∈
+{0, 1, 2, . . . }, we have
+                                 1 + Var(X)
+                                             = 1 − θ + θ2,
+                                   N∞ (X)
+
+
+                                                  3
+which goes to 1 as θ → 0 or θ → 1.
+    Since α → Nα (X) is non-increasing, one may obtain an inequality for the Shannon entropy
+power, i.e. N (X) ≥ 1 + Var(X). However, this inequality may be improved. It would be
+interesting to determine the optimal value of c for which N (X) ≥ 1 + cVar(X) holds.
+    In the Euclidean setting, the entropy power inequality (EPI) states that the entropy
+power of the sum of independent random vectors is at least the sum of their entropy powers;
+equality holds if and only if the random vectors are Gaussian with proportional covariance
+matrices. A more general inequality also holds for the Rényi entropy of order α up to some α
+- dependent factor [5]. In general, the discrete analog of the EPI does not hold. Nonetheless,
+there have been numerous attempts to formulate discrete versions of the EPI. See the recent
+works in this direction [11, 10, 21].
+    Theorem 1.4 implies a discrete entropy power inequality for log-concave random variables,
+providing a partial answer to a question left open in [7]. As mentioned therein, we consider
+the quantity ∆α (X) = Nα (X) − 1 to be the discrete analog of the usual Rényi entropy power.
+
+Theorem 1.5. Let Sn = ni=1 Xi , where {Xi }1≤i≤n is a collection of independent discrete
+                            P
+log-concave random variables. Then,
+                                                    n
+                                                    X
+                                    ∆α (Sn ) ≥ cα         ∆α (Xi )                         (2)
+                                                    i=1
+
+                        α−1
+for α > 1 with cα =             .
+                      4(3α − 1)
+                                                                   α−1
+    In the regime 1 < α ≤ 2, the constant cα can be improved to 3α−1    [7]. It has also been
+shown that the inequality (2) holds for the Poisson-Bernoulli random variables and α ≥ 2
+              α
+with cα = 6(α−1)   [19].
+    Let us outline the paper. In Section 2, we prove a key lemma that unveils the relationship
+between the degrees of freedom of a compactly supported discrete log-concave function and
+its continuous counterpart. As an immediate consequence, we get Theorem 1.3. Section 3
+contains entropy inequalities. We show that Theorem 1.4 can be reduced to a certain class
+of random variables, which we identify using Theorem 1.3. It turns out their mass functions
+are necessarily log-concave with ‘V-shaped’ potentials. The proof of the inequality for such
+distributions is included in Section 4.
+
+
+Acknowledgements
+I would like to thank Arnaud Marsiglietti for numerous helpful discussions. I would also like
+to thank the referees for their valuable comments.
+
+
+2    Degree of freedom in the discrete setting
+We start with the following lemma.
+
+Lemma 2.1. Let a, b ∈ Z such that a ≤ b. Let V : Ja, bK → R be convex. Then,
+
+                   Degree of freedom of e−V = Degree of freedom of e−V̄ ,
+
+
+
+                                               4
+where V̄ is the continuous function obtained by extending V linearly on each sub-interval
+[z − 1, z] ⊂ [a, b] , z ∈ Z.
+    Note that V̄ in Lemma 2.1 is convex on [a, b]. Indeed, since ∆2 V (z) ≥ 0 on Ja, bK and
+V̄ ′ (x)
+       = V (z) − V (z − 1) on each (z − 1, z), i.e. V̄ ′ is non-decreasing. Therefore, the
+degree of freedom of e−V̄ is deﬁned. In fact, it is ﬁnite, whereas the degree of freedom of
+a compactly supported continuous log-concave function can be inﬁnite, as can be seen by
+                  2
+taking g(x) = e−x on [−1, 1]. Let us now give a proof of Theorem 1.3.
+
+Proof of Theorem 1.3. Let k + 1 be the degree of freedom of e−V . Equivalently, by Lemma
+2.1, e−V̄ has k + 1 degrees of freedom. By [8, Proposition 2], there exist k aﬃne functions
+ψ¯1 , ψ¯2 , . . . , ψ¯k on [a, b] such that V̄ = max{ψ¯1 , ψ¯2 , . . . , ψ¯k }. Restricting V̄ to Ja, bK, we get
+V = max{ψ1 , ψ2 , . . . , ψk }, where ψi = ψ̄i Ja,bK , the restriction of each ψ̄i to Ja, bK.
+
+   It remains to prove Lemma 2.1. As in the continuous case, we begin with the following
+important fact.
+FACT I: Suppose α, k and W1 , W2 , . . . , Wk satisfy Deﬁnition 1.2. If V is aﬃne on Ja, bK,
+then each Wi is aﬃne on Ja, bK.
+   We simply adapt the argument used in [8] to our setting. The result is trivial if b − a = 1.
+Let us assume that b − a ≥ 2. Fix i ∈ {1, . . . , k} and let ǫj = 0 for all j 6= i in Deﬁnition 1.2.
+Then, for all ǫ ∈ [−α, α], the function e−V (1 + ǫWi ) is log-concave on Ja, bK. Equivalently,
+V − log(1 + ǫWi ) is convex. This implies log(1 + ǫWi ) is concave, i.e. ∆2 hǫ (z) ≤ 0 for all
+                                                                            2
+z ∈ Ja, bK, where hǫ (z) = log(1 + ǫWi (z)). Consider the two cases: ∆ hǫǫ (z) ≤ 0 when ǫ > 0
+           2
+and ∆ hǫǫ (z) ≥ 0 when ǫ < 0. Since limǫ→0 hǫǫ(z) = Wi (z), we conclude by taking the limit
+               2
+ǫ → 0 in ∆ hǫǫ (z) .
+    The following fact veriﬁes Lemma 2.1 for log-aﬃne functions e−V (equivalently when V
+is aﬃne).
+FACT II: Let m, n ∈ R. Let V (z) = mz + n be deﬁned on Ja, bK. Then, the degree of
+freedom of e−V is 2.
+    Without loss of generality, assume that V is non-constant aﬃne. Choose W1 (z) = 1Ja,bK
+and W2 (z) = V (z). Let α = min( 21 , (2 max(|W1 | + |W2 |))−1 ). Then, for each (ǫ1 , ǫ2 ) ∈
+[−α, α]2 , we have 1 + ǫ1 W1 + ǫ2 W2 ≥ 21 , i.e. log(1 + ǫ1 W1 (z) + ǫ2 W2 (z)) is deﬁned for all
+z ∈ Ja, bK. Moreover, W1 and W2 are linear independent. Let us check the log-concavity
+condition. For convenience, let µ = e−V (1 + ǫ1 W1 + ǫ2 W2 ). The result is trivial if b − a = 1.
+Assume b − a ≥ 2. Then,
+
+                            µ2 (z) − µ(z − 1)µ(z + 1) = e−2(mz+n) (ǫ2 m)2 ,
+
+which is non-negative for all |ǫi | ≤ α and z ∈ Ja, bK. This proves that e−V has at least 2
+degrees of freedom. In fact, the degree of freedom cannot exceed 2, since our choice for linear
+independent functions satisfying Deﬁnition 1.2, is necessarily aﬃne by Fact I.
+Remark 2.2. Note that if e−V is supported at a point, i.e. e−V = c1{a} for some c > 0,
+with V (z) = − log c at z = a and ∞ otherwise, then we identify the degree of freedom of e−V
+                                                                1
+as 1. Indeed, since one can choose W1 = V and α = min( 12 , 2|V   | ) satisfying Definition 1.2
+                       −V
+(with the convention e V = 0 for V (z) = ∞).
+     Let us now prove Lemma 2.1. We shall assume that V is not aﬃne, i.e. b − a ≥ 2.
+
+
+                                                       5
+Proof of Lemma 2.1. By construction, V̄ is piecewise linear with a ﬁnite number of parts, say
+k(≥ 2), i.e. V̄ is the maximum of k (and no less) aﬃne functions deﬁned on [a, b]. Then by [8,
+Proposition 2], the degree of freedom of e−V̄ is k + 1. We will show that the degree of freedom
+of e−V is k + 1. Let z0 = a and zk = b. There exist points a < z1 < z2 < ... < zk−1 < b such
+that V̄ is aﬃne on [zi−1 , zi ] for i = 1, 2, . . . , k. First, we show that the degree of freedom
+of e−V is at least k + 1. The idea is to use the construction in [8] to obtain k + 1 linear
+independent functions satisfying Deﬁnition 1.2.
+    Due to convexity of V̄ , one can ﬁnd x1 < x2 < ... < xk such that
+
+    • zi−1 < xi < zi for i = 1, 2, . . . , k.
+
+    • V̄ ′ (xi ) < V̄ ′ (xi+1 ) for i = 1, 2, . . . , k − 1.
+
+For each i = 1, 2, . . . , k, deﬁne
+                                            (
+                                             V̄ (x)                           x < xi
+                                  W̄i (x) =
+                                             V̄ (xi ) + (x − xi )V̄ ′ (xi )   x ≥ xi
+
+and W̄0 = 1[a,b] (let us assume V̄ (x1 ) 6= 0 without loss of generality, since otherwise one can
+reﬂect the whole picture about 12 (a + b). Equivalently one can do the construction “from the
+right”). Denote by Wi , the restriction of W̄i to Ja, bK, i.e. for z ∈ Ja, bK
+                                    (
+                                     V (z)                          z < xi
+                          Wi (z) =
+                                     V̄ (xi ) + (z − xi )V̄ ′ (xi ) z ≥ xi
+
+and W0 = 1Ja,bK .
+     We claim that {Wi }ki=0 satisﬁes Deﬁnition 1.2. First, we show the log-concavity condition.
+It follows from [8, Proposition 2] that for a suﬃciently         small α > 0, the           −V̄
+P  k                                             − V̄
+                                                         Pk               −V
+                                                                               Pkfunction e (1 +
+   i=0 ǫi W̄i ) is log-concave on [a, b]. Since e     (1+ i=0 ǫi W̄i ) = e (1+ i=0 ǫi Wi ) on Ja, bK,
+we conclude that for all ǫi ∈ [−α, α], e (1 + ki=0 ǫi Wi ) is log-concave on Ja, bK.
+                                             −V
+                                                       P
+
+     Next, we verify the linear independence of {Wi }ki=0 . Let h(z) = ki=0 ci Wi (z). We need
+                                                                             P
+to show that h(z) = 0 for all z ∈ Ja, bK implies ci = 0, i = 0, 1, 2, ...k. Let us ﬁrst show that
+ck = 0. Letting z = zk , zk−1 and z = zk−2 in h(z) = 0, respectively, we obtain the following
+linear equations.
+                                                           k
+                                                           X
+                                                                 ci V̄ (xi ) + (zk − xi )V̄ ′ (xi ) = 0.
+                                                                                                   
+                                              L1 := c0 +
+                                                           i=1
+                                        k−1
+                                        X
+                                              ci V̄ (xi ) + (zk−1 − xi )V̄ ′ (xi ) + ck V (zk−1 ) = 0.
+                                                                                  
+                         L2 := c0 +
+                                        i=1
+                           k−2
+                           X
+                                  ci V̄ (xi ) + (zk−2 − xi )V̄ ′ (xi ) + (ck−1 + ck )V (zk−2 ) = 0.
+                                                                      
+             L3 := c0 +
+                            i=1
+
+                                                    Pk−1                    V (z )−V (z  )
+L1 − L2 = 0 and dividing by zk − zk−1 yield i=1           ci V̄ ′ (xi ) + ck zkk −zk−1k−1 = 0. Equiva-
+        Pk
+lently, i=1 ci V̄ ′ (xi ) = 0, since V̄ is aﬃne on [zk − zk−1 ] with derivative V̄ ′ (xk ). Similarly,
+Pk−1        ′            ′
+   i=1 ci V̄ (xi )+ ck V̄ (xk−1 ) = 0 follows from L2 − L3 = 0, and dividing by zk−1 − zk−2 . Then,
+the result follows by subtracting these two equations.
+
+
+                                                           6
+   One may proceed similarly to show ci = 0 for i = 1, 2, . . . , k − 1. After plugging z =
+zk−3 , zk−4 , . . . , z0 into h(z) = 0, simplifying as before and combining with the case ck = 0,
+one obtains the following system of k − 1 linear equations.
+                                                                     k−1
+                                                                     X
+                                                             M1 :=         ci V̄ ′ (xi ) = 0.
+                                                                     i=1
+                                              k−2
+                                              X
+                                    M2 :=           ci V̄ ′ (xi ) + ck−1 V̄ ′ (xk−2 ) = 0.
+                                              i=1
+                                  k−3
+                                  X
+                          M3 :=         ci V̄ ′ (xi ) + (ck−2 + ck−1 )V̄ ′ (xk−3 ) = 0.
+                                  i=1
+                                                                                     .
+                                                                                     .
+                                                                                     .
+                                                                              k−1
+                                                                              X
+                                                                Mk−1 :=             ci = 0.
+                                                                              i=1
+
+M1 − M2 = 0 =⇒ ck−1 = 0, M2 − M3 = 0 =⇒ ck−2 = 0 and so on.
+   Let us now prove the reverse direction, i.e. the degree of freedom of e−V is at most
+k + 1. The argument is analogous to the continuous case. For completeness, we explain the
+details below.
+    Suppose on contrary that the degree of freedom of e−V is more than k + 1. Then, there
+exist α > 0 and k + 2 linear independent functions V1 , V2 , . . . , Vk+2 satisfying Deﬁnition 1.2.
+Since V̄ is aﬃne on each [zi−1 , zi ], its restriction to Ja, bK, V is also aﬃne on each Jzi−1 , zi K.
+By Fact I, each Vj should also be aﬃne on Jzi−1 , zi K for i = 1, 2, . . . , k. Let C be the space
+of continuous functions deﬁned on Ja, bK that are aﬃne on each Jzi−1 , zi K. We claim that
+dim(C) = k + 1.
+    For each i ∈ {0, 1, 2, . . . , k}, deﬁne fi : Ja, bK → R such that
+
+                                           z − zi−1
+                                         
+                                         
+                                                           z ∈ Jzi−1 , zi K
+                                          zi − zi−1
+                                         
+                                         
+                                 fi (z) = 1 − z − zi        z ∈ Jzi , zi+1 K
+                                         
+                                         
+                                               zi+1 − zi
+                                         0
+                                         
+                                                            otherwise
+
+   Clearly, fi ∈ C for all i = 0, 1, . . . , k. By construction, {fi }ki=0 is linear independent. Take
+any function ℓ ∈ C. Then, its restriction to Jzi , zi+1 K, denoted by ℓˆi , is given by
+
+                                                   ℓ(zi+1 ) − ℓ(zi )
+                               ℓˆi (z) := ℓ(zi ) +                   (z − zi ).
+                                                      zi+1 − zi
+
+Choose βi = ℓ(zi ) so that on Jzi , zi+1 K, ℓˆi = βi fi + βi+1 fi+1 for all i = 0, 1, 2, . . . , k − 1. Hence,
+P  k                                k                                                    k
+   i=0 βi fi = ℓ. This implies {fi }i=0 spans C. Therefore, the collection {fi }i=0 forms a basis
+for C, proving the claim, and hence contradicting the supposition.
+
+
+
+
+                                                         7
+3    Min-entropy-variance & Rényi entropy inequalities
+This section is devoted to the investigation of entropy inequalities. First, we prove Theorem
+1.5. We need the following proposition from [7].
+
+Proposition 3.1 ([7]). Let 1 < α ≤ ∞. If X is any integer valued random variable with
+finite variance, then
+                                           4(3α − 1)
+                          1 ≤ Nα (X) ≤ 1 +           Var(X).
+                                             α−1
+Proof of Theorem 1.5. Let Sn = X1 + X2 + · · · + Xn , where Xi ’s are independent discrete log-
+concave. Since log-concavity is preserved under independent summation, we apply inequality
+(1) of Theorem 1.4 to X = Sn to get the following:
+                                                  n
+                                                  X
+                                     ∆∞ (Sn ) ≥         Var(Xi ).
+                                                  i=1
+
+The function α → Nα (X) is non-increasing. Therefore, one can extend the same lower bound
+to ∆α (Sn ). We conclude by applying Proposition 3.1 to Xi , i.e.
+                                    n                               n
+                                    X                    α−1 X
+                       ∆α (Sn ) ≥         Var(Xi ) ≥             ∆α (Xi ).
+                                                       4(3α − 1)
+                                    i=1                             i=1
+
+
+
+
+Remark 3.2. Given a discrete random variable X, its concentration function is defined by
+
+                          Q(X; λ) = sup P{z ≤ X ≤ z + λ}, λ ≥ 0.
+                                           z
+
+In particular,
+                                           −1
+                                      N∞ 2 (X) = Q(X; 0).
+Theorem 1.4, together with [7, Lemma 8.1], implies the following for X- discrete log-concave
+random variables:
+                                               λ+1
+                            Q(X; λ) ≤ q                       .
+                                             λ(λ+2)
+                                        1 + 12 + Var(X)
+This improves Proposition 8.3 from [7].
+
+   We now proceed to the proof of Theorem 1.4. The idea is to set up the problem as an
+optimization problem with two constraints. This will allow us to reduce the inequality (1) to
+an extremal case, which we can characterize using Theorem 1.3.
+   Denote by M (X), the M -functional, which is deﬁned as supn P(X = n). By letting
+α → ∞ in Nα (X), we have
+                                N∞ (X) = M (X)−2 .
+Therefore, inequality (1) is equivalent to
+
+                                    M 2 (X)(1 + Var(X)) ≤ 1.                                (3)
+
+
+
+
+                                                  8
+Proof of Theorem 1.4. Fix a log-concave random variable X0 . By approximation, one may
+assume that X0 is compactly supported. Note that inequality (3) is invariant under trans-
+lation. By deﬁnition, log-concavity is translation invariant as well. Therefore, we further
+assume that X0 is supported on J0, LK, where L ∈ Z+ . Denote by P(J0, LK), the set of log-
+concave probabilities supported on J0, LK. Let h1 and h2 be arbitrary functions deﬁned on
+J0, LK such that h1 (n) = n2 −E[X02 ] and h2 (n) = E[X0 ]−n for all n ∈ J0, LK. Let h = (h1 , h2 ).
+   Consider the set of all log-concave probability sequences supported on J0, LK satisfying
+E[h1 (X)] ≥ 0 and E[h2 (X)] ≥ 0,
+
+     Ph (J0, LK) = {PX ∈ P(J0, LK) : X log-concave , E[h1 (X)] ≥ 0 and E[h2 (X)] ≥ 0 } .
+
+Note that PX0 ∈ Ph (J0, LK) so Ph (J0, LK) is non-empty. Denote by conv(Ph (J0, LK)), the con-
+vex hull of Ph (J0, LK). Suppose PX is any extreme point in conv(Ph (J0, LK)). Let us assume
+that PX is supported on JK̃, L̃K ⊆ J0, LK. Let e−V be the probability mass function of PX ,
+where V is convex on JK̃, L̃K.
+
+STEP I: The reduction of the inequality (3) to extreme points.
+   This is essentially a consequence of the Krein-Milman (ﬁnite-dimensional) theorem, i.e.
+the supremum of any convex functional Φ over the set Ph (J0, LK) is attained at extreme
+points. Letting Φ(PX ) = supn P(X = n), it suﬃces to prove the inequality (3) for PX - ex-
+treme.
+
+STEP II: e−V has at most 3 degrees of freedom.
+    By contradiction, assume the degree of freedom of e−V is more than 3. Then, there exist
+linear independent functions W1 , W2 , W3 and W4 deﬁned P4    on JK̃, L̃K and α > 0 such that for
+                                  4                −V
+any (ǫ1 , ǫ2 , ǫ3 , ǫ4 ) ∈ [−α, α] , the function e (1 + i=1 ǫi Wi ) is log-concave on JK̃, L̃K. Let
+us consider the following set, which can be viewed as a 4−dimensional cube centered at PX :
+                                                            4
+                                                            X
+       A = { log-concave functions of the form e−V (1 +            ǫi Wi ) : |ǫi | ≤ α for all i}.
+                                                             i=1
+
+The set A is not necessarily contained in Ph (J0, LK). Denote by Ã, the following subset of A:
+
+ {log-concave probability mass functions in A satisfying E[h1 (X)] = 0 and E[h2 (X)] = 0}.
+
+Ã 6= ∅ and Ã ⊂ Ph (J0, LK). Consider the following system of linear equations:
+
+                       X              X               X               X
+                    ǫ1    W1 e−V + ǫ2     W2 e−V + ǫ3     W3 e−V + ǫ4      W4 e−V = 0.
+                X                 X                X                 X
+             ǫ1      zW1 e−V + ǫ2     zW2 e−V + ǫ3      zW3 e−V + ǫ4    zW4 e−V = 0.
+            X                   X                 X                  X
+         ǫ1     z 2 W1 e−V + ǫ2   z 2 W2 e−V + ǫ3    z 2 W3 e−V + ǫ4   z 2 W4 e−V = 0.
+
+When these equations hold, the associated probability mass functions lie in Ã. Hence, the
+solutions of (ǫ1 , ǫ2 , ǫ3 , ǫ4 ) must lie on a line segment passing through the P
+                                                                                 origin. In par-
+ticular, there exist PX1 and PX2 with mass functions of the form e (1 + 4i=1 ǫi Wi ) and
+                                                                          −V
+                                                         P +P
+e−V (1 − 4i=1 ǫi Wi ), respectively. But then, PX = X1 2 X2 , a contradiction.
+          P
+
+
+STEP III: Extreme points are log-aﬃne or piecewise log-aﬃne with 2 parts.
+
+
+                                                 9
+    It follows from Theorem 1.3 that the mass function of any extremal is e−V , where V
+is aﬃne or the maximum of 2 aﬃne functions on JK̃, L̃K. If X is log-aﬃne (or piecewise
+log-aﬃne) on JK̃, L̃K, then X̃ = X − K̃ is log-aﬃne (or piecewise log-aﬃne) on J0, M K, where
+M = L̃ − K̃, and
+                         M 2 (X)(1 + Var(X)) = M 2 (X̃)(1 + Var(X̃)).
+Therefore, it suﬃces to prove the desired inequality for X-log-concave with the mass function
+e−V , where V is aﬃne or the maximum of 2 aﬃne functions on J0, M K. Note that if V is aﬃne,
+then e−V is monotone. Moreover, e−V is monotone if V is non-increasing (or non-decreasing)
+with 2 parts. Finally, if e−V is non-monotone, then it is of the following form
+
+                    P(X = n) = Ce−α1 (N −n) 1J0,N K (n) + Ce−α2 (n−N ) 1JN +1,M K (n),
+
+where C, α1 , α2 > 0, N ≥ 1 and M ≥ 2.
+
+
+4        Proof for extremals
+CASE I : When e−V is monotone.
+    We shall prove a slightly stronger result, i.e. we show that the inequality (3) holds for
+any non-negative monotone log-concave random variable (not necessarily having 3 degree of
+freedom). Without loss of generality, assume that X is non-increasing and supported on
+J0, M K. Let p be its probability mass function. Let Z be geometric with the mass function
+                                                       1
+q(n) = θ(1 − θ)n , n = 0, 1, 2, . . . Choose θ = E[X]+1     so that E[Z] = E[X]. It follows
+                                             3
+from [Theorem 2.6, [23]] that Z majorizes X in the convex order. In particular, we have
+E[X 2 ] ≤ E[Z 2 ]. Equivalently, Var(X) ≤ Var(Z).
+    In fact, more is proven in [23, Theorem 2.6], functions p and q cross exactly twice. How-
+ever, since log(p) is concave and log(q) is aﬃne, these functions crossing exactly twice neces-
+sarily imply that p(0) ≤ q(0). Since p and q are non-increasing, we have supn P(X = n) = p(0)
+and supn P(Z = n) = q(0), which imply
+
+                                            M (X) ≤ M (Z).
+
+For Z geometric, it is easy to see that
+
+                                       M 2 (Z)(1 + Var(Z)) ≤ 1.
+
+Therefore, combining the above, we conclude that
+
+                           M 2 (X)(1 + Var(X)) ≤ M 2 (Z)(1 + Var(Z)) ≤ 1.
+
+CASE II : When e−V is non-monotone.
+        We need to verify the inequality (3) for distributions of the following form
+
+                    P(X = n) = Cp1
+                                     −(N −n)
+                                               1J0,N K (n) + Cp2−(n−N ) 1JN +1,N +KK (n),
+where p1 = eα1 , p2 = eα2 and K = M − N.
+    3
+    A random variable X is majorized by Z in the convex order if E[ϕ(X)] ≤ E[ϕ(Z)] holds for any convex
+function ϕ.
+
+
+
+
+                                                      10
+                                     +K
+                                    NX
+   Observe M (X) = C. Since                    P(X = n) = 1, we have
+                                    n=0
+                                                                          
+                                             N
+                                             X                K
+                                                              X
+                                    C             p−n
+                                                    1 +             p−n
+                                                                     2
+                                                                         = 1.
+                                           n=0                n=1
+
+          N
+          X                  K
+                             X
+Let A =         p−n
+                 1 and B =         p−n
+                                    2 . Then, C(A + B) = 1. Let us compute the variance of X.
+          n=0                n=1
+                                                                           
+                    N    2    +K
+                             NX        2       N           2    K           2
+                    X  n             n        X   (N −   n)    X   (N +   n)
+      E[X 2 ] = C         +             =C                +                .
+                      pN −n n=N +1 p2n−N             pn1              pn2
+                   n=0 1                      n=0              n=1
+
+After simplifying and substituting A and B, the right-hand side is equal to,
+                                                                         
+                                      K
+                                      X n      N
+                                              X n         K
+                                                         Xn    2     N
+                                                                    Xn   2
+               C N 2 (A + B) + 2N         −         +          +         .
+                 
+                                          n
+                                         p2         n
+                                                   p1          n
+                                                              p2        pn1
+                                                n=1            n=1                n=1             n=1
+
+
+By proceeding similarly, we get the following expression for E[X]2 .
+                                                                                 2 
+                                              K
+                                             X n        N
+                                                       X n            K
+                                                                     X n       N
+                                                                              X n
+ E[X]2 = C 2 (A + B)2 N 2 + 2N (A + B)             −         +          −           .
+                                                                                     
+                                                 p n       p n          p n      p n
+                                             n=1 2     n=1 1         n=1 2    n=1 1
+
+
+Combining E[X 2 ] and E[X]2 , we get
+                                                                 2 
+                                       K   2   N  2     K      N
+                     1                 X n     X n    X n    X n 
+     Var(X) =             (A + B)          +       −       −          .
+                          
+                 (A + B)2                 n
+                                         p2       n
+                                                 p1        n
+                                                          p2     pn1
+                                                   n=1            n=1                       n=1         n=1
+
+
+After plugging the expressions for M (X) and Var(X) into inequality (3) and rearranging the
+terms, we wish to prove for all integers N, K ≥ 1 and real numbers p1 , p2 ≥ 1,
+                                                                                      2
+                                   K               N                       K       N
+                    1              X     n2        X     n2        1       X n     X n
+  (A + B)2 − 1 −                              +             +                 −        ≥ 0.                   (4)
+                 (A + B)                 pn2             pn1    (A + B)2     pn2     pn1
+                                   n=1             n=1                                  n=1             n=1
+
+                                    P                                     2
+                        1              K       n
+                                                  − N    n
+                                                   P
+Remark 4.1. The term (A+B)2                n=1 pn    n=1 pn                     in the inequality may not be dropped.
+                                                2         1
+For example, take p1 = 53 , p2 = 500, N = 9 and K = 1. Then
+                                                                                           
+                                                              K                 N
+                                                              X n2              X n2
+                       (A + B)3 − (A + B) −                               +                 < 0.
+                                                                     pn2              pn1
+                                                              n=1               n=1
+
+
+   The rest of the paper is devoted to thePproof of inequalityP(4). In fact, we will prove a
+more general result. Let x, y > 0. Let S = N     n
+                                            n=0 x and T =
+                                                               K     n
+                                                               n=1 y .
+
+
+
+                                                          11
+   We show for all N, K ≥ 1,
+                                                                                                                      2
+                                                  N
+                                                  X                    K
+                                                                       X                       N
+                                                                                               X              K
+                                                                                                              X
+  (S + T )4 − (S + T )2 − (S + T )                     n 2 xn +             n2 y n  +             n xn −         n y n  ≥ 0.
+                                                  n=1                  n=1                     n=1            n=1
+                                                                                                                                    (5)
+
+After simplifying and rearranging the terms, the inequality (5) is equivalent to,
+                                                       2
+                      N
+                      X                   N
+                                          X
+    S4 − S2 − S             n 2 xn +           n xn 
+                      n=1                 n=1
+                                                        N
+                                                        X                                              N
+                                                                                                       X               K
+                                                                                                                       X
+                                          3                    2                           2     2
+                                    + 2S T − T                         n
+                                                              n x − 2S T + 3S T − 2                           nx   n
+                                                                                                                             n yn
+                                                        n=1                                            n=1             n=1
+                                                        XK
+                                    + 2S T 3 − S              n2 y n + 3S 2 T 2 + S 3 T
+                                                        n=1
+                                                                                                                      2
+                                                                                   K
+                                                                                   X                       K
+                                                                                                           X
+                                    + T 4 − T 2 + 2S T 3 + S 3 T − T                       n2 y n +             n y n  ≥ 0.
+                                                                                   n=1                     n=1
+
+Therefore, it suﬃces to prove each of the following inequalities.
+                       PN                     P                  2
+                                    2 xn +       N
+  (I) S 4 − S 2 − S         n=1 n                  n=1 n x
+                                                              n        ≥ 0.
+                      PN                                                   PN              PK
+ (II) 2S 3 T − T        n=1 n
+                                2 xn − 2S T + 3S 2 T 2 − 2
+                                                                             n=1 n x
+                                                                                       n
+                                                                                                n=1 n y
+                                                                                                          n ≥ 0.
+
+                      PK       2 y n + 3S 2 T 2 + S 3 T ≥ 0.
+(III) 2S T 3 − S       n=1 n
+                                                                           P              2
+                                                PK      2 n                   K
+(IV) T 4 − T 2 + 2S T 3 + S 3 T − T                n=1 n y +                  n=1 n y
+                                                                                      n         ≥ 0.
+
+We need the following lemma. The proof is elementary and included in the appendix.
+
+Lemma 4.2.
+            N
+            X                       2N
+                                    X
+(a) S 2 =       (n + 1) xn +                 (2N − n + 1) xn .
+            n=0                  n=N +1
+
+                N                        2N
+          1     X                      1 X 
+(b) S 3 ≥                                n
+                                             (3N − n + 1)(n − N ) + (n + 2)(2N − n + 1) xn .
+                                                                                       
+                    (n + 1)(n + 2) x +
+            2                          2
+                n=0                               n=N +1
+
+            K+1
+            X                        2K
+                                     X
+(c) T 2 =         (n − 1) y n +              (2K − n + 1) y n .
+            n=2                   n=K+2
+
+              K+2                        2K+1
+            1 X                        1 X 
+(d) T 3 ≥         (n − 1)(n − 2) y n +        (n − K − 2)(3K − n + 1)+ (n − 1)(2K − n + 2) y n .
+                                                                                          
+            2 n=3                      2
+                                                  n=K+3
+
+
+
+
+                                                               12
+                K+3                                           2K+2
+          1     X                                              X
+(e) T 4 ≥             (n − 1)(n − 2)(n − 3) y +       n
+                                                                      eK (n) y n ,
+              6 n=4
+                                                           n=K+4
+                      1
+      where eK (n) =     (2K − n + 3)(n2 + 2nK − 3n − 2K 2 − 6K + 2) + 2(n − K − 3)(n − K −
+                     6
+      2)(4K − n + 1) .
+         K         K+1                          2K
+         X       1 X                           X
+(f ) T        n2 y n = n(n − 1)(2n − 1) y n +       fK (n) y n ,
+                 6
+      n=1          n=2                        n=K+2
+                   1                2
+    where fK (n) = (2K − n + 1)(2n − n(2K + 1) + 2K(K + 1)).
+                   6
+             2
+       K             K+1                         2K
+      X            1 X                           X
+(g)      n yn =        n(n − 1)(n + 1) y n +       gK (n) y n ,
+     n=1
+                   6 n=2                                             n=K+2
+                    1
+      where gK (n) = (2K − n + 1)(n2 + n(2K + 1) − 2K(K + 1)).
+                    6
+
+Proof of inequality (I). By (a) in Lemma 4.2,
+                                                2                      2                     2
+                                 N
+                                 X                            N
+                                                              X                      N
+                                                                                     X                      N
+                                                                                                            X             N
+                                                                                                                          X
+          4       2 2                            n                      n                   n
+         S = (S ) ≥                 (n + 1) x        ≥            nx          +        x             +         x   n
+                                                                                                                                n xn .
+                             n=0                              n=1                   n=0                     n=0           n=1
+
+Therefore,
+                                                2                       2
+                 N
+                 X                    N
+                                      X                         N
+                                                                X                   N
+                                                                                    X             N
+                                                                                                  X               N
+                                                                                                                  X                N
+                                                                                                                                   X
+  4
+S −S −S   2              2   n
+                         n x +             nx   n
+                                                      ≥ 2            nx   n
+                                                                                +         x   n
+                                                                                                        nx − n
+                                                                                                                           x   n
+                                                                                                                                         n 2 xn
+                 n=1                  n=1                       n=1                 n=0           n=1             n=0              n=1
+                                                                          2                                                     
+                                                                N
+                                                                X                   N
+                                                                                    X                 N
+                                                                                                      X
+                                                      = 2            nx   n
+                                                                                +         x   n
+                                                                                                            n(1 − n) xn 
+                                                                n=1                 n=0               n=1
+                                                          2N
+                                                          X
+                                                      =         cn xn ,
+                                                          n=0
+                 X
+where cn =               2ij + i(1 − i). Note that n ranges from 0 to 2N while 0 ≤ i, j ≤ N . We
+                i+j=n
+conclude since,
+           
+            Xn
+                  2i(n − i) + i(1 − i) = 0,                              0≤n≤N
+           
+           
+           
+           
+           
+             i=0
+      cn =      N
+             X
+                     2i(n − i) + i(1 − i) = (N + 1)(n − N )(2N + 1 − n), N < n ≤ 2N
+           
+           
+           
+           
+           
+                 i=n−N
+
+
+
+
+                                                                13
+Proof of inequality (II). By (b) in Lemma 4.2
+                                                           
+                  XN                           N
+                                               X
+      2S 3 T − T      n2 xn − 2S T = T 2S 3 −   n2 xn − 2S 
+                     n=1                                               n=1
+                                                                                                                            
+                                                          N
+                                                          X                                     N
+                                                                                                X                   N
+                                                                                                                    X
+                                               ≥T                (n + 1)(n + 2) xn −                 n 2 xn − 2         xn        (6)
+                                                      n=0                                       n=1                n=0
+                                                      N
+                                                      X
+                                               = 3T           n xn .
+                                                      n=1
+
+Together with (6), we can easily verify the desired inequality for K = 1. Assume K ≥ 2. By
+(a) and (c) in Lemma 4.2,
+                  N
+                  X            K
+                               X                N
+                                                X                       K+1
+                                                                        X                             N
+                                                                                                      X            K
+                                                                                                                   X
+   3S 2 T 2 − 2         n xn         n yn ≥ 3       (n + 1) xn                   (m − 1) y m − 2            n xn         m ym
+                  n=1          n=1              n=0                     m=2                           n=1          m=1
+                                                X                                                                   N
+                                                                                                                    X
+                                                          3(n + 1)(m − 1) − 2nm xn y m − 2y                               n xn
+                                                                               
+                                         >
+                                             0≤n≤N                                                                  n=1
+                                             2≤m≤K
+                                                                                                                                    (7)
+                                                    X                                N
+                                                                                     X
+                                         > −3                 n xn y m − 2y                n xn
+                                                  0≤n≤N                              n=1
+                                                  2≤m≤K
+
+                                                  K
+                                                  X               N
+                                                                  X                     N
+                                                                                        X                     N
+                                                                                                              X
+                                         = −3             y   m              n
+                                                                        n x − 2y                  n
+                                                                                              n x > −3T             n xn .
+                                                  m=2             n=1                   n=1                   n=1
+
+We conclude by combining (6) and (7).
+
+
+Proof of inequality (III). Since S ≥ 1,
+                                                                                                                    
+                          K
+                          X                                                              K
+                                                                                         X
+           2S T 3 − S           n2 y n + 3S 2 T 2 + S 3 T ≥ S 2T 3 −                          n2 y n + 3T 2 + T  .
+                          n=1                                                            n=1
+
+
+It is enough to show 2T 3 − K     2 n    2
+                           P
+                             n=1 n y + 3T + T > 0. This is immediate when K = 1, 2.
+Suppose K ≥ 3. By (c) and (d) in Lemma 4.2,
+          K
+          X                              K+2
+                                         X                                        K
+                                                                                  X                   K+1
+                                                                                                      X                      K
+                                                                                                                             X
+ 2T 3 −         n2 y n + 3T 2 + T ≥             (n − 1)(n − 2) y n −                    n2 y n + 3          (n − 1) y n +          yn
+          n=1                            n=3                                      n=1                 n=2                    n=1
+                                        K 
+                                        X                                    
+                                      >    (n − 1)(n − 2) − n2 + 3(n − 1) + 1 y n = 0.
+                                         n=3
+
+
+
+
+                                                                  14
+Proof of inequality (IV). Note that
+                                                                       2
+                                            K
+                                            X                  K
+                                                               X
+           T 4 − T 2 + 2S T 3 + S 3 T − T         n2 y n +          n yn
+                                            n=1                n=1
+                                                                                            2
+                                                                K
+                                                                X                   K
+                                                                                    X
+                             ≥ T 4 − T 2 + 2T 3 + T − T               n2 y n +           n yn .
+                                                                n=1                 n=1
+
+We will show
+                                                                                   2
+                                                       K
+                                                       X                   K
+                                                                           X
+               PK (y) := T 4 − T 2 + 2T 3 + T − T            n2 y n +         n y n  ≥ 0.
+                                                       n=1               n=1
+
+    The cases K = 1, 2 can be checked  directly. Let us assume K ≥ 3. PK (y) is a polynomial
+of degree 4K, say of the form 4K          n
+                                P
+                                  n=0 n y . We will show dn ≥ 0 for 0 ≤ n ≤ 4K. Due to
+                                      d
+T 4 and T 3 terms, necessarily dn > 0 for 2K + 1 ≤ n ≤ 4K. It remains to show dn ≥ 0 for
+0 ≤ n ≤ 2K. First, observe the following: d0 = 0, d1 = 1, and d2 = d3 = 0. In order to treat
+the remaining cases, we apply (c)-(g) in Lemma 4.2 to dn .
+
+When 4 ≤ n ≤ K: dn ≥ (n−1)(n−2)(n−3)
+                              6      − (n − 1) + (n − 1)(n − 2) + 1 − n(n−1)(2n−1)
+                                                                           6       +
+n(n−1)(n+1)   (n−2)(n−3)
+     6      =     2      > 0.
+
+When n = K + 1: dn ≥ K(K−1)(K−2)
+                         6       − K + K(K − 1) − K(K+1)(2K+1)
+                                                       6       + K(K+1)(K+2)
+                                                                     6       =
+K(K−3)
+  2    ≥ 0.
+                                                                                                    2
+When n = K + 2: dn ≥ K(K−1)(K+1)
+                               6 − (K − 1) + K(K + 1) − (K−1)(2K6 +5K+6) +
+(K−1)(K+1)(K+6)     2
+       6        = 3K −K+2
+                      2   > 0.
+                                                                                                    2
+When n = K + 3: dn ≥ K(K+1)(K+2)
+                         6       − (K − 2) + (K − 1)(K + 4) − (K−2)(2K6 +7K+15) +
+(K−2)(K 2 +11K+12)     2
+         6         = 5K +K−2
+                         2   > 0.
+
+When K + 4 ≤ n ≤ 2K: After applying Lemma 4.2, simplifying and rearranging the terms,
+we get
+
+                                            2K 3
+                                
+                      1 3      1       11               13K
+                dn ≥ − n + K +     n2 + n −      − K2 −     − 2.
+                      3        2        6    3           3
+Let
+                                                  2K 3
+                                     
+                        1 3         1       11                  13K
+              VK (n) = − n + K +        n2 + n −       − K2 −         − 2.
+                        3           2        6      3             3
+We will show that VK ≥ 0 for K + 4 ≤ n ≤ 2K. Taking the derivative of VK w.r.t n yields
+                               dVK                    11
+                                   = −n2 + n(2K + 1) + .
+                                dn                     6
+dVK
+     ≥ 0 iﬀ
+ dn
+   1 √ p                                1 √ p                         
+      − 3 12K 2 + 12K + 25 + 6K + 3 ≤ n ≤     3 12K 2 + 12K + 25 + 6K + 3 .
+   6                                      6
+
+
+                                                  15
+But,
+      √ p                        1 √ p
+                                                             
+ 1          2                              2
+     − 3 12K + 12K + 25 + 6K + 3 ,    3 12K + 12K + 25 + 6K + 3 ⊇ [K, 2K]
+ 6                                 6
+
+for all K ≥ 0.
+               dVK
+    Therefore      ≥ 0 for all K + 4 ≤ n ≤ 2K. Moreover, VK (K + 4) = K(7K+3)
+                                                                         2    −8 > 0
+                dn
+for all K ≥ 3, completing the proof.
+
+
+
+Appendix: Some polynomial identities
+Each identity in Lemma 4.2 can be obtained by the standard product of polynomials. The
+desired coeﬃcients are given by convolution operation.
+
+Proof of Lemma 4.2.
+
+(a)
+                                                          
+                                       2N
+                                       X      X  n
+                               S2 =          
+                                                1
+                                                  x
+                                       n=0        i+j=n
+                                                 0≤i,j≤N
+                                                              
+                                       N
+                                       X      Xn         2N
+                                                         X    N
+                                                              X
+                                  =             1 xn +       1 xn
+                                       n=0       i=0              n=N +1    i=n−N
+                                       N
+                                       X                         2N
+                                                                 X
+                                  =          (n + 1) xn +             (2N − n + 1) xn .
+                                       n=0                      n=N +1
+
+
+(b)
+                                                                                                
+                                       N
+                                       X             N
+                                                     X                     2N
+                                                                           X
+                     S3 = S · S2 =           xn         (n + 1)xn +              (2N − n + 1)xn  .
+                                       n=0           n=0                 n=N +1
+
+      Let us consider the ﬁrst summation.
+                                                                 
+         N
+         X          N
+                    X                  2N
+                                       X   X
+               xn       (n + 1) xn =
+                                                      n
+                                          
+                                             (i + 1)
+                                                     x
+         n=0        n=0                n=0        i+j=n
+                                                 0≤i,j≤N
+                                                                        
+                                       N
+                                       X      n
+                                              X              2N
+                                                             X    N
+                                                                  X
+                                  =           (i + 1) xn +       (i + 1) xn
+                                       n=0       i=0                     n=N +1    i=n−N
+                                          N                       2N
+                                       1 X                      1 X
+                                  =         (n + 1)(n + 2) xn +      (n + 2)(2N − n + 1) xn .
+                                       2 n=0                    2
+                                                                             n=N +1
+
+
+
+
+                                                           16
+    Similarly, for the second summation
+               N
+               X              2N
+                              X                                            N
+                                                                           X             N
+                                                                                         X −1
+                                                                    N +1
+                     x   n
+                                    (2N − n + 1) x = x    n
+                                                                                 x   n
+                                                                                                (N − n) xn
+               n=0           n=N +1                                        n=0            n=0
+                                                                           N
+                                                                           X −1           N
+                                                                                          X −1
+                                                                    N +1
+                                                              ≥x                  x   n
+                                                                                                (N − n) xn
+                                                                           n=0            n=0
+                                                                                                                
+                                                                           2N
+                                                                            X −2               X
+                                                              ≥ xN +1
+                                                                                                              n
+                                                                                     
+                                                                                                      (N − i)
+                                                                                                              x
+                                                                           n=0              i+j=n
+                                                                                          0≤i,j≤N−1
+                                                                                          
+                                                                           N
+                                                                           X −1    n
+                                                                                   X
+                                                              ≥ xN +1              (N − i) xn
+                                                                           n=0           i=0
+                                                                              N −1
+                                                                            1 X
+                                                              = xN +1 ·           (n + 1)(2N − n) xn
+                                                                            2 n=0
+                                                                      2N
+                                                                1     X
+                                                              =               (n − N )(3N − n + 1) xn .
+                                                                2
+                                                                     n=N +1
+
+    We conclude by combining the two terms.
+                            2
+                     K−1
+                      X
+(c) Since T 2 = y 2     y n  , apply (a) with N = K − 1 and x = y.
+                         n=0
+                                   2
+                         K−1
+                         X
+(d) Since T 3 = y 3           y n  , apply (b) with N = K − 1 and x = y.
+                         n=0
+
+(e) First, we consider S 4 . By (a),
+                                    2
+                        XN               N
+                                         X            2N
+                                                      X
+                S 4 ≥  (n + 1) xn  + 2   (n + 1) xn    (2N − n + 1) xn
+                              n=0                             n=0                    n=N +1
+
+    Consider the two summations on the right-hand side separately.
+                                                
+                  2
+      N
+      X                 2N
+                        X   X
+     (n + 1) xn  =
+                                                  n
+                           
+                                  (i + 1)(j + 1)x
+                                                 
+      n=0                         n=0        i+j=n
+                                            0≤i,j≤N
+                                                                                                                             
+                                  N
+                                  X         n
+                                            X                                              2N
+                                                                                           X            N
+                                                                                                        X
+                              =                  (i + 1)(n − i + 1) xn +                                    (i + 1)(n − i + 1) xn
+                                  n=0       i=0                                          n=N +1        i=n−N
+                                      N
+                                  1 X
+                              =        (n + 1)(n + 2)(n + 3) xn
+                                  6 n=0
+                                  2N
+                                1 X 
+                                      (2N − n + 1)(n2 + n(2N + 7) − 2(N 2 + N − 3)) xn .
+                                                                                   
+                              +
+                                6
+                                    n=N +1
+
+
+
+                                                              17
+      By proceeding as before, for the second summation, we have
+          N
+          X                      2N
+                                 X                                            N
+                                                                              X                   N
+                                                                                                  X −1
+              (n + 1) xn               (2N − n + 1) xn = xN +1                      (n + 1) xn           (N − n) xn
+          n=0               n=N +1                                            n=0                  n=0
+                                                                              N
+                                                                              X −1                 N
+                                                                                                   X −1
+                                                                 ≥ xN +1             (n + 1) xn          (N − n) xn
+                                                                              n=0                  n=0
+                                                                                                                     
+                                                                              2N
+                                                                               X −2          X
+                                                                 = xN +1
+                                                                                                                     n
+                                                                                      
+                                                                                                      (N − i)(j + 1)
+                                                                                                                     x
+                                                                              n=0            i+j=n
+                                                                                           0≤i,j≤N−1
+                                                                                                        
+                                                                              N
+                                                                              X −1    Xn
+                                                                 ≥ xN +1              (N − i)(n − i + 1) xn
+                                                                              n=0      i=0
+                                                                                    N −1
+                                                                                1   X
+                                                                 = xN +1 ·                 (n + 1)(n + 2)(3N − n) xn
+                                                                                6
+                                                                                    n=0
+                                                                           2N
+                                                                     1     X
+                                                                 =                  (n − N )(n − N + 1)(4N − n + 1) xn .
+                                                                     6
+                                                                         n=N +1
+
+      After combining the two identities, we get
+                                          N                            2N
+                                        1 X                            X
+                             S4 ≥           (n + 1)(n + 2)(n + 3) xn +    ẽK (n) xn ,
+                                        6
+                                             n=0                                            n=N +1
+
+                     1
+      where ẽK (n) =  (2N − n + 1)(n2 + n(2N + 7) − 2(N 2 + N − 3)) + 2(n − N )(n − N +
+                    6
+      1)(4N − n + 1) .
+                                           4
+                                 K−1
+                                 X
+      Since T 4 = y 4                 y n  , by letting N = K − 1 and x = y in S 4 , we can deduce
+                                 n=0
+      the desired inequality.
+(f)
+                                                                             
+          K                K          K                2K
+                                                       X
+          X                X          X                       X 2 n
+      T         n2 y n =         yn         n2 y n =         
+                                                                i 
+                                                                   y
+          n=1              n=1        n=1              n=2        i+j=n
+                                                                 0≤i,j≤K
+                                                                                                          
+                                                       K+1
+                                                       X         n−1
+                                                                 X                     2K
+                                                                                       X             K
+                                                                                                     X
+                                                   =                  i2  y n +                         i2  y n
+                                                       n=2       i=1                  n=K+2        i=n−K
+                                                           K+1
+                                                       1   X
+                                                   =             n(n − 1)(2n − 1) y n
+                                                       6
+                                                           n=2
+                                                            2K
+                                                       1    X
+                                                   +               (2K − n + 1)(2n2 − n(2K + 1) + 2K(K + 1)) y n .
+                                                       6
+                                                           n=K+2
+
+
+
+                                                                     18
+(g)
+                                                   
+                      2
+                K
+                X               2K
+                                X      X
+                    n yn =
+                                              n
+                                     
+                                         ij y
+                                             
+              n=1               n=2        i+j=n
+                                          0≤i,j≤K
+                                                                                          
+                                K+1
+                                X         n−1
+                                          X                        2K
+                                                                   X           K
+                                                                               X
+                            =                  i(n − i) y n +                      i(n − i) y n
+                                n=2       i=1                     n=K+2       i=n−K
+                                    K+1
+                                1 X
+                            =       n(n − 1)(n + 1) y n
+                                6
+                                    n=2
+                                     2K
+                                1    X
+                            +               (2K − n + 1)(n2 + n(2K + 1) − 2K(K + 1)) y n .
+                                6
+                                    n=K+2
+
+
+
+
+References
+ [1] Alqasem, A., Aravinda, H., Marsiglietti, A., Melbourne, J. On a Conjecture of Feige for
+     Discrete Log-Concave Distributions. Preprint arXiv:2208.12702. 2022.
+ [2] Aravinda, H., Marsiglietti, A., Melbourne, J. Concentration inequalities for ultra log-
+     concave distributions. Studia Mathematica, 265 (2022), 111-120.
+ [3] Balabdaoui, F., Jankowski, H., Ruﬁbach, K., Pavlides, M. Asymptotics of the discrete
+     log-concave maximum likelihood estimator and related applications. Journal of the Royal
+     Statistical Society: Series B (Statistical Methodology), 75(4), 769-790, 2013.
+ [4] Bialobrzeski, M., Nayar, P. Rényi entropy and variance comparison for symmetric log-
+     concave random variables. arXiv preprint arXiv:2108.10100, 2021.
+ [5] Bobkov, S. G., Chistyakov, G. P. Entropy power inequality for the Rényi entropy. IEEE
+     Trans. Inf. Theory, 61(2), 708-714, 2015.
+
+ [6] Bobkov, S., Madiman, M. The entropy per coordinate of a random vector is highly con-
+     strained under convexity conditions. IEEE Transactions on Information Theory, 57(8),
+     4940-4954, 2011.
+
+ [7] Bobkov, S., Marsiglietti, A., Melbourne, J. Concentration functions and entropy bounds
+     for discrete log-concave distributions. Combinatorics, Probability and Computing, 1-19,
+     2021.
+ [8] Fradelizi, M., Guédon, O., A generalized localization theorem and geometric inequalities
+     for convex bodies. Advances in Mathematics, 204(2), 509-529, 2006.
+ [9] Gavalakis, L. Approximate Discrete Entropy Monotonicity for Log-Concave Sums. arXiv
+     preprint arXiv:2210.06624, 2022.
+[10] Harremoës, P., Vignat, C. An entropy power inequality for the binomial family. JIPAM.
+     J. Inequal. Pure Appl. Math, 4(5), 93, 2003.
+
+
+                                                        19
+[11] Haghighatshoar, S., Abbe, E., Telatar, I. E. A new entropy power inequality for integer-
+     valued random variables. IEEE Transactions on Information Theory, 60(7), 3787-3796,
+     2014.
+
+[12] Jakimiuk, J., Murawski, D. Nayar, P., Slobodianiuk, S. Log-concavity and discrete de-
+     grees of freedom. Preprint. arXiv:2205.04069, 2022.
+
+[13] Johnson, O. Log-concavity and the maximum entropy property of the Poisson distribu-
+     tion. Stochastic Processes and their Applications, 117(6), 791-802, 2007.
+
+[14] Johnson, O., Goldschmidt, C. Preservation of log-concavity on summation. ESAIM:
+     Probability and Statistics, 10, 206-215, 2006.
+
+[15] Johnson, O., Kontoyiannis, I., Madiman, M. Log-concavity, ultra-log-concavity, and a
+     maximum entropy property of discrete compound Poisson measures. Discrete Applied
+     Mathematics, 161(9), 1232-1250, 2013.
+
+[16] Kahn, J. An entropy approach to the hard-core model on bipartite graphs. Combinatorics,
+     Probability and Computing, 10(3), 219-237, 2001.
+
+[17] Klartag, B. A., Lehec, J. Poisson processes and a log-concave Bernstein theorem. Studia
+     Mathematica, 247, 85-107, 2019.
+
+[18] Madiman, M., Marcus, A., Tetali, P. Information-theoretic inequalities in additive com-
+     binatorics. In Proc. IEEE Inform. Theory Workshop, Cairo, Egypt (Vol. 430), 2010.
+
+[19] Madiman, M., Melbourne, J., Roberto, C. Bernoulli sums and Rényi entropy inequali-
+     ties. Bernoulli, 29(2), 1578-1599, 2023.
+
+[20] Madiman, M., Nayar, P., Tkocz, T. Sharp moment-entropy inequalities and capacity
+     bounds for symmetric log-concave distributions. IEEE Transactions on Information The-
+     ory, 67(1), 81-94, 2020.
+
+[21] Madiman, M., Wang, L., Woo, J. O. Majorization and Rényi entropy inequalities via
+     Sperner theory. Discrete Mathematics, 342(10), 2911-2923, 2019.
+
+[22] Marsiglietti, A., Kostina, V. A lower bound on the differential entropy of log-concave
+     random vectors with applications. Entropy, 20(3), 185, 2018.
+
+[23] Marsiglietti, A., Melbourne, J. Moments, Concentration, and Entropy of Log-Concave
+     Distributions. Preprint, arXiv:2205.08293, 2022.
+
+[24] Marsiglietti, A., Melbourne, J., Geometric and functional inequalities for log-concave
+     probability sequences. Discrete Comput Geom (2023), https://doi.org/10.1007/s00454-
+     023-00528-7
+
+[25] Melbourne, J., Tkocz, T. Reversal of Rényi entropy inequalities under log-concavity.
+     IEEE Transactions on Information Theory, 67(1), 45-51, 2020.
+
+[26] Melbourne, J., Palafox-Castillo, A. Discrete complement of Lyapunov’s inequality and
+     its information theoretic consequences. Preprint, arXiv:2111.06997, To appear in Annals
+     of Applied Probability.
+
+
+
+                                             20
+[27] Morris, B. Improved mixing time bounds for the Thorp shuffle. Combinatorics, Proba-
+     bility and Computing, 22(1), 118-132, 2013.
+
+[28] Nayar, P., Oleszkiewicz, K. Khinchine type inequalities with optimal constants via ultra
+     log-concavity. Positivity, 16(2), 359-371, 2012.
+
+[29] Saumard, A., Wellner, J. A. Log-concavity and strong log-concavity: a review. Statistics
+     surveys, 8, 45, 2014.
+
+[30] Stanley, R. P. Log-concave and unimodal sequences in algebra, combinatorics, and ge-
+     ometry. In Graph theory and its applications: East and West (Jinan, 1986), volume 576
+     of Ann. New York Acad. Sci., pages 500–535. New York Acad. Sci., New York, 1989.
+
+
+
+
+Heshan Aravinda
+Department of Mathematics
+University of Florida
+Gainesville, FL 32611, USA
+heshanaravinda.p@uﬂ.edu
+
+
+
+
+                                             21
+

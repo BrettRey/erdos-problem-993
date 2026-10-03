@@ -87,6 +87,10 @@ ARCHIVE_MEMBERS: Final = (
         / "check_universal_pb_finite_bernstein_certificate.py",
     ),
     (
+        "scripts/verify_pb_large_h_range.py",
+        REPOSITORY_ROOT / "scripts" / "verify_pb_large_h_range.py",
+    ),
+    (
         "scripts/verify_universal_pb_finite_bernstein.py",
         REPOSITORY_ROOT
         / "scripts"

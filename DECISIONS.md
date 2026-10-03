@@ -904,3 +904,43 @@ review is mine.
   `runs/zhang-li-review-20261003/`.
 
 Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 — **Erdős #993 line dropped; the Poisson–binomial paper goes to ECP.** Brett: "Let's try to submit it. We'll drop the Erdős problem but add this to Language-Mediated Control book as a case." Research on #993 is closed. No short-note rebuild of `main_v2.tex` and no further attack work. The arXiv watch profiles and hook for #993 stay as they are until Brett decides whether to retire them. The one live manuscript is `paper/poisson_binomial/main.tex`, *A variance-scaled Turán inequality at the first descent of a Poisson–binomial mass function*, aimed at Electronic Communications in Probability.
+
+- **Readability verdict (referee-style full read).** The paper has a milder version of the E-JC complaints. The problems sat at the edges (undefined terms, symbol collisions, internal Lean names, lab-notebook provenance in the body), not in §§2–3. There was one substantive gap: the H ≥ 16 computation was not packaged. The report is saved verbatim at `runs/pb-submission-gate-20261003/RETURN_referee_readability.md`.
+- **Revision pass.** Every MUST-FIX item was applied except the supplement DOI, which awaits Brett's Zenodo upload; the placeholder `ZENODO-DOI-PENDING` is visible in the PDF. Only clause-level SHOULD-FIX items and page-budget cuts were made. Relocations, the literature merge and section retitles were deliberately left alone. The changes:
+  - maximal mass p→M, c⋆→κ⋆, s→n₁, m→n_Y (Y summands), S₀,T₀→S̃_J,T̃_J, M₃,M₄→σ₃,σ₄;
+  - ULC(n) defined where used, Turán explained, "signed" removed, Gnedin and Aravinda cut, Johnson's bound unnamed;
+  - a proof-idea paragraph in the introduction;
+  - (2.6) and the endpoint exclusion merged into a single induction, Lemma 2.1;
+  - the BMM proof made rigorous;
+  - Table 1 removed;
+  - N_J written out explicitly, with β_i = μ_i π_i(u)/2880 stated as an equation;
+  - provenance and replay details moved out of the body and acknowledgements.
+- **New statement.** V δ_c ≥ 1/5 at the rightmost modal index c = D−1, from the second inequality of (2.4) at k = D−1 together with Theorem 1.1. It was checked against 2,486 random laws in exact arithmetic before it went in: no violation, minimum 0.568.
+- **New supplement script.** `scripts/verify_pb_large_h_range.py` checks every H ≥ 16 expansion exactly. A deliberately perturbed copy fails, as it should.
+- **Venue conventions.** ECP's own sample (`ejpecp/sample.tex`, TeX Live 2026, L449) confirms `amsplain`. The sample has no `\clearpage` before the bibliography, so the house rule is overridden for this venue and the `\clearpage` was removed.
+- **Cold-read gate.** The first rerun failed (2 advance / 2 reject; one reader had debate MISSING). The intro cut had removed every named prior bound from pages 1–2. A compact cited version was restored, together with Pitman's real-rooted-polynomial correspondence as the application sentence (Pitman 1997, abstract). The gate was then rerun.
+
+Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 (later) — **PB paper: verifier and prose-pass fixes, Pitman comparison, gate cleared.**
+- **Independent revision verifier** (`runs/pb-submission-gate-20261003/RETURN_revision_verifier.md`, saved verbatim by the parent). It found all new mathematics correct by hand: Lemma 2.1, the V δ_c ≥ 1/5 remark, the smoothing proof of (3.3), the Prop 1.2 details and all of §4. It caught one false sentence introduced in this revision: "a drop of at least 1/(4V) in the first step past the mode". Bin(2m+1,p) with p↑1/2 is a counterexample. The corollary controls f_D→f_{D+1}, not the mode step. It also caught two overstatements: degeneration needs near-0 *and* near-1 summands, and the real-rooted application needs V ≥ 1. All three were fixed, plus P1–P8 (P7 only for u).
+- **Combined prose passes** (contribution alignment, proofread, de-AI prose, editorial scar tissue, coherence; `RETURN_prose_passes.md`). No structural AI tics were found. The fixes:
+  - the abstract's proof-route sentence (both ranges use Bernstein expansions; "large arguments" named the wrong end);
+  - the scope of the §1 reduction;
+  - the motivation sentence, which now names the mode remark;
+  - Lean scope wording;
+  - the Darroch/Pitman/Dümbgen–Wellner paragraph merged into the introduction;
+  - the Section 4 opener, with H defined first;
+  - one-sentence openers for Sections 2 and 3;
+  - antecedent and locator fixes, including Pitman Proposition 1.
+
+  The Section 2 retitle was not made.
+- **Pitman comparison added** (one sentence after Johnson's bound). It answers a cold reader's question. Pitman's (21) gives f_{D+1}/f_D < 1/θ(D), which tends to 1 as D − EW ↓ 0. Bin(n,p) with np = k+1−ε, p < ε shows this. Numerically, V·(Pitman drop) ≈ ε (0.01 or 0.001), against the theorem's 1/4 and an actual value of about 0.9. So the decay corollary is not implied by Pitman. The sentence sits on page 3, and pages 1–2 are unchanged from the final cold read.
+- **Final cold read** (`coldread-round4-final/`): 4/4 advance, nothing MISSING. Every reader names significance (why δ at the first descent, and the gap between 1/4 and 1/3) as what referees will probe. That is a question about the result itself, not its presentation.
+- **Pass gate cleared.** 13 passes were recorded with artifacts. house-style and validate-bib were overridden: venue-class math paper, amsplain bibtex by design. Six passes were overridden as not applicable to a mathematics paper: charitable-engagement, level-category, projectibility, figures, lakoffian-metaphor, rhetoric-and-humour. Reasons are in `.passes.jsonl`.
+- **Tool fix.** `Project-Management/tools/passes.py record` ignored the manuscript pin and fingerprinted `paper/main.tex`. That is the failure behind the 2026-08-11 "record proved unable to log the run" override. `cmd_record` now honours the pin as `evaluate()` does, and the passes were re-recorded.
+- **Still owed by Brett:** the items in `submission/portal-fields-ECP-2026-10-03.md` §11, plus the exact model name in the AI disclosure. The acknowledgement says "GPT-5.6", while project records also say "GPT-5.6 sol" and "GPT-5.6-sol Ultra".
+
+Assisting system: Claude Code (Opus 5.5).

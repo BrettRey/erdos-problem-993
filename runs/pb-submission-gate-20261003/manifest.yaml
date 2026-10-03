@@ -1,0 +1,55 @@
+# Run manifest: PB paper submission gate, 2026-10-03
+# Parent: Claude Code (Opus 5.5). Subagent reports were saved verbatim by the parent (subagents cannot write report files).
+final_manuscript: paper/poisson_binomial/main.tex
+final_manuscript_sha256: 7575211435da326fd3a6635122208e6fb5ca1c63b8868bfc6cc5d1f3eb7577aa
+base_commit: 18fb970  # manuscript edits were uncommitted while the reviews ran
+supplement_sha256: 69dc523bb8953bbf744e229d25166f07dcc327a08e811ac0c60af2584f3917af
+artifacts:
+  - file: RETURN_referee_readability.md
+    model: Claude (responsibility-reader subagent)
+    read: pre-revision main.tex (784 lines, 12 pages)
+    dependence: independent of later readers
+  - file: RETURN_revision_verifier.md
+    model: Claude Opus (responsibility-verifier subagent, no shell)
+    read: revised main.tex (724-726 lines), before E1-E3 fixes
+    dependence: saw the referee report (its task was to check against it)
+  - file: RETURN_prose_passes.md
+    model: Claude Opus (responsibility-reader subagent)
+    read: main.tex 730-line version, after verifier fixes, before prose fixes
+    dependence: saw both earlier reports
+  - dir: coldread_*.json (round 1)
+    models: Sonnet, Opus, Haiku subagents; local qwen3.8:27b via Ollama
+    read: pre-revision opening; gate PASS 4/4
+  - dir: coldread-round2-regressed/
+    read: revised opening with the literature over-cut; gate FAIL (2 advance, 2 reject)
+  - dir: coldread-round3/
+    read: opening with literature restored; gate PASS 4/4
+  - dir: coldread-round4-final/
+    read: final opening (pages 1-2 unchanged by the later Pitman sentence on page 3); gate PASS 4/4
+  - file: mode_remark_check.py
+    role: exact-arithmetic test of the V*delta_c >= 1/5 remark (2,486 laws, no violation)
+output_sha256:
+  ./coldread_prompt.txt: ecd058e2bbc71226b7668a980114113925613dce645a6cc5c285f9388fedf006
+  ./coldread_r1_sonnet.json: 636d688c2be19c16aa3951de6aadf5ee07fdce26dab3407173ec8dbb181579cb
+  ./coldread_r2_opus.json: 9c3afa0f5245ca629b662ef31b822aae2c9c1aa46950bd34fc94e0db5f85cba9
+  ./coldread_r3_haiku.json: 48234e93920392546b4cf95a0e92dd943ba5d450e9531f01f4d2bc72d2b6c962
+  ./coldread_r4_qwen3.8-27b.json: de2f3a8ab11797d37f9207f7a6200c53522f951be7c74da98a54546736f33cff
+  ./coldread-round2-regressed/a_r1_sonnet.json: 2c367c4bdca42a05cdd26431b1e5455ff80444e21df390383cd5c27d15ea45ab
+  ./coldread-round2-regressed/a_r2_opus.json: b7ab8710c7862d58b249ffce911f3fbe5b4a5fa4f577b57e6f91e7823e885bf3
+  ./coldread-round2-regressed/a_r3_haiku.json: f7a272ba49921c93f069daabefb04e700ffeb23773baf603764364c17c1d8cce
+  ./coldread-round2-regressed/a_r4_qwen.json: 5533dbce93e8b5e5126ef51eebd1201911d8045e465bc5904505774be60d154e
+  ./coldread-round2-regressed/prompt.txt: 50b7b8b0bab33f697a6cbd2c77712491a11c9814dad7266155e9826e14524d6c
+  ./coldread-round3/b_r1_sonnet.json: a831d524b10f9df78ef0139ea09855072270be543678af105e18ae5617944221
+  ./coldread-round3/b_r2_opus.json: 9be2af0349e49e0292696708c4135a3e0075e32bf76964984fbafaa3f7154efe
+  ./coldread-round3/b_r3_haiku.json: bc53a2c378e08cf9c8ce6715634fb6dcc1e2873f5330e289846f74c68741731e
+  ./coldread-round3/b_r4_qwen.json: df4e30774c54ea39f112bf76bd35cd0b150df74a15bc5916c9dadbdd6dd4b452
+  ./coldread-round3/prompt.txt: 3c656f2a40d22d68225874e70e5b0122cda83f55b3ceb00f6ae7b5e67918274d
+  ./coldread-round4-final/c_r1_sonnet.json: 9a85b4f184c4021ef646b50290627446b2d670ba8ddf05eef486d8fd543cde68
+  ./coldread-round4-final/c_r2_opus.json: 34bced89734849573c94e1e43c00ae082357e9cec9acea43711c6a27d210e8a2
+  ./coldread-round4-final/c_r3_haiku.json: 39b969aab14761a4560dc5c1fde522febb009cf048528beac94279b8c0f87e2a
+  ./coldread-round4-final/c_r4_qwen.json: 17660162e32673260ae5300afa5d2e2c100922e1f14c03d0ff9134b4d56656b1
+  ./coldread-round4-final/prompt.txt: cd82d4fa0078337eef1c838f2e5a7bc86b5a9b9971de752912e7e83a5a1cf12c
+  ./mode_remark_check.py: 9acee8a3e099aad7480016eff92cbb7ec22d4b5aaa013408795fe582037cb300
+  ./RETURN_prose_passes.md: 1314465a8ad380162c3bc7b95976f4462b637191988ab7bfb080984e830aec49
+  ./RETURN_referee_readability.md: 4c1c66ab8d627688425d8ba41492a0659a973b0f4f25292e9c5f8f31cd16afc1
+  ./RETURN_revision_verifier.md: cb1207efbb4f9f485e804ba65a04dae695186184c954a39ae588e1c4ecef370a
