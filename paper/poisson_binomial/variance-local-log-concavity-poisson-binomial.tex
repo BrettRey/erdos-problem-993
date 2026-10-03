@@ -101,16 +101,17 @@ as the ultra-log-concavity bound recorded by Hillion and Johnson
 Johnson \cite{johnson2017discrete}; or on $k$ alone, such as the bound
 $\delta_k>1/(k+1)$ that follows from the strict decrease of
 $(k+1)f_{k+1}/f_k$ proved by D\"umbgen and Wellner
-\cite[Proposition~2]{duembgenwellner2020}. All three degenerate near the mode when
+\cite[Proposition~2]{duembgenwellner2020}. Pitman's two-sided bounds on
+adjacent mass ratios through exponentially tilted laws
+\cite[equation~(20)]{pitman1997} also give a positive lower bound on
+$\delta_k$. All four degenerate near the mode when
 summands with $p_i$ near $0$ and summands with $p_i$ near $1$ accumulate at
 fixed variance (see the discussion after Proposition~\ref{prop:ulc}).
 Darroch's theorem that every mode lies at distance less than one from the
-mean \cite{darroch1964}, Pitman's bounds on adjacent mass ratios through
-exponentially tilted laws \cite[equations~(20)--(21)]{pitman1997}, and the
-maximal-mass bounds of
+mean \cite[Theorem~4]{darroch1964} and the maximal-mass bounds of
 \cite{bailloncominettivaisman2016,bobkovmarsigliettimelbourne2022} locate the
-mode, or bound mass ratios and maximal masses, but by themselves give no lower
-bound on $\delta_k$.
+mode or bound the largest mass, but by themselves give no lower bound on
+$\delta_k$.
 
 We state the bound at the first index where $f$ decreases,
 \begin{equation}\label{eq:first-descent}
@@ -230,7 +231,7 @@ At the mode, $\delta_c$ is within constant factors of $1/V$.
   $t_+=-\log q_{c+1}>0$. The pmf is strictly log-concave (by \eqref{eq:ulc}
   below), so $f^{(t_-)}$ has exactly the two modes $c-1$ and $c$, and
   $f^{(t_+)}$ exactly the two modes $c$ and $c+1$. By Darroch's theorem
-  \cite{darroch1964}, applied to these tilted laws (which are Bernoulli sums),
+  \cite[Theorem~4]{darroch1964}, applied to these tilted laws (which are Bernoulli sums),
   $\mu(t_-)\in(c-1,c)$ and $\mu(t_+)\in(c,c+1)$. Hence
   \[
     2>\mu(t_+)-\mu(t_-)=\int_{t_-}^{t_+}V(t)\,dt\geq V(2-e^{t_-}-e^{-t_+})
@@ -253,7 +254,8 @@ Poisson--binomial pmfs are $\operatorname{ULC}(n)$, and this gives
 see \cite[Definition~3.11 and equation~(41)]{hillionjohnson2016} and, for a
 recent treatment via relative log-concavity,
 \cite[the discussion following Definition~1.3]{marsigliettimelbourne2026}.
-No variance-scaled bound holds for $\operatorname{ULC}$ laws in general.
+No variance-scaled lower bound on $\delta_D$ holds for $\operatorname{ULC}$
+laws in general.
 
 \begin{proposition}\label{prop:ulc}
   For $m\geq1$, let $g=g^{(m)}$ be the pmf on $\{0,\ldots,2m\}$ with
@@ -295,14 +297,20 @@ $\delta_D\geq1/4$. Johnson's bound reads
 see \cite[Definition~1.2, Lemma~5.1, and
 Example~5.2(2)]{johnson2017discrete}. In the same family the reciprocal of
 the odds sum tends to zero, and $f_{D+1}/f_D\leq1$, so this bound also tends
-to zero; so does $1/(D+1)=1/(m+2)$.
+to zero; so does $1/(D+1)=1/(m+2)$. Combining Pitman's
+\cite[equation~(20)]{pitman1997} at $k-1$ and $k$ gives
+$\delta_k\geq1-\theta(k-1/(n-k+2))/\theta(k+1/(k+2))$, where $\theta(x)=e^t$
+for the tilt $t$ at which the tilted law of the proof of
+Proposition~\ref{prop:mode} has mean $x$. In this family both arguments at
+$k=D$ differ from the mean $m$ by $1+O(1/m)$, both tilts converge to
+$\operatorname{arsinh}1$, and this bound also tends to zero.
 
 Pitman's ratio bound \cite[equation~(21)]{pitman1997}, with the tilted
 variance $V(t)\leq e^tV$ for $t\geq0$ (notation as in the proof of
 Proposition~\ref{prop:mode}), gives $f_{k+1}/f_k<V/(V+k-\mathbb EW)$ for
 integers $\mathbb EW<k<n$: there $f_{k+1}/f_k<e^{-t_k}$, where $\mu(t_k)=k$,
-and $k-\mathbb EW=\int_0^{t_k}V(t)\,dt\leq V(e^{t_k}-1)$. This is stronger than
-\eqref{eq:support-bound} far from the mean, but it tends to one at $k=D$ when
+and $k-\mathbb EW=\int_0^{t_k}V(t)\,dt\leq V(e^{t_k}-1)$. This ratio bound
+tends to one at $k=D$ when
 $D-\mathbb EW\downarrow0$, as for $\operatorname{Bin}(n,p)$ with
 $np=\ell+1-\varepsilon$ for an integer $\ell\geq1$ and $p<\varepsilon$, where
 $D=\ell+1$. By contrast, \eqref{eq:adjacent-ratio-drop} gives
@@ -323,8 +331,9 @@ Bernoulli sums in which $V$ and $n$ differ in order.
   independent Bernoulli variables. By the theorem of Hough, Krishnapur, Peres,
   and Vir\'ag on which this rests \cite[Theorem~7]{houghkrishnapurperesvirag2006},
   the parameters are the eigenvalues of the kernel of the eigenvalue process,
-  a projection of rank $N$, compressed to the half circle; in the basis
-  $e^{ij\phi}$, $0\leq j<N$, this is the matrix $\Gamma$ with entries
+  a projection of rank $N$, compressed to the half circle. These are the
+  nonzero eigenvalues of the Gram matrix $\Gamma$ of the functions
+  $e^{ij\phi}$, $0\leq j<N$, on the half circle, with entries
   $\Gamma_{jk}=(2\pi)^{-1}\int_0^\pi e^{i(j-k)\phi}\,d\phi$. Both
   $\Gamma$ and $I-\Gamma$ are Gram matrices of linearly independent functions
   on a half circle, so all $N$ parameters lie in $(0,1)$. Hence
@@ -405,14 +414,15 @@ If $f_n\geq f_{n-1}$, then the sum on the right is at most one, whereas
   <\sum_{i=1}^n\frac{1-p_i}{p_i}\leq1,
 \]
 a contradiction. If $f_1<f_0$, then by log-concavity $0$ is a mode, so
-$\mathbb EW<1$ by Darroch's theorem \cite{darroch1964} and
+$\mathbb EW<1$ by Darroch's theorem \cite[Theorem~4]{darroch1964} and
 $V\leq\sum_ip_i=\mathbb EW<1$. Hence $D\geq2$.
 
 If $W'=\sum_{j=1}^mB'_j$ is a Bernoulli sum independent of $W$, then
 $W-W'+m=W+\sum_{j}(1-B'_j)$ is a Bernoulli sum with the variance of $W-W'$,
 and its pmf is that of $W-W'$ translated by $m$. Hence
 Theorem~\ref{thm:main} and Corollary~\ref{cor:support} apply to $W-W'$, with
-$D$ the first descent of its pmf.
+$D$ the least $k$ in the support of $W-W'$ such that
+$\Pp(W-W'=k)<\Pp(W-W'=k-1)$.
 
 \subsection{The recurrence}
 

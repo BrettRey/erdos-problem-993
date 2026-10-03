@@ -1,0 +1,55 @@
+{
+  "status": "all exact-rational assertions passed",
+  "scope": "Numerical consequences of the separately derived CUE variance formula. Operator theory, the formula's derivation, monotonicity, and the asymptotic expansion are not checked by this program.",
+  "arithmetic": "Python fractions.Fraction; no floating-point arithmetic",
+  "pi_method": {
+    "identity": "pi = 16 atan(1/5) - 4 atan(1/239)",
+    "terms": {
+      "atan_1_over_5": 50,
+      "atan_1_over_239": 15
+    },
+    "certified_interval_width_less_than": "4.02e-72",
+    "enclosure": {
+      "lower": "3.1415926535897932384626433832795028841971693993751058209749445923078164",
+      "upper": "3.1415926535897932384626433832795028841971693993751058209749445923078165",
+      "decimal_places": 70
+    }
+  },
+  "variance_formula": "V_N = N/4 - (2/pi^2) * sum((N-d)/d^2 for odd 1 <= d < N)",
+  "variances": {
+    "1996": {
+      "lower": "0.999965435231604001229087651475825873092066972438391834836129",
+      "upper": "0.999965435231604001229087651475825873092066972438391834836130",
+      "decimal_places": 60
+    },
+    "1998": {
+      "lower": "1.000066908642300018375483592600869217059226779546738321936027",
+      "upper": "1.000066908642300018375483592600869217059226779546738321936028",
+      "decimal_places": 60
+    },
+    "10000": {
+      "lower": "1.163238438868310715198298087895408834162246875108081325409480",
+      "upper": "1.163238438868310715198298087895408834162246875108081325409481",
+      "decimal_places": 60
+    }
+  },
+  "threshold_checks": {
+    "V_1996_less_than_1": true,
+    "V_1998_greater_than_1": true,
+    "first_even_N_given_separately_proved_strict_monotonicity": 1998
+  },
+  "N_10000_curvature_lower_bound_1_over_4V": {
+    "lower": "0.214917244518861964999285432434553997467931192724899375419617",
+    "upper": "0.214917244518861964999285432434553997467931192724899375419618",
+    "decimal_places": 60
+  },
+  "N_10000_Newton_bound": {
+    "exact_numerator": 10001,
+    "exact_denominator": 25010000,
+    "enclosure": {
+      "lower": "0.000399880047980807676929228308676529388244702119152339064374",
+      "upper": "0.000399880047980807676929228308676529388244702119152339064375",
+      "decimal_places": 60
+    }
+  }
+}

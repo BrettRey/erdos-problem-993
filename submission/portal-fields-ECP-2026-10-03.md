@@ -14,7 +14,7 @@
 - [x] Pre-submission checklist path: `runs/pb-submission-gate-20261003/` (referee read, revision verifier, cold reads) and DECISIONS 2026-10-03
 - [x] Paper assurance record path: `paper/poisson_binomial/CERTIFICATE.md` (inside the supplement)
 - [x] Canonical source file: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex`
-- [ ] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (retitled, with MR numbers) has SHA-256 `3bc02b9df1266ba7541cde88e307dc0b8eaf441bd49d610ab6b962726cb4879a`, 12 pages, and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
+- [ ] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (after the ChatGPT Pro corrections) has SHA-256 `68be79ba0cb8024a182015423453bdb9d67d340c3d783b538750a3b30dfb991a`, 12 pages, and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
 - [ ] Account the submission is made under: Brett's EJMS account (not yet created)
 - [x] Decision owner: Brett Reynolds
 - [x] Assisting agent/model: Claude Code (Opus 5.5)
@@ -134,7 +134,7 @@ None suggested. Leave the field to the editor unless the portal requires names. 
 | Author instructions | live check of the imstat author page, including field limits, source-file rules, and any AI-use rule | Brett (browser) | no |
 | Department and postal code | not in the manuscript | Brett | no |
 | Competing interests and funding | composed defaults above need confirmation | Brett | no |
-| Independent human audit | the paper has had no human mathematician's review; proceeding without one is Brett's call and should be recorded in DECISIONS | Brett | no |
+| Independent human audit | no human mathematician has reviewed the paper; a cross-family model check (ChatGPT Pro, 2026-10-03) found no error and reconstructed all 275 coefficients; proceeding without a human audit is Brett's call and should be recorded in DECISIONS | Brett | no |
 | MathSciNet novelty search | optional; needs an institutional login | Brett | no |
 
 - [ ] This table is empty, or every remaining row is explicitly accepted by Brett as answerable live in the portal.

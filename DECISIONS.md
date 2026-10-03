@@ -978,3 +978,16 @@ Assisting system: Claude Code (Opus 5.5).
 - **Darroch 1964 is not acquired.** Project Euclid serves it behind an Incapsula bot wall, which was not circumvented. Brett to download it in a browser.
 
 Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 (night) — **Cross-family check done: ChatGPT Pro, minor revision, applied.** Report: `runs/pb-revision2-20261003/INPUT_chatgpt_pro_referee_report.md`. Bundle: `runs/pb-revision2-20261003/chatgpt-pro-independent-checks/`.
+- **Mathematics.** It found no error in Theorem 1.1, Corollary 1.3, Propositions 1.4–1.5, Example 1.6, or Sections 2–4. Its standard-library scripts reconstruct all 275 finite-range Bernstein coefficients, the J=5 and J≥6 identities, and the CUE threshold (rigorous π bounds). Replayed here, both outputs are byte-identical to what it shipped. All 275 coefficients equal ours exactly. This is the first non-Claude check of the written proofs.
+- **Corrections applied:**
+  - Pitman's (20) does give a positive bound on δ_k. I read it from the rendered PDF page 8, since the text extraction is garbled. Combining it at k−1 and k gives δ_k ≥ 1 − θ(k−1/(n−k+2))/θ(k+1/(k+2)). Pitman is now counted among the bounds that degenerate. I checked numerically that in the balanced V=1 family this bound at D behaves like √2/m: m·bound = 1.12, 1.23, 1.36, 1.40, 1.41 at m = 5, 10, 40, 200, 1000. The paper says only that it tends to zero, with the reason given.
+  - The "stronger than (1.5)" comparison is removed, because it compared a ratio with a deficit.
+  - The ULC claim is scoped to δ_D.
+  - The first descent for W−W′ is defined on its own support.
+  - Γ is described as the Gram matrix with the same nonzero eigenvalues.
+- **Darroch 1964 acquired.** Brett downloaded the JSTOR scan. It is image-only, so it was OCR'd with Tesseract into `literature/darroch_1964_number_successes_independent_trials.md`. Theorem 4 confirms the "distance less than one" form the paper uses, and the Darroch citations now point to Theorem 4. All 11 cited works are now in central `literature/`.
+- **Cold read round 8** on the reworded opening: 4/4 advance, nothing MISSING. Equation numbers are unchanged, so the supplement did not need rebuilding.
+
+Assisting system: Claude Code (Opus 5.5).

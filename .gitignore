@@ -107,3 +107,6 @@ runs/attack-20260930/census/sources/
 runs/attack-20260930/lp-discharge/*.pkl
 runs/attack-20260930/lp-discharge/s23_census
 runs/attack-20260930/lp-discharge/*.npz
+
+# JSTOR-sourced text: local reading copy only (JSTOR terms forbid redistribution)
+notes/literature/darroch_1964_*
