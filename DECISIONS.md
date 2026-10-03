@@ -1031,3 +1031,15 @@ Assisting system: Claude Code (Opus 5.5).
 - **Drift the audit judged defensible.** The "forces" idiom is kept. The 275-coefficient sentence now names the computation in the same paragraph.
 
 Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 (night) — **Proposition 3.1 sent to Aristotle.** Brett: "prepare the Proposition 3.1 packet for Aristotle". It was submitted under the standing rule to send formalizable targets.
+- **Aristotle project:** `bd2ed5ea-aff8-4c72-bfcd-4c46aca8957d`.
+- **Packet:** `formalization/pb_scalar_inequality_aristotle/`, with a dated prompt copy at `formalization/pb_scalar_inequality_aristotle_input_20261003.md`. It is a Lean 4.28 / Mathlib 4.28 project with the following parts:
+  - `PBScalar/Statement.lean` defines `a`, `R`, `L`, `w`, `A` exactly as in §§2–3, with `K` characterized by `(K+1)δ<1≤(K+2)δ`, and states three targets as `sorry`: G1 compact `1/17≤δ<1/4`, G2 large `δ≤1/17`, G0 Proposition 3.1.
+  - `PROOF_CONTEXT.md` gives a roadmap and §4 verbatim.
+  - `data/` holds the full certificate JSON (275 coefficients) and the H≥16 SymPy check.
+- **Terms:** partial credit per cell, refutation as a success mode, no `native_decide`, statements not to be weakened.
+- **Check before writing.** The definitions were tested in exact arithmetic first: A/RHS ≥ 1.03 at δ near 1/4, and larger elsewhere.
+- **Not compiled locally.** The Mathlib cache was deleted at Brett's request earlier today, so the statement file was not compiled here, and the prompt allows elaboration-only fixes. Any return must be replayed locally (Mathlib cache re-download needed), checked for escape hatches and `#print axioms`, and compared against these statements before the paper mentions it.
+
+Assisting system: Claude Code (Opus 5.5).
