@@ -1,0 +1,13 @@
+# Local review of Zhang-Li (Zenodo 10.5281/zenodo.22999166) and Vallier's Lean formalization, 2026-10-03
+paper_pdf_sha256: bd25c4094674741a317e50229983abe0385f08fe94e333bc409217444b65b2f8
+paper_source_zip_sha256: 649e88dd20094844b4bbf368819b02dc934cc00a78030f281eab235b2452f206
+lean_repo: https://github.com/selfreferencing/erdos993-lean
+lean_commit: 865e81498ecacda3de0d47647927353a7fadbba5  # tag v1.0-claim
+lean_toolchain: leanprover/lean4:v4.28.0
+lean_result: "Build completed successfully (8709 jobs); 0 sorry warnings; axioms as in replay.log"
+verification_repo: https://github.com/zhangzenozhang-jpg/forest-unimodality-arxiv-verification
+verification_commit: 806789352f7ed8e64594907a2ed334652ce11160
+verification_python: 3.12.9 (authors recorded 3.12.14)
+verification_result: "all_mathematical_acceptance_checks_passed: true; full_inherited_chain_replayed: true; 13 authenticated diagnostic-omission patches"
+lemma_killtest: killtest_lemmas.py (Lemma 3.1 and Theorem 6.1 exact on all trees n<=17 and families; no violation)
+assisting_system: Claude Code (Opus 5.5)

@@ -1,0 +1,591 @@
+{
+  "started_utc": "2026-10-03T10:20:11.812288+00:00",
+  "python": "3.12.9 (main, Feb 12 2025, 15:09:19) [Clang 19.1.6 ]",
+  "entrypoint": "proof-only full inherited chain",
+  "all_mathematical_acceptance_checks_passed": true,
+  "supplementary_diagnostics_executed": false,
+  "proof_assistant_formalization": false,
+  "original_unmodified_full_entrypoint_used": false,
+  "input_hashes_verified": {
+    "forest_n60_extension_and_n100_gap.zip": "3cbf5c0b32bbbce213e23db79655138aebd9ceb01fc9f55df4ac52a91ed12759",
+    "forest_threshold_59_audited_handoff.zip": "cbe5b28a4c0335ef099435356edaba0d440e650f7fd7398eb3dab8e11d0fa7f1"
+  },
+  "checks": [
+    {
+      "release": "forest_n60_extension_and_n100_gap",
+      "script": "verify.py",
+      "returncode": 0,
+      "seconds": 11.109146124916151,
+      "log": "forest_n60_extension_and_n100_gap__verify.log"
+    },
+    {
+      "release": "forest_n60_extension_and_n100_gap",
+      "script": "verify_grid.py",
+      "returncode": 0,
+      "seconds": 12.190888417186216,
+      "log": "forest_n60_extension_and_n100_gap__verify_grid.log"
+    },
+    {
+      "release": "forest_n60_extension_and_n100_gap",
+      "script": "verify_countermodels.py",
+      "returncode": 0,
+      "seconds": 2.102988624945283,
+      "log": "forest_n60_extension_and_n100_gap__verify_countermodels.log"
+    },
+    {
+      "release": "forest_threshold_59_release",
+      "script": "check_release.py",
+      "returncode": 0,
+      "seconds": 2.200583958067,
+      "log": "forest_threshold_59_release__check_release.log"
+    },
+    {
+      "release": "forest_threshold_59_release",
+      "script": "replay.py",
+      "returncode": 0,
+      "seconds": 1536.8066300000064,
+      "log": "forest_threshold_59_release__replay.log"
+    }
+  ],
+  "scope": "Exact certificate acceptance plus the written universal mathematical reductions; no forest counterexample search.",
+  "patch_spec_sha256": "70858e65cda0332a7db5bb80bbb3123cd4de413b17b284399b022d340a18327b",
+  "execution_code_sha256": {
+    "proof_reproduce.py": "95dba84ec1accc70ff8eac24d8cf61d197677b6e4b50a8c6cedf724d471be0a4",
+    "proof_runtime.py": "c56207951e9fabd3dd10b28848db74af3940ab8c1ac76a326bbe01e74c0c89c1"
+  },
+  "elapsed_seconds": 1564.5752592920326,
+  "full_inherited_chain_replayed": true,
+  "stages": {
+    "59": {
+      "N": 59,
+      "previous_N": 80,
+      "new_finite_vertex_range": [
+        59,
+        79
+      ],
+      "inherited_vertex_range": [
+        80,
+        "infinity"
+      ],
+      "new_certificate_count": 231,
+      "all_new_exact_certificates_passed": true,
+      "all_continuous_q_m_covered": true,
+      "all_discrete_n_k_cases_covered": true,
+      "q_strata": 154,
+      "parent_intervals": 43,
+      "total_finite_kernel_rectangles": 1220,
+      "reused99_kernel_certificates": 188,
+      "reused130_kernel_certificates": 243,
+      "reused170_kernel_certificates": 558,
+      "no80_N_dependent_kernel_reused": true,
+      "all_new_variance_profiles_recomputed_at_declared_N": true,
+      "matching_counts_independently_reconstructed": true,
+      "total_endpoint_integer_state_checks": 1185408,
+      "total_admissible_n_k_pair_checks": 28987,
+      "minimum_normalized_margin_lower": "424830401847072141613691/10000000000000000000000000000",
+      "minimum_margin_certificate": "count_59_11_0012",
+      "minimum_margin_scale": 23,
+      "minimum_margin_kernel_weights": [
+        "0",
+        "17915685937/500000000000",
+        "1982084314063/2000000000000"
+      ],
+      "source_summary": {
+        "passed": true,
+        "new_combined_source_count": 4,
+        "probability_cells": 1363,
+        "retention_cells": 8435,
+        "parent_cases": 37026,
+        "real_response_region_checks": 111078,
+        "all_source_polynomials_independently_reconstructed": true,
+        "seconds": 103.1295739999041
+      },
+      "full_frozen80_chain_replayed": true,
+      "frozen80_zip_sha256": "d1eb9f2903b554475634a3f0fac59d625ae196fdbe0525e6cfc6a97071742f03",
+      "diagnostics": {
+        "executed": false,
+        "reason": "Supplementary diagnostics omitted by proof-only entry point"
+      },
+      "floating_point_acceptance": false,
+      "numerical_optimizer_used": false,
+      "site_initialization_disabled": true,
+      "optional_modules_preloaded_by_environment": [],
+      "seconds": 1535.234441000037,
+      "scope": "Research theorem conditional on explicitly declared inherited structural lemmas. Exact source proofs, matching-count reconstruction, and full continuous/discrete coverage; not proof-assistant formalization."
+    },
+    "80": {
+      "N": 80,
+      "previous_N": 99,
+      "new_finite_vertex_range": [
+        80,
+        98
+      ],
+      "inherited_vertex_range": [
+        99,
+        "infinity"
+      ],
+      "all_new_exact_certificates_passed": true,
+      "certificate_count": 236,
+      "all_continuous_q_m_covered": true,
+      "parent_intervals": 43,
+      "q_strata": 154,
+      "kernel_method_counts": {
+        "left": 37,
+        "central": 129,
+        "right": 70
+      },
+      "variance_profile_counts": {
+        "ratio": 99,
+        "log_linear": 4,
+        "log_integer_rank": 36,
+        "flow_ratio": 97
+      },
+      "mixed_kernel_no_local_minimum_argument": true,
+      "reused99_kernel_certificates": 188,
+      "reused130_kernel_certificates": 243,
+      "reused170_kernel_certificates": 558,
+      "total_finite_kernel_rectangles": 1225,
+      "inherited_large_m_thresholds_checked": true,
+      "full_frozen99_chain_replayed": true,
+      "frozen99_zip_sha256": "1193e2ece3e95ef523b2b08de2b461fc2f8639096b50f86a47e9009883173fa2",
+      "source_summary": {
+        "passed": true,
+        "selector_count": 37,
+        "flow_selector_count": 14,
+        "log_selector_count": 14,
+        "probability_cells": 28692,
+        "retention_cells": 116974,
+        "parent_cases": 403825,
+        "response_regions": 1211475,
+        "seconds": 434.03990137483925,
+        "workers": 2,
+        "arithmetic": "Fraction, directed elementary-function rational bounds, exact polynomial signs",
+        "floating_point_acceptance": false,
+        "density": {
+          "passed": true,
+          "activity_count": 106,
+          "branch_cases": 11130,
+          "method": "exact path formula; n-induction, degrees 3/4 exhaustive branch types and all degree>=5 branch-removal argument"
+        }
+      },
+      "total_endpoint_integer_state_checks": 2523312,
+      "total_infinite_real_halfline_checks": 93456,
+      "minimum_normalized_margin_lower": "10528115305903683745719661/250000000000000000000000000000",
+      "minimum_margin_certificate": "new_80_09_001_0003",
+      "minimum_margin_scale": 38,
+      "minimum_unscaled_kernel_lower": "10528115305903683745719661/9500000000000000000000000000000",
+      "minimum_unscaled_certificate": "new_80_09_001_0003",
+      "floating_point_acceptance": false,
+      "numerical_optimizer_used": false,
+      "optional_modules_preloaded_by_environment": [],
+      "site_initialization_disabled": true,
+      "signed_variance_profiles_depend_on_declared_N": true,
+      "mean_m_is_real": true,
+      "diagnostics": {
+        "executed": false,
+        "reason": "Supplementary diagnostics omitted by proof-only entry point"
+      },
+      "seconds": 1224.1365742499474,
+      "scope": "Research theorem conditional on explicitly declared inherited structural lemmas. Exact source reconstruction and complete continuous-domain certificates; not proof-assistant formalization."
+    },
+    "99": {
+      "N": 99,
+      "previous_N": 130,
+      "new_finite_vertex_range": [
+        99,
+        129
+      ],
+      "inherited_vertex_range": [
+        130,
+        "infinity"
+      ],
+      "all_new_exact_certificates_passed": true,
+      "certificate_count": 188,
+      "parent_intervals": 43,
+      "q_strata": 148,
+      "all_continuous_q_m_covered": true,
+      "kernel_method_counts": {
+        "left": 30,
+        "central": 98,
+        "right": 60
+      },
+      "certificates_using_a_different_kernel_than_old_role": 28,
+      "mixed_kernel_no_local_minimum_argument": true,
+      "reused130_kernel_certificates": 243,
+      "reused170_kernel_certificates": 558,
+      "inherited_large_m_thresholds_checked": true,
+      "full_frozen130_chain_replayed": true,
+      "frozen130_zip_sha256": "38eeeced5b27e41ae65198847c0660cbf9b133c3f84133994c955be35ec58239",
+      "added_source_summary": {
+        "passed": true,
+        "marked_source_count": 31,
+        "full_mean_source_count": 3,
+        "probability_cells": 8624,
+        "retention_cells": 25604,
+        "all_real_response_regions_verified": true,
+        "independent_polynomial_reconstruction": true,
+        "boundary_lemma": {
+          "passed": true,
+          "vertex_minimum": 8,
+          "mean_at_one_density_lower": "276393/1000000",
+          "boundary_gain": "19/125",
+          "single_tree_all_size_gain_lower": "3482532401010619/30584568319500000",
+          "single_tree_n_ge_8_gain_lower": "74453119154345438541914831124337/488248942475911060748196799500000",
+          "decreasing_even_correction_ratio_upper": "191/400",
+          "scope": "Exact rational premises for the path formula and forest component argument in PROOF_ZH.md; path mean minimization is inherited."
+        },
+        "seconds": 32.19427187484689
+      },
+      "total_endpoint_integer_state_checks": 3397160,
+      "total_infinite_real_halfline_checks": 97760,
+      "minimum_normalized_margin_lower": "397397816903828464065081719/1000000000000000000000000000000",
+      "minimum_margin_certificate": "optimized_99_16_000_0092",
+      "minimum_margin_certificate_scale": 49,
+      "minimum_unscaled_kernel_lower": "56771116700546923437868817/7000000000000000000000000000000",
+      "minimum_unscaled_certificate": "optimized_99_16_000_0092",
+      "floating_point_acceptance": false,
+      "numerical_optimizer_used": false,
+      "optional_modules_preloaded_by_environment": [],
+      "site_initialization_disabled": true,
+      "diagnostics": {
+        "executed": false,
+        "reason": "Supplementary diagnostics omitted by proof-only entry point"
+      },
+      "seconds": 571.4306280422024,
+      "scope": "Conditional on the explicitly declared inherited structural lemmas. Exact source reconstruction, continuous-domain certificates, and no-local-minimum implication; not proof-assistant formalization."
+    },
+    "130": {
+      "N": 130,
+      "previous_N": 170,
+      "all_new_exact_certificates_passed": true,
+      "certificate_count": 243,
+      "finite_vertex_range": [
+        130,
+        169
+      ],
+      "inherited_vertex_range": [
+        170,
+        "infinity"
+      ],
+      "all_continuous_activity_and_mean_intervals_covered": true,
+      "parent_intervals": 43,
+      "q_strata": 148,
+      "reused170_kernel_certificates": 558,
+      "all_inherited_larger_m_budgets_match": true,
+      "full_frozen170_chain_replayed": true,
+      "frozen170_zip_sha256": "13077535163db470fcb9c4578e41afea893f49e7cd1690557e4304bae375d35a",
+      "new_source_summary": {
+        "passed": true,
+        "tilted_source_count": 36,
+        "selection_source_count": 92,
+        "tilted_probability_cells": 2855,
+        "tilted_retention_cells": 2855,
+        "tilted_response_region_checks": 6987,
+        "selection_probability_cells": 26186,
+        "selection_retention_cells": 55215,
+        "all_polynomials_independently_reconstructed": true,
+        "all_real_response_regions_verified": true,
+        "arithmetic": "fractions.Fraction; directed rational elementary bounds",
+        "seconds": 126.3425737079233
+      },
+      "total_endpoint_integer_state_checks": 7394490,
+      "total_infinite_real_halfline_checks": 165240,
+      "minimum_normalized_margin_lower": "8283392798494017812873959/50000000000000000000000000000",
+      "minimum_margin_certificate": "bridge_130_10_002_0059",
+      "minimum_margin_certificate_scale": 80,
+      "corresponding_unscaled_kernel_expectation_lower": "8283392798494017812873959/4000000000000000000000000000000",
+      "integer_target_rank_used": true,
+      "mean_m_is_not_assumed_integer": true,
+      "floating_point_acceptance": false,
+      "numerical_optimizer_used": false,
+      "optional_modules_preloaded_by_environment": [],
+      "site_initialization_disabled": true,
+      "diagnostics": {
+        "executed": false,
+        "reason": "Supplementary diagnostics omitted by proof-only entry point"
+      },
+      "scope": "Conditional on explicitly declared inherited structural lemmas; exact arithmetic and complete continuous-domain checks, not proof-assistant formalization.",
+      "seconds": 434.1114751670975
+    },
+    "170": {
+      "N": 170,
+      "previous_N": 350,
+      "all_exact_bridge_certificates_passed": true,
+      "certificate_count": 558,
+      "all_continuous_activity_and_mean_intervals_covered": true,
+      "q_strata": 130,
+      "parent_intervals": 43,
+      "finite_vertex_range": [
+        170,
+        349
+      ],
+      "inherited_vertex_range": [
+        350,
+        "infinity"
+      ],
+      "inherited_larger_m_budgets_match": true,
+      "full_frozen350_chain_replayed": true,
+      "frozen350_zip_sha256": "447d369b50169f056cfd5210ef6d2ffcead0b1e33e960103e0b95ea87145d100",
+      "total_endpoint_integer_state_checks": 70112700,
+      "total_infinite_real_halfline_checks": 781200,
+      "minimum_normalized_margin_lower": "177285776443222660902327469/250000000000000000000000000000",
+      "minimum_margin_certificate": "ext_170_14_0065",
+      "diagnostics": {
+        "executed": false,
+        "reason": "Supplementary diagnostics omitted by proof-only entry point"
+      },
+      "arithmetic": "Exact Fraction parameters; directed rational elementary bounds; 70-place outward integer intervals",
+      "floating_point_acceptance": false,
+      "numerical_optimizer_used": false,
+      "optional_modules_preloaded_by_environment": [],
+      "site_initialization_disabled": true,
+      "scope": "Research proof conditional on the explicitly declared inherited structural lemmas. Finite arithmetic and continuous-domain certificates replayed; not proof-assistant formalization of the entire theory.",
+      "seconds": 265.289625500096
+    },
+    "350": {
+      "N": 350,
+      "all_43_fixed_budget_rows_identical": true,
+      "all_marked_source_certificates_regenerated": true,
+      "independent_polynomial_reconstruction_passed": true,
+      "marked_probability_cells": 3600,
+      "marked_retention_cells": 10800,
+      "new_direction_envelopes": [
+        {
+          "tmax": "1/2",
+          "rectangles": 16,
+          "coefficients_independently_assembled": true,
+          "compactification_independently_inverted": true,
+          "complete_unbounded_domain_checked": true
+        },
+        {
+          "tmax": "3/5",
+          "rectangles": 16,
+          "coefficients_independently_assembled": true,
+          "compactification_independently_inverted": true,
+          "complete_unbounded_domain_checked": true
+        }
+      ],
+      "recovered_gradient_check": {
+        "arithmetic": "fractions.Fraction",
+        "finite_polynomials_verified": 1978,
+        "continuous_intervals_verified": 1978,
+        "all_exact_checks_passed": true,
+        "seconds": 5.5052548330277205,
+        "large_variance_case": "Inherited 279/1000 bound at mv>=9; finite scalar cases and their full q domains checked here."
+      },
+      "all_frozen_500_inputs_replayed": true,
+      "analytic_identities": {
+        "all_checks_passed": true,
+        "arithmetic": "fractions.Fraction",
+        "triangular_variance": "1/6",
+        "fourth_kernel_error": "1/1440",
+        "sixth_eighth_reserve": "-233/8709120",
+        "sixth_moment_normalized_error": "1/96",
+        "finite_step_curvature_remainder": "1/24",
+        "scope": "Exact finite coefficient identities; accompanying calculus proofs cover the continuous domains."
+      },
+      "diagnostics": {
+        "executed": false,
+        "reason": "Supplementary diagnostics omitted by proof-only entry point"
+      },
+      "arithmetic": "fractions.Fraction",
+      "numerical_optimizer_used": false,
+      "seconds": 181.24558375007473,
+      "scope": "Fixed exact proof computations and declared continuous certificates, not independent proof-assistant formalization of the complete historical structural theory.",
+      "isolated_work_directory": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/clean_replay_c2xxm4ho"
+    },
+    "500": {
+      "N": 500,
+      "all_29_fixed_rows_identical": true,
+      "all_new_sources_regenerated": true,
+      "source_probability_intervals": 472,
+      "source_retention_intervals": 472,
+      "all_new_direction_envelopes_regenerated": true,
+      "envelope_rectangles": 209,
+      "independent_polynomial_reconstruction_passed": true,
+      "analytic_interfaces_identical": true,
+      "diagnostics": {
+        "executed": false,
+        "reason": "Supplementary diagnostics omitted by proof-only entry point"
+      },
+      "all_frozen_900_inputs_replayed": true,
+      "arithmetic": "fractions.Fraction",
+      "numerical_optimizer_used": false,
+      "seconds": 76.14877145807259,
+      "scope": "Exact fixed computation and declared scalar certificates; not independent formal verification of the analytic forest reductions or a proof of the remaining n<500 cases.",
+      "isolated_work_directory": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/input/forest_threshold_500_release/work/clean_replay_re4y4df5"
+    },
+    "900": {
+      "full_unimodality_threshold": 900,
+      "all_28_fixed_budget_rows_identical": true,
+      "all_selected_structural_certificates_regenerated": true,
+      "selection_response_polynomials_independently_reconstructed": true,
+      "probability_intervals": 4988,
+      "retention_intervals": 9344,
+      "source_intervals": 1016,
+      "all_8_analytic_gradient_constants_rechecked": true,
+      "analytic_interfaces_and_fixed_comparisons_identical": true,
+      "inherited_mean_finite_type_rechecks": {
+        "all_checks_passed": true,
+        "cases": [
+          {
+            "script": "adjusted_mean_leg_cluster.py",
+            "passed": true,
+            "saved_mathematical_fields_identical": true,
+            "seconds": 0.0865904160309583
+          },
+          {
+            "script": "endbranch_path_context_certificate.py",
+            "passed": true,
+            "saved_mathematical_fields_identical": true,
+            "seconds": 0.3819127921015024
+          },
+          {
+            "script": "audit_endbranch_path_context.py",
+            "passed": true,
+            "saved_mathematical_fields_identical": true,
+            "seconds": 0.057617791928350925
+          },
+          {
+            "script": "adjusted_mean_global_closure.py",
+            "passed": true,
+            "saved_mathematical_fields_identical": true,
+            "seconds": 0.0908689999487251
+          },
+          {
+            "script": "audit_terminal_fan_second_stage.py",
+            "passed": true,
+            "saved_mathematical_fields_identical": true,
+            "seconds": 0.10828508296981454
+          }
+        ],
+        "scope": "Recomputed finite structural identities and comparisons for inherited mean theorem; analytic reduction is supplied separately."
+      },
+      "diagnostics": {
+        "executed": false,
+        "reason": "Supplementary diagnostics omitted by proof-only entry point"
+      },
+      "arithmetic": "fractions.Fraction",
+      "external_optimization_used": false,
+      "seconds": 43.67724975012243,
+      "scope": "Complete fixed computation for this new continuation; analytic universal lemmas and declared inherited structural results still need mathematical scrutiny. Not proof-assistant formalization.",
+      "isolated_work_directory": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/input/forest_threshold_500_release/work/input/forest_threshold_900_release/work/clean_replay_k9vere1m"
+    }
+  },
+  "patch_events": [
+    {
+      "event": "patch_applied",
+      "label": "f2d7c3a8e6/forest_threshold_59_release/replay.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/replay.py",
+      "original_sha256": "b8cc13448c16784755c8efa335d09ba3d5db957a2ff839d99b2a4c87d211713f",
+      "patched_sha256": "fd12ec0d62dbb161f9b31ae2e3940825dbf9a5fba90a0a0e9a654f48bc968025"
+    },
+    {
+      "event": "patch_applied",
+      "label": "00c01bdb16/forest_threshold_80_release/replay.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/replay.py",
+      "original_sha256": "bcff60300308f2d5b39eea4162fc9179e7f6df6209ef9f504208f53881723589",
+      "patched_sha256": "7058bd2ad46fcadaadc49cf60c61c6bf4e5df60432a90d99535b1aaac752a8df"
+    },
+    {
+      "event": "patch_applied",
+      "label": "5411644b22/forest_threshold_99_release/replay.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/replay.py",
+      "original_sha256": "62cc0d0ce786aede1f15f2b21d1c6a37d1777dab3c3135f2c36a829e3a870cbb",
+      "patched_sha256": "c590ec5c4cfb35ca9acce039d6b25aeca0f4f26f413ce698733b1037b58368a6"
+    },
+    {
+      "event": "patch_applied",
+      "label": "d4f1f207f5/forest_threshold_130_release/replay.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/replay.py",
+      "original_sha256": "bd35c0f043b224f6d9aced0f266bf8986bf0abc70a852a99be9f18f6661e0860",
+      "patched_sha256": "65f75bc114e4fec7d2b16df1bd85fe1dc68bc0d31dbbbe9f47b13ae3cd6ab324"
+    },
+    {
+      "event": "patch_applied",
+      "label": "9990f72a8b/forest_threshold_170_release/replay.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/replay.py",
+      "original_sha256": "d0decce851e0c8110ac2a418c0b8065965bd1c6e4d84f6b4a3c6afa841fbde8d",
+      "patched_sha256": "61c008c95060b2c1b31cb258058cdf7195c2d50f44e3f435f6ed86952795d259"
+    },
+    {
+      "event": "patch_applied",
+      "label": "6c25a5071f/forest_threshold_350_release/replay.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/replay.py",
+      "original_sha256": "e4093ea1426bbec99db9bcc771bd64527930720b0bf8a646320420d0279df697",
+      "patched_sha256": "fd3e9d60613f2f80833c5f76a765410e82b7dd4fb7ebee388ddd4c4464b46a48"
+    },
+    {
+      "event": "patch_applied",
+      "label": "6c25a5071f/forest_threshold_350_release/replay.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/clean_replay_c2xxm4ho/replay.py",
+      "original_sha256": "e4093ea1426bbec99db9bcc771bd64527930720b0bf8a646320420d0279df697",
+      "patched_sha256": "fd3e9d60613f2f80833c5f76a765410e82b7dd4fb7ebee388ddd4c4464b46a48"
+    },
+    {
+      "event": "patch_applied",
+      "label": "248820cc2c/forest_threshold_500_release/replay.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/input/forest_threshold_500_release/replay.py",
+      "original_sha256": "93b4ab811bb600a827fbe572b68fadb390a2e9de6052ff16a059e233dfa91053",
+      "patched_sha256": "ae14b6bf3ed805fc5b822fab51d740547fadb98e2a023055ae3b52b2276587c2"
+    },
+    {
+      "event": "patch_applied",
+      "label": "248820cc2c/forest_threshold_500_release/replay.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/input/forest_threshold_500_release/work/clean_replay_re4y4df5/replay.py",
+      "original_sha256": "93b4ab811bb600a827fbe572b68fadb390a2e9de6052ff16a059e233dfa91053",
+      "patched_sha256": "ae14b6bf3ed805fc5b822fab51d740547fadb98e2a023055ae3b52b2276587c2"
+    },
+    {
+      "event": "patch_applied",
+      "label": "c4c450891c/forest_threshold_900_release/replay.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/input/forest_threshold_500_release/work/input/forest_threshold_900_release/replay.py",
+      "original_sha256": "78e19938c26e93a9743d20eee59d292c7979dc9def554bc450fe44adcf69d2c0",
+      "patched_sha256": "cfaee4a46564037c50ab1b2b4b98ae7561c8e71851732b0aa15f1091b0c4b070"
+    },
+    {
+      "event": "patch_applied",
+      "label": "c4c450891c/forest_threshold_900_release/replay.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/input/forest_threshold_500_release/work/input/forest_threshold_900_release/work/clean_replay_k9vere1m/replay.py",
+      "original_sha256": "78e19938c26e93a9743d20eee59d292c7979dc9def554bc450fe44adcf69d2c0",
+      "patched_sha256": "cfaee4a46564037c50ab1b2b4b98ae7561c8e71851732b0aa15f1091b0c4b070"
+    },
+    {
+      "event": "patch_applied",
+      "label": "c4c450891c/forest_threshold_900_release/replay_mean.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/input/forest_threshold_500_release/work/input/forest_threshold_900_release/work/clean_replay_k9vere1m/replay_mean.py",
+      "original_sha256": "c41e7b9937130d154691bcd1a7a6a666828d47409e18ad0fb94859c208343423",
+      "patched_sha256": "9ee51d2653133f70b6a92d932b2dc72eff16109c5e0aea462544b05a925c765d"
+    },
+    {
+      "event": "patch_applied",
+      "label": "c4c450891c/forest_threshold_900_release/inputs/inherited_mean/research_code/adjusted_mean_leg_cluster.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/input/forest_threshold_500_release/work/input/forest_threshold_900_release/work/clean_replay_k9vere1m/generated/inherited_mean/adjusted_mean_leg_cluster.py",
+      "original_sha256": "a410b860f44074c0b5ee4a37ea60ec4b3d3194629234316334edaa561433b6ee",
+      "patched_sha256": "5c6709601e26241c6005fd84316577c22bbc38e32583a9be35a3958ff4625dab"
+    },
+    {
+      "event": "patch_applied",
+      "label": "c4c450891c/forest_threshold_900_release/inputs/inherited_mean/research_code/endbranch_path_context_certificate.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/input/forest_threshold_500_release/work/input/forest_threshold_900_release/work/clean_replay_k9vere1m/generated/inherited_mean/endbranch_path_context_certificate.py",
+      "original_sha256": "4da6d1645fdd293771ffd9ea84f6ede75d7515e1b241089142745456785de3df",
+      "patched_sha256": "d8ab9a2a661cd02621dcac53fffc8ff8bd5320ac2e7d73d3c776ac752b0e4a83"
+    },
+    {
+      "event": "patch_applied",
+      "label": "c4c450891c/forest_threshold_900_release/inputs/inherited_mean/research_code/audit_endbranch_path_context.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/input/forest_threshold_500_release/work/input/forest_threshold_900_release/work/clean_replay_k9vere1m/generated/inherited_mean/audit_endbranch_path_context.py",
+      "original_sha256": "816f499687d73ef961187fd4e564b4812e569e5075e7125ed9984b9e1cb5d6dd",
+      "patched_sha256": "e26fc385e636356c7a9880f4fd6074e20a542174b7830a4211475f31f9da9958"
+    },
+    {
+      "event": "patch_applied",
+      "label": "c4c450891c/forest_threshold_900_release/inputs/inherited_mean/research_code/adjusted_mean_global_closure.py",
+      "path": "/private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/zhangli/zl_work/large/forest_threshold_59_release/work/input/forest_threshold_80_release/work/input/forest_threshold_99_release/work/input/forest_threshold_130_release/work/input/forest_threshold_170_release/work/input/forest_threshold_350_release/work/input/forest_threshold_500_release/work/input/forest_threshold_900_release/work/clean_replay_k9vere1m/generated/inherited_mean/adjusted_mean_global_closure.py",
+      "original_sha256": "f2d79f7bab7a29eca7702aab7029e2aac55a219fd1a8bfe3753d0d2c2ad7a7b0",
+      "patched_sha256": "74f3e33d659948033b836be923ae411455e34dfe46483cc8f3624752cdf6cfe7"
+    }
+  ],
+  "unique_patched_source_files": 13,
+  "finished_utc": "2026-10-03T10:46:16.374396+00:00"
+}

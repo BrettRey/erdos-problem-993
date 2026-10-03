@@ -6,7 +6,7 @@ title: Mean bounds, structural reductions, and exhaustive verification for tree 
 stage: complete
 external: rejected
 blocked_on: []
-updated: 2026-09-25
+updated: 2026-10-03
 source:
 - STATUS.md
 - PORTFOLIO.md
@@ -15,7 +15,7 @@ venue: none
 external_id: '15526'
 preprints:
 - zenodo/19100781
-next_action: Parked. Email to the authors of arXiv:2609.20961 sent 2026-09-25; reply received 2026-09-26 (private; local in outreach/fang_et_al_2609_20961_2026-09-25.md). Nothing owed. If the paper is ever reactivated, the referee's short-note path now has to be positioned against 2609.20961 (asymptotic #993, Lean-replayed 2026-09-25); see the 2026-09-13 and 2026-09-25 DECISIONS entries.
+next_action: Parked, now facing a claimed full resolution. Zhang-Li (Zenodo 10.5281/zenodo.22999166, 27 Sep 2026) claim #993 for every forest; Vallier's Lean formalization v1.0-claim replays locally (kernel-checked for n<=60; native_decide-trusted and unreviewed for n>=61) and the authors' certificate checker passes (notes/zhang_li_2026_forest_unimodality_2026-10-03.md). Nothing owed. If the paper is ever reactivated, the short-note path has to be positioned against both 2609.20961 (Fang et al., large forests) and Zhang-Li (all forests); see DECISIONS 2026-09-13, 2026-09-25, 2026-10-03.
 notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-polynomial
 
   unimodality), not a linguistics paper -- flagging per the task''s "consider
@@ -92,7 +92,40 @@ claim:
 ---
 
 # Erdos Problem #993 -- Independent Set Sequence Unimodality for Trees
-<!-- SUMMARY: Tree independence-sequence unimodality; manuscript declined by E-JC 2026-09-13 and parked; arXiv:2609.20961 proves #993 for forests above an unspecified N0 (Lean replayed 2026-09-25); email to its authors sent 2026-09-25 · status: parked · updated: 2026-10-02 -->
+<!-- SUMMARY: Tree independence-sequence unimodality; manuscript declined by E-JC 2026-09-13 and parked; arXiv:2609.20961 proves #993 for large forests; Zhang-Li (Zenodo 22999166) claim it for all forests, with Vallier's Lean replayed locally 2026-10-03 (n<=60 kernel-checked; n>=61 native_decide, unreviewed) · status: parked, claimed resolution under review · updated: 2026-10-03 -->
+
+## 2026-10-03: a claimed full resolution; Vatter certificate graded; watch profiles refreshed
+
+Research is parked. No manuscript change and nothing posted.
+
+- **Zhang–Li claim #993 for all forests** (Zenodo 10.5281/zenodo.22999166,
+  27 Sep). The proof is computer-assisted, with GPT 6.0 Astra credited. It
+  takes exact certificates for n <= 60 and a conditional-binomial
+  reduction for n >= 59. The arXiv submission was withdrawn before
+  announcement. Local checks:
+  - **Lean replay.** Vallier's formalization `v1.0-claim` (`865e814`)
+    builds, 8,709 jobs with no `sorry`. The headline `erdos993` depends on
+    the standard axioms plus `Lean.ofReduceBool` and `Lean.trustCompiler`.
+    The part for n <= 60 is kernel-checked with standard axioms only. The
+    part for n >= 61 is Vallier's own argument, which is unreviewed.
+  - **Authors' certificate checker.** It passes the full inherited chain,
+    900 → 59, with 13 authenticated diagnostic-omission patches.
+  - **Lemma checks.** Lemma 3.1 and Theorem 6.1 hold exactly on every tree
+    with n <= 17 and on the hub families.
+
+  The manuscript's own large-order argument is backed only by certificate
+  acceptance. Note: `notes/zhang_li_2026_forest_unimodality_2026-10-03.md`;
+  record: `runs/zhang-li-review-20261003/`.
+- **Vatter certificate graded plausible.** Two leaves-first vertex orders
+  certify log-concavity at every k on all 1,346,021 trees with
+  4 <= n <= 20 and on every 30 Sep killer (n = 28 to 1293). They also pass
+  the whole window on all 11,878 zoo members with n <= 500. Annealing found
+  no violation. The binding case keeps a margin of n·slack → −4/3. The
+  certificate is not proved and is not exact above the window. Note:
+  `notes/vatter_order_certificate_2026-10-03.md`.
+- **Watch profiles.** `erdos993-depth3` is re-pinned with local matchers
+  only, and `erdos993-central` was added for the post-Fang window
+  (Project-Management `aabe74b`).
 
 ## 2026-10-02: arXiv watch repaired; 141 papers triaged
 

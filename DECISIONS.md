@@ -859,3 +859,48 @@ agents and a local qwen3.8:27b panel.
   by hand to drop `--days 2`. Line 37 now reads `"$SCRIPT" --notify`; verified,
   and `bash -n` passes. All three callers (script default, LaunchAgent,
   SessionStart hook) now use the 5-day default and the weekly sweep.
+
+2026-10-03 — Watch profiles refreshed, Vatter followed up, Zhang–Li claim
+reviewed locally, at Brett's direction ("refresh the depth3 profile and follow
+up on Vatter"). He also sent the Zhang–Li link without an instruction; the
+review is mine.
+- **Profiles** (Project-Management `aabe74b`).
+  - `erdos993-depth3` v2 is re-pinned to frontier `e744ea91`. Its rules for
+    the refuted `blocked_profile_depth3_lc` now target
+    `depth3_margin_nonnegative` at tier 2–3, and local rules cover the
+    near-maximum-count closures and the pendant-P2 recurrences. All its
+    query terms are dropped: in seven weeks they retrieved 14 papers the
+    generic screen missed, all peripheral or coincidental.
+  - My addition, not asked for: `erdos993-central` v1, pinned to
+    `runs/attack-20260930/SUMMARY.md`. It targets the live claim, LC on
+    [⌈n/4⌉, q], and the effective threshold N0. It adds two mandatory-read
+    queries, 'hard-core model' and 'local central limit theorem'.
+  - The six already-triaged papers the new fingerprints re-matched were
+    logged in the digest as re-annotated, not re-queued.
+- **Vatter: plausible.** Two leaves-first orders (revbfs, degasc) pass:
+  - every k on all trees with 4 <= n <= 20, and on every 30 Sep killer:
+    H(9,2), MSH(4×9,4×10), S(8,10,2), S(9,9,2), H(75,5), MSH(38;11,2);
+  - every k under random relabelings;
+  - the whole window on all 11,878 zoo members with n <= 500;
+  - annealing (no violation, best slack −0.0064).
+
+  The binding constraint, the first leaf's tail at k = ⌈n/4⌉, keeps n·slack
+  → −4/3 on hub-stars. The certificate is not exact above the window: 15
+  LC-true failures in the upper tail. Not proved. Recorded as a lead;
+  nothing queued. `notes/vatter_order_certificate_2026-10-03.md`,
+  `runs/vatter-20261003/`.
+- **Zhang–Li (Zenodo 22999166) under local review**, with three verification
+  statuses kept separate:
+  - **n <= 60:** kernel-checked in Vallier's Lean, replayed here with
+    standard axioms only.
+  - **n >= 61:** Vallier's own argument, accepted by Lean under
+    `native_decide` compiler trust; unreviewed by anyone, us included.
+  - **The manuscript's §§3–8:** backed only by the authors' certificate
+    checker, which passed here with 13 diagnostic-omission patches.
+
+  Adopted as the current state of the problem for positioning purposes.
+  Not cited anywhere; no public action.
+  `notes/zhang_li_2026_forest_unimodality_2026-10-03.md`,
+  `runs/zhang-li-review-20261003/`.
+
+Assisting system: Claude Code (Opus 5.5).
