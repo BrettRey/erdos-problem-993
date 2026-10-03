@@ -1,0 +1,8 @@
+{
+"problem": "To determine a universal lower bound for the normalized Turán deficit at the first descent index of a Poisson–binomial law that scales with the variance of the sum.",
+"debate": "The literature on log-concavity and ultra-log-concavity of Bernoulli sums, specifically regarding bounds on discrete curvature and mass ratios near the mode.",
+"gap": "Existing lower bounds on the Turán deficit depend on the number of summands, specific success probabilities, or the index k, and thus degenerate or fail to provide a variance-scaled bound when summands with extreme probabilities accumulate at fixed variance.",
+"contribution": "The paper proves that Vδ_D ≥ 1/4 for variance V ≥ 1, establishes that the optimal constant lies between 1/4 and 1/3, and derives explicit bounds for all indices in the support using cubic inequalities and computer-assisted verification.",
+"decision": "advance",
+"note": "The problem is well-posed and the result is non-trivial, but the reliance on computer-assisted proof for the core inequality is a significant methodological hurdle that reviewers will scrutinize heavily."
+}

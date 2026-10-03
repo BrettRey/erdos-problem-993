@@ -1,10 +1,10 @@
 # Portal Fields Record: ECP, Poisson–binomial paper
-<!-- SUMMARY: Answer sheet for the EJMS/ECP portal for the Poisson–binomial first-descent paper; filled 2026-10-03 from variance-scaled-turan-first-descent.tex and the venue record; section 11 lists what Brett must supply before login · status: open (section 11 not empty) · updated: 2026-10-03 -->
+<!-- SUMMARY: Answer sheet for the EJMS/ECP portal for the Poisson–binomial first-descent paper; filled 2026-10-03 from variance-local-log-concavity-poisson-binomial.tex and the venue record; section 11 lists what Brett must supply before login · status: open (section 11 not empty) · updated: 2026-10-03 -->
 
 ## Record
 
 - [x] Project: `papers/queue/erdos-problem-993` (spin-off manuscript; the #993 line itself was dropped 2026-10-03)
-- [x] Manuscript title (short form): Variance-scaled Turán inequality at first descent
+- [x] Manuscript title (short form): Variance and local log-concavity of Bernoulli sums
 - [x] Venue: Electronic Communications in Probability (ECP)
 - [x] Portal platform: EJMS (IMS Electronic Journal Management System)
 - [ ] Portal URL: <https://www.e-publications.org/ims/submission/> (from a search snippet of the imstat author page, 2026-10-03; confirm on login)
@@ -13,8 +13,8 @@
 - [x] Venue decision record path: `submission/venue-decision-2026-07-16.md`
 - [x] Pre-submission checklist path: `runs/pb-submission-gate-20261003/` (referee read, revision verifier, cold reads) and DECISIONS 2026-10-03
 - [x] Paper assurance record path: `paper/poisson_binomial/CERTIFICATE.md` (inside the supplement)
-- [x] Canonical source file: `paper/poisson_binomial/variance-scaled-turan-first-descent.tex`
-- [ ] Canonical PDF: `paper/poisson_binomial/variance-scaled-turan-first-descent.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (second revision) has SHA-256 `0d17c6cc01e99f111599a045757605a5798c90f4beeb2b9df4920dae8b2b8781`, 12 pages, and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
+- [x] Canonical source file: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex`
+- [ ] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (retitled, with MR numbers) has SHA-256 `3bc02b9df1266ba7541cde88e307dc0b8eaf441bd49d610ab6b962726cb4879a`, 12 pages, and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
 - [ ] Account the submission is made under: Brett's EJMS account (not yet created)
 - [x] Decision owner: Brett Reynolds
 - [x] Assisting agent/model: Claude Code (Opus 5.5)
@@ -34,34 +34,34 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 
 **Title**
 
-> A variance-scaled Turán inequality at the first descent of a Poisson–binomial mass function
+> Variance and local log-concavity of Poisson–binomial laws
 
-- Source: `variance-scaled-turan-first-descent.tex:5–6`
+- Source: `variance-local-log-concavity-poisson-binomial.tex:5–6`
 
 **Short title**
 
-> A variance-scaled Turán inequality at the first descent
+> Variance and local log-concavity of Bernoulli sums
 
-- Source: `variance-scaled-turan-first-descent.tex:3`
+- Source: `variance-local-log-concavity-poisson-binomial.tex:3`
 
 **Abstract.** Plain text with LaTeX math, as EJMS accepts TeX in the abstract box; confirm on login.
 
 > Let $W$ be a finite sum of independent Bernoulli variables with probability mass function $f$ and variance $V\geq1$, and let $D$ be the first index at which $f$ decreases. The normalized Turán deficit $\delta_k=1-f_{k-1}f_{k+1}/f_k^2$ is a bounded transform of the discrete curvature of $\log f$ at $k$, and for a normal density of variance $V$ that curvature is $1/V$. We prove $V\delta_D\geq1/4$, and an explicit family of binomial laws shows that no constant above $1/3$ is possible, so the best constant lies between $1/4$ and $1/3$. Cubic inequalities of Hillion and Johnson then give $\delta_k\geq1/(4V+|k-D|)$ at every $k$ in the support, and at the rightmost mode $c$ we have $1/(4V+1)\leq\delta_c<2/V$. Ultra-log-concavity alone gives no such bound. For the number of eigenvalues of an $N\times N$ Haar unitary matrix in a half circle, the bound at $D$ is of order $1/\log N$, against order $1/N$ from ultra-log-concavity. The proof combines the cubic inequalities with a maximal-mass bound of Bobkov, Marsiglietti, and Melbourne to reduce the main inequality to a one-variable inequality, which is proved in exact arithmetic by Bernstein expansions.
 
-- Source: `variance-scaled-turan-first-descent.tex` `\ABSTRACT{...}` (no displayed formula in the current abstract).
-- [ ] Recheck word for word against `pdftotext -f 1 -l 1 variance-scaled-turan-first-descent.pdf` at the final build.
+- Source: `variance-local-log-concavity-poisson-binomial.tex` `\ABSTRACT{...}` (no displayed formula in the current abstract).
+- [ ] Recheck word for word against `pdftotext -f 1 -l 1 variance-local-log-concavity-poisson-binomial.pdf` at the final build.
 
 **Keywords**
 
 > Poisson–binomial law; Bernoulli sum; log-concavity; Turán inequality; ultra-log-concavity; modal index; random unitary matrix; computer-assisted proof
 
-- Source: `variance-scaled-turan-first-descent.tex:15–17`, semicolon-separated as in the class
+- Source: `variance-local-log-concavity-poisson-binomial.tex:15–17`, semicolon-separated as in the class
 
 **MSC2020**
 
 > Primary 60E15; Secondary 60C05, 05A20
 
-- Source: `variance-scaled-turan-first-descent.tex:19–20`
+- Source: `variance-local-log-concavity-poisson-binomial.tex:19–20`
 
 ## 3. Authors
 
@@ -69,16 +69,16 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 |---|---|---|---|---|---|---|---|---|
 | 1 | Brett Reynolds | brett.reynolds@humber.ca | Humber College, Toronto | **open** | **open** | Canada | 0000-0003-2407-9448 | yes |
 
-- Source: `variance-scaled-turan-first-descent.tex:10–13`
+- Source: `variance-local-log-concavity-poisson-binomial.tex:10–13`
 - Single author; no coauthor approvals needed.
 
 ## 4. Files and portal item types
 
 | Local path | Portal item type | Reviewer sees it | Notes |
 |---|---|---|---|
-| `paper/poisson_binomial/variance-scaled-turan-first-descent.pdf` | manuscript PDF | yes | final build after the DOI insert |
-| `paper/poisson_binomial/variance-scaled-turan-first-descent.tex` + `ejpecp.cls` + bbl inlined | source files (supplementary or at acceptance) | per portal | the ECP sample asks for the bibliography inside the document (`sample.tex` L439–442); inline `variance-scaled-turan-first-descent.bbl` in the source bundle |
-| `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip` | supplementary material | yes | SHA-256 `fe9e116e…2a16` (2026-10-03 second-revision build); same file as the Zenodo deposit |
+| `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` | manuscript PDF | yes | final build after the DOI insert |
+| `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex` + `ejpecp.cls` + bbl inlined | source files (supplementary or at acceptance) | per portal | the ECP sample asks for the bibliography inside the document (`sample.tex` L439–442); inline `variance-local-log-concavity-poisson-binomial.bbl` in the source bundle |
+| `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip` | supplementary material | yes | SHA-256 `535f7b8a…7847` (2026-10-03 retitled build); same file as the Zenodo deposit |
 | `submission/cover-letter-ECP-2026-10-03.md` | cover letter / comments to editor | no | |
 
 - [ ] The uploaded PDF hash matches the final build recorded above.
@@ -129,7 +129,7 @@ None suggested. Leave the field to the editor unless the portal requires names. 
 
 | Field | What is missing | Who decides | Resolved |
 |---|---|---|---|
-| Supplement DOI | Zenodo upload of `poisson_binomial_certificate_supplement.zip` (reserve the DOI first, then replace `ZENODO-DOI-PENDING` in `variance-scaled-turan-first-descent.tex` and rebuild) | Brett (his account) | no |
+| Supplement DOI | Zenodo upload of `poisson_binomial_certificate_supplement.zip` (reserve the DOI first, then replace `ZENODO-DOI-PENDING` in `variance-local-log-concavity-poisson-binomial.tex` and rebuild) | Brett (his account) | no |
 | EJMS account | not yet created | Brett | no |
 | Author instructions | live check of the imstat author page, including field limits, source-file rules, and any AI-use rule | Brett (browser) | no |
 | Department and postal code | not in the manuscript | Brett | no |

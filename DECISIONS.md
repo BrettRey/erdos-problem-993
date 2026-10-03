@@ -967,3 +967,14 @@ Verification:
 - **Open:** every hand-check of the written proofs so far is Claude-family. Brett is sending the paper to ChatGPT Pro, with `submission/external-check-brief-2026-10-03.md` as the brief.
 
 Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 (late) — **PB paper retitled; MR numbers added; Elicit report triaged; cited sources taken in.**
+- **Title.** Brett: "change the title". The new title is *Variance and local log-concavity of Poisson–binomial laws*, with the short title *Variance and local log-concavity of Bernoulli sums*. The manuscript was renamed `variance-local-log-concavity-poisson-binomial.tex`, following his no-`main.*` rule (the file is named for the paper). Every pointer was updated: the bundle script, portal record, cover letter, external-check brief, CERTIFICATE.md, STATUS, and the passes pin.
+- **MR numbers.** They come from the AMS MR Lookup, a free public service queried three times: Hough–Krishnapur–Peres–Virág MR2216966, Meckes–Meckes MR3723586, Marsiglietti–Melbourne MR5033003. The MR records' journal, volume, pages and issue were checked against the bib entries. All 11 references now carry MR numbers.
+- **Elicit referee report** (Brett's file, saved as `runs/pb-revision2-20261003/INPUT_elicit_referee_report.md`). It recommends major revision on publication readiness and identifies no mathematical flaw. Its main point is the pending DOI, which Brett already owes. Two items were taken:
+  - the supplement description now says that Proposition 3.1, its computations, and Theorem 1.1 are not formalized in Lean;
+  - Example 1.6 now calls its two numbers lower bounds.
+- **Literature intake.** None of the 11 cited works had been in the central `literature/`. Ten are now there under author_year_topic stems, each with a `lit convert` `.md` companion (0% garbled), and `lit build` has been run. All are arXiv or preprint versions. Baillon–Cominetti–Vaisman (arXiv 0806.2350) and Tang–Tang (arXiv 1908.10024) were newly fetched.
+- **Darroch 1964 is not acquired.** Project Euclid serves it behind an Incapsula bot wall, which was not circumvented. Brett to download it in a browser.
+
+Assisting system: Claude Code (Opus 5.5).

@@ -1,7 +1,7 @@
 # Brief for an external check of the Poisson–binomial paper
-<!-- SUMMARY: Paste-ready brief for a cross-family check (ChatGPT Pro) of variance-scaled-turan-first-descent.pdf before ECP submission; lists the arguments that only Claude has checked by hand · status: ready to send · updated: 2026-10-03 -->
+<!-- SUMMARY: Paste-ready brief for a cross-family check (ChatGPT Pro) of variance-local-log-concavity-poisson-binomial.pdf before ECP submission; lists the arguments that only Claude has checked by hand · status: ready to send · updated: 2026-10-03 -->
 
-Attach `paper/poisson_binomial/variance-scaled-turan-first-descent.pdf` and, if the tool accepts it, `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip`. Then paste the text below.
+Attach `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` and, if the tool accepts it, `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip`. Then paste the text below.
 
 ---
 

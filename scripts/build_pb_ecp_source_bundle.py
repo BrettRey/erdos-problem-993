@@ -17,7 +17,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "paper" / "poisson_binomial"
 PLACEHOLDER = "ZENODO-DOI-PENDING"
-STEM = "variance-scaled-turan-first-descent"
+STEM = "variance-local-log-concavity-poisson-binomial"
 
 
 def main() -> int:

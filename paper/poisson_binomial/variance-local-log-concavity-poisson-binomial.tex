@@ -1,9 +1,8 @@
 \documentclass[ECP,preprint]{ejpecp}
 
-\SHORTTITLE{A variance-scaled Tur\'an inequality at the first descent}
+\SHORTTITLE{Variance and local log-concavity of Bernoulli sums}
 
-\TITLE{A variance-scaled Tur\'an inequality at the first descent of a
-  Poisson--binomial mass function%
+\TITLE{Variance and local log-concavity of Poisson--binomial laws%
   \thanks{Generative AI systems assisted with this work; see the
     acknowledgements at the end.}}
 
@@ -38,8 +37,7 @@
   is proved in exact arithmetic by Bernstein expansions.}
 
 \hypersetup{
-  pdftitle={A variance-scaled Turan inequality at the first descent of a
-    Poisson-binomial mass function},
+  pdftitle={Variance and local log-concavity of Poisson-binomial laws},
   pdfauthor={Brett Reynolds},
 }
 
@@ -345,8 +343,8 @@ Bernoulli sums in which $V$ and $n$ differ in order.
   form shows that $V_N$ increases with $N$; among even $N$ it first reaches
   $1$ at $N=1998$. For even $N\geq1998$, Theorem~\ref{thm:main} gives
   $\delta_D\geq1/(4V_N)\sim\pi^2/(4\log N)$, whereas \eqref{eq:ulc} gives
-  only $(N+1)/((N/2+2)N/2)\sim4/N$. At $N=10^4$ these are about $0.215$ and
-  $0.0004$.
+  only $(N+1)/((N/2+2)N/2)\sim4/N$. At $N=10^4$ these lower bounds are about
+  $0.215$ and $0.0004$.
 \end{example}
 
 We are not aware of an earlier proof that $\kappa_\star>0$.
@@ -805,7 +803,8 @@ Lean formalization, conditional on a one-sided form of the recurrence
 \eqref{eq:deficit-recurrence} for an abstract nonnegative sequence, of the
 deficit bound in Lemma~\ref{lem:propagation} and the exclusion of deficit one
 within its window, the bound $q_D\geq a$, and the deduction of \eqref{eq:adjacent-ratio-drop}
-from \eqref{eq:main-bound}.}
+from \eqref{eq:main-bound}. Proposition~\ref{prop:scalar}, its computations,
+and Theorem~\ref{thm:main} itself are not formalized.}
 \end{supplement}
 
 \medskip
