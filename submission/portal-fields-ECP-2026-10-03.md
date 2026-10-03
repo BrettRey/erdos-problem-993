@@ -40,13 +40,13 @@ Page count of the canonical PDF: 11 (`pdfinfo`, 2026-10-03).
 
 **Short title**
 
-> A variance-scaled Turán inequality at first descent
+> A variance-scaled Turán inequality at the first descent
 
 - Source: `main.tex:3`
 
 **Abstract.** Plain text with LaTeX math, as EJMS accepts TeX in the abstract box; confirm on login.
 
-> Let $W$ be a finite sum of independent Bernoulli summands with probability mass function (pmf) $f=(f_k)$, where $f_k=\mathbb{P}(W=k)$, and variance $V=\operatorname{Var}(W)\geq1$. If $D$ is the first-descent index of this pmf (the least $k$ with $f_k<f_{k-1}$), we prove $V(1-f_{D-1}f_{D+1}/f_D^2)\geq1/4$. The bracket is the normalized slack in the log-concavity (Turán) inequality $f_D^2\geq f_{D-1}f_{D+1}$. Consequently $f_{D+r}/f_D\leq\exp(-r/(4V))$ for every support index $D+r$ with $r\geq1$. An explicit family of binomial laws shows that no universal constant larger than $1/3$ is possible. The proof uses cubic inequalities of Hillion and Johnson to bound the masses near the mode from below, turns these bounds into a lower bound on $V$, and closes with a maximal-mass bound of Bobkov, Marsiglietti, and Melbourne. The resulting one-variable inequality is proved symbolically for large arguments and by exact Bernstein expansions on a compact range.
+> Let $W$ be a finite sum of independent Bernoulli summands with probability mass function (pmf) $f=(f_k)$, where $f_k=\mathbb{P}(W=k)$, and variance $V=\operatorname{Var}(W)\geq1$. If $D$ is the first-descent index of this pmf (the least $k$ with $f_k<f_{k-1}$), we prove $V(1-f_{D-1}f_{D+1}/f_D^2)\geq1/4$. The bracket is the normalized slack in the log-concavity (Turán) inequality $f_D^2\geq f_{D-1}f_{D+1}$. Consequently $f_{D+r}/f_D\leq\exp(-r/(4V))$ for every support index $D+r$ with $r\geq1$. An explicit family of binomial laws shows that no universal constant larger than $1/3$ is possible. The proof uses cubic inequalities of Hillion and Johnson to bound the masses near the mode from below, turns these bounds into a lower bound on $V$, and closes with a maximal-mass bound of Bobkov, Marsiglietti, and Melbourne. The resulting one-variable inequality is proved in exact arithmetic by Bernstein expansions.
 
 - Source: `main.tex` `\ABSTRACT{...}`; the displayed formula is inlined here.
 - [ ] Recheck word for word against `pdftotext -f 1 -l 1 main.pdf` at the final build.
