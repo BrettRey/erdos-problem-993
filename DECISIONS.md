@@ -1043,3 +1043,21 @@ Assisting system: Claude Code (Opus 5.5).
 - **Not compiled locally.** The Mathlib cache was deleted at Brett's request earlier today, so the statement file was not compiled here, and the prompt allows elaboration-only fixes. Any return must be replayed locally (Mathlib cache re-download needed), checked for escape hatches and `#print axioms`, and compared against these statements before the paper mentions it.
 
 Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 — Prose passes run (metaphor, rhetoric-and-humour, paragraph openings, redundancy), and their six edits applied with Brett's approval. Stale passes re-checked against the diff, not rerun from scratch.
+- **Edits:**
+  - M1: l. 186 "extends across the whole support" became "gives a bound at every point of the support", because the bound weakens with distance.
+  - R1, fold variant: cut "The upper bound is elementary…"; the constants 1/5 ≤ Vδ_c < 2 moved into the lead-in to Prop 1.4. They were kept because the ChatGPT Pro referee report calls them the statement about the mode.
+  - R2: cut the duplicate "This gives κ⋆ ≤ 1/3" from Prop 1.2.
+  - R3: merged the doubled closure of §4.2.
+  - P1: the novelty sentence moved into the κ⋆ paragraph.
+  - P2: the outline paragraph split.
+- **Re-verification (Brett: the rules exist for a purpose, not as box-ticking).** The edits made about a dozen recorded passes stale. Each was re-checked for what it exists to catch, on the seven changed hunks. No new readers were run for the cold read: its opening changed only in hunks that don't touch the problem paragraph or Theorem 1.1, and one of them adds the novelty claim. Record: `notes/passes/2026-10-03-post-edit-reverification.md`.
+- **Results:** submission gate clear; 12 pages; pre-DOI PDF sha256 `aceeb103b81235c5…`, recorded in the portal-fields file.
+- **Still open:**
+  - density-leavening: held. It conflicts with redundancy, so Brett reads first.
+  - review-board: optional, expensive, needs Brett's choice of models. Left DUE, not skipped.
+  - submission-package: waits for the Zenodo DOI.
+- **Aristotle side effect:** R3 changes §4.2's wording, so the packet's "§4 verbatim" copy in `formalization/pb_scalar_inequality_aristotle/PROOF_CONTEXT.md` now differs in wording only, with identical mathematics. A replay should not count this as drift.
+
+Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).

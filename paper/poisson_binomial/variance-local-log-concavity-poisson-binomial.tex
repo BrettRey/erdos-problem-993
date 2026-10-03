@@ -148,7 +148,6 @@ from each law's pmf as above. The theorem and the next proposition give
   \[
     \delta_D=\frac{n+1}{3(n-1)}.
   \]
-  This gives $\kappa_\star\leq1/3$.
 \end{proposition}
 
 \begin{proof}
@@ -179,12 +178,13 @@ from each law's pmf as above. The theorem and the next proposition give
 \end{proof}
 
 We do not know which, if either, endpoint of \eqref{eq:constant-bracket}
-equals $\kappa_\star$.
+equals $\kappa_\star$. We are not aware of an earlier proof that
+$\kappa_\star>0$.
 
 Cubic inequalities of Hillion and Johnson \cite{hillionjohnson2016} for
 Bernoulli sums imply that $1/\delta_k$ changes by at most one per lattice step
-(Section~\ref{sec:propagation}), so the bound at $D$ extends across the whole
-support.
+(Section~\ref{sec:propagation}), so the bound at $D$ gives a bound at every
+point of the support.
 
 \begin{corollary}\label{cor:support}
   Under the hypotheses of Theorem~\ref{thm:main}, for $0\leq k\leq n$,
@@ -212,7 +212,8 @@ On a window $|k-\mathbb EW|\leq\alpha\sqrt V$, the bound
 Section~\ref{sec:reduction} extends Theorem~\ref{thm:main} and
 Corollary~\ref{cor:support} to differences of independent Bernoulli sums.
 
-At the rightmost mode, $\delta_c$ is within constant factors of $1/V$.
+At the rightmost mode, $\delta_c$ is within constant factors of $1/V$; since
+$V\geq1$, the next proposition gives $1/5\leq V\delta_c<2$.
 
 \begin{proposition}\label{prop:mode}
   If $V\geq1$, then
@@ -241,9 +242,6 @@ At the rightmost mode, $\delta_c$ is within constant factors of $1/V$.
   where the last step uses $(1-1/q_c)(1-q_{c+1})\geq0$, and
   $1-q_{c+1}/q_c=\delta_c$.
 \end{proof}
-
-The upper bound is elementary. With the lower bound it gives
-$1/5\leq V\delta_c<2$.
 
 A pmf $(f_k)_{k=0}^n$ is ultra-log-concave of order $n$, written
 $\operatorname{ULC}(n)$, if $f_k/\binom nk$ is log-concave in $k$.
@@ -376,8 +374,6 @@ Bernoulli sums in which $V$ and $n$ differ in order.
   $0.215$ and $0.0004$.
 \end{example}
 
-We are not aware of an earlier proof that $\kappa_\star>0$.
-
 The proof of Theorem~\ref{thm:main} runs as follows. The reciprocal bound
 \eqref{eq:reciprocal} shows that a small value of $\delta=\delta_D$ forces
 small values nearby:
@@ -393,6 +389,7 @@ the one-variable inequality $A(\delta)\geq(3+\delta)/(4\delta^2)$
 Heuristically, the masses within distance about $\delta^{-1/2}$ of the mode
 are comparable to $M$, so $A(\delta)$ is of order $\delta^{-2}$, and the two
 bounds force $V$ to be of order at least $1/\delta$.
+
 Section~\ref{sec:scalar} proves the one-variable inequality by Bernstein
 expansions. For $1/17\leq\delta<1/4$ the proof rests on 275 rational
 coefficients computed by a program and recomputed by an independent checker
@@ -815,10 +812,10 @@ and
   \pi_4(u)&=121u^4+2958u^3+25579u^2+88782u+91440.
 \end{align*}
 Each $\mu_i$ is positive, and each $\pi_i$ has positive coefficients. Thus
-$N_J(H)>0$ and $\tilde S_J\tilde T_J>Q(H)$ for $H\geq16$. A short SymPy
-program in the supplement checks every expansion in this subsection in exact
-arithmetic. This settles $H\geq16$; with Section~\ref{sec:compact}, it
-proves Proposition~\ref{prop:scalar}.
+$N_J(H)>0$ and $\tilde S_J\tilde T_J>Q(H)$ for $H\geq16$, which with
+Section~\ref{sec:compact} proves Proposition~\ref{prop:scalar}. A short
+SymPy program in the supplement checks every expansion in this subsection in
+exact arithmetic.
 
 \par\bigskip
 \begin{supplement}
