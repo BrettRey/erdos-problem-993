@@ -1152,3 +1152,19 @@ Assisting systems: Codex (OpenAI) as reviewer; Claude Code (Opus 5.5) applying t
 - **Cold read:** Brett decided against a new one.
 
 Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 — Genre restructure applied (Brett accepted recommendations A–H from `notes/ecp-genre-assessment-2026-10-03.md`).
+- **Structure.** Section 1 now states the results; a new Section 5 proves them. That section holds the four proofs, the balanced family with Table 1, the Pitman ratio remark and the Haar-unitary derivation.
+- **Remarks.** Commentary is now in numbered Remarks.
+- **Smaller changes:**
+  - the dense balanced-family/Pitman passage is split, with the derived bound displayed as (5.1);
+  - the roadmap is trimmed;
+  - the supplement description is in three parts;
+  - abstract fixes: "at k", and "the proof of the main theorem";
+  - Example 1.9 states the result, with the derivation in §5.4.
+- **Acknowledgement.** Every specific credit is kept. Chronology moved to CERTIFICATE.md ("Provenance of AI contributions"). The outputs are now called "AI-generated reviews", and the second Codex review is credited.
+- **Renumbering.** Remarks share the theorem counter, so Prop 1.4→1.5, Prop 1.5→1.6 and Example 1.6→1.9. External current files were updated, and a final sweep finds no stale numbers (a side agent flagged the risk too).
+- **Checks:** a sentence-level diff shows nothing lost. Still 13 pages, clean build. No new cold read, by Brett's decision.
+- **Supplement:** rebuilt, sha256 `83e0dd2c…ccae`.
+
+Decision owner: Brett. Assisting systems: Claude Code (Opus 5.5); restructure prompted by the Codex (GPT-6.1-sol) genre review.

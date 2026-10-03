@@ -67,7 +67,7 @@ Scope and limits:
   statement about $S_mT_m$ and is not linked to $A$ in Lean.
 - **Not formalized:** the deduction of Theorem 1.1 from Proposition 3.1
   (§§2–3: the Hillion–Johnson recurrence, the mass bounds, the
-  maximal-mass bound), Example 1.6, and Theorem 1.1 itself.
+  maximal-mass bound), Example 1.9 (Example 1.6 before the 2026-10-03 reorganization), and Theorem 1.1 itself. (Theorem 1.1, with Sections 2–3, was later formalized in full: see `formalization/pb_deduction_aristotle_result/LOCAL_REPLAY.md`.)
 
 ## Note added 2026-10-03, after the manuscript adopted this route
 

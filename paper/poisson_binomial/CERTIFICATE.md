@@ -13,7 +13,7 @@ The Lean project for Proposition 3.1 (`formalization/pb_scalar_inequality_aristo
 | `scripts/verify_universal_pb_finite_bernstein.py` | SymPy generator; reconstructs the source identities and writes the compact and full certificates |
 | `scripts/check_universal_pb_finite_bernstein_certificate.py` | Independently implemented standard-library checker |
 | `scripts/verify_pb_compact_monotone.py` | Standard-library check of the 32 rational inequalities of Section 4.1, of the printed rounded-down ratios, and of the remark that the symmetrized bound fails at H = 7/2 |
-| `scripts/verify_pb_cue_threshold.py` | Standard-library check of Example 1.6: V_1996 < 1 < V_1998 with rational bounds on π (Machin's formula), and the N = 10⁴ values |
+| `scripts/verify_pb_cue_threshold.py` | Standard-library check of Example 1.9: V_1996 < 1 < V_1998 with rational bounds on π (Machin's formula), and the N = 10⁴ values |
 | `scripts/verify_pb_large_h_range.py` | SymPy check of every expansion in the range H ≥ 16 (closed forms, the quartic N_J, the J = 5 coefficients, and β_i = μ_i π_i(u)/2880 identically in u) |
 | `scripts/build_poisson_binomial_supplement.py` | Deterministic archive builder and post-build verifier |
 | `results/universal_pb_finite_bernstein_certificate_2026-07-10.json` | Compact summary certificate |
@@ -76,7 +76,7 @@ python3 scripts/verify_pb_large_h_range.py
 
 It must print `ALL CHECKS PASSED` and exit with status 0.
 
-Check the threshold in Example 1.6 with:
+Check the threshold in Example 1.9 with:
 
 ```bash
 python3 scripts/verify_pb_cue_threshold.py
@@ -157,11 +157,26 @@ Whole-file digests before packaging:
 | `scripts/check_universal_pb_finite_bernstein_certificate.py` | `f5762de3d7990f82d62e63d5f7007b6f9ec62b60eea325f6b68354b34ee146a7` |
 | `scripts/build_poisson_binomial_supplement.py` | `e8ed0fdbd9129ab01ccf5d9c4c58e4c0f79dda5abb1dcf631df6ae32ea7ae429` |
 | `scripts/verify_pb_compact_monotone.py` | `60cd99b4cb159672a30fbf74d78e029b54ba575fc5b788d4ac6492ce5957cfb4` |
-| `scripts/verify_pb_cue_threshold.py` | `6c3268b8e90143883b0f2decdc33e603f417c312c4d686d89b63b7c2815c4e99` |
+| `scripts/verify_pb_cue_threshold.py` | `3c20a4f76e46792fdc50676f3814dc53eff3677012fd8e374730f15bdcf4b4e2` |
 | `scripts/verify_pb_large_h_range.py` | `0a5e18d2605f79b348891b249cb1b86899b13ce247c48cb061e9cd5e48c0a81d` |
 | `results/universal_pb_finite_bernstein_certificate_2026-07-10.json` | `6b91554d9ab1f43151e36c94c5c8c427c7bb057130b7f39d233b14c7ab3860c6` |
 | `results/universal_pb_finite_bernstein_full_certificate_2026-07-16.json` | `5fbe0570403d3e49161e60371a8208e916895f002b15f68602c12bce9ed3aa69` |
 | `LICENSE` | `8c6cac9c3f9dc235a38e5700048e097286a3f1e2cf5797aeee4577e0ca6970f0` |
+
+## Provenance of AI contributions
+
+The manuscript's acknowledgement credits each AI contribution. The dates and model labels it omits are recorded here.
+
+| Contribution | System and label | Date |
+|---|---|---|
+| Proof-search assistance for Theorem 1.1 | GPT-5.6 (OpenAI), through Codex | July 2026 |
+| First AI-generated review: variance framing, Corollary 1.3, Proposition 1.5 with proof, Proposition 1.6, Example 1.9 | ChatGPT (OpenAI), model labelled "Latest", Pro effort | 3 October 2026 |
+| Second AI-generated review: the Pitman bound (5.1) and Table 1; reconstruction of the Bernstein-expansion computations and of Example 1.9 | ChatGPT (OpenAI), model labelled "Latest", Pro effort | 3 October 2026 |
+| AI-generated review: clarifications of the supplement description and Example 1.9 | Elicit | 3 October 2026 |
+| Review of the final draft: Section 4 computations, Lean statements; three corrections | Codex (OpenAI), GPT-6.1-sol | 3 October 2026 |
+| Review of the exposition against recent ECP papers; reorganization of Section 1 and the supplement description | Codex (OpenAI), GPT-6.1-sol | 3 October 2026 |
+| Lean proofs: conditional formalization, Proposition 3.1 (with the monotonicity route of Section 4.1), Theorem 1.1 | Aristotle (Harmonic) | July 2026; 3 October 2026 |
+| Revision, proof checking, verification code, source checking | Claude Opus 5.5 (Anthropic), through Claude Code | 3 October 2026 (this revision) |
 
 ## Scope and archive status
 

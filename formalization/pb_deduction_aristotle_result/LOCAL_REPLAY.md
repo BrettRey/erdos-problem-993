@@ -72,4 +72,4 @@ axioms. The formal proof includes:
 **Not formalized:**
 - the reduction for $p_i\in\{0,1\}$ (§2.1, an elementary translation);
 - the extension to differences $W-W'$;
-- Corollary 1.3, Propositions 1.2, 1.4 and 1.5, Table 1, Example 1.6.
+- Corollary 1.3, Propositions 1.2, 1.5 and 1.6, Table 1, Example 1.9 (numbering after the 2026-10-03 reorganization of Section 1; previously Propositions 1.4 and 1.5 and Example 1.6).
