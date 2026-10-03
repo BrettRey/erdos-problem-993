@@ -991,3 +991,43 @@ Assisting system: Claude Code (Opus 5.5).
 - **Cold read round 8** on the reworded opening: 4/4 advance, nothing MISSING. Equation numbers are unchanged, so the supplement did not need rebuilding.
 
 Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 (night) — **Figure plan made (plan-figures pass); no figure built.** Menu at `paper/poisson_binomial/figure-plan.md`. Recommendation to Brett: no figure is required. If one is added, it should be the balanced-variance-one comparison of lower bounds at D: either as a small table (no page cost) or as a log–log figure, which costs 1/3–1/2 page and means 13 pages unless the smoothing proof of (3.3) gives way to the BMM citation. Awaiting his trim.
+
+2026-10-03 (night, later) — **Table 1 added; the AI acknowledgement now credits specific contributions.**
+- **Table 1.** Brett picked candidate #8 from the figure plan. The table compares the lower bounds on δ_D in the balanced V=1 family: ULC ∼2/m, Dümbgen–Wellner ∼1/m, Johnson O(m⁻²), Pitman (20) combined ∼√2/m, Theorem 1.1 ≥ 1/4, and δ_D itself → 1 − I₀(1)I₂(1)/I₁(1)² ≈ 0.46. The Skellam limit comes from W−m converging to a difference of independent Poisson(1/2) variables. The table and its rates come from the ChatGPT Pro report, and every entry was checked by `scripts/verify_pb_table1_20261003.py`. The paper gives one-line justifications for the Johnson and Pitman rates. Still 12 pages; no figure.
+- **Acknowledgement.** Brett: "give appropriate credit always". It now says what each source did:
+  - GPT-5.6 via Codex: proof search for Theorem 1.1;
+  - the ChatGPT review: proposed the framing, Corollary 1.3, Proposition 1.4 with its proof, Proposition 1.5 and Example 1.6, each checked before adoption;
+  - ChatGPT Pro: the Pitman (20) bound and its behaviour in Table 1, plus independent reconstruction of the computations;
+  - Elicit: clarifications;
+  - Claude Opus 5.5 via Claude Code: revision, verification code and source checking;
+  - earlier sessions with Claude, ChatGPT, Codex and Gemini;
+  - Aristotle: the Lean proofs.
+
+  The portal record's AI-disclosure field matches. This is saved as a standing memory (`credit-contributions-specifically`).
+
+Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 (night) — ChatGPT model identification: Brett: "All I have is \"Latest\" as of today at Pro effort." The acknowledgement now names both ChatGPT sessions (the review and the referee report) as run on 3 October 2026 with the model labelled "Latest" at Pro effort. If the earlier review used different settings, correct this line.
+
+2026-10-03 (night, last) — **Category-error audit run and applied; CUE threshold script added to the supplement.** Brett asked for the level-category pass in the philosophical sense (Ryle). The report is at `notes/passes/2026-10-03-level-category-audit.md`. It found no mathematical error, only places where a statement's kind was blurred. All of these were fixed:
+- **Computer-assisted step.** The abstract, outline and supplement now say which ranges rest on the 275 machine-computed coefficients, which on five printed rationals, and which on polynomial coefficients. "The programs prove" became "the proof consists of the arguments together with the exact computations". The deduction of Theorem 1.1 from Proposition 3.1 is stated to use no computation.
+- **Acknowledgement.** It now says who checked the ChatGPT-proposed results and how: exact computation on test laws and independent model-based proof review. It also says that ChatGPT Pro's reconstruction "agreed exactly with ours".
+- **Smaller fixes:**
+  - Meckes–Meckes: X_N "has the law of" a Bernoulli sum (equality in distribution).
+  - The motivating question no longer has V "force" anything.
+  - The abstract's ULC sentence is scoped to δ_D.
+  - Table 1's Theorem entry is now a value (1/(4V)=1/4), and the caption covers δ_D itself.
+  - The ULC-jump sentence is now stated in terms of 1/δ.
+  - The abstract reads "Combined with cubic inequalities…".
+  - Tilted laws are "again Poisson–binomial".
+  - "By Newton's inequalities, the pmf is log-concave".
+  - "Several steps can lose a constant", now including b_r→λ_r.
+  - §4.2 no longer says "uniformly".
+  - "At the rightmost mode".
+- **N = 1998.** The paper now states how it was found. `scripts/verify_pb_cue_threshold.py` (standard library, rational π bounds from Machin) certifies V_1996 < 1 < V_1998 and is in the supplement (18 members, replayed clean).
+- **Lean comments.** These use old working names ("curvature" for δ; "verification of the recurrence", which is really the hypothesis `hstep`). They are explained by a terminology note in CERTIFICATE.md rather than by editing the frozen Aristotle output.
+- **Drift the audit judged defensible.** The "forces" idiom is kept. The 275-coefficient sentence now names the computation in the same paragraph.
+
+Assisting system: Claude Code (Opus 5.5).

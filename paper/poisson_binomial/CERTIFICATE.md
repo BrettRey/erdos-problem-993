@@ -2,7 +2,7 @@
 
 This release candidate supports the computations in Proposition 3.1 of *Variance and local log-concavity of Poisson–binomial laws*. For 3 < H ≤ 16 it certifies the strict positivity of 275 exact Bernstein coefficients in thirteen cells. For H ≥ 16 a separate program checks, in exact arithmetic, every symbolic expansion printed in the manuscript's subsection "The range H ≥ 16". It does not machine-verify the probabilistic reduction or Theorem 1.1.
 
-The archive also contains the complete conditional Lean project described in the manuscript's supplement description. In the manuscript's numbering, that project formalizes Lemma 2.1 (the bound (2.8) and the endpoint exclusion), the bound q_D ≥ a, and the deduction of (1.6) from (1.3); its Lean names are `curvature_propagation`, `endpoint_exclusion`, `crossing_ratio_lower_bound`, `raw_drop_ge_effective`, and `raw_quarter_of_effective`. It assumes the recurrence (2.4) and does not formalize Proposition 3.1 or Theorem 1.1.
+The archive also contains the complete conditional Lean project described in the manuscript's supplement description. In the manuscript's numbering, that project formalizes Lemma 2.1 (the bound (2.8) and the endpoint exclusion), the bound q_D ≥ a, and the deduction of (1.6) from (1.3); its Lean names are `curvature_propagation`, `endpoint_exclusion`, `crossing_ratio_lower_bound`, `raw_drop_ge_effective`, and `raw_quarter_of_effective`. It assumes the recurrence (2.4) and does not formalize Proposition 3.1 or Theorem 1.1. The Lean comments predate the manuscript's terminology. "Curvature" there means the normalized deficit δ (not the log-curvature 𝒞_k). The recurrence they call "verified" enters as the hypothesis `hstep`. "Reserve", "raw" and "effective" are working names for the quantities in (2.8), (1.6) and (1.3).
 
 ## Archive contents
 
@@ -10,6 +10,7 @@ The archive also contains the complete conditional Lean project described in the
 |---|---|
 | `scripts/verify_universal_pb_finite_bernstein.py` | SymPy generator; reconstructs the source identities and writes the compact and full certificates |
 | `scripts/check_universal_pb_finite_bernstein_certificate.py` | Independently implemented standard-library checker |
+| `scripts/verify_pb_cue_threshold.py` | Standard-library check of Example 1.6: V_1996 < 1 < V_1998 with rational bounds on π (Machin's formula), and the N = 10⁴ values |
 | `scripts/verify_pb_large_h_range.py` | SymPy check of every expansion in the range H ≥ 16 (closed forms, the quartic N_J, the J = 5 coefficients, and β_i = μ_i π_i(u)/2880 identically in u) |
 | `scripts/build_poisson_binomial_supplement.py` | Deterministic archive builder and post-build verifier |
 | `results/universal_pb_finite_bernstein_certificate_2026-07-10.json` | Compact summary certificate |
@@ -28,7 +29,7 @@ The checker does not import the generator, SymPy, or formula strings from the ce
 - Python standard library only for the checker and archive builder
 - Lean 4.28.0 and Mathlib 4.28.0 for the conditional formalization
 
-All four Python programs require Python 3.10 or later because their source uses modern type-annotation syntax. The exact replays below were completed with the reference versions listed above.
+All five Python programs require Python 3.10 or later because their source uses modern type-annotation syntax. The exact replays below were completed with the reference versions listed above.
 
 ## Exact replay
 
@@ -61,6 +62,14 @@ python3 scripts/verify_pb_large_h_range.py
 ```
 
 It must print `ALL CHECKS PASSED` and exit with status 0.
+
+Check the threshold in Example 1.6 with:
+
+```bash
+python3 scripts/verify_pb_cue_threshold.py
+```
+
+It must print `certified V_1996 < 1 < V_1998: True` and `ALL CHECKS PASSED`.
 
 Build and verify the deterministic supplementary archive with:
 
@@ -111,7 +120,8 @@ Whole-file digests before packaging:
 |---|---|
 | `scripts/verify_universal_pb_finite_bernstein.py` | `7913038a93a18cc9df0fbe770238543d80655de82c35fac9a48247ed1f8e1b61` |
 | `scripts/check_universal_pb_finite_bernstein_certificate.py` | `f5762de3d7990f82d62e63d5f7007b6f9ec62b60eea325f6b68354b34ee146a7` |
-| `scripts/build_poisson_binomial_supplement.py` | `0521baa2c55bc2bc9f6e699250e2c2289606536a9592b2dde1650b03460f443c` |
+| `scripts/build_poisson_binomial_supplement.py` | `da335d489e73fd836e8c51d8d1ece36daab904b55b23677f98caabdba32a9f6d` |
+| `scripts/verify_pb_cue_threshold.py` | `22bea2a8cadcfd0b290ea9d43c464860ccb646f058be58effe579477f262392e` |
 | `scripts/verify_pb_large_h_range.py` | `0a5e18d2605f79b348891b249cb1b86899b13ce247c48cb061e9cd5e48c0a81d` |
 | `results/universal_pb_finite_bernstein_certificate_2026-07-10.json` | `6b91554d9ab1f43151e36c94c5c8c427c7bb057130b7f39d233b14c7ab3860c6` |
 | `results/universal_pb_finite_bernstein_full_certificate_2026-07-16.json` | `5fbe0570403d3e49161e60371a8208e916895f002b15f68602c12bce9ed3aa69` |

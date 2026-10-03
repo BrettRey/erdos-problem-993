@@ -1,0 +1,175 @@
+You are a desk editor at Electronic Communications in Probability (a selective journal of short probability papers) with forty submissions this week and a 12% acceptance rate. You will read ONLY the opening below -- the title, abstract, and first pages, as extracted from the PDF (some displayed formulas are broken across lines by the extraction). You will NOT be charitable, you will NOT reconstruct a generous version, and you will NOT give the benefit of the doubt. If something is not on the page, it is missing.
+
+State each of the following in ONE sentence, or write exactly MISSING if the opening does not make it plain:
+  problem      -- the specific problem this paper solves
+  debate       -- the named debate or literature it enters
+  gap          -- what is wrong or absent in existing approaches
+  contribution -- what this paper adds
+
+Then decide: advance to review, or reject at desk?
+
+Return ONLY JSON, no prose:
+{"problem": "...", "debate": "...", "gap": "...", "contribution": "...", "decision": "advance" or "reject", "note": "one blunt sentence to the author"}
+
+
+=== OPENING ===
+Variance and local log-concavity of Poisson–binomial laws*
+Brett Reynolds†
+
+Abstract
+Let W be a finite sum of independent Bernoulli variables with probability mass
+function f and variance V ≥ 1, and let D be the first index at which f decreases. The
+normalized Turán deficit δk = 1 − fk−1 fk+1 /fk2 is a bounded transform of the discrete
+curvature of log f at k , and for a normal density of variance V that curvature is 1/V .
+We prove V δD ≥ 1/4, and an explicit family of binomial laws shows that no constant
+above 1/3 is possible, so the best constant lies between 1/4 and 1/3. Combined with
+cubic inequalities of Hillion and Johnson, this gives δk ≥ 1/(4V + |k − D|) at every k
+in the support, and at the rightmost mode c we have 1/(4V + 1) ≤ δc < 2/V . Ultralog-concavity alone gives no variance-scaled lower bound on δD . For the number of
+eigenvalues of an N × N Haar unitary matrix in a half circle, the bound at D is of order
+1/ log N , against order 1/N from ultra-log-concavity. The proof combines the cubic
+inequalities with a maximal-mass bound of Bobkov, Marsiglietti, and Melbourne to
+reduce the main inequality to a one-variable inequality, which is proved by Bernstein
+expansions, with a computer-assisted step in exact rational arithmetic.
+Keywords: Poisson–binomial law; Bernoulli sum; log-concavity; Turán inequality; ultra-logconcavity; modal index; random unitary matrix; computer-assisted proof.
+MSC2020 subject classifications: Primary 60E15, Secondary 60C05; 05A20.
+
+1
+
+Introduction and main results
+Let
+
+W =
+
+n
+X
+
+Bi ,
+
+Bi ∼ Bernoulli(pi ),
+
+i=1
+
+where the summands are independent. The law of W is Poisson–binomial; see [11] for a
+recent survey.
+Summands with pi = 0 can be deleted, and summands with pi = 1 only translate
+the law; Section 2.1 checks that neither operation changes V or the deficits defined
+below, and that translation shifts the first-descent index by the number of summands
+with pi = 1. We therefore assume throughout that every success probability satisfies
+0 < pi < 1. Put
+
+fk = P(W = k),
+
+V = Var(W ) =
+
+n
+X
+
+pi (1 − pi ),
+
+i=1
+* Generative AI systems assisted with this work; see the acknowledgements at the end.
+†
+
+Humber College, Toronto, Canada. E-mail: brett.reynolds@humber.ca
+
+Variance and local log-concavity of Bernoulli sums
+
+and call (fk )n
+of W . Extend the pmf by f−1 =
+k=0 the probability mass function (pmf)
+Pn
+fn+1 = 0. The probability-generating polynomial k=0 fk xk has only negative real zeros,
+so, by Newton’s inequalities [10, equation (1)], the pmf is log-concave: fk2 ≥ fk−1 fk+1
+for every k , an inequality of Turán type. For 0 ≤ k ≤ n, we measure its slack relative to
+fk2 by the normalized Turán deficit
+
+δk := 1 −
+
+fk−1 fk+1
+.
+fk2
+
+(1.1)
+
+We have 0 ≤ δk ≤ 1 and δ0 = δn = 1.
+At an index with fk−1 fk+1 > 0,
+
+δk = 1 − e−Ck ,
+
+Ck := 2 log fk − log fk−1 − log fk+1 ,
+
+so δk is a bounded transform of the discrete curvature of log f at k . For a normal density
+of variance V , the corresponding curvature is 1/V at every point, which suggests 1/V
+as the natural scale for δk near the mode. Since δk depends on three adjacent masses
+and V on the whole law, we ask whether every Bernoulli sum satisfies δk ≥ κ/V near the
+mode for a universal κ > 0, with no dependence on the number of summands or on the
+success probabilities.
+The number of summands is the wrong scale for this question. Summands with pi
+near 0 or 1 increase n but add little to V . The lower bounds on δk that we know of are
+not variance-scaled. They depend on n, such as the ultra-log-concavity bound recorded
+by Hillion and Johnson [5]; on the success probabilities, such as a bound of Johnson [7];
+or on k alone, such as the bound δk > 1/(k + 1) that follows from the strict decrease of
+(k + 1)fk+1 /fk proved by Dümbgen and Wellner [4, Proposition 2]. Pitman’s two-sided
+bounds on adjacent mass ratios through exponentially tilted laws [10, equation (20)] also
+give a positive lower bound on δk . All four degenerate near the mode when summands
+with pi near 0 and summands with pi near 1 accumulate at fixed variance (see the
+discussion after Proposition 1.5). Darroch’s theorem that every mode lies at distance
+less than one from the mean [3, Theorem 4] and the maximal-mass bounds of [1, 2]
+locate the mode or bound the largest mass, but by themselves give no lower bound on δk .
+We state the bound at the first index where f decreases,
+
+D := min{1 ≤ k ≤ n : fk < fk−1 }.
+
+(1.2)
+
+When V ≥ 1, this set is nonempty and 2 ≤ D ≤ n (Section 2.1), and, by log-concavity,
+c := D − 1 is the rightmost modal index.
+Theorem 1.1. Under the standing notation above, suppose V ≥ 1 and let D be defined
+by (1.2). Then
+
+
+
+V δD = V
+
+1−
+
+fD−1 fD+1
+2
+fD
+
+≥
+
+1
+.
+4
+
+(1.3)
+
+Without some lower bound on V , no positive constant is possible. If W ∼ Bernoulli(p)
+with 0 < p < 1/2, then D = 1, δD = 1, and V δD = p(1 − p) → 0 as p ↓ 0.
+Let κ⋆ denote the infimum of V δD over all finite Poisson–binomial laws with V ≥ 1,
+where D and δD are defined from each law’s pmf as above. The theorem and the next
+proposition give
+
+1
+1
+≤ κ⋆ ≤ .
+4
+3
+
+(1.4)
+
+Proposition 1.2. For every n ≥ 5, there exists a binomial law of variance one whose
+pmf has first-descent index D = 2 and for which
+
+δD =
+
+n+1
+.
+3(n − 1)
+
+This gives κ⋆ ≤ 1/3.
+
+Page 2/12
+
+

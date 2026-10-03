@@ -14,7 +14,7 @@
 - [x] Pre-submission checklist path: `runs/pb-submission-gate-20261003/` (referee read, revision verifier, cold reads) and DECISIONS 2026-10-03
 - [x] Paper assurance record path: `paper/poisson_binomial/CERTIFICATE.md` (inside the supplement)
 - [x] Canonical source file: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex`
-- [ ] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (after the ChatGPT Pro corrections) has SHA-256 `68be79ba0cb8024a182015423453bdb9d67d340c3d783b538750a3b30dfb991a`, 12 pages, and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
+- [ ] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (after the category audit) has SHA-256 `550cd69320350ed61bd5e08dd6f46ec2ba611c0bcf0591948d1b00109307f4e8`, 12 pages, and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
 - [ ] Account the submission is made under: Brett's EJMS account (not yet created)
 - [x] Decision owner: Brett Reynolds
 - [x] Assisting agent/model: Claude Code (Opus 5.5)
@@ -46,7 +46,7 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 
 **Abstract.** Plain text with LaTeX math, as EJMS accepts TeX in the abstract box; confirm on login.
 
-> Let $W$ be a finite sum of independent Bernoulli variables with probability mass function $f$ and variance $V\geq1$, and let $D$ be the first index at which $f$ decreases. The normalized Turán deficit $\delta_k=1-f_{k-1}f_{k+1}/f_k^2$ is a bounded transform of the discrete curvature of $\log f$ at $k$, and for a normal density of variance $V$ that curvature is $1/V$. We prove $V\delta_D\geq1/4$, and an explicit family of binomial laws shows that no constant above $1/3$ is possible, so the best constant lies between $1/4$ and $1/3$. Cubic inequalities of Hillion and Johnson then give $\delta_k\geq1/(4V+|k-D|)$ at every $k$ in the support, and at the rightmost mode $c$ we have $1/(4V+1)\leq\delta_c<2/V$. Ultra-log-concavity alone gives no such bound. For the number of eigenvalues of an $N\times N$ Haar unitary matrix in a half circle, the bound at $D$ is of order $1/\log N$, against order $1/N$ from ultra-log-concavity. The proof combines the cubic inequalities with a maximal-mass bound of Bobkov, Marsiglietti, and Melbourne to reduce the main inequality to a one-variable inequality, which is proved in exact arithmetic by Bernstein expansions.
+> Let $W$ be a finite sum of independent Bernoulli variables with probability mass function $f$ and variance $V\geq1$, and let $D$ be the first index at which $f$ decreases. The normalized Turán deficit $\delta_k=1-f_{k-1}f_{k+1}/f_k^2$ is a bounded transform of the discrete curvature of $\log f$ at $k$, and for a normal density of variance $V$ that curvature is $1/V$. We prove $V\delta_D\geq1/4$, and an explicit family of binomial laws shows that no constant above $1/3$ is possible, so the best constant lies between $1/4$ and $1/3$. Combined with cubic inequalities of Hillion and Johnson, this gives $\delta_k\geq1/(4V+|k-D|)$ at every $k$ in the support, and at the rightmost mode $c$ we have $1/(4V+1)\leq\delta_c<2/V$. Ultra-log-concavity alone gives no variance-scaled lower bound on $\delta_D$. For the number of eigenvalues of an $N\times N$ Haar unitary matrix in a half circle, the bound at $D$ is of order $1/\log N$, against order $1/N$ from ultra-log-concavity. The proof combines the cubic inequalities with a maximal-mass bound of Bobkov, Marsiglietti, and Melbourne to reduce the main inequality to a one-variable inequality, which is proved by Bernstein expansions, with a computer-assisted step in exact rational arithmetic.
 
 - Source: `variance-local-log-concavity-poisson-binomial.tex` `\ABSTRACT{...}` (no displayed formula in the current abstract).
 - [ ] Recheck word for word against `pdftotext -f 1 -l 1 variance-local-log-concavity-poisson-binomial.pdf` at the final build.
@@ -78,7 +78,7 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 |---|---|---|---|
 | `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` | manuscript PDF | yes | final build after the DOI insert |
 | `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex` + `ejpecp.cls` + bbl inlined | source files (supplementary or at acceptance) | per portal | the ECP sample asks for the bibliography inside the document (`sample.tex` L439–442); inline `variance-local-log-concavity-poisson-binomial.bbl` in the source bundle |
-| `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip` | supplementary material | yes | SHA-256 `535f7b8a…7847` (2026-10-03 retitled build); same file as the Zenodo deposit |
+| `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip` | supplementary material | yes | SHA-256 `097652b0…ee0e` (2026-10-03 build with the CUE threshold script); same file as the Zenodo deposit |
 | `submission/cover-letter-ECP-2026-10-03.md` | cover letter / comments to editor | no | |
 
 - [ ] The uploaded PDF hash matches the final build recorded above.
@@ -106,7 +106,7 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 
 **Ethics.** No human participants or data.
 
-**AI-use disclosure.** On page 1 (title footnote) and in the acknowledgements ("AI use and author responsibility"), naming GPT-5.6 via Codex, Claude, ChatGPT, Codex, Gemini, and Aristotle (Harmonic). No IMS/ECP-specific AI rule was found on 2026-07-16; **recheck on submission day** and move or extend the disclosure if a portal field asks for it.
+**AI-use disclosure.** On page 1 (title footnote) and in the acknowledgements ("AI use and author responsibility"). The acknowledgements credit specifically: GPT-5.6 via Codex (proof search for Theorem 1.1); two ChatGPT sessions (model labelled "Latest", 3 October 2026, Pro effort): a review (proposed the framing, Corollary 1.3, Proposition 1.4 with proof, Proposition 1.5, Example 1.6) and a referee report (the Pitman (20) bound and Table 1, independent reconstruction of the computations); an Elicit referee report (clarifications); Claude Opus 5.5 via Claude Code (revision, verification code, source checking); Claude, ChatGPT, Codex and Gemini in earlier sessions; Aristotle (Lean proofs). No IMS/ECP-specific AI rule was found on 2026-07-16; **recheck on submission day** and move or extend the disclosure if a portal field asks for it.
 
 ## 6. Reviewers
 

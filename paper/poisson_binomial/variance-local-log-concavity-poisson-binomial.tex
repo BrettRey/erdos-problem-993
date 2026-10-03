@@ -26,15 +26,16 @@
   curvature is $1/V$. We prove
   $V\delta_D\geq1/4$, and an explicit family of binomial laws shows that no
   constant above $1/3$ is possible, so the best constant lies between $1/4$
-  and $1/3$. Cubic inequalities of Hillion and Johnson
-  then give $\delta_k\geq1/(4V+|k-D|)$ at every $k$ in the support, and at the
+  and $1/3$. Combined with cubic inequalities of Hillion and Johnson, this
+  gives $\delta_k\geq1/(4V+|k-D|)$ at every $k$ in the support, and at the
   rightmost mode $c$ we have $1/(4V+1)\leq\delta_c<2/V$. Ultra-log-concavity
-  alone gives no such bound. For the number of eigenvalues of an $N\times N$
+  alone gives no variance-scaled lower bound on $\delta_D$. For the number of eigenvalues of an $N\times N$
   Haar unitary matrix in a half circle, the bound at $D$ is of order
   $1/\log N$, against order $1/N$ from ultra-log-concavity. The proof combines
   the cubic inequalities with a maximal-mass bound of Bobkov, Marsiglietti, and
   Melbourne to reduce the main inequality to a one-variable inequality, which
-  is proved in exact arithmetic by Bernstein expansions.}
+  is proved by Bernstein expansions, with a computer-assisted step in exact
+  rational arithmetic.}
 
 \hypersetup{
   pdftitle={Variance and local log-concavity of Poisson-binomial laws},
@@ -67,8 +68,8 @@ every success probability satisfies $0<p_i<1$. Put
 \]
 and call $(f_k)_{k=0}^n$ the probability mass function (pmf) of $W$. Extend
 the pmf by $f_{-1}=f_{n+1}=0$. The probability-generating polynomial
-$\sum_{k=0}^n f_kx^k$ has only negative real zeros, so Newton's inequalities
-make the pmf log-concave \cite[equation~(1)]{pitman1997}: $f_k^2\geq
+$\sum_{k=0}^n f_kx^k$ has only negative real zeros, so, by Newton's
+inequalities \cite[equation~(1)]{pitman1997}, the pmf is log-concave: $f_k^2\geq
 f_{k-1}f_{k+1}$ for every $k$, an inequality of Tur\'an type. For
 $0\leq k\leq n$, we measure its slack relative to $f_k^2$ by the normalized
 Tur\'an deficit
@@ -89,9 +90,9 @@ so $\delta_k$ is a bounded transform of the discrete curvature of $\log f$
 at $k$. For a normal density of variance $V$, the corresponding curvature is
 $1/V$ at every point, which suggests $1/V$ as the natural scale for
 $\delta_k$ near the mode. Since $\delta_k$ depends on three adjacent masses
-and $V$ on the whole law, we ask whether this scale holds without
-approximation for every Bernoulli sum: does the variance alone force
-$\delta_k\geq\kappa/V$ near the mode for a universal $\kappa>0$?
+and $V$ on the whole law, we ask whether every Bernoulli sum satisfies
+$\delta_k\geq\kappa/V$ near the mode for a universal $\kappa>0$, with no
+dependence on the number of summands or on the success probabilities.
 
 The number of summands is the wrong scale for this question. Summands with
 $p_i$ near $0$ or $1$ increase $n$ but add little to $V$. The lower bounds on
@@ -211,7 +212,7 @@ On a window $|k-\mathbb EW|\leq\alpha\sqrt V$, the bound
 Section~\ref{sec:reduction} extends Theorem~\ref{thm:main} and
 Corollary~\ref{cor:support} to differences of independent Bernoulli sums.
 
-At the mode, $\delta_c$ is within constant factors of $1/V$.
+At the rightmost mode, $\delta_c$ is within constant factors of $1/V$.
 
 \begin{proposition}\label{prop:mode}
   If $V\geq1$, then
@@ -231,7 +232,7 @@ At the mode, $\delta_c$ is within constant factors of $1/V$.
   $t_+=-\log q_{c+1}>0$. The pmf is strictly log-concave (by \eqref{eq:ulc}
   below), so $f^{(t_-)}$ has exactly the two modes $c-1$ and $c$, and
   $f^{(t_+)}$ exactly the two modes $c$ and $c+1$. By Darroch's theorem
-  \cite[Theorem~4]{darroch1964}, applied to these tilted laws (which are Bernoulli sums),
+  \cite[Theorem~4]{darroch1964}, applied to these tilted laws (which are again Poisson--binomial),
   $\mu(t_-)\in(c-1,c)$ and $\mu(t_+)\in(c,c+1)$. Hence
   \[
     2>\mu(t_+)-\mu(t_-)=\int_{t_-}^{t_+}V(t)\,dt\geq V(2-e^{t_-}-e^{-t_+})
@@ -277,33 +278,50 @@ laws in general.
   that of the law on $\mathbb Z$ proportional to $2^{-|j|}$, which is $4$.
 \end{proof}
 
-The law $g^{(m)}$ has $1/\delta_m\leq4/3$ while $1/\delta_{m+1}\to\infty$: a
-ULC law can change curvature abruptly at the mode, which the reciprocal bound
-\eqref{eq:reciprocal} forbids for Bernoulli sums.
+For $g^{(m)}$, $1/\delta_m\leq4/3$ while $1/\delta_{m+1}\to\infty$, so
+$1/\delta$ changes by an unbounded amount in one step; by
+\eqref{eq:reciprocal}, this cannot happen for a Bernoulli sum.
 
-The bound \eqref{eq:ulc} also degenerates for Bernoulli sums themselves. For
-$m\geq2$, take
+The bound \eqref{eq:ulc} also degenerates for Bernoulli sums themselves, and
+so do the other lower bounds on $\delta_k$ cited above. For $m\geq2$, take
 $m$ success probabilities equal to $\varepsilon_m$ and $m$ equal to
 $1-\varepsilon_m$, where $\varepsilon_m\leq1/2$ solves
-$2m\varepsilon_m(1-\varepsilon_m)=1$. The law has
-$V=1$, its pmf is symmetric about $m$ and strictly log-concave, so $D=m+1$,
-and the right-hand side of \eqref{eq:ulc} at $D$ is again
-$(2m+1)/(m(m+2))\to0$, whereas Theorem~\ref{thm:main} gives
-$\delta_D\geq1/4$. Johnson's bound reads
-\[
-  \delta_k\geq \frac{f_{k+1}}{f_k}
-  \left(\sum_i\frac{p_i}{1-p_i}\right)^{-1};
-\]
-see \cite[Definition~1.2, Lemma~5.1, and
-Example~5.2(2)]{johnson2017discrete}. In the same family the reciprocal of
-the odds sum tends to zero, and $f_{D+1}/f_D\leq1$, so this bound also tends
-to zero; so does $1/(D+1)=1/(m+2)$. Combining Pitman's
-\cite[equation~(20)]{pitman1997} at $k-1$ and $k$ gives
+$2m\varepsilon_m(1-\varepsilon_m)=1$. The law has $V=1$, and its pmf is
+symmetric about $m$ and strictly log-concave, so $D=m+1$. Johnson's bound
+\cite[Definition~1.2, Lemma~5.1, and Example~5.2(2)]{johnson2017discrete}
+reads $\delta_k\geq(f_{k+1}/f_k)\bigl(\sum_ip_i/(1-p_i)\bigr)^{-1}$, and here
+the odds sum is at least $m(1-\varepsilon_m)/\varepsilon_m\sim2m^2$.
+Combining Pitman's \cite[equation~(20)]{pitman1997} at $k-1$ and $k$ gives
 $\delta_k\geq1-\theta(k-1/(n-k+2))/\theta(k+1/(k+2))$, where $\theta(x)=e^t$
 for the tilt $t$ at which the tilted law of the proof of
-Proposition~\ref{prop:mode} has mean $x$. In this family both arguments at
-$k=D$ differ from the mean $m$ by $1+O(1/m)$, both tilts converge to
-$\operatorname{arsinh}1$, and this bound also tends to zero.
+Proposition~\ref{prop:mode} has mean $x$. In this family the tilted mean is
+$m+\sinh t/(1+(\cosh t-1)/m)$; at $k=D$ the two arguments differ by
+$2/m+O(m^{-2})$ near the point $t=\operatorname{arsinh}1$, where the tilted
+mean has slope $\sqrt2+O(1/m)$, so the bound is $\sqrt2/m+O(m^{-2})$.
+Finally, $W-m$ converges in law to the difference of two independent
+Poisson$(1/2)$ variables, whose pmf is $e^{-1}I_k(1)$ with $I_k$ the modified
+Bessel function. Table~\ref{tab:balanced} collects the values at $D$.
+
+\begin{table}[ht]
+  \centering
+  \caption{Lower bounds on $\delta_D$, and $\delta_D$ itself, in the balanced
+  family with $V=1$ and $D=m+1$, as $m\to\infty$.}
+  \label{tab:balanced}
+  \begin{tabular}{lll}
+    \hline
+    Bound & Source & Value at $D$\\
+    \hline
+    Ultra-log-concavity \eqref{eq:ulc} & \cite{hillionjohnson2016} &
+      $(2m+1)/(m(m+2))\sim2/m$\\
+    $\delta_k>1/(k+1)$ & \cite{duembgenwellner2020} & $1/(m+2)\sim1/m$\\
+    Odds-sum bound & \cite{johnson2017discrete} & $O(m^{-2})$\\
+    Combined tilt bounds & \cite{pitman1997} & $\sim\sqrt2/m$\\
+    Theorem~\ref{thm:main} & & $1/(4V)=1/4$\\
+    \hline
+    $\delta_D$ itself & & $\to1-I_0(1)I_2(1)/I_1(1)^2\approx0.46$\\
+    \hline
+  \end{tabular}
+\end{table}
 
 Pitman's ratio bound \cite[equation~(21)]{pitman1997}, with the tilted
 variance $V(t)\leq e^tV$ for $t\geq0$ (notation as in the proof of
@@ -327,8 +345,8 @@ Bernoulli sums in which $V$ and $n$ differ in order.
 \begin{example}\label{ex:cue}
   Let $X_N$ count the eigenvalues of an $N\times N$ Haar unitary matrix in
   the open upper half of the unit circle, with $N$ even. Meckes and Meckes
-  \cite[Proposition~3(1)]{meckesmeckes2017} show that $X_N$ is a sum of $N$
-  independent Bernoulli variables. By the theorem of Hough, Krishnapur, Peres,
+  \cite[Proposition~3(1)]{meckesmeckes2017} show that $X_N$ has the law of a
+  sum of $N$ independent Bernoulli variables. By the theorem of Hough, Krishnapur, Peres,
   and Vir\'ag on which this rests \cite[Theorem~7]{houghkrishnapurperesvirag2006},
   the parameters are the eigenvalues of the kernel of the eigenvalue process,
   a projection of rank $N$, compressed to the half circle. These are the
@@ -349,8 +367,10 @@ Bernoulli sums in which $V$ and $n$ differ in order.
   using $\sum_{d\text{ odd}}d^{-2}=\pi^2/8$; here $\gamma$ is Euler's
   constant. Rotation by $\pi$ shows that
   $X_N$ and $N-X_N$ have the same law, so $c=N/2$ and $D=N/2+1$. The middle
-  form shows that $V_N$ increases with $N$; among even $N$ it first reaches
-  $1$ at $N=1998$. For even $N\geq1998$, Theorem~\ref{thm:main} gives
+  form shows that $V_N$ increases with $N$, and a direct evaluation of the
+  first form with rational bounds on $\pi$ (a program in the supplement) gives
+  $V_{1996}<1<V_{1998}$, so among even $N$ the variance first reaches $1$ at
+  $N=1998$. For even $N\geq1998$, Theorem~\ref{thm:main} gives
   $\delta_D\geq1/(4V_N)\sim\pi^2/(4\log N)$, whereas \eqref{eq:ulc} gives
   only $(N+1)/((N/2+2)N/2)\sim4/N$. At $N=10^4$ these lower bounds are about
   $0.215$ and $0.0004$.
@@ -373,13 +393,16 @@ the one-variable inequality $A(\delta)\geq(3+\delta)/(4\delta^2)$
 Heuristically, the masses within distance about $\delta^{-1/2}$ of the mode
 are comparable to $M$, so $A(\delta)$ is of order $\delta^{-2}$, and the two
 bounds force $V$ to be of order at least $1/\delta$.
-Section~\ref{sec:scalar} proves the one-variable inequality in exact
-arithmetic by Bernstein expansions: with positive rational coefficients for
-$1/22\leq\delta<1/4$, and for $\delta\leq1/22$ with coefficients that are
+Section~\ref{sec:scalar} proves the one-variable inequality by Bernstein
+expansions. For $1/17\leq\delta<1/4$ the proof rests on 275 rational
+coefficients computed by a program and recomputed by an independent checker
+(supplement); for $1/22\leq\delta\leq1/17$ on five rational coefficients
+printed in the text; and for $\delta\leq1/22$ on coefficients that are
 polynomials in an integer parameter, all of whose coefficients are positive.
-Three steps can lose a constant: the mass bounds, the maximal-mass bound, and
-the symmetrization in Section~\ref{sec:scalar} that replaces each $R_r$ by
-$L_r$; they need not be tight simultaneously.
+Several steps can lose a constant, among them the mass bounds, the
+maximal-mass bound, the symmetrization in Section~\ref{sec:scalar} that
+replaces each $R_r$ by $L_r$, and the replacement of $b_r$ by $\lambda_r$ for
+$H\geq16$; they need not be tight simultaneously.
 
 \section{The recurrence for normalized Tur\'an deficits}
 \label{sec:propagation}
@@ -620,7 +643,7 @@ Set
   H=\frac{1-\delta}{\delta}=\frac1\delta-1>3.
 \end{equation}
 Section~\ref{sec:compact} treats $3<H\leq16$ cell by cell, and
-Section~\ref{sec:large} treats $H\geq16$ uniformly. Then $K=\max\{r\in\mathbb Z_{\geq1}:r<H\}$, and the bounds $L_r$ of
+Section~\ref{sec:large} treats $H\geq16$. Then $K=\max\{r\in\mathbb Z_{\geq1}:r<H\}$, and the bounds $L_r$ of
 \eqref{eq:left-mass-bound} become
 \begin{equation}\label{eq:b-def}
   L_r=b_r:=\prod_{s=1}^r\left(1-\frac{s}{H}\right),
@@ -804,11 +827,15 @@ proves Proposition~\ref{prop:scalar}.
 program that generates all $275$ Bernstein coefficients for $3<H\leq16$, an
 independently written checker that recomputes those coefficients using only
 the Python standard library, and a SymPy program that checks the expansions
-for $H\geq16$; a manifest gives the software versions and the commands to
-rerun the checks. Together with the arguments of Section~\ref{sec:scalar},
-the programs prove Proposition~\ref{prop:scalar}; the reduction of
-Theorem~\ref{thm:main} to it (Sections~\ref{sec:propagation}
-and~\ref{sec:variance}) is proved in the text. The archive also contains a
+for $H\geq16$, and a program that evaluates $V_{1996}$ and $V_{1998}$ in
+Example~\ref{ex:cue} with rational bounds on $\pi$; a manifest gives the
+software versions and the commands to rerun the checks. The proof of
+Proposition~\ref{prop:scalar} consists of the arguments of
+Section~\ref{sec:scalar} together with the exact computations these programs
+perform; the deduction of Theorem~\ref{thm:main} from
+Proposition~\ref{prop:scalar} (Sections~\ref{sec:propagation}
+and~\ref{sec:variance}) is given in full in the text and uses no
+computation. The archive also contains a
 Lean formalization, conditional on a one-sided form of the recurrence
 \eqref{eq:deficit-recurrence} for an abstract nonnegative sequence, of the
 deficit bound in Lemma~\ref{lem:propagation} and the exclusion of deficit one
@@ -819,14 +846,27 @@ and Theorem~\ref{thm:main} itself are not formalized.}
 
 \medskip
 \begin{acks}[AI use and author responsibility]
-OpenAI's GPT-5.6 model, accessed through Codex, supplied substantial proof-search
-assistance. Other sessions with Claude (Anthropic), ChatGPT and Codex (both
-OpenAI), and Gemini (Google) assisted with computational exploration,
-exact-verification code, proof critique, formalization support, literature
-searching, drafting, and revision. Aristotle (Harmonic), an automated theorem
-prover, produced the Lean proofs in the conditional formalization described in
-the supplement. The author remains responsible for the mathematics, sources,
-wording, and released files.
+OpenAI's GPT-5.6 model, accessed through Codex, supplied substantial
+proof-search assistance for Theorem~\ref{thm:main}. Two ChatGPT (OpenAI)
+sessions, run on 3 October 2026 with the model labelled ``Latest'' at Pro
+effort, produced a review of an earlier draft and a referee report. The review
+proposed the framing in terms of variance and local log-concavity, Corollary~\ref{cor:support}, Proposition~\ref{prop:mode} with
+its proof, Proposition~\ref{prop:ulc}, and Example~\ref{ex:cue}; each was
+checked, by exact computation on test laws and by independent model-based
+proof review, before it was adopted. The referee report pointed out the bound
+on $\delta_k$ that follows from Pitman's equation~(20) and its behaviour in
+Table~\ref{tab:balanced}, and its independent reconstruction of the
+computations of Section~\ref{sec:scalar} and Example~\ref{ex:cue} agreed
+exactly with ours. A referee
+report from Elicit prompted clarifications of the supplement description and
+of Example~\ref{ex:cue}. Claude Opus 5.5 (Anthropic), through Claude Code, assisted
+with revision, exact-verification code, and source checking, and other
+sessions with Claude, ChatGPT and Codex (both OpenAI), and Gemini (Google)
+assisted with computational exploration, proof critique, formalization
+support, literature searching, and drafting. Aristotle (Harmonic), an
+automated theorem prover, produced the Lean proofs in the conditional
+formalization described in the supplement. The author remains responsible for
+the mathematics, sources, wording, and released files.
 \end{acks}
 
 \bibliographystyle{amsplain}

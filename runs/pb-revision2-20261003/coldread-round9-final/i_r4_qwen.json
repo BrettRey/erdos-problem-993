@@ -1,0 +1,8 @@
+{
+"problem": "To establish a universal, variance-scaled lower bound for the normalized Turán deficit at the first descent index of a Poisson–binomial law, specifically proving that $V \\delta_D \\ge 1/4$ for variance $V \\ge 1$.",
+"debate": "The literature on log-concavity and ultra-log-concavity of Bernoulli sums, specifically the work of Hillion, Johnson, Dümbgen, Wellner, and Pitman regarding bounds on adjacent mass ratios and discrete curvature.",
+"gap": "Existing lower bounds on the Turán deficit depend on the number of summands $n$, specific success probabilities, or the index $k$ alone, and thus degenerate or fail to provide a uniform variance-scaled bound near the mode when summands with extreme probabilities accumulate at fixed variance.",
+"contribution": "The paper proves the sharp lower bound $V \\delta_D \\ge 1/4$ (with the optimal constant lying between 1/4 and 1/3), derives a global bound $\\delta_k \\ge 1/(4V + |k - D|)$, and applies this to show the bound is of order $1/\\log N$ for eigenvalue counts of Haar unitary matrices, using a proof that combines cubic inequalities with computer-assisted rational arithmetic.",
+"decision": "advance",
+"note": "The problem is well-posed and the result is non-trivial, but the reliance on computer-assisted exact rational arithmetic for the core one-variable inequality is a significant methodological hurdle that reviewers will scrutinize heavily."
+}
