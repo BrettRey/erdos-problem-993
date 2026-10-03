@@ -1,0 +1,1725 @@
+Probability Surveys
+Vol. 3 (2006) 206–229
+ISSN: 1549-5787
+DOI: 10.1214/154957806000000078
+
+Determinantal Processes and
+Independence∗
+
+arXiv:math/0503110v2 [math.PR] 19 May 2006
+
+J. Ben Hough†
+Department of Mathematics, U.C. Berkeley, CA 94720, USA
+e-mail: jbhough@math.berkeley.edu
+url: www.math.berkeley.edu/~jbhough
+
+Manjunath Krishnapur†
+Department of Statistics, U.C. Berkeley, CA 94720, USA
+e-mail: manju@stat.berkeley.edu
+url: stat-www.berkeley.edu/~manju
+
+Yuval Peres†
+Departments of Statistics and Mathematics, U.C. Berkeley, CA 94720, USA
+e-mail: peres@stat.berkeley.edu
+url: stat-www.berkeley.edu/~peres
+
+and
+Bálint Virág‡
+Departments of Mathematics and Statistics, University of Toronto, ON, M5S 3G3, Canada
+e-mail: balint@math.toronto.edu
+url: www.math.toronto.edu/~balint
+Abstract: We give a probabilistic introduction to determinantal and permanental point processes. Determinantal processes arise in physics (fermions,
+eigenvalues of random matrices) and in combinatorics (nonintersecting paths,
+random spanning trees). They have the striking property that the number
+of points in a region D is a sum of independent Bernoulli random variables,
+with parameters which are eigenvalues of the relevant operator on L2 (D).
+Moreover, any determinantal process can be represented as a mixture of
+determinantal projection processes. We give a simple explanation for these
+known facts, and establish analogous representations for permanental processes, with geometric variables replacing the Bernoulli variables. These
+representations lead to simple proofs of existence criteria and central limit
+theorems, and unify known results on the distribution of absolute values in
+certain processes with radially symmetric distributions.
+Received May 2005.
+
+∗ This is an original survey paper.
+† Research supported in part by NSF grants #DMS-0104073 and #DMS-0244479.
+‡ Research supported in part by grants from the Canada Research Chairs program, NSERC
+
+and by the MSRI program on Probability, Algorithms and Statistical Physics.
+206
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 207
+
+Fig 1. Samples of translation invariant point processes in the plane: Poisson (left), determi1
+
+2
+
+2
+
+nantal (center) and permanental for K(z, w) = π1 ezw− 2 (|z| +|w| ) . Determinantal processes
+exhibit repulsion, while permanental processes exhibit clumping.
+
+1. Introduction
+Determinantal point processes were first studied in 1975 by Macchi [22], who was
+motivated by fermions in quantum mechanics. Determinantal processes arise
+naturally in several other settings, including eigenvalues of random matrices,
+random spanning trees and nonintersecting paths; see, e.g., Burton and Pemantle [4], Soshnikov [27], Lyons [20], Lyons and Steif [21], Shirai and Takahashi [25],
+Johansson [14], Borodin, Okounkov and Olshanski [3], and Diaconis [8]. A determinantal point process, on a Polish space Λ (assumed locally compact) with
+a reference measure (assumed Radon) µ, is determined by a kernel K(x, y): the
+joint intensities of the process can be written as det(K(xi , xj )). The kernel defines an integral operator K acting on L2 (Λ) that is assumed to be self-adjoint,
+non-negative
+and locally trace class, i.e. for everyP
+compact D the eigenvalues,
+ D
+λi , of the operator K restricted to D satisfy i λD
+i < ∞. Determinantal
+point processes have a special property (Shirai and Takahashi [26] Proposition
+2.8) that seems to have only been used in special cases ([1], [23]):
+In a determinantal process, the number of points that fall in a compact set
+D ⊂ Λ, has the same distribution as a sum of independent Bernoulli(λD
+i )
+random variables.
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 208
+
+The proof is immediate from well known formulas for the generating function
+of particle counts. However, we give a proof starting from first principles and
+avoid the use of Fredholm determinants.
+Permanental processes are defined analogously and are the counterpart of
+determinantal processes for modeling bosons (see Macchi [22]). They fall into
+the more general class known as Cox processes [6]. In this case we have:
+In a permanental process, the number of points that fall in a compact set
+λD
+D ⊂ Λ, has the same distribution as a sum of independent geometric( λDi+1 )
+i
+random variables.
+For the examples of interest to us, operator theoretic nuances are not essential. The reader will not miss anything significant by keeping in mind just the
+following cases.
+1. Λ is a finite set and K is a Hermitian non-negative definite |Λ|×|Λ| matrix,
+and µ is the counting measure on Λ.
+2. Λ is an open set in Rd , µ is Lebesgue measure and K(x, y) is continuous
+function defining a self-adjoint non-negative integral operator K on L2 (Λ).
+A point process in a locally compact Polish space Λ is a random integervalued positive Radon measure X on Λ. (Recall that a Radon measure is a
+Borel measure which is finite on compact sets.) If X almost surely assigns at
+most measure 1 to singletons, it is a simple point process; in this case X can be
+identified with a random discrete subset of Λ, and X (D) represents the number
+of points of this set that fall in D.
+The distribution of a point process can, in most cases, be described by its
+joint intensities (also known as correlation functions).
+Definition 1. The joint intensities of a point process X w.r.t. µ are functions
+(if any exist) ρk : Λk → [0, ∞) for k ≥ 1, such that for any family of mutually
+disjoint subsets D1 , . . . , Dk of Λ,
+# Z
+" k
+Y
+ρk (x1 , . . . , xk )dµ(x1 ) . . . dµ(xk ),
+(1)
+X (Di ) = Q
+E
+i=1
+
+i
+
+Di
+
+Remark 2. For overlapping sets, the situation is more complicated. Restricting
+attention to simple point processes, ρk is not the intensity measure of X k , but
+that of X ∧k , the set of ordered k-tuples of distinct points of X . Indeed, (1)
+implies (see [18, 19, 23]) that for any Borel set B ⊂ Λk we have
+Z
+ρk (x1 , . . . , xk ) dµ(x1 ) . . . dµ(xk ) .
+(2)
+E #(B ∩ X ∧k ) =
+B
+
+Q
+
+Di⊗ki for a mutually disjoint family of subsets D1 , . . . , Dr of Λ,
+
+When B P
+=
+and k = ri=1 ki , the left hand side becomes
+" r 
+#
+Y X (Di )
+E
+ki ! .
+ki
+i=1
+
+(3)
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 209
+
+For a general point process X , observe that it can be identified with a simple
+point process X ∗ on Λ × {1, 2, 3, . . .} such that X ∗ (D × {1, 2, 3, . . .}) = X (D) for
+Borel D ⊂ Λ. Thus, if X (D) has exponential tails for all compact D ⊂ Λ, then
+the joint intensities determine the law of X ; see [18, 19]. In particular, Theorems
+7 and 10 below imply that this is the case for determinantal and permanental
+processes governed by a trace class operator, since a convergent sum of Bernoulli
+(or geometric) variables always has exponential tails.
+Definition 3. A point process X on Λ is said to be a determinantal process
+with kernel K if it is simple and its joint intensities satisfy:
+ρk (x1 , . . . , xk ) = det (K(xi , xj ))1≤i,j≤k ,
+
+(4)
+
+for every k ≥ 1 and x1 , . . . , xk ∈ Λ.
+Remark 4. We postulate determinantal processes to be simple because we have
+adopted equation (1) as the definition of joint intensities. If instead, we start with
+the slightly more restrictive definition of joint intensities as explained above in
+Remark 2, it follows that the process must be simple. Nevertheless, postulating
+simplicity is more in tune with the conventions of Physicists who often consider
+a determinantal process with k points, not as a random counting measure but
+as a random point in Λk /Diagonals, where “Diagonals” denotes the subset of
+points of Λk with at least two co-ordinates equal. This viewpoint together with
+a postulate on the behaviour of quantum amplitudes under exchange of particles
+leads naturally to Determinantal and Permanental processes (and additionally
+to “fractional statistics”, when Λ is two dimensional, see for instance [16]).
+Consider a kernel K that defines a self-adjoint trace-class operator K. Macchi [22] and Soshnikov [27] showed that there exists a determinantal point process with kernel K if and only if all eigenvalues of K are in the interval [0, 1]. In
+Section 2 we shall give a probabilistic proof of this fact.
+Remark 5. When we speak of a kernel K on Λ2 , a priori itR is only defined only
+almost everywhere w.r.t. µ × µ and thus quantities like K(x, x)dµ(x) that
+appear in the definition of joint intensities are not defined. This can be made
+sense of as follows.
+The kernel K defines a self-adjoint integral operator K that has eigenfunctions
+φk and eigenvalues λk , where φk are orthogonal in L2 (µ). In particular, there is a
+c
+set Λ1 ⊂ Λ such that φk are all defined point-wise on Λ1 and µ(Λ
+P1 ) = 0. At least
+in the case when K has finite rank, this shows that K(x,Ry) = k λk φk (x)φk (y)
+is well defined on Λ1 × Λ1 , and that is sufficient to define K(x, x)dµ(x) etc. For
+more details on this point, see Lemmas 1,2 of the survey paper of Soshnikov [27].
+Recall that the permanent of an n × n matrix M is defined as
+per(M ) =
+
+n
+X Y
+
+π∈Sn i=1
+
+Mi,π(i) .
+
+(5)
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 210
+
+Definition 6. A point process X on Λ is said to be a permanental process
+with kernel K if its joint intensities satisfy:
+ρk (x1 , . . . , xk ) = per (K(xi , xj ))1≤i,j≤k ,
+
+(6)
+
+for every k ≥ 1 and x1 , . . . , xk ∈ Λ.
+For any kernel K that defines a self-adjoint non-negative definite operator
+K (i.e., the eigenvalues of K are nonnegative), there exists a permanental point
+process with kernel K. We shall give a proof of this known fact in Section 4.
+Now we state the main theorems. The most common application of the following theorem is to describe the behavior of a determinantal process already
+restricted to a subset.
+Theorem 7. Suppose X is a determinantal process with a trace-class kernel K.
+Write
+n
+X
+K(x, y) =
+λk φk (x)φk (y),
+k=1
+
+where φk are normalized eigenfunctions of K with eigenvalues λk ∈ [0, 1]. (Here
+n = ∞ is allowed). Let Ik , 1 ≤ k ≤ n be independent random variables with
+Ik ∼ Bernoulli(λk ). Set
+KI (x, y) =
+
+n
+X
+
+Ik φk (x)φk (y).
+
+k=1
+
+KI is a random analogue of the kernel K. Let XI be the determinantal process with kernel KI (i.e., first choose the Ik ’s and then independently sample a
+discrete set that is determinantal with kernel KI ). Then
+d
+
+X = XI .
+
+(7)
+
+In particular, the total number of points in the process X has the distribution of
+a sum of independent Bernoulli(λk ) random variables.
+In the special case of random spanning trees of a finite graph, Bapat [1]
+was the first to observe the last fact stated above. Namely, he proved that the
+number of edges of the spanning tree falling in a subset of edges of the given
+graph has the distribution of a sum of independent Bernoullis.
+When the Di ’s are related in a special way, there exists a simple probabilistic
+description of the joint distributions of the counts X (Di ).
+
+Definition 8. Given an integral kernel K acting on L2 (Λ), the subsets D1 , . . . , Dr
+of Λ with D = ∪i Di are simultaneously observable if the eigenfunctions of
+the restricted kernel K|D×D are also eigenfunctions of K|Di ×Di acting on L2 (Di )
+for every 1 ≤ i ≤ r.
+The motivation for this terminology comes from quantum mechanics, where
+two physical quantities can be simultaneously measured if the corresponding
+operators commute.
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 211
+
+Proposition 9. Under the assumptions of Theorem 7, let Di ⊂ Λ, 1 ≤ i ≤ r
+be mutually disjoint and simultaneously observable. Let ei be the standard basis
+vectors in Rr . Denote by φk , the common eigenfunctions
+of K on the Di ’s and
+P
+by λk,i the corresponding eigenvalues. Write λk = i λk,i and note that λk ≤ 1.
+Then
+X
+d
+(X (D1 ), . . . , X (Dr )) =
+(ξk,1 , . . . , ξk,r ) ,
+(8)
+k
+
+where ξ~k = (ξk,1 , . . . , ξk,r ) are independent for different values of k, with P(ξ~k =
+ei ) = λk,i for 1 ≤ i ≤ r and P(ξ~k = 0) = 1 − λk . In words, (X (D1 ), . . . , X (Dr ))
+has the same distribution as the vector of counts in r cells, if we pick n balls and
+assign the k th ball to the ith cell with probability λk,i (there may be a positive
+probability of not assigning it to any of the cells).
+
+Theorem 10. Suppose
+PX is a permanental process in Λ with a trace-class kernel
+K. Write K(x, y) = nk=1 λk φk (x)φk (y), where φk are normalized eigenfunctions of K with eigenvalues λk (n = ∞ is allowed). Let ~
+α = (α1 , . . . , αn ), where
+αi are non-negative integers such that ℓ = ℓ(~
+α) = α1 + · · · + αn < ∞ and let Z ~α
+be the random vector in Rℓ with density:
+2
+
+{φ1 (z1 ) · · · φ1 (zℓ )} α1
+1
+ , (9)
+···
+···
+···
+p(z1 , . . . , zℓ ) =
+per 
+ℓ!α1 ! · · · αn !
+{φn (z1 ) · · · φn (zℓ )} αn
+
+where the notation {φi (z1 ) · · · φi (zℓ )} αi indicates that the row φi (z1 ) · · · φi (zℓ ) is
+repeated αi times. Let X~α be the point process determined by Z ~α , i.e., X~α (D) is
+the number of j ≤ ℓ such that Zj~α ∈ D. Let γ1 , . . . , γn be independent geometric
+
+s 
+
+1
+k
+random variables with P(γk = s) = λkλ+1
+λk +1 , for s = 0, 1, 2, . . . . Then
+d
+
+X = X~γ ,
+where ~γ = (γ1 , . . . , γn ). In particular, X (Λ) has the distribution of a sum of
+k
+) random variables.
+independent geometric( λkλ+1
+Remark 11. The density given in (9) has physical significance. Interpreting
+the functions φk as eigenstates of a one-particle Hamiltonian, (9) gives the distribution for ℓ non-interacting bosons in a common potential given that αi of
+them lie in the eigenstate φi . This density is the exact analogue of the density
+
+2
+φi1 (z1 ) · · · φi1 (zℓ )
+1
+p(z1 , . . . , zℓ ) =
+det  · · ·
+(10)
+···
+···  ,
+ℓ!
+φin (z1 ) · · · φin (zℓ )
+
+which appears in Theorem 7 and gives the distribution for ℓ non-interacting
+fermions in a common potential given that one fermion lies in each of the eigenstates φi1 , . . . , φiℓ . The fact that (10) vanishes if a row is repeated illustrates
+Pauli’s exclusion principle, which states that multiple fermions cannot occupy
+the same eigenstate. See [9] for more details.
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 212
+
+Theorem 12. Under the assumptions of Theorem 10, suppose D1 , . . . , Dr are
+simultaneously observable as in definition 8. Denote by φk the common eigenfunctions of K on the Di ’s and by λk,i the corresponding eigenvalues. Then
+X
+d
+(X (D1 ), . . . , X (Dr )) =
+(ηk,1 , . . . , ηk,r ) ,
+(11)
+k
+
+where (ηk,1 P
+, . . . , ηk,r ) are independent for different values of k, for P
+each k, the
+η
+has
+a
+geometric
+distribution
+with
+mean
+λ
+:=
+sum ηP
+k,i
+k
+k =
+i λk,i and
+i
+given i ηk,i = N ,
+
+
+λk,r
+λk,1
+d
+.
+,...,
+(ηk,1 , . . . , ηk,r ) = Multinomial N ;
+λk
+λk
+2. Determinantal processes
+We begin with a few important examples of determinantal processes.
+Example 13 (Non-intersecting random walks). Consider n independent
+simple symmetric random walks on Z started from i1 < i2 < . . . < in where
+all the ij ’s are even. Let Pi,j (t) be the t-step transition probabilities. Karlin
+and McGregor [15] show that the probability that the random walks are at
+j1 < j2 < . . . < jn at time t and have mutually disjoint paths is
+
+
+Pi1 ,j1 (t) . . . Pi1 ,jn (t)
+.
+...
+...
+...
+det 
+Pin ,j1 (t) . . . Pin ,jn (t)
+
+It follows easily that if t is even and we also condition the walks to return to
+i1 , . . . , in at time t, then the positions of the walks at time t/2 are determinantal
+with a Hermitian kernel. See Johansson [14] for this and more general results.
+
+Example 14 (Uniform spanning trees). Let G be a finite undirected graph
+and let E be the set of oriented edges (each undirected edge appears in E with
+both orientations). Let T be uniformly chosen from the set of spanning trees
+of G. For each directed edge e = vw, let χe := 1vw − 1wv denote the unit flow
+along e. Define
+H
+⋆
+
+= {f : E → R : f (vw) = −f (wv) ∀v, w}
+X
+χvw : where v is a vertex.}
+= span{
+w
+
+♦
+
+= span{
+
+n
+X
+
+χei : e1 , . . . , en is an oriented cycle}.
+
+i=1
+
+It is easy to see that H = ⋆ ⊕ ♦. Now, define I e := K⋆ χe , the orthogonal
+projection onto ⋆. Then, the set of edges in T forms a determinantal process
+with kernel K(e, f ) := (I e , I f ) with respect to counting measure on the set of
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 213
+
+edges. This was proved by Burton and Pemantle [4], who represented K(e, f )
+as the current flowing through f when a unit of current is sent from the tail to
+the head of e. The Hilbert space formulation above is from BLPS [2].
+Example 15 (Ginibre ensemble). Let Q be an n × n matrix with i.i.d.
+standard complex normal entries. Ginibre [10] proved that the eigenvalues of Q
+form a determinantal process in C with the kernel
+n−1
+
+Kn (z, w) =
+
+1 − 1 (|z|2 +|w|2 ) X (zw)k
+e 2
+,
+π
+k!
+k=0
+
+with respect to Lebesgue measure. As n → ∞, we get a determinantal process
+in the plane with the kernel
+K(z, w) =
+
+∞
+
+1 − 1 (|z|2 +|w|2 ) X (zw)k
+e 2
+π
+k!
+k=0
+
+=
+
+1 − 1 (|z|2 +|w|2 )+zw
+.
+e 2
+π
+
+ExampleP16 (Zero set of a Gaussian analytic function). The power series
+∞
+n
+f1 (z) :=
+n=0 an z where an are i.i.d. standard complex normals, defines a
+random analytic function in the unit disk (almost surely). Peres and Virág [23]
+show that the zero set of f1 is a determinantal process in the disk with the
+Bergman kernel
+K(z, w) =
+
+∞
+
+1X
+1
+=
+(k + 1)(zw)k ,
+2
+π(1 − zw)
+π
+k=0
+
+with respect to Lebesgue measure in the unit disk.
+Determinantal projection processes: motivation and construction
+The most general determinantal processes are mixtures of determinantal projection processes, i.e. processes whose kernel KH defines a P
+projection operator KH
+to a subspace H ⊂ L2 (Λ) or, equivalently, KH (x, y) = nk=1 φk (x)φk (y) where
+{φk } is any orthonormal basis for H.
+Lemma 17.
+PnSuppose X is a determinantal projection process on Λ, with kernel
+K(x, y) = k=1 φk (x)φk (y) where {φk } is an orthonormal set in L2 (Λ). Then
+the number of points in X is equal to n, almost surely.
+Proof. The conditions imply that the matrix (K(xi , xj ))1≤i,j≤k has rank at most
+h
+i
+n for any k ≥ 1. From (3), we see that E X (Λ)
+= 0 for k > n. This shows
+k
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 214
+
+that X (Λ) ≤ n almost surely. However,
+Z
+E [X (Λ)] =
+ρ1 (x) dµ(x)
+ZΛ
+=
+K(x, x) dµ(x)
+Λ
+
+=
+
+n Z
+X
+k=1
+
+=
+
+Λ
+
+|φk (x)|2 dµ(x)
+
+n.
+
+Therefore X (Λ) = n, almost surely.
+Despite the fact that determinantal processes arise naturally and many important statistics can be computed, the standard Definition 3 is lacking in direct
+probabilistic intuition. Below we present an algorithm that is somewhat more
+natural from a probabilist’s point of view, and can also be used for modeling
+determinantal processes.
+In the discrete case, the projection operator KH can be applied to the delta
+function at a point, and we have KH δx (·) = K(·, x). In the general case we take
+this as the definition of KH δx . Let k · k denote the norm of L2 (µ).The intensity
+measure of the process is given by
+µH (x) = ρ1 (x)dµ(x) = kKH δx k2 dµ(x).
+
+(12)
+
+When µ is supported on countably many points, we have kKH δx k = dist(δx , H ⊥ )
+(where ⊥ denotes orthocomplement), giving a natural interpretation of the intensity ρ1 in general.
+Note that µH (Λ) = dim(H), so µH / dim(H) is a probability measure on Λ.
+We construct the determinantal process as follows. Start with n = dim(H), and
+Hn = H.
+Algorithm 18.
+• If n = 0, stop.
+• Pick a random point Xn from the probability measure µHn /n.
+• Let Hn−1 ⊂ Hn be the orthocomplement of the function KHn δx in Hn . In
+the discrete case, Hn−1 = {f ∈ Hn : f (Xn ) = 0}. Note that dim(Hn−1 ) =
+n − 1 a.s.
+• Decrease n by 1 and iterate.
+Proposition 19. The points (X1 , . . . , Xn ) constructed by Algorithm 18 are distributed as a uniform random ordering of the points in a determinantal process
+X with kernel K.
+Proof. Let ψj = KH δxj . Projecting to Hj is equivalent to first projecting to H
+and then to Hj , and it is easy to check that KHj δxj = KHj ψj . Thus, by (12), the
+density of the random vector (X1 , . . . , Xn ) constructed by the algorithm equals
+p(x1 , . . . , xn ) =
+
+n
+Y
+kKHj ψj k2
+
+j=1
+
+j
+
+.
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 215
+
+Qn
+Note that Hj = H ∩ hψj+1 , . . . , ψn i⊥ , and therefore V = j=1 kKHj ψj k is
+exactly the repeated “base times height” formula for the volume of the parallelepiped determined by the vectors ψ1 , . . . , ψn in the finite-dimensional vector space H ⊂ L2 (Λ). It is well-known that V 2 equals the determinant of the
+RGram matrix whose i, j entry is given by the scalar product of ψi , ψj , that is
+ψi ψ j dµ = K(xi , xj ). We get
+p(x1 , . . . , xn ) =
+
+1
+det(K(xi , xj )),
+n!
+
+so the random variables X1 , . . . , Xn are exchangeable. Viewed as a point process,
+the n-point joint intensity of {Xj }nj=1 is n!p(x1 , . . . , xn ), which agrees with that
+of the determinantal process X . The claim now follows by Lemma 17.
+Example 20 (Uniform spanning trees). We continue the discussion of Example 14 Let Gn+1 be an undirected graph on n + 1 vertices. For every edge e,
+the effective resistance when a unit of current is sent along e is R(e) = (I e , I e ).
+To use our algorithm to choose a uniform spanning tree, proceed as follows:
+• If n = 0, stop.
+• Take Xn to be a random edge, chosen so that P(Xn = ei ) = n1 R(ei ).
+• Construct Gn from Gn+1 by contracting the edge Xn , and update the
+effective resistances {R(e)}.
+• Decrease n by one and iterate.
+For sampling uniform spanning trees, more efficient algorithms are known,
+but for the general case the above procedure is the most efficient we are aware
+of.
+We shall need the following lemmas.
+Lemma 21. Suppose {φk }nk=1 is an orthonormal
+in L2 (Λ). Then there exists
+Pset
+n
+a determinantal process with kernel K(x, y) = k=1 φk (x)φk (y).
+
+Proof. For any x1 , . . . , xn we have (K(xi , xj ))1≤i,j≤n = A A∗ , where Ai,k =
+φk (xi ). Therefore, det (K(xi , xj )) is non-negative. Moreover,
+Z
+det (K(xi , xj ))i,j dx1 . . . dxn
+Λn
+Z
+
+det (φj (xi ))i,j det φi (xj ) i,j dx1 . . . dxn
+=
+Λn
+
+=
+
+Z
+
+X
+
+Λn π,τ ∈S
+
+sgn(π)sgn(τ )
+n
+
+n
+Y
+
+φπ(k) (xk )φτ (k) (xk ) dx1 . . . dxn .
+
+k=1
+
+R
+In the sum, if π(k) 6= τ (k), then Λ φπ(k) (xk )φτ (k) (xk )dxk = 0, and when π(k) =
+τ (k), this integral is 1. Thus, only the terms with π = τ contribute. We get
+Z
+det (K(xi , xj ))1≤i,j≤n dx1 . . . dxn = n!,
+Λn
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 216
+
+which along with the non-negativity of det (K(xi , xj ))1≤i,j≤n shows that
+1
+n
+n! det (K(xi , xj ))1≤i,j≤n is a probability density on Λ . If we look at the resulting random variable as a set of unlabeled points in Λ, we get the desired
+n-point joint intensity ρn .
+Lower joint intensities are got by integrating over some of the xi s:
+Z
+Y
+1
+ρk (x1 , . . . , xk ) =
+ρn (x1 , . . . , xn )
+dµ(xj ).
+(13)
+j>k
+(n − k)! Λn−k
+We caution that (13) is valid only for a point process that has n points almost
+surely. In general, there is no way to get lower joint intensities from higher ones.
+We now show how to get ρn−1 . The others can be found exactly the same
+way, or inductively. Set k = n − 1 in (13) and expand ρn (x1 , . . . , xn ) =
+det (K(xi , xj ))1≤i,j≤n as we did before to get
+ρn−1 (x1 , . . . , xn−1 )
+Z
+X
+Yn−1
+φπ(k) (xk )φτ (k) (xk )
+=
+sgn(π)sgn(τ )
+π,τ
+
+k=1
+
+Λ
+
+φπ(n) (xn )φτ (n) (xn )dµ(xn ).
+
+If π(n) 6= τ (n), the integral vanishes. And if π(n) = τ (n) = j, π and τ map
+{1, . . . , n − 1} to {1, 2, . . . , n} − {j} (and the product of the signs of these
+“permutations” is the same as sgn(π)sgn(τ ), because π(n) = τ (n)). This gives
+us
+Xn
+
+det (φk (xi ))1≤i≤n−1,k6=j det φk (xi ) k6=j,1≤i≤n−1 .
+ρn−1 (x1 , . . . , xn−1 ) =
+j=1
+
+We must show that this quantity is equal to det (K(xi , xj ))i,j≤n−1 . For this note
+that
+
+(K(xi , xj ))i,j≤n−1 = (φk (xi ))1≤i≤n−1,k≤n φk (xi ) k≤n,i≤n−1 ,
+
+and apply the Cauchy-Binet formula. Recall that for matrices A, B of orders
+m × n and n × m respectively, the Cauchy-Binet formula says
+X
+det(AB) =
+det (A[i1 , . . . , im ]) det (B[i1 , . . . , im ]) ,
+(14)
+1≤i1 ,...,im ≤n
+
+where we abuse notation and let A[i1 , . . . , im ] stand for the matrix formed by
+taking the columns numbered i1 , . . . , im and B[i1 , . . . im ] for the matrix formed
+by the corresponding rows of B. The identity (14) can be proved by observing
+that both sides are multi-linear in the rows of A and in the columns of B.
+We now prove Theorem 7. Before that we remark that in many examples the
+kernel K defines a projection operator, i.e, λk = 1 for all k. Then Ik = 1 for all
+k, almost surely, and the theorem is trivial. The theorem is applicable to the
+restriction of the process X to D for any Borel set D ⊂ Λ, as the restricted
+process is determinantal with kernel the restriction of K to D × D.
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 217
+
+Proof of Theorem
+7. First assume that K is a finite-dimensional operator-i.e.,
+P
+K(x, y) = nk=1 λk φk (x)φk (y) for some finite n. We show that the processes on
+the left and right side of (7) have the same joint intensities. By (3), this implies
+that these processes have the same distribution.
+Note that the process XI exists by Lemma 21. For m > n, the m-point
+joint intensities of both X and XI are clearly zero. Now consider m ≤ n and
+x1 , . . . , xm ∈ Λ. We claim that:
+i
+h
+(15)
+E det (KI (xi , xj ))1≤i,j≤m = det (K(xi , xj ))1≤i,j≤m .
+
+To prove (15), note that
+
+(KI (xi , xj ))1≤i,j≤m = A B,
+
+(16)
+
+where A is the m × n matrix with Ai,k = Ik φk (xi ) and B is the n × m matrix
+with Bk,j = φk (xj ).
+Apply Cauchy-Binet formula (14) to A, B defined above and take expectations. Observe that B[i1 , . . . im ] is nonrandom and
+E [det (A[i1 , . . . , im ])] = det (C[i1 , . . . , im ])
+where C is the m × n matrix Ci,k = λk φk (xi ). Applying the Cauchy-Binet
+formula in the reverse direction to C and
+P B, we obtain (15) and hence also (7).
+By Lemma 17, given {Ik }k≥1 , XI has k Ik points, almost surely. Therefore,
+X
+d
+X (Λ) =
+Ik .
+k
+
+So far we assumed that the operator K determined by the kernelPK is finite
+dimensional. Now supposeP
+K is a general trace class operator. Then k λk < ∞
+and hence, almost surely, k Ik < ∞. Therefore, the process XI is well defined
+and (16) is valid by the same reasoning. Taking expectations and observing that
+the summands in the Cauchy-Binet formula are non-negative, we obtain
+i
+h
+X
+det (C[i1 , . . . , im ]) det (B[i1 , . . . , im ]) ,
+E det (KI (xi , xj ))1≤i,j≤m =
+1≤i1 ,...,im
+
+where C is the same as before. To conclude that the right hand side is just
+det (K(xi , xj ))1≤i,j≤m , we first apply the Cauchy-Binet formula to the finite apPN
+proximation (KN (xi , xj ))1≤i,j≤m , where KN (x, y) = k=1 λk φk (x)φk (y). Letting N → ∞, we see that
+i
+h
+E det (KI (xi , xj ))1≤i,j≤m = det (K(xi , xj ))1≤i,j≤m ,
+as was required to show. (In short, the proof for the the infinite case is exactly
+the same as before, only we cautiously avoided applying Cauchy-Binet formula
+to the product of two infinite rectangular matrices).
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 218
+
+Now we give a probabilistic proof of the following criterion for a Hermitian
+integral kernel to define a determinantal process.
+Theorem 22 (Macchi [22], Soshnikov [27]). Let K determine a self-adjoint
+integral operator K on L2 (Λ) that is locally trace class. Then K defines a determinantal process on Λ if and only if all the eigenvalues of K are in [0, 1].
+Proof. We can assume that K is trace class, since it suffices to construct a
+determinantal process on compact subsets of Λ with kernel the restriction of K.
+Sufficiency: If K is a projection operator, this is precisely Lemma 21. If the
+eigenvalues are {λk }, then as in the proof of Theorem 7 we construct the process
+XI . The proof there shows that XI is determinantal with kernel K.
+Necessity: Suppose that X is determinantal with kernel K. Since the joint
+intensities of X are non-negative, K must be non-negative definite. Now suppose
+that the largest eigenvalue of K is λ > 1. Let X1 be the process obtained by first
+sampling X and then independently deleting each point of X with probability
+1− λ1 . Computing the joint intensities shows that X1 is determinantal with kernel
+1
+λ K.
+Now X has finitely many points (we assumed that K is trace class) and
+λ > 1. Hence, P [X1 (Λ) = 0] > 0. However, λ1 K has all eigenvalues in [0, 1], with
+at least one eigenvalue equal to 1, whence by Theorem 7, P [X1 (Λ) ≥ 1] = 1, a
+contradiction.
+Example 23 (Non-measurability of the Bernoullis). A natural question
+that arises from Theorem 7 is whether, given a realization of the determinantal
+process X , we can determine the values of the Ik ’s. This is not always possible,
+i.e., the Ik ’s are not measurable w.r.t. the process X in general.
+Consider the graph G with vertices {a, b, c, d} and edges e1 = (a, b), e2 =
+(b, c), e3 = (c, d), e4 = (d, a), e5 = (a, c). By the Burton-Pemantle Theorem [4],
+the edge-set of a uniformly chosen spanning tree of G is a determinantal process.
+In this case, the kernel restricted to the set D = {e1 , e2 , e3 } is easily computed
+to be
+
+
+5 −3 −1
+(K(ei , ej ))1≤i,j≤3 =  −3 5 −1  .
+−1 −1 −1
+√
+
+√
+
+This matrix has eigenvalues 1, 7−16 17 , 7+16 17 . Since all measurable events have
+probabilities that are multiples of 18 , it follows that the Bernoullis cannot be
+measurable.
+
+Theorem 7 gives us the distribution of the number of points X (D) in any
+subset of Λ. Given several regions D1 , . . . , Dr , can we find the joint distribution
+of X (D1 ), . . . , X (Dr )? It seems that a simple probabilistic description of the
+joint distribution exists only when the Di ’s are simultaneously observable, as in
+Theorem 9.
+Proof of Theorem 9. At first we make the following assumptions:
+• ∪i Di = Λ.
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 219
+
+• P
+K defines a finite dimensional projection operator-i.e., K(x, y) =
+n
+2
+k=1 φk (x)φk (y) for x, y ∈ Λ, and {φk } is an orthonormal set in L (Λ).
+
+Note that by our assumption, φkRare also orthogonal on Di for every 1 ≤ i ≤ r.
+Moreover, it is clear that λk,i = Di |φk |2 .
+We write
+
+
+K(x1 , x1 ) . . . K(x1 , xn )
+
+
+...
+...
+...
+K(xn , x1 ) . . . K(xn , xn )
+
+
+
+φ1 (x1 ) . . . φn (x1 )
+φ1 (x1 ) . . . φ1 (xn )
+=  ...
+...
+...  ...
+...
+. . .  . (17)
+φ1 (xn ) . . . φn (xn )
+φn (x1 ) . . . φn (xn )
+In particular,
+
+det (K(xi , xj ))1≤i,j≤n =
+
+X
+
+sgn(σ)
+
+n
+Y
+
+!
+
+φσi (xi )
+
+i=1
+
+σ∈Sn
+
+X
+
+Now if ki are non-negative integers with
+
+P
+
+sgn(τ )
+
+n
+Y
+
+φτi (xi ) .
+
+i=1
+
+τ ∈Sn
+
+!
+
+(18)
+
+i ki = n, note that
+
+{X (Di ) ≥ ki for all 1 ≤ i ≤ r} = {X (Di ) = ki for all 1 ≤ i ≤ r},
+since by Lemma 17, a determinantal process whose kernel defines a rank-n
+projection operator has exactly n points, almost surely. Thus, we have
+" r 
+#
+Y X (Di )
+P [X (Di ) = ki for all 1 ≤ i ≤ r] = E
+ki
+i=1
+Z
+1
+det (K(xk , xℓ ))1≤k,ℓ≤n dx1 . . . dxn
+=
+k1 ! · · · kr ! Qr Diki
+i=1
+Z
+n
+X
+Y
+1
+sgn(σ)sgn(τ
+)
+φσm (xm )φτm (xm ) dx1 . . . dxn .
+=
+k1 ! · · · kr ! Qr Diki σ,τ
+m=1
+i=1
+
+Any term with σ 6= τ vanishes upon integrating. Indeed, if σ(m) 6= τ (m) for
+some m, then
+Z
+Dj(m)
+
+φσm (xm )φτm (xm ) dxm = 0
+
+where j(m) is the index for which
+k1 + . . . + kj(m)−1 < m ≤ k1 + . . . + kj(m) .
+Therefore,
+#
+" r 
+Y X (Di )
+=
+E
+ki
+i=1
+=
+
+n
+
+XY
+1
+k1 ! · · · kr ! σ m=1
+1
+k1 ! · · · kr !
+
+n
+XY
+
+σ m=1
+
+Z
+
+Dj(m)
+
+|φσm (x)|2 dx
+
+λσm ,j(m) .
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 220
+
+P
+Now consider (8) and set Mi = k ξk,i for 1 ≤ i ≤ r. Our goal is to compute
+P [M1 = k1 , . . . , Mr = kr ]. This problem is the same as putting n ball into r
+cells, where the probability for the j th ball to fall in cell i is λj,i . To have ki
+balls in cell i for each i, we first take a permutation σ of {1, 2, . . . , n} and then
+th
+put the σm
+ball into cell j(m) if k1 + . . . + kQ
+j(m)−1 < m ≤ k1 + . . . + kj(m) .
+r
+However, this counts each assignment of balls i=1 ki ! times. This implies that
+n
+
+P [M1 = k1 , . . . , Mr = kr ] =
+
+XY
+1
+λσ ,j(m) .
+k1 ! · · · kr ! σ m=1 m
+
+Thus,
+d
+
+(X (D1 ), . . . , X (Dr )) = (M1 , . . . , Mr ),
+
+(19)
+
+which is precisely what we wanted to show.
+Now we deal with the two assumptions that we made at the beginning. If
+∪i Di 6= Λ, we could restrict the point process to ∪i Di . We still have a determinantal process. Then, if the kernel does not define a projection, apply Theorem 7
+to write X as a mixture of determinantal projection processes. Applying (19)
+to each component in the mixture we obtain the theorem. The finite rank assumption can be relaxed in the same way as in Theorem 7.
+Applications
+As an application of Theorem 7 we can derive the following central limit theorem
+for determinantal processes due to Costin and Lebowitz [5] in case of the sine
+kernel, and due to Soshnikov [28] for general determinantal processes.
+Theorem 24. Let Xn be a sequence of determinantal processes on Λ with
+kernels Kn . Let Dn be a sequence of measurable subsets of Λ such that
+V ar (Xn (Dn )) → ∞ as n → ∞. Then
+Xn (Dn ) − E [Xn (Dn )] d
+p
+→ N (0, 1).
+Var (Xn (Dn ))
+
+(20)
+
+Proof. By Theorem 7, X (Dn ) has the same distribution as a sum of independent Bernoullis with parameters being the eigenvalues of the integral operators
+associated with Kn restricted to D. A straightforward application of LindebergFeller CLT for triangular arrays gives the result.
+Remark 25. Existing proofs of results of the kind of Theorem 24 ([5], [28])
+use the moment generating function for particle counts. Indeed, one standard
+way to prove central limit theorems (including the Lindeberg-Feller theorem)
+uses generating functions. The advantage of our proof is that the reason for
+the validity of the CLT is more transparent and a repetition of well known
+computations are avoided. Moreover, by applying the classical theory of sums
+of independent variables, local limit theorems, large deviation principles and
+extreme value asymptotics follow without any extra effort.
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 221
+
+Radially symmetric processes on the complex plane
+Theorem 9 implies
+P that when a determinantal process with kernel K has the
+form K(z, w) = n cn (zw)n , with respect to a radially symmetric measure µ,
+then the absolute values of the points are independent. More precisely, we have
+Theorem 26. Let X be a determinantal process with kernel
+P K with respect to
+a radially symmetric measure µ on C. Write K(z, w) = k λk a2k (zw)k , where
+ak z k , 0 ≤ k ≤ n − 1 are the normalized eigenfunctions for K. The following
+construction describes the distribution of {|z|2 : z ∈ X }.
+
+• Let Z be picked from the probability distribution µ/µ(Λ), and let Q0 = |Z|2 .
+• For 1 ≤ k ≤ n − 1 let Qk be an independent size-biased version of Qk−1
+a2
+(i.e., Qk has density fk (q) = a2 k q with respect to the law of Qk−1 ).
+k−1
+
+• Consider the point process in which each point Qk is included with probability λk independently of everything else.
+When µ has density φ(|z|), then Qk has density
+√
+πa2k q k φ( q).
+
+(21)
+
+Theorem 26 (and its higher dimensional analogues) is the only kind of example that we know for interesting simultaneously observable counts.
+Proof. Let ν be the measure of the squared modulus of a point picked from µ.
+√
+In particular, if µ has density φ(|z|), then we have dν(q) = πφ( q) dq.
+For 1 ≤ i ≤ r, let Di be mutually disjoint open annuli centered at 0 with inner
+and outer radii ri and Ri respectively. Since the functions z k are orthogonal
+on any annulus centered at zero, it follows that the Di ’s are simultaneously
+observable. To compute the eigenvalues, we integrate these functions against the
+restricted kernel; clearly, all terms but one cancel, and we get that for z ∈ Di
+Z
+k
+and so
+λk a2k (zw)k wk dµ(w),
+z λk,i =
+Di
+Z
+|w|2k dµ(w)
+λk,i = λk a2k
+Di
+
+=
+
+λk a2k
+
+Z R2i
+
+q k dν(q).
+
+ri2
+
+As ri , Ri change, the last expression remains proportional to the probability
+that the k times size-biased random variable Qk falls in (ri2 , Ri2 ). When we set
+(ri , Ri ) = (0, ∞), the result is λk because ak wk has norm 1. Thus the constant
+of proportionality equals λk . The theorem now follows from Proposition 9.
+Example 27 (Ginibre Ensemble revisited). Recall that the nth Ginibre
+ensemble describedPin Example 15 is the determinantal process Gn on C with
+n−1
+kernel Kn (z, w) = k=0 λk a2k (zw)k with respect to the complex Gaussian mea1 −|z|2
+dz, where a2k = 1/k!, and λk = 1. The modulus-squared of a
+sure dµ = π e
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 222
+
+complex Gaussian is a gamma(1, 1) random variable, and its k-times size-biased
+version has gamma(k + 1, 1) distribution (see (21)). Theorem 26 immediately
+yields the following.
+Theorem 28 (Kostlan [17]). The set of absolute values of the points of Gn
+has the same distribution as {Y1 , . . . , Yn } where Yi are independent and Yi2 ∼
+gamma(i, 1).
+All of the above holds for n = ∞ also, in which case we have a determinantal
+2
+1
+process with kernel ezw with respect to dµ = π1 e− 2 |z| dz. This case is also of
+interest as G∞ is a translation invariant process in the plane.
+Example 29 (Zero
+P∞ set ofn a Gaussian analytic function). Recall the zero
+set of f1 (z) :=
+is a determinantal process in the disk with the
+n=0 an z
+Bergman kernel
+K(z, w) =
+
+∞
+
+1
+1X
+=
+(k + 1)(zw)k ,
+π(1 − zw)2
+π
+k=0
+
+with respect to Lebesgue measure in the unit disk. Theorem 26 applies with
+a2k = (k + 1) and λk = 1 (to make K trace class, we first have to restrict it to
+the disk of radius r < 1 and let r → 1). From (21) we immediately see that Qk
+has beta(k + 1, 1) distribution. Equivalently, we get the following.
+Theorem 30 (Peres and Virág [23]). The set of absolute values of the points
+1/2
+1/4
+1/6
+in the zero set of f1 has the same distribution as {U1 , U2 , U3 , . . .} where
+Ui are i.i.d. uniform[0, 1] random variables.
+We can of course consider the
+determinantal process with the truncated
+Pn−1
+Bergman kernel Kn (z, w) = π1 k=0 (k + 1)(zw)k . The set of absolute values
+1/2
+1/2n
+of this process has the same distribution as {U1 , . . . , Un }.
+3. High powers of complex polynomial processes
+Rains [24] showed that sufficiently high powers of eigenvalues of a random unitary matrix are independent.
+Theorem 31 (Rains [24]). Let {z1 , . . . , zn } be the set of eigenvalues of a
+random unitary matrix chosen according to Haar measure on U(n). Then for
+every k ≥ n, {z1k , . . . , znk } has the same distribution as a set of n points chosen
+independently according to uniform measure on the unit circle in the complex
+plane.
+We point out that this theorem holds whenever the angular distribution of the
+points is a trigonometric polynomial.
+Proposition 32. Let {z1 , . . . , zn } be distributed on (S 1 )⊗n with density
+P (z1 , . . . , zn , z 1 , . . . , z n ) w.r.t. uniform measure on (S 1 )⊗n , where P is a polynomial of degree d or less in each variable. Then for every k > d the vector
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 223
+
+(z1k , . . . , znk ) has the distribution of n points chosen independently according to
+uniform measure on S 1 .
+Proof. Fix k > d and consider any joint moment of (z1k , . . . , znk ),
+# Z
+"n
+n 
+
+
+Y
+Y
+kmi kℓi
+zikmi z i kℓi P (z1 , . . . , zn , z 1 , . . . , z n )dλ,
+=
+zi z i
+E
+i=1
+
+(S 1 )⊗n i=1
+
+where λ denotes the uniform measure on (S 1 )⊗n . If mi 6= ℓi for some i then the
+integral vanishes. To see this, note that the average of a monomial over (S 1 )⊗n
+is either 1 or 0 depending on whether the exponent of every zi matches that
+of z i . Suppose without loss of generality that m1 > ℓ1 . Then in each term, we
+have an excess of z1k which cannot be matched by an equal power of z 1 because
+P has degree less than k as a polynomial in z 1 .
+We conclude that the joint moments are zero unless mi = ℓi for all i. If
+mi = ℓi for all i, then the expectation equals 1. Thus, the joint moments of
+(z1k , . . . , znk ) are the same as those of n i.i.d. points chosen uniformly on the unit
+circle. This proves the proposition.
+More generally, by conditioning on the absolute values we get the following.
+Corollary 33. Let ζ1 , . . . , ζk be complex random variables with distribution
+given by
+P (z1 , . . . , zn , z 1 , . . . , z n )dµ1 (z1 ) · · · dµn (zn ),
+
+where P is a polynomial of degree d or less in each variable, and the measures µi
+are radially symmetric. Then for every k > d, the angles Arg(ζ1k ), . . . , Arg(ζnk )
+are independent, have uniform distribution, and are independent of the moduli
+{|ζ1 |, . . . , |ζn |}.
+Corollary 33 applies to powers
+Pd of points of determinantal processes with kernels of the form K(z, w) = k=0 ck (zw)k w.r.t a radially symmetric measure µ
+on the complex plane. Combining this observation with our earlier results on the
+independence of the absolute values of the points, we get the following result.
+Theorem 34. Let X = {z1 , . . . , zn } be a determinantal process on the complex
+P
+plane with kernel K(z, w) = dℓ=0 ck (zw)ℓ (satisfying # {k ≥ 0 : ck 6= 0} = n)
+with respect to a radially symmetric measure µ. Then for every ℓ ≥ d, the
+points {z1ℓ , . . . , znℓ } are distributed as a set of independent random variables with
+radially symmetric distribution.
+4. Permanental processes
+In this section we prove analogous theorems for permanental processes. We begin
+with the following known representation of permanental processes, that can be
+found in Macchi [22].
+Proposition 35. Let F be a complex Gaussian process on Λ. Given F , let X
+be a Poisson process in Λ with intensity
+|F |2 . Then X is a permanental process
+
+with kernel K(x, y) = E F (x)F (y) .
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 224
+
+Remark 36. Since any non-negative definite Hermitian kernel is the covariance
+kernel of a complex Gaussian process, it follows that all permanental processes
+are of the above form.
+Q
+Proof. Given F , the joint intensities of X are ρ̃k (x1 , . . . , xk ) = ki=1 |F (xi )|2 .
+Hence
+hQ it follows that
+i the unconditional joint intensities of X are ρk (x1 , . . . , xk ) =
+k
+2
+E
+i=1 |F (xi )| . Now apply the classical Wick formula (see [11] or [23], §2,
+Fact 10) to get the result.
+Corollary 37. If K determines a self-adjoint non-negative definite locally traceclass integral operator K, then there exists a permanental process with kernel K.
+Now we prove Theorem 10 using the representation in Proposition 35. We
+need the following simple fact:
+Fact 38. Let Y be a Poisson process on Λ with intensity measure ν. Assume
+that ν(Λ) < ∞ and ν is absolutely continuous with respect to µ. Let Y be
+the random vector of length Y(Λ) obtained from a uniform random ordering
+of the points of Y. For k ≥ 1, the law of Y on the event that Y(Λ) = k is a
+subprobability measure on Λk with density
+
+
+1 −ν(Λ) Yk dν
+gk (z1 , . . . , zk ) =
+e
+(zi )
+(22)
+i=1 dµ
+k!
+R
+with respect to µk . We have gk dµk = P [Y(Λ) = k] .
+
+Proof of
+√ Theorem 10:. We use the construction in Proposition 35 with F (z) =
+P
+n
+λk ak φk (z) where ak are independent standard complex Gaussian rank=1
+dom variables. Let X be the random vector obtained from a uniform random
+ordering of the points of X . If we first condition on F , then by Fact 38 the joint
+density of the random vector X on the event {X (Λ) = k} is given by
+
+ R
+1 − |F (x)|2 dµ(x) Yk
+jF,k (z1 , . . . , zk ) =
+|F (zi )|2 ,
+e Λ
+i=1
+k!
+
+
+which is a subprobability measure with total weight P X (Λ) = k F . Integrating over the distribution of F we get that on the event {X (Λ) = k} the density
+of X is
+
+ R
+Yk
+1
+|F (x)|2 dµ(x)
+−
+|F (zi )|2
+jk (z1 , . . . , zk ) = E e Λ
+i=1
+k!
+ P
+ 2
+X p
+Y
+k
+2
+1
+= E e− m λm |am |
+λm am φm (zi )
+, (23)
+i=1
+m
+k!
+
+
+which is also a subprobability measure with total weight P X (Λ) = k . We now
+expand the product inside the expectation (23) as a sum indexed by ordered
+set partitions (S1 , . . . , Sn ) and (T1 , . . . , Tn ) of {1, 2, . . . , k}. The set partitions
+corresponding to a summand q are
+√constructed by letting Sℓ be the set of indices
+i for which q contains the term λℓ aℓ φℓ (zi ) and Ti be the set of indices i for
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 225
+
+√
+which q contains the term λℓ aℓ φℓ (zi ). The summand corresponding to the
+partitions (Sℓ ), (Tℓ ) is thus:
+ P
+ Y Y
+
+Y
+2
+|S |/2
+|S |
+λℓ ℓ φℓ (zi )
+aℓ ℓ aℓ |Tℓ |
+E e− m λm |am |
+ℓ
+i∈Sℓ
+ℓ
+
+Y Y
+|T |/2
+×
+λℓ ℓ φℓ (zi ) ,
+ℓ
+
+i∈Tℓ
+
+which clearly vanishes unless |Sℓ | = |Tℓ | for every ℓ. Also note that for a standard
+complex normal random variable a,
+i
+h
+2
+m!
+E e−λ|a| |a|2m =
+.
+(1 + λ)m+1
+Therefore by fixing an ordered partition of the integer k with n parts (some
+of the parts may be zero) and then summing over all ordered set partitions
+(Sℓ ), (Tℓ ) with those sizes, we find that
+jk (z1 , . . . , zk )
+
+1
+k!
+
+=
+
+×
+Now it is easy to see that
+Y
+X
+(Si ):|Si |=mi
+
+=
+
+Y
+n
+
+ℓ≥1
+
+1
+
+i=1 mi !
+
+X
+
+(m1 ,...,mn ):
+
+mi =k
+
+Y
+
+ℓ≥1
+
+{φ1 (z1 )
+···
+per 
+{φn (z1 )
+
+···
+···
+···
+
+X
+
+(Si ):|Si |=mi
+
+Y
+
+
+
+P
+
+i
+λm
+i mi !
+i=1 (1 + λi )mi +1
+
+Yn
+
+i∈Sℓ
+
+Y
+
+i∈Sℓ
+
+φℓ (zi )
+
+2
+
+.
+
+(24)
+
+φℓ (zi )
+
+
+
+
+φ1 (zk )} m1
+.
+···
+φn (zk )} mn
+
+Recall that the geometric random variables χi in the statement of the theorem
+λm
+have the distributions P [χi = m] = (1+λii)1+m . Therefore we obtain
+jk (z1 , . . . , zk ) =
+
+X
+
+(m1 ,...,mn ):
+
+
+
+P
+
+mi =k
+
+{φ1 (z1 )
+···
+× per 
+{φn (z1 )
+
+Yn P [χi = mi ]
+Qn
+i=1 k!
+i=1 mi !
+···
+···
+···
+
+2
+φ1 (zk )} m1
+ .
+···
+φn (zk )} mn
+
+(25)
+
+Now we integrate (25) over all the variables zi . Write the absolute square of the
+permanent on the right as
+
+
+
+
+{φ1 (z1 ) · · · φ1 (zk )} m1
+{φ1 (z1 ) · · · φ1 (zk )} m1
+ per 
+
+···
+···
+···
+···
+···
+···
+per 
+{φn (z1 ) · · · φn (zk )} mn
+{φn (z1 ) · · · φn (zk )} mn
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 226
+
+and expand these two factors over permuatations π and σ of {1, 2, . . . , k}. LetPj−1
+Pj
+ting Ij denote the interval of integers {1 + r=1 mr , . . . , r=1 mr } we get a sum
+of terms of the form
+
+Y Y
+ Y Y
+n
+n
+φj (zi ) .
+φj (zi )
+−1
+−1
+j=1
+
+i∈π
+
+(Ij )
+
+j=1
+
+i∈σ
+
+(Ij )
+
+By orthogonality of φj s, this term vanishes upon integration
+unless π −1 (Ij ) =
+Qn
+−1
+σ (Ij ) for every 1 ≤ j ≤ n. For a given π, there are j=1 mj ! choices of σ that
+satisfy this. For each such σ, we get 1 upon integration over zi s. Summing over
+all k! choices for π, we get
+Z
+X
+Yn
+
+
+P [χi = mi ]
+jk dµ = P X (Λ) = k =
+i=1
+P
+Λk
+(m1 ,...,mn ):
+
+=
+
+P
+
+" n
+X
+i=1
+
+mi =k
+
+#
+
+χi = k ,
+
+which proves the claim about the number of points in Q
+Λ. Thus by (25) X is a
+n
+mixture of the processes X ~
+m (D), with weights given by
+i=1 P [χi = mi ], where
+m = (m1 , . . . , mn ) with mi being non-negative integers. This is what we wanted
+~
+to prove.
+Now we prove Theorem 12. As before, we remark that it is applicable to the
+restriction of X to D for any Borel set D ⊂ Λ.
+Proof of Theorem 12. Suppose D1 , . . . , Dr are simultaneously observable as in
+the statement of the theorem. Use Proposition 35 to write X as a Poisson
+process with intensity |F (x)|2 P
+where√F is a Gaussian process with covariance
+r
+kernel K. Explicitly, F (x) =
+k ak λk φk (x) for x ∈ ∪i=1 Di , where ak are
+i.i.d. standard complex Gaussians, i.e., the real and imaginary parts of ak are
+i.i.d. N (0, 21 ). RThen given {ak }, we know Rthat X (Di ), 1 ≤ i ≤Pr are indepen2
+dent Poisson( Di |F (x)|2 dµ(x)). Writing Di |F (x)|2 dµ(x) =
+k λk,i |ak | , we
+see that conditionallyPgiven {ak }, the variables X (Di ) for 1 ≤ i ≤ r have the
+same distribution as k (ηk,1 , . . . , ηk,r ), where {ηk,i }1≤i≤r are chosen by sampling ηk according to Poisson(λk |ak |2 ) distribution and then assigning ηk to the
+λ
+cells Di multinomially with probabilities λk,i
+.
+k
+Now when we integrate over the randomness in {ak }, we see that ηk has a
+Geometric distribution with mean λk and given ηk , the vector (ηk,1 , . . . , ηk,r ) is
+λ
+λ
+, . . . , λk,r
+). This completes the proof.
+still Multinomial(ηk ; λk,1
+k
+k
+Generalization: α-determinantal processes
+One way to generalize the concept of determinantal and permanental processes
+is to consider point processes with joint intensities given by
+def
+
+ρn (x1 , . . . , xn ) = detα (K(xi , xj )) =
+
+X
+
+π∈Sn
+
+αn−ν(π)
+
+n
+Y
+
+i=1
+
+K(xi , xπ(i) ),
+
+(26)
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 227
+
+where ν(π) is the number of cycles in the permutation π.
+Such point processes are called α-determinantal processes and were introduced by Vere-Jones in [29] . The values α = −1 and α = +1 correspond to
+determinantal and permanental processes, respectively. It is easy to check that
+the proof of Theorem 7 can be modified to get:
+Proposition 39. For a point process with joint intensities given by (26) (when
+it exists), the number of points that fall in any subregion is:
+• a sum of independent Binomial(− α1 , −αλk ) random variables, if − α1 is a
+positive integer.
+k
+) random variables, if
+• a sum of independent Negative Binomial( α1 , αλαλ
+k +1
+α > 0.
+In fact, if − α1 is a positive integer, this process is just a union of − α1 i.i.d. copies
+of the determinantal process with kernel −αK. Similarly, if α1 is a positive integer, this process is a union of α1 i.i.d. copies of the permanental process with
+kernel αK. More generally, the union of m i.i.d. copies of the process correα
+and
+sponding to α and kernel K gives a process distributed according to m
+2
+kernel mK. If K is real, then m -determinantal processes also exist [25]. For
+α > 0, little is known about the existence of α-determinantal processes beyond
+these examples. Shirai and Takahashi [25] conjecture the following:
+Conjecture 40. If K is a (real) kernel defining a self-adjoint, non-negative
+integral operator on L2 (Λ) and 0 ≤ α ≤ 2, then the α-determinantal process
+with kernel K exists. However, if α > 2, then there exists such a kernel K for
+which there is no corresponding α-determinantal process.
+We verify this conjecture for α > 4. Let Λ be a discrete space consisting of
+three points, and consider the 3 × 3 matrix
+
+
+2 −1 −1
+2 −1  .
+K =  −1
+−1 −1
+2
+
+It is easy to check that the eigenvalues of K are 3, 3, 0 and
+
+detα (K(i, j))1≤i,j≤3 = 2(4 − α)(α + 1),
+which is negative for α > 4. Since point processes must have non-negative joint
+intensities, we conclude that no α-determinantal processes with this kernel can
+exist for α > 4.
+Remark 41. It was pointed out to us by Steve Evans that this question is
+closely related to the question of infinite divisibility of a multivariate version of
+Gamma distribution that has been studied by Griffiths [12] and Griffiths and
+Milne [13]. In short, knowing that a certain multivariate Gamma distribution is
+not infinitely divisible would tell us that α-permanental processes for a related
+kernel do not exist for sufficiently large α (but does not give us the smallest α
+for which this happens).
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 228
+
+Acknowledgements. The insightful recent papers by Soshnikov [27], ShiraiTakahashi [25] and Lyons [20] were of great help in preparing this work. We are
+grateful to Russell Lyons and Balázs Szegedy for useful conversations, and to
+Persi Diaconis, Alice Guionnet and Ofer Zeitouni for comments. We thank Steve
+Evans for several comments and for pointing out the references to α-permanental
+processes and papers on multivariate Gamma distributions.
+References
+[1] Bapat, R.B. (1992). Mixed discriminants and spanning trees. Sankhya. Special Volume 54 49–55 MR1234678
+[2] Benjamini, I., Lyons, R., Peres, Y. and Schramm, O. (2001). Uniform spanning forests. Ann. Probab. 29, 1–65. MR1825141
+[3] Borodin, A., Okounkov, A., Olshanski, G. (2000). Asymptotics of
+Plancherel measures for symmetric groups. J. Amer. Math. Soc. 13, 481–
+515. MR1758751
+[4] Burton, R. and Pemantle, R. (1993). Local characteristics, entropy
+and limit theorems for spanning trees and domino tilings via transferimpedances. Ann. Probab. 21, 1329–1371. MR1235419
+[5] Costin, O. and Lebowitz, J. (1995). Gaussian fluctuation in random matrices. Phys. Rev. Lett., 75 69–72.
+[6] Cox, D.R. (1955). Some statistical methods connected with series of events.
+J. R. Statist. Soc. B. 17 129–164. MR0092301
+[7] Daley, D.J. and Vere-Jones, D. (2003). An introduction to the theory of
+point processes. Vol. I. Elementary theory and Methods. Second edition.
+Springer-Verlag, New York. MR1950431
+[8] Diaconis, P. (2003). Patterns in eigenvalues: the 70th Josiah Willard Gibbs
+lecture. Bull. Amer. Math. Soc. 40 155–178. MR1962294
+[9] Gasiorowicz, S. (1996). Quantum Physics. John Wiley & Sons, Inc., New
+York, second edition.
+[10] Ginibre, J. (1965). Statistical ensembles of complex, quaternion and real
+matrices. J. Math. Phys. 6, 440–449. MR0173726
+[11] Goodman, N. and Dubman, M. (1969). Theory of time-varying spectral
+analysis and complex Wishart matrix processes. Multivariate Analysis, II
+(Proc. Second Internat. Sympos., Dayton, Ohio, 1968) pp. 351–366 Academic Press, New York MR0263205
+[12] Griffiths, R. C. (1984). Characterization of infinitely divisible multivariate
+gamma distributions. J. Multivariate Anal. 15, 13–20. MR0755813
+[13] Griffiths, R. C. and Milne, R. K. (1987). A class of infinitely divisible multivariate negative binomial distributions. J. Multivariate Anal. 22, 13–23.
+MR0890879
+[14] Johansson, K. (2004). Determinantal processes with number variance saturation. Comm. Math. Phys. 252 , 111–148. MR2103906
+[15] Karlin, S. and McGregor, J. (1959). Coincidence probabilities. Pacific J.
+Math. 9, 1141–1164. MR0114248
+
+Hough, Krishnapur, Peres and Virág/Determinantal Processes and Independence 229
+
+[16] Khare, Avinash. (1997). Fractional statistics and quantum theory. World
+Scientific Publishing Co., Inc., River Edge, NJ. MR1795025
+[17] Kostlan, E. (1992). On the spectra of Gaussian matrices. Linear Algebra
+Appl., 162/164, 385–388. MR1148410
+[18] Lenard, A. (1973). Correlation functions and the uniqueness of the state in
+classical statistical mechanics. Comm. Math. Phys. 30, 35–44. MR0323270
+[19] Lenard, A. (1975). States of classical statistical mechanical systems of
+infinitely many particles. I-II. Arch. Rational Mech. Anal. 59, 219–256.
+MR0391830
+[20] Lyons, R. (2003). Determinantal probability measures. Publ. Math. Inst.
+Hautes Études Sci. 98, 167–212. MR2031202
+[21] Lyons, R. and Steif, J. (2003). Stationary determinantal processes: phase
+multiplicity, Bernoullicity, entropy, and domination. Duke Math. J. 120,
+515–575. MR2030095
+[22] Macchi, O. (1975). The coincidence approach to stochastic point processes.
+Adv. Appl. Probab., 7, 83–122. MR0380979
+[23] Peres, Y. and Virág, B. (2004). Zeros of the i.i.d. Gaussian power series: a conformally invariant determinantal process. Acta Math., to appear.
+arXiv:math.PR/0310297.
+[24] Rains, E. (1997). High powers of random elements of compact Lie groups.
+Probab. Theory Related Fields 107, 219–241. MR1431220
+[25] Shirai, T. and Takahashi, Y. (2003). Random point fields associated with
+certain Fredholm determinants I: Fermion, Poisson and Boson processes.
+J. Funct. Analysis 205, 414–463. MR2018415
+[26] Shirai, T. and Takahashi, Y. (2003) Random point field associated with
+certain Fredholm determinants II: Fermion shifts and their ergodic and
+Gibbs properties. Ann. Probab. 31, 1533–1564. MR1989442
+[27] Soshnikov, A. (2000). Determinantal random point fields. Russian Math.
+Surveys, 55, 923–975. MR1799012
+[28] Soshnikov, A. (2002). Gaussian limit for determinantal random point fields.
+Ann. Probab., 30, 171–187. MR1894104
+[29] Vere-Jones, D. (1997). Alpha-permanents and their applications to multivariate gamma, negative binomial and ordinary binomial distributions.
+New Zealand J. Math. 26, 125–149. MR1450811
+
+

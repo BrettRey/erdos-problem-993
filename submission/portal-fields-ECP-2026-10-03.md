@@ -14,7 +14,7 @@
 - [x] Pre-submission checklist path: `runs/pb-submission-gate-20261003/` (referee read, revision verifier, cold reads) and DECISIONS 2026-10-03
 - [x] Paper assurance record path: `paper/poisson_binomial/CERTIFICATE.md` (inside the supplement)
 - [x] Canonical source file: `paper/poisson_binomial/variance-scaled-turan-first-descent.tex`
-- [ ] Canonical PDF: `paper/poisson_binomial/variance-scaled-turan-first-descent.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 has SHA-256 `0b207438fc2767f1b91e3efc084966e29099d7d10d5380d3e55e7dbe543e535d`, 11 pages, and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
+- [ ] Canonical PDF: `paper/poisson_binomial/variance-scaled-turan-first-descent.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (second revision) has SHA-256 `0d17c6cc01e99f111599a045757605a5798c90f4beeb2b9df4920dae8b2b8781`, 12 pages, and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
 - [ ] Account the submission is made under: Brett's EJMS account (not yet created)
 - [x] Decision owner: Brett Reynolds
 - [x] Assisting agent/model: Claude Code (Opus 5.5)
@@ -28,7 +28,7 @@
 | Section / category | none known | | |
 | Review model | single-anonymized at the public-instruction level (no double-anonymous requirement found); recheck on login | | venue record |
 
-Page count of the canonical PDF: 11 (`pdfinfo`, 2026-10-03).
+Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2026-10-03).
 
 ## 2. Title, abstract, keywords
 
@@ -46,22 +46,22 @@ Page count of the canonical PDF: 11 (`pdfinfo`, 2026-10-03).
 
 **Abstract.** Plain text with LaTeX math, as EJMS accepts TeX in the abstract box; confirm on login.
 
-> Let $W$ be a finite sum of independent Bernoulli summands with probability mass function (pmf) $f=(f_k)$, where $f_k=\mathbb{P}(W=k)$, and variance $V=\operatorname{Var}(W)\geq1$. If $D$ is the first-descent index of this pmf (the least $k$ with $f_k<f_{k-1}$), we prove $V(1-f_{D-1}f_{D+1}/f_D^2)\geq1/4$. The bracket is the normalized slack in the log-concavity (Turán) inequality $f_D^2\geq f_{D-1}f_{D+1}$. Consequently $f_{D+r}/f_D\leq\exp(-r/(4V))$ for every support index $D+r$ with $r\geq1$. An explicit family of binomial laws shows that no universal constant larger than $1/3$ is possible. The proof uses cubic inequalities of Hillion and Johnson to bound the masses near the mode from below, turns these bounds into a lower bound on $V$, and closes with a maximal-mass bound of Bobkov, Marsiglietti, and Melbourne. The resulting one-variable inequality is proved in exact arithmetic by Bernstein expansions.
+> Let $W$ be a finite sum of independent Bernoulli variables with probability mass function $f$ and variance $V\geq1$, and let $D$ be the first index at which $f$ decreases. The normalized Turán deficit $\delta_k=1-f_{k-1}f_{k+1}/f_k^2$ is a bounded transform of the discrete curvature of $\log f$ at $k$, and for a normal density of variance $V$ that curvature is $1/V$. We prove $V\delta_D\geq1/4$, and an explicit family of binomial laws shows that no constant above $1/3$ is possible, so the best constant lies between $1/4$ and $1/3$. Cubic inequalities of Hillion and Johnson then give $\delta_k\geq1/(4V+|k-D|)$ at every $k$ in the support, and at the rightmost mode $c$ we have $1/(4V+1)\leq\delta_c<2/V$. Ultra-log-concavity alone gives no such bound. For the number of eigenvalues of an $N\times N$ Haar unitary matrix in a half circle, the bound at $D$ is of order $1/\log N$, against order $1/N$ from ultra-log-concavity. The proof combines the cubic inequalities with a maximal-mass bound of Bobkov, Marsiglietti, and Melbourne to reduce the main inequality to a one-variable inequality, which is proved in exact arithmetic by Bernstein expansions.
 
-- Source: `variance-scaled-turan-first-descent.tex` `\ABSTRACT{...}`; the displayed formula is inlined here.
+- Source: `variance-scaled-turan-first-descent.tex` `\ABSTRACT{...}` (no displayed formula in the current abstract).
 - [ ] Recheck word for word against `pdftotext -f 1 -l 1 variance-scaled-turan-first-descent.pdf` at the final build.
 
 **Keywords**
 
-> Poisson–binomial law; Bernoulli sum; probability mass function; log-concavity; Turán inequality; modal index; computer-assisted proof
+> Poisson–binomial law; Bernoulli sum; log-concavity; Turán inequality; ultra-log-concavity; modal index; random unitary matrix; computer-assisted proof
 
-- Source: `variance-scaled-turan-first-descent.tex:15–16`, semicolon-separated as in the class
+- Source: `variance-scaled-turan-first-descent.tex:15–17`, semicolon-separated as in the class
 
 **MSC2020**
 
 > Primary 60E15; Secondary 60C05, 05A20
 
-- Source: `variance-scaled-turan-first-descent.tex:18–19`
+- Source: `variance-scaled-turan-first-descent.tex:19–20`
 
 ## 3. Authors
 
@@ -78,7 +78,7 @@ Page count of the canonical PDF: 11 (`pdfinfo`, 2026-10-03).
 |---|---|---|---|
 | `paper/poisson_binomial/variance-scaled-turan-first-descent.pdf` | manuscript PDF | yes | final build after the DOI insert |
 | `paper/poisson_binomial/variance-scaled-turan-first-descent.tex` + `ejpecp.cls` + bbl inlined | source files (supplementary or at acceptance) | per portal | the ECP sample asks for the bibliography inside the document (`sample.tex` L439–442); inline `variance-scaled-turan-first-descent.bbl` in the source bundle |
-| `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip` | supplementary material | yes | SHA-256 `69dc523b…17af` (2026-10-03 build); same file as the Zenodo deposit |
+| `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip` | supplementary material | yes | SHA-256 `fe9e116e…2a16` (2026-10-03 second-revision build); same file as the Zenodo deposit |
 | `submission/cover-letter-ECP-2026-10-03.md` | cover letter / comments to editor | no | |
 
 - [ ] The uploaded PDF hash matches the final build recorded above.

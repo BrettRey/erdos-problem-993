@@ -12,29 +12,30 @@
     \EMAIL{brett.reynolds@humber.ca}}%
   \orcid{0000-0003-2407-9448}}
 
-\KEYWORDS{Poisson--binomial law; Bernoulli sum; probability mass function;
-  log-concavity; Tur\'an inequality; modal index; computer-assisted proof}
+\KEYWORDS{Poisson--binomial law; Bernoulli sum; log-concavity; Tur\'an
+  inequality; ultra-log-concavity; modal index; random unitary matrix;
+  computer-assisted proof}
 
 \AMSSUBJ{60E15}
 \AMSSUBJSECONDARY{60C05; 05A20}
 
-\ABSTRACT{Let $W$ be a finite sum of independent Bernoulli summands with
-  probability mass function (pmf) $f=(f_k)$, where
-  $f_k=\mathbb{P}(W=k)$, and variance
-  $V=\operatorname{Var}(W)\geq1$. If $D$ is the first-descent index of this
-  pmf (the least $k$ with $f_k<f_{k-1}$), we prove
-  \[
-    V\left(1-\frac{f_{D-1}f_{D+1}}{f_D^2}\right)\geq\frac14.
-  \]
-  The bracket is the normalized slack in the log-concavity (Tur\'an)
-  inequality $f_D^2\geq f_{D-1}f_{D+1}$. Consequently
-  $f_{D+r}/f_D\leq\exp(-r/(4V))$ for every support index $D+r$ with
-  $r\geq1$. An explicit family of binomial laws shows that no universal
-  constant larger than $1/3$ is possible. The proof uses cubic inequalities of
-  Hillion and Johnson to bound the masses near the mode from below, turns these
-  bounds into a lower bound on $V$, and closes with a maximal-mass bound of
-  Bobkov, Marsiglietti, and Melbourne. The resulting one-variable inequality is
-  proved in exact arithmetic by Bernstein expansions.}
+\ABSTRACT{Let $W$ be a finite sum of independent Bernoulli variables with
+  probability mass function $f$ and variance $V\geq1$, and let $D$ be the
+  first index at which $f$ decreases. The normalized Tur\'an deficit
+  $\delta_k=1-f_{k-1}f_{k+1}/f_k^2$ is a bounded transform of the discrete
+  curvature of $\log f$ at $k$, and for a normal density of variance $V$ that
+  curvature is $1/V$. We prove
+  $V\delta_D\geq1/4$, and an explicit family of binomial laws shows that no
+  constant above $1/3$ is possible, so the best constant lies between $1/4$
+  and $1/3$. Cubic inequalities of Hillion and Johnson
+  then give $\delta_k\geq1/(4V+|k-D|)$ at every $k$ in the support, and at the
+  rightmost mode $c$ we have $1/(4V+1)\leq\delta_c<2/V$. Ultra-log-concavity
+  alone gives no such bound. For the number of eigenvalues of an $N\times N$
+  Haar unitary matrix in a half circle, the bound at $D$ is of order
+  $1/\log N$, against order $1/N$ from ultra-log-concavity. The proof combines
+  the cubic inequalities with a maximal-mass bound of Bobkov, Marsiglietti, and
+  Melbourne to reduce the main inequality to a one-variable inequality, which
+  is proved in exact arithmetic by Bernstein expansions.}
 
 \hypersetup{
   pdftitle={A variance-scaled Turan inequality at the first descent of a
@@ -79,38 +80,47 @@ Tur\'an deficit
 \end{equation}
 We have $0\leq\delta_k\leq1$ and $\delta_0=\delta_n=1$.
 
-Let
+At an index with
+$f_{k-1}f_{k+1}>0$,
+\[
+  \delta_k=1-e^{-\mathcal C_k},
+  \qquad
+  \mathcal C_k:=2\log f_k-\log f_{k-1}-\log f_{k+1},
+\]
+so $\delta_k$ is a bounded transform of the discrete curvature of $\log f$
+at $k$. For a normal density of variance $V$, the corresponding curvature is
+$1/V$ at every point, which suggests $1/V$ as the natural scale for
+$\delta_k$ near the mode. Since $\delta_k$ depends on three adjacent masses
+and $V$ on the whole law, we ask whether this scale holds without
+approximation for every Bernoulli sum: does the variance alone force
+$\delta_k\geq\kappa/V$ near the mode for a universal $\kappa>0$?
+
+The number of summands is the wrong scale for this question. Summands with
+$p_i$ near $0$ or $1$ increase $n$ but add little to $V$. The lower bounds on
+$\delta_k$ that we know of are not variance-scaled. They depend on $n$, such
+as the ultra-log-concavity bound recorded by Hillion and Johnson
+\cite{hillionjohnson2016}; on the success probabilities, such as a bound of
+Johnson \cite{johnson2017discrete}; or on $k$ alone, such as the bound
+$\delta_k>1/(k+1)$ that follows from the strict decrease of
+$(k+1)f_{k+1}/f_k$ proved by D\"umbgen and Wellner
+\cite[Proposition~2]{duembgenwellner2020}. All three degenerate near the mode when
+summands with $p_i$ near $0$ and summands with $p_i$ near $1$ accumulate at
+fixed variance (see the discussion after Proposition~\ref{prop:ulc}).
+Darroch's theorem that every mode lies at distance less than one from the
+mean \cite{darroch1964}, Pitman's bounds on adjacent mass ratios through
+exponentially tilted laws \cite[equations~(20)--(21)]{pitman1997}, and the
+maximal-mass bounds of
+\cite{bailloncominettivaisman2016,bobkovmarsigliettimelbourne2022} locate the
+mode, or bound mass ratios and maximal masses, but by themselves give no lower
+bound on $\delta_k$.
+
+We state the bound at the first index where $f$ decreases,
 \begin{equation}\label{eq:first-descent}
   D:=\min\{1\leq k\leq n:f_k<f_{k-1}\}.
 \end{equation}
-When $V\geq1$ this set is nonempty (Section~\ref{sec:reduction}), and by
-log-concavity $c:=D-1$ is the rightmost modal index.
-
-Ordinary log-concavity gives only $\delta_D\geq0$. The lower bounds on
-$\delta_k$ that we know of depend on $n$, like the ultra-log-concavity bound recorded by
-Hillion and Johnson \cite{hillionjohnson2016}, or with the success
-probabilities, like a bound of Johnson \cite{johnson2017discrete}. Both
-degenerate when summands with $p_i$ near $0$ and summands with $p_i$ near $1$,
-which add little to $V$, accumulate at fixed variance (see the discussion
-after Corollary~\ref{cor:tail}). Darroch's theorem that a modal index lies
-within one unit of the mean \cite{darroch1964}, Pitman's bounds on adjacent
-mass ratios through exponentially tilted laws
-\cite[equations~(20)--(21)]{pitman1997}, the strict decrease of
-$(k+1)f_{k+1}/f_k$ proved by D\"umbgen and Wellner
-\cite[Proposition~2]{duembgenwellner2020}, and the maximal-mass bounds of
-\cite{bailloncominettivaisman2016,bobkovmarsigliettimelbourne2022} locate the
-mode or bound ratios and masses, but do not control $\delta_k$.
-
-We ask whether $V\delta_D$ is bounded below; the answer is yes once $V\geq1$.
-By Corollary~\ref{cor:tail}, such a bound gives a relative drop of at least
-$1/(4V)$ from $f_D$ to $f_{D+1}$ and geometric decay beyond, and the remark
-after its proof gives $V\delta_c\geq1/5$ at the rightmost modal index itself.
-Because a polynomial with nonnegative coefficients and only real zeros is,
-after normalization, the generating function of a Bernoulli sum
-\cite[Proposition~1]{pitman1997},
-these conclusions also apply to the coefficient sequences of such
-polynomials, for example rows of the Stirling and Eulerian arrays, whenever
-the associated law has variance at least one.
+When $V\geq1$, this set is nonempty and $2\leq D\leq n$
+(Section~\ref{sec:reduction}), and, by log-concavity, $c:=D-1$ is the
+rightmost modal index.
 
 \begin{theorem}\label{thm:main}
   Under the standing notation above, suppose $V\geq1$ and let $D$ be defined
@@ -122,8 +132,7 @@ the associated law has variance at least one.
   \end{equation}
 \end{theorem}
 
-A positive universal bound without a lower variance threshold is impossible.
-If $W\sim\Ber(p)$ with $0<p<1/2$, then $D=1$, $\delta_D=1$, and
+Without some lower bound on $V$, no positive constant is possible. If $W\sim\Ber(p)$ with $0<p<1/2$, then $D=1$, $\delta_D=1$, and
 $V\delta_D=p(1-p)\to0$ as $p\downarrow0$.
 
 Let $\kappa_\star$ denote the infimum of $V\delta_D$ over all finite
@@ -155,8 +164,8 @@ from each law's pmf as above. The theorem and the next proposition give
   \]
   Since $p_n(1-p_n)=1/n$, we have $p_n>1/n$, so $q_1=np_n/(1-p_n)>1$.
   Both $p_n$, the smaller root of $x(1-x)=1/n$, and $2/(n+1)$ lie in
-  $(0,1/2)$, where $x\mapsto x(1-x)$ is increasing. For $n\geq5$ we have $n^2-4n-1>0$,
-  which is equivalent to
+  $(0,1/2)$, where $x\mapsto x(1-x)$ is increasing. For $n\geq5$ we have
+  $n^2-4n-1>0$, which is equivalent to
   \[
     \frac{2}{n+1}\left(1-\frac{2}{n+1}\right)
     =\frac{2(n-1)}{(n+1)^2}>\frac1n,
@@ -169,82 +178,76 @@ from each law's pmf as above. The theorem and the next proposition give
   \]
 \end{proof}
 
-The lower-bound proof combines inequalities that need not be tight
-simultaneously (the mass bounds of Section~\ref{sec:propagation}, the
-maximal-mass bound of Section~\ref{sec:variance}, and a symmetrization step
-in Section~\ref{sec:scalar}), and we do not know which, if either, endpoint
-of \eqref{eq:constant-bracket} equals $\kappa_\star$.
+We do not know which, if either, endpoint of \eqref{eq:constant-bracket}
+equals $\kappa_\star$.
 
-Theorem~\ref{thm:main} also bounds the adjacent-ratio drop
-$1-f_{D+1}/f_D$; log-concavity then bounds $f_{D+r}/f_D$ at every support
-index $D+r>D$. Complementation (replacing each summand $Y_j$ of a Bernoulli
-sum by $1-Y_j$) followed by translation extends these conclusions to
-differences of independent Bernoulli sums.
+Cubic inequalities of Hillion and Johnson \cite{hillionjohnson2016} for
+Bernoulli sums imply that $1/\delta_k$ changes by at most one per lattice step
+(Section~\ref{sec:propagation}), so the bound at $D$ extends across the whole
+support.
 
-\begin{corollary}\label{cor:tail}
-  Under the hypotheses of Theorem~\ref{thm:main},
+\begin{corollary}\label{cor:support}
+  Under the hypotheses of Theorem~\ref{thm:main}, for $0\leq k\leq n$,
+  \begin{equation}\label{eq:support-bound}
+    \delta_k\geq\frac1{4V+|k-D|}\geq\frac1{4V+|k-\mathbb EW|+2},
+  \end{equation}
+  and
   \begin{equation}\label{eq:adjacent-ratio-drop}
     V\left(1-\frac{f_{D+1}}{f_D}\right)\geq\frac14.
   \end{equation}
-  Writing $\rho_V=1-(4V)^{-1}$, we also have
-  \begin{equation}\label{eq:right-tail-decay}
-    \frac{f_{D+r}}{f_D}
-    \leq\rho_V^r
-    \leq\exp\left(-\frac{r}{4V}\right),
-    \qquad 1\leq r\leq n-D.
-  \end{equation}
-  More generally, let $X$ and $Y$ be finite Bernoulli sums, with all summands
-  in the two sums mutually independent, and put $Z=X-Y$. Write $g=(g_j)$ for
-  the pmf of $Z$, so $g_j=\Pp(Z=j)$, and assume $V_Z=\Var(Z)\geq1$. Define
-  $d:=\min\{j\in\mathbb Z:g_j>0\text{ and }g_j<g_{j-1}\}$. Then
-  \[
-    V_Z\left(1-\frac{g_{d-1}g_{d+1}}{g_d^2}\right)\geq\frac14,
-    \qquad
-    V_Z\left(1-\frac{g_{d+1}}{g_d}\right)\geq\frac14.
-  \]
-  With $j^*=\max\{j:g_j>0\}$ and $\rho_Z=1-(4V_Z)^{-1}$, we also have
-  \[
-    \frac{g_{d+r}}{g_d}
-    \leq\rho_Z^r
-    \leq\exp\left(-\frac{r}{4V_Z}\right),
-    \qquad 1\leq r\leq j^*-d.
-  \]
 \end{corollary}
 
 \begin{proof}
-  Write $\eta_-=f_D/f_{D-1}<1$ and $\eta_+=f_{D+1}/f_D$. Then
-  \[
-    1-\eta_+\geq1-\frac{\eta_+}{\eta_-}=\delta_D,
-  \]
-  proving \eqref{eq:adjacent-ratio-drop}. Log-concavity makes the adjacent
-  mass ratios nonincreasing. Hence, for $1\leq j\leq r$,
-  \[
-    \frac{f_{D+j}}{f_{D+j-1}}
-    \leq\frac{f_{D+1}}{f_D}\leq\rho_V.
-  \]
-  Multiplication gives the first inequality in
-  \eqref{eq:right-tail-decay}, and $1-x\leq e^{-x}$ gives the second.
-
-  Write $Y=\sum_{j=1}^{n_Y}Y_j$. Then
-  \[
-    Z+n_Y=X+\sum_{j=1}^{n_Y}(1-Y_j)
-  \]
-  is a finite Bernoulli sum, so $d$ is well defined. Translation preserves the
-  variance and the corresponding adjacent mass ratios and normalized Tur\'an
-  deficits while shifting the first-descent index, so Theorem~\ref{thm:main}
-  and the argument above give the three estimates for $Z$.
+  By the reciprocal bound \eqref{eq:reciprocal} of
+  Section~\ref{sec:propagation} and Theorem~\ref{thm:main},
+  $1/\delta_k\leq1/\delta_D+|k-D|\leq4V+|k-D|$. Darroch's theorem gives
+  $|c-\mathbb EW|<1$, so $|D-\mathbb EW|<2$, which gives the second
+  inequality. For \eqref{eq:adjacent-ratio-drop}, write
+  $\eta_-=f_D/f_{D-1}<1$ and $\eta_+=f_{D+1}/f_D$; then
+  $1-\eta_+\geq1-\eta_+/\eta_-=\delta_D$.
 \end{proof}
 
-The bound also transfers to the rightmost modal index $c=D-1$. If $D=1$, then
-$\delta_c=\delta_0=1$. If $D\geq2$, the second inequality in
-\eqref{eq:deficit-recurrence} below, at $k=D-1$, gives
-$\delta_{D-1}\geq\delta_D/(1+\delta_D)$. Hence $V\delta_c\geq1/5$, by
-\eqref{eq:main-bound} when $\delta_D<1/4$ and by $V\geq1$ otherwise.
+On a window $|k-\mathbb EW|\leq\alpha\sqrt V$, the bound
+\eqref{eq:support-bound} stays on the $1/V$ scale for fixed $\alpha$.
+Section~\ref{sec:reduction} extends Theorem~\ref{thm:main} and
+Corollary~\ref{cor:support} to differences of independent Bernoulli sums.
 
-The tail bound \eqref{eq:right-tail-decay} cannot be obtained from the
-standard lower bound on $\delta_k$. Poisson--binomial pmfs are
-ultra-log-concave of order $n$, written $\operatorname{ULC}(n)$: the sequence
-$f_k/\binom nk$ is log-concave. This gives
+At the mode, $\delta_c$ is within constant factors of $1/V$.
+
+\begin{proposition}\label{prop:mode}
+  If $V\geq1$, then
+  \[
+    \frac1{4V+1}\leq\delta_c<\frac2V.
+  \]
+\end{proposition}
+
+\begin{proof}
+  The lower bound is \eqref{eq:support-bound} with $k=c$. For
+  $t\in\mathbb R$, let $f^{(t)}_k=e^{tk}f_k/\sum_je^{tj}f_j$, the pmf of the Bernoulli sum
+  with parameters $p_ie^t/(1-p_i+p_ie^t)$, and write $\mu(t)$ and $V(t)$ for
+  its mean and variance, so $\mu'(t)=V(t)$. The tilted variance of a summand
+  is $p_i(1-p_i)e^t/(1-p_i+p_ie^t)^2\geq e^{-|t|}p_i(1-p_i)$, so
+  $V(t)\geq e^{-|t|}V$. Since $2\leq D\leq n$, the ratios $q_c=f_c/f_{c-1}\geq1$
+  and $q_{c+1}=f_{c+1}/f_c<1$ are defined; put $t_-=-\log q_c\leq0$ and
+  $t_+=-\log q_{c+1}>0$. The pmf is strictly log-concave (by \eqref{eq:ulc}
+  below), so $f^{(t_-)}$ has exactly the two modes $c-1$ and $c$, and
+  $f^{(t_+)}$ exactly the two modes $c$ and $c+1$. By Darroch's theorem
+  \cite{darroch1964}, applied to these tilted laws (which are Bernoulli sums),
+  $\mu(t_-)\in(c-1,c)$ and $\mu(t_+)\in(c,c+1)$. Hence
+  \[
+    2>\mu(t_+)-\mu(t_-)=\int_{t_-}^{t_+}V(t)\,dt\geq V(2-e^{t_-}-e^{-t_+})
+    =V\Bigl(2-\frac1{q_c}-q_{c+1}\Bigr)\geq V\Bigl(1-\frac{q_{c+1}}{q_c}\Bigr),
+  \]
+  where the last step uses $(1-1/q_c)(1-q_{c+1})\geq0$, and
+  $1-q_{c+1}/q_c=\delta_c$.
+\end{proof}
+
+The upper bound is elementary. With the lower bound it gives
+$1/5\leq V\delta_c<2$.
+
+A pmf $(f_k)_{k=0}^n$ is ultra-log-concave of order $n$, written
+$\operatorname{ULC}(n)$, if $f_k/\binom nk$ is log-concave in $k$.
+Poisson--binomial pmfs are $\operatorname{ULC}(n)$, and this gives
 \begin{equation}\label{eq:ulc}
   \delta_k\geq
   \frac{n+1}{(k+1)(n-k+1)};
@@ -252,53 +255,124 @@ $f_k/\binom nk$ is log-concave. This gives
 see \cite[Definition~3.11 and equation~(41)]{hillionjohnson2016} and, for a
 recent treatment via relative log-concavity,
 \cite[the discussion following Definition~1.3]{marsigliettimelbourne2026}.
-For example, take $m$ success probabilities equal to $\varepsilon_m$ and $m$
-equal to $1-\varepsilon_m$, where $2m\varepsilon_m(1-\varepsilon_m)=1$. The
-law has $V=1$, and its pmf is symmetric about $m$ and strictly log-concave,
-so $f_m>f_{m+1}$ and $D=m+1$. The right-hand side of \eqref{eq:ulc} at $D$
-is
-\[
-  \frac{2m+1}{m(m+2)}\longrightarrow0,
-\]
-whereas Theorem~\ref{thm:main} gives $\delta_D\geq1/4$ for this family.
+No variance-scaled bound holds for $\operatorname{ULC}$ laws in general.
 
-Johnson's bound reads
+\begin{proposition}\label{prop:ulc}
+  For $m\geq1$, let $g=g^{(m)}$ be the pmf on $\{0,\ldots,2m\}$ with
+  $g_{m+j}\propto\binom{2m}{m+j}2^{-|j|}$. Then $g$ is
+  $\operatorname{ULC}(2m)$ and strictly log-concave, its first-descent index
+  is $m+1$, its deficit there is $(2m+1)/(m(m+2))$, and its variance $V_m$
+  tends to $4$. Hence $V_m\delta_{m+1}\to0$.
+\end{proposition}
+
+\begin{proof}
+  The ratio $g_{m+j}/\binom{2m}{m+j}\propto2^{-|j|}$ is log-concave, and the
+  product of the strictly log-concave binomial row with it is strictly
+  log-concave. The pmf is symmetric about $m$, so $m$ is its unique mode and
+  $m+1$ its first descent. There the geometric factors cancel:
+  $\delta_{m+1}=1-\binom{2m}{m}\binom{2m}{m+2}\binom{2m}{m+1}^{-2}
+  =(2m+1)/(m(m+2))$. Finally, $\binom{2m}{m+j}/\binom{2m}{m}$ increases to
+  $1$ as $m\to\infty$, for each fixed $j$. The mean is $m$ by symmetry, so by dominated
+  convergence with the envelope $(1+j^2)2^{-|j|}$ the variance converges to
+  that of the law on $\mathbb Z$ proportional to $2^{-|j|}$, which is $4$.
+\end{proof}
+
+The law $g^{(m)}$ has $1/\delta_m\leq4/3$ while $1/\delta_{m+1}\to\infty$: a
+ULC law can change curvature abruptly at the mode, which the reciprocal bound
+\eqref{eq:reciprocal} forbids for Bernoulli sums.
+
+The bound \eqref{eq:ulc} also degenerates for Bernoulli sums themselves. For
+$m\geq2$, take
+$m$ success probabilities equal to $\varepsilon_m$ and $m$ equal to
+$1-\varepsilon_m$, where $\varepsilon_m\leq1/2$ solves
+$2m\varepsilon_m(1-\varepsilon_m)=1$. The law has
+$V=1$, its pmf is symmetric about $m$ and strictly log-concave, so $D=m+1$,
+and the right-hand side of \eqref{eq:ulc} at $D$ is again
+$(2m+1)/(m(m+2))\to0$, whereas Theorem~\ref{thm:main} gives
+$\delta_D\geq1/4$. Johnson's bound reads
 \[
   \delta_k\geq \frac{f_{k+1}}{f_k}
   \left(\sum_i\frac{p_i}{1-p_i}\right)^{-1};
 \]
 see \cite[Definition~1.2, Lemma~5.1, and
-Example~5.2(2)]{johnson2017discrete}. In the variance-one symmetric family
-above, the reciprocal of the odds sum tends to zero. At the first-descent
-index, the adjacent mass ratio is at most one, so the right-hand side of
-Johnson's bound also tends to zero. Pitman's ratio bound
-\cite[equation~(21)]{pitman1997} gives $f_{D+1}/f_D<1/\theta(D)$, where
-$\theta(D)$ is the tilt under which the tilted law has mean $D$. This bound
-tends to one as $D-\mathbb EW\downarrow0$, which happens for
-$\operatorname{Bin}(n,p)$ with $np=k+1-\varepsilon$, $p<\varepsilon$, and
-$\varepsilon\downarrow0$: there $D=k+1$.
+Example~5.2(2)]{johnson2017discrete}. In the same family the reciprocal of
+the odds sum tends to zero, and $f_{D+1}/f_D\leq1$, so this bound also tends
+to zero; so does $1/(D+1)=1/(m+2)$.
 
-We are not aware of an earlier universal constant $\kappa>0$ for which
-$V\delta_D\geq\kappa$ at the first-descent index of the pmf of every finite
-Poisson--binomial law with $V\geq1$.
+Pitman's ratio bound \cite[equation~(21)]{pitman1997}, with the tilted
+variance $V(t)\leq e^tV$ for $t\geq0$ (notation as in the proof of
+Proposition~\ref{prop:mode}), gives $f_{k+1}/f_k<V/(V+k-\mathbb EW)$ for
+integers $\mathbb EW<k<n$: there $f_{k+1}/f_k<e^{-t_k}$, where $\mu(t_k)=k$,
+and $k-\mathbb EW=\int_0^{t_k}V(t)\,dt\leq V(e^{t_k}-1)$. This is stronger than
+\eqref{eq:support-bound} far from the mean, but it tends to one at $k=D$ when
+$D-\mathbb EW\downarrow0$, as for $\operatorname{Bin}(n,p)$ with
+$np=\ell+1-\varepsilon$ for an integer $\ell\geq1$ and $p<\varepsilon$, where
+$D=\ell+1$. By contrast, \eqref{eq:adjacent-ratio-drop} gives
+$f_{D+1}/f_D\leq1-1/(4V)$ for every Bernoulli sum with $V\geq1$.
 
-The proof runs as follows. The cubic inequalities of Hillion and Johnson for
-Bernoulli sums give a recurrence showing that a small value of
-$\delta=\delta_D$ forces small values nearby:
-$\delta_{D\pm r}\leq\delta/(1-r\delta)$. The masses at distance up to about
+A polynomial with nonnegative coefficients and only real zeros is, after
+normalization, the generating function of a Bernoulli sum
+\cite[Proposition~1]{pitman1997}, so Theorem~\ref{thm:main} and its
+consequences apply to the coefficient sequences of such polynomials, for
+example rows of the Stirling and Eulerian arrays, whenever the associated
+law has variance at least one. Determinantal point processes supply
+Bernoulli sums in which $V$ and $n$ differ in order.
+
+\begin{example}\label{ex:cue}
+  Let $X_N$ count the eigenvalues of an $N\times N$ Haar unitary matrix in
+  the open upper half of the unit circle, with $N$ even. Meckes and Meckes
+  \cite[Proposition~3(1)]{meckesmeckes2017} show that $X_N$ is a sum of $N$
+  independent Bernoulli variables. By the theorem of Hough, Krishnapur, Peres,
+  and Vir\'ag on which this rests \cite[Theorem~7]{houghkrishnapurperesvirag2006},
+  the parameters are the eigenvalues of the kernel of the eigenvalue process,
+  a projection of rank $N$, compressed to the half circle; in the basis
+  $e^{ij\phi}$, $0\leq j<N$, this is the matrix $\Gamma$ with entries
+  $\Gamma_{jk}=(2\pi)^{-1}\int_0^\pi e^{i(j-k)\phi}\,d\phi$. Both
+  $\Gamma$ and $I-\Gamma$ are Gram matrices of linearly independent functions
+  on a half circle, so all $N$ parameters lie in $(0,1)$. Hence
+  $V_N=\operatorname{tr}\Gamma-\operatorname{tr}\Gamma^2$, and since
+  $|\Gamma_{jk}|^2=\pi^{-2}(j-k)^{-2}$ for odd $j-k$ and $\Gamma_{jk}=0$ for
+  even $j-k\neq0$,
+  \[
+    V_N=\frac N4-\frac2{\pi^2}\sum_{\substack{1\leq d<N\\ d\text{ odd}}}
+    \frac{N-d}{d^2}
+    =\frac2{\pi^2}\sum_{d\text{ odd}}\frac{\min(d,N)}{d^2}
+    =\frac{\log N+\gamma+\log2+1}{\pi^2}+O(N^{-2}),
+  \]
+  using $\sum_{d\text{ odd}}d^{-2}=\pi^2/8$; here $\gamma$ is Euler's
+  constant. Rotation by $\pi$ shows that
+  $X_N$ and $N-X_N$ have the same law, so $c=N/2$ and $D=N/2+1$. The middle
+  form shows that $V_N$ increases with $N$; among even $N$ it first reaches
+  $1$ at $N=1998$. For even $N\geq1998$, Theorem~\ref{thm:main} gives
+  $\delta_D\geq1/(4V_N)\sim\pi^2/(4\log N)$, whereas \eqref{eq:ulc} gives
+  only $(N+1)/((N/2+2)N/2)\sim4/N$. At $N=10^4$ these are about $0.215$ and
+  $0.0004$.
+\end{example}
+
+We are not aware of an earlier proof that $\kappa_\star>0$.
+
+The proof of Theorem~\ref{thm:main} runs as follows. The reciprocal bound
+\eqref{eq:reciprocal} shows that a small value of $\delta=\delta_D$ forces
+small values nearby:
+$\delta_{D\pm r}\leq\delta/(1-r\delta)$ while $(r+1)\delta<1$. The masses at distance up to about
 $1/\delta$ from the mode are therefore bounded below by explicit multiples of
 the maximal mass $M$ (Section~\ref{sec:propagation}). Summed in the pairwise
 variance identity, these bounds give $V\geq M^2A(\delta)$ for an explicit
 function $A$, while a maximal-mass bound of Bobkov, Marsiglietti, and
 Melbourne gives $M^2\geq(1+12V)^{-1}$. Together they reduce the theorem to
 the one-variable inequality $A(\delta)\geq(3+\delta)/(4\delta^2)$
-(Section~\ref{sec:variance}). Heuristically, the masses within distance
-about $\delta^{-1/2}$ of the mode are comparable to $M$, so $A(\delta)$ is
-of order $\delta^{-2}$, and the two bounds force $V$ to be of order at least
-$1/\delta$. Section~\ref{sec:scalar} proves the one-variable inequality in
-exact arithmetic by Bernstein expansions: with positive rational coefficients
-for $1/17\leq\delta<1/4$, and for $\delta\leq1/17$ with coefficients that are
-polynomials with positive coefficients in an integer parameter.
+(Section~\ref{sec:variance}).
+
+Heuristically, the masses within distance about $\delta^{-1/2}$ of the mode
+are comparable to $M$, so $A(\delta)$ is of order $\delta^{-2}$, and the two
+bounds force $V$ to be of order at least $1/\delta$.
+Section~\ref{sec:scalar} proves the one-variable inequality in exact
+arithmetic by Bernstein expansions: with positive rational coefficients for
+$1/22\leq\delta<1/4$, and for $\delta\leq1/22$ with coefficients that are
+polynomials in an integer parameter, all of whose coefficients are positive.
+Three steps can lose a constant: the mass bounds, the maximal-mass bound, and
+the symmetrization in Section~\ref{sec:scalar} that replaces each $R_r$ by
+$L_r$; they need not be tight simultaneously.
 
 \section{The recurrence for normalized Tur\'an deficits}
 \label{sec:propagation}
@@ -332,7 +406,15 @@ If $f_n\geq f_{n-1}$, then the sum on the right is at most one, whereas
   V=\sum_{i=1}^n p_i^2\frac{1-p_i}{p_i}
   <\sum_{i=1}^n\frac{1-p_i}{p_i}\leq1,
 \]
-a contradiction.
+a contradiction. If $f_1<f_0$, then by log-concavity $0$ is a mode, so
+$\mathbb EW<1$ by Darroch's theorem \cite{darroch1964} and
+$V\leq\sum_ip_i=\mathbb EW<1$. Hence $D\geq2$.
+
+If $W'=\sum_{j=1}^mB'_j$ is a Bernoulli sum independent of $W$, then
+$W-W'+m=W+\sum_{j}(1-B'_j)$ is a Bernoulli sum with the variance of $W-W'$,
+and its pmf is that of $W-W'$ translated by $m$. Hence
+Theorem~\ref{thm:main} and Corollary~\ref{cor:support} apply to $W-W'$, with
+$D$ the first descent of its pmf.
 
 \subsection{The recurrence}
 
@@ -372,8 +454,18 @@ $f_{k+1}f_k^2$ gives, for $1\leq k\leq n-1$, the recurrence
   \qquad
   \delta_{k+1}(1-\delta_k)\leq\delta_k.
 \end{equation}
+Every $\delta_k$ is positive by \eqref{eq:ulc}, so dividing the second
+inequality by $\delta_k\delta_{k+1}$ gives $1/\delta_{k+1}\geq1/\delta_k-1$,
+and the first gives the same with $k-1$ in place of $k+1$. The two
+inequalities not given by \eqref{eq:deficit-recurrence},
+$1/\delta_1-1/\delta_0\geq-1$ and $1/\delta_{n-1}-1/\delta_n\geq-1$, hold
+because $1/\delta_0=1/\delta_n=1\leq1/\delta_k$ for every $k$. Hence, for
+$0\leq j\leq n-1$,
+\begin{equation}\label{eq:reciprocal}
+  \left|\frac1{\delta_{j+1}}-\frac1{\delta_j}\right|\leq1.
+\end{equation}
 
-Set $\delta=\delta_D$. By \eqref{eq:ulc}, $\delta>0$. If $\delta\geq1/4$,
+Set $\delta=\delta_D$. If $\delta\geq1/4$,
 Theorem~\ref{thm:main} follows from $V\geq1$, so it remains to consider
 \begin{equation}\label{eq:small-delta}
   0<\delta<\frac14.
@@ -395,17 +487,13 @@ By \eqref{eq:small-delta}, $K\geq3$.
 \end{lemma}
 
 \begin{proof}
-  We induct on $r$. For $r=0$ the bound reads $\delta<1$; moreover $D\geq1$
-  by definition, and $D\neq n$ because $\delta_n=1>\delta$. Suppose the claim
-  holds for some $r<K$. Since $D\pm r\in\{1,\ldots,n-1\}$,
-  \eqref{eq:deficit-recurrence} at $k=D\pm r$ (its first inequality for the
-  minus sign, its second for the plus sign) gives
-  $\delta_{D\pm(r+1)}\leq\delta_{D\pm r}/(1-\delta_{D\pm r})$. The map
-  $x\mapsto x/(1-x)$ is increasing on $[0,1)$ and sends $\delta/(1-r\delta)$
-  to $\delta/(1-(r+1)\delta)$, which is less than one because
-  $(r+2)\delta\leq(K+1)\delta<1$. Thus $\delta_{D\pm(r+1)}<1$. The index
-  $D\pm(r+1)$ lies in $\{0,\ldots,n\}$, and it is not $0$ or $n$, where the
-  deficit equals one.
+  We induct on $r$. For $r=0$, we have $D\in\{1,\ldots,n-1\}$ because
+  $2\leq D\leq n$ and $\delta_n=1>\delta$, and \eqref{eq:deficit-bound} holds
+  with equality. Let $1\leq r\leq K$ and suppose
+  $D\pm(r-1)\in\{1,\ldots,n-1\}$. Then $D\pm r\in\{0,\ldots,n\}$, and $r$
+  applications of \eqref{eq:reciprocal} give $1/\delta_{D\pm r}\geq1/\delta-r>1$,
+  because $(r+1)\delta<1$. So $D\pm r$ is neither $0$ nor $n$, where the
+  deficit equals one, and inverting gives \eqref{eq:deficit-bound}.
 \end{proof}
 
 By Lemma~\ref{lem:propagation}, $D-K\geq1$ and $D+K\leq n-1$, so every index

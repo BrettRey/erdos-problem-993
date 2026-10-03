@@ -1,0 +1,8 @@
+{
+"problem": "To establish a universal lower bound for the variance-scaled Turán deficit at the first descent of a Poisson–binomial mass function, specifically proving that Vδ_D ≥ 1/4 for variance V ≥ 1.",
+"debate": "The literature on log-concavity and ultra-log-concavity of sums of independent Bernoulli variables, specifically regarding bounds on the discrete curvature of the probability mass function near the mode.",
+"gap": "Existing lower bounds on the Turán deficit depend on the number of summands n, specific success probabilities, or the index k, and thus degenerate or fail to provide a uniform variance-scaled bound when summands with extreme probabilities accumulate at fixed variance.",
+"contribution": "The paper proves the sharp inequality Vδ_D ≥ 1/4, demonstrates that the optimal constant lies between 1/4 and 1/3 via explicit binomial counterexamples, and extends this to bounds at all support points using cubic inequalities and computer-assisted verification.",
+"decision": "advance",
+"note": "The problem is well-defined, the gap is clearly articulated against existing literature, and the use of computer-assisted proof for the one-variable reduction is a legitimate methodological contribution for a short probability paper."
+}

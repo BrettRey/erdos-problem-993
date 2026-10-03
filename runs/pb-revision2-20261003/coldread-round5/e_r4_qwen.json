@@ -1,0 +1,8 @@
+{
+"problem": "To establish a universal lower bound for the normalized Turán deficit at the first descent of a Poisson–binomial mass function that depends only on the variance, rather than the number of summands or specific success probabilities.",
+"debate": "The literature on log-concavity and ultra-log-concavity of sums of independent Bernoulli variables, specifically the work of Hillion, Johnson, Darroch, Pitman, and Dümbgen on mode location and mass ratios.",
+"gap": "Existing lower bounds on the Turán deficit depend on the number of summands or specific success probabilities, which degenerate when summands with extreme probabilities accumulate at fixed variance, failing to provide a variance-only scale.",
+"contribution": "The paper proves that Vδ_D ≥ 1/4 for variance V ≥ 1, shows the constant 1/3 is optimal, and extends this to all support indices using cubic inequalities, with applications to random unitary matrices.",
+"decision": "advance",
+"note": "The problem is well-defined and the gap is clearly articulated, but the reliance on computer-assisted proof for the core one-variable inequality is a significant methodological hurdle that requires rigorous scrutiny."
+}

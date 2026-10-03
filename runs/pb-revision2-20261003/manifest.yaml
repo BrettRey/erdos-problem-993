@@ -1,0 +1,28 @@
+# Run manifest: PB paper second revision, 2026-10-03
+# Parent: Claude Code (Opus 5.5). Subagent reports saved verbatim by the parent.
+final_manuscript_sha256: e39efbfa93c621fbf16c1e790b5f814db3c5b174c46d47be2af73c7ae09a641e
+final_pdf_sha256: 0d17c6cc01e99f111599a045757605a5798c90f4beeb2b9df4920dae8b2b8781
+supplement_sha256: fe9e116e84be93bcb2806a9aaeba079b28bd47b82a8a838863168673dab22a16
+base_commit: 1afd663
+artifacts:
+  - INPUT_external_review.md: review pasted by Brett (apparently ChatGPT output); the input to this revision
+  - first_pass_claim_checks.py: first exact checks of the review's claims (superseded by scripts/verify_pb_corollaries_20261003.py)
+  - RETURN_math_verifier.md: Claude Opus responsibility-verifier, no shell; read the intermediate revision; same model family as the author (not independent)
+  - RETURN_prose_review.md: Claude Opus responsibility-reader; read the intermediate revision after the verifier's fixes
+  - coldread-round5/: intermediate opening; 4/4 advance, debate MISSING 1/4
+  - coldread-round6-final/: final opening; 4/4 advance, nothing MISSING (Sonnet, Opus, Haiku subagents; local qwen3.8:27b)
+output_sha256:
+  ./coldread-round5/e_r1_sonnet.json: 8832698503097818681bbb82b702b78f5d6b833ee95440ca3f2a7a6e03d560ec
+  ./coldread-round5/e_r2_opus.json: 88ace822f1b26810d2c5621e80a157dd0693ce44b84e7b6189671f0d09c1abb8
+  ./coldread-round5/e_r3_haiku.json: a649aad4c66887e0f41aad722a446173d0324574fc0c1318f33ec934f7c2b8b6
+  ./coldread-round5/e_r4_qwen.json: 630a2e9aa1c9bc4dc77ff61cab90c66393d212f0884575653cff3fb3264a754e
+  ./coldread-round5/prompt.txt: 83c1094bd56511ddc137e39cf1c6769379ce50dc4c6382a28b4b85085d3fa5bd
+  ./coldread-round6-final/f_r1_sonnet.json: f61120e1e5f51c1ce9a164b101f3d01b52e8629241475390f30d42747b579d44
+  ./coldread-round6-final/f_r2_opus.json: 512d35e3bb0f277ec97c233fca416a55cdb2704d55230f559aaed85ee7926f64
+  ./coldread-round6-final/f_r3_haiku.json: 8273aff25541752bc64afb1af2bb7dd4b5078c8ab1beb33de2b7630fd86438cb
+  ./coldread-round6-final/f_r4_qwen.json: f5476a47b09ba93e3537651e61f21cfad40e26f2c7812a925d7dcbdd097f82cb
+  ./coldread-round6-final/prompt.txt: da127e89a8cf88f9d90a0ea8c658eceaa0c8eb886242ec947c67dcfc833173b2
+  ./first_pass_claim_checks.py: cd2cc1102ef97f66c41d598d74f86e060fd589b9eff8cc3c8a35714510374b0f
+  ./INPUT_external_review.md: 44cddba09beeec7d76ae9b7f00e917f0fa46f8cd951594b6d6483e7b7881b9ee
+  ./RETURN_math_verifier.md: 494d29a9ecf1aab9a380cdeecf5a73e89018de88f3c7f0723ec3ec22d3f42f84
+  ./RETURN_prose_review.md: 2533b2982ad0bc4a4e8d4356ac43c7fc098288f4f14625743b1ff47509a3a24e

@@ -946,3 +946,24 @@ Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
 Assisting system: Claude Code (Opus 5.5).
 
 2026-10-03 — PB manuscript renamed `paper/poisson_binomial/main.tex` → `variance-scaled-turan-first-descent.tex` at Brett's instruction ("never use main.xxx. Give it a real name"). Bundle script, portal record, STATUS and the passes pin updated; gate still clear. Pre-DOI PDF SHA-256 is now `0b207438…535d` (the filename enters the PDF metadata).
+
+2026-10-03 (evening) — **PB paper, second revision: the external review's plan adopted** (decision owner: Brett: "push then proceed"). The input was a review Brett pasted, apparently ChatGPT output (`runs/pb-revision2-20261003/INPUT_external_review.md`). Its mathematics was treated as candidate material, and each claim was checked before use. Changes:
+- Section 1 is reframed around how tightly the variance constrains local log-concavity, with the Gaussian 1/V benchmark. The named prior bounds stay on pages 1–2, and the Dümbgen–Wellner bound δ_k > 1/(k+1) is now acknowledged.
+- **New Corollary 1.3:** δ_k ≥ 1/(4V+|k−D|) ≥ 1/(4V+|k−EW|+2) on the whole support, plus the immediate drop (1.6).
+- **New Proposition 1.4:** 1/(4V+1) ≤ δ_c < 2/V. The upper bound comes from tilting plus Darroch, as Pitman states the rule.
+- **New Proposition 1.5:** a ULC counterexample (no variance-scaled bound for ULC laws).
+- **New Example 1.6:** CUE half-circle count, citing Meckes–Meckes Prop. 3(1) and HKPV Thm 7, both read before citing. V_N comes from the Gram matrix and first reaches 1 at even N = 1998.
+- Pitman's tail bound is now credited for Gaussian-scale decay beyond the mean. The old geometric tail corollary and the 1/5 remark are gone, and the X−Y extension moved to §2.1.
+- §2 now states the reciprocal bound (2.5), and Lemma 2.1's proof uses it.
+- The real-rooted application sentence (Pitman Prop. 1) was restored before Example 1.6.
+- Title and filename are unchanged. The title question is still open with Brett.
+
+Verification:
+- `scripts/verify_pb_corollaries_20261003.py`: 1,839 exact laws, zero violations; the ULC family; D ≥ 2; CUE numbers.
+- An independent same-family verifier (`RETURN_math_verifier.md`) found no false step. It found four wording errors, all fixed: the J=5 split at δ = 1/22, the Dümbgen–Wellner overstatement, Pitman's k < n, and m ≥ 2. It also found attribution gaps in Example 1.6, now fixed.
+- A prose review (`RETURN_prose_review.md`) found notation clashes carried over from the review's own notation, now fixed. Its other fixes were applied.
+- Cold reads: round 6 on the final opening, 4/4 advance, nothing MISSING.
+- The supplement was rebuilt for the new equation numbers (CERTIFICATE now says (2.8) and (1.6)). It replays clean. The paper is 12 pages, with references only on the last page. The pass gate is clear.
+- **Open:** every hand-check of the written proofs so far is Claude-family. Brett is sending the paper to ChatGPT Pro, with `submission/external-check-brief-2026-10-03.md` as the brief.
+
+Assisting system: Claude Code (Opus 5.5).

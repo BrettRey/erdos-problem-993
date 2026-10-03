@@ -2,7 +2,7 @@
 
 This release candidate supports the computations in Proposition 3.1 of *A variance-scaled Turán inequality at the first descent of a Poisson–binomial mass function*. For 3 < H ≤ 16 it certifies the strict positivity of 275 exact Bernstein coefficients in thirteen cells. For H ≥ 16 a separate program checks, in exact arithmetic, every symbolic expansion printed in the manuscript's subsection "The range H ≥ 16". It does not machine-verify the probabilistic reduction or Theorem 1.1.
 
-The archive also contains the complete conditional Lean project described in the manuscript's supplement description. In the manuscript's numbering, that project formalizes Lemma 2.1 (the bound (2.7) and the endpoint exclusion), the bound q_D ≥ a, and the deduction of (1.5) from (1.3); its Lean names are `curvature_propagation`, `endpoint_exclusion`, `crossing_ratio_lower_bound`, `raw_drop_ge_effective`, and `raw_quarter_of_effective`. It assumes the recurrence (2.4) and does not formalize Proposition 3.1 or Theorem 1.1.
+The archive also contains the complete conditional Lean project described in the manuscript's supplement description. In the manuscript's numbering, that project formalizes Lemma 2.1 (the bound (2.8) and the endpoint exclusion), the bound q_D ≥ a, and the deduction of (1.6) from (1.3); its Lean names are `curvature_propagation`, `endpoint_exclusion`, `crossing_ratio_lower_bound`, `raw_drop_ge_effective`, and `raw_quarter_of_effective`. It assumes the recurrence (2.4) and does not formalize Proposition 3.1 or Theorem 1.1.
 
 ## Archive contents
 

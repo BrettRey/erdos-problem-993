@@ -15,7 +15,7 @@ venue: none
 external_id: '15526'
 preprints:
 - zenodo/19100781
-next_action: '#993 line dropped by Brett 2026-10-03 (no short-note rebuild of main_v2). Live work is the Poisson-binomial paper (paper/poisson_binomial/variance-scaled-turan-first-descent.tex) for Electronic Communications in Probability: revision pass done, gates rerun. Owed by Brett before submission: Zenodo upload of the rebuilt supplement (paper prints ZENODO-DOI-PENDING), EJMS account, ECP/IMS AI-policy check on submission day, decision to proceed without independent human audit. See DECISIONS 2026-10-03 (drop) and submission/portal-fields-ECP-*.md.'
+next_action: '#993 line dropped by Brett 2026-10-03 (no short-note rebuild of main_v2). Live work is the Poisson-binomial paper (paper/poisson_binomial/variance-scaled-turan-first-descent.tex) for Electronic Communications in Probability: second revision done (support-wide bound, modal two-sided bound, ULC counterexample, CUE example), gates clear, 12 pages. Next: Brett''s ChatGPT Pro cross-family check (brief: submission/external-check-brief-2026-10-03.md); title decision (current vs "Variance and local log-concavity of Poisson-binomial laws"). Owed by Brett before submission: Zenodo upload of the rebuilt supplement (paper prints ZENODO-DOI-PENDING), EJMS account, ECP/IMS AI-policy check on submission day, decision to proceed without independent human audit. See DECISIONS 2026-10-03 and submission/portal-fields-ECP-*.md.'
 notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-polynomial
 
   unimodality), not a linguistics paper -- flagging per the task''s "consider
