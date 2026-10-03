@@ -92,7 +92,34 @@ claim:
 ---
 
 # Erdos Problem #993 -- Independent Set Sequence Unimodality for Trees
-<!-- SUMMARY: Tree independence-sequence unimodality; manuscript declined by E-JC 2026-09-13 and parked; arXiv:2609.20961 proves #993 for forests above an unspecified N0 (Lean replayed 2026-09-25); email to its authors sent 2026-09-25 · status: parked · updated: 2026-09-25 -->
+<!-- SUMMARY: Tree independence-sequence unimodality; manuscript declined by E-JC 2026-09-13 and parked; arXiv:2609.20961 proves #993 for forests above an unspecified N0 (Lean replayed 2026-09-25); email to its authors sent 2026-09-25 · status: parked · updated: 2026-10-02 -->
+
+## 2026-10-02: arXiv watch repaired; 141 papers triaged
+
+Research is still parked. Nothing here changes the manuscript or queues work.
+
+- **The watch had a coverage hole.** Its 2-day submission-date window dropped
+  every paper submitted from Thursday 14:00 ET to early Sunday. arXiv
+  announces those on Sunday or Monday evening, by which time they are already
+  outside the window. The hole dates from the first run on 14 August, and
+  arXiv:2609.20961 (Fang et al.) was missed this way.
+- **Fixed** in Project-Management (`7330b34`, `84230a2`): a 5-day default,
+  pagination past 100 results, queueing for long backfills, and a weekly
+  45-day sweep for papers held in moderation. All three callers now use the
+  default: the LaunchAgent, and the SessionStart hook (edited by Brett).
+- **Backfill.** A 52-day replay found 58 missed papers.
+- **Triage.** 17 papers this week and a 124-paper backlog were read.
+  Relevant:
+  - Liu–Tang 2609.37553: a second Lorentzian edge-replacement tree family. The
+    exact replay found no LC failure for input trees with n <= 12.
+  - Zhang–Tu 2609.04694: spiders are stable. A certified check on all 66,272
+    spiders with n <= 35 passed.
+  - Vatter 2608.22147: a deferred method lead. A vertex order whose tails
+    satisfy rho_k(G_v) <= rho_k(T) certifies log-concavity, and one exists for
+    every tree with n <= 13. The central-window version is untested.
+- **Records:** `notes/arxiv-watch-triage-2026-10-02.md`,
+  `notes/arxiv-watch-backlog-triage-2026-10-02.md`, and the run directory
+  `runs/arxiv-triage-20261002/`.
 
 ## 2026-09-30: attack on effective central log-concavity (Brett-authorized)
 

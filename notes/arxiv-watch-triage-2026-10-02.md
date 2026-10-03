@@ -1,5 +1,5 @@
 # arXiv watch triage, 2026-10-02
-<!-- SUMMARY: The 17 papers in the arxiv-watch digest for 29 Sep to 2 Oct, read for #993 relevance: 1 relevant (Liu & Tang 2609.37553, a second Lorentzian edge-replacement tree family, replayed: no LC failures), 8 peripheral, 8 vocabulary coincidences; the watch's 2-day submission-date window drops Thu-afternoon to Sat submissions (Fang et al. 2609.20961 among them) · status: done, watch fix not made · updated: 2026-10-02 -->
+<!-- SUMMARY: The 17 papers in the arxiv-watch digest for 29 Sep to 2 Oct, read for #993 relevance: 1 relevant (Liu & Tang 2609.37553, a second Lorentzian edge-replacement tree family, replayed: no LC failures), 8 peripheral, 8 vocabulary coincidences; found the watch's 2-day window dropping Thu-afternoon to early-Sunday submissions (Fang et al. 2609.20961 among them), since fixed (5-day default, weekly sweep) with the backlog triaged in arxiv-watch-backlog-triage-2026-10-02.md · status: done · updated: 2026-10-02 -->
 
 Covers the four digest entries in `Project-Management/arxiv-watch/digest.md`
 dated 29 Sep, 30 Sep, 1 Oct and 2 Oct. All 17 PDFs were fetched from

@@ -855,3 +855,7 @@ abstract-screened); record: `notes/arxiv-watch-triage-2026-10-02.md`.
     a pendant path.
 Assisting system: Claude Code (Opus 5.5) with seven Claude Sonnet reading
 agents and a local qwen3.8:27b panel.
+- 2026-10-02 (follow-up): Brett edited `~/.claude/hooks/check-arxiv-watch.sh`
+  by hand to drop `--days 2`. Line 37 now reads `"$SCRIPT" --notify`; verified,
+  and `bash -n` passes. All three callers (script default, LaunchAgent,
+  SessionStart hook) now use the 5-day default and the weekly sweep.

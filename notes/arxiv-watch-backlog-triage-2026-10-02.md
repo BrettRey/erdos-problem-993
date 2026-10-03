@@ -78,7 +78,7 @@ queued but nobody had read, plus what the repaired watch found when replayed.
     *Vatter order*.
   - **Probe.** `scripts/probe_vatter_order_certificate_20261002.py` runs an
     exact DFS over the sets of vertices still to come. **Every tree on 2 to 13
-    vertices has a Vatter order** (2,285 trees).
+    vertices has a Vatter order** (2,287 trees).
   - **Sanity checks.** The decomposition identity held exactly on 600 random
     orders of the two order-26 LC-failing trees. None of those orders passed,
     as it must not, since a Vatter order would imply log-concavity.
