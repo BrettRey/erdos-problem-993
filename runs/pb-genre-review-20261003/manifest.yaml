@@ -1,0 +1,13 @@
+run: pb-genre-review-20261003
+date: 2026-10-03
+purpose: genre and style review (structure, phrasing, exemplification) of the PB paper against recent ECP papers
+route: tools/codex/bin/codex-readonly (read-only sandbox, fresh process, no user config)
+model: gpt-6.1-sol
+source_commit: a304d935a94bc2a28cab63ed450fc2471ca40a27
+manuscript_sha256: 33ee8628048a7a4cffc7382180718bddb889a7f9b02d60044723d3356454cd92
+prompt_sha256: 6d7ba54d532909457cb034116e9e8035b87bb4ed6ec0048f5fd3d8094c692305
+report_sha256: 6153c1c7da51291193b1535a95584aa3f81bff2434b9c81edd3df4656afe1d08
+session_log_sha256: bc6355ec5ed047a33203c71ba627840847e2100169ce65959218a6b6f10c0766
+comparators_arxiv: [2603.13135v1, 2511.01154v2, 2512.23164v3, 2508.06748v1, 2411.04322, 2505.06209, 2508.21274]
+comparator_selection: OpenAlex, ECP (S87494164), 2023-2026, terms log-concave/Bernoulli/Poisson binomial/unimodal/sums of independent/inequality/variance/discrete distribution/binomial/sharp constant/concentration; kept short inequality or distribution papers with arXiv copies
+dependence_cluster: OpenAI

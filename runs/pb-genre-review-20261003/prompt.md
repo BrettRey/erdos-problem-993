@@ -1,0 +1,23 @@
+You are an experienced editor and referee for Electronic Communications in Probability (ECP), the short-paper journal of the IMS and the Bernoulli Society. The author is an expert in a different field (linguistics) and does not know the conventions of mathematics papers. He wants to know whether his paper reads like an ECP paper: its **structure, phrasing, writing style and amount of exemplification**. The mathematics has already been checked independently; do not re-review it except where the exposition misleads.
+
+Read-only shell: read files and run read-only commands; modify nothing. Give your full report on stdout as your final answer.
+
+Paper under review (LaTeX source, and its PDF text):
+- paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex
+- /private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/ecp_genre/OURS.txt
+
+Comparators: text extracted from the arXiv versions of seven recent ECP papers (2026 unless noted). The arXiv versions use their authors' own formatting, not ECP's; ignore layout and judge content and exposition.
+- /private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/ecp_genre/ecp_2603.13135.txt (Niles-Weed, Reweighted information inequalities)
+- /private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/ecp_genre/ecp_2511.01154.txt (Chewi, Pooladian, Zhang, Stability of the Kim–Milman flow map)
+- /private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/ecp_genre/ecp_2512.23164.txt (Wang, Infinite divisibility of alpha-Cauchy distributions)
+- /private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/ecp_genre/ecp_2508.06748.txt (an exponential concentration inequality for the components of a uniform random vector)
+- /private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/ecp_genre/ecp_2411.04322.txt (Austern, Mackey, Bounding Hellinger distance with Stein's method)
+- /private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/ecp_genre/ecp_2505.06209.txt (Athaide et al., a correlation bound for the one-dimensional heterogeneous Ising model)
+- /private/tmp/claude-502/-Users-brettreynolds-projects-LLM-CLI-projects-papers-queue-erdos-problem-993/eec3f615-7ddb-4430-8ddb-9f052413b82b/scratchpad/ecp_genre/ecp_2508.21274.txt (Rates of bulk convergence for ensembles of classical compact groups)
+
+Tasks:
+1. From the comparators, describe the conventions an ECP author is expected to follow. Cover how the introduction is organized (order of moves: setting, question, prior work, main result, method, outline); where theorems, proofs, remarks and examples go; how much motivation and how many worked examples or illustrations a short paper carries; voice ("we", "I"), sentence length, density of notation, signposting, how results from the literature are introduced, how computer-assisted steps are presented, and how the paper ends (conclusion section or not, open problems). Ground each convention in the comparators: name which papers do it, quote a short phrase or give the section where it appears, and note when the comparators differ among themselves.
+2. Compare the paper against those conventions, section by section. Where does it read like an ECP paper, and where does it not? Be specific: give line numbers or labels in the .tex and say what a referee or editor would notice (too dense, too little or too much motivation, examples missing or excessive, proofs in the wrong place, unusual phrasing, things a mathematician would never write, things missing that every comparator has).
+3. Give a prioritized list of concrete changes, at most about twelve, each with location, the change, and why (citing the convention). Separate "an ECP referee would likely ask for this" from "matter of taste". Say explicitly what should NOT change.
+
+Report format: Conventions (with evidence) / Section-by-section comparison / Prioritized changes / What to leave alone / What you could not judge. The author is a linguist: precise observations about register and discourse structure are welcome.
