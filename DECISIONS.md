@@ -804,3 +804,22 @@ refuted on layered trees.
   run.
 Record: `runs/attack-20260930/radius-check/RESULTS.md`. Assisting system:
 Claude Code (Opus 5.5).
+
+2026-10-02 — arXiv-watch triage for 29 Sep–2 Oct (17 papers, read, not
+abstract-screened); record: `notes/arxiv-watch-triage-2026-10-02.md`.
+- **Liu & Tang arXiv:2609.37553: deferred.** It adds a second Lorentzian
+  edge-replacement tree family, E_{G4(2,1,0,0)}, next to Bendjeddou–Hardiman.
+  Exact replay (`scripts/verify_liu_tang_2609_37553_20261002.py`) on every
+  input tree with <= 12 vertices found 0 LC failures in either family. The
+  images aren't real-rooted except for path inputs. No image has order 26.
+  This is consistent with the Schweitzer boundary paragraph in main_v2. No
+  manuscript change while parked. If the paper is reactivated, consider
+  citing it beside `bendjeddou2024` (main_v2.tex:96).
+- **Watch coverage hole found; fix left to Brett.** `arxiv_watch.py` filters
+  on v1 submission time with a 2-day window, so arXiv's weekend announcement
+  lag drops submissions from Thu 14:00 ET to about Sun 06:00 ET. Fang et al.
+  2609.20961 is among them. The proposed fix is `--days 5` plus a chunked
+  backfill. It hasn't been made, because the watch is a portfolio-level tool
+  (Project-Management/tools/) and changing it is Brett's call. Logged here
+  following the 2026-08-26 precedent. Assisting system: Claude Code
+  (Opus 5.5).
