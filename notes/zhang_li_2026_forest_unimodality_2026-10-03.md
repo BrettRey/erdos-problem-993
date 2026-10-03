@@ -93,6 +93,15 @@ review of that argument, and it says nothing about Zhang–Li's §§3–8.
       Classical.choice, Quot.sound]`.
 
     All three match the README exactly.
+  - **Which finite certificate the headline uses.** I traced the chain
+    myself, because the headline's axiom list already carries the
+    `native_decide` axioms and cannot show it. `Glue30` (line 175) calls
+    `erdos993_of_analytic_inputs_std` (`Assembly.lean`, lines 76–78), which
+    instantiates the kernel-checked `Zhang.certificatesSound_kernel`. The
+    native-checked `Zhang.certificatesSound` is imported only by the
+    optional `Analytic/TopFinal.lean`, which no module on the headline's
+    path imports. So the n ≤ 60 part of `erdos993` is the kernel-checked
+    one.
 
 ## The authors' verification code
 
@@ -111,7 +120,11 @@ review of that argument, and it says nothing about Zhang–Li's §§3–8.
       whole chain 900 → 500 → 350 → 170 → 130 → 99 → 80 → 59, 1,535 s.
 
     The summary reports `all_mathematical_acceptance_checks_passed: true`
-    and `full_inherited_chain_replayed: true` in 1,565 s. The log ends "ALL
+    and `full_inherited_chain_replayed: true` in 1,565 s. Input integrity
+    holds: the SHA-256 of both input zips (`3cbf5c0b…`, `cbe5b28a…`)
+    matches the digests hard-coded in `proof_reproduce.py` and
+    `repro/input_sha256.json`, and the summary's `input_hashes_verified`
+    records the same two. The log ends "ALL
     PROOF-ONLY EXACT CERTIFICATE CHECKS PASSED".
   - **Caveat.** The entry point runs the original audit scripts with 13
     authenticated patches (`original_unmodified_full_entrypoint_used:
