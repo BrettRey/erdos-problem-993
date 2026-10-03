@@ -13,7 +13,7 @@
 
 \KEYWORDS{Poisson--binomial law; Bernoulli sum; log-concavity; Tur\'an
   inequality; ultra-log-concavity; modal index; random unitary matrix;
-  computer-assisted proof}
+  computer-assisted proof; formal verification}
 
 \AMSSUBJ{60E15}
 \AMSSUBJSECONDARY{60C05; 05A20}
@@ -35,8 +35,9 @@
   the cubic inequalities with a maximal-mass bound of Bobkov, Marsiglietti, and
   Melbourne to reduce the main inequality to a one-variable inequality, which
   is proved by a monotonicity argument and Bernstein expansions, with a
-  computer-assisted step in exact rational arithmetic, and is verified in the
-  Lean proof assistant.}
+  computer-assisted step in exact rational arithmetic. The main inequality,
+  with the cited results its proof uses, is verified in the Lean proof
+  assistant.}
 
 \hypersetup{
   pdftitle={Variance and local log-concavity of Poisson-binomial laws},
@@ -407,8 +408,10 @@ inequalities, checked by a program in exact arithmetic (supplement), whose
 margins are printed in the text (for the 20 pieces at $K=3$, the smallest); for $1/22\leq\delta\leq1/17$ the proof rests
 on five rational Bernstein coefficients printed in the text, and for
 $\delta\leq1/22$ on Bernstein coefficients that are polynomials in an integer
-parameter, all of whose coefficients are positive. Section~\ref{sec:scalar}
-is also formalized in Lean (supplement). Several steps can lose a constant,
+parameter, all of whose coefficients are positive. The whole proof of
+Theorem~\ref{thm:main}, including the results of Hillion and Johnson, Newton,
+and Bobkov, Marsiglietti, and Melbourne that it uses, is also formalized in
+Lean (supplement). Several steps can lose a constant,
 among them the mass bounds, the maximal-mass bound, the symmetrization for
 $H\geq16$ that replaces each $R_r$ by $L_r$, and the replacement of $b_r$ by
 $\lambda_r$; they need not be tight simultaneously.
@@ -848,18 +851,18 @@ and the expansions for $H\geq16$); the second-check certificate is not
 needed; the deduction of Theorem~\ref{thm:main} from
 Proposition~\ref{prop:scalar} (Sections~\ref{sec:propagation}
 and~\ref{sec:variance}) is given in full in the text and uses no
-computation. The archive also contains two formalizations in the Lean 4
-proof assistant with the Mathlib library. The first proves
-Proposition~\ref{prop:scalar} in full, by the route of
-Section~\ref{sec:scalar}, and depends only on Lean's three standard axioms.
-The second, conditional on a one-sided form of the recurrence
-\eqref{eq:deficit-recurrence} for an abstract nonnegative sequence, covers the
-deficit bound in Lemma~\ref{lem:propagation} and the exclusion of deficit one
-within its window, the bound $q_D\geq a$, and the deduction of
-\eqref{eq:adjacent-ratio-drop} from \eqref{eq:main-bound}. The rest of
-Sections~\ref{sec:propagation} and~\ref{sec:variance}, and so the deduction
-of Theorem~\ref{thm:main} from Proposition~\ref{prop:scalar}, is not
-formalized.}
+computation. The archive also contains formalizations in the Lean 4 proof
+assistant with the Mathlib library, each depending only on Lean's three
+standard axioms. The first proves Proposition~\ref{prop:scalar} by the route
+of Section~\ref{sec:scalar}. The second, which builds on it, proves
+Theorem~\ref{thm:main} for every Bernoulli sum with $0<p_i<1$, starting from
+the probability-generating polynomial: it includes the cubic inequalities
+\eqref{eq:HJ-left}--\eqref{eq:HJ-right} of Hillion and Johnson, the strict
+log-concavity of the pmf, and the maximal-mass bound
+\eqref{eq:maximal-mass-bound}, for which it gives a discrete proof. An
+earlier, conditional formalization covers Lemma~\ref{lem:propagation} and the
+deduction of \eqref{eq:adjacent-ratio-drop} from \eqref{eq:main-bound}. The
+other results of Section~\ref{sec:introduction} are not formalized.}
 \end{supplement}
 
 \medskip
@@ -882,7 +885,7 @@ with revision, exact-verification code, and source checking, and other
 sessions with Claude, ChatGPT and Codex (both OpenAI), and Gemini (Google)
 assisted with computational exploration, proof critique, formalization
 support, literature searching, and drafting. Aristotle (Harmonic), an
-automated theorem prover, produced the Lean proofs in both formalizations
+automated theorem prover, produced the Lean proofs in the formalizations
 described in the supplement, and its proof of Proposition~\ref{prop:scalar}
 supplied the monotonicity argument of Section~\ref{sec:compact}. The author remains responsible for
 the mathematics, sources, wording, and released files.

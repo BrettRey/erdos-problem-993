@@ -1110,3 +1110,21 @@ Assisting system: Claude Code (Opus 5.5); formal proof by Aristotle (Harmonic).
   - Every statement was tested beforehand on random instances in exact arithmetic, with no violations. The supplement text says §§2–3 are formalized only conditionally; update it when the return is replayed.
 
 Decision owner: Brett. Assisting system: Claude Code (Opus 5.5); monotonicity route from Aristotle (Harmonic).
+
+2026-10-03 — Aristotle's Lean proof of Theorem 1.1 (§§2–3 plus the cited inputs) replayed locally and accepted. Project e7a03302, self-graded COMPLETE.
+- **Replay:** `lake build` passes; all 11 theorems, including `theorem_1_1`, depend only on `propext`, `Classical.choice` and `Quot.sound`.
+- **Audit:** no escape hatches; definitions, `DeductionHyp` and theorem signatures identical to the packet; `PBScalar` byte-identical to the verified Prop 3.1 project.
+- **Coverage:** the formal proof starts from the probability-generating polynomial and covers:
+  - the Hillion–Johnson cubic inequalities (78)–(79);
+  - the strict Newton inequalities;
+  - the maximal-mass bound, by a discrete proof different from the paper's §3.
+- **Statement fidelity:** checked against the paper's Theorem 1.1 under the standing assumption 0 < p_i < 1. The correspondence is tabulated in `formalization/pb_deduction_aristotle_result/LOCAL_REPLAY.md`.
+- **Paper updated:**
+  - The abstract says the main inequality, with its cited inputs, is verified in Lean.
+  - The outline says the same.
+  - The supplement description now lists three formalizations: Prop 3.1, Theorem 1.1, and the earlier conditional one.
+  - Acknowledgement adjusted; keyword "formal verification" added.
+- **Supplement rebuilt:** 76 members, sha256 `7c397184…47cb`. The deduction project's PROOF_CONTEXT.md is excluded from the archive and from git, because it quotes the HJ appendix verbatim.
+- **Still not formalized:** the {0,1} reduction, the W−W′ extension, Corollary 1.3 (apart from (1.6) via the conditional project), Propositions 1.2, 1.4 and 1.5, Table 1, Example 1.6.
+
+Assisting system: Claude Code (Opus 5.5); formal proofs by Aristotle (Harmonic).

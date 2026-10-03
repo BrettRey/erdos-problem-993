@@ -26,6 +26,12 @@ LEAN_PROJECT_ROOT: Final = (
     REPOSITORY_ROOT / "formalization" / "pb_effective_drop_aristotle"
 )
 
+DEDUCTION_LEAN_ROOT: Final = (
+    REPOSITORY_ROOT / "formalization" / "pb_deduction_aristotle_result"
+)
+# PROOF_CONTEXT.md quotes Hillion and Johnson's Appendix A verbatim; not redistributed.
+DEDUCTION_EXCLUDED: Final = frozenset({"PROOF_CONTEXT.md"})
+
 SCALAR_LEAN_ROOT: Final = (
     REPOSITORY_ROOT / "formalization" / "pb_scalar_inequality_aristotle_result"
 )
@@ -113,6 +119,13 @@ ARCHIVE_MEMBERS: Final = (
     for path in sorted(SCALAR_LEAN_ROOT.rglob("*"))
     if path.is_file()
     and ".lake" not in path.relative_to(SCALAR_LEAN_ROOT).parts
+    and path.suffix in {".lean", ".md", ".toml", ".json", ".py", ".sh", ""}
+) + tuple(
+    (f"formalization/pb_deduction_aristotle_result/{path.relative_to(DEDUCTION_LEAN_ROOT).as_posix()}", path)
+    for path in sorted(DEDUCTION_LEAN_ROOT.rglob("*"))
+    if path.is_file()
+    and ".lake" not in path.relative_to(DEDUCTION_LEAN_ROOT).parts
+    and path.relative_to(DEDUCTION_LEAN_ROOT).as_posix() not in DEDUCTION_EXCLUDED
     and path.suffix in {".lean", ".md", ".toml", ".json", ".py", ".sh", ""}
 )
 

@@ -1,8 +1,8 @@
 # Supplementary audit and replay manifest
 
-This release candidate supports the computations in Proposition 3.1 of *Variance and local log-concavity of Poisson–binomial laws*. For 3 < H ≤ 16, the manuscript's Section 4.1 reduces Proposition 3.1 by monotonicity to 32 exact rational inequalities, which `scripts/verify_pb_compact_monotone.py` checks. As an independent second check of that range, the archive certifies the strict positivity of 275 exact Bernstein coefficients in thirteen cells. For H ≥ 16 a separate program checks, in exact arithmetic, every symbolic expansion printed in the manuscript's subsection "The range H ≥ 16". Proposition 3.1 is also formalized in full in Lean (below). The probabilistic reduction (Sections 2–3) and Theorem 1.1 are not machine-verified, apart from the conditional Lean project described next.
+This release candidate supports the computations in Proposition 3.1 of *Variance and local log-concavity of Poisson–binomial laws*. For 3 < H ≤ 16, the manuscript's Section 4.1 reduces Proposition 3.1 by monotonicity to 32 exact rational inequalities, which `scripts/verify_pb_compact_monotone.py` checks. As an independent second check of that range, the archive certifies the strict positivity of 275 exact Bernstein coefficients in thirteen cells. For H ≥ 16 a separate program checks, in exact arithmetic, every symbolic expansion printed in the manuscript's subsection "The range H ≥ 16". Proposition 3.1 is also formalized in full in Lean, and so is Theorem 1.1, including the reduction of Sections 2–3 and the cited inequalities it uses (both below).
 
-The archive also contains the complete conditional Lean project described in the manuscript's supplement description. In the manuscript's numbering, that project formalizes Lemma 2.1 (the bound (2.8) and the endpoint exclusion), the bound q_D ≥ a, and the deduction of (1.6) from (1.3); its Lean names are `curvature_propagation`, `endpoint_exclusion`, `crossing_ratio_lower_bound`, `raw_drop_ge_effective`, and `raw_quarter_of_effective`. It assumes the recurrence (2.4) and does not formalize Theorem 1.1. The Lean comments predate the manuscript's terminology. "Curvature" there means the normalized deficit δ (not the log-curvature 𝒞_k). The recurrence they call "verified" enters as the hypothesis `hstep`. "Reserve", "raw" and "effective" are working names for the quantities in (2.8), (1.6) and (1.3).
+The archive also contains the complete conditional Lean project described in the manuscript's supplement description. In the manuscript's numbering, that project formalizes Lemma 2.1 (the bound (2.8) and the endpoint exclusion), the bound q_D ≥ a, and the deduction of (1.6) from (1.3); its Lean names are `curvature_propagation`, `endpoint_exclusion`, `crossing_ratio_lower_bound`, `raw_drop_ge_effective`, and `raw_quarter_of_effective`. It assumes the recurrence (2.4). The full formalization of Theorem 1.1 below supersedes it, except for the two-line deduction of (1.6) from (1.3). The Lean comments predate the manuscript's terminology. "Curvature" there means the normalized deficit δ (not the log-curvature 𝒞_k). The recurrence they call "verified" enters as the hypothesis `hstep`. "Reserve", "raw" and "effective" are working names for the quantities in (2.8), (1.6) and (1.3).
 
 The Lean project for Proposition 3.1 (`formalization/pb_scalar_inequality_aristotle_result/`) was produced against an earlier draft, in which Section 4.1 proved the range 3 < H ≤ 16 by Bernstein expansions. The manuscript then adopted the monotonicity route that this project's `PBScalar/Compact.lean` uses. Comments in that project's `README.md`, `ARISTOTLE_SUMMARY.md`, `Compact.lean`, `Statement.lean`, `PaperIdentities.lean` and `PaperCells/Defs.lean` that describe "the paper's" route, the identity A − Q = P(H)/(4H⁵(H+1)³), or the polynomials P_m therefore describe that earlier draft. In the current manuscript the Bernstein certificate is the supplement's second check of 3 < H ≤ 16, and the theorem statements and definitions are unchanged. The files are kept as Aristotle returned them; `LOCAL_REPLAY.md` records the replay and this change.
 
@@ -19,6 +19,7 @@ The Lean project for Proposition 3.1 (`formalization/pb_scalar_inequality_aristo
 | `results/universal_pb_finite_bernstein_certificate_2026-07-10.json` | Compact summary certificate |
 | `results/universal_pb_finite_bernstein_full_certificate_2026-07-16.json` | Full exact certificate |
 | `formalization/pb_effective_drop_aristotle/` | Complete conditional Lean project, including `PBReserve/Core.lean`, build metadata, proof context, and provenance |
+| `formalization/pb_deduction_aristotle_result/` | Complete Lean project proving Theorem 1.1 (`PBDeduction.theorem_1_1`) from the probability-generating polynomial, including Sections 2–3, the Hillion–Johnson cubic inequalities, strict log-concavity and the maximal-mass bound; it contains a copy of `PBScalar/`. Its `PROOF_CONTEXT.md` is omitted from the archive because it quotes Hillion and Johnson's Appendix A verbatim |
 | `formalization/pb_scalar_inequality_aristotle_result/` | Complete Lean project proving Proposition 3.1 (`PBScalar.scalar_inequality`), with Aristotle's summary, the local replay record `LOCAL_REPLAY.md`, build metadata, prompt and proof context |
 | `CERTIFICATE.md` | This audit and replay manifest |
 | `LICENSE` | MIT license |
@@ -31,7 +32,7 @@ The checker does not import the generator, SymPy, or formula strings from the ce
 - Python 3.14.6
 - SymPy 1.14.0 for the generator and the H ≥ 16 check
 - Python standard library only for the checker and archive builder
-- Lean 4.28.0 and Mathlib 4.28.0 for both Lean projects
+- Lean 4.28.0 and Mathlib 4.28.0 for the three Lean projects
 
 All six Python programs require Python 3.10 or later because their source uses modern type-annotation syntax. The exact replays below were completed with the reference versions listed above.
 
@@ -112,6 +113,17 @@ lake env lean PBScalar/Axioms.lean
 
 The build must succeed, and `PBScalar.scalar_inequality`, `PBScalar.scalar_inequality_compact` and `PBScalar.scalar_inequality_large` must each depend only on `propext`, `Classical.choice` and `Quot.sound`. The theorem `scalar_inequality` states Proposition 3.1 for `0 < δ < 1/4` with `K` characterized by `(K+1)δ < 1 ≤ (K+2)δ`; the definitions are in `PBScalar/Defs.lean`. Its proof of the range 3 < H ≤ 16 (`PBScalar/Compact.lean`) is the monotonicity argument of Section 4.1, and of H ≥ 16 (`PBScalar/Large.lean`) follows Section 4.2. `LOCAL_REPLAY.md` records the replay, the escape-hatch search, and the statement comparison.
 
+Build the Lean proof of Theorem 1.1 and print its axioms with:
+
+```bash
+cd formalization/pb_deduction_aristotle_result
+lake exe cache get
+lake build
+lake env lean PBDeduction/Axioms.lean
+```
+
+The build must succeed, and all eleven theorems listed there, including `PBDeduction.theorem_1_1`, must depend only on `propext`, `Classical.choice` and `Quot.sound`. In `theorem_1_1`, the mass function `pbPmf n p` is the coefficient sequence of `∏ i (1 − p i + p i X)`, `pbVar n p = ∑ i p i (1 − p i)`, `IsFirstDescent` characterizes D, and `deficit` is δ_k. The definitions are in `PBDeduction/Defs.lean`. `LOCAL_REPLAY.md` in that folder tabulates the correspondence with the paper's statement.
+
 ## Certificate summary (second check of 3 < H ≤ 16)
 
 The minimum in the table is the minimum reduced rational Bernstein coefficient of the stated cleared numerator. Its magnitude depends on the chosen normalization; strict positivity is the invariant claim.
@@ -143,7 +155,7 @@ Whole-file digests before packaging:
 |---|---|
 | `scripts/verify_universal_pb_finite_bernstein.py` | `7913038a93a18cc9df0fbe770238543d80655de82c35fac9a48247ed1f8e1b61` |
 | `scripts/check_universal_pb_finite_bernstein_certificate.py` | `f5762de3d7990f82d62e63d5f7007b6f9ec62b60eea325f6b68354b34ee146a7` |
-| `scripts/build_poisson_binomial_supplement.py` | `e1b2b686cca6ce5a32011b95545d0dc03e1cc12109447d6aaf18a715a9d4f137` |
+| `scripts/build_poisson_binomial_supplement.py` | `e8ed0fdbd9129ab01ccf5d9c4c58e4c0f79dda5abb1dcf631df6ae32ea7ae429` |
 | `scripts/verify_pb_compact_monotone.py` | `60cd99b4cb159672a30fbf74d78e029b54ba575fc5b788d4ac6492ce5957cfb4` |
 | `scripts/verify_pb_cue_threshold.py` | `22bea2a8cadcfd0b290ea9d43c464860ccb646f058be58effe579477f262392e` |
 | `scripts/verify_pb_large_h_range.py` | `0a5e18d2605f79b348891b249cb1b86899b13ce247c48cb061e9cd5e48c0a81d` |
