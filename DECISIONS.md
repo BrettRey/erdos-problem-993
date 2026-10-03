@@ -1142,3 +1142,5 @@ Assisting system: Claude Code (Opus 5.5); formal proofs by Aristotle (Harmonic).
 Assisting systems: Codex (OpenAI) as reviewer; Claude Code (Opus 5.5) applying the fixes.
 
 2026-10-03 — Affiliations: Humber and the University of Toronto (Brett). The author footnote now reads "Faculty of Liberal Arts and Sciences, Humber Polytechnic, Toronto, Canada, and Department of Linguistics, University of Toronto, Toronto, Canada", replacing the outdated "Humber College". The forms come from Brett's other papers. The portal-fields author row and the cover-letter signature are updated; only the postal code is still open.
+
+2026-10-03 — Acknowledgement now credits the Codex review specifically. It names the Codex (OpenAI) session with GPT-6.1-sol, 3 October 2026; what it checked (it redid the Section 4 computations and compared the Lean statements with the paper); and the three corrections it prompted (zero extension, formalization scope, interval rounding). Prompted by a side-agent note: under Brett's rule, credit goes in the same round as the contribution, and I had missed it. The portal-fields AI disclosure is updated to match.
