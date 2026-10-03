@@ -823,3 +823,35 @@ abstract-screened); record: `notes/arxiv-watch-triage-2026-10-02.md`.
   (Project-Management/tools/) and changing it is Brett's call. Logged here
   following the 2026-08-26 precedent. Assisting system: Claude Code
   (Opus 5.5).
+
+2026-10-02 (later) — Watch fixed and backlog triaged at Brett's direction
+("fix the watch, triage, commit").
+- **Watch fix made** (Project-Management commits `7330b34`, `84230a2`). The
+  default window is now 5 days, queries page past 100 results, a backfill
+  longer than 30 days queues what it retrieves, and a weekly 45-day sweep
+  catches papers held in moderation. The LaunchAgent no longer passes
+  `--days 2`; 42 tests pass. The SessionStart hook
+  `~/.claude/hooks/check-arxiv-watch.sh` still passes `--days 2`. It is
+  protect-files guarded, so Brett has to make that edit by hand (command given
+  in session).
+- **Backfill.** A 52-day replay queued 58 papers the old window had never
+  kept. 40 were submitted Thursday 14:00 ET to early Sunday. The rest fit
+  moderation holds, the Labor Day mailing delay, or API indexing lag.
+- **Backlog triage** of 124 papers (68 untriaged digest entries from 28 Aug to
+  25 Sep, plus 56 backfill finds); record:
+  `notes/arxiv-watch-backlog-triage-2026-10-02.md`, run directory
+  `runs/arxiv-triage-20261002/`. Two relevant, 62 peripheral, 60
+  coincidences.
+  - Zhang–Tu 2609.04694 (spider stability): adopted as roots-lane awareness.
+    The certified check on all 66,272 spiders with n <= 35 passed. Not cited;
+    no manuscript change.
+  - Vatter 2608.22147: deferred as a method lead. A vertex order whose tails
+    satisfy rho_k(G_v) <= rho_k(T) certifies log-concavity, and one exists for
+    every tree with n <= 13. The window-restricted version, which is what
+    would matter for central log-concavity, is untested. Research is parked,
+    so nothing is queued.
+  - Tadpole paper 2609.13888: irrelevant as a source of new tools. Its
+    criterion is main_v2's adjacent-mode sum lemma, applied repeatedly along
+    a pendant path.
+Assisting system: Claude Code (Opus 5.5) with seven Claude Sonnet reading
+agents and a local qwen3.8:27b panel.
