@@ -7,7 +7,8 @@ pi = 16 arctan(1/5) - 4 arctan(1/239) and the alternating arctangent series.
 For N > 4:  V_N < 1  iff  (N/4 - 1) pi^2 < 2 S_N,  certified by pi_hi;
             V_N > 1  iff  (N/4 - 1) pi^2 > 2 S_N,  certified by pi_lo.
 Also prints rigorous enclosures of V_N, 1/(4 V_N) and the ULC bound at
-N = 10000. Standard library only. Exit status 0 means every check passed.
+N = 10000, with decimal endpoints rounded outward in exact integer
+arithmetic. Standard library only. Exit status 0 means every check passed.
 """
 from __future__ import annotations
 
@@ -35,6 +36,24 @@ def s_n(n: int) -> F:
     return sum((F(n - d, d * d) for d in range(1, n, 2)), F(0))
 
 
+def dec_down(x: F, places: int) -> str:
+    q = (x.numerator * 10**places) // x.denominator
+    sign = "-" if q < 0 else ""
+    q = abs(q)
+    return f"{sign}{q // 10**places}.{q % 10**places:0{places}d}"
+
+
+def dec_up(x: F, places: int) -> str:
+    q = -((-x.numerator * 10**places) // x.denominator)
+    sign = "-" if q < 0 else ""
+    q = abs(q)
+    return f"{sign}{q // 10**places}.{q % 10**places:0{places}d}"
+
+
+def enclosure(lo: F, hi: F, places: int) -> str:
+    return f"[{dec_down(lo, places)}, {dec_up(hi, places)}]"
+
+
 def v_bounds(n: int, pi_lo: F, pi_hi: F) -> tuple[F, F]:
     s = s_n(n)
     return F(n, 4) - 2 * s / pi_lo**2, F(n, 4) - 2 * s / pi_hi**2
@@ -46,18 +65,19 @@ def main() -> int:
     ok = True
     for n in (1996, 1998):
         lo, hi = v_bounds(n, pi_lo, pi_hi)
-        print(f"V_{n} in [{float(lo):.15f}, {float(hi):.15f}]")
+        print(f"V_{n} in {enclosure(lo, hi, 15)}")
     lo96, hi96 = v_bounds(1996, pi_lo, pi_hi)
     lo98, hi98 = v_bounds(1998, pi_lo, pi_hi)
     cert = hi96 < 1 < lo98
     print("certified V_1996 < 1 < V_1998:", cert)
     ok &= cert
     lo, hi = v_bounds(10000, pi_lo, pi_hi)
-    print(f"V_10000 in [{float(lo):.12f}, {float(hi):.12f}]")
-    print(f"1/(4 V_10000) in [{float(1 / (4 * hi)):.12f}, {float(1 / (4 * lo)):.12f}]")
+    print(f"V_10000 in {enclosure(lo, hi, 12)}")
+    print(f"1/(4 V_10000) in {enclosure(1 / (4 * hi), 1 / (4 * lo), 12)}")
     ulc = F(10001, (5000 + 2) * 5000)
-    print(f"ULC bound at D, N = 10000: {float(ulc):.12f}")
-    ok &= 0.2149 < float(1 / (4 * hi)) and float(1 / (4 * lo)) < 0.2150 and abs(float(ulc) - 0.0004) < 1e-6
+    print(f"ULC bound at D, N = 10000: {ulc} (in {enclosure(ulc, ulc, 12)})")
+    ok &= F(2149, 10000) < 1 / (4 * hi) and 1 / (4 * lo) < F(2150, 10000)
+    ok &= abs(ulc - F(4, 10000)) < F(1, 10**6)
     print("ALL CHECKS PASSED" if ok else "SOME CHECKS FAILED")
     return 0 if ok else 1
 

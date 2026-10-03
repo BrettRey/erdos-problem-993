@@ -36,8 +36,8 @@
   Melbourne to reduce the main inequality to a one-variable inequality, which
   is proved by a monotonicity argument and Bernstein expansions, with a
   computer-assisted step in exact rational arithmetic. The main inequality,
-  with the cited results its proof uses, is verified in the Lean proof
-  assistant.}
+  including the cubic inequalities and the maximal-mass bound it uses, is
+  verified in the Lean proof assistant.}
 
 \hypersetup{
   pdftitle={Variance and local log-concavity of Poisson-binomial laws},
@@ -68,7 +68,7 @@ success probability satisfies $0<p_i<1$. Put
   f_k=\Pp(W=k),\qquad V=\Var(W)=\sum_{i=1}^n p_i(1-p_i),
 \]
 and call $(f_k)_{k=0}^n$ the probability mass function (pmf) of $W$. Extend
-the pmf by $f_{-1}=f_{n+1}=0$. The probability-generating polynomial
+the pmf by $f_k=0$ for $k\notin\{0,\ldots,n\}$. The probability-generating polynomial
 $\sum_{k=0}^n f_kx^k$ has only negative real zeros, so, by Newton's
 inequalities \cite[equation~(1)]{pitman1997}, the pmf is log-concave: $f_k^2\geq
 f_{k-1}f_{k+1}$ for every $k$, an inequality of Tur\'an type. For
@@ -409,9 +409,10 @@ margins are printed in the text (for the 20 pieces at $K=3$, the smallest); for 
 on five rational Bernstein coefficients printed in the text, and for
 $\delta\leq1/22$ on Bernstein coefficients that are polynomials in an integer
 parameter, all of whose coefficients are positive. The whole proof of
-Theorem~\ref{thm:main}, including the results of Hillion and Johnson, Newton,
-and Bobkov, Marsiglietti, and Melbourne that it uses, is also formalized in
-Lean (supplement). Several steps can lose a constant,
+Theorem~\ref{thm:main}, including the cubic inequalities of Hillion and
+Johnson, the strict log-concavity of the pmf, and the maximal-mass bound of
+Bobkov, Marsiglietti, and Melbourne, is also formalized in Lean
+(supplement). Several steps can lose a constant,
 among them the mass bounds, the maximal-mass bound, the symmetrization for
 $H\geq16$ that replaces each $R_r$ by $L_r$, and the replacement of $b_r$ by
 $\lambda_r$; they need not be tight simultaneously.

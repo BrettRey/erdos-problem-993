@@ -1,0 +1,14 @@
+run: pb-codex-review-20261003
+date: 2026-10-03
+purpose: cross-family review of the PB paper after the 4.1 monotonicity switch and the Lean formalizations
+route: tools/codex/bin/codex-readonly (read-only sandbox, fresh process, no user config)
+model_provider: OpenAI Codex CLI
+model: gpt-6.1-sol   # as printed in the session log
+source_commit: bf1157f3c94eab9cc3caf1a8be204710214803f8
+manuscript_sha256: 053ae13ce76f9cb5e5c26c831f95f6bd1cf604939896a83ff5abeebebe4d402b
+prompt_sha256: b7438f89608285046a4b67c3212e5f4bc10a671c1b9a8fe70f0f25810ee387f5
+report_sha256: 2277855d0409e15b87f3e80b491390ea03141ddc6d7ecf73afafa164a5ff9924
+raw_stdout_sha256: 206dbcf9ba37caefcee857426e50c99814738b6443d8dc20d6155f56a275ba81
+session_log: codex_session_log.txt.gz   # stderr transcript, gzipped
+session_log_sha256: a85f81f9ce7034b2076f3b73d5348ef6aae8a4839f48710e500a2f9988596931
+dependence_cluster: OpenAI (independent of the Anthropic-family assistants that drafted and verified the paper; same provider family as the ChatGPT Pro referee and GPT-5.6 proof search)

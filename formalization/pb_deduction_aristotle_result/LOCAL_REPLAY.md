@@ -62,7 +62,9 @@ starting from the definition of a Poisson–binomial law through its
 probability-generating polynomial, and depends only on the three standard
 axioms. The formal proof includes:
 - the inputs the paper cites: the Hillion–Johnson cubic inequalities, the
-  strict Newton inequalities, and the maximal-mass bound of Bobkov,
+  strict log-concavity of the pmf (the consequence of Newton's inequalities
+  that the proof uses, not the binomially normalized Newton inequalities),
+  and the maximal-mass bound of Bobkov,
   Marsiglietti and Melbourne (proved discretely, by a different route from the
   paper's §3);
 - Proposition 3.1, via `PBScalar`.

@@ -82,7 +82,7 @@ Check the threshold in Example 1.6 with:
 python3 scripts/verify_pb_cue_threshold.py
 ```
 
-It must print `certified V_1996 < 1 < V_1998: True` and `ALL CHECKS PASSED`.
+It must print `certified V_1996 < 1 < V_1998: True` and `ALL CHECKS PASSED`. Its decimal enclosures are rounded outward in exact integer arithmetic.
 
 Build and verify the deterministic supplementary archive with:
 
@@ -157,7 +157,7 @@ Whole-file digests before packaging:
 | `scripts/check_universal_pb_finite_bernstein_certificate.py` | `f5762de3d7990f82d62e63d5f7007b6f9ec62b60eea325f6b68354b34ee146a7` |
 | `scripts/build_poisson_binomial_supplement.py` | `e8ed0fdbd9129ab01ccf5d9c4c58e4c0f79dda5abb1dcf631df6ae32ea7ae429` |
 | `scripts/verify_pb_compact_monotone.py` | `60cd99b4cb159672a30fbf74d78e029b54ba575fc5b788d4ac6492ce5957cfb4` |
-| `scripts/verify_pb_cue_threshold.py` | `22bea2a8cadcfd0b290ea9d43c464860ccb646f058be58effe579477f262392e` |
+| `scripts/verify_pb_cue_threshold.py` | `6c3268b8e90143883b0f2decdc33e603f417c312c4d686d89b63b7c2815c4e99` |
 | `scripts/verify_pb_large_h_range.py` | `0a5e18d2605f79b348891b249cb1b86899b13ce247c48cb061e9cd5e48c0a81d` |
 | `results/universal_pb_finite_bernstein_certificate_2026-07-10.json` | `6b91554d9ab1f43151e36c94c5c8c427c7bb057130b7f39d233b14c7ab3860c6` |
 | `results/universal_pb_finite_bernstein_full_certificate_2026-07-16.json` | `5fbe0570403d3e49161e60371a8208e916895f002b15f68602c12bce9ed3aa69` |

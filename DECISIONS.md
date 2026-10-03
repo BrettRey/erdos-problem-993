@@ -1128,3 +1128,15 @@ Decision owner: Brett. Assisting system: Claude Code (Opus 5.5); monotonicity ro
 - **Still not formalized:** the {0,1} reduction, the W−W′ extension, Corollary 1.3 (apart from (1.6) via the conditional project), Propositions 1.2, 1.4 and 1.5, Table 1, Example 1.6.
 
 Assisting system: Claude Code (Opus 5.5); formal proofs by Aristotle (Harmonic).
+
+2026-10-03 — Cross-family review by Codex (GPT-6.1-sol, read-only), at Brett's request. **No mathematical error found.**
+- **What Codex checked independently:** it recomputed all 32 endpoint ratios, the J = 5 Bernstein coefficients and the J ≥ 6 identities. It judged both Lean statements faithful to the paper and found no escape hatches. It did not run `lake build`.
+- **Four findings, all applied:**
+  1. `verify_pb_cue_threshold.py` printed float-rounded singleton "enclosures". It now rounds outward in exact integer arithmetic, and its final checks are rational.
+  2. "Newton" in the outline overstated what is formalized. Lean proves strict log-concavity, not the binomially normalized Newton inequalities. The outline now names exactly what is formalized, and the abstract says "including the cubic inequalities and the maximal-mass bound it uses". The replay record is corrected too.
+  3. The zero extension is now f_k = 0 for every k outside {0,…,n}.
+  4. The Zenodo DOI placeholder is already a Brett-owned open item.
+- **Record:** `runs/pb-codex-review-20261003/` (prompt, verbatim REPORT.md, session log, manifest).
+- **Rebuilt:** supplement sha256 `19345971…5388`. This supersedes `7c397184…47cb` in the Theorem 1.1 entry above.
+
+Assisting systems: Codex (OpenAI) as reviewer; Claude Code (Opus 5.5) applying the fixes.
