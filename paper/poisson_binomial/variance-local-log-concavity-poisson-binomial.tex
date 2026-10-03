@@ -59,10 +59,9 @@ where the summands are independent. The law of $W$ is Poisson--binomial;
 see \cite{tangtang2023} for a recent survey.
 
 Summands with $p_i=0$ can be deleted, and summands with $p_i=1$ only
-translate the law; Section~\ref{sec:reduction} checks that neither operation
-changes $V$ or the deficits defined below, and that translation shifts the
-first-descent index by the number of summands with $p_i=1$. We therefore assume throughout that
-every success probability satisfies $0<p_i<1$. Put
+translate the law, which changes nothing below except by a shift of index
+(Section~\ref{sec:reduction}). We therefore assume throughout that every
+success probability satisfies $0<p_i<1$. Put
 \[
   f_k=\Pp(W=k),\qquad V=\Var(W)=\sum_{i=1}^n p_i(1-p_i),
 \]
@@ -223,7 +222,11 @@ $V\geq1$, the next proposition gives $1/5\leq V\delta_c<2$.
 \end{proposition}
 
 \begin{proof}
-  The lower bound is \eqref{eq:support-bound} with $k=c$. For
+  The lower bound is \eqref{eq:support-bound} with $k=c$. For the upper
+  bound, the idea is that exponential tilting moves the mean at a rate equal
+  to the tilted variance: the tilts at which $c-1,c$ and then $c,c+1$ are the
+  modes differ by $-\log(1-\delta_c)$, and by Darroch's theorem the mean moves
+  by less than $2$ between them. For
   $t\in\mathbb R$, let $f^{(t)}_k=e^{tk}f_k/\sum_je^{tj}f_j$, the pmf of the Bernoulli sum
   with parameters $p_ie^t/(1-p_i+p_ie^t)$, and write $\mu(t)$ and $V(t)$ for
   its mean and variance, so $\mu'(t)=V(t)$. The tilted variance of a summand
@@ -295,7 +298,9 @@ for the tilt $t$ at which the tilted law of the proof of
 Proposition~\ref{prop:mode} has mean $x$. In this family the tilted mean is
 $m+\sinh t/(1+(\cosh t-1)/m)$; at $k=D$ the two arguments differ by
 $2/m+O(m^{-2})$ near the point $t=\operatorname{arsinh}1$, where the tilted
-mean has slope $\sqrt2+O(1/m)$, so the bound is $\sqrt2/m+O(m^{-2})$.
+mean is $m+1+O(1/m)$ and has slope $\sqrt2+O(1/m)$. Since $\log\theta$ is the
+inverse of the tilted mean, the two values of $\log\theta$ differ by
+$\sqrt2/m+O(m^{-2})$, and so does the bound.
 Finally, $W-m$ converges in law to the difference of two independent
 Poisson$(1/2)$ variables, whose pmf is $e^{-1}I_k(1)$ with $I_k$ the modified
 Bessel function. Table~\ref{tab:balanced} collects the values at $D$.
@@ -321,16 +326,16 @@ Bessel function. Table~\ref{tab:balanced} collects the values at $D$.
   \end{tabular}
 \end{table}
 
-Pitman's ratio bound \cite[equation~(21)]{pitman1997}, with the tilted
+For every Bernoulli sum with $V\geq1$, \eqref{eq:adjacent-ratio-drop} gives
+$f_{D+1}/f_D\leq1-1/(4V)$. Pitman's ratio bound
+\cite[equation~(21)]{pitman1997}, with the tilted
 variance $V(t)\leq e^tV$ for $t\geq0$ (notation as in the proof of
 Proposition~\ref{prop:mode}), gives $f_{k+1}/f_k<V/(V+k-\mathbb EW)$ for
 integers $\mathbb EW<k<n$: there $f_{k+1}/f_k<e^{-t_k}$, where $\mu(t_k)=k$,
-and $k-\mathbb EW=\int_0^{t_k}V(t)\,dt\leq V(e^{t_k}-1)$. This ratio bound
-tends to one at $k=D$ when
-$D-\mathbb EW\downarrow0$, as for $\operatorname{Bin}(n,p)$ with
-$np=\ell+1-\varepsilon$ for an integer $\ell\geq1$ and $p<\varepsilon$, where
-$D=\ell+1$. By contrast, \eqref{eq:adjacent-ratio-drop} gives
-$f_{D+1}/f_D\leq1-1/(4V)$ for every Bernoulli sum with $V\geq1$.
+and $k-\mathbb EW=\int_0^{t_k}V(t)\,dt\leq V(e^{t_k}-1)$. At $k=D$ this bound
+tends to one when $D-\mathbb EW\downarrow0$, as for $\operatorname{Bin}(n,p)$
+with $np=\ell+1-\varepsilon$ for an integer $\ell\geq1$ and $p<\varepsilon$,
+where $D=\ell+1$.
 
 A polynomial with nonnegative coefficients and only real zeros is, after
 normalization, the generating function of a Bernoulli sum
@@ -352,8 +357,9 @@ Bernoulli sums in which $V$ and $n$ differ in order.
   $e^{ij\phi}$, $0\leq j<N$, on the half circle, with entries
   $\Gamma_{jk}=(2\pi)^{-1}\int_0^\pi e^{i(j-k)\phi}\,d\phi$. Both
   $\Gamma$ and $I-\Gamma$ are Gram matrices of linearly independent functions
-  on a half circle, so all $N$ parameters lie in $(0,1)$. Hence
-  $V_N=\operatorname{tr}\Gamma-\operatorname{tr}\Gamma^2$, and since
+  on a half circle, so all $N$ parameters lie in $(0,1)$. Hence $V_N$, the
+  sum of $p(1-p)$ over the eigenvalues $p$ of $\Gamma$, is
+  $\operatorname{tr}\Gamma-\operatorname{tr}\Gamma^2$, and since
   $|\Gamma_{jk}|^2=\pi^{-2}(j-k)^{-2}$ for odd $j-k$ and $\Gamma_{jk}=0$ for
   even $j-k\neq0$,
   \[
@@ -382,13 +388,17 @@ $1/\delta$ from the mode are therefore bounded below by explicit multiples of
 the maximal mass $M$ (Section~\ref{sec:propagation}). Summed in the pairwise
 variance identity, these bounds give $V\geq M^2A(\delta)$ for an explicit
 function $A$, while a maximal-mass bound of Bobkov, Marsiglietti, and
-Melbourne gives $M^2\geq(1+12V)^{-1}$. Together they reduce the theorem to
-the one-variable inequality $A(\delta)\geq(3+\delta)/(4\delta^2)$
+Melbourne gives $M^2\geq(1+12V)^{-1}$. Together they give
+$V(1+12V)\geq A(\delta)$. Since $V(1+12V)$ increases with $V$ and equals
+$(3+\delta)/(4\delta^2)$ at $V=1/(4\delta)$, the theorem reduces to the
+one-variable inequality $A(\delta)\geq(3+\delta)/(4\delta^2)$
 (Section~\ref{sec:variance}).
 
-Heuristically, the masses within distance about $\delta^{-1/2}$ of the mode
-are comparable to $M$, so $A(\delta)$ is of order $\delta^{-2}$, and the two
-bounds force $V$ to be of order at least $1/\delta$.
+Heuristically, the lower bounds on $f_{c\pm r}/M$ are about
+$e^{-r^2\delta/2}$ when $r\delta$ is small, so the masses within distance
+about $\delta^{-1/2}$ of the mode are comparable to $M$, and $A(\delta)$ is
+of order $\delta^{-2}$. With $V(1+12V)\geq A(\delta)$, this makes $V$ of
+order at least $1/\delta$.
 
 Section~\ref{sec:scalar} proves the one-variable inequality by Bernstein
 expansions. For $1/17\leq\delta<1/4$ the proof rests on 275 rational
@@ -639,8 +649,7 @@ Set
 \begin{equation}\label{eq:H-def}
   H=\frac{1-\delta}{\delta}=\frac1\delta-1>3.
 \end{equation}
-Section~\ref{sec:compact} treats $3<H\leq16$ cell by cell, and
-Section~\ref{sec:large} treats $H\geq16$. Then $K=\max\{r\in\mathbb Z_{\geq1}:r<H\}$, and the bounds $L_r$ of
+Then $K=\max\{r\in\mathbb Z_{\geq1}:r<H\}$, and the bounds $L_r$ of
 \eqref{eq:left-mass-bound} become
 \begin{equation}\label{eq:b-def}
   L_r=b_r:=\prod_{s=1}^r\left(1-\frac{s}{H}\right),
@@ -683,12 +692,15 @@ side of \eqref{eq:scalar-target} is
   Q(H)=\frac{(3H+4)(H+1)}4.
 \end{equation}
 For $H\geq4$, it remains to prove $ST\geq Q(H)$.
+Section~\ref{sec:compact} treats $3<H\leq16$ cell by cell, and
+Section~\ref{sec:large} treats $H\geq16$.
 
 \subsection{The range \texorpdfstring{$3<H\leq16$}{3 < H <= 16}}
 \label{sec:compact}
 
 On $3<H\leq4$ we have $K=3$, and we keep the unsymmetrized bounds $L_r$ and
-$R_r$, $r=1,2,3$. A SymPy computation (in the supplement) gives
+$R_r$, $r=1,2,3$, because the symmetrized bound fails there: $ST<Q(H)$ at
+$H=7/2$, for example. A SymPy computation (in the supplement) gives
 \begin{equation}\label{eq:asymmetric-P}
   A(\delta)-Q(H)=\frac{P(H)}{4H^5(H+1)^3},
 \end{equation}
@@ -745,11 +757,13 @@ choose an integer $J\geq5$ such that
 \end{equation}
 Either choice of $J$ is valid at a shared endpoint. The first interval
 ($J=5$) is checked directly, and the rest ($J\geq6$) uniformly in $J$. If
-$J\geq5$, then $J<J(J+1)/2\leq H$, so $J\leq K$. For $1\leq r\leq J$, the elementary product
-bound gives
+$J\geq5$, then $J<J(J+1)/2\leq H$, so $J\leq K$. For $1\leq r\leq J$, the
+inequality $\prod_s(1-x_s)\geq1-\sum_sx_s$ for $x_s\in[0,1]$ gives
 \begin{equation}\label{eq:bonferroni}
-  b_r\geq\lambda_r:=1-\frac{r(r+1)}{2H}\geq0.
+  b_r\geq\lambda_r:=1-\frac{r(r+1)}{2H}\geq0,
 \end{equation}
+where $\lambda_r\geq0$ because $r(r+1)/2\leq J(J+1)/2\leq H$; this is why
+the cells begin at triangular numbers.
 Put
 \begin{align}
   \tilde S_J&=1+2\sum_{r=1}^J \lambda_r

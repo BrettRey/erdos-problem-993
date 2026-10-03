@@ -1061,3 +1061,19 @@ Assisting system: Claude Code (Opus 5.5).
 - **Aristotle side effect:** R3 changes §4.2's wording, so the packet's "§4 verbatim" copy in `formalization/pb_scalar_inequality_aristotle/PROOF_CONTEXT.md` now differs in wording only, with identical mathematics. A replay should not count this as drift.
 
 Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 — Density-leavening pass applied, judged against redundancy with readability as the criterion (Brett: "The point is to make the paper readable and accessible").
+- **Missing steps added:**
+  - where the target (3+δ)/(4δ²) comes from: V(1+12V) ≥ A(δ), evaluated at V = 1/(4δ);
+  - the e^{−r²δ/2} decay behind the heuristic;
+  - the idea of the tilting proof of Prop 1.4;
+  - the inverse-function step giving √2/m for Pitman (20);
+  - V_N as the sum of p(1−p) over the eigenvalues of Γ;
+  - why 3 < H ≤ 4 stays unsymmetrized: ST < Q at H = 7/2, checked in exact arithmetic;
+  - the product inequality behind (4.10), and why the cells begin at triangular numbers.
+- **Other edits:** the opening reduction sentence simplified to remove forward-referenced terms, and two reorders (Pitman ratio paragraph, §4 roadmap).
+- **Against redundancy:** only the Prop 1.4 idea sentence previews anything. It was kept for readability, and none of R1–R3 is undone.
+- **Checks:** every new claim was checked exactly or symbolically, and stale passes were re-checked on the diff. Record: `notes/passes/2026-10-03-density-leavening.md`.
+- **Page cap:** 13 pages; Brett: "13pp is fine." This supersedes the project's 12-page safety cap from the 2026-07-16 venue decision. The journal's stated limit (IMS 2025 editorial report, as recorded there) is within 12, at most 13.
+
+Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
