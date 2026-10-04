@@ -1,5 +1,5 @@
 # Pre-submission checklist: ECP, Poisson–binomial paper
-<!-- SUMMARY: final pre-flight for the ECP submission via EJMS; all gates pass on source 1e950299…f642 / PDF 3c4bd14e…7d24; risk of no human audit accepted by Brett; portal submit awaits Brett's explicit go · status: ready for portal · updated: 2026-10-03 -->
+<!-- SUMMARY: final pre-flight for the ECP submission via EJMS; all gates pass on source 1e950299…f642 / PDF 3c4bd14e…7d24; risk of no human audit accepted by Brett; venue-record novelty conditions (MathSciNet pass, expert check) open for Brett's decision · status: blocked on Brett's decisions · updated: 2026-10-03 -->
 
 Completed from `Project-Management/templates/paper-submission-checklist.md`.
 Items that don't apply are marked N/A with the reason.
@@ -24,6 +24,12 @@ Items that don't apply are marked N/A with the reason.
 ## 1. Submission decision
 
 - [x] The venue decision record exists, with a journal-reader contract, alternatives and a risk test.
+- [ ] **The venue record's own pre-submission conditions.** The first version of this checklist did not read them; a side agent caught the gap.
+  - *Independent audit of the full proof:* open. This is covered by Brett's acceptance of no human audit. Since July, Theorem 1.1 has been fully kernel-checked in Lean.
+  - *Authenticated MathSciNet pass and submission-date delta search:* **open**. A free sweep of zbMATH Open and arXiv, including the delta since 2026-07-01, found nothing that states or implies Theorem 1.1 (`runs/pb-novelty-search-20261003/REPORT.md`, 37 queries listed). The MathSciNet pass needs Brett's login.
+  - *Expert novelty / proof-interface check:* **open**. Brett must confirm whether his acceptance of no human audit covers it.
+  - *Durable DOI archive:* done (Zenodo 10.5281/zenodo.23129480).
+  - *Brett's own forecast:* the record asks for it before submission. **Pending.**
 - [x] Desk and reviewer risks. The strongest open risk is that no human mathematician has audited the paper. **Brett accepted it, 2026-10-03: "Happy to submit."** The cross-family model checks are recorded in DECISIONS.md: ChatGPT Pro reconstructed all 275 Bernstein coefficients, and Codex (GPT-6.1-sol) redid the computations of Section 4. Theorem 1.1 is fully kernel-checked in Lean (PBScalar and PBDeduction, replayed locally, standard axioms only).
 - [x] Current venue instructions. ECP journal page and Manuscript Submission page, pasted by Brett on 2026-10-03 and saved verbatim in `submission/ecp-author-instructions-2026-10-03.md`.
 - [x] Not under consideration elsewhere, and no prior submission of this paper.
@@ -102,4 +108,4 @@ Items that don't apply are marked N/A with the reason.
 
 ## Stop conditions
 
-None active. The one live risk, no human audit, is accepted by Brett and recorded.
+**Active:** the venue record's novelty conditions are open (MathSciNet pass, expert check). Brett has not accepted these as risks. The stop condition is "Risks accepted explicitly by Brett only if a listed gate remains open." The no-human-audit risk is accepted.

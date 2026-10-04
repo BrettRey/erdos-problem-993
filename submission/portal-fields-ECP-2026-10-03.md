@@ -1,5 +1,5 @@
 # Portal Fields Record: ECP, Poisson–binomial paper
-<!-- SUMMARY: Answer sheet for the EJMS/ECP portal for the Poisson–binomial first-descent paper; filled 2026-10-03 from variance-local-log-concavity-poisson-binomial.tex and the venue record; section 11 resolved at the final pre-flight; upload PDF 3c4bd14e…7d24 · status: ready for portal · updated: 2026-10-03 -->
+<!-- SUMMARY: Answer sheet for the EJMS/ECP portal for the Poisson–binomial first-descent paper; filled 2026-10-03 from variance-local-log-concavity-poisson-binomial.tex and the venue record; section 11 has three venue-record conditions open for Brett (MathSciNet pass, expert check, his forecast); upload PDF 3c4bd14e…7d24 · status: blocked on Brett's decisions · updated: 2026-10-03 -->
 
 ## Record
 
@@ -143,6 +143,8 @@ None suggested. Leave the field to the editor unless the portal requires names. 
 | Postal code | **Done:** Brett supplied his home postal code on 2026-10-03. It is entered in the portal only, because this repository is public | Brett | **yes** |
 | Competing interests | **Done:** "The author declares no competing interests." Confirmed by Brett on 2026-10-03 | Brett | **yes** |
 | Independent human audit | no human mathematician has reviewed the paper; a cross-family model check (ChatGPT Pro, 2026-10-03) found no error and reconstructed all 275 coefficients of the Bernstein certificate (now the supplement's second check of 3 < H ≤ 16; the paper's Section 4.1 uses the monotonicity route, kernel-checked in Lean but not reviewed by ChatGPT Pro); proceeding without a human audit is Brett's call and should be recorded in DECISIONS. **Risk accepted by Brett, 2026-10-03 ("Happy to submit")**; recorded in DECISIONS and in `accepted_risks` of `submission/paper-assurance-2026-10-03.md` | Brett | **yes (risk accepted)** |
-| MathSciNet novelty search | optional; needs an institutional login. Not done; Brett proceeded to submission | Brett | **yes (not done; optional)** |
+| MathSciNet novelty search | **Open.** The venue decision record lists this as a pre-submission condition, together with a delta search since July. A row written earlier on 2026-10-03 called it resolved without any decision from Brett; that was wrong. A free sweep of zbMATH Open and arXiv, including the delta since 2026-07-01, found nothing that states or implies Theorem 1.1 (`runs/pb-novelty-search-20261003/REPORT.md`). The authenticated MathSciNet pass needs Brett's U of T login. Brett decides: run it, or accept the risk | Brett | no |
+| Expert novelty / proof-interface check | **Open.** A venue-record condition separate from the human audit above. Brett's "happy to submit" answered the audit question; whether it also covers this check needs his confirmation | Brett | no |
+| Brett's forecast | The venue record asks for Brett's own forecast before submission (P reaches external review, P accepted at ECP). The Codex forecast (0.65, 0.25) must not be logged as his | Brett | no |
 
-- [x] Every row is resolved. The one remaining risk, that there was no human audit, was accepted by Brett.
+- [ ] Every row is resolved. Three remain open for Brett.

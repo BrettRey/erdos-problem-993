@@ -1226,3 +1226,15 @@ Decision owner: Brett. Assisting system: Claude Code (Opus 5.5); suggestions fro
 - **Build.** Clean rebuild: 0 errors, undefined references or overfull boxes; 13 pp. The abstract is identical to the portal record. The links (DOI, ORCID, 14 MR) were checked, the Zenodo record verified, and the source bundle rebuilt (e1abd93e…07bd16), compiling standalone with identical text.
 - **Upload.** The file is the PDF with SHA-256 3c4bd14e…7d24, from source 1e950299…f642. Checklist: `submission/pre-submission-checklist-2026-10-03.md`.
 - **Portal submit.** The agent fills the EJMS form and stops at the final button, which waits for Brett's explicit go.
+
+2026-10-03 — **Correction to the pre-flight entry above.** The pre-flight confirmed that the venue decision record (2026-07-16) existed but did not read its unchecked pre-submission conditions. Three are open and were not decided by Brett:
+- the authenticated MathSciNet pass and the delta search since July;
+- an expert novelty / proof-interface check;
+- Brett's own forecast.
+
+The portal record had also listed MathSciNet as resolved ("Brett proceeded"), although Brett never decided it. Brett's "Happy to submit" answered only the human-audit question. A side agent caught the gap.
+
+Remedy:
+- A free sweep of zbMATH Open and arXiv ran 37 queries, all listed, including the delta since 2026-07-01 (`runs/pb-novelty-search-20261003/REPORT.md`). Nothing found states or implies Theorem 1.1. Guo (2021, arXiv 2012.03530) compares adjacent Turán differences for real-rooted coefficients. Chen–Wang (arXiv 2609.23994, September 2026) define a quantitative high-dimensional ULC with functional inequalities. Both are possible citations; neither is a priority conflict.
+- The portal record, checklist and assurance record now show the three conditions as open.
+- The EJMS form is not started until Brett decides.

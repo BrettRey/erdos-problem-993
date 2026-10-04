@@ -1,0 +1,595 @@
+{
+ "general": {
+  "all:\"Poisson binomial\" AND all:\"log-concave\"": [
+   {
+    "id": "http://arxiv.org/abs/2603.09019v1",
+    "published": "2026-03-09",
+    "title": "On the structure of the Poisson trinomial distribution",
+    "summary": "We study sums of independent random variables that take values $0$, $1/2$, or $1$. We show that the probability mass function of the sum splits into two interleaved parts: one supported on the integers and the other supported on the half-integers. Each part, when normalized, is a Poisson binomial distribution and hence log-concave with one or two modes. We also prove that each of the two conditional means (conditioning on being an integer or a half-integer) lies within $1/2$ of the unconditional mean. As a consequence, any two modes of the two conditional distributions are within $5/2$ of each other.",
+    "authors": [
+     "Mark Broadie",
+     "Ina Petkova"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2411.03065v3",
+    "published": "2024-11-05",
+    "title": "Growing conditioned BGW trees with log-concave offspring distributions",
+    "summary": "We show that given a log-concave offspring distribution, the corresponding sequence of Bienaym\u00e9-Galton-Watson trees conditioned to have $n\\geq 1$ vertices admits a realization as a Markov process $(T_n)_{n\\geq1}$ which adds a new \"right-leaning\" leaf at each step. This applies for instance to offspring distributions which are Poisson, binomial, geometric, or any convolution of those. By a negative result of Janson, the log-concavity condition is optimal in the restricted case of offspring distributions supported in $\\{0,1,2\\}$. We then prove a generalization to the case of an offspring distribution supported on an arithmetic progression, if we assume log-concavity along that progression. As an application, we deduce the existence of increasing couplings in an inhomogeneous model of random subtrees of the Ulam--Harris tree. This is equivalent to the statement that, in a corresponding inhomogeneous Bernouilli percolation model on a regular tree, the root cluster is stochastically increasing in its size. These results generalize a construction of Luczak and Winkler which applies to uniformly sampled subtrees with $n$ vertices of the infinite complete $d$-ary trees. Our proofs are elementary and we tried to make them as self-contained as possible.",
+    "authors": [
+     "William Fleurat"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1911.12167v2",
+    "published": "2019-11-27",
+    "title": "The r-central factorial numbers with even indices",
+    "summary": "In this paper, we introduce the $r$-central factorial numbers with even indices of the first and second kind, as extended versions of the central factorial numbers with even indices of both kinds. We obtain several fundamental properties and identities related to these numbers. We show that the unsigned $r$-central factorial numbers with even indices of the first kind are strictly log-concave and Poisson-binomially distributed . Finally, we consider the $r$-central factorial matrices and the factorization of it.",
+    "authors": [
+     "F. A. Shiha"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1907.09053v1",
+    "published": "2019-07-21",
+    "title": "Some New Results for Poisson Binomial Models",
+    "summary": "We consider a problem of ecological inference, in which individual-level covariates are known, but labeled data is available only at the aggregate level. The intended application is modeling voter preferences in elections. In Rosenman and Viswanathan (2018), we proposed modeling individual voter probabilities via a logistic regression, and posing the problem as a maximum likelihood estimation for the parameter vector beta. The likelihood is a Poisson binomial, the distribution of the sum of independent but not identically distributed Bernoulli variables, though we approximate it with a heteroscedastic Gaussian for computational efficiency. Here, we extend the prior work by proving results about the existence of the MLE and the curvature of this likelihood, which is not log-concave in general. We further demonstrate the utility of our method on a real data example. Using data on voters in Morris County, NJ, we demonstrate that our approach outperforms other ecological inference methods in predicting a related, but known outcome: whether an individual votes.",
+    "authors": [
+     "Evan Rosenman"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1706.05738v2",
+    "published": "2017-06-18",
+    "title": "Fourier-Based Testing for Families of Distributions",
+    "summary": "We study the general problem of testing whether an unknown distribution belongs to a specified family of distributions. More specifically, given a distribution family $\\mathcal{P}$ and sample access to an unknown discrete distribution $\\mathbf{P}$, we want to distinguish (with high probability) between the case that $\\mathbf{P} \\in \\mathcal{P}$ and the case that $\\mathbf{P}$ is $\u03b5$-far, in total variation distance, from every distribution in $\\mathcal{P}$. This is the prototypical hypothesis testing problem that has received significant attention in statistics and, more recently, in theoretical computer science. The sample complexity of this general inference task depends on the underlying family $\\mathcal{P}$. The gold standard in distribution property testing is to design sample-optimal and computationally efficient algorithms for this task. The main contribution of this work is a simple and general testing technique that is applicable to all distribution families whose Fourier spectrum satisfies a certain approximate sparsity property. To the best of our knowledge, ours is the first use of the Fourier transform in the context of distribution testing. We apply our Fourier-based framework to obtain near sample-optimal and computationally efficient testers for the following fundamental distribution families: Sums of Independent Integer Random Variables (SIIRVs), Poisson Multinomial Distributions (PMDs), and Discrete Log-Concave Distributions. For the first two, ours are the first non-trivial testers in the literature, vastly generalizing previous work on testing Poisson Binomial Distributions. For the third, our tester improves on prior work in both sample and time complexity.",
+    "authors": [
+     "Cl\u00e9ment L. Canonne",
+     "Ilias Diakonikolas",
+     "Alistair Stewart"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1507.03558v3",
+    "published": "2015-07-13",
+    "title": "Testing Shape Restrictions of Discrete Distributions",
+    "summary": "We study the question of testing structured properties (classes) of discrete distributions. Specifically, given sample access to an arbitrary distribution $D$ over $[n]$ and a property $\\mathcal{P}$, the goal is to distinguish between $D\\in\\mathcal{P}$ and $\\ell_1(D,\\mathcal{P})&gt;\\varepsilon$. We develop a general algorithm for this question, which applies to a large range of \"shape-constrained\" properties, including monotone, log-concave, $t$-modal, piecewise-polynomial, and Poisson Binomial distributions. Moreover, for all cases considered, our algorithm has near-optimal sample complexity with regard to the domain size and is computationally efficient. For most of these classes, we provide the first non-trivial tester in the literature. In addition, we also describe a generic method to prove lower bounds for this problem, and use it to show our upper bounds are nearly tight. Finally, we extend some of our techniques to tolerant testing, deriving nearly-tight upper and lower bounds for the corresponding questions.",
+    "authors": [
+     "Cl\u00e9ment L. Canonne",
+     "Ilias Diakonikolas",
+     "Themis Gouleakis",
+     "Ronitt Rubinfeld"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1305.3207v1",
+    "published": "2013-05-14",
+    "title": "Efficient Density Estimation via Piecewise Polynomial Approximation",
+    "summary": "We give a highly efficient \"semi-agnostic\" algorithm for learning univariate probability distributions that are well approximated by piecewise polynomial density functions. Let $p$ be an arbitrary distribution over an interval $I$ which is $\u03c4$-close (in total variation distance) to an unknown probability distribution $q$ that is defined by an unknown partition of $I$ into $t$ intervals and $t$ unknown degree-$d$ polynomials specifying $q$ over each of the intervals. We give an algorithm that draws $\\tilde{O}(t\\new{(d+1)}/\\eps^2)$ samples from $p$, runs in time $\\poly(t,d,1/\\eps)$, and with high probability outputs a piecewise polynomial hypothesis distribution $h$ that is $(O(\u03c4)+\\eps)$-close (in total variation distance) to $p$. This sample complexity is essentially optimal; we show that even for $\u03c4=0$, any algorithm that learns an unknown $t$-piecewise degree-$d$ probability distribution over $I$ to accuracy $\\eps$ must use $\u03a9({\\frac {t(d+1)} {\\poly(1 + \\log(d+1))}} \\cdot {\\frac 1 {\\eps^2}})$ samples from the distribution, regardless of its running time. Our algorithm combines tools from approximation theory, uniform convergence, linear programming, and dynamic programming. We apply this general algorithm to obtain a wide range of results for many natural problems in density estimation over both continuous and discrete domains. These include state-of-the-art results for learning mixtures of log-concave distributions; mixtures of $t$-modal distributions; mixtures of Monotone Hazard Rate distributions; mixtures of Poisson Binomial Distributions; mixtures of Gaussians; and mixtures of $k$-monotone densities. Our general technique yields computationally efficient algorithms for all these problems, in many cases with provably optimal sample complexities (up to logarithmic factors) in all parameters.",
+    "authors": [
+     "Siu-On Chan",
+     "Ilias Diakonikolas",
+     "Rocco A. Servedio",
+     "Xiaorui Sun"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/0909.4570v1",
+    "published": "2009-09-24",
+    "title": "Stochastic Ordering of Exponential Family Distributions and Their Mixtures",
+    "summary": "We investigate stochastic comparisons between exponential family distributions and their mixtures with respect to the usual stochastic order, the hazard rate order, the reversed hazard rate order, and the likelihood ratio order. A general theorem based on the notion of relative log-concavity is shown to unify various specific results for the Poisson, binomial, negative binomial, and gamma distributions in recent literature. By expressing a convolution of gamma distributions with arbitrary scale and shape parameters as a scale mixture of gamma distributions, we obtain comparison theorems concerning such convolutions that generalize some known results. Analogous results on convolutions of negative binomial distributions are also discussed.",
+    "authors": [
+     "Yaming Yu"
+    ]
+   }
+  ],
+  "all:\"Poisson binomial\" AND all:Turan": [],
+  "all:\"Poisson-binomial\" AND all:\"log-concavity\"": [
+   {
+    "id": "http://arxiv.org/abs/2603.09019v1",
+    "published": "2026-03-09",
+    "title": "On the structure of the Poisson trinomial distribution",
+    "summary": "We study sums of independent random variables that take values $0$, $1/2$, or $1$. We show that the probability mass function of the sum splits into two interleaved parts: one supported on the integers and the other supported on the half-integers. Each part, when normalized, is a Poisson binomial distribution and hence log-concave with one or two modes. We also prove that each of the two conditional means (conditioning on being an integer or a half-integer) lies within $1/2$ of the unconditional mean. As a consequence, any two modes of the two conditional distributions are within $5/2$ of each other.",
+    "authors": [
+     "Mark Broadie",
+     "Ina Petkova"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2411.03065v3",
+    "published": "2024-11-05",
+    "title": "Growing conditioned BGW trees with log-concave offspring distributions",
+    "summary": "We show that given a log-concave offspring distribution, the corresponding sequence of Bienaym\u00e9-Galton-Watson trees conditioned to have $n\\geq 1$ vertices admits a realization as a Markov process $(T_n)_{n\\geq1}$ which adds a new \"right-leaning\" leaf at each step. This applies for instance to offspring distributions which are Poisson, binomial, geometric, or any convolution of those. By a negative result of Janson, the log-concavity condition is optimal in the restricted case of offspring distributions supported in $\\{0,1,2\\}$. We then prove a generalization to the case of an offspring distribution supported on an arithmetic progression, if we assume log-concavity along that progression. As an application, we deduce the existence of increasing couplings in an inhomogeneous model of random subtrees of the Ulam--Harris tree. This is equivalent to the statement that, in a corresponding inhomogeneous Bernouilli percolation model on a regular tree, the root cluster is stochastically increasing in its size. These results generalize a construction of Luczak and Winkler which applies to uniformly sampled subtrees with $n$ vertices of the infinite complete $d$-ary trees. Our proofs are elementary and we tried to make them as self-contained as possible.",
+    "authors": [
+     "William Fleurat"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1911.12167v2",
+    "published": "2019-11-27",
+    "title": "The r-central factorial numbers with even indices",
+    "summary": "In this paper, we introduce the $r$-central factorial numbers with even indices of the first and second kind, as extended versions of the central factorial numbers with even indices of both kinds. We obtain several fundamental properties and identities related to these numbers. We show that the unsigned $r$-central factorial numbers with even indices of the first kind are strictly log-concave and Poisson-binomially distributed . Finally, we consider the $r$-central factorial matrices and the factorization of it.",
+    "authors": [
+     "F. A. Shiha"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1907.09053v1",
+    "published": "2019-07-21",
+    "title": "Some New Results for Poisson Binomial Models",
+    "summary": "We consider a problem of ecological inference, in which individual-level covariates are known, but labeled data is available only at the aggregate level. The intended application is modeling voter preferences in elections. In Rosenman and Viswanathan (2018), we proposed modeling individual voter probabilities via a logistic regression, and posing the problem as a maximum likelihood estimation for the parameter vector beta. The likelihood is a Poisson binomial, the distribution of the sum of independent but not identically distributed Bernoulli variables, though we approximate it with a heteroscedastic Gaussian for computational efficiency. Here, we extend the prior work by proving results about the existence of the MLE and the curvature of this likelihood, which is not log-concave in general. We further demonstrate the utility of our method on a real data example. Using data on voters in Morris County, NJ, we demonstrate that our approach outperforms other ecological inference methods in predicting a related, but known outcome: whether an individual votes.",
+    "authors": [
+     "Evan Rosenman"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1706.05738v2",
+    "published": "2017-06-18",
+    "title": "Fourier-Based Testing for Families of Distributions",
+    "summary": "We study the general problem of testing whether an unknown distribution belongs to a specified family of distributions. More specifically, given a distribution family $\\mathcal{P}$ and sample access to an unknown discrete distribution $\\mathbf{P}$, we want to distinguish (with high probability) between the case that $\\mathbf{P} \\in \\mathcal{P}$ and the case that $\\mathbf{P}$ is $\u03b5$-far, in total variation distance, from every distribution in $\\mathcal{P}$. This is the prototypical hypothesis testing problem that has received significant attention in statistics and, more recently, in theoretical computer science. The sample complexity of this general inference task depends on the underlying family $\\mathcal{P}$. The gold standard in distribution property testing is to design sample-optimal and computationally efficient algorithms for this task. The main contribution of this work is a simple and general testing technique that is applicable to all distribution families whose Fourier spectrum satisfies a certain approximate sparsity property. To the best of our knowledge, ours is the first use of the Fourier transform in the context of distribution testing. We apply our Fourier-based framework to obtain near sample-optimal and computationally efficient testers for the following fundamental distribution families: Sums of Independent Integer Random Variables (SIIRVs), Poisson Multinomial Distributions (PMDs), and Discrete Log-Concave Distributions. For the first two, ours are the first non-trivial testers in the literature, vastly generalizing previous work on testing Poisson Binomial Distributions. For the third, our tester improves on prior work in both sample and time complexity.",
+    "authors": [
+     "Cl\u00e9ment L. Canonne",
+     "Ilias Diakonikolas",
+     "Alistair Stewart"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1507.03558v3",
+    "published": "2015-07-13",
+    "title": "Testing Shape Restrictions of Discrete Distributions",
+    "summary": "We study the question of testing structured properties (classes) of discrete distributions. Specifically, given sample access to an arbitrary distribution $D$ over $[n]$ and a property $\\mathcal{P}$, the goal is to distinguish between $D\\in\\mathcal{P}$ and $\\ell_1(D,\\mathcal{P})&gt;\\varepsilon$. We develop a general algorithm for this question, which applies to a large range of \"shape-constrained\" properties, including monotone, log-concave, $t$-modal, piecewise-polynomial, and Poisson Binomial distributions. Moreover, for all cases considered, our algorithm has near-optimal sample complexity with regard to the domain size and is computationally efficient. For most of these classes, we provide the first non-trivial tester in the literature. In addition, we also describe a generic method to prove lower bounds for this problem, and use it to show our upper bounds are nearly tight. Finally, we extend some of our techniques to tolerant testing, deriving nearly-tight upper and lower bounds for the corresponding questions.",
+    "authors": [
+     "Cl\u00e9ment L. Canonne",
+     "Ilias Diakonikolas",
+     "Themis Gouleakis",
+     "Ronitt Rubinfeld"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1305.3207v1",
+    "published": "2013-05-14",
+    "title": "Efficient Density Estimation via Piecewise Polynomial Approximation",
+    "summary": "We give a highly efficient \"semi-agnostic\" algorithm for learning univariate probability distributions that are well approximated by piecewise polynomial density functions. Let $p$ be an arbitrary distribution over an interval $I$ which is $\u03c4$-close (in total variation distance) to an unknown probability distribution $q$ that is defined by an unknown partition of $I$ into $t$ intervals and $t$ unknown degree-$d$ polynomials specifying $q$ over each of the intervals. We give an algorithm that draws $\\tilde{O}(t\\new{(d+1)}/\\eps^2)$ samples from $p$, runs in time $\\poly(t,d,1/\\eps)$, and with high probability outputs a piecewise polynomial hypothesis distribution $h$ that is $(O(\u03c4)+\\eps)$-close (in total variation distance) to $p$. This sample complexity is essentially optimal; we show that even for $\u03c4=0$, any algorithm that learns an unknown $t$-piecewise degree-$d$ probability distribution over $I$ to accuracy $\\eps$ must use $\u03a9({\\frac {t(d+1)} {\\poly(1 + \\log(d+1))}} \\cdot {\\frac 1 {\\eps^2}})$ samples from the distribution, regardless of its running time. Our algorithm combines tools from approximation theory, uniform convergence, linear programming, and dynamic programming. We apply this general algorithm to obtain a wide range of results for many natural problems in density estimation over both continuous and discrete domains. These include state-of-the-art results for learning mixtures of log-concave distributions; mixtures of $t$-modal distributions; mixtures of Monotone Hazard Rate distributions; mixtures of Poisson Binomial Distributions; mixtures of Gaussians; and mixtures of $k$-monotone densities. Our general technique yields computationally efficient algorithms for all these problems, in many cases with provably optimal sample complexities (up to logarithmic factors) in all parameters.",
+    "authors": [
+     "Siu-On Chan",
+     "Ilias Diakonikolas",
+     "Rocco A. Servedio",
+     "Xiaorui Sun"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/0909.4570v1",
+    "published": "2009-09-24",
+    "title": "Stochastic Ordering of Exponential Family Distributions and Their Mixtures",
+    "summary": "We investigate stochastic comparisons between exponential family distributions and their mixtures with respect to the usual stochastic order, the hazard rate order, the reversed hazard rate order, and the likelihood ratio order. A general theorem based on the notion of relative log-concavity is shown to unify various specific results for the Poisson, binomial, negative binomial, and gamma distributions in recent literature. By expressing a convolution of gamma distributions with arbitrary scale and shape parameters as a scale mixture of gamma distributions, we obtain comparison theorems concerning such convolutions that generalize some known results. Analogous results on convolutions of negative binomial distributions are also discussed.",
+    "authors": [
+     "Yaming Yu"
+    ]
+   }
+  ],
+  "all:\"sums of independent Bernoulli\" AND all:\"log-concave\"": [],
+  "all:\"Bernoulli sums\" AND all:\"log-concave\"": [],
+  "all:\"real-rooted\" AND all:Turan AND all:variance": [],
+  "all:\"Newton inequalities\" AND all:variance": [
+   {
+    "id": "http://arxiv.org/abs/1702.04665v1",
+    "published": "2017-02-15",
+    "title": "Means Moments and Newton's Inequalities",
+    "summary": "It is shown that Newton's inequalities and the related Maclaurin's inequalities provide several refinements of the fundamental Arithmetic mean - Geometric mean - Harmonic mean inequality in terms of the means and variance of positive real numbers. We also obtain some inequalities involving third and fourth central moments of real numbers.",
+    "authors": [
+     "R. Sharma",
+     "A. Sharma",
+     "R. Saini",
+     "G. Kapoor"
+    ]
+   }
+  ],
+  "all:\"Newton's inequalities\" AND all:improvement": [
+   {
+    "id": "http://arxiv.org/abs/2609.03327v1",
+    "published": "2026-09-03",
+    "title": "Taylor Positivity of Ehrhart Polynomials",
+    "summary": "Let $P$ be a $d$-dimensional lattice polytope with Ehrhart polynomial $L_P(t)$. Motivated by the study of Ehrhart positivity and magic positivity, we investigate the Taylor coefficients $\\mathsf{A}_j(P;k)$ in the shifted expansion $L_P(t)=\\sum_{j=0}^{d}\\mathsf{A}_j(P;k)(t-k)^j$ about a real center $k$. In this paper, we obtain the following four main results. (i) We give exact formulas for these coefficients in terms of the ordinary Ehrhart coefficients, the $h^*$-vector, elementary symmetric functions, and Stirling numbers. (ii) We denote by $\u03c4(P)$ and $\u03c4^+(P)$ the smallest nonnegative integral centers at which all Taylor coefficients are nonnegative and positive, respectively. If $s$ is the degree of the $h^*$-polynomial, then $0\\leq\u03c4(P)\\leq\u03c4^+(P)\\leq\\min\\{\\max\\{0,s-1\\},\\lfloor\\frac{d-1}{2}\\rfloor\\}$. As an application, we slightly improve an upper bound due to Beck, De Loera, Develin, Pfeifle, and Stanley. That is, every real root of $L_P(t)$ lies in $[-d,\\lfloor\\frac{d-1}{2}\\rfloor)$. (iii) Let $\u03c1(P)$ be the smallest nonnegative real center such that the Taylor coefficients are nonnegative. If $\u03bb_{\\mathbb{R}}(f)$ denotes the largest real zero of $f(t)$, with value $-\\infty$ when no such zero exists, then $\u03c1(P)=\\max\\{0,\\max_{0\\leq j&lt;d}\u03bb_{\\mathbb{R}}\\!(L_P^{(j)})\\}$. (iv) We establish structural properties of the Taylor coefficients $\\mathsf{A}_j(P;k)$, including derivative interlacing, palindromic reflection symmetries, and Laguerre and Newton inequalities. As a final note, these results provide a systematic partial answer to an open problem listed on the website of the American Institute of Mathematics.",
+    "authors": [
+     "Feihu Liu",
+     "Zihao Zhang"
+    ]
+   }
+  ],
+  "all:\"ultra log-concave\" AND all:variance AND all:mode": [],
+  "all:\"strongly log-concave\" AND all:Bernoulli": [
+   {
+    "id": "http://arxiv.org/abs/2002.00291v3",
+    "published": "2020-02-01",
+    "title": "Oracle Lower Bounds for Stochastic Gradient Sampling Algorithms",
+    "summary": "We consider the problem of sampling from a strongly log-concave density in $\\mathbb{R}^d$, and prove an information theoretic lower bound on the number of stochastic gradient queries of the log density needed. Several popular sampling algorithms (including many Markov chain Monte Carlo methods) operate by using stochastic gradients of the log density to generate a sample; our results establish an information theoretic limit for all these algorithms. We show that for every algorithm, there exists a well-conditioned strongly log-concave target density for which the distribution of points generated by the algorithm would be at least $\\varepsilon$ away from the target in total variation distance if the number of gradient queries is less than $\u03a9(\u03c3^2 d/\\varepsilon^2)$, where $\u03c3^2 d$ is the variance of the stochastic gradient. Our lower bound follows by combining the ideas of Le Cam deficiency routinely used in the comparison of statistical experiments along with standard information theoretic tools used in lower bounding Bayes risk functions. To the best of our knowledge our results provide the first nontrivial dimension-dependent lower bound for this problem.",
+    "authors": [
+     "Niladri S. Chatterji",
+     "Peter L. Bartlett",
+     "Philip M. Long"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1203.0828v2",
+    "published": "2012-03-05",
+    "title": "Chernoff's density is log-concave",
+    "summary": "We show that the density of $Z=\\mathop {\\operatorname {argmax}}\\{W(t)-t^2\\}$, sometimes known as Chernoff's density, is log-concave. We conjecture that Chernoff's density is strongly log-concave or \"super-Gaussian\", and provide evidence in support of the conjecture.",
+    "authors": [
+     "Fadoua Balabdaoui",
+     "Jon A. Wellner"
+    ]
+   }
+  ],
+  "all:\"discrete curvature\" AND all:\"log-concave\"": [],
+  "all:\"c-log-concave\"": [],
+  "all:\"Shepp-Olkin\"": [
+   {
+    "id": "http://arxiv.org/abs/2609.27433v1",
+    "published": "2026-09-23",
+    "title": "The Sharp R\u00e9nyi and Tsallis Threshold in the Shepp--Olkin Concavity Problem",
+    "summary": "Let $B_1,\\ldots,B_n$ be independent Bernoulli random variables with parameters $p_1,\\ldots,p_n$, and let $S=\\sum_i B_i$. Hillion and Johnson proved that the Shannon entropy of $S$ is jointly concave in the parameter vector and proposed corresponding critical-order conjectures for R'enyi and Tsallis entropies, with predicted thresholds $2$ and approximately $3.65986$, respectively. We determine both thresholds exactly. For every $0&lt;q&lt;1$, the power sum $\\sum_k \\mathbb P(S=k)^q$ is jointly concave in $(p_1,\\ldots,p_n)$, and strictly concave on the open parameter cube. Consequently, the R'enyi and Tsallis entropies of order $q$ are jointly concave. At $q=1$ this agrees with the Shannon theorem. For every $q&gt;1$, joint concavity fails already for the sum of two Bernoulli variables: a transverse interpolation in which the two parameters move in opposite directions gives strict local convexity for both entropies. Hence the universal joint-concavity range for both families is exactly $0&lt;q\\leq 1$. Below order one, the proof combines the Hillion--Johnson transport inequality with an explicit nonlinear telescoping correction. The corrected local curvature reduces to a two-dimensional quadratic form. An exact Riccati identity, together with a one-sided zero-crossing argument, proves positivity of its determinant throughout the full range $0&lt;q&lt;1$.",
+    "authors": [
+     "Haoran Wang"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2605.11831v1",
+    "published": "2026-05-12",
+    "title": "Maximum Entropy of Sums of Independent Ternary Random Variables",
+    "summary": "The classical problem of maximizing the Shannon entropy of a sum of independent random variables supported on a finite alphabet is considered and settled in the ternary case. Namely, the following theorem is established: if \\(X_1,\\ldots,X_n\\) are independent random variables taking values in \\(\\{0,1,2\\}\\), then the entropy of \\(S_n=X_1+\\cdots+X_n\\) is maximized when \\(X_1,\\ldots,X_{n-1}\\) are uniform on \\(\\{0,2\\}\\) and the probability mass function of \\(X_n\\) is given by \\(\\Prob(X_n=0) = \\Prob(X_n=2) = w/2\\), \\(\\Prob(X_n=1) = 1-w\\), where \\(w = \\big(1 + 2^{-H(B_n)+H(B_{n-1})}\\big)^{-1}\\) and \\(B_m\\sim \\Bin(m,1/2)\\). The statement can be seen as an extension to ternary alphabets of the Shepp--Olkin--Mateev theorem. The proof uses the Hermite--Biehler theorem, Newton's inequalities, and Yu's maximum-entropy theorem for ultra-log-concave distributions.",
+    "authors": [
+     "Mladen Kova\u010devi\u0107"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2008.01138v3",
+    "published": "2020-08-03",
+    "title": "On the Maximum Entropy of a Sum of Independent Discrete Random Variables",
+    "summary": "Let $ X_1, \\ldots, X_n $ be independent random variables taking values in the alphabet $ \\{0, 1, \\ldots, r\\} $, and $ S_n = \\sum_{i = 1}^n X_i $. The Shepp--Olkin theorem states that, in the binary case ($ r = 1 $), the Shannon entropy of $ S_n $ is maximized when all the $ X_i $'s are uniformly distributed, i.e., Bernoulli(1/2). In an attempt to generalize this theorem to arbitrary finite alphabets, we obtain a lower bound on the maximum entropy of $ S_n $ and prove that it is tight in several special cases. In addition to these special cases, an argument is presented supporting the conjecture that the bound represents the optimal value for all $ n, r $, i.e., that $ H(S_n) $ is maximized when $ X_1, \\ldots, X_{n-1} $ are uniformly distributed over $ \\{0, r\\} $, while the probability mass function of $ X_n $ is a mixture (with explicitly defined non-zero weights) of the uniform distributions over $ \\{0, r\\} $ and $ \\{1, \\ldots, r-1\\} $.",
+    "authors": [
+     "Mladen Kova\u010devi\u0107"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1810.09791v1",
+    "published": "2018-10-23",
+    "title": "A proof of the Shepp-Olkin entropy monotonicity conjecture",
+    "summary": "Consider tossing a collection of coins, each fair or biased towards heads, and take the distribution of the total number of heads that result. It is natural to conjecture that this distribution should be 'more random' when each coin is fairer. Indeed, Shepp and Olkin conjectured that the Shannon entropy of this distribution is monotonically increasing in this case. We resolve this conjecture, by proving that this intuition is correct. Our proof uses a construction which was previously developed by the authors to prove a related conjecture of Shepp and Olkin concerning concavity of entropy. We discuss whether this result can be generalized to $q$-R\u00e9nyi and $q$-Tsallis entropies, for a range of values of $q$.",
+    "authors": [
+     "Erwan Hillion",
+     "Oliver Johnson"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1510.05390v3",
+    "published": "2015-10-19",
+    "title": "Entropy and thinning of discrete random variables",
+    "summary": "We describe five types of results concerning information and concentration of discrete random variables, and relationships between them, motivated by their counterparts in the continuous case. The results we consider are information theoretic approaches to Poisson approximation, the maximum entropy property of the Poisson distribution, discrete concentration (Poincar\u00e9 and logarithmic Sobolev) inequalities, monotonicity of entropy and concavity of entropy in the Shepp--Olkin regime.",
+    "authors": [
+     "Oliver Johnson"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1503.01570v1",
+    "published": "2015-03-05",
+    "title": "A proof of the Shepp-Olkin entropy concavity conjecture",
+    "summary": "We prove the Shepp--Olkin conjecture, which states that the entropy of the sum of independent Bernoulli random variables is concave in the parameters of the individual random variables. Our proof is a refinement of an argument previously presented by the same authors, which resolved the conjecture in the monotonic case (where all the parameters are simultaneously increasing). In fact, we show that the monotonic case is the worst case, using a careful analysis of concavity properties of the derivatives of the probability mass function. We propose a generalization of Shepp and Olkin's original conjecture, to consider Renyi and Tsallis entropies.",
+    "authors": [
+     "Erwan Hillion",
+     "Oliver Johnson"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/1303.3381v3",
+    "published": "2013-03-14",
+    "title": "Discrete versions of the transport equation and the Shepp-Olkin conjecture",
+    "summary": "We introduce a framework to consider transport problems for integer-valued random variables. We introduce weighting coefficients which allow us to characterize transport problems in a gradient flow setting, and form the basis of our introduction of a discrete version of the Benamou-Brenier formula. Further, we use these coefficients to state a new form of weighted log-concavity. These results are applied to prove the monotone case of the Shepp-Olkin entropy concavity conjecture.",
+    "authors": [
+     "Erwan Hillion",
+     "Oliver Johnson"
+    ]
+   }
+  ]
+ },
+ "delta": {
+  "all:\"Poisson binomial\"": [
+   {
+    "id": "http://arxiv.org/abs/2607.21671v1",
+    "published": "2026-07-23",
+    "title": "Neural Feature Governance: Extending Atom Prevalence",
+    "summary": "Neural network compression and interpretability remain open challenges in modern deep learn- ing, where billion-parameter architectures deliver impressive accuracy at the cost of trans- parency, computational efficiency, and reliable uncertainty quantification. This paper introduces Neural Atom Prevalence (NAP), a principled Bayesian framework for structured node-level model selection in feedforward neural networks. NAP introduces the neural atom (activation unit) and functions as a hybrid method operating through a four-phase pipeline: Bayesian Lottery Ticket (BLT) identification via Iterative Magnitude Pruning (IMP), soft variational training of the Spike and Slab Independent Gaussian (SS-IG) model, Poisson-Binomial (PB) optimal layer-size selection, and Bayesian fine-tuning to produce a sparse, stable, interpretable, and accurate model. Extensive empirical validation across simulated nonlinear regression, two UCI benchmark datasets (Concrete, YearPredictionMSD), and the MNIST image classification task demonstrates that NAP achieves state-of-the-art structural sparsity, reducing active nodes to as few as 8% of the original dense architecture on MNIST, while well-calibrated probabilisti- cally: the aleatoric-epistemic uncertainty decomposition reveals that model ignorance accounts for only 3 to 4% of total predictive variance across all experiments, and regression reliability diagrams confirm a near-nominal predictive interval coverage (93.4% observed against a 95% target). These results establish NAP as a reliable, theoretically grounded, and computation- ally tractable solution to the simultaneous pursuit of sparsity, accuracy, interpretability, and uncertainty quantification in Bayesian neural networks.",
+    "authors": [
+     "Idris Karel Seunda Ekwe",
+     "Patrick Tenga Shako",
+     "Ernest Parfait Fokou\u00e9"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2607.19961v1",
+    "published": "2026-07-22",
+    "title": "focus and focus-cpt: Fast Online Changepoint Detection in R and Python",
+    "summary": "We present an R and Python package for fast online changepoint detection in univariate and multivariate data streams for a variety of models. The package implements the focus family of algorithms, which compute the Generalised Likelihood Ratio test for a single changepoint exactly and efficiently, with a per-iteration cost of approximately $\\log(n)^d$ for a d-dimensional sequence, without introducing approximations. This is achieved by exploiting a connection between the location of the changepoint candidates and the geometry of the data. The package supports a broad range of models from the natural exponential family, including Gaussian, Poisson, Binomial, Exponential and Gamma distributions, as well as a non-parametric detector based on the empirical cumulative distribution function and a detector for autoregressive data.",
+    "authors": [
+     "Gaetano Romano",
+     "Kes Ward",
+     "Yuntang Fan",
+     "Guillem Rigaill",
+     "Vincent Runge",
+     "Idris A. Eckley",
+     "Paul Fearnhead"
+    ]
+   }
+  ],
+  "all:\"Poisson-binomial\"": [
+   {
+    "id": "http://arxiv.org/abs/2607.21671v1",
+    "published": "2026-07-23",
+    "title": "Neural Feature Governance: Extending Atom Prevalence",
+    "summary": "Neural network compression and interpretability remain open challenges in modern deep learn- ing, where billion-parameter architectures deliver impressive accuracy at the cost of trans- parency, computational efficiency, and reliable uncertainty quantification. This paper introduces Neural Atom Prevalence (NAP), a principled Bayesian framework for structured node-level model selection in feedforward neural networks. NAP introduces the neural atom (activation unit) and functions as a hybrid method operating through a four-phase pipeline: Bayesian Lottery Ticket (BLT) identification via Iterative Magnitude Pruning (IMP), soft variational training of the Spike and Slab Independent Gaussian (SS-IG) model, Poisson-Binomial (PB) optimal layer-size selection, and Bayesian fine-tuning to produce a sparse, stable, interpretable, and accurate model. Extensive empirical validation across simulated nonlinear regression, two UCI benchmark datasets (Concrete, YearPredictionMSD), and the MNIST image classification task demonstrates that NAP achieves state-of-the-art structural sparsity, reducing active nodes to as few as 8% of the original dense architecture on MNIST, while well-calibrated probabilisti- cally: the aleatoric-epistemic uncertainty decomposition reveals that model ignorance accounts for only 3 to 4% of total predictive variance across all experiments, and regression reliability diagrams confirm a near-nominal predictive interval coverage (93.4% observed against a 95% target). These results establish NAP as a reliable, theoretically grounded, and computation- ally tractable solution to the simultaneous pursuit of sparsity, accuracy, interpretability, and uncertainty quantification in Bayesian neural networks.",
+    "authors": [
+     "Idris Karel Seunda Ekwe",
+     "Patrick Tenga Shako",
+     "Ernest Parfait Fokou\u00e9"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2607.19961v1",
+    "published": "2026-07-22",
+    "title": "focus and focus-cpt: Fast Online Changepoint Detection in R and Python",
+    "summary": "We present an R and Python package for fast online changepoint detection in univariate and multivariate data streams for a variety of models. The package implements the focus family of algorithms, which compute the Generalised Likelihood Ratio test for a single changepoint exactly and efficiently, with a per-iteration cost of approximately $\\log(n)^d$ for a d-dimensional sequence, without introducing approximations. This is achieved by exploiting a connection between the location of the changepoint candidates and the geometry of the data. The package supports a broad range of models from the natural exponential family, including Gaussian, Poisson, Binomial, Exponential and Gamma distributions, as well as a non-parametric detector based on the empirical cumulative distribution function and a detector for autoregressive data.",
+    "authors": [
+     "Gaetano Romano",
+     "Kes Ward",
+     "Yuntang Fan",
+     "Guillem Rigaill",
+     "Vincent Runge",
+     "Idris A. Eckley",
+     "Paul Fearnhead"
+    ]
+   }
+  ],
+  "all:\"log-concave\" AND all:Bernoulli": [
+   {
+    "id": "http://arxiv.org/abs/2610.01709v1",
+    "published": "2026-10-01",
+    "title": "Chaining, tree and measure for some canonical processes",
+    "summary": "We prove two deterministic results for families of distances arising in the study of canonical processes. The first derives an admissible partition scheme from a growth condition. The second gives a representation in terms of parameterized separation trees and compares it with the corresponding majorizing-measure quantities. The main point is that the proofs do not depend on the distribution of the underlying process: once the initial distance and the family of distances are given, no random variables, independence, tail functions, or moment estimates are used. For canonical processes with regular log-concave tails, the assumptions of the abstract results follow from the usual regularity conditions. One direction of the separation-tree estimate also applies to Bernoulli processes without these additional assumptions, and we prove the reverse estimate for bounded convex unconditional index sets. We also give a version of the growth argument for points which, for finite index sets, leads to a recursive construction of admissible partitions and parameterized separation trees.",
+    "authors": [
+     "Xuanang Hu",
+     "Hanchao Wang",
+     "Xinglong Wu"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2609.31782v1",
+    "published": "2026-09-24",
+    "title": "Sudakov Minoration for Unconditional Log-Concave Vectors",
+    "summary": "Sudakov minoration asks whether a large family of separated random linear forms must have a large expected maximum. We present a proof candidate for this principle for all unconditional log-concave vectors. The argument starts with a classical reduction to sparse coordinate supports. It then selects one feasible threshold witness for each label, removes a common coordinate core, and controls the remaining overlaps. The main analytic step is an exponential-moment estimate for a softened witness payoff. We obtain it by combining a one-dimensional clipping inequality with triangular transport, using log-concavity of the source and sign symmetry of the target. A Bernoulli comparison restores the signs at the end. The exposition includes historical context, a guide to the proof, all intermediate arguments, and explicit choices of constants. Two consequences concern covering numbers in the moment metric and concentration of bounded functions of the magnitudes.",
+    "authors": [
+     "Witold Bednorz",
+     "Rafal Martynek",
+     "Rafal Meller"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2609.30525v1",
+    "published": "2026-09-24",
+    "title": "Sudakov minoration for unconditional log-concave vectors with negatively associated magnitudes",
+    "summary": "We prove the Sudakov minoration principle, with a universal constant, for unconditional log-concave random vectors whose coordinate magnitudes are negatively associated. The main step is a deterministic selection theorem: pairwise witnesses in convex downwardclosed sets yield, on an exponentially large subfamily, one fixed witness per label separating it from every other retained label. The selection combines a prefix counting inequality with convex separation in the space of all label-coordinate arrays. Negative association then controls the expected number of active joint-tail witnesses, while a Bernoulli argument on complementary coordinate sets retains the random signs. The proof uses joint upper-orthant probabilities and applies negative association only under the original law. Consequences include minoration for products of Orlicz-based log-concave measures and a covering estimate in the moment metric, expressed geometrically through polar Lp centroid bodies.",
+    "authors": [
+     "Witold Bednorz",
+     "Rafal Martynek",
+     "Rafal Meller"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2609.13959v1",
+    "published": "2026-09-12",
+    "title": "Majorizing Measures for Canonical Processes with Log-Concave Tails",
+    "summary": "Let $Y_1,\\ldots,Y_n$ be independent symmetric random variables with log-concave tails. We give a dimension-free characterization of the expected supremum of the canonical process $X_x=\\sum_{i=1}^n x_iY_i$ without any $\u0394_2$ or regular-growth assumption on the coordinate tails. The characterization is governed by scale-dependent intrinsic costs determined directly by the convex tail potentials. It has an information-theoretic rate-distortion formulation as well as two equivalent majorizing-measure formulations on the original index set, one multiscale and one based on a single probability measure. More strongly, the comparison holds for every prescribed law of the index. In particular, the Gaussian majorizing-measure theorem of Talagrand and the Bernoulli theorem of Bednorz-Lata\u0142a are recovered from the same formula, through quadratic and truncated quadratic costs, respectively. The new geometry is necessary: once the $\u0394_2$ growth condition is removed, the usual chaining functional based on increment moments can exceed the expected supremum by an unbounded factor. The proof is based on a uniform convex-order truncation principle for symmetric exponentials and a dyadic decomposition of the tail slopes that transfers simultaneously the random process and its intrinsic cost, with universal constants.",
+    "authors": [
+     "Xuanang Hu",
+     "Hanchao Wang",
+     "Xinglong Wu"
+    ]
+   }
+  ],
+  "all:\"ultra-log-concave\"": [
+   {
+    "id": "http://arxiv.org/abs/2609.37439v1",
+    "published": "2026-09-29",
+    "title": "Real-rootedness and ultra log-concavity of rank-two matroid Ehrhart $h^*$-polynomials",
+    "summary": "We prove that the Ehrhart $h^*$-polynomial of a rank-two matroid with exactly three parallel classes is real-rooted whenever its smallest parallel class has size at most three. This bound is sharp: the rank-two matroids with parallel-class sizes $(4,561,600)$ and $(4,a,a+29)$, for all sufficiently large integers $a$, have $h^*$-polynomials that are not real-rooted. These counterexamples disprove Ferroni's real-rootedness conjecture. Their duals are cycle matroids of theta graphs and have the same $h^*$-polynomials. Nevertheless, every matroid of rank two or corank two has a positive $h^*$-coefficient sequence that is ultra log-concave of order equal to the polynomial's degree. In particular, the unimodality conjecture holds in both cases.",
+    "authors": [
+     "Houshan Fu"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2609.23994v1",
+    "published": "2026-09-21",
+    "title": "High-Dimensional Ultra-Log-Concave Distributions",
+    "summary": "Ultra-log-concave distributions are ubiquitous in probability, combinatorics, and statistical mechanics and have been studied extensively. In this paper, we introduce a quantitative high-dimensional extension of this notion, called $\u03b4$-ultra-log-concavity, for probability measures on $\\mathbb{N}^d$ with downward closed support. When $\u03b4= 1$, this notion coincides with the class studied by Gurvits (2009) via strongly log-concave generating functions, and with the class defined by Anari, Oveis Gharan, and Vinzant (2021) via completely log-concave generating functions; in one dimension, it reduces to classical ultra-log-concavity. We establish several functional inequalities, including a weighted Poincar\u00e9 inequality, a discrete Brascamp--Lieb inequality, and a weighted Wu-type modified log-Sobolev inequality. Our approach combines integrated Bakry--\u00c9mery calculus for a canonical birth-death chain with Poisson stochastic localization, which arises as the time reversal of coordinatewise binomial thinning. We further establish concentration of measure, maximum-entropy principles, and several closure properties for ultra-log-concave measures, and develop applications to queueing models, polymatroids, antiferromagnetic Potts models, and hardcore models. Finally, a lattice scaling limit of the discrete theory yields Poincar\u00e9 and Brascamp--Lieb inequalities for Laguerre diffusions.",
+    "authors": [
+     "Zongchen Chen",
+     "Sihan Wang"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2609.15201v1",
+    "published": "2026-09-14",
+    "title": "Real-Rootedness and Gamma-Positivity for a Variation of the Morris Constant Term",
+    "summary": "Beck and Pixton expressed the Ehrhart polynomial of the Birkhoff polytope as a weighted sum of constant terms of several multivariate rational functions. Xin and Zhang studied a class of constant terms $h_n(t)$, which can be regarded as a variation of the Morris constant term. They proved that $h_n(t)$ is a polynomial of degree $(n-1)^2$ and obtained many nice properties involving the Morris constant term identity. Let $h_n^*(y)=(1-y)^{(n-1)^2+1}\\sum_{t\\geq0}h_n(t)y^t$. For fixed $n\\geq 3$, we obtain the following three main results: (i): $h_n^*(y)$ is a polynomial with positive integer coefficients. (ii): $h_n^*(y)$ is real-rooted. In particular, all its roots are non-positive real numbers. (iii): $h_n^*(y)$ is Gamma-positive. Furthermore, $h_n^*(y)$ is palindromic, unimodal, and ultra log-concave. This confirms Xin and Zhang's conjecture regarding $h_n^*(y)$. As a byproduct, we prove that every root of a Gamma polynomial associated with $h_n^*(y)$ is a negative real number.",
+    "authors": [
+     "Feihu Liu",
+     "Zihao Zhang"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2609.10234v2",
+    "published": "2026-09-09",
+    "title": "On Two Conjectures Related to the Boros-Moll Sequences",
+    "summary": "The Boros-Moll sequences $\\{d_i(m)\\}_{0\\leq i\\leq m}$ are defined as $$d_i(m)=2^{-2m}\\sum_{k=i}^m 2^k \\binom{2m-2k}{m-k}\\binom{m+k}{k}\\binom{k}{i}.$$ Consider the ratio sequence $$u_i(m)=\\frac{d_{i-1}(m)d_{i+1}(m)}{d_i(m)^2}.$$ Chen and Gu conjectured that $\\{u_i(m)\\}_{2\\leq i \\leq m-2}$ is both reverse ultra log-concave and log-concave. In this paper, we prove the reverse ultra log-concavity conjecture using bounds of Chen-Gu and Zhao, and prove the log-concavity conjecture asymptotically by showing that $\\{u_i(m)\\}_{2\\leq i \\leq m-2}$ is strictly log-concave for all sufficiently large $m$. The key ingredient in the latter result is a recurrence of Kauers and Paule, which we interpret as a nonlinear discrete dynamical system through a backward map. We construct an approximation to the ratio sequence using its stable limiting fixed point and combine localization and contraction arguments with finite-difference estimates and separate interior and edge analyses to obtain the desired strict log-concavity.",
+    "authors": [
+     "Heshan Aravinda"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2608.23262v1",
+    "published": "2026-08-24",
+    "title": "A note on the ultra log-concavity of matroid intersection",
+    "summary": "In 1971, Mason conjectured that the numbers of independent sets of fixed size in a matroid constitute an ultra log-concave sequence. In 2020, this conjecture was proven by Br\u00e4nd\u00e9n and Huh and independently by Anari, Liu, Gharan and Vinzant. Recently, this result was extended to $M^\\natural$-concave functions. In this note, we make the next step by proving it for $M_2^\\natural$-concave functions. This shows the same property for the intersection of any pair of matroids (which itself may not be a matroid). Furthermore, we show that this can not be further extended to the intersections of three matroids by including a counterexample of partition matroids.",
+    "authors": [
+     "Adam Schweitzer"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2607.17278v1",
+    "published": "2026-07-19",
+    "title": "Log-Concavity of Conic Intrinsic Volumes",
+    "summary": "Let $n\\ge1$ and $C\\subseteq\\mathbb{R}^n$ be a closed convex cone with conic intrinsic volumes $v_0(C),\\ldots,v_n(C)$. We prove the long-standing log-concavity conjecture for this sequence, in the stronger form \\[ v_k(C)^2\\ge \u03c1_k\u03c1_{n-k}v_{k-1}(C)v_{k+1}(C), \\qquad 1\\le k\\le n-1, \\] where, for $l\\ge1$, $\u03c1_l=\\frac{l+1}{l}\\frac{\u03c9_{l-1}\u03c9_{l+1}}{\u03c9_l^2}&gt;1$ and $\u03c9_j$ is the volume of the Euclidean unit ball in $\\mathbb{R}^j$. The proof applies the Alexandrov--Fenchel inequality to the Takemura--Kuriki identity \\[ V(A[k],D[n-k])=\\frac{\u03c9_k\u03c9_{n-k}}{\\binom nk}v_k(C),\\qquad A=C\\cap B^n,\\quad D=C^\\circ\\cap B^n, \\] where $C^\\circ$ is the polar cone, $B^n$ is the Euclidean unit ball, and repeated arguments are indicated by brackets. A Master Steiner argument gives the identity directly for arbitrary closed convex cones, including degenerate ones. We also give a circular-cone counterexample to the standard ultra-log-concavity normalizations.",
+    "authors": [
+     "Houshan Fu",
+     "Suijie Wang"
+    ]
+   }
+  ],
+  "all:\"ultra log-concave\"": [
+   {
+    "id": "http://arxiv.org/abs/2609.37439v1",
+    "published": "2026-09-29",
+    "title": "Real-rootedness and ultra log-concavity of rank-two matroid Ehrhart $h^*$-polynomials",
+    "summary": "We prove that the Ehrhart $h^*$-polynomial of a rank-two matroid with exactly three parallel classes is real-rooted whenever its smallest parallel class has size at most three. This bound is sharp: the rank-two matroids with parallel-class sizes $(4,561,600)$ and $(4,a,a+29)$, for all sufficiently large integers $a$, have $h^*$-polynomials that are not real-rooted. These counterexamples disprove Ferroni's real-rootedness conjecture. Their duals are cycle matroids of theta graphs and have the same $h^*$-polynomials. Nevertheless, every matroid of rank two or corank two has a positive $h^*$-coefficient sequence that is ultra log-concave of order equal to the polynomial's degree. In particular, the unimodality conjecture holds in both cases.",
+    "authors": [
+     "Houshan Fu"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2609.23994v1",
+    "published": "2026-09-21",
+    "title": "High-Dimensional Ultra-Log-Concave Distributions",
+    "summary": "Ultra-log-concave distributions are ubiquitous in probability, combinatorics, and statistical mechanics and have been studied extensively. In this paper, we introduce a quantitative high-dimensional extension of this notion, called $\u03b4$-ultra-log-concavity, for probability measures on $\\mathbb{N}^d$ with downward closed support. When $\u03b4= 1$, this notion coincides with the class studied by Gurvits (2009) via strongly log-concave generating functions, and with the class defined by Anari, Oveis Gharan, and Vinzant (2021) via completely log-concave generating functions; in one dimension, it reduces to classical ultra-log-concavity. We establish several functional inequalities, including a weighted Poincar\u00e9 inequality, a discrete Brascamp--Lieb inequality, and a weighted Wu-type modified log-Sobolev inequality. Our approach combines integrated Bakry--\u00c9mery calculus for a canonical birth-death chain with Poisson stochastic localization, which arises as the time reversal of coordinatewise binomial thinning. We further establish concentration of measure, maximum-entropy principles, and several closure properties for ultra-log-concave measures, and develop applications to queueing models, polymatroids, antiferromagnetic Potts models, and hardcore models. Finally, a lattice scaling limit of the discrete theory yields Poincar\u00e9 and Brascamp--Lieb inequalities for Laguerre diffusions.",
+    "authors": [
+     "Zongchen Chen",
+     "Sihan Wang"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2609.15201v1",
+    "published": "2026-09-14",
+    "title": "Real-Rootedness and Gamma-Positivity for a Variation of the Morris Constant Term",
+    "summary": "Beck and Pixton expressed the Ehrhart polynomial of the Birkhoff polytope as a weighted sum of constant terms of several multivariate rational functions. Xin and Zhang studied a class of constant terms $h_n(t)$, which can be regarded as a variation of the Morris constant term. They proved that $h_n(t)$ is a polynomial of degree $(n-1)^2$ and obtained many nice properties involving the Morris constant term identity. Let $h_n^*(y)=(1-y)^{(n-1)^2+1}\\sum_{t\\geq0}h_n(t)y^t$. For fixed $n\\geq 3$, we obtain the following three main results: (i): $h_n^*(y)$ is a polynomial with positive integer coefficients. (ii): $h_n^*(y)$ is real-rooted. In particular, all its roots are non-positive real numbers. (iii): $h_n^*(y)$ is Gamma-positive. Furthermore, $h_n^*(y)$ is palindromic, unimodal, and ultra log-concave. This confirms Xin and Zhang's conjecture regarding $h_n^*(y)$. As a byproduct, we prove that every root of a Gamma polynomial associated with $h_n^*(y)$ is a negative real number.",
+    "authors": [
+     "Feihu Liu",
+     "Zihao Zhang"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2609.10234v2",
+    "published": "2026-09-09",
+    "title": "On Two Conjectures Related to the Boros-Moll Sequences",
+    "summary": "The Boros-Moll sequences $\\{d_i(m)\\}_{0\\leq i\\leq m}$ are defined as $$d_i(m)=2^{-2m}\\sum_{k=i}^m 2^k \\binom{2m-2k}{m-k}\\binom{m+k}{k}\\binom{k}{i}.$$ Consider the ratio sequence $$u_i(m)=\\frac{d_{i-1}(m)d_{i+1}(m)}{d_i(m)^2}.$$ Chen and Gu conjectured that $\\{u_i(m)\\}_{2\\leq i \\leq m-2}$ is both reverse ultra log-concave and log-concave. In this paper, we prove the reverse ultra log-concavity conjecture using bounds of Chen-Gu and Zhao, and prove the log-concavity conjecture asymptotically by showing that $\\{u_i(m)\\}_{2\\leq i \\leq m-2}$ is strictly log-concave for all sufficiently large $m$. The key ingredient in the latter result is a recurrence of Kauers and Paule, which we interpret as a nonlinear discrete dynamical system through a backward map. We construct an approximation to the ratio sequence using its stable limiting fixed point and combine localization and contraction arguments with finite-difference estimates and separate interior and edge analyses to obtain the desired strict log-concavity.",
+    "authors": [
+     "Heshan Aravinda"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2608.23262v1",
+    "published": "2026-08-24",
+    "title": "A note on the ultra log-concavity of matroid intersection",
+    "summary": "In 1971, Mason conjectured that the numbers of independent sets of fixed size in a matroid constitute an ultra log-concave sequence. In 2020, this conjecture was proven by Br\u00e4nd\u00e9n and Huh and independently by Anari, Liu, Gharan and Vinzant. Recently, this result was extended to $M^\\natural$-concave functions. In this note, we make the next step by proving it for $M_2^\\natural$-concave functions. This shows the same property for the intersection of any pair of matroids (which itself may not be a matroid). Furthermore, we show that this can not be further extended to the intersections of three matroids by including a counterexample of partition matroids.",
+    "authors": [
+     "Adam Schweitzer"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2607.17278v1",
+    "published": "2026-07-19",
+    "title": "Log-Concavity of Conic Intrinsic Volumes",
+    "summary": "Let $n\\ge1$ and $C\\subseteq\\mathbb{R}^n$ be a closed convex cone with conic intrinsic volumes $v_0(C),\\ldots,v_n(C)$. We prove the long-standing log-concavity conjecture for this sequence, in the stronger form \\[ v_k(C)^2\\ge \u03c1_k\u03c1_{n-k}v_{k-1}(C)v_{k+1}(C), \\qquad 1\\le k\\le n-1, \\] where, for $l\\ge1$, $\u03c1_l=\\frac{l+1}{l}\\frac{\u03c9_{l-1}\u03c9_{l+1}}{\u03c9_l^2}&gt;1$ and $\u03c9_j$ is the volume of the Euclidean unit ball in $\\mathbb{R}^j$. The proof applies the Alexandrov--Fenchel inequality to the Takemura--Kuriki identity \\[ V(A[k],D[n-k])=\\frac{\u03c9_k\u03c9_{n-k}}{\\binom nk}v_k(C),\\qquad A=C\\cap B^n,\\quad D=C^\\circ\\cap B^n, \\] where $C^\\circ$ is the polar cone, $B^n$ is the Euclidean unit ball, and repeated arguments are indicated by brackets. A Master Steiner argument gives the identity directly for arbitrary closed convex cones, including degenerate ones. We also give a circular-cone counterexample to the standard ultra-log-concavity normalizations.",
+    "authors": [
+     "Houshan Fu",
+     "Suijie Wang"
+    ]
+   }
+  ],
+  "all:\"real-rooted\" AND all:probability": [
+   {
+    "id": "http://arxiv.org/abs/2609.12734v1",
+    "published": "2026-09-11",
+    "title": "Berry-Esseen Bounds for the Number of Real Zeros of Gaussian Weyl Polynomials",
+    "summary": "We establish Berry-Esseen bounds for the number of real roots of Gaussian Weyl polynomials $P_n$, where $n$ denotes the degree and is assumed to be sufficiently large. For each fixed $B$ above an absolute threshold, let $I_n=[-\\sqrt n+B\\sqrt{\\log n}, \\sqrt n-B\\sqrt{\\log n}]$. Uniformly over deterministic compact intervals $I\\subseteq I_n$ whose length $\\ell$ is sufficiently large and depends on $n$, the distribution of the standardized number of real roots in $I$ has Kolmogorov distance at most $C\\log\\ell/\\sqrt\\ell$ from the standard Gaussian distribution. Consequently, every such interval sequence with $\\ell\\to\\infty$ satisfies a central limit theorem. In particular, taking $I=I_n$ gives the bound $C\\log n/n^{1/4}$. The same bound holds for the distribution of the standardized number of real roots on $\\mathbb R$. The key idea is to approximate the polynomial zero count by a sum of locally dependent random variables. We first couple the polynomial to a stationary Gaussian process and then truncate a moving-average representation of that process to obtain finite-range dependence. This strategy provides a route to Berry-Esseen bounds for other random polynomials with Gaussian coefficients whenever such a stationary approximation and quantitative truncation are available.",
+    "authors": [
+     "Yuchen Wang",
+     "Dawei Lu",
+     "Song-Hao Liu"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2609.10367v1",
+    "published": "2026-09-09",
+    "title": "When Finite Free Curves Split",
+    "summary": "We characterize equality in the finite free Stam and entropy-power inequalities, proving that Hermite polynomials are the unique extremizers among simple real-rooted inputs, up to independent translations and scalings. The proof turns this classification into a rigidity problem for projective plane curves. Using hyperbolicity and the Helton-Vinnikov theorem, we express the Jacobian defect as an off-diagonal squared norm in a definite symmetric pencil. Together with score transport, this yields a matrix proof of Stam for all real-rooted inputs. For each simple base pair, the directions in which the defect vanishes are the independent translations and common dilation, forming a three-dimensional subspace in every degree whose curves split into $n$ projective lines. At a collision, the leading configurations are again finite free convolutions of normalized derivatives of the velocity polynomials of the colliding input clusters. Combined with incidence counting, this local formula shows that at most one real fiber is singular, every real singularity is an ordinary totally real multiple point, and the ordered collision multiplicities determine the real normalization covering. For $n\\geq3$, every non-split curve has at least $2n-2$ non-real projective discriminant zeros, counted with multiplicity, with equality attained by irreducible curves of geometric genus zero through every simple input pair. The leading Fisher-information coefficient is determined by the colliding tangent configurations, while the finite entropy term retains the gaps between clusters. For $n\\geq3$, maximal logarithmic entropy divergence along the optimally weighted score direction is equivalent to Stam equality.",
+    "authors": [
+     "Baran Hashemi",
+     "Jihoon Hyun"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2608.29143v1",
+    "published": "2026-08-29",
+    "title": "Least Variability in a Polynomial-Square Class of Rational Kernels",
+    "summary": "We solve an extremal problem for positive randomization kernels that concentrate a random time as tightly as possible around a deterministic target, within the class obtained by exponentially damping the square of a polynomial. The construction, borrowed from the concentrated matrix-exponential literature, automatically guarantees nonnegativity, gives the kernel a Laplace transform with a single repeated real pole, and contains the classical Erlang randomizer as the special case in which the polynomial is a pure power. The half-polynomial need not be real-rooted and so may have nonreal conjugate zeros, yet every optimizer is proved to be real-rooted. After normalizing the kernel to unit mean, the minimum variance at polynomial degree $m$ turns out to equal the smallest relative gap between adjacent zeros of the Laguerre polynomial $L_{m+2}$, with every optimizer obtained by deleting a pair attaining this minimum. This characterization yields the minimal variance, the normalized density, and every optimizer in closed form. The optimizer can be computed from the spectrum of a symmetric tridiagonal Jacobi matrix. In the large-order limit, the minimal variance decays quadratically in the order of the kernel, a marked improvement over the linear decay rate of the Erlang benchmark, and the deleted pair of zeros localizes at normalized location $2$, with limiting absolute separation $2\u03c0$.",
+    "authors": [
+     "Maria Laura Battagliola",
+     "Oscar Peralta"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2608.28520v1",
+    "published": "2026-08-28",
+    "title": "Inequalities for rank-two permanents and finite free convolutions",
+    "summary": "Bang (1976) proved the inequality for matrix permanents $\\mathrm{per}^2(A) \\geq 2^{-2n}\\mathrm{per}(A \\otimes J_2)$, where $J_2$ is the $2 \\times 2$ all-ones matrix and $A$ is any $n \\times n$ matrix with non-negative entries. We show that, if $A$ is any $n \\times n$ real-valued matrix with rank at most two (possibly having negative entries), this inequality can be sharpened, replacing the constant $2^{-2n}$ by $1 / \\binom{2n}{n} = (n!)^2 / (2n)! &gt; 2^{-2n}$. We then show that this sharpened inequality also implies new inequalities for finite free convolutions of polynomials: if $p$ and $q$ are monic real-rooted polynomials of degree $n$, then $(p \\boxplus_n q)(x)^2 \\geq (p^2 \\boxplus_{2n} q^2)(x)$ and $(p \\boxtimes_n q)(x)^2 \\geq (p^2 \\boxtimes_{2n} q^2)(x)$ for all $x \\in \\mathbb{R}$, for $\\boxplus_n$ and $\\boxtimes_n$ the finite free additive and multiplicative convolution operations, respectively, on polynomials of degree $n$.",
+    "authors": [
+     "Dmitriy Kunisky",
+     "Daniel A. Spielman",
+     "Xifan Yu"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2607.15886v1",
+    "published": "2026-07-17",
+    "title": "Ehrhart $h^*$-distributions",
+    "summary": "Every polynomial with real non-negative coefficients yields a finite probability distribution after normalization. The Ehrhart $h^*$-polynomial of a lattice polytope $P$ is a non-negative integer polynomial that encodes the integer-point counts for positive integer dilations of $P$. We study the corresponding finite distributions, which we call $h^*$-distributions. We determine the mean and variance of these distributions, establish a connection between higher moments and Ehrhart polynomial coefficients, and study their cluster points in the $d$-dimensional probability simplex. We consider the special case of real-rooted $h^*$-distributions, applying existing tail bounds to obtain new linear inequalities for the coefficients of real-rooted $h^*$-polynomials arising from reflexive polytopes. We conclude by establishing sufficient conditions under which a sequence of real-rooted $h^*$-distributions is asymptotically normal, and we apply our results to various families of polytopes, including zonotopes and Pitman-Stanley polytopes.",
+    "authors": [
+     "Benjamin Braun",
+     "Max Hlavacek",
+     "Cesar J. Meza",
+     "Santiago Morales",
+     "Andr\u00e9s R. Vindas-Mel\u00e9ndez"
+    ]
+   },
+   {
+    "id": "http://arxiv.org/abs/2607.14409v1",
+    "published": "2026-07-15",
+    "title": "On Factorizing Aggregate Counting Distributions into Independent Latent Processes",
+    "summary": "Given only the probability distribution of an aggregate counting variable, what independent latent counting processes are compatible with the observation? Equivalently, when does a probability-generating function admit a factorization into normalized polynomials with nonnegative coefficients? We develop a mathematical theory of such positive factorizations. We introduce the positive factorization poset, whose elements are all positive factorizations ordered by refinement, and define the factorization entropy, measuring the maximal latent Shannon entropy compatible with the observed distribution. We prove a sharp entropy inequality, characterize the equality case by injectivity of the latent addition map, show that entropy optimization may be restricted to maximal atomizations, and exhibit examples where distinct maximal atomizations have different entropy. We further establish support-based obstructions to positive factorization, characterize the real-rooted and Hurwitz-stable sectors, prove a local stability theorem for coprime factorizations, determine exactly the factorable regions in degrees two and three, obtain an exact quartic Hurwitz volume, and investigate the geometry of the factorable region inside the probability simplex through exact calculations and Monte Carlo experiments. These results identify the positive factorization poset as a natural algebraic object associated with probability-generating functions and provide a framework for studying latent independent structure in aggregate counting statistics.",
+    "authors": [
+     "Israel Klich"
+    ]
+   }
+  ],
+  "all:Turan AND all:\"log-concave\"": [
+   {
+    "id": "http://arxiv.org/abs/2609.14295v2",
+    "published": "2026-09-13",
+    "title": "The Jensen--P\u00f3lya program and inequalities for arithmetic sequences",
+    "summary": "We develop an analytic framework to study hyperbolicity of Jensen polynomials and related inequalities for arithmetic sequences with general asymptotic growth. Our results provide partial converses to the Hermite--Jensen phenomenon of Griffin, Ono, Zagier, and the third author. As applications we prove several conjectures concerning log-concavity, higher-order Turan inequalities, Laguerre inequalities, infinite log-concavity, and Toeplitz determinants for partition-type functions.",
+    "authors": [
+     "Koustav Banerjee",
+     "Kathrin Bringmann",
+     "Larry Rolen"
+    ]
+   }
+  ]
+ }
+}
