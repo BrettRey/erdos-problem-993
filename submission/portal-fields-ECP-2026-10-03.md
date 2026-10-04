@@ -77,7 +77,7 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 | Local path | Portal item type | Reviewer sees it | Notes |
 |---|---|---|---|
 | `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` | manuscript PDF | yes | final build after the DOI insert |
-| `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex` + `ejpecp.cls` + bbl inlined | source files (supplementary or at acceptance) | per portal | the ECP sample asks for the bibliography inside the document (`sample.tex` L439–442); inline `variance-local-log-concavity-poisson-binomial.bbl` in the source bundle |
+| `paper/poisson_binomial/ecp_source_bundle.zip` (the `.tex` with the bibliography pasted in, plus `ejpecp.cls` v1.12.3, 2026/03/04) | source files, uploaded as supplementary files with the submission if the ECP instructions ask for them (the EJP page does) | per portal | Built 2026-10-03 by `scripts/build_pb_ecp_source_bundle.py`, SHA-256 `d424f233…1777`. Compiles alone (pdflatex ×3): 13 pp, 0 errors, text identical to the manuscript PDF. The `preprint` class option suppresses the journal logo, volume and paper number |
 | `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip` | supplementary material | yes | SHA-256 `b1e6462d…309d` (2026-10-03 build with the Section 4.1 check program and the Lean proofs of Proposition 3.1 and Theorem 1.1); same file as the Zenodo deposit |
 | `submission/cover-letter-ECP-2026-10-03.md` | cover letter / comments to editor | no | |
 
