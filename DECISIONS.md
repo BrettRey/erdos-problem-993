@@ -1291,3 +1291,8 @@ No wording changed: a word-multiset comparison of the PDF text shows only journa
 - **Publishing is Brett's call.** Values: `submission/zenodo-preprint-2026-10-04.md`.
 
 2026-10-04 — **Preprint published on Zenodo by Brett: 10.5281/zenodo.23137930.** Verified by API: published, DOI resolves, metadata as drafted, file MD5 equal to the local preprint build (SHA-256 425c6bc4…42bd). Optional follow-ups: the reverse link on the supplement record, and replacing the July draft on brettreynolds.ca.
+
+2026-10-04 — **HAL checked; not used for now.** Brett asked about HAL. HAL's documentation (documentation.hal.science, read 2026-10-04) was checked:
+- **HAL → arXiv transfer:** this is the endorsement-free "trusted channel", but it requires an author affiliated with French higher education and research ("arXiv n'accepte que les dépôts dont au moins un des auteurs est affilié à une institution française"). So it cannot get this paper onto arXiv.
+- **HAL-only deposit:** no French-affiliation rule was found in the pages read ("Faire un dépôt", "Compte et profil", the FAQ, "Questions juridiques"). Deposits are moderated and permanent ("nous ne supprimons pas les documents déposés"). It would duplicate the Zenodo preprint (10.5281/zenodo.23137930).
+- **Recommendation to Brett:** skip, unless he wants a copy in HAL's mathematics archive.
