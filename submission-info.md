@@ -7,7 +7,7 @@ Mean bounds, structural reductions, and exhaustive verification for tree indepen
 ## Author
 
 Brett Reynolds
-ORCID: 0000-0003-2407-9448
+ORCID: 0000-0003-0073-7195
 Humber College, Toronto, Canada
 brett.reynolds@humber.ca
 

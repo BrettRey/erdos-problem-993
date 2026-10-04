@@ -1189,3 +1189,12 @@ Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
   - move the session-by-session AI history to the archive (this bears on Brett's credit rule);
   - add Saumard–Wellner 2014, Liggett 1997 and Brändén 2015. All three were verified on Crossref but have not been read, and they are not in Brett's bibliographies;
   - a further-work sentence on whether the binomial family is extremal (κ⋆ = 1/3).
+
+2026-10-03 — Zenodo stage 1, ORCID correction, Remark 5.1 cut, and a missed build error.
+- **DOI reserved:** 10.5281/zenodo.23129480 (draft 23129480, not published). The draft has its metadata: Software, MIT, Brett with ORCID 0000-0003-0073-7195 and affiliations Humber Polytechnic and University of Toronto, the six keywords, version 1.0, and a description that names no venue. The DOI is now in the manuscript and CERTIFICATE.md.
+- **ORCID:** the project had carried a wrong ORCID (0000-0003-2407-9448) in six files; Brett's is 0000-0003-0073-7195 (house template, 360 uses, Zenodo directory). Fixed. His Erdős Zenodo records list no ORCID; the E-JC manuscript printed the wrong one.
+- **Remark 5.1:** cut, as Brett approved. Its text is `SUPPLEMENTARY-REMARKS.md` in the archive.
+- **Missed build error:** since ff4d15a the supplement box had two TeX errors (paragraph breaks inside the non-long `\sdescription`), which dropped its first paragraph, the DOI and the computations the proof needs, from the PDF. My build checks looked only for undefined references and overfull boxes; they now also count errors. Fixed with `\endgraf`.
+- **Archive:** rebuilt, 77 members.
+
+Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).

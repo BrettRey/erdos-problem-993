@@ -21,6 +21,7 @@ The Lean project for Proposition 3.1 (`formalization/pb_scalar_inequality_aristo
 | `formalization/pb_effective_drop_aristotle/` | Complete conditional Lean project, including `PBReserve/Core.lean`, build metadata, proof context, and provenance |
 | `formalization/pb_deduction_aristotle_result/` | Complete Lean project proving Theorem 1.1 (`PBDeduction.theorem_1_1`) from the probability-generating polynomial, including Sections 2–3, the Hillion–Johnson cubic inequalities, strict log-concavity and the maximal-mass bound; it contains a copy of `PBScalar/`. Its `PROOF_CONTEXT.md` is omitted from the archive because it quotes Hillion and Johnson's Appendix A verbatim |
 | `formalization/pb_scalar_inequality_aristotle_result/` | Complete Lean project proving Proposition 3.1 (`PBScalar.scalar_inequality`), with Aristotle's summary, the local replay record `LOCAL_REPLAY.md`, build metadata, prompt and proof context |
+| `SUPPLEMENTARY-REMARKS.md` | A remark moved out of the paper: Pitman's ratio bound does not yield the adjacent-ratio drop (1.6) |
 | `CERTIFICATE.md` | This audit and replay manifest |
 | `LICENSE` | MIT license |
 | `MANIFEST.sha256` | SHA-256 digest of every other archive member; generated when the archive is built |
@@ -155,7 +156,7 @@ Whole-file digests before packaging:
 |---|---|
 | `scripts/verify_universal_pb_finite_bernstein.py` | `7913038a93a18cc9df0fbe770238543d80655de82c35fac9a48247ed1f8e1b61` |
 | `scripts/check_universal_pb_finite_bernstein_certificate.py` | `f5762de3d7990f82d62e63d5f7007b6f9ec62b60eea325f6b68354b34ee146a7` |
-| `scripts/build_poisson_binomial_supplement.py` | `e8ed0fdbd9129ab01ccf5d9c4c58e4c0f79dda5abb1dcf631df6ae32ea7ae429` |
+| `scripts/build_poisson_binomial_supplement.py` | `0ee943b538c4f47879e9fba066eccb7ecb7f9c3640ae72c7fbddc02a29b0a3f6` |
 | `scripts/verify_pb_compact_monotone.py` | `60cd99b4cb159672a30fbf74d78e029b54ba575fc5b788d4ac6492ce5957cfb4` |
 | `scripts/verify_pb_cue_threshold.py` | `3c20a4f76e46792fdc50676f3814dc53eff3677012fd8e374730f15bdcf4b4e2` |
 | `scripts/verify_pb_large_h_range.py` | `0a5e18d2605f79b348891b249cb1b86899b13ce247c48cb061e9cd5e48c0a81d` |
@@ -180,4 +181,4 @@ The manuscript's acknowledgement credits each AI contribution. The dates and mod
 
 ## Scope and archive status
 
-The source repository is <https://github.com/BrettRey/erdos-problem-993>. The deterministic ZIP built by the command above is the submission-ready release candidate; its adjacent `.sha256` file records the archive digest. The authoritative copy should be deposited with the journal's supplementary material and, if desired, in a separate immutable repository when the manuscript is submitted. No immutable public DOI has yet been assigned to this Poisson–binomial supplement, and the Zenodo DOI associated with the separate Erdős-problem paper must not be used for it.
+The source repository is <https://github.com/BrettRey/erdos-problem-993>. The deterministic ZIP built by the command above is the release archive; its adjacent `.sha256` file records the archive digest. It is deposited on Zenodo as DOI [10.5281/zenodo.23129480](https://doi.org/10.5281/zenodo.23129480), which the manuscript cites. The Zenodo DOIs of the separate Erdős-problem paper are unrelated to this supplement.

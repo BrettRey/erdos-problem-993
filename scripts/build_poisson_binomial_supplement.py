@@ -43,6 +43,10 @@ ARCHIVE_MEMBERS: Final = (
     ),
     ("LICENSE", REPOSITORY_ROOT / "LICENSE"),
     (
+        "SUPPLEMENTARY-REMARKS.md",
+        REPOSITORY_ROOT / "paper" / "poisson_binomial" / "SUPPLEMENTARY-REMARKS.md",
+    ),
+    (
         "formalization/pb_effective_drop_aristotle/ARISTOTLE_RESULT.md",
         LEAN_PROJECT_ROOT / "ARISTOTLE_RESULT.md",
     ),
