@@ -1,21 +1,20 @@
 ---
 slug: erdos-problem-993
 kind: paper
-title: Mean bounds, structural reductions, and exhaustive verification for tree independence polynomial
-  unimodality
+title: Variance and local log-concavity of Poisson–binomial laws
 stage: complete
-external: rejected
+external: in-review
 blocked_on: []
-updated: 2026-10-03
+updated: 2026-10-04
 source:
 - STATUS.md
 - PORTFOLIO.md
-- paper/main_v2.tex
-venue: none
-external_id: '15526'
+- paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex
+venue: Electronic Communications in Probability
+external_id: ECP2610-004
 preprints:
 - zenodo/19100781
-next_action: '#993 line dropped by Brett 2026-10-03 (no short-note rebuild of main_v2). Live work is the Poisson-binomial paper (paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex) for Electronic Communications in Probability: second revision done (support-wide bound, modal two-sided bound, ULC counterexample, CUE example), gates clear, 13 pages (Brett: 13pp is fine); §4.1 now on the monotonicity route; Theorem 1.1 fully formalized in Lean (Aristotle, replayed locally 2026-10-03) and cited in the paper. Retitled "Variance and local log-concavity of Poisson-binomial laws" (file variance-local-log-concavity-poisson-binomial.tex); ChatGPT Pro cross-family check done (minor revision, no math error, 275/275 coefficients reconstructed; corrections applied). Owed by Brett before submission: Zenodo upload of the rebuilt supplement (paper prints ZENODO-DOI-PENDING), EJMS account, ECP/IMS AI-policy check on submission day, decision to proceed without independent human audit. See DECISIONS 2026-10-03 and submission/portal-fields-ECP-*.md.'
+next_action: 'Submitted to ECP 2026-10-04 (EJMS ECP2610-004); wait for the editor. The submitted version is commit df33014 plus submission/ejms-upload-2026-10-04/. Log the decision letter in Project-Management/prediction-ledger (event pb-ecp) when it arrives. Optional: replace or retire the July draft still served at brettreynolds.ca/variance-scaled-turan.pdf. The #993 line itself was dropped 2026-10-03 (E-JC reviewed reject, ID 15526).'
 notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-polynomial
 
   unimodality), not a linguistics paper -- flagging per the task''s "consider
@@ -92,7 +91,22 @@ claim:
 ---
 
 # Erdos Problem #993 -- Independent Set Sequence Unimodality for Trees
-<!-- SUMMARY: #993 line dropped by Brett 2026-10-03 (E-JC decline; Fang et al. and Zhang-Li now cover the problem). Live work: the Poisson-binomial spin-off paper for ECP, revised, cold-read 4/4, submission pass gate clear; waiting on Brett for the Zenodo DOI, EJMS account and AI-policy check · status: submission prep, blocked on Brett · updated: 2026-10-03 -->
+<!-- SUMMARY: #993 line dropped 2026-10-03; its Poisson-binomial spin-off "Variance and local log-concavity of Poisson–binomial laws" submitted to ECP 2026-10-04 (EJMS ECP2610-004), supplement on Zenodo 10.5281/zenodo.23129480 · status: in review · updated: 2026-10-04 -->
+
+## 2026-10-04: Submitted to ECP (ECP2610-004)
+
+- **Submission.** Brett pressed Finish Submission in EJMS himself; the manuscript ID is ECP2610-004. Claude Code filled the form from `submission/portal-fields-ECP-2026-10-03.md` and stopped at the confirmation page.
+  - Uploaded: the 13-page PDF (aa6a5f4f…359e, from commit df33014) and, as EJMS asks, the self-contained `.tex`.
+  - Manifest: `submission/ejms-upload-2026-10-04/MANIFEST.md`.
+- **Before submitting.**
+  - The final pre-flight found one editorial scar, fixed by reordering sentences.
+  - A side agent caught that the venue record's novelty conditions were still open. The MathSciNet pass, run through Brett's U of T session, found nothing (`runs/pb-novelty-search-20261003/`).
+  - Brett accepted two risks: no human audit and no expert check. He gave his forecast, which is kept in the private prediction ledger.
+  - The EJMS source checkboxes were made literally true: journal mode with the template metadata, and Table 1 beside its first callout.
+- **Records.**
+  - Assurance record `risk-accepted`, gate PASS.
+  - Prediction-ledger event `pb-ecp`.
+  - DECISIONS 2026-10-03/04.
 
 ## 2026-10-03 (later): #993 dropped; the Poisson–binomial paper is prepared for ECP
 

@@ -1,5 +1,5 @@
 # Pre-submission checklist: ECP, Poisson–binomial paper
-<!-- SUMMARY: final pre-flight for the ECP submission via EJMS; all gates pass on source 0687e054…ffc4c / PDF aa6a5f4f…359e (journal mode, EJMS checkboxes verified); risk of no human audit accepted by Brett; MathSciNet pass done 2026-10-04 (nothing found); expert check risk-accepted; forecast given · status: ready for portal · updated: 2026-10-03 -->
+<!-- SUMMARY: final pre-flight and submission record for ECP via EJMS; submitted 2026-10-04 as ECP2610-004 (PDF aa6a5f4f…359e, source 0687e054…ffc4c); risks of no human audit and no expert check accepted by Brett · status: submitted · updated: 2026-10-04 -->
 
 Completed from `Project-Management/templates/paper-submission-checklist.md`.
 Items that don't apply are marked N/A with the reason.
@@ -25,7 +25,7 @@ Items that don't apply are marked N/A with the reason.
 ## 1. Submission decision
 
 - [x] The venue decision record exists, with a journal-reader contract, alternatives and a risk test.
-- [ ] **The venue record's own pre-submission conditions.** The first version of this checklist did not read them; a side agent caught the gap.
+- [x] **The venue record's own pre-submission conditions.** All are met or accepted as risks by Brett (below). The first version of this checklist did not read them; a side agent caught the gap.
   - *Independent audit of the full proof:* open. This is covered by Brett's acceptance of no human audit. Since July, Theorem 1.1 has been fully kernel-checked in Lean.
   - *Authenticated MathSciNet pass and submission-date delta search:* **done 2026-10-04**, nothing found. The MathSciNet pass ran through Brett's U of T session at his instruction and covered keyword searches plus four forward-citation lists (`runs/pb-novelty-search-20261003/MATHSCINET.md`). The delta since 2026-07-01 is in the zbMATH and arXiv sweep (`REPORT.md`, 37 queries listed). Neither found anything that states or implies Theorem 1.1.
   - *Expert novelty / proof-interface check:* **risk accepted by Brett, 2026-10-04** ("I have no way to get an expert check, so that's not in the cards").
@@ -106,8 +106,8 @@ Items that don't apply are marked N/A with the reason.
 - [x] Cover letter `submission/cover-letter-ECP-2026-10-03.md` has no placeholders. It gives the DOI, affiliations and ORCID.
 - [x] The data availability statement points to a live DOI.
 - [x] Reviewer suggestions: none. That field is left to the editor.
-- [ ] Portal file roles and the portal-generated PDF preview are checked before the final submit. **Do in session.**
-- [ ] Confirmation, manuscript ID and acknowledgement email are saved under `submission/`. **After submit.**
+- [x] Portal file roles were checked on the EJMS confirmation page before the final submit: the manuscript file is the PDF and the supplementary file is the LaTeX source. EJMS generates no reviewer PDF; it stores the upload. The server-reported sizes equal the local files (291.4 KB = 298,408 B; 43.7 KB = 44,706 B).
+- [x] **Submitted 2026-10-04: manuscript ID ECP2610-004**, read from the EJMS "New submissions" list after Brett pressed Finish Submission. What was entered and uploaded is in `submission/ejms-upload-2026-10-04/MANIFEST.md`. EJMS sends its acknowledgement email to brett.reynolds@humber.ca; it is not copied into this public repository.
 
 ## 8. Assurance composition gate
 
@@ -116,8 +116,8 @@ Items that don't apply are marked N/A with the reason.
 
 ## 9. Final submit gate
 
-- [ ] The local file handed to the upload control is confirmed to be `aa6a5f4f…359e`. The server's stored copy can't be hashed; check it through the EJMS preview.
-- [ ] **Brett gives the final go.** The agent fills the form and stops at the final submit button.
+- [x] The local file handed to the upload control was confirmed as `aa6a5f4f…359e` immediately before upload. The server reports the same byte count.
+- [x] **Brett pressed Finish Submission himself** (2026-10-04), after the agent had filled the form and stopped at the confirmation page.
 
 ## Stop conditions
 

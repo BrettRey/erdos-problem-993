@@ -1264,3 +1264,16 @@ No wording changed: a word-multiset comparison of the PDF text shows only journa
 - Clean build, 13 pp. Upload PDF aa6a5f4f…359e, from source 0687e054…ffc4c.
 - Bundle rebuilt (926d432a…b2b9) and compiles standalone.
 - Passes re-checked against the diff (`notes/passes/2026-10-04-ejms-compliance-reverification.md`); gate clear.
+
+2026-10-04 — **Submitted to Electronic Communications in Probability: EJMS manuscript ECP2610-004.** Decision owner: Brett Reynolds, who pressed Finish Submission himself. Assisting system: Claude Code (Opus 5.5), which filled the EJMS form from the portal record and stopped at the confirmation page.
+- **Submitted object:**
+  - PDF aa6a5f4f…359e (13 pp), built from source 0687e054…ffc4c (commit df33014);
+  - supplementary file: the self-contained `.tex` (a787b3c8…a25e), which EJMS step 2 asks for at submission;
+  - cover letter in the comments-to-editor field.
+- **Risks accepted by Brett:** no independent human audit; no expert novelty / proof-interface check. The MathSciNet pass and the delta search found no prior result. The form states a 12-page limit and the paper has 13, which Brett accepted on 2026-10-03.
+- **Assurance:** `submission/paper-assurance-2026-10-03.md`, now `risk-accepted`; `check --gate` reports CURRENT and PASS. The flip was done just after Brett's click; the record says so.
+- **Prediction ledger:** event `pb-ecp`, Brett's forecast (dated 2026-10-04) and the Codex forecast of 2026-07-16 are appended.
+- **Files:**
+  - upload manifest `submission/ejms-upload-2026-10-04/MANIFEST.md`;
+  - pre-submission checklist `submission/pre-submission-checklist-2026-10-03.md`.
+- **Divergence from here on:** the working `.tex` may change, but the submitted version is commit df33014 plus the uploaded `.tex` in `submission/ejms-upload-2026-10-04/`.

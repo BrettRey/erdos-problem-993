@@ -1,8 +1,8 @@
 # EJMS upload manifest, ECP submission (draft 79724)
-<!-- SUMMARY: what was entered and uploaded in EJMS for the ECP submission, with hashes and server-reported sizes · status: draft at the confirmation page, awaiting Brett's go · updated: 2026-10-04 -->
+<!-- SUMMARY: what was entered and uploaded in EJMS for the ECP submission, with hashes and server-reported sizes · status: submitted 2026-10-04 (ECP2610-004) · updated: 2026-10-04 -->
 
 Account `brettrey`, ECP Author role. The EJMS draft is article ID 79724, at
-Step 4 (Confirmation). **"Finish Submission" has not been pressed.** Entered
+Step 4 (Confirmation). **Brett pressed "Finish Submission" on 2026-10-04; the manuscript ID is ECP2610-004.** Entered
 and uploaded by Claude Code (Opus 5.5) on 2026-10-04 at Brett's instruction,
 from `submission/portal-fields-ECP-2026-10-03.md`.
 

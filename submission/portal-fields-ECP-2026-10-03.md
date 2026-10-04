@@ -1,5 +1,5 @@
 # Portal Fields Record: ECP, Poisson–binomial paper
-<!-- SUMMARY: Answer sheet for the EJMS/ECP portal for the Poisson–binomial first-descent paper; filled 2026-10-03 from variance-local-log-concavity-poisson-binomial.tex and the venue record; section 11 resolved 2026-10-04 (MathSciNet done; expert check risk-accepted; forecast given); upload PDF aa6a5f4f…359e · status: ready for portal · updated: 2026-10-04 -->
+<!-- SUMMARY: Answer sheet for the EJMS/ECP portal for the Poisson–binomial first-descent paper; filled 2026-10-03 from variance-local-log-concavity-poisson-binomial.tex and the venue record; submitted 2026-10-04 as EJMS ECP2610-004 by Brett; uploaded PDF aa6a5f4f…359e and source .tex · status: submitted · updated: 2026-10-04 -->
 
 ## Record
 

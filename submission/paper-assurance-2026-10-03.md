@@ -3,7 +3,7 @@ schema_version: 1
 project: papers/queue/erdos-problem-993
 intended_use: journal-submission
 target: Electronic Communications in Probability (EJMS), research article
-record_status: unresolved
+record_status: supported
 canonical_source: paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex
 canonical_pdf: paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf
 source_commit: df330141a619260aa53f3e3c06994f8ed4b2d66a
@@ -12,11 +12,13 @@ pdf_sha256: aa6a5f4f59bd119239081e5f99b95c32d53363fd836b48d4ef59f2ff4927359e
 checked_at: '2026-10-04T08:58:44-04:00'
 dirty_paths: []
 decision_owner: Brett Reynolds
-decision_status: pending
-accepted_risks: []
+decision_status: risk-accepted
+accepted_risks:
+- No independent human mathematician has audited the paper. Accepted by Brett on 2026-10-03 ("Happy to submit") and exercised on this exact object when he pressed Finish Submission on 2026-10-04.
+- No expert novelty / proof-interface check has been done. Accepted by Brett on 2026-10-04 ("I have no way to get an expert check, so that's not in the cards").
 evidence_artifacts:
 - path: submission/pre-submission-checklist-2026-10-03.md
-  sha256: 66faa249eb058a74e660d510a597ea5456a977aaa0a50d1c9527e6f100e3952b
+  sha256: 3dd2d8703cae92035ad63cbb1b36613d2d4821da7cf4275af3fdfefd883f1eb3
   supports: The exact source builds cleanly to the pinned 13-page PDF. Its abstract,
     keywords, links, metadata and declarations match the portal record and the ECP
     instructions of 3 October 2026, the supplement DOI is live with a checksum equal
@@ -55,16 +57,7 @@ evidence_artifacts:
   relation: convergence
   inspected_source_sha256: 0687e054618274f119133d23f9c430ab5ce1a8c21bc38cc53768a1c49d4ffc4c
 review_artifacts: []
-unresolved_items:
-- Portal file roles and the EJMS-generated PDF have not yet been previewed. Check
-  them after upload and before the final submit.
-- Two risks are to be recorded as accepted_risks, with decision_status risk-accepted,
-  when Brett gives the final go on this exact object. (1) No human mathematician has
-  audited the paper; Brett accepted this on 2026-10-03 ("Happy to submit"), before
-  the sentence reorder (which he approved on 2026-10-04) and the EJMS compliance
-  changes (which he chose on 2026-10-04) existed. (2) No expert novelty / proof-interface check
-  has been done; Brett accepted this on 2026-10-04 ("I have no way to get an expert
-  check, so that's not in the cards").
+unresolved_items: []
 invalidation_triggers:
 - Canonical source or PDF changes, including a rebuild (pdfTeX embeds the build time).
 - A load-bearing source, analysis, computation or Lean statement is corrected.
@@ -72,7 +65,7 @@ invalidation_triggers:
 - The Zenodo record or the ECP instructions change before submission.
 ---
 # Paper Assurance Record
-<!-- SUMMARY: Version-pinned assurance record for the ECP submission of the Poisson–binomial paper; evidence current on source 0687e054…ffc4c / PDF aa6a5f4f…359e (journal mode, EJMS checkboxes verified); venue-record conditions met or risk-accepted; awaiting portal preview and Brett's final go · status: unresolved · updated: 2026-10-04 -->
+<!-- SUMMARY: Version-pinned assurance record for the ECP submission of the Poisson–binomial paper; evidence current on source 0687e054…ffc4c / PDF aa6a5f4f…359e (journal mode, EJMS checkboxes verified); venue-record conditions met or risk-accepted; submitted 2026-10-04 as ECP2610-004 by Brett · status: supported, risk-accepted · updated: 2026-10-04 -->
 
 ## Declared use
 
@@ -141,9 +134,9 @@ agreement contributes nothing to this record.
 
 ## Unresolved and defeated conditions
 
-Two items are unresolved, listed in the front matter: the portal preview, and
-recording Brett's two risk acceptances (no human audit, no expert check) on
-this exact object.
+No items are unresolved. The portal preview was resolved on the EJMS
+confirmation page. Brett's two risk acceptances are recorded in
+`accepted_risks`.
 
 Every venue-record condition is now met or accepted:
 - the MathSciNet pass was met on 2026-10-04;
@@ -161,9 +154,15 @@ or the ECP instructions.
 
 ## Decision
 
-Brett Reynolds is the human decision owner. The decision is pending for this
-exact object. After the portal preview, and when Brett gives the final go, the
-record moves to `record_status: supported` and `decision_status:
-risk-accepted`, with the no-human-audit risk in `accepted_risks`.
-`paper_assurance.py check --gate` must then report CURRENT and gate PASS
-before the submit button is pressed.
+Brett Reynolds is the human decision owner. He pressed Finish Submission on
+this exact object on 2026-10-04 (EJMS manuscript ECP2610-004), after the agent
+had filled the form and stopped at the confirmation page. The record is
+therefore `risk-accepted`, with two accepted risks: no human audit and no
+expert check.
+
+**Sequencing, recorded as it happened.** The plan was to flip this record and
+run `check --gate` before the click. Brett clicked first, so the flip and the
+gate check were done immediately after submission. The evidence was already
+current on the exact object. The portal preview was resolved before the click
+on the confirmation page: the file roles were correct, EJMS generates no
+reviewer PDF, and the server-reported sizes equal the local files.
