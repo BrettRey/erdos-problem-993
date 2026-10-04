@@ -1238,3 +1238,9 @@ Remedy:
 - A free sweep of zbMATH Open and arXiv ran 37 queries, all listed, including the delta since 2026-07-01 (`runs/pb-novelty-search-20261003/REPORT.md`). Nothing found states or implies Theorem 1.1. Guo (2021, arXiv 2012.03530) compares adjacent Turán differences for real-rooted coefficients. Chen–Wang (arXiv 2609.23994, September 2026) define a quantitative high-dimensional ULC with functional inequalities. Both are possible citations; neither is a priority conflict.
 - The portal record, checklist and assurance record now show the three conditions as open.
 - The EJMS form is not started until Brett decides.
+
+2026-10-04 — **Authenticated MathSciNet pass done; nothing found.** Brett said "I'm signed in in Chrome. Drive it." Claude Code (Opus 5.5) ran the pass through his U of T library proxy session, with no password needed, in 15 searches and record views at manual scale.
+- **Keyword searches:** `Poisson binomial log-concave` (17 results), `Bernoulli log-concavity` (19), `Turán inequality Poisson binomial` (1), `Newton inequalities real zeros coefficients` (18), `Poisson binomial mode` (23).
+- **Forward citations:** the papers citing Hillion–Johnson 2016 (6), Johnson 2017 (17), Pitman 1997 (63) and Darroch 1964 (42).
+- **Result:** nothing states or implies Theorem 1.1. Hillion–Johnson–Saumard 2019 (MR3873905) proves the converse direction, strong log-concavity bounding the variance, and is an optional citation.
+- **Status:** the venue record's MathSciNet-and-delta condition is met (`runs/pb-novelty-search-20261003/MATHSCINET.md`). Still open for Brett: the expert novelty / proof-interface check, his forecast, the sentence reorder, the portal preview and the final go.

@@ -16,7 +16,7 @@ decision_status: pending
 accepted_risks: []
 evidence_artifacts:
   - path: submission/pre-submission-checklist-2026-10-03.md
-    sha256: 15667feca845dd58fbb79b990b2dc29fadfdbcc066b9f34afb153b5ebff56c68
+    sha256: c6e1f466d02bf686ac16577f7f4b8c51134b32a0ef66dd2f01457ca89c55b59d
     supports: The exact source builds cleanly to the pinned 13-page PDF. Its abstract, keywords, links, metadata and declarations match the portal record and the ECP instructions of 3 October 2026, and the supplement DOI is live with a checksum equal to the local archive.
     relation: composition
     inspected_source_sha256: 1e950299b8c1838d391d84f6249d706b6e1cc9a83592c14bc096728be549f642
@@ -35,9 +35,13 @@ evidence_artifacts:
     supports: In 37 listed zbMATH Open and arXiv queries, including a delta since 2026-07-01, no document states or implies Theorem 1.1 as stated in the exact source. This is a bounded negative and not a substitute for the MathSciNet pass.
     relation: convergence
     inspected_source_sha256: 1e950299b8c1838d391d84f6249d706b6e1cc9a83592c14bc096728be549f642
+  - path: runs/pb-novelty-search-20261003/MATHSCINET.md
+    sha256: 50268d990ad2e1c6c35124fd87846bd993e35cd8d7a6e1460e1ba27d8458b5c8
+    supports: An authenticated MathSciNet pass found nothing that states or implies Theorem 1.1 as stated in the exact source. It covered keyword searches and the forward citations of Hillion–Johnson 2016, Johnson 2017, Pitman 1997 and Darroch 1964. This meets the venue record's MathSciNet condition; it is a bounded negative.
+    relation: convergence
+    inspected_source_sha256: 1e950299b8c1838d391d84f6249d706b6e1cc9a83592c14bc096728be549f642
 review_artifacts: []
 unresolved_items:
-  - The venue record requires an authenticated MathSciNet pass, which has not been done. A free zbMATH and arXiv sweep found nothing. Brett decides whether to run the pass or accept the risk.
   - The venue record requires an expert novelty / proof-interface check, which has not been done. Brett must confirm whether his acceptance of no human audit covers it.
   - The venue record asks for Brett's own forecast before submission. It is not yet given.
   - Portal file roles and the EJMS-generated PDF have not yet been previewed. Check them after upload and before the final submit.
@@ -49,7 +53,7 @@ invalidation_triggers:
   - The Zenodo record or the ECP instructions change before submission.
 ---
 # Paper Assurance Record
-<!-- SUMMARY: Version-pinned assurance record for the ECP submission of the Poisson–binomial paper; evidence current on source 1e950299…f642 / PDF 3c4bd14e…7d24; venue-record novelty conditions open; awaiting Brett's decisions, portal preview and final go · status: unresolved · updated: 2026-10-03 -->
+<!-- SUMMARY: Version-pinned assurance record for the ECP submission of the Poisson–binomial paper; evidence current on source 1e950299…f642 / PDF 3c4bd14e…7d24; MathSciNet pass met; expert check and forecast open; awaiting Brett's decisions, portal preview and final go · status: unresolved · updated: 2026-10-03 -->
 
 ## Declared use
 
@@ -83,7 +87,8 @@ and is not part of this submission.
 | Build, metadata, venue | Clean build of the exact source to the pinned PDF. The abstract and declarations match the portal record and the ECP instructions. The DOI is live and its checksum matches | `submission/pre-submission-checklist-2026-10-03.md` | source `1e950299…f642` | supported |
 | Manuscript passes | All registered passes are current on the exact source, and the last diffs were checked against each pass's dimension | `notes/passes/2026-10-03-preflight-reverification.md` | source `1e950299…f642` | supported |
 | Mathematical certificate | The exact computations and the Lean proofs (PBScalar, PBDeduction; Lean 4.28.0, Mathlib v4.28.0, standard axioms only) are identified with replay records. The cross-references match the exact source | `paper/poisson_binomial/CERTIFICATE.md` | source `1e950299…f642` (cross-references) | supported |
-| Free novelty sweep | 37 zbMATH Open and arXiv queries (delta since 2026-07-01 included); nothing states or implies Theorem 1.1. Bounded negative; the MathSciNet pass is still open | `runs/pb-novelty-search-20261003/REPORT.md` | source `1e950299…f642` (theorem statement) | supported, MathSciNet open |
+| Free novelty sweep | 37 zbMATH Open and arXiv queries (delta since 2026-07-01 included); nothing states or implies Theorem 1.1 | `runs/pb-novelty-search-20261003/REPORT.md` | source `1e950299…f642` (theorem statement) | supported |
+| MathSciNet pass | Keyword searches plus four forward-citation lists through Brett's U of T session; nothing states or implies Theorem 1.1 | `runs/pb-novelty-search-20261003/MATHSCINET.md` | source `1e950299…f642` (theorem statement) | supported |
 
 The local replay records named in CERTIFICATE.md are
 `formalization/pb_scalar_inequality_aristotle_result/LOCAL_REPLAY.md`
@@ -109,14 +114,14 @@ agreement contributes nothing to this record.
 
 ## Unresolved and defeated conditions
 
-Five items are unresolved, listed in the front matter:
-- the MathSciNet pass;
+Four items are unresolved, listed in the front matter:
 - the expert check;
 - Brett's forecast;
 - the portal preview;
 - recording Brett's risk acceptance on this exact object.
 
-The first three are conditions in the venue decision record. The first
+The first two are conditions in the venue decision record. A third, the
+MathSciNet pass, was met on 2026-10-04. The first
 version of this record left them out, because the pre-flight had not read
 the record's unchecked boxes. Nothing is defeated: the free novelty sweep
 turned up no conflicting result.

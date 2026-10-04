@@ -1,5 +1,5 @@
 # Pre-submission checklist: ECP, Poisson–binomial paper
-<!-- SUMMARY: final pre-flight for the ECP submission via EJMS; all gates pass on source 1e950299…f642 / PDF 3c4bd14e…7d24; risk of no human audit accepted by Brett; venue-record novelty conditions (MathSciNet pass, expert check) open for Brett's decision · status: blocked on Brett's decisions · updated: 2026-10-03 -->
+<!-- SUMMARY: final pre-flight for the ECP submission via EJMS; all gates pass on source 1e950299…f642 / PDF 3c4bd14e…7d24; risk of no human audit accepted by Brett; MathSciNet pass done 2026-10-04 (nothing found); expert check and Brett's forecast open · status: blocked on Brett's decisions · updated: 2026-10-03 -->
 
 Completed from `Project-Management/templates/paper-submission-checklist.md`.
 Items that don't apply are marked N/A with the reason.
@@ -26,7 +26,7 @@ Items that don't apply are marked N/A with the reason.
 - [x] The venue decision record exists, with a journal-reader contract, alternatives and a risk test.
 - [ ] **The venue record's own pre-submission conditions.** The first version of this checklist did not read them; a side agent caught the gap.
   - *Independent audit of the full proof:* open. This is covered by Brett's acceptance of no human audit. Since July, Theorem 1.1 has been fully kernel-checked in Lean.
-  - *Authenticated MathSciNet pass and submission-date delta search:* **open**. A free sweep of zbMATH Open and arXiv, including the delta since 2026-07-01, found nothing that states or implies Theorem 1.1 (`runs/pb-novelty-search-20261003/REPORT.md`, 37 queries listed). The MathSciNet pass needs Brett's login.
+  - *Authenticated MathSciNet pass and submission-date delta search:* **done 2026-10-04**, nothing found. The MathSciNet pass ran through Brett's U of T session at his instruction and covered keyword searches plus four forward-citation lists (`runs/pb-novelty-search-20261003/MATHSCINET.md`). The delta since 2026-07-01 is in the zbMATH and arXiv sweep (`REPORT.md`, 37 queries listed). Neither found anything that states or implies Theorem 1.1.
   - *Expert novelty / proof-interface check:* **open**. Brett must confirm whether his acceptance of no human audit covers it.
   - *Durable DOI archive:* done (Zenodo 10.5281/zenodo.23129480).
   - *Brett's own forecast:* the record asks for it before submission. **Pending.**
@@ -108,4 +108,4 @@ Items that don't apply are marked N/A with the reason.
 
 ## Stop conditions
 
-**Active:** the venue record's novelty conditions are open (MathSciNet pass, expert check). Brett has not accepted these as risks. The stop condition is "Risks accepted explicitly by Brett only if a listed gate remains open." The no-human-audit risk is accepted.
+**Active:** the venue record's expert novelty / proof-interface check is open, and Brett has not accepted it as a risk. The MathSciNet pass was done on 2026-10-04 and found nothing. Brett's forecast is pending. The stop condition is "Risks accepted explicitly by Brett only if a listed gate remains open." The no-human-audit risk is accepted.
