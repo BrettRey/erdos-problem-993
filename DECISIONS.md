@@ -1282,3 +1282,5 @@ No wording changed: a word-multiset comparison of the PDF text shows only journa
 - Any website or Zenodo copy is built with `\documentclass[ECP,preprint]{ejpecp}`, a one-word change. The managing-editor block can stay; preprint mode does not print it.
 - Tested in scratch: 0 errors, 13 pp, no journal furniture in the text.
 - The submitted object (commit df33014, `submission/ejms-upload-2026-10-04/`) is unchanged.
+
+2026-10-04 — ECP acknowledgement received for ECP2610-004, signed by the ECP editor Patrícia Gonçalves. The acknowledged title, ORCID and abstract match the submission; the abstract was checked by script against the portal record. The email is kept in Brett's inbox, not in this public repository.

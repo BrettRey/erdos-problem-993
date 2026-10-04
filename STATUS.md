@@ -98,6 +98,7 @@ claim:
 - **Submission.** Brett pressed Finish Submission in EJMS himself; the manuscript ID is ECP2610-004. Claude Code filled the form from `submission/portal-fields-ECP-2026-10-03.md` and stopped at the confirmation page.
   - Uploaded: the 13-page PDF (aa6a5f4f…359e, from commit df33014) and, as EJMS asks, the self-contained `.tex`.
   - Manifest: `submission/ejms-upload-2026-10-04/MANIFEST.md`.
+  - Acknowledgement email received the same day, signed by the ECP editor Patrícia Gonçalves. The title, the ORCID and the abstract match what was submitted; the abstract was checked by script. The email itself stays in Brett's inbox and is not copied here.
 - **Before submitting.**
   - The final pre-flight found one editorial scar, fixed by reordering sentences.
   - A side agent caught that the venue record's novelty conditions were still open. The MathSciNet pass, run through Brett's U of T session, found nothing (`runs/pb-novelty-search-20261003/`).
