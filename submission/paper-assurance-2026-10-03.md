@@ -6,52 +6,73 @@ target: Electronic Communications in Probability (EJMS), research article
 record_status: unresolved
 canonical_source: paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex
 canonical_pdf: paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf
-source_commit: 1b66c60c694e293418dc2faa14f605fdf1d435b3
-source_sha256: 1e950299b8c1838d391d84f6249d706b6e1cc9a83592c14bc096728be549f642
-pdf_sha256: 3c4bd14e3f71d0e2a8cecc12dc543ac102a4f4072a43d7b92acff617bd0e7d24
-checked_at: '2026-10-03T21:51:57-04:00'
+source_commit: df330141a619260aa53f3e3c06994f8ed4b2d66a
+source_sha256: 0687e054618274f119133d23f9c430ab5ce1a8c21bc38cc53768a1c49d4ffc4c
+pdf_sha256: aa6a5f4f59bd119239081e5f99b95c32d53363fd836b48d4ef59f2ff4927359e
+checked_at: '2026-10-04T08:58:44-04:00'
 dirty_paths: []
 decision_owner: Brett Reynolds
 decision_status: pending
 accepted_risks: []
 evidence_artifacts:
-  - path: submission/pre-submission-checklist-2026-10-03.md
-    sha256: 5c8584badd9f68b865f298460db13b0556e47723d3fc15f1f38e55383fa1fc33
-    supports: The exact source builds cleanly to the pinned 13-page PDF. Its abstract, keywords, links, metadata and declarations match the portal record and the ECP instructions of 3 October 2026, and the supplement DOI is live with a checksum equal to the local archive.
-    relation: composition
-    inspected_source_sha256: 1e950299b8c1838d391d84f6249d706b6e1cc9a83592c14bc096728be549f642
-  - path: notes/passes/2026-10-03-preflight-reverification.md
-    sha256: 11baf7ddc5c78061e8ffbae1bc6f782314dd645285d197544c03553dce67b5d4
-    supports: Every registered manuscript pass is current on the exact source. The last two commits and the final sentence reorder were checked against each pass's dimension, and one editorial scar was found and fixed.
-    relation: composition
-    inspected_source_sha256: 1e950299b8c1838d391d84f6249d706b6e1cc9a83592c14bc096728be549f642
-  - path: paper/poisson_binomial/CERTIFICATE.md
-    sha256: e421c7974138ec03b8cb7221769b13163c52daaa0d3480d7c26b14acb7ada352
-    supports: The computations the proof needs and the Lean formalizations of Proposition 3.1 and Theorem 1.1 are listed with their replay commands and records. The copy in the published Zenodo archive is byte-identical. Every numbered cross-reference resolves to the same item in the exact source.
-    relation: convergence
-    inspected_source_sha256: 1e950299b8c1838d391d84f6249d706b6e1cc9a83592c14bc096728be549f642
-  - path: runs/pb-novelty-search-20261003/REPORT.md
-    sha256: 8bff08f8f0abd358a9e152d54db44739fa1853cf80259c8554704077f828194e
-    supports: In 37 listed zbMATH Open and arXiv queries, including a delta since 2026-07-01, no document states or implies Theorem 1.1 as stated in the exact source. This is a bounded negative and not a substitute for the MathSciNet pass.
-    relation: convergence
-    inspected_source_sha256: 1e950299b8c1838d391d84f6249d706b6e1cc9a83592c14bc096728be549f642
-  - path: runs/pb-novelty-search-20261003/MATHSCINET.md
-    sha256: 50268d990ad2e1c6c35124fd87846bd993e35cd8d7a6e1460e1ba27d8458b5c8
-    supports: An authenticated MathSciNet pass found nothing that states or implies Theorem 1.1 as stated in the exact source. It covered keyword searches and the forward citations of Hillion–Johnson 2016, Johnson 2017, Pitman 1997 and Darroch 1964. This meets the venue record's MathSciNet condition; it is a bounded negative.
-    relation: convergence
-    inspected_source_sha256: 1e950299b8c1838d391d84f6249d706b6e1cc9a83592c14bc096728be549f642
+- path: submission/pre-submission-checklist-2026-10-03.md
+  sha256: 66faa249eb058a74e660d510a597ea5456a977aaa0a50d1c9527e6f100e3952b
+  supports: The exact source builds cleanly to the pinned 13-page PDF. Its abstract,
+    keywords, links, metadata and declarations match the portal record and the ECP
+    instructions of 3 October 2026, the supplement DOI is live with a checksum equal
+    to the local archive, and all ten EJMS source checkboxes hold literally.
+  relation: composition
+  inspected_source_sha256: 0687e054618274f119133d23f9c430ab5ce1a8c21bc38cc53768a1c49d4ffc4c
+- path: notes/passes/2026-10-04-ejms-compliance-reverification.md
+  sha256: 9496ac7eb0f19cad4b1b66b3c8adc547913a040dd62d2cc09eae105bd1b14f9c
+  supports: Every registered manuscript pass is current on the exact source. The EJMS
+    compliance diff (journal mode, template metadata, Table 1 moved) changed no wording,
+    and each pass was judged against it. This continues the 2026-10-03 pre-flight re-check
+    of the earlier diffs.
+  relation: composition
+  inspected_source_sha256: 0687e054618274f119133d23f9c430ab5ce1a8c21bc38cc53768a1c49d4ffc4c
+- path: paper/poisson_binomial/CERTIFICATE.md
+  sha256: e421c7974138ec03b8cb7221769b13163c52daaa0d3480d7c26b14acb7ada352
+  supports: The computations the proof needs and the Lean formalizations of Proposition
+    3.1 and Theorem 1.1 are listed with their replay commands and records. The copy
+    in the published Zenodo archive is byte-identical. Every numbered cross-reference
+    resolves to the same item in the exact source.
+  relation: convergence
+  inspected_source_sha256: 0687e054618274f119133d23f9c430ab5ce1a8c21bc38cc53768a1c49d4ffc4c
+- path: runs/pb-novelty-search-20261003/REPORT.md
+  sha256: 8bff08f8f0abd358a9e152d54db44739fa1853cf80259c8554704077f828194e
+  supports: In 37 listed zbMATH Open and arXiv queries, including a delta since 2026-07-01,
+    no document states or implies Theorem 1.1 as stated in the exact source. This
+    is a bounded negative and not a substitute for the MathSciNet pass.
+  relation: convergence
+  inspected_source_sha256: 0687e054618274f119133d23f9c430ab5ce1a8c21bc38cc53768a1c49d4ffc4c
+- path: runs/pb-novelty-search-20261003/MATHSCINET.md
+  sha256: 50268d990ad2e1c6c35124fd87846bd993e35cd8d7a6e1460e1ba27d8458b5c8
+  supports: An authenticated MathSciNet pass found nothing that states or implies
+    Theorem 1.1 as stated in the exact source. It covered keyword searches and the
+    forward citations of Hillion–Johnson 2016, Johnson 2017, Pitman 1997 and Darroch
+    1964. This meets the venue record's MathSciNet condition; it is a bounded negative.
+  relation: convergence
+  inspected_source_sha256: 0687e054618274f119133d23f9c430ab5ce1a8c21bc38cc53768a1c49d4ffc4c
 review_artifacts: []
 unresolved_items:
-  - Portal file roles and the EJMS-generated PDF have not yet been previewed. Check them after upload and before the final submit.
-  - Two risks are to be recorded as accepted_risks, with decision_status risk-accepted, when Brett gives the final go on this exact object. (1) No human mathematician has audited the paper; Brett accepted this on 2026-10-03 ("Happy to submit"), before the final sentence reorder existed. (2) No expert novelty / proof-interface check has been done; Brett accepted this on 2026-10-04 ("I have no way to get an expert check, so that's not in the cards").
+- Portal file roles and the EJMS-generated PDF have not yet been previewed. Check
+  them after upload and before the final submit.
+- Two risks are to be recorded as accepted_risks, with decision_status risk-accepted,
+  when Brett gives the final go on this exact object. (1) No human mathematician has
+  audited the paper; Brett accepted this on 2026-10-03 ("Happy to submit"), before
+  the sentence reorder (which he approved on 2026-10-04) and the EJMS compliance
+  changes (which he chose on 2026-10-04) existed. (2) No expert novelty / proof-interface check
+  has been done; Brett accepted this on 2026-10-04 ("I have no way to get an expert
+  check, so that's not in the cards").
 invalidation_triggers:
-  - Canonical source or PDF changes, including a rebuild (pdfTeX embeds the build time).
-  - A load-bearing source, analysis, computation or Lean statement is corrected.
-  - The intended use, target, or submitted package changes.
-  - The Zenodo record or the ECP instructions change before submission.
+- Canonical source or PDF changes, including a rebuild (pdfTeX embeds the build time).
+- A load-bearing source, analysis, computation or Lean statement is corrected.
+- The intended use, target, or submitted package changes.
+- The Zenodo record or the ECP instructions change before submission.
 ---
 # Paper Assurance Record
-<!-- SUMMARY: Version-pinned assurance record for the ECP submission of the Poisson–binomial paper; evidence current on source 1e950299…f642 / PDF 3c4bd14e…7d24; venue-record conditions met or risk-accepted; awaiting portal preview and Brett's final go · status: unresolved · updated: 2026-10-03 -->
+<!-- SUMMARY: Version-pinned assurance record for the ECP submission of the Poisson–binomial paper; evidence current on source 0687e054…ffc4c / PDF aa6a5f4f…359e (journal mode, EJMS checkboxes verified); venue-record conditions met or risk-accepted; awaiting portal preview and Brett's final go · status: unresolved · updated: 2026-10-04 -->
 
 ## Declared use
 
@@ -73,20 +94,28 @@ expert would agree, or that ECP will accept it.
 
 ## Object
 
-Commit `1b66c60c694e293418dc2faa14f605fdf1d435b3` has a clean tree for the
+Commit `df330141a619260aa53f3e3c06994f8ed4b2d66a` has a clean tree for the
 canonical source. The PDF is a gitignored build product, pinned by its
-SHA-256. The source bundle (SHA-256 `e1abd93e…07bd16`) is held for acceptance
+SHA-256. The source bundle (SHA-256 `926d432a…b2b9`) is held for acceptance
 and is not part of this submission.
+
+The object changed on 2026-10-04 from source `1e950299…f642` / PDF
+`3c4bd14e…7d24`. The change put the paper in journal mode, restored the
+template metadata and moved Table 1, to satisfy the EJMS source checkboxes.
+No wording, result number or theorem statement changed: a word-multiset
+comparison of the PDF text shows only journal furniture added. So the
+certificate's cross-references and the two novelty searches carry over to the
+exact source unchanged.
 
 ## Evidence ledger
 
 | Check | Bounded conclusion | Artifact | Inspected version | Status |
 | --- | --- | --- | --- | --- |
-| Build, metadata, venue | Clean build of the exact source to the pinned PDF. The abstract and declarations match the portal record and the ECP instructions. The DOI is live and its checksum matches | `submission/pre-submission-checklist-2026-10-03.md` | source `1e950299…f642` | supported |
-| Manuscript passes | All registered passes are current on the exact source, and the last diffs were checked against each pass's dimension | `notes/passes/2026-10-03-preflight-reverification.md` | source `1e950299…f642` | supported |
-| Mathematical certificate | The exact computations and the Lean proofs (PBScalar, PBDeduction; Lean 4.28.0, Mathlib v4.28.0, standard axioms only) are identified with replay records. The cross-references match the exact source | `paper/poisson_binomial/CERTIFICATE.md` | source `1e950299…f642` (cross-references) | supported |
-| Free novelty sweep | 37 zbMATH Open and arXiv queries (delta since 2026-07-01 included); nothing states or implies Theorem 1.1 | `runs/pb-novelty-search-20261003/REPORT.md` | source `1e950299…f642` (theorem statement) | supported |
-| MathSciNet pass | Keyword searches plus four forward-citation lists through Brett's U of T session; nothing states or implies Theorem 1.1 | `runs/pb-novelty-search-20261003/MATHSCINET.md` | source `1e950299…f642` (theorem statement) | supported |
+| Build, metadata, venue | Clean build of the exact source to the pinned PDF. The abstract and declarations match the portal record and the ECP instructions. The DOI is live and its checksum matches | `submission/pre-submission-checklist-2026-10-03.md` | source `0687e054…ffc4c` | supported |
+| Manuscript passes | All registered passes are current on the exact source, and the last diffs were checked against each pass's dimension | `notes/passes/2026-10-04-ejms-compliance-reverification.md` (continuing `2026-10-03-preflight-reverification.md`) | source `0687e054…ffc4c` | supported |
+| Mathematical certificate | The exact computations and the Lean proofs (PBScalar, PBDeduction; Lean 4.28.0, Mathlib v4.28.0, standard axioms only) are identified with replay records. The cross-references match the exact source | `paper/poisson_binomial/CERTIFICATE.md` | source `0687e054…ffc4c` (cross-references) | supported |
+| Free novelty sweep | 37 zbMATH Open and arXiv queries (delta since 2026-07-01 included); nothing states or implies Theorem 1.1 | `runs/pb-novelty-search-20261003/REPORT.md` | source `0687e054…ffc4c` (theorem statement) | supported |
+| MathSciNet pass | Keyword searches plus four forward-citation lists through Brett's U of T session; nothing states or implies Theorem 1.1 | `runs/pb-novelty-search-20261003/MATHSCINET.md` | source `0687e054…ffc4c` (theorem statement) | supported |
 
 The local replay records named in CERTIFICATE.md are
 `formalization/pb_scalar_inequality_aristotle_result/LOCAL_REPLAY.md`
