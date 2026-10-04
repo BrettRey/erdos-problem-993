@@ -1207,3 +1207,5 @@ Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
 - **Checks:** 13 pp, 0 TeX errors; supplement rebuilt (77 members) and replayed.
 
 Decision owner: Brett. Assisting system: Claude Code (Opus 5.5); suggestions from the third ChatGPT review.
+
+2026-10-03 — Zenodo stage 3: the final supplement archive (77 members, sha256 b1e6462d…309d) is uploaded to draft 23129480. MD5 5c670f4c405ed79eacb7372e938b9e41 and size 567,017 bytes match the local file. The draft is saved and not published; it awaits Brett's review. Once published, its files are fixed, so any later change to CERTIFICATE.md or the programs would need a new Zenodo version.

@@ -133,7 +133,7 @@ None suggested. Leave the field to the editor unless the portal requires names. 
 
 | Field | What is missing | Who decides | Resolved |
 |---|---|---|---|
-| Supplement DOI | Zenodo upload of `poisson_binomial_certificate_supplement.zip` (reserve the DOI first, then replace `ZENODO-DOI-PENDING` in `variance-local-log-concavity-poisson-binomial.tex` and rebuild) | Brett (his account) | no |
+| Supplement DOI | Reserved 2026-10-03: 10.5281/zenodo.23129480 (Zenodo draft 23129480). Metadata filled; final archive uploaded and verified (MD5 5c670f4c405ed79eacb7372e938b9e41, 567,017 bytes, matching the local build); draft saved, **not yet published**. Remaining: Brett reviews the draft and says publish | Brett (publish) | no |
 | EJMS account | not yet created | Brett | no |
 | Author instructions | live check of the imstat author page, including field limits, source-file rules, and any AI-use rule | Brett (browser) | no |
 | Postal code | not in the manuscript (affiliations and departments now are, 2026-10-03) | Brett | no |
