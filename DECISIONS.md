@@ -1209,3 +1209,5 @@ Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
 Decision owner: Brett. Assisting system: Claude Code (Opus 5.5); suggestions from the third ChatGPT review.
 
 2026-10-03 — Zenodo stage 3: the final supplement archive (77 members, sha256 b1e6462d…309d) is uploaded to draft 23129480. MD5 5c670f4c405ed79eacb7372e938b9e41 and size 567,017 bytes match the local file. The draft is saved and not published; it awaits Brett's review. Once published, its files are fixed, so any later change to CERTIFICATE.md or the programs would need a new Zenodo version.
+
+2026-10-03 — Supplement published on Zenodo by Brett: DOI 10.5281/zenodo.23129480 (record 23129480). Verified via the API: status published; the DOI resolves (doi.org 302 to Zenodo); the file checksum matches the local build; metadata as entered (Software, MIT, v1.0, six keywords, ORCID 0000-0003-0073-7195, Humber Polytechnic and University of Toronto). The manuscript already cites this DOI.

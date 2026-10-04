@@ -106,7 +106,7 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 
 > The programs and exact certificate data supporting Proposition 3.1 are in the supplementary archive, deposited at [Zenodo DOI]. The development repository is https://github.com/BrettRey/erdos-problem-993.
 
-- [ ] Do not submit until the Zenodo record is live and the DOI resolves.
+- [x] Do not submit until the Zenodo record is live and the DOI resolves. (Live and resolving, verified 2026-10-03.)
 
 **Ethics.** No human participants or data.
 
@@ -133,7 +133,7 @@ None suggested. Leave the field to the editor unless the portal requires names. 
 
 | Field | What is missing | Who decides | Resolved |
 |---|---|---|---|
-| Supplement DOI | Reserved 2026-10-03: 10.5281/zenodo.23129480 (Zenodo draft 23129480). Metadata filled; final archive uploaded and verified (MD5 5c670f4c405ed79eacb7372e938b9e41, 567,017 bytes, matching the local build); draft saved, **not yet published**. Remaining: Brett reviews the draft and says publish | Brett (publish) | no |
+| Supplement DOI | **Done 2026-10-03/04:** 10.5281/zenodo.23129480 published (record 23129480); DOI resolves; public file MD5 5c670f4c405ed79eacb7372e938b9e41, 567,017 bytes, matching the local build; creator ORCID 0000-0003-0073-7195 with affiliations Humber Polytechnic and University of Toronto | Brett | **yes** |
 | EJMS account | not yet created | Brett | no |
 | Author instructions | live check of the imstat author page, including field limits, source-file rules, and any AI-use rule | Brett (browser) | no |
 | Postal code | not in the manuscript (affiliations and departments now are, 2026-10-03) | Brett | no |
