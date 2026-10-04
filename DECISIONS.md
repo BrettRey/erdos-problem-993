@@ -1313,3 +1313,5 @@ No wording changed: a word-multiset comparison of the PDF text shows only journa
   - `variance-scaled-turan.pdf`: replaced by the published preprint (md5 01c88afb…996b, the same file as on Zenodo).
 - **Not recorded in the website's own DECISIONS.md,** which is served publicly.
 - **Pending: Brett's go to push.** The website repo also has an uncommitted `STATUS.md` change that is not from this session; commit only the four files above.
+
+2026-10-04 — **Website and CV pushed and live.** Website commit d260002 contains only publications.html, first-descent.html, cv.pdf and variance-scaled-turan.pdf; the other session's STATUS.md change was left out. The GitHub Pages build for d260002 finished as built. Checked live at brettreynolds.ca: the publications entry shows the new title and ECP status; first-descent.html shows the preprint DOI and the corrected proof paragraph; variance-scaled-turan.pdf has md5 01c88afb…996b (the Zenodo preprint); cv.pdf matches the rebuilt CV.
