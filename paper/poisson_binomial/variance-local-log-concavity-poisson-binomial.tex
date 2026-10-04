@@ -93,7 +93,8 @@ and $V$ on the whole law, we ask whether every Bernoulli sum satisfies
 $\delta_k\geq\kappa/V$ near the mode for a universal $\kappa>0$, with no
 dependence on the number of summands or on the success probabilities.
 
-Quantitative log-concavity has probabilistic consequences. Johnson
+Quantitative log-concavity has probabilistic consequences (see
+\cite{saumardwellner2014} for a review). Johnson
 \cite{johnson2017discrete} calls a pmf $c$-log-concave when
 $f_x/f_{x+1}-f_{x-1}/f_x\geq c$ for every $x$, a discrete curvature condition,
 and derives from it a modified log-Sobolev inequality and concentration of
@@ -163,7 +164,9 @@ from each law's pmf as above. The theorem and the next proposition give
 \end{proposition}
 
 We do not know which, if either, endpoint of \eqref{eq:constant-bracket}
-equals $\kappa_\star$. We are not aware of an earlier proof that
+equals $\kappa_\star$; in particular, we do not know whether the binomial
+laws of Proposition~\ref{prop:one-third} are asymptotically extremal, which
+would give $\kappa_\star=1/3$. We are not aware of an earlier proof that
 $\kappa_\star>0$.
 
 Cubic inequalities of Hillion and Johnson \cite{hillionjohnson2016} for
@@ -182,12 +185,12 @@ point of the support.
   \end{equation}
 \end{corollary}
 
-\begin{remark}\label{rem:window}
-  On a window $|k-\mathbb EW|\leq\alpha\sqrt V$, the bound
-  \eqref{eq:support-bound} stays on the $1/V$ scale for fixed $\alpha$.
-  Theorem~\ref{thm:main} and Corollary~\ref{cor:support} also hold for
-  differences of independent Bernoulli sums (Section~\ref{sec:reduction}).
-\end{remark}
+On a window $|k-\mathbb EW|\leq\alpha\sqrt V$, the bound
+\eqref{eq:support-bound} stays on the $1/V$ scale for fixed $\alpha$, and
+Theorem~\ref{thm:main} and Corollary~\ref{cor:support} also hold for
+differences of independent Bernoulli sums (Section~\ref{sec:reduction}).
+Whether a bound that varies over the support in this way yields a functional
+inequality, as Johnson's $c$-log-concavity does, we leave open.
 
 At the rightmost mode, $\delta_c$ is within constant factors of $1/V$; since
 $V\geq1$, the next proposition gives $1/5\leq V\delta_c<2$.
@@ -200,7 +203,8 @@ $V\geq1$, the next proposition gives $1/5\leq V\delta_c<2$.
 \end{proposition}
 
 A pmf $(f_k)_{k=0}^n$ is ultra-log-concave of order $n$, written
-$\operatorname{ULC}(n)$, if $f_k/\binom nk$ is log-concave in $k$.
+$\operatorname{ULC}(n)$, if $f_k/\binom nk$ is log-concave in $k$ (on such
+sequences, see \cite{liggett1997}).
 Poisson--binomial pmfs are $\operatorname{ULC}(n)$, and this gives
 \begin{equation}\label{eq:ulc}
   \delta_k\geq
@@ -233,14 +237,12 @@ and $D=m+1$: each cited bound at $D$ is of order at most $1/m$, whereas
 Theorem~\ref{thm:main} gives $1/4$ and $\delta_D$ itself tends to about
 $0.46$ (Section~\ref{sec:balanced}).
 
-\begin{remark}\label{rem:real-rooted}
-  A polynomial with nonnegative coefficients and only real zeros is, after
-  normalization, the generating function of a Bernoulli sum
-  \cite[Proposition~1]{pitman1997}, so Theorem~\ref{thm:main} and its
-  consequences apply to the coefficient sequences of such polynomials, for
-  example rows of the Stirling and Eulerian arrays, whenever the associated
-  law has variance at least one.
-\end{remark}
+A polynomial with nonnegative coefficients and only real zeros is, after
+normalization, the generating function of a Bernoulli sum
+\cite[Proposition~1]{pitman1997}, so Theorem~\ref{thm:main} and its
+consequences apply to the coefficient sequences of such polynomials, for
+example rows of the Stirling and Eulerian arrays \cite{branden2015},
+whenever the associated law has variance at least one.
 
 \begin{example}\label{ex:cue}
   Determinantal point processes supply Bernoulli sums in which $V$ and $n$
@@ -902,32 +904,23 @@ and local log-concavity, Corollary~\ref{cor:support},
 Proposition~\ref{prop:mode} with its proof, Proposition~\ref{prop:ulc}, and
 Example~\ref{ex:cue}; each was checked, by exact computation on test laws and
 by independent model-based proof review, before it was adopted. A second
-AI-generated review (ChatGPT) pointed out the bound \eqref{eq:pitman-deficit}
-that follows from Pitman's equation~(20) and its behaviour in
-Table~\ref{tab:balanced}, and independently reconstructed the
-Bernstein-expansion computations for Proposition~\ref{prop:scalar} and the
-computations of Example~\ref{ex:cue}, with exact agreement. An AI-generated
-review from Elicit prompted clarifications of the supplement description and
-of Example~\ref{ex:cue}. A further AI-generated review (ChatGPT) found a boundary
-case in the comparison with Johnson's condition in
-Section~\ref{sec:introduction}. Two Codex (OpenAI) reviews of the final draft
-(model GPT-6.1-sol) followed. The first independently redid the
-computations of Section~\ref{sec:scalar}, checked the Lean statements against
-the paper, and prompted corrections to the zero extension of the pmf, to the
-description of what is formalized, and to the rounding of the intervals
-printed by the program for Example~\ref{ex:cue}. The second compared the
-exposition with recent papers in this journal and prompted the reorganization
-of Section~\ref{sec:introduction} and of the supplement description. Claude
-Opus 5.5 (Anthropic), through Claude Code, assisted with revision, proof
-checking, exact-verification code, and source checking, and other sessions
-with Claude, ChatGPT and Codex (both OpenAI), and Gemini (Google) assisted
-with computational exploration, proof critique, formalization support,
-literature searching, and drafting. Aristotle (Harmonic), an automated
-theorem prover, produced the Lean proofs in the formalizations described in
-the supplement, and its proof of Proposition~\ref{prop:scalar} supplied the
-monotonicity argument of Section~\ref{sec:compact}. Dates and model labels
-are recorded in the archive. The author remains responsible for the
-mathematics, sources, wording, and released files.
+ChatGPT review pointed out the bound \eqref{eq:pitman-deficit} and
+independently reconstructed the Bernstein-expansion computations, with exact
+agreement. Aristotle (Harmonic), an automated theorem prover, produced the
+Lean proofs in the formalizations described in the supplement, and its proof
+of Proposition~\ref{prop:scalar} supplied the monotonicity argument of
+Section~\ref{sec:compact}. Further AI-generated reviews (ChatGPT, Elicit, and
+Codex with the model GPT-6.1-sol) checked the computations and the Lean
+statements, found a boundary case, suggested background references, and
+prompted corrections and the reorganization of
+Section~\ref{sec:introduction}. Claude Opus 5.5 (Anthropic), through Claude
+Code, assisted with revision, proof checking, exact-verification code, and
+source checking, and other sessions with Claude, ChatGPT and Codex (both
+OpenAI), and Gemini (Google) assisted with computational exploration, proof
+critique, formalization support, literature searching, and drafting. The
+archive's provenance table lists each contribution with its date and model
+label. The author remains responsible for the mathematics, sources, wording,
+and released files.
 \end{acks}
 
 \end{document}

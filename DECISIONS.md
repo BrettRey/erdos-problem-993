@@ -1198,3 +1198,12 @@ Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
 - **Archive:** rebuilt, 77 members.
 
 Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 — Four review items done, as Brett instructed ("do all four"):
+1. **Acknowledgement condensed.** It keeps the substantive credits. The review-level checks are one sentence naming every system, and the provenance table in CERTIFICATE.md has a row for the third ChatGPT review.
+2. **Remarks 1.4 and 1.8 are now prose.** Remark 1.7 is kept, as 1.6. Results renumbered: mode Prop 1.4, ULC Prop 1.5, Example 1.7. External files were updated.
+3. **References added:** Saumard–Wellner 2014 (review), Brändén 2015 (Stirling and Eulerian real-rootedness) and Liggett 1997 (ULC sequences, cited only at title level, since the paper is behind a ScienceDirect CAPTCHA). Sources read and MR numbers verified.
+4. **Further work:** whether the Prop 1.2 binomials are extremal (κ⋆ = 1/3), and whether a bound that varies over the support yields a functional inequality.
+- **Checks:** 13 pp, 0 TeX errors; supplement rebuilt (77 members) and replayed.
+
+Decision owner: Brett. Assisting system: Claude Code (Opus 5.5); suggestions from the third ChatGPT review.

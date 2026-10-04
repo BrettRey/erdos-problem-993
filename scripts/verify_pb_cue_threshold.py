@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Certify the CUE threshold in Example 1.9 with exact rational arithmetic.
+"""Certify the CUE threshold in Example 1.7 with exact rational arithmetic.
 
 V_N = N/4 - (2/pi^2) S_N with S_N = sum_{d odd, 1<=d<N} (N-d)/d^2 (rational).
 Rational bounds pi_lo < pi < pi_hi come from Machin's formula
