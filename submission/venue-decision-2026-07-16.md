@@ -88,16 +88,16 @@ The resulting ECP assessment is **high topic and format fit, medium current desk
 
 Resolution required before submission:
 
-- [ ] The full proof, including endpoint cases and finite-cell statement, is independently audited.
-- [x] The complete proof fits legibly within 12 ECP pages; the current draft is eight pages.
-- [ ] The authenticated MathSciNet pass and submission-date delta search are complete.
-- [ ] One focused expert novelty/proof-interface check is complete, with external contact separately approved by Brett.
+- [x] Independent audit of the full proof: **risk accepted by Brett**, 2026-10-03 ("Happy to submit"). There has been no human audit. The 2026-07-17 AI audit passed, and since then Theorem 1.1 has been fully kernel-checked in Lean (replayed locally).
+- [x] Fits within 12 ECP pages: the July draft did (eight pages). The submitted version has 13; Brett accepted that on 2026-10-03.
+- [x] The authenticated MathSciNet pass and submission-date delta search are complete. Done 2026-10-04 and nothing found: `runs/pb-novelty-search-20261003/MATHSCINET.md` and `REPORT.md`.
+- [x] Expert novelty / proof-interface check: **risk accepted by Brett**, 2026-10-04 ("I have no way to get an expert check, so that's not in the cards").
 - [x] The $1/V$ scale and status of $1/4$ versus the $1/3$ obstruction are explained without a sharpness overclaim.
 - [x] The AI disclosure and human-verification statement accurately describe the actual workflow.
-- [ ] Certificate, verifier, dependency record, hashes, and replay instructions are frozen in a durable DOI archive.
-- [ ] Risks accepted explicitly by Brett only if a listed gate remains open.
+- [x] Certificate, verifier, dependency record, hashes, and replay instructions are frozen in a durable DOI archive: Zenodo 10.5281/zenodo.23129480, published 2026-10-03.
+- [x] Risks accepted explicitly by Brett for the gates that remained open: no audit and no expert check, both recorded in `submission/paper-assurance-2026-10-03.md` (`accepted_risks`).
 
-Current resolution: **The eight-page ECP draft is complete. Submission remains paused until the open release gates are closed or explicitly accepted.**
+Current resolution: **Submitted 2026-10-04 as EJMS ECP2610-004.** Every gate is closed or accepted by Brett as a risk.
 
 ## Evidence and Motivation Test
 
