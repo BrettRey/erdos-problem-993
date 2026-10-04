@@ -1,4 +1,4 @@
-\documentclass[ECP,preprint]{ejpecp}
+\documentclass[ECP]{ejpecp}
 
 \SHORTTITLE{Variance and local log-concavity of Bernoulli sums}
 
@@ -18,6 +18,15 @@
 
 \AMSSUBJ{60E15}
 \AMSSUBJSECONDARY{60C05; 05A20}
+
+\SUBMITTED{October 4, 2026}
+\ACCEPTED{\ldots}
+
+% The following items will be set by the Managing Editor.
+\VOLUME{0}
+\YEAR{2023}
+\PAPERNUM{0}
+\DOI{10.1214/YY-TN}
 
 \ABSTRACT{Let $W$ be the number of successes in independent trials with
   unequal success probabilities, with probability mass function $f$ and
@@ -239,6 +248,27 @@ Table~\ref{tab:balanced} shows this for a family of Bernoulli sums with $V=1$
 and $D=m+1$: each cited bound at $D$ is of order at most $1/m$, whereas
 Theorem~\ref{thm:main} gives $1/4$ and $\delta_D$ itself tends to about
 $0.46$ (Section~\ref{sec:balanced}).
+
+\begin{table}[ht]
+  \centering
+  \caption{Lower bounds on $\delta_D$, and $\delta_D$ itself, in the balanced
+  family with $V=1$ and $D=m+1$, as $m\to\infty$.}
+  \label{tab:balanced}
+  \begin{tabular}{lll}
+    \hline
+    Bound & Source & Value at $D$\\
+    \hline
+    Ultra-log-concavity \eqref{eq:ulc} & \cite{hillionjohnson2016} &
+      $(2m+1)/(m(m+2))\sim2/m$\\
+    $\delta_k>1/(k+1)$ & \cite{duembgenwellner2020} & $1/(m+2)\sim1/m$\\
+    Odds-sum bound & \cite{johnson2017discrete} & $O(m^{-2})$\\
+    Combined tilt bounds & \cite{pitman1997} & $\sim\sqrt2/m$\\
+    Theorem~\ref{thm:main} & & $1/(4V)=1/4$\\
+    \hline
+    $\delta_D$ itself & & $\to1-I_0(1)I_2(1)/I_1(1)^2\approx0.46$\\
+    \hline
+  \end{tabular}
+\end{table}
 
 A polynomial with nonnegative coefficients and only real zeros is, after
 normalization, the generating function of a Bernoulli sum
@@ -808,27 +838,6 @@ $t=\operatorname{arsinh}1$, where the tilted mean is $m+1+O(1/m)$ and has
 slope $\sqrt2+O(1/m)$. Since $\log\theta$ is the inverse of the tilted mean,
 the two values of $\log\theta$ differ by $\sqrt2/m+O(m^{-2})$, and so does the
 right-hand side of \eqref{eq:pitman-deficit}.
-
-\begin{table}[ht]
-  \centering
-  \caption{Lower bounds on $\delta_D$, and $\delta_D$ itself, in the balanced
-  family with $V=1$ and $D=m+1$, as $m\to\infty$.}
-  \label{tab:balanced}
-  \begin{tabular}{lll}
-    \hline
-    Bound & Source & Value at $D$\\
-    \hline
-    Ultra-log-concavity \eqref{eq:ulc} & \cite{hillionjohnson2016} &
-      $(2m+1)/(m(m+2))\sim2/m$\\
-    $\delta_k>1/(k+1)$ & \cite{duembgenwellner2020} & $1/(m+2)\sim1/m$\\
-    Odds-sum bound & \cite{johnson2017discrete} & $O(m^{-2})$\\
-    Combined tilt bounds & \cite{pitman1997} & $\sim\sqrt2/m$\\
-    Theorem~\ref{thm:main} & & $1/(4V)=1/4$\\
-    \hline
-    $\delta_D$ itself & & $\to1-I_0(1)I_2(1)/I_1(1)^2\approx0.46$\\
-    \hline
-  \end{tabular}
-\end{table}
 
 
 \subsection{The Haar unitary example}\label{sec:cue}

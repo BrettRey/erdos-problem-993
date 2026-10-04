@@ -1,5 +1,5 @@
 # Portal Fields Record: ECP, Poisson–binomial paper
-<!-- SUMMARY: Answer sheet for the EJMS/ECP portal for the Poisson–binomial first-descent paper; filled 2026-10-03 from variance-local-log-concavity-poisson-binomial.tex and the venue record; section 11 resolved 2026-10-04 (MathSciNet done; expert check risk-accepted; forecast given); upload PDF 3c4bd14e…7d24 · status: ready for portal · updated: 2026-10-04 -->
+<!-- SUMMARY: Answer sheet for the EJMS/ECP portal for the Poisson–binomial first-descent paper; filled 2026-10-03 from variance-local-log-concavity-poisson-binomial.tex and the venue record; section 11 resolved 2026-10-04 (MathSciNet done; expert check risk-accepted; forecast given); upload PDF aa6a5f4f…359e · status: ready for portal · updated: 2026-10-04 -->
 
 ## Record
 
@@ -15,9 +15,10 @@
 - [x] Paper assurance record path: `paper/poisson_binomial/CERTIFICATE.md` (inside the supplement)
 - [x] Canonical source file: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex`
 - [x] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; built with `pdflatex`, `bibtex`, `pdflatex` ×2).
-  - The final build is 2026-10-03, 21:44 EDT, from source SHA-256 `1e950299…f642`. Its SHA-256 is `3c4bd14e3f71d0e2a8cecc12dc543ac102a4f4072a43d7b92acff617bd0e7d24`.
+  - The final build is 2026-10-04, 08:54 EDT, from source SHA-256 `0687e054…ffc4c`. Its SHA-256 is `aa6a5f4f59bd119239081e5f99b95c32d53363fd836b48d4ef59f2ff4927359e`.
   - It has 13 pages. Brett accepted 13, the journal's stated maximum, on 2026-10-03.
-  - It prints the published DOI.
+  - It is in journal mode (`\documentclass[ECP]{ejpecp}`, with the template's placeholder volume, paper number and DOI), and Table 1 sits beside its first callout. Both changes make the EJMS source checkboxes literally true; Brett's call, 2026-10-04.
+  - It prints the published supplement DOI.
   - **Upload this file without rebuilding**: pdfTeX embeds the build time, so a rebuild changes the hash.
 - [x] Account the submission is made under: Brett's existing EJMS account `brettrey`, which holds the ECP Author role (Roles page, checked 2026-10-03)
 - [x] Decision owner: Brett Reynolds
@@ -80,8 +81,8 @@ Page count of the canonical PDF: 13 (`pdfinfo`, final build, 2026-10-03).
 
 | Local path | Portal item type | Reviewer sees it | Notes |
 |---|---|---|---|
-| `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` | manuscript PDF | yes | final build, SHA-256 `3c4bd14e…7d24`, 13 pp |
-| `paper/poisson_binomial/ecp_source_bundle.zip` (the `.tex` with the bibliography pasted in, plus `ejpecp.cls` v1.12.3, 2026/03/04) | **not needed at submission**: the ECP Manuscript Submission page asks only for a PDF; hold it for acceptance | no | Rebuilt 2026-10-03 at the final pre-flight by `scripts/build_pb_ecp_source_bundle.py`, SHA-256 `e1abd93e…07bd16`. Compiles alone (pdflatex ×3): 13 pp, 0 errors, text identical to the manuscript PDF. The `preprint` option suppresses the journal logo, volume and paper number |
+| `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` | manuscript PDF | yes | final build, SHA-256 `aa6a5f4f…359e`, 13 pp |
+| `paper/poisson_binomial/ecp_source_bundle.zip` (the `.tex` with the bibliography pasted in, plus `ejpecp.cls` v1.12.3, 2026/03/04) | **not needed at submission**: the ECP Manuscript Submission page asks only for a PDF; hold it for acceptance | no | Rebuilt 2026-10-04 after the EJMS compliance changes by `scripts/build_pb_ecp_source_bundle.py`, SHA-256 `926d432a…b2b9`. Compiles alone (pdflatex ×3): 13 pp, 0 errors, text identical to the manuscript PDF. It is in journal mode, with the template's placeholder volume, paper number and DOI, which the managing editor sets |
 | `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip` | supplementary material | yes | SHA-256 `b1e6462d…309d` (2026-10-03 build with the Section 4.1 check program and the Lean proofs of Proposition 3.1 and Theorem 1.1); same file as the Zenodo deposit |
 | `submission/cover-letter-ECP-2026-10-03.md` | cover letter / comments to editor | no | |
 

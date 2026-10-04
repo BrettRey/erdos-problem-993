@@ -1249,3 +1249,18 @@ Remedy:
 - **Expert check.** Brett on the venue record's expert novelty / proof-interface check: "I have no way to get an expert check, so that's not in the cards." It is recorded as an accepted risk, with the no-human-audit risk, to become `accepted_risks` in the assurance record at his final go.
 - **Forecast.** Brett's forecast, made 2026-10-04 before submission: P(reaches referees) and P(accepted at ECP), with the numbers kept in the private prediction ledger. It goes into `Project-Management/prediction-ledger/ledger.jsonl` as a `brett` record dated 2026-10-04, appended with the `event` record at submission. The scorer rejects forecasts for unlogged events. The Codex forecast of 2026-07-16 (0.65, 0.25) is logged under `codex` at the same time.
 - **Status.** Every venue-record condition is now met or accepted. Remaining: Brett's OK on the 2026-10-03 sentence reorder, the portal preview and the final go.
+
+2026-10-04 — **EJMS source checkboxes: comply literally (Brett).** Before a submission can start, EJMS asks the author to tick ten statements about the LaTeX source. Each was checked; eight already held. Box 1 holds because the class file is byte-identical to the official VTeX copy.
+- **Box 2** says the class line is exactly `\documentclass[ECP]{ejpecp}`; ours had `preprint`.
+- **Box 9** says floats sit beside their callouts; Table 1 printed on page 12, against first callouts on pages 2–3.
+
+Brett: "comply literally." This reverses the 2026-10-03 entry that kept `preprint` for submission. Changes:
+- journal mode;
+- the template's managing-editor block restored (`\VOLUME{0}`, `\YEAR{2023}`, `\PAPERNUM{0}`, `\DOI{10.1214/YY-TN}`);
+- `\SUBMITTED{October 4, 2026}` and `\ACCEPTED{\ldots}`, so page 1 doesn't print "FIXME!";
+- Table 1 moved beside its first callout (now the top of page 4).
+
+No wording changed: a word-multiset comparison of the PDF text shows only journal furniture and the submitted line added. Results:
+- Clean build, 13 pp. Upload PDF aa6a5f4f…359e, from source 0687e054…ffc4c.
+- Bundle rebuilt (926d432a…b2b9) and compiles standalone.
+- Passes re-checked against the diff (`notes/passes/2026-10-04-ejms-compliance-reverification.md`); gate clear.

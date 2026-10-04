@@ -1,5 +1,5 @@
 # Pre-submission checklist: ECP, Poisson–binomial paper
-<!-- SUMMARY: final pre-flight for the ECP submission via EJMS; all gates pass on source 1e950299…f642 / PDF 3c4bd14e…7d24; risk of no human audit accepted by Brett; MathSciNet pass done 2026-10-04 (nothing found); expert check risk-accepted; forecast given · status: ready for portal · updated: 2026-10-03 -->
+<!-- SUMMARY: final pre-flight for the ECP submission via EJMS; all gates pass on source 0687e054…ffc4c / PDF aa6a5f4f…359e (journal mode, EJMS checkboxes verified); risk of no human audit accepted by Brett; MathSciNet pass done 2026-10-04 (nothing found); expert check risk-accepted; forecast given · status: ready for portal · updated: 2026-10-03 -->
 
 Completed from `Project-Management/templates/paper-submission-checklist.md`.
 Items that don't apply are marked N/A with the reason.
@@ -9,11 +9,12 @@ Items that don't apply are marked N/A with the reason.
 - Project: `papers/queue/erdos-problem-993`. This is the Poisson–binomial spin-off; the #993 line itself was dropped on 2026-10-03.
 - Submission type: journal, first submission.
 - Target: Electronic Communications in Probability (ECP), via EJMS, <https://www.e-publications.org/ims/submission/>. Brett's account `brettrey` already holds the ECP Author role (checked in the browser on 2026-10-03).
-- Canonical source: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex`, SHA-256 `1e950299b8c1838d391d84f6249d706b6e1cc9a83592c14bc096728be549f642`.
-- Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored build product), SHA-256 `3c4bd14e3f71d0e2a8cecc12dc543ac102a4f4072a43d7b92acff617bd0e7d24`, 13 pages.
-  - Built 2026-10-03 at 21:44 EDT with `pdflatex`, `bibtex`, `pdflatex`, `pdflatex`.
+- Canonical source: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex`, SHA-256 `0687e054618274f119133d23f9c430ab5ce1a8c21bc38cc53768a1c49d4ffc4c`.
+- Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored build product), SHA-256 `aa6a5f4f59bd119239081e5f99b95c32d53363fd836b48d4ef59f2ff4927359e`, 13 pages.
+  - Built 2026-10-04 at 08:54 EDT with `pdflatex`, `bibtex`, `pdflatex`, `pdflatex`.
+  - It is in journal mode, and Table 1 sits beside its first callout. Both changes satisfy the EJMS source checkboxes (see §7).
   - **This is the file to upload.** Rebuilding changes the hash, because pdfTeX embeds the build time.
-- Source package: `paper/poisson_binomial/ecp_source_bundle.zip`, SHA-256 `e1abd93ea80d5c83b04a55a61deee0b9a9e499b46025c877df7ab0883307bd16`. It is held for acceptance, since ECP asks only for a PDF at submission.
+- Source package: `paper/poisson_binomial/ecp_source_bundle.zip`, SHA-256 `926d432aed57ebb693b5f3c6b125c77edf935493f21d25ba337c7bd08f7be2b9`. It is held for acceptance, since ECP asks only for a PDF at submission.
 - Supplement: Zenodo, DOI 10.5281/zenodo.23129480 (published). It holds the same file as `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip`: MD5 `5c670f4c405ed79eacb7372e938b9e41`, 567,017 bytes, SHA-256 `b1e6462d…309d`.
 - Venue decision record: `submission/venue-decision-2026-07-16.md`.
 - Portal-fields record: `submission/portal-fields-ECP-2026-10-03.md`.
@@ -73,7 +74,7 @@ Items that don't apply are marked N/A with the reason.
 - [x] `pdftotext` check. Page 1 (title, author, abstract, keywords, MSC) and the supplement box (archive DOI) render correctly, and all 14 references are present.
 - [x] `pdfinfo`: 13 pages. The title, author, subject and keywords metadata are set by the class.
 - [x] PDF hyperlinks, read from the decompressed PDF: the DOI (twice), ORCID `0000-0003-0073-7195`, the email, the MSC page, and 14 MathSciNet links, one per reference. The DOI resolves (doi.org 302 to Zenodo).
-- [x] Visual check: rendered pages 1, 3, 12 and 13 were inspected.
+- [x] Visual check: rendered pages 1, 3, 12 and 13 were inspected on 2026-10-03, and pages 1 and 4 again after the 2026-10-04 compliance changes (journal header, Table 1).
 - [x] Source bundle. It was rebuilt after today's fix and compiles alone (pdflatex ×3): 13 pp, 0 errors, and text identical to the manuscript PDF.
 - [x] Supplement. Zenodo API: status published, creator ORCID correct, affiliations Humber Polytechnic and University of Toronto, file checksum equal to the local build. The archive contains no manuscript file, so today's sentence reorder doesn't affect it.
 - [x] Mechanical gates.
@@ -89,6 +90,18 @@ Items that don't apply are marked N/A with the reason.
 
 - [x] The portal-fields record is complete. Every remaining open item is answered or left to the portal by Brett's decision. Brett's home postal code is entered only in the portal and is not recorded in this public repository.
 - [x] Instructions checked on submission day.
+- [x] **EJMS source checkboxes**, the ten statements EJMS asks the author to tick before starting. Each was checked against the source on 2026-10-04.
+  - (1) The template is the official one: `ejpecp.cls` v1.12.3 is byte-identical to github.com/vtex-soft/texsupport.ims-ejpecp master.
+  - (2) The class line is exactly `\documentclass[ECP]{ejpecp}`. It was changed from `[ECP,preprint]` at Brett's direction ("comply literally"), and the template's managing-editor block was restored.
+  - (3) No forbidden packages; the paper loads no packages at all.
+  - (4) None of the forbidden layout commands.
+  - (5) Internal links use `\ref`.
+  - (6) No `\ref` into other files; the supplement is cited in plain text.
+  - (7) Theorem environments come from the class (the manuscript defines none and fakes none).
+  - (8) Bibliography links use `\cite`.
+  - (9) Table 1 is beside its first callout, at the top of page 4. It moved from page 12.
+  - (10) No text outside the text block (0 overfull boxes).
+  - Details: `notes/passes/2026-10-04-ejms-compliance-reverification.md`.
 - [x] Length: 13 pp, the stated maximum per the 2025 IMS editorial report. Brett accepted it.
 - [x] Cover letter `submission/cover-letter-ECP-2026-10-03.md` has no placeholders. It gives the DOI, affiliations and ORCID.
 - [x] The data availability statement points to a live DOI.
@@ -103,7 +116,7 @@ Items that don't apply are marked N/A with the reason.
 
 ## 9. Final submit gate
 
-- [ ] The uploaded PDF hash is confirmed equal to `3c4bd14e…7d24`.
+- [ ] The local file handed to the upload control is confirmed to be `aa6a5f4f…359e`. The server's stored copy can't be hashed; check it through the EJMS preview.
 - [ ] **Brett gives the final go.** The agent fills the form and stops at the final submit button.
 
 ## Stop conditions
