@@ -1267,7 +1267,7 @@ No wording changed: a word-multiset comparison of the PDF text shows only journa
 
 2026-10-04 — **Submitted to Electronic Communications in Probability: EJMS manuscript ECP2610-004.** Decision owner: Brett Reynolds, who pressed Finish Submission himself. Assisting system: Claude Code (Opus 5.5), which filled the EJMS form from the portal record and stopped at the confirmation page.
 - **Submitted object:**
-  - PDF aa6a5f4f…359e (13 pp), built from source 0687e054…ffc4c (commit df33014);
+  - PDF aa6a5f4f…359e (13 pp), built from source 0687e054…ffc4c (commit 66990f9);
   - supplementary file: the self-contained `.tex` (a787b3c8…a25e), which EJMS step 2 asks for at submission;
   - cover letter in the comments-to-editor field.
 - **Risks accepted by Brett:** no independent human audit; no expert novelty / proof-interface check. The MathSciNet pass and the delta search found no prior result. The form states a 12-page limit and the paper has 13, which Brett accepted on 2026-10-03.
@@ -1276,12 +1276,12 @@ No wording changed: a word-multiset comparison of the PDF text shows only journa
 - **Files:**
   - upload manifest `submission/ejms-upload-2026-10-04/MANIFEST.md`;
   - pre-submission checklist `submission/pre-submission-checklist-2026-10-03.md`.
-- **Divergence from here on:** the working `.tex` may change, but the submitted version is commit df33014 plus the uploaded `.tex` in `submission/ejms-upload-2026-10-04/`.
+- **Divergence from here on:** the working `.tex` may change, but the submitted version is commit 66990f9 plus the uploaded `.tex` in `submission/ejms-upload-2026-10-04/`.
 
 2026-10-04 — **Public copies use the preprint build; the submitted files stay in journal mode.** A side agent noted that the submitted PDF shows the ECP header and the template's placeholder DOI (10.1214/YY-TN), so a public copy of it would look like a published article with a fake DOI. Rule:
 - Any website or Zenodo copy is built with `\documentclass[ECP,preprint]{ejpecp}`, a one-word change. The managing-editor block can stay; preprint mode does not print it.
 - Tested in scratch: 0 errors, 13 pp, no journal furniture in the text.
-- The submitted object (commit df33014, `submission/ejms-upload-2026-10-04/`) is unchanged.
+- The submitted object (commit 66990f9, `submission/ejms-upload-2026-10-04/`) is unchanged.
 
 2026-10-04 — ECP acknowledgement received for ECP2610-004, signed by the ECP editor Patrícia Gonçalves. The acknowledged title, ORCID and abstract match the submission; the abstract was checked by script against the portal record. The email is kept in Brett's inbox, not in this public repository.
 
@@ -1319,3 +1319,7 @@ No wording changed: a word-multiset comparison of the PDF text shows only journa
 2026-10-04 — **Ledger committed; supplement linked to the preprint.**
 - **Ledger:** `Project-Management/prediction-ledger/ledger.jsonl` committed alone (a4c936b, private repo, not pushed); other sessions' changes there were left alone.
 - **Zenodo:** the supplement record 23129480 had a metadata-only edit, published: "Is supplement to" 10.5281/zenodo.23137929 (Publication / Preprint). Verified by API: published, DOI and version 1.0 unchanged, and the file unchanged (md5 5c670f4c…7e41).
+
+2026-10-04 — **Forecast numbers kept out of the public repo; unpushed history rewritten (Brett's choice).** Before the push, the payload check found Brett's ECP forecast in four files across the 40 unpushed commits. ECP's editor and referees could reach this public repo while the paper is under review. Brett chose "strip forecast, push rest".
+- **Rewrite.** `git filter-branch`, run only on the unpushed range `origin/master..HEAD`, replaced the numbers with a note that they are kept in the private Project-Management prediction ledger, and removed them from one commit message. Nothing else changed: the final tree differs from the pre-rewrite backup in exactly those six lines.
+- **New commit IDs.** The submitted-version commit df33014 became **66990f9**, with a byte-identical manuscript blob (cd5eaeee…). References in this file, STATUS.md, the assurance record and the Zenodo field file were repointed. The assurance record's checklist hash was refreshed, and the gate reports CURRENT and PASS.

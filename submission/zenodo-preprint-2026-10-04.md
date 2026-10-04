@@ -8,7 +8,7 @@ draft stops before **Publish**, as the supplement record did.
 ## File
 
 - `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial-preprint.pdf`
-  - Built by `scripts/build_pb_preprint.py` from the submitted source (commit df33014), with the class's `preprint` option on. The canonical `.tex` is unchanged.
+  - Built by `scripts/build_pb_preprint.py` from the submitted source (commit 66990f9), with the class's `preprint` option on. The canonical `.tex` is unchanged.
   - 13 pages, 293,168 bytes. SHA-256 `425c6bc45a1fac4e87f52f3e367f7c5d36cd863caee306f0cfb5b00c8a5142bd`.
   - Its text equals the submitted PDF's text minus the journal furniture (header, placeholder DOI, ISSN, footers, "Submitted to ECP" line), checked by word-multiset comparison.
   - Gitignored as a build product; rebuild with the script.

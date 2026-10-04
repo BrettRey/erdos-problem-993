@@ -6,7 +6,7 @@ target: Electronic Communications in Probability (EJMS), research article
 record_status: supported
 canonical_source: paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex
 canonical_pdf: paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf
-source_commit: df330141a619260aa53f3e3c06994f8ed4b2d66a
+source_commit: 66990f978f4e1016dbbf552e18b1523499fc259f
 source_sha256: 0687e054618274f119133d23f9c430ab5ce1a8c21bc38cc53768a1c49d4ffc4c
 pdf_sha256: aa6a5f4f59bd119239081e5f99b95c32d53363fd836b48d4ef59f2ff4927359e
 checked_at: '2026-10-04T08:58:44-04:00'
@@ -18,7 +18,7 @@ accepted_risks:
 - No expert novelty / proof-interface check has been done. Accepted by Brett on 2026-10-04 ("I have no way to get an expert check, so that's not in the cards").
 evidence_artifacts:
 - path: submission/pre-submission-checklist-2026-10-03.md
-  sha256: 3dd2d8703cae92035ad63cbb1b36613d2d4821da7cf4275af3fdfefd883f1eb3
+  sha256: 7fe1321a7796cf2bc1a8ce7fcd0bb15025c02c8eb0ef0bdf15ab981851d79dcd
   supports: The exact source builds cleanly to the pinned 13-page PDF. Its abstract,
     keywords, links, metadata and declarations match the portal record and the ECP
     instructions of 3 October 2026, the supplement DOI is live with a checksum equal
@@ -87,7 +87,7 @@ expert would agree, or that ECP will accept it.
 
 ## Object
 
-Commit `df330141a619260aa53f3e3c06994f8ed4b2d66a` has a clean tree for the
+Commit `66990f978f4e1016dbbf552e18b1523499fc259f` has a clean tree for the
 canonical source. The PDF is a gitignored build product, pinned by its
 SHA-256. The source bundle (SHA-256 `926d432a…b2b9`) is held for acceptance
 and is not part of this submission.

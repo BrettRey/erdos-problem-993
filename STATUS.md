@@ -15,7 +15,7 @@ external_id: ECP2610-004
 preprints:
 - zenodo/19100781
 - zenodo/23137930
-next_action: 'Submitted to ECP 2026-10-04 (EJMS ECP2610-004); wait for the editor. The submitted version is commit df33014 plus submission/ejms-upload-2026-10-04/. Log the decision letter in Project-Management/prediction-ledger (event pb-ecp) when it arrives. Preprint on Zenodo: link the all-versions DOI 10.5281/zenodo.23137929. Revise it via New version on record 23137930, not a fresh upload. The website and CV were updated and pushed on 2026-10-04 (website commit d260002); brettreynolds.ca/variance-scaled-turan.pdf now serves the Zenodo preprint. Any public copy (website, Zenodo) must be built with `\documentclass[ECP,preprint]{ejpecp}`. The submitted journal-mode PDF carries the ECP header and the placeholder DOI 10.1214/YY-TN, so it would look like a published article. The preprint build was tested clean (13 pp, no journal furniture) on 2026-10-04. The #993 line itself was dropped 2026-10-03 (E-JC reviewed reject, ID 15526).'
+next_action: 'Submitted to ECP 2026-10-04 (EJMS ECP2610-004); wait for the editor. The submitted version is commit 66990f9 plus submission/ejms-upload-2026-10-04/. Log the decision letter in Project-Management/prediction-ledger (event pb-ecp) when it arrives. Preprint on Zenodo: link the all-versions DOI 10.5281/zenodo.23137929. Revise it via New version on record 23137930, not a fresh upload. The website and CV were updated and pushed on 2026-10-04 (website commit d260002); brettreynolds.ca/variance-scaled-turan.pdf now serves the Zenodo preprint. Any public copy (website, Zenodo) must be built with `\documentclass[ECP,preprint]{ejpecp}`. The submitted journal-mode PDF carries the ECP header and the placeholder DOI 10.1214/YY-TN, so it would look like a published article. The preprint build was tested clean (13 pp, no journal furniture) on 2026-10-04. The #993 line itself was dropped 2026-10-03 (E-JC reviewed reject, ID 15526).'
 notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-polynomial
 
   unimodality), not a linguistics paper -- flagging per the task''s "consider
@@ -97,7 +97,7 @@ claim:
 ## 2026-10-04: Submitted to ECP (ECP2610-004)
 
 - **Submission.** Brett pressed Finish Submission in EJMS himself; the manuscript ID is ECP2610-004. Claude Code filled the form from `submission/portal-fields-ECP-2026-10-03.md` and stopped at the confirmation page.
-  - Uploaded: the 13-page PDF (aa6a5f4f…359e, from commit df33014) and, as EJMS asks, the self-contained `.tex`.
+  - Uploaded: the 13-page PDF (aa6a5f4f…359e, from commit 66990f9) and, as EJMS asks, the self-contained `.tex`.
   - Manifest: `submission/ejms-upload-2026-10-04/MANIFEST.md`.
   - Acknowledgement email received the same day, signed by the ECP editor Patrícia Gonçalves. The title, the ORCID and the abstract match what was submitted; the abstract was checked by script. The email itself stays in Brett's inbox and is not copied here.
 - **Before submitting.**
