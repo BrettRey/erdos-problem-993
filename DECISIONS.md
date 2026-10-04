@@ -1177,3 +1177,5 @@ Decision owner: Brett. Assisting systems: Claude Code (Opus 5.5); restructure pr
 - **Space:** lossless trims keep the paper at 13 pages; page 13 is now full.
 
 Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
+
+2026-10-03 — Brett: no one to thank and no funding. The acknowledgement stays limited to AI systems and tools, and the manuscript has no funding line (ECP does not require one). In the portal fields, funding is now confirmed as none; the competing-interests default ("no competing interests") is still for Brett to confirm.

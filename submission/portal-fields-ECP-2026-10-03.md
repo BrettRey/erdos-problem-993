@@ -96,7 +96,11 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 
 > No specific funding was received for this work.
 
-- Source: composed here; **Brett to confirm**
+- Source: Brett, 2026-10-03: "no funding". Confirmed. The manuscript carries no funding line, which ECP does not require.
+
+**Acknowledgement of people**
+
+- Brett, 2026-10-03: "nobody to thank". The acknowledgement credits only the AI systems and tools, as it does now.
 
 **Data and code availability**
 
@@ -133,7 +137,7 @@ None suggested. Leave the field to the editor unless the portal requires names. 
 | EJMS account | not yet created | Brett | no |
 | Author instructions | live check of the imstat author page, including field limits, source-file rules, and any AI-use rule | Brett (browser) | no |
 | Postal code | not in the manuscript (affiliations and departments now are, 2026-10-03) | Brett | no |
-| Competing interests and funding | composed defaults above need confirmation | Brett | no |
+| Competing interests | composed default above needs confirmation (funding confirmed none, 2026-10-03) | Brett | no |
 | Independent human audit | no human mathematician has reviewed the paper; a cross-family model check (ChatGPT Pro, 2026-10-03) found no error and reconstructed all 275 coefficients of the Bernstein certificate (now the supplement's second check of 3 < H ≤ 16; the paper's Section 4.1 uses the monotonicity route, kernel-checked in Lean but not reviewed by ChatGPT Pro); proceeding without a human audit is Brett's call and should be recorded in DECISIONS | Brett | no |
 | MathSciNet novelty search | optional; needs an institutional login | Brett | no |
 
