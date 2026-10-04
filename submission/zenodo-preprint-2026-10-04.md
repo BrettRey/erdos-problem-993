@@ -59,3 +59,14 @@ Brett published the record. It was verified through the Zenodo API on
 - creator ORCID 0000-0003-0073-7195, affiliations Humber Polytechnic and University of Toronto;
 - the six keywords; `isSupplementedBy` 10.5281/zenodo.23129480;
 - file of 293,168 bytes, md5 `01c88afb9cab41c5c9a220cb74c0996b`, equal to the local build.
+
+## Versions (2026-10-04)
+
+From the Zenodo API:
+- **Preprint:** version DOI 10.5281/zenodo.23137930; concept ("all versions") DOI **10.5281/zenodo.23137929**.
+- **Supplement:** version DOI 10.5281/zenodo.23129480; concept DOI 10.5281/zenodo.23129479.
+
+Rules:
+- A revised preprint (after referee changes) goes in as **New version** on record 23137930, never as a fresh upload, which would split links and citations. Build it with `scripts/build_pb_preprint.py`.
+- Website and CV links use the concept DOI 10.5281/zenodo.23137929, so they always resolve to the newest version.
+- The paper keeps citing the supplement's version DOI (…23129480), because the proof rests on that exact certificate.

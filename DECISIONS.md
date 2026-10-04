@@ -1296,3 +1296,8 @@ No wording changed: a word-multiset comparison of the PDF text shows only journa
 - **HAL → arXiv transfer:** this is the endorsement-free "trusted channel", but it requires an author affiliated with French higher education and research ("arXiv n'accepte que les dépôts dont au moins un des auteurs est affilié à une institution française"). So it cannot get this paper onto arXiv.
 - **HAL-only deposit:** no French-affiliation rule was found in the pages read ("Faire un dépôt", "Compte et profil", the FAQ, "Questions juridiques"). Deposits are moderated and permanent ("nous ne supprimons pas les documents déposés"). It would duplicate the Zenodo preprint (10.5281/zenodo.23137930).
 - **Recommendation to Brett:** skip, unless he wants a copy in HAL's mathematics archive.
+
+2026-10-04 — **Zenodo versioning.** A side agent noted that the preprint DOI is version-specific. From the Zenodo API: the preprint's concept DOI is 10.5281/zenodo.23137929 (version 1 is …23137930), and the supplement's is 10.5281/zenodo.23129479 (version 1 is …23129480). Rules:
+- Revisions to the preprint go in as **New version** of record 23137930.
+- Website and CV link the concept DOI.
+- The manuscript keeps citing the supplement's version DOI, because the proof depends on those exact files.
