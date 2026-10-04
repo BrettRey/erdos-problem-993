@@ -1168,3 +1168,12 @@ Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
 - **Supplement:** rebuilt, sha256 `83e0dd2c…ccae`.
 
 Decision owner: Brett. Assisting systems: Claude Code (Opus 5.5); restructure prompted by the Codex (GPT-6.1-sol) genre review.
+
+2026-10-03 — Added why the result matters. Brett asked where the paper said so; it didn't, while all seven ECP comparators do.
+- **New §1 paragraph:** Johnson's c-log-concavity, a discrete curvature condition, gives a modified log-Sobolev inequality and concentration; Marsiglietti and Melbourne derive concentration, moment and entropy bounds from relative log-concavity.
+- **The key point:** a global constant of Johnson's kind is at most 1/EW (his Lemma 5.3), so it falls far below 1/V when many p_i are near 1. At D, Theorem 1.1 puts Johnson's quantity at least 1/(4V).
+- **Abstract:** one sentence added. After a side-agent note it was reworded to "is used to derive", with the gap named as "lower bounds on δ_k", so it can't be read as claiming new concentration results.
+- **Sources** were read before writing; the claims are tabulated in `notes/passes/2026-10-03-significance-reverification.md`.
+- **Space:** lossless trims keep the paper at 13 pages; page 13 is now full.
+
+Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
