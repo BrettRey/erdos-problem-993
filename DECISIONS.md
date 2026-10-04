@@ -1301,3 +1301,15 @@ No wording changed: a word-multiset comparison of the PDF text shows only journa
 - Revisions to the preprint go in as **New version** of record 23137930.
 - Website and CV link the concept DOI.
 - The manuscript keeps citing the supplement's version DOI, because the proof depends on those exact files.
+
+2026-10-04 — **Website and CV updated locally for the submitted paper (not pushed).** At Brett's request ("yes"):
+- **CV** (`personal/CV/main.tex`, not under git; backup in the session scratchpad):
+  - the Poisson–binomial paper added under "Under review" (ECP, Oct 4, 2026; Zenodo concept DOI …23137929);
+  - the #993 paper moved from "Under review at E-JC" to the 2026 preprints;
+  - rebuilt clean (13 pp) and copied to `personal-website/cv.pdf`.
+- **Website** (`personal/personal-website`):
+  - `publications.html`: new title, "Under review at ECP", links to the Zenodo preprint and supplement.
+  - `first-descent.html`: references updated. The proof paragraph is corrected to the current paper: 32 endpoint checks for 3 < H ≤ 16, the Bernstein certificate as a second check, and the full Lean verification instead of "conditional".
+  - `variance-scaled-turan.pdf`: replaced by the published preprint (md5 01c88afb…996b, the same file as on Zenodo).
+- **Not recorded in the website's own DECISIONS.md,** which is served publicly.
+- **Pending: Brett's go to push.** The website repo also has an uncommitted `STATUS.md` change that is not from this session; commit only the four files above.
