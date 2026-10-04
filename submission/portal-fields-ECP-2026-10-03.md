@@ -1,5 +1,5 @@
 # Portal Fields Record: ECP, Poisson–binomial paper
-<!-- SUMMARY: Answer sheet for the EJMS/ECP portal for the Poisson–binomial first-descent paper; filled 2026-10-03 from variance-local-log-concavity-poisson-binomial.tex and the venue record; section 11 lists what Brett must supply before login · status: open (section 11 not empty) · updated: 2026-10-03 -->
+<!-- SUMMARY: Answer sheet for the EJMS/ECP portal for the Poisson–binomial first-descent paper; filled 2026-10-03 from variance-local-log-concavity-poisson-binomial.tex and the venue record; section 11 resolved at the final pre-flight; upload PDF 3c4bd14e…7d24 · status: ready for portal · updated: 2026-10-03 -->
 
 ## Record
 
@@ -7,15 +7,19 @@
 - [x] Manuscript title (short form): Variance and local log-concavity of Bernoulli sums
 - [x] Venue: Electronic Communications in Probability (ECP)
 - [x] Portal platform: EJMS (IMS Electronic Journal Management System)
-- [ ] Portal URL: <https://www.e-publications.org/ims/submission/> (from a search snippet of the imstat author page, 2026-10-03; confirm on login)
+- [x] Portal URL: <https://www.e-publications.org/ims/submission/> (named on the ECP Manuscript Submission page; Brett logged in there on 2026-10-03)
 - [x] Author instructions URL: <https://imstat.org/journals-and-publications/electronic-communications-in-probability/> and its Manuscript Submission page. Brett pasted both texts on 2026-10-03; they are saved verbatim in `submission/ecp-author-instructions-2026-10-03.md`.
 - [x] Date instructions checked: 2026-10-03 (Brett, browser). Recheck only if submission slips by weeks.
 - [x] Venue decision record path: `submission/venue-decision-2026-07-16.md`
 - [x] Pre-submission checklist path: `runs/pb-submission-gate-20261003/` (referee read, revision verifier, cold reads) and DECISIONS 2026-10-03
 - [x] Paper assurance record path: `paper/poisson_binomial/CERTIFICATE.md` (inside the supplement)
 - [x] Canonical source file: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex`
-- [ ] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The build of 2026-10-03 with the reserved DOI (after the prose passes and the switch of Section 4.1 to the monotonicity route) has SHA-256 `4ba47088cf82c9b0857a93dfc3324830ce5ee67c447f2a4c0763aab4e17d6947`, 13 pages (Brett accepted 13, the journal's stated maximum, on 2026-10-03), and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
-- [ ] Account the submission is made under: Brett's EJMS account (not yet created)
+- [x] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; built with `pdflatex`, `bibtex`, `pdflatex` ×2).
+  - The final build is 2026-10-03, 21:44 EDT, from source SHA-256 `1e950299…f642`. Its SHA-256 is `3c4bd14e3f71d0e2a8cecc12dc543ac102a4f4072a43d7b92acff617bd0e7d24`.
+  - It has 13 pages. Brett accepted 13, the journal's stated maximum, on 2026-10-03.
+  - It prints the published DOI.
+  - **Upload this file without rebuilding**: pdfTeX embeds the build time, so a rebuild changes the hash.
+- [x] Account the submission is made under: Brett's existing EJMS account `brettrey`, which holds the ECP Author role (Roles page, checked 2026-10-03)
 - [x] Decision owner: Brett Reynolds
 - [x] Assisting agent/model: Claude Code (Opus 5.5)
 
@@ -28,7 +32,7 @@
 | Section / category | none known | | |
 | Review model | single-anonymized at the public-instruction level (no double-anonymous requirement found); recheck on login | | venue record |
 
-Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2026-10-03).
+Page count of the canonical PDF: 13 (`pdfinfo`, final build, 2026-10-03).
 
 ## 2. Title, abstract, keywords
 
@@ -49,7 +53,7 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 > Let $W$ be the number of successes in independent trials with unequal success probabilities, with probability mass function $f$ and variance $V\geq1$, and let $D$ be the first index at which $f$ decreases. The normalized Turán deficit $\delta_k=1-f_{k-1}f_{k+1}/f_k^2$, a measure of local log-concavity, is a bounded transform of the discrete curvature of $\log f$ at $k$; for a normal density of variance $V$, that curvature is $1/V$. Quantitative log-concavity is used to derive concentration and log-Sobolev inequalities for discrete laws, but for Bernoulli sums the known lower bounds on $\delta_k$ depend on the number of summands or on the success probabilities. We prove $V\delta_D\geq1/4$, and binomial laws show that no constant above $1/3$ is possible. With cubic inequalities of Hillion and Johnson, this gives $\delta_k\geq1/(4V+|k-D|)$ on the whole support. Ultra-log-concavity alone gives no variance-scaled lower bound on $\delta_D$. For the number of eigenvalues of a Haar unitary matrix in a half circle, our bound at $D$ is of order $1/\log N$, against order $1/N$ from ultra-log-concavity. The proof of the main theorem is computer-assisted and is verified in the Lean proof assistant.
 
 - Source: `variance-local-log-concavity-poisson-binomial.tex` `\ABSTRACT{...}` (no displayed formula in the current abstract).
-- [ ] Recheck word for word against `pdftotext -f 1 -l 1 variance-local-log-concavity-poisson-binomial.pdf` at the final build.
+- [x] Rechecked word for word at the final pre-flight (2026-10-03). A script compared the `.tex` `\ABSTRACT` with this block and found them identical (182 words). The page-1 text of the final PDF matches.
 
 **Keywords**
 
@@ -67,7 +71,7 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 
 | # | Name | Email | Institution | Department | Postal code | Country | ORCID | Corresponding |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Brett Reynolds | brett.reynolds@humber.ca | Humber Polytechnic, Toronto; University of Toronto | Faculty of Liberal Arts and Sciences (Humber); Department of Linguistics (U of T) | **open** | Canada | 0000-0003-0073-7195 | yes |
+| 1 | Brett Reynolds | brett.reynolds@humber.ca | Humber Polytechnic, Toronto; University of Toronto | Faculty of Liberal Arts and Sciences (Humber); Department of Linguistics (U of T) | supplied by Brett 2026-10-03 (home address); entered in the portal only, not recorded in this public repository | Canada | 0000-0003-0073-7195 | yes |
 
 - Source: `variance-local-log-concavity-poisson-binomial.tex:10–13`
 - Single author; no coauthor approvals needed.
@@ -76,8 +80,8 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 
 | Local path | Portal item type | Reviewer sees it | Notes |
 |---|---|---|---|
-| `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` | manuscript PDF | yes | final build after the DOI insert |
-| `paper/poisson_binomial/ecp_source_bundle.zip` (the `.tex` with the bibliography pasted in, plus `ejpecp.cls` v1.12.3, 2026/03/04) | **not needed at submission**: the ECP Manuscript Submission page asks only for a PDF; hold it for acceptance | no | Built 2026-10-03 by `scripts/build_pb_ecp_source_bundle.py`, SHA-256 `d424f233…1777`. Compiles alone (pdflatex ×3): 13 pp, 0 errors, text identical to the manuscript PDF. The `preprint` option suppresses the journal logo, volume and paper number |
+| `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` | manuscript PDF | yes | final build, SHA-256 `3c4bd14e…7d24`, 13 pp |
+| `paper/poisson_binomial/ecp_source_bundle.zip` (the `.tex` with the bibliography pasted in, plus `ejpecp.cls` v1.12.3, 2026/03/04) | **not needed at submission**: the ECP Manuscript Submission page asks only for a PDF; hold it for acceptance | no | Rebuilt 2026-10-03 at the final pre-flight by `scripts/build_pb_ecp_source_bundle.py`, SHA-256 `e1abd93e…07bd16`. Compiles alone (pdflatex ×3): 13 pp, 0 errors, text identical to the manuscript PDF. The `preprint` option suppresses the journal logo, volume and paper number |
 | `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip` | supplementary material | yes | SHA-256 `b1e6462d…309d` (2026-10-03 build with the Section 4.1 check program and the Lean proofs of Proposition 3.1 and Theorem 1.1); same file as the Zenodo deposit |
 | `submission/cover-letter-ECP-2026-10-03.md` | cover letter / comments to editor | no | |
 
@@ -90,7 +94,7 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 
 > The author declares no competing interests.
 
-- Source: composed here; **Brett to confirm**
+- Source: composed here; confirmed by Brett 2026-10-03 ("no competing interests")
 
 **Funding**
 
@@ -104,7 +108,7 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 
 **Data and code availability**
 
-> The programs and exact certificate data supporting Proposition 3.1 are in the supplementary archive, deposited at [Zenodo DOI]. The development repository is https://github.com/BrettRey/erdos-problem-993.
+> The programs and exact certificate data supporting Proposition 3.1 are in the supplementary archive, deposited at https://doi.org/10.5281/zenodo.23129480. The development repository is https://github.com/BrettRey/erdos-problem-993.
 
 - [x] Do not submit until the Zenodo record is live and the DOI resolves. (Live and resolving, verified 2026-10-03.)
 
@@ -134,11 +138,11 @@ None suggested. Leave the field to the editor unless the portal requires names. 
 | Field | What is missing | Who decides | Resolved |
 |---|---|---|---|
 | Supplement DOI | **Done 2026-10-03/04:** 10.5281/zenodo.23129480 published (record 23129480); DOI resolves; public file MD5 5c670f4c405ed79eacb7372e938b9e41, 567,017 bytes, matching the local build; creator ORCID 0000-0003-0073-7195 with affiliations Humber Polytechnic and University of Toronto | Brett | **yes** |
-| EJMS account | not yet created | Brett | no |
+| EJMS account | **Done:** existing account `brettrey` holds the ECP Author role (2026-10-03) | Brett | **yes** |
 | Author instructions | **Done 2026-10-03:** PDF submission via EJMS (add the "ECP author" role if already registered in EJMS); ECP template; no AI-specific rule on either page; CC BY for articles; no fees | Brett | **yes** |
-| Postal code | not in the manuscript (affiliations and departments now are, 2026-10-03) | Brett | no |
-| Competing interests | composed default above needs confirmation (funding confirmed none, 2026-10-03) | Brett | no |
-| Independent human audit | no human mathematician has reviewed the paper; a cross-family model check (ChatGPT Pro, 2026-10-03) found no error and reconstructed all 275 coefficients of the Bernstein certificate (now the supplement's second check of 3 < H ≤ 16; the paper's Section 4.1 uses the monotonicity route, kernel-checked in Lean but not reviewed by ChatGPT Pro); proceeding without a human audit is Brett's call and should be recorded in DECISIONS | Brett | no |
-| MathSciNet novelty search | optional; needs an institutional login | Brett | no |
+| Postal code | **Done:** Brett supplied his home postal code on 2026-10-03. It is entered in the portal only, because this repository is public | Brett | **yes** |
+| Competing interests | **Done:** "The author declares no competing interests." Confirmed by Brett on 2026-10-03 | Brett | **yes** |
+| Independent human audit | no human mathematician has reviewed the paper; a cross-family model check (ChatGPT Pro, 2026-10-03) found no error and reconstructed all 275 coefficients of the Bernstein certificate (now the supplement's second check of 3 < H ≤ 16; the paper's Section 4.1 uses the monotonicity route, kernel-checked in Lean but not reviewed by ChatGPT Pro); proceeding without a human audit is Brett's call and should be recorded in DECISIONS. **Risk accepted by Brett, 2026-10-03 ("Happy to submit")**; recorded in DECISIONS and in `accepted_risks` of `submission/paper-assurance-2026-10-03.md` | Brett | **yes (risk accepted)** |
+| MathSciNet novelty search | optional; needs an institutional login. Not done; Brett proceeded to submission | Brett | **yes (not done; optional)** |
 
-- [ ] This table is empty, or every remaining row is explicitly accepted by Brett as answerable live in the portal.
+- [x] Every row is resolved. The one remaining risk, that there was no human audit, was accepted by Brett.
