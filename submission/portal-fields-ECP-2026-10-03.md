@@ -14,7 +14,7 @@
 - [x] Pre-submission checklist path: `runs/pb-submission-gate-20261003/` (referee read, revision verifier, cold reads) and DECISIONS 2026-10-03
 - [x] Paper assurance record path: `paper/poisson_binomial/CERTIFICATE.md` (inside the supplement)
 - [x] Canonical source file: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.tex`
-- [ ] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (after the prose passes and the switch of Section 4.1 to the monotonicity route) has SHA-256 `ee884621321df747204f0027d0fcbbf206557f517380c38af839b0bae7ce0061`, 13 pages (Brett accepted 13, the journal's stated maximum, on 2026-10-03), and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
+- [ ] Canonical PDF: `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` (gitignored; rebuild with `pdflatex`, `bibtex`, `pdflatex` ×2). The pre-DOI build of 2026-10-03 (after the prose passes and the switch of Section 4.1 to the monotonicity route) has SHA-256 `1f65e98f788e8ba3035087def6059d52e8db8170d5361721055dcd3c3ebe19cf`, 13 pages (Brett accepted 13, the journal's stated maximum, on 2026-10-03), and prints `ZENODO-DOI-PENDING`. Record the final hash after the DOI is inserted. Source bundle: `python3 scripts/build_pb_ecp_source_bundle.py`, which refuses to run while the placeholder remains.
 - [ ] Account the submission is made under: Brett's EJMS account (not yet created)
 - [x] Decision owner: Brett Reynolds
 - [x] Assisting agent/model: Claude Code (Opus 5.5)

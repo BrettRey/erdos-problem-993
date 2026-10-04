@@ -102,8 +102,8 @@ concentration, moment and entropy bounds from log-concavity relative to a
 reference law. A constant $c$ of Johnson's kind can never exceed
 $1/\mathbb EW$ \cite[Lemma~5.3]{johnson2017discrete}, so when many summands
 have $p_i$ near $1$ it lies far below the Gaussian scale $1/V$. At the first
-descent $D$ defined below, Johnson's quantity equals
-$(f_D/f_{D+1})\delta_D\geq\delta_D\geq1/(4V)$ if $V\geq1$, by
+descent $D$ defined below, if $D<n$, Johnson's quantity equals
+$(f_D/f_{D+1})\delta_D\geq\delta_D\geq1/(4V)$ when $V\geq1$, by
 Theorem~\ref{thm:main}.
 
 The number of summands is the wrong scale for this question. Summands with
@@ -921,7 +921,9 @@ Table~\ref{tab:balanced}, and independently reconstructed the
 Bernstein-expansion computations for Proposition~\ref{prop:scalar} and the
 computations of Example~\ref{ex:cue}, with exact agreement. An AI-generated
 review from Elicit prompted clarifications of the supplement description and
-of Example~\ref{ex:cue}. Two Codex (OpenAI) reviews of the final draft
+of Example~\ref{ex:cue}. A further AI-generated review (ChatGPT) found a boundary
+case in the comparison with Johnson's condition in
+Section~\ref{sec:introduction}. Two Codex (OpenAI) reviews of the final draft
 (model GPT-6.1-sol) followed. The first independently redid the
 computations of Section~\ref{sec:scalar}, checked the Lean statements against
 the paper, and prompted corrections to the zero extension of the pmf, to the

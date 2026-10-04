@@ -1179,3 +1179,13 @@ Decision owner: Brett. Assisting systems: Claude Code (Opus 5.5); restructure pr
 Decision owner: Brett. Assisting system: Claude Code (Opus 5.5).
 
 2026-10-03 — Brett: no one to thank and no funding. The acknowledgement stays limited to AI systems and tools, and the manuscript has no funding line (ECP does not require one). In the portal fields, funding is now confirmed as none; the competing-interests default ("no competing interests") is still for Brett to confirm.
+
+2026-10-03 — Pasted ChatGPT review on proportion and completeness, saved verbatim at `runs/pb-revision2-20261003/INPUT_chatgpt_review_proportion_20261003.md`. Its one error report is verified and fixed.
+- **The fix:** Johnson's quantity at D was written as (f_D/f_{D+1})δ_D, which is undefined when D = n. Bin(5, 0.7) has V = 1.05 and D = n = 5. The sentence now reads "if D < n".
+- **Credit:** the acknowledgement credits the review in the same edit.
+- **Awaiting Brett:**
+  - cut Remark 5.1 (to the supplement);
+  - demote Remarks 1.4 and 1.8 to prose and fold Remark 1.7 into the text (this undoes part of recommendation B and renumbers again);
+  - move the session-by-session AI history to the archive (this bears on Brett's credit rule);
+  - add Saumard–Wellner 2014, Liggett 1997 and Brändén 2015. All three were verified on Crossref but have not been read, and they are not in Brett's bibliographies;
+  - a further-work sentence on whether the binomial family is extremal (κ⋆ = 1/3).
