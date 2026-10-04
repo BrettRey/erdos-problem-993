@@ -16,7 +16,7 @@ decision_status: pending
 accepted_risks: []
 evidence_artifacts:
   - path: submission/pre-submission-checklist-2026-10-03.md
-    sha256: c6e1f466d02bf686ac16577f7f4b8c51134b32a0ef66dd2f01457ca89c55b59d
+    sha256: 5c8584badd9f68b865f298460db13b0556e47723d3fc15f1f38e55383fa1fc33
     supports: The exact source builds cleanly to the pinned 13-page PDF. Its abstract, keywords, links, metadata and declarations match the portal record and the ECP instructions of 3 October 2026, and the supplement DOI is live with a checksum equal to the local archive.
     relation: composition
     inspected_source_sha256: 1e950299b8c1838d391d84f6249d706b6e1cc9a83592c14bc096728be549f642
@@ -42,10 +42,8 @@ evidence_artifacts:
     inspected_source_sha256: 1e950299b8c1838d391d84f6249d706b6e1cc9a83592c14bc096728be549f642
 review_artifacts: []
 unresolved_items:
-  - The venue record requires an expert novelty / proof-interface check, which has not been done. Brett must confirm whether his acceptance of no human audit covers it.
-  - The venue record asks for Brett's own forecast before submission. It is not yet given.
   - Portal file roles and the EJMS-generated PDF have not yet been previewed. Check them after upload and before the final submit.
-  - No human mathematician has audited the paper. Brett accepted this risk on 2026-10-03 ("Happy to submit"), but before the final sentence reorder existed. It becomes an accepted_risk with decision_status risk-accepted when he gives the final go on this exact object.
+  - Two risks are to be recorded as accepted_risks, with decision_status risk-accepted, when Brett gives the final go on this exact object. (1) No human mathematician has audited the paper; Brett accepted this on 2026-10-03 ("Happy to submit"), before the final sentence reorder existed. (2) No expert novelty / proof-interface check has been done; Brett accepted this on 2026-10-04 ("I have no way to get an expert check, so that's not in the cards").
 invalidation_triggers:
   - Canonical source or PDF changes, including a rebuild (pdfTeX embeds the build time).
   - A load-bearing source, analysis, computation or Lean statement is corrected.
@@ -53,7 +51,7 @@ invalidation_triggers:
   - The Zenodo record or the ECP instructions change before submission.
 ---
 # Paper Assurance Record
-<!-- SUMMARY: Version-pinned assurance record for the ECP submission of the Poisson–binomial paper; evidence current on source 1e950299…f642 / PDF 3c4bd14e…7d24; MathSciNet pass met; expert check and forecast open; awaiting Brett's decisions, portal preview and final go · status: unresolved · updated: 2026-10-03 -->
+<!-- SUMMARY: Version-pinned assurance record for the ECP submission of the Poisson–binomial paper; evidence current on source 1e950299…f642 / PDF 3c4bd14e…7d24; venue-record conditions met or risk-accepted; awaiting portal preview and Brett's final go · status: unresolved · updated: 2026-10-03 -->
 
 ## Declared use
 
@@ -114,14 +112,14 @@ agreement contributes nothing to this record.
 
 ## Unresolved and defeated conditions
 
-Four items are unresolved, listed in the front matter:
-- the expert check;
-- Brett's forecast;
-- the portal preview;
-- recording Brett's risk acceptance on this exact object.
+Two items are unresolved, listed in the front matter: the portal preview, and
+recording Brett's two risk acceptances (no human audit, no expert check) on
+this exact object.
 
-The first two are conditions in the venue decision record. A third, the
-MathSciNet pass, was met on 2026-10-04. The first
+Every venue-record condition is now met or accepted:
+- the MathSciNet pass was met on 2026-10-04;
+- Brett gave his forecast on 2026-10-04;
+- he accepted the missing expert check as a risk on 2026-10-04. The first
 version of this record left them out, because the pre-flight had not read
 the record's unchecked boxes. Nothing is defeated: the free novelty sweep
 turned up no conflicting result.

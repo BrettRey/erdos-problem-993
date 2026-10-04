@@ -113,7 +113,7 @@ The prediction ledger was run on 2026-07-16.
 - **Base rate for the math venue class:** unavailable; the ledger has no resolved mathematics submissions. The pending E-JC submission cannot supply a base rate.
 - **ECP's reported outside context:** its 2025 IMS report lists 80 acceptances among 268 submissions received in 2024, with other cases rejected, withdrawn, or still in revision. This is context, not the project ledger's base rate and not a paper-specific acceptance probability.
 - **Codex forecast:** $P(\text{reaches external review})=0.65$; $P(\text{eventually accepted at ECP})=0.25$; expected first decision by 2026-12-31 if submitted by 2026-08-31.
-- **Brett forecast:** pending. Do not copy the model forecast into the ledger as Brett's without Brett's explicit adoption. Elicit it before submission and before appending the venue event to the prediction ledger; it does not block drafting.
+- **Brett forecast (given 2026-10-04, before submission):** the numbers are kept in the private prediction ledger (Project-Management). No decision date was given. It goes into the ledger as a `brett` record dated 2026-10-04, together with the `event` record at submission.
 
 ## Package Authorization
 

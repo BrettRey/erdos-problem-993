@@ -1244,3 +1244,8 @@ Remedy:
 - **Forward citations:** the papers citing Hillion–Johnson 2016 (6), Johnson 2017 (17), Pitman 1997 (63) and Darroch 1964 (42).
 - **Result:** nothing states or implies Theorem 1.1. Hillion–Johnson–Saumard 2019 (MR3873905) proves the converse direction, strong log-concavity bounding the variance, and is an optional citation.
 - **Status:** the venue record's MathSciNet-and-delta condition is met (`runs/pb-novelty-search-20261003/MATHSCINET.md`). Still open for Brett: the expert novelty / proof-interface check, his forecast, the sentence reorder, the portal preview and the final go.
+
+2026-10-04 — **Expert check: risk accepted by Brett. Brett's forecast recorded.** Decision owner: Brett.
+- **Expert check.** Brett on the venue record's expert novelty / proof-interface check: "I have no way to get an expert check, so that's not in the cards." It is recorded as an accepted risk, with the no-human-audit risk, to become `accepted_risks` in the assurance record at his final go.
+- **Forecast.** Brett's forecast, made 2026-10-04 before submission: P(reaches referees) and P(accepted at ECP), with the numbers kept in the private prediction ledger. It goes into `Project-Management/prediction-ledger/ledger.jsonl` as a `brett` record dated 2026-10-04, appended with the `event` record at submission. The scorer rejects forecasts for unlogged events. The Codex forecast of 2026-07-16 (0.65, 0.25) is logged under `codex` at the same time.
+- **Status.** Every venue-record condition is now met or accepted. Remaining: Brett's OK on the 2026-10-03 sentence reorder, the portal preview and the final go.

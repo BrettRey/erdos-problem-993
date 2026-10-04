@@ -1,5 +1,5 @@
 # Portal Fields Record: ECP, Poisson–binomial paper
-<!-- SUMMARY: Answer sheet for the EJMS/ECP portal for the Poisson–binomial first-descent paper; filled 2026-10-03 from variance-local-log-concavity-poisson-binomial.tex and the venue record; section 11 has two venue-record conditions open for Brett (expert check, his forecast); MathSciNet pass done 2026-10-04; upload PDF 3c4bd14e…7d24 · status: blocked on Brett's decisions · updated: 2026-10-03 -->
+<!-- SUMMARY: Answer sheet for the EJMS/ECP portal for the Poisson–binomial first-descent paper; filled 2026-10-03 from variance-local-log-concavity-poisson-binomial.tex and the venue record; section 11 resolved 2026-10-04 (MathSciNet done; expert check risk-accepted; forecast given); upload PDF 3c4bd14e…7d24 · status: ready for portal · updated: 2026-10-04 -->
 
 ## Record
 
@@ -144,7 +144,7 @@ None suggested. Leave the field to the editor unless the portal requires names. 
 | Competing interests | **Done:** "The author declares no competing interests." Confirmed by Brett on 2026-10-03 | Brett | **yes** |
 | Independent human audit | no human mathematician has reviewed the paper; a cross-family model check (ChatGPT Pro, 2026-10-03) found no error and reconstructed all 275 coefficients of the Bernstein certificate (now the supplement's second check of 3 < H ≤ 16; the paper's Section 4.1 uses the monotonicity route, kernel-checked in Lean but not reviewed by ChatGPT Pro); proceeding without a human audit is Brett's call and should be recorded in DECISIONS. **Risk accepted by Brett, 2026-10-03 ("Happy to submit")**; recorded in DECISIONS and in `accepted_risks` of `submission/paper-assurance-2026-10-03.md` | Brett | **yes (risk accepted)** |
 | MathSciNet novelty search | **Done 2026-10-04.** Run through Brett's U of T session at his instruction ("Drive it"). It covered keyword searches plus the forward citations of Hillion–Johnson 2016, Johnson 2017, Pitman 1997 and Darroch 1964. Nothing states or implies Theorem 1.1 (`runs/pb-novelty-search-20261003/MATHSCINET.md`). The delta since July is in the arXiv sweep in `REPORT.md`. An earlier row on 2026-10-03 had wrongly called this resolved without Brett's decision | Brett | **yes** |
-| Expert novelty / proof-interface check | **Open.** A venue-record condition separate from the human audit above. Brett's "happy to submit" answered the audit question; whether it also covers this check needs his confirmation | Brett | no |
-| Brett's forecast | The venue record asks for Brett's own forecast before submission (P reaches external review, P accepted at ECP). The Codex forecast (0.65, 0.25) must not be logged as his | Brett | no |
+| Expert novelty / proof-interface check | **Risk accepted by Brett, 2026-10-04:** "I have no way to get an expert check, so that's not in the cards." | Brett | **yes (risk accepted)** |
+| Brett's forecast | **Given 2026-10-04**; the numbers are kept in the private prediction ledger. To be logged with the event at submission | Brett | **yes** |
 
-- [ ] Every row is resolved. Two remain open for Brett: the expert-check confirmation and his forecast.
+- [x] Every row is resolved. Two risks are accepted by Brett: no human audit, and no expert check.
