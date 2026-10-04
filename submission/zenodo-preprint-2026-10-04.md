@@ -1,5 +1,5 @@
 # Zenodo preprint record: field values
-<!-- SUMMARY: values for the Zenodo preprint record of the ECP-submitted Poisson–binomial paper, each with its source; draft 23137930 saved with DOI 10.5281/zenodo.23137930 reserved; not published · status: draft awaiting Brett's review · updated: 2026-10-04 -->
+<!-- SUMMARY: values for the Zenodo preprint record of the ECP-submitted Poisson–binomial paper, each with its source; published by Brett 2026-10-04 as 10.5281/zenodo.23137930, verified by API · status: published · updated: 2026-10-04 -->
 
 Brett asked on 2026-10-04 for the preprint PDF to be built and the Zenodo
 record drafted. Zenodo is the route because he cannot post to math arXiv. The
@@ -49,3 +49,13 @@ draft stops before **Publish**, as the supplement record did.
   - press **Publish**, after which the files are fixed;
   - add the reverse link on the supplement record ("Is supplement to" 10.5281/zenodo.23137930);
   - replace the July draft on brettreynolds.ca.
+
+## Published (2026-10-04)
+
+Brett published the record. It was verified through the Zenodo API on
+2026-10-04:
+- status published; DOI 10.5281/zenodo.23137930, which resolves (doi.org 302 to Zenodo);
+- Preprint, `cc-by-4.0`, v1, eng;
+- creator ORCID 0000-0003-0073-7195, affiliations Humber Polytechnic and University of Toronto;
+- the six keywords; `isSupplementedBy` 10.5281/zenodo.23129480;
+- file of 293,168 bytes, md5 `01c88afb9cab41c5c9a220cb74c0996b`, equal to the local build.

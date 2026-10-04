@@ -14,6 +14,7 @@ venue: Electronic Communications in Probability
 external_id: ECP2610-004
 preprints:
 - zenodo/19100781
+- zenodo/23137930
 next_action: 'Submitted to ECP 2026-10-04 (EJMS ECP2610-004); wait for the editor. The submitted version is commit df33014 plus submission/ejms-upload-2026-10-04/. Log the decision letter in Project-Management/prediction-ledger (event pb-ecp) when it arrives. Optional: replace or retire the July draft still served at brettreynolds.ca/variance-scaled-turan.pdf. Any public copy (website, Zenodo) must be built with `\documentclass[ECP,preprint]{ejpecp}`. The submitted journal-mode PDF carries the ECP header and the placeholder DOI 10.1214/YY-TN, so it would look like a published article. The preprint build was tested clean (13 pp, no journal furniture) on 2026-10-04. The #993 line itself was dropped 2026-10-03 (E-JC reviewed reject, ID 15526).'
 notes: 'This is a mathematics paper (Erdős Problem #993, tree independence-polynomial
 

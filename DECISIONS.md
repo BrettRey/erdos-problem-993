@@ -1289,3 +1289,5 @@ No wording changed: a word-multiset comparison of the PDF text shows only journa
 - **Build.** `scripts/build_pb_preprint.py` builds the public PDF from the submitted source with the class's `preprint` option. It refuses on build errors or journal furniture. Output: 13 pp, SHA-256 425c6bc4…42bd. Its text equals the submitted PDF's text minus the journal furniture, by word-multiset comparison.
 - **Zenodo draft 23137930.** DOI 10.5281/zenodo.23137930 reserved. It is a Preprint under CC BY 4.0, v1, English, with author ORCID and the Humber Polytechnic and University of Toronto affiliations, the six keywords, and "Is supplemented by" the supplement DOI. The file MD5 matches the local build.
 - **Publishing is Brett's call.** Values: `submission/zenodo-preprint-2026-10-04.md`.
+
+2026-10-04 — **Preprint published on Zenodo by Brett: 10.5281/zenodo.23137930.** Verified by API: published, DOI resolves, metadata as drafted, file MD5 equal to the local preprint build (SHA-256 425c6bc4…42bd). Optional follow-ups: the reverse link on the supplement record, and replacing the July draft on brettreynolds.ca.
