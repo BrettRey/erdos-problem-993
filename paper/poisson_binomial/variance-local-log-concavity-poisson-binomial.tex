@@ -19,10 +19,11 @@
 \AMSSUBJ{60E15}
 \AMSSUBJSECONDARY{60C05; 05A20}
 
-\ABSTRACT{Let $W$ be a sum of independent Bernoulli variables with
-  probability mass function $f$ and variance $V\geq1$, and let $D$ be the first
-  index at which $f$ decreases. The normalized Tur\'an deficit
-  $\delta_k=1-f_{k-1}f_{k+1}/f_k^2$ is a bounded transform of the discrete
+\ABSTRACT{Let $W$ be the number of successes in independent trials with
+  unequal success probabilities, with probability mass function $f$ and
+  variance $V\geq1$, and let $D$ be the first index at which $f$ decreases.
+  The normalized Tur\'an deficit $\delta_k=1-f_{k-1}f_{k+1}/f_k^2$, a measure
+  of local log-concavity, is a bounded transform of the discrete
   curvature of $\log f$ at $k$; for a normal density of variance $V$, that
   curvature is $1/V$. Quantitative log-concavity is used to derive
   concentration and log-Sobolev inequalities for discrete laws, but for
@@ -55,8 +56,10 @@ Let
   W=\sum_{i=1}^n B_i,
   \qquad B_i\sim\Ber(p_i),
 \]
-where the summands are independent. The law of $W$ is Poisson--binomial;
-see \cite{tangtang2023} for a recent survey.
+where the summands are independent, so that $W$ counts the successes in
+independent trials with unequal success probabilities. The law of $W$ is
+Poisson--binomial; it arises in reliability analysis, survey sampling and
+finance, among other fields, and \cite{tangtang2023} is a recent survey.
 
 Summands with $p_i=0$ can be deleted, and summands with $p_i=1$ only
 translate the law, which changes nothing below except by a shift of index
