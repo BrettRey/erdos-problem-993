@@ -8,8 +8,8 @@
 - [x] Venue: Electronic Communications in Probability (ECP)
 - [x] Portal platform: EJMS (IMS Electronic Journal Management System)
 - [ ] Portal URL: <https://www.e-publications.org/ims/submission/> (from a search snippet of the imstat author page, 2026-10-03; confirm on login)
-- [ ] Author instructions URL: imstat ECP author page. Automated access is blocked by an anti-bot challenge, which was not circumvented. Brett must open it in a normal browser on submission day.
-- [ ] Date instructions checked: 2026-07-16 (venue record); **recheck on submission day**
+- [x] Author instructions URL: <https://imstat.org/journals-and-publications/electronic-communications-in-probability/> and its Manuscript Submission page. Brett pasted both texts on 2026-10-03; they are saved verbatim in `submission/ecp-author-instructions-2026-10-03.md`.
+- [x] Date instructions checked: 2026-10-03 (Brett, browser). Recheck only if submission slips by weeks.
 - [x] Venue decision record path: `submission/venue-decision-2026-07-16.md`
 - [x] Pre-submission checklist path: `runs/pb-submission-gate-20261003/` (referee read, revision verifier, cold reads) and DECISIONS 2026-10-03
 - [x] Paper assurance record path: `paper/poisson_binomial/CERTIFICATE.md` (inside the supplement)
@@ -77,7 +77,7 @@ Page count of the canonical PDF: 12, the last page references only (`pdfinfo`, 2
 | Local path | Portal item type | Reviewer sees it | Notes |
 |---|---|---|---|
 | `paper/poisson_binomial/variance-local-log-concavity-poisson-binomial.pdf` | manuscript PDF | yes | final build after the DOI insert |
-| `paper/poisson_binomial/ecp_source_bundle.zip` (the `.tex` with the bibliography pasted in, plus `ejpecp.cls` v1.12.3, 2026/03/04) | source files, uploaded as supplementary files with the submission if the ECP instructions ask for them (the EJP page does) | per portal | Built 2026-10-03 by `scripts/build_pb_ecp_source_bundle.py`, SHA-256 `d424f233…1777`. Compiles alone (pdflatex ×3): 13 pp, 0 errors, text identical to the manuscript PDF. The `preprint` class option suppresses the journal logo, volume and paper number |
+| `paper/poisson_binomial/ecp_source_bundle.zip` (the `.tex` with the bibliography pasted in, plus `ejpecp.cls` v1.12.3, 2026/03/04) | **not needed at submission**: the ECP Manuscript Submission page asks only for a PDF; hold it for acceptance | no | Built 2026-10-03 by `scripts/build_pb_ecp_source_bundle.py`, SHA-256 `d424f233…1777`. Compiles alone (pdflatex ×3): 13 pp, 0 errors, text identical to the manuscript PDF. The `preprint` option suppresses the journal logo, volume and paper number |
 | `paper/poisson_binomial/poisson_binomial_certificate_supplement.zip` | supplementary material | yes | SHA-256 `b1e6462d…309d` (2026-10-03 build with the Section 4.1 check program and the Lean proofs of Proposition 3.1 and Theorem 1.1); same file as the Zenodo deposit |
 | `submission/cover-letter-ECP-2026-10-03.md` | cover letter / comments to editor | no | |
 
@@ -135,7 +135,7 @@ None suggested. Leave the field to the editor unless the portal requires names. 
 |---|---|---|---|
 | Supplement DOI | **Done 2026-10-03/04:** 10.5281/zenodo.23129480 published (record 23129480); DOI resolves; public file MD5 5c670f4c405ed79eacb7372e938b9e41, 567,017 bytes, matching the local build; creator ORCID 0000-0003-0073-7195 with affiliations Humber Polytechnic and University of Toronto | Brett | **yes** |
 | EJMS account | not yet created | Brett | no |
-| Author instructions | live check of the imstat author page, including field limits, source-file rules, and any AI-use rule | Brett (browser) | no |
+| Author instructions | **Done 2026-10-03:** PDF submission via EJMS (add the "ECP author" role if already registered in EJMS); ECP template; no AI-specific rule on either page; CC BY for articles; no fees | Brett | **yes** |
 | Postal code | not in the manuscript (affiliations and departments now are, 2026-10-03) | Brett | no |
 | Competing interests | composed default above needs confirmation (funding confirmed none, 2026-10-03) | Brett | no |
 | Independent human audit | no human mathematician has reviewed the paper; a cross-family model check (ChatGPT Pro, 2026-10-03) found no error and reconstructed all 275 coefficients of the Bernstein certificate (now the supplement's second check of 3 < H ≤ 16; the paper's Section 4.1 uses the monotonicity route, kernel-checked in Lean but not reviewed by ChatGPT Pro); proceeding without a human audit is Brett's call and should be recorded in DECISIONS | Brett | no |
