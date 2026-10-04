@@ -1284,3 +1284,8 @@ No wording changed: a word-multiset comparison of the PDF text shows only journa
 - The submitted object (commit df33014, `submission/ejms-upload-2026-10-04/`) is unchanged.
 
 2026-10-04 — ECP acknowledgement received for ECP2610-004, signed by the ECP editor Patrícia Gonçalves. The acknowledged title, ORCID and abstract match the submission; the abstract was checked by script against the portal record. The email is kept in Brett's inbox, not in this public repository.
+
+2026-10-04 — **Preprint built and Zenodo draft prepared (not published).** At Brett's request:
+- **Build.** `scripts/build_pb_preprint.py` builds the public PDF from the submitted source with the class's `preprint` option. It refuses on build errors or journal furniture. Output: 13 pp, SHA-256 425c6bc4…42bd. Its text equals the submitted PDF's text minus the journal furniture, by word-multiset comparison.
+- **Zenodo draft 23137930.** DOI 10.5281/zenodo.23137930 reserved. It is a Preprint under CC BY 4.0, v1, English, with author ORCID and the Humber Polytechnic and University of Toronto affiliations, the six keywords, and "Is supplemented by" the supplement DOI. The file MD5 matches the local build.
+- **Publishing is Brett's call.** Values: `submission/zenodo-preprint-2026-10-04.md`.
