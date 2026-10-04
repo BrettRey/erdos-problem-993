@@ -28,7 +28,7 @@ No public preprint is required. Brett's inability to post a mathematics paper to
 - [x] The debate/problem is visible in the title, abstract, and first two pages.
 - [x] The contribution is journal-local: a finite theorem about sums of independent Bernoulli variables, not merely an auxiliary fact for a graph problem.
 - [x] The expected reader can tell why the paper belongs in ECP without relying on a cover letter.
-- [ ] Run the terminology checker once a manuscript exists.
+- [x] Run the terminology checker once a manuscript exists. Run at the final pre-flight on 2026-10-03; its only flag, "ST", is the product $S\cdot T$ in a display (`submission/pre-submission-checklist-2026-10-03.md` §5).
 
 Reader vocabulary:
 
