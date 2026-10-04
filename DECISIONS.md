@@ -1277,3 +1277,8 @@ No wording changed: a word-multiset comparison of the PDF text shows only journa
   - upload manifest `submission/ejms-upload-2026-10-04/MANIFEST.md`;
   - pre-submission checklist `submission/pre-submission-checklist-2026-10-03.md`.
 - **Divergence from here on:** the working `.tex` may change, but the submitted version is commit df33014 plus the uploaded `.tex` in `submission/ejms-upload-2026-10-04/`.
+
+2026-10-04 — **Public copies use the preprint build; the submitted files stay in journal mode.** A side agent noted that the submitted PDF shows the ECP header and the template's placeholder DOI (10.1214/YY-TN), so a public copy of it would look like a published article with a fake DOI. Rule:
+- Any website or Zenodo copy is built with `\documentclass[ECP,preprint]{ejpecp}`, a one-word change. The managing-editor block can stay; preprint mode does not print it.
+- Tested in scratch: 0 errors, 13 pp, no journal furniture in the text.
+- The submitted object (commit df33014, `submission/ejms-upload-2026-10-04/`) is unchanged.
